@@ -3,112 +3,98 @@
     "name": "Quantum Gravity Reconstruction",
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
-    "date": "2026-09-11",
-    "iteration": 6,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_PHYSICAL_ALGEBRA_AND_NORMALIZED_HISTORY_INSTRUMENT_RECONSTRUCTED"
+    "date": "2026-09-12",
+    "iteration": 7,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_ALL_ORDERS_LOCAL_GRAVITY_AND_DISTINGUISHABILITY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 64,
+    "candidate_program_pct": 76,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
-    "iter006_pct": 94,
+    "iter006_pct": 100,
+    "iter007_pct": 55,
     "theory_established_pct": 0
   },
   "roadmap": {
     "R0_governance_recovery": "COMPLETE",
     "R1_requirement_closure": "COMPLETE_FOR_CURRENT_FRONT",
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
-    "R3_minimal_dynamical_ansatz": "COMPLETE_LINEARIZED_QGR_L1_SELECTED",
-    "R4_local_mathematical_closure": "COMPLETE_THROUGH_QUARTIC_PLUS_LOCAL_WEAK_BACKGROUND_CHARACTERISTIC_AUDIT",
-    "R5_same_realization_uv_ir": "ACTIVE_GLOBAL_STRONG_CURVATURE_BRANCH_FINITE_MEASURE",
-    "R6_gr_recovery": "PARTIAL_LOCAL_TWO_DERIVATIVE_STRUCTURE_THROUGH_QUARTIC_ONLY",
-    "R7_observable_closure": "PARTIAL_EXACT_PATH_GROUPOID_PLUS_OPERATIONAL_PHYSICAL_ALGEBRA",
+    "R3_minimal_dynamical_ansatz": "COMPLETE_QGR_L1",
+    "R4_local_mathematical_closure": "COMPLETE_ALL_ORDERS_METRIC_ONLY_TWO_DERIVATIVE_LOCAL_ACTION",
+    "R5_same_realization_uv_ir": "COMPLETE_SCOPED_REGULAR_REFINEMENT_CONNECTED_STATE_MEASURE_COMPOSITION",
+    "R6_gr_recovery": "COMPLETE_SCOPED_LOCAL_ALL_ORDERS_TWO_DERIVATIVE_ZERO_LAMBDA_BRANCH",
+    "R7_observable_closure": "ACTIVE_HISTORY_ORDERING_CORRECTION_SCALE_AND_NORMALIZED_OBSERVABLE",
     "R8_independent_benchmark_export": "INACTIVE",
-    "R9_prediction_discrimination": "INACTIVE"
+    "R9_prediction_discrimination": "ACTIVE_PRECURSOR_MICROSCOPIC_LORENTZ_BREAKING_IDENTIFIED"
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
     "lead_architecture": "A_CCRC",
-    "status": "LOCAL_NONLINEAR_GAUGE_CLOSED_THROUGH_QUARTIC_PLUS_EXACT_STRONG_CURVATURE_OBSERVABLE_ALGEBRA_AND_NORMALIZED_HISTORY_INSTRUMENT",
+    "status": "ALL_ORDERS_LOCAL_TWO_DERIVATIVE_GRAVITY_FIXED_PLUS_FINITE_REFINEMENT_QUANTUM_CORRECTION",
     "field_dimension": 10,
     "derivative_gauge_parameters": 4,
     "physical_modes_on_local_characteristic_cone": 2,
     "incidence_contravariant_form": "C=J-I",
     "masslessness_protected_linearized": true,
-    "unique_two_derivative_cubic_self_coupling": true,
-    "unique_two_derivative_quartic_completion": true,
-    "weak_background_local_characteristic_stability": true,
-    "kinematic_hilbert_defined": true,
+    "all_orders_local_metric_only_two_derivative_action_fixed": true,
+    "local_action": "a * integral sqrt(|det G|) R[G], zero cosmological branch",
     "kinematic_hilbert": "L2(Q_13, |det G|^(-5/2) d^10G)",
-    "symmetric_seed_physical_quotient_defined": true,
-    "seed_physical_modes_per_cover": 2,
-    "seed_physical_dimension_four_covers": 8,
-    "exact_strong_curvature_path_groupoid_algebra": true,
-    "normalized_interacting_history_instrument": true,
+    "strong_curvature_path_groupoid_algebra": true,
+    "normalized_history_instrument": true,
     "brst_constraint_descent": true,
     "operational_physical_positivity": true,
-    "regular_stratum_branch_measure": true,
-    "generic_global_strong_curvature_branch_finiteness": false,
+    "physical_connection_selector": "identity-connected refinement branch matching infinitesimal Levi-Civita connection",
+    "finite_cell_all_root_finiteness": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter006": {
+  "iter006_closed": {
+    "status": "COMPLETE_SCOPED_REGULAR_REFINEMENT_DOMAIN",
+    "completion_pct": 100,
+    "g10a": {
+      "classification": "REFUTED_IN_SCOPE_ALL_TORSION_ROOTS_FINITE",
+      "reduced_flat_seed_system": "24 quadrics in 24 variables",
+      "identity_reduced_jacobian_det": 47775744,
+      "distant_branch_rank": 22,
+      "distant_branch_local_dimension": 2,
+      "continued_solution_norm": ">30.2 with residual ~1e-14"
+    },
+    "g10b": {
+      "classification": "PASS_SCOPED_REFINEMENT_CONNECTED_PRINCIPAL_CONNECTION",
+      "selector": "same-realization match to G,DG Levi-Civita connection",
+      "finite_cell_scaling": "L-I = O(h)",
+      "fixed_path_product_convergence": "successive differences ~0.0338,0.0185,0.00972,0.00499"
+    }
+  },
+  "iter007": {
     "status": "ACTIVE",
-    "completion_pct": 94,
-    "history_normalization": {
-      "histories_per_B4_cell": 24,
-      "branch_amplitude_magnitude": "1/sqrt(24)",
-      "branch_channel_weight": "1/24"
+    "completion_pct": 55,
+    "g1_all_orders_local": {
+      "classification": "PASS_SCOPED",
+      "zero_derivative_density": "sqrt(|det G|) Lambda with Lambda=0 on active flat branch",
+      "two_derivative_scalar_dimension": 1,
+      "action": "a sqrt(|det G|) R[G] modulo boundary"
     },
-    "state_space": {
-      "direct_Hermitian_covariance_interpretation": "FAIL_SCOPED",
-      "configuration_space": "Q_13 Lorentzian symmetric nondegenerate 4x4 forms",
-      "invariant_measure": "|det G|^(-5/2) d^10G",
-      "physical_space_form": "constraint quotient / BRST cohomology rather than preferred 10x10 projector",
-      "seed_cover_physical_quotient_dim": 2,
-      "four_cover_seed_physical_dim": 8
+    "g2_history_correction": {
+      "histories": 24,
+      "pair_components": 6,
+      "ordering_sign_mean": 0,
+      "covariance_spectrum": "1/3 x3; 5/3 x3",
+      "leading_nonunitary_order": "h^4",
+      "leading_form": "(h^4/8) C_ab [K_a,[K_b,rho]]",
+      "relative_S4_sector_strength": "1:5"
     },
-    "finite_transport": {
-      "frame_lift": "G=F^T C F",
-      "coset": "O(C)\\GL(4)",
-      "edge_transport": "A_wv=F_w^-1 L_wv F_v",
-      "metric_compatibility_exact": true,
-      "seed_torsion_jacobian_rank": 24,
-      "seed_torsion_jacobian_determinant": 11664
+    "g3_lorentz_audit": {
+      "continuous_lorentz_invariant": false,
+      "microscopic_symmetry": "S4",
+      "r2_nonzero_covariance_delta_entries": 33,
+      "r2_max_abs_delta": "8/3"
     },
-    "strong_curvature_observable_algebra": {
-      "variables": "vertex G plus metric-compatible edge/path transports A",
-      "blocking": "exact associative path-groupoid product",
-      "cycle_count_connected_graph": "b1=E-V+1 after spanning-tree choice",
-      "classification": "PASS_SCOPED_EXACT"
-    },
-    "history_instrument": {
-      "branch_operator": "K_alpha=24^(-1/2) exp(iS_alpha/hbar) U_alpha",
-      "completeness": "sum K_alpha^dagger K_alpha=I",
-      "fine_evolution": "isometry",
-      "coarse_evolution": "CPTP",
-      "free_branch_weights": 0
-    },
-    "constraint_descent": {
-      "brst": "sG=L_cG; sc=-(1/2)[c,c]; s^2=0",
-      "physical_observable_algebra": "H^0(s)",
-      "operational_states": "positive normalized functionals on physical star-algebra",
-      "projective_blocking_descends": true
-    },
-    "branch_measure": {
-      "internal_lorentz_group_averaging": "NOT_USED",
-      "regular_root_weight": "j_Haar(L_r)/|det(dT/domega)_r| up to common normalization",
-      "near_seed_regular_root": true,
-      "global_finiteness": false
-    },
-    "finite_curvature_toy": {
-      "classification": "NUMERICALLY_VERIFIED",
-      "central_residual_norm": "~2e-14",
-      "jacobian_min_singular": "~0.349",
-      "jacobian_condition": "~23.1",
-      "plaquette_holonomy_norm_range": "~0.129..0.249",
-      "local_restarts_same_branch": "12/12"
+    "g4_positive_covariance_nogo": {
+      "classification": "PASS_SCOPED",
+      "statement": "nonzero positive pair-space covariance cannot be exactly invariant under the full noncompact continuous Lorentz representation",
+      "consequence": "Lorentz recovery requires correction suppression as h->0 or predicts finite preferred-frame effect"
     }
   },
   "governance": {
@@ -117,47 +103,33 @@
     "constitution_frozen": true,
     "fail_closed": true,
     "same_realization_required": true,
-    "blocked_is_failure": false,
     "post_hoc_benchmark_tuning_forbidden": true
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
-    "snapshot_date": "2026-09-11",
-    "latest_observed_commit": "6a979ad41012198b5e69b47494bc6d6d947dca06",
-    "latest_observed_iteration_bundle": "334-337",
+    "snapshot_date": "2026-09-12",
+    "latest_observed_commit": "c806465e255dbbf87675b5c03d235851c6f5ce0b",
+    "latest_observed_iteration_bundle": "342-343",
     "global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
     "D7": "NOT_AUTHORIZED",
-    "strict_terminal_coverage": "1/15",
-    "cw2_terminal_promotions_authorized": 0,
-    "latest_scoped_delta": "LQG, asymptotic-safety, and CFS authority lanes remain blocked by distinct missing source-defined objects; global D7 lock retained"
+    "latest_scoped_delta": "RQCP fixed-band payload independently reproduced and cutoff-stressed; remains PARTIAL_SUBFAMILY_ONLY and does not derive autonomous gravity sector"
   },
   "active_question": {
-    "id": "QGR-ITER006-G10-GLOBAL_TORSION_BRANCH_FINITE_MEASURE",
-    "text": "For arbitrary finite-complex strong-curvature QGR frame data, is the torsion-free connection solution set finite and regular with a finite coarea-induced branch measure, or can singular/continuous/infinite/noncompact-runaway branches occur?"
+    "id": "QGR-ITER007-G5-REFINEMENT_SCALE_AND_NORMALIZED_OBSERVABLE_CLOSURE",
+    "text": "How does the fixed O(h^4) S4 history-ordering correction scale under repeated refinement, what physical scale h does QGR assign, and can the correction be mapped to one normalized observable without arbitrary matching freedom?"
   },
   "next_gate": {
-    "iteration": 6,
-    "id": "QGR-ITER006-G10-GLOBAL_TORSION_BRANCH_FINITE_MEASURE",
-    "action": "Analyze large-rapidity asymptotics and singular strata of the finite torsion map, derive sufficient no-runaway/generic-finiteness conditions or construct a counterexample, then test branch-measure finiteness under two-level blocking.",
-    "fatal_criterion": "Do not add a connection cutoff, branch cutoff, regulator, or history-dependent weight solely to force normalization."
-  },
-  "artifacts": {
-    "iteration_6": "iterations/ITERATION_006.md",
-    "g7b": "results/ITER006_G7B_STRONG_CURVATURE_PATH_GROUPOID_CLOSURE.md",
-    "g8a": "results/ITER006_G8A_NORMALIZED_INTERACTING_HISTORY_INSTRUMENT.md",
-    "g8b": "results/ITER006_G8B_REGULAR_STRATUM_RIGGING_AND_BRANCH_MEASURE.md",
-    "g8c": "results/ITER006_G8C_BRST_CONSTRAINT_DESCENT.md",
-    "g8d": "results/ITER006_G8D_OPERATIONAL_PHYSICAL_POSITIVITY.md",
-    "g9": "results/ITER006_G9_FINITE_CURVATURE_TORSION_BRANCH_AUDIT.md",
-    "g9_code": "code/qgr_iter006_g9_finite_curvature_torsion_toy.py"
+    "iteration": 7,
+    "id": "QGR-ITER007-G5-REFINEMENT_SCALE_AND_NORMALIZED_OBSERVABLE_CLOSURE",
+    "action": "Derive repeated-blocking scaling of the ordering channel, close the physical scale map, and construct one normalized observable sensitive to the fixed curvature covariance before comparison to data.",
+    "fatal_criterion": "Do not add orientation weights, a Lorentz averaging measure, arbitrary scale matching, or free decoherence coefficients solely to hide the finite-cell correction."
   },
   "claim_locks": {
-    "qgr_is_all_orders_nonlinear_gravity": false,
-    "qgr_global_strong_curvature_branch_measure_finite": false,
-    "qgr_continuum_limit_proved": false,
-    "qgr_equivalence_principle_derived": false,
-    "qgr_normalized_phenomenological_observable_closed": false,
+    "qgr_experimentally_confirmed": false,
+    "qgr_normalized_beyond_gr_observable_closed": false,
+    "qgr_physical_micro_cell_scale_fixed": false,
+    "qgr_independent_benchmark_passed": false,
     "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
     "qgr_correct": false,
@@ -166,16 +138,15 @@
   "recovery_order": [
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
+    "iterations/ITERATION_007.md",
+    "results/ITER007_G4_POSITIVE_NOISE_LORENTZ_NOGO.md",
+    "results/ITER007_G3_MICROSCOPIC_LORENTZ_BREAKING_OF_ORDERING_CORRECTION.md",
+    "results/ITER007_G2_HISTORY_ORDERING_QUANTUM_CORRECTION.md",
+    "results/ITER007_G1_ALL_ORDERS_TWO_DERIVATIVE_LOCAL_ACTION.md",
     "iterations/ITERATION_006.md",
-    "results/ITER006_G9_FINITE_CURVATURE_TORSION_BRANCH_AUDIT.md",
-    "results/ITER006_G8D_OPERATIONAL_PHYSICAL_POSITIVITY.md",
-    "results/ITER006_G8C_BRST_CONSTRAINT_DESCENT.md",
-    "results/ITER006_G8B_REGULAR_STRATUM_RIGGING_AND_BRANCH_MEASURE.md",
-    "results/ITER006_G8A_NORMALIZED_INTERACTING_HISTORY_INSTRUMENT.md",
-    "results/ITER006_G7B_STRONG_CURVATURE_PATH_GROUPOID_CLOSURE.md",
-    "iterations/ITERATION_005.md",
+    "results/ITER006_G10B_REFINEMENT_CONNECTED_PRINCIPAL_CONNECTION.md",
+    "results/ITER006_G10A_GLOBAL_TORSION_BRANCH_COUNTEREXAMPLE.md",
     "docs/CONSTITUTION.md",
-    "newest Iter006 results/code",
     "current KMQGB scoped deltas and authoritative benchmark front"
   ]
 }
