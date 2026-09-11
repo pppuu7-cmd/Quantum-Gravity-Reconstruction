@@ -1,188 +1,176 @@
 # QGR Iteration 005 — Nonlinear Constraint and Self-Coupling Closure
 
 Date: 2026-09-11
-Status: `ACTIVE / UNIQUE_CUBIC_NOETHER_SELF_COUPLING_CLOSED / QUARTIC_AND_BACKGROUND_TESTS_OPEN`
-Current task completion: **55%**
-Candidate-program readiness: **42%**
+Status: `COMPLETE / LOCAL_NONLINEAR_CLOSURE_THROUGH_QUARTIC / R5_HANDOFF_BLOCKER_IDENTIFIED`
+Completion: **100%**
+Candidate-program readiness after Iter005: **49%**
 Active candidate: **QGR-L1**
-
-## Starting authority
-
-Iter004 closed the linearized mass/gauge blocker. QGR-L1 is a ten-component second-moment response field on
-
-`Sym^2(W4)`
-
-with a uniquely selected local derivative-gauge-compatible quadratic Hessian, incidence characteristic cone, exactly two physical null modes on that cone, and no allowed `S4`-invariant onsite quadratic mass deformation.
-
-This iteration does **not** assume a nonlinear GR completion.
 
 ## Objective
 
-Determine whether the same relational/incidence/composition structure can generate a nonlinear completion of QGR-L1 with a closed constraint algebra and low-dimensional self-coupling freedom.
+Test whether QGR-L1 can advance from the linearly gauge-closed causal two-mode candidate to a locally interacting theory without importing Einstein-Hilbert as a repair, and identify the exact next blocker before same-realization refinement.
 
-## Fixed anti-overfitting rules
+## G1A — zero-derivative cubic sector
 
-Forbidden shortcuts:
-
-- insert Einstein-Hilbert because it is known to self-couple consistently;
-- import the full nonlinear diffeomorphism transformation law as an axiom;
-- add arbitrary functions/counterterms after a failed closure equation;
-- change the QGR-L1 quadratic kinetic cone solely to make cubic closure work;
-- use a different microscopic realization for the nonlinear and linear sectors.
-
-Any later match to GR is allowed only as an a posteriori comparison after QGR-internal selection.
-
-## G1A — zero-derivative cubic potential census
-
-The exact `S4` invariant count gives **20** algebraic cubic invariants on `H=Sym^2(W4)` before gauge constraints.
-
-For constant `h` and affine relational-frame gauge parameters, the derived linear gauge law spans arbitrary constant symmetric shifts of all ten components. Since the quadratic action is derivative-only, no algebraic cubic variation can be cancelled.
-
-Therefore all `20/20` zero-derivative cubic potential directions are excluded.
-
-Classification:
-
-`PASS_SCOPED_ZERO_DERIVATIVE_CUBIC_SECTOR_EXCLUDED`.
-
-Records:
-
-- `results/ITER005_G1A_CUBIC_POTENTIAL_CENSUS.md`
-- `code/qgr_iter005_g1a_cubic_potential_census.py`
-
-## G1B-1 — nonlinear gauge correction from relational frame pullback
-
-The active field is a second-moment object of the existing rank-1 relational frame:
-
-`G in Sym^2(W4)`.
-
-A local change of relational frame therefore acts by pullback on `G`. Expanding
-
-`G=G0+kappa h`
-
-gives the already selected linear law
+`Sym^3(H)` with `H=Sym^2(W4)` contains exactly **20** `S4` singlets. The already derived affine part of
 
 `delta_0 h_ij = D_i xi_j + D_j xi_i`
 
-and fixes the first nonlinear correction
+spans arbitrary constant symmetric shifts, so every local algebraic cubic potential is forbidden.
+
+Result:
+
+`20/20 excluded`.
+
+Classification: `PASS_SCOPED_ZERO_DERIVATIVE_CUBIC_SECTOR_EXCLUDED`.
+
+## G1B — nonlinear frame law and cubic self-coupling
+
+The second-moment relational frame transforms by pullback, fixing
 
 `delta_1 h_ij = xi^k D_k h_ij + h_kj D_i xi^k + h_ik D_j xi^k`.
 
-No independent tensor coefficients are left once `h` remains the same second-moment object under frame composition.
-
-The pullback transformations satisfy exactly
+The transformations close exactly:
 
 `[delta_xi,delta_eta]G = delta_[xi,eta]G`.
 
-This was verified by exact rational polynomial algebra on nontrivial polynomial fields and parameters.
+The complete local bosonic `S4` two-derivative cubic action quotient has dimension **317**. The cubic Noether map has full physical rank 317, so the homogeneous physical kernel is zero.
 
-Classification:
+The inhomogeneous equation
 
-`PASS_SCOPED_RELATIONAL_FRAME_PULLBACK_FIXES_DELTA1_AND_CLOSES_TRANSFORMATION_ALGEBRA`.
+`delta_0 S3 + delta_1 S2 = 0`
 
-Records:
-
-- `results/ITER005_G1B_FRAME_PULLBACK_ALGEBRA.md`
-- `code/qgr_iter005_g1b_frame_pullback_algebra.py`
-
-## G1B-2 — complete two-derivative cubic action space
-
-After Bose symmetry and momentum conservation / integration-by-parts quotient, the complete local `S4`-invariant total-two-derivative cubic vertex space has exact dimension
-
-`317`.
-
-A raw `h(Dh)(Dh)` orbit spanning set has 399 `S4` orbits and kinematic evaluation rank 317.
-
-Classification:
-
-`PASS_SCOPED_COMPLETE_KINEMATIC_TWO_DERIVATIVE_CUBIC_VERTEX_COUNT_317`.
-
-Records:
-
-- `results/ITER005_G1B_TWO_DERIVATIVE_CUBIC_COUNT.md`
-- `code/qgr_iter005_g1b_two_derivative_cubic_count.py`
-
-## G1B-3 — exact cubic Noether solve
-
-For the already fixed `delta_1`, define the cubic Noether equation
-
-`delta_0 S3 + delta_1 S2 = 0`.
-
-### Uniqueness
-
-The Noether map on the raw 399-orbit spanning set has modular rank **317**. Because the physical cubic action quotient has exact dimension 317, this proves that the rational Noether map has full physical rank and that the homogeneous physical kernel vanishes:
-
-`ker N / kinematic_nulls = 0`.
-
-Thus for fixed relational `delta_1` there is at most one physical two-derivative cubic self-coupling.
-
-### Existence
-
-The inhomogeneous system is consistent. An exact rational solution was reconstructed with
-
-- 75 nonzero raw orbit coefficients;
-- denominators only `1,2,4,8`.
-
-The full momentum-space identity was expanded coefficient-by-coefficient in independent field, gauge, and momentum variables. The exact sparse polynomial residual contains zero nonvanishing coefficients:
-
-`delta_0 S3 + delta_1 S2 == 0`.
-
-Therefore the cubic self-coupling exists and is unique modulo kinematic/IBP-null directions.
+has an exact rational solution with 75 nonzero coefficients in the deterministic 399-orbit raw basis. The exact coefficient-wise residual is zero.
 
 Classification:
 
 `PASS_SCOPED_EXACT_RATIONAL_CUBIC_NOETHER_SOLUTION_UNIQUE_MODULO_KINEMATIC_NULLS`.
 
+## G2 — quartic Noether closure
+
+The complete two-derivative quartic action quotient has dimension **1694**, represented by 2066 raw `S4` orbits with 372 kinematic/IBP null directions.
+
+### Existence
+
+A quartic candidate was generated from the same second-moment response, incidence background, and pullback-covariant local connection-density that reproduces the already independently fixed QGR quadratic and cubic vertices.
+
+Nontrivial lower-order certificate:
+
+- connection-density quadratic term = `-2 S2_QGR`;
+- fully symmetrized exact cubic action has 8,808 nonzero rational coefficient entries on each side;
+- `S3_connection + 2 S3_QGR = 0` coefficient by coefficient.
+
+With the same normalization the generated quartic vertex has 1,089 nonzero raw orbit coefficients. Exact expansion gives
+
+- `delta_0 S4`: 259,596 nonzero rational coefficients;
+- `delta_1 S3`: 259,596 nonzero rational coefficients;
+- residual `delta_0 S4 + delta_1 S3`: **0** nonzero coefficients.
+
+Thus quartic existence is exact.
+
+### Uniqueness
+
+Any homogeneous quartic Noether vertex must also be invariant under the affine subgroup of `delta_0`, where one external leg is an arbitrary zero-momentum symmetric shift.
+
+The exact sparse affine-shift map on the 2066 raw quartic orbits has modular rank
+
+`1694 mod p`, with `p=1000003`.
+
+Because the independently known physical quartic quotient dimension is exactly 1694, the rational physical homogeneous kernel is zero.
+
+Therefore `S4` is unique modulo the 372 kinematic/IBP null directions.
+
+Classification:
+
+`PASS_SCOPED_EXACT_QUARTIC_NOETHER_EXISTENCE_AND_UNIQUENESS_MODULO_KINEMATIC_NULLS`.
+
 Records:
 
-- `results/ITER005_G1B_CUBIC_NOETHER_CLOSURE.md`
-- `code/qgr_iter005_g1b_noether_rank.py`
-- `code/qgr_iter005_g1b_exact_noether_certificate.py`
+- `results/ITER005_G2_EXACT_QUARTIC_NOETHER_CLOSURE.md`
+- `results/ITER005_G2_QUARTIC_UNIQUENESS_AFFINE_RANK.md`
+- `code/qgr_iter005_g2_exact_quartic_noether_certificate.py`
+- `code/qgr_iter005_g2_quartic_affine_rank.py`
 
-## External sanity check — not an input
+## G3 — weak-background characteristic stability
 
-Classical deformation analyses of a single massless spin-2 field under locality and at-most-two-derivative assumptions are known to select the Einstein-Hilbert deformation. This is consistent with the QGR result but was not used in the internal selection or solve.
+For
 
-No all-orders GR claim is promoted from this comparison.
+`G_down = E + hbar`, `E=C^{-1}`,
 
-## What Iter005 has established so far
+the inverse response is
 
-In scope QGR-L1 now has:
+`G_up = C - C hbar C + C hbar C hbar C + O(hbar^3)`.
 
-1. structurally protected linear masslessness;
-2. exact two physical modes on the incidence cone;
-3. a nonlinear gauge correction derived from the second-moment frame ontology;
-4. exact closure of the transformation algebra;
-5. exclusion of all algebraic cubic potentials;
-6. a unique local two-derivative cubic self-coupling satisfying the exact Noether equation.
+The principal characteristic form through the order controlled by `S2+S3+S4` is
 
-## Active gate — G2/G3
+`K_hbar(k)=k_i G_up^{ij} k_j`.
 
-`QGR-ITER005-G2_G3-QUARTIC_CONSISTENCY_AND_WEAK_BACKGROUND_CAUSAL_STABILITY`
+Exact rational tests on three nontrivial frame-deformed backgrounds show:
 
-1. Construct the quartic Noether equation generated by the already fixed pullback transformation and unique cubic vertex.
-2. Determine whether a quartic action exists without adding a new free interaction function.
-3. Check whether the deformation closes recursively or a genuine fourth-order obstruction appears.
-4. Linearize the interacting equations around weak nonzero relational backgrounds and track the principal characteristic cone.
-5. Determine whether the two physical modes remain two and whether the incidence/Lorentz cone is preserved or deforms controllably.
-6. Do not insert Einstein-Hilbert as a repair if the quartic equation fails.
+- gauge-map rank = 4;
+- Hessian rank on `G_up`-null covectors = 4;
+- Hessian rank off cone = 6;
+- exactly **2** non-gauge physical null modes remain on the cone.
 
-## Subsequent gate — same-realization refinement
+The tests include transformed elementary covers and transformed nontrivial null vectors `(1,1,1,-1)`, `(1,2,3,-11/6)`, `(2,-1,3,-1/4)`.
 
-Only after quartic/local nonlinear consistency survives should QGR begin same-realization refinement/coarse-graining. Do not splice a separate continuum theory into the IR.
+Classification:
 
-## Claim locks
+`PASS_SCOPED_LOCAL_WEAK_BACKGROUND_CHARACTERISTIC_STABILITY`.
 
-Until the quartic/background/refinement gates close:
+Records:
 
-- QGR is not yet an all-orders nonlinear gravity theory;
-- Einstein equations are not yet internally derived;
-- equivalence principle is not yet derived;
-- continuum/refinement limit is not proved;
-- quantum interacting measure is not defined;
-- KMQGB `NEW_REQUIRED` remains unauthorized.
+- `results/ITER005_G3_WEAK_BACKGROUND_CAUSAL_STABILITY.md`
+- `code/qgr_iter005_g3_weak_background_cone.py`
 
-## Progress accounting
+## G4 — same-realization refinement handoff
 
-- Iter005 completion: **55%**.
-- Candidate-program readiness: **42%**.
-- These are construction-roadmap metrics, not probabilities of correctness.
+The original `B4` coherent path normalization extends exactly:
+
+`N_histories(n)=24^n`, `w_history(n)=24^-n`, hence total weight `1`.
+
+Deterministic rank-1 frame maps induce canonical maps on `Sym^2(W4)`, so a same-realization **kinematic** refinement tower exists.
+
+However generic coarse-graining is not yet unique. For fine frames `e_alpha`,
+
+`G_mix = sum w_alpha e_alpha e_alpha^T`
+
+and
+
+`G_comp = (sum w_alpha e_alpha)(sum w_beta e_beta)^T`
+
+differ by the fine-frame covariance. Thus mixture/marginal coarse-graining and coherent/additive frame composition are inequivalent unless an underlying measure/amplitude/composition object specifies which operation is physical and how cross-correlations are retained.
+
+Classification:
+
+`PARTIAL_KINEMATIC_SAME_REALIZATION_TOWER__BLOCKED_DYNAMIC_COARSE_GRAINING_UNTIL_MEASURE_OR_COMPOSITION_OBJECT_IS_DEFINED`.
+
+Records:
+
+- `results/ITER005_G4_REFINEMENT_HANDOFF.md`
+- `code/qgr_iter005_g4_refinement_handoff.py`
+
+## Iter005 decision
+
+The local nonlinear bootstrap is closed **through quartic order**, and the local weak-background characteristic structure remains one Lorentzian cone with two physical modes.
+
+The next blocker is no longer local self-coupling. It is the construction of the primitive quantum measure/amplitude/composition object needed to make same-realization refinement unique and testable.
+
+Iter005 therefore closes and hands the project to R5.
+
+## Claim locks retained
+
+This iteration does not establish:
+
+- all-orders nonlinear completion;
+- a quantum measure or Hilbert-space completion;
+- a continuum/refinement theorem;
+- strong-background/global hyperbolicity;
+- equivalence principle as an operational matter-coupling theorem;
+- normalized experimental observables;
+- independent KMQGB passage;
+- that KMQGB has authorized `NEW_REQUIRED`.
+
+## Next iteration
+
+`QGR Iter006 — Quantum Measure / Composition and Projective Refinement Reconstruction`.
