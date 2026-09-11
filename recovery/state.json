@@ -5,15 +5,15 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
     "iteration": 7,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_NETWORK_HISTORY_GLUING_AND_OBSERVABLE_CLOSURE"
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_CURVED_WAVEPACKET_READOUT_AND_OBSERVABLE_CLOSURE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 78,
+    "candidate_program_pct": 82,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
     "iter006_pct": 100,
-    "iter007_pct": 84,
+    "iter007_pct": 93,
     "theory_established_pct": 0
   },
   "roadmap": {
@@ -22,38 +22,35 @@
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
     "R3_minimal_dynamical_ansatz": "COMPLETE_QGR_L1",
     "R4_local_mathematical_closure": "COMPLETE_ALL_ORDERS_METRIC_ONLY_TWO_DERIVATIVE_LOCAL_ACTION",
-    "R5_same_realization_uv_ir": "COMPLETE_SCOPED_REGULAR_REFINEMENT_CONNECTED_STATE_MEASURE_COMPOSITION",
+    "R5_same_realization_uv_ir": "COMPLETE_SCOPED_REGULAR_REFINEMENT_CONNECTED_STATE_MEASURE_COMPOSITION_PLUS_FINITE_LOCAL_NET",
     "R6_gr_recovery": "COMPLETE_SCOPED_LOCAL_ALL_ORDERS_TWO_DERIVATIVE_ZERO_LAMBDA_BRANCH",
-    "R7_observable_closure": "ACTIVE_OVERLAPPING_CELL_HISTORY_GLUING_AND_FIELD_SUPPORT",
+    "R7_observable_closure": "ACTIVE_CURVED_COMMON_TARGET_WAVEPACKET_READOUT_AND_LOCAL_PURITY",
     "R8_independent_benchmark_export": "INACTIVE",
-    "R9_prediction_discrimination": "ACTIVE_H4_HISTORY_CORRECTION_IDENTIFIED_BUT_LOCAL_NETWORK_PREDICTION_OPEN"
+    "R9_prediction_discrimination": "ACTIVE_H4_HISTORY_CORRECTION_AND_CURVED_HISTORY_SPREAD_IDENTIFIED_NUMERICAL_LOCAL_PREDICTION_OPEN"
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
     "lead_architecture": "A_CCRC",
-    "status": "ALL_ORDERS_LOCAL_TWO_DERIVATIVE_GRAVITY_FIXED_PLUS_FINITE_HISTORY_CORRECTION_WITH_NETWORK_GLUING_OPEN",
+    "status": "ALL_ORDERS_LOCAL_GRAVITY_PLUS_FINITE_HISTORY_CORRECTION_PLUS_SCOPED_FINITE_LOCAL_NET_AND_TWO_MODE_QUOTIENT_DESCENT",
     "field_dimension": 10,
     "derivative_gauge_parameters": 4,
     "physical_modes_on_local_characteristic_cone": 2,
     "all_orders_local_action": "a * integral sqrt(|det G|) R[G], zero cosmological branch",
     "finite_history_correction": "(h^4/8) C_ab [K_a,[K_b,rho]] + O(h^5)",
     "history_covariance_spectrum": "1/3 x3; 5/3 x3",
-    "microscopic_history_symmetry": "S4",
     "fixed_path_accumulated_scaling": "O(L h^3)",
     "normalized_observable_form": "purity loss",
-    "overlapping_cell_joint_history_law_derived": false,
-    "field_support_map_derived": false,
+    "face_neighbour_cells_serial_history_steps": false,
+    "serial_history_joint_measure": "exact product-uniform 24^-n",
+    "overlap_configuration_gluing": "fiber product over shared B3 on regular finite path-groupoid domain",
+    "naive_overlap_hilbert_tensor_product_authorized": false,
+    "canonical_physical_two_mode_quotient_descent": true,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter006_closed": {
-    "status": "COMPLETE_SCOPED_REGULAR_REFINEMENT_DOMAIN",
-    "g10a_all_torsion_roots_finite": false,
-    "g10b_physical_connection": "identity-connected refinement branch matching infinitesimal Levi-Civita connection"
-  },
   "iter007": {
     "status": "ACTIVE",
-    "completion_pct": 84,
+    "completion_pct": 93,
     "g1_all_orders_local": {
       "classification": "PASS_SCOPED",
       "action": "a sqrt(|det G|) R[G] modulo boundary",
@@ -67,33 +64,48 @@
     },
     "g5a_path": {
       "fixed_path_scaling": "O(L h^3)",
-      "normalized_observable": "purity",
-      "local_purity_sign": "loss/nonincrease at leading order"
+      "normalized_observable": "purity"
     },
     "g5b_parallel_run": {
       "github_actions_run_id": 34653064309,
       "lanes": 5,
       "aggregate_success": true,
-      "sequential_same_carrier_4d_stress": "marginal h^0",
-      "seed_physical_representation": "2 + 3 + 3prime",
-      "ordering_representation": "3 + 3prime",
-      "linear_map_ordering_to_End_physical2": 0,
-      "delayed_trace_product_register_cancellation": false,
-      "physical_h_independently_fixed": false
+      "same_carrier_4d_stress": "h^0 upper-stress construction, not authorized all-face-cell path evolution"
     },
     "g6a_parallel_run": {
       "github_actions_run_id": 34653478008,
       "lanes": 3,
       "aggregate_success": true,
-      "joint_history_local_marginal_identifiability": "BLOCKED",
-      "two_cell_sum_sign_variance_trace_product": 12,
-      "two_cell_sum_sign_variance_trace_synchronized": 24,
-      "two_cell_sum_sign_variance_trace_reversed": 0,
-      "serial_B4_history_count": 576,
-      "disjoint_B8_history_count": 40320,
-      "B8_interleavings_per_local_order_pair": 70,
-      "spatial_factor_local_purity_scaling": "b^-3",
-      "spatial_factor_global_minus_log_purity_scaling": "O(1) extensive"
+      "local_marginals_alone_fix_arbitrary_cross_cell_correlations": false,
+      "local_reduced_purity_scaling_toy": "b^-3",
+      "global_extensive_minus_log_purity_toy": "O(1)"
+    },
+    "g6b_parallel_run": {
+      "github_actions_run_id": 34654604762,
+      "lanes": 5,
+      "aggregate_success": true,
+      "face_overlap": "B3 with 8 vertices, 12 edges, 6 plaquettes",
+      "face_neighbour_diagonals_serially_composable": false,
+      "serial_diagonal_shift": [1,1,1,1],
+      "serial_branch_measure": "24^-n exact",
+      "two_face_cell_union_global_monotone_paths": 60,
+      "global_paths_factorable_as_two_complete_overlap_diagonals": 6,
+      "G9_history_trace_spread_rms_h_exponent": 3.978612308864641,
+      "G9_history_trace_spread_is_decoherence": false
+    },
+    "g6c_parallel_run": {
+      "github_actions_run_id": 34655130571,
+      "lanes": 4,
+      "aggregate_success": true,
+      "regular_B4_configuration_dim": 352,
+      "shared_B3_configuration_dim": 152,
+      "two_cell_union_configuration_dim": 552,
+      "fiber_product_dimension_identity": "352+352-152=552",
+      "cylindrical_algebra_intersection": "shared B3",
+      "boundary_quantum_gluing": "relative/direct-integral structure required; naive independent tensor product rejected",
+      "physical_quotient_dim": 2,
+      "finite_frame_pullback_descends_to_physical_quotient": true,
+      "arbitrary_2x2_readout_projector_needed": false
     }
   },
   "external_authority_snapshot": {
@@ -103,23 +115,23 @@
     "global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
     "D7": "NOT_AUTHORIZED",
-    "latest_scoped_delta": "RQCP portability/scientific reproduction remains PARTIAL_SUBFAMILY_ONLY; Iter344 fakeon NNLL sign certificate scoped, parent family nonterminal"
+    "latest_scoped_delta": "RQCP remains PARTIAL_SUBFAMILY_ONLY; Iter344 fakeon NNLL certificate scoped, parent family nonterminal"
   },
   "active_question": {
-    "id": "QGR-ITER007-G6B-DERIVE_OVERLAPPING_CELL_GLUING_AND_FIELD_SUPPORT_FROM_CCRC",
-    "text": "How do neighboring B4 cells share microscopic events/faces in one CCRC complex, what joint history law follows, and which cell channels act on the same local physical quotient fiber versus spacelike tensor factors?"
+    "id": "QGR-ITER007-G6D-CURVED-WAVEPACKET-QUOTIENT-READOUT-AND-LOCAL-PURITY",
+    "text": "How do the 24 curved history transports move one physical characteristic wavepacket into branch-dependent target quotient fibers, and can a branch-symmetric common-target readout and normalized local two-mode purity be derived without an arbitrary polarization choice?"
   },
   "next_gate": {
     "iteration": 7,
-    "id": "QGR-ITER007-G6B-DERIVE_OVERLAPPING_CELL_GLUING_AND_FIELD_SUPPORT_FROM_CCRC",
-    "action": "Derive overlapping-cell gluing, global partial order, joint history measure, field-support map, projective coarse trace, and then the first local numerical purity prediction on a curved background.",
-    "fatal_criterion": "Do not introduce anticorrelated histories, cross-cell weights, orientation averages, or a support rule solely to cancel the finite-cell anisotropy."
+    "id": "QGR-ITER007-G6D-CURVED-WAVEPACKET-QUOTIENT-READOUT-AND-LOCAL-PURITY",
+    "action": "Quantify branch-dependent target characteristic-fiber separation on G9, derive common-target wavepacket/bundle readout, derive local two-mode reduced density matrix and purity, and separately establish the interacting boundary-relative measure disintegration.",
+    "fatal_criterion": "Do not choose a branch-dependent polarization basis, arbitrary 2x2 projector, boundary tensor factorization, or cross-history correlation merely to force cancellation or a desired phenomenological result."
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_local_continuum_decoherence_prediction_closed": false,
-    "qgr_overlapping_cell_history_gluing_derived": false,
-    "qgr_field_support_map_derived": false,
+    "qgr_common_target_curved_two_mode_readout_closed": false,
+    "qgr_interacting_boundary_measure_disintegration_closed": false,
     "qgr_physical_micro_cell_scale_fixed": false,
     "qgr_independent_benchmark_passed": false,
     "all_known_models_wrong": false,
@@ -131,6 +143,8 @@
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
     "iterations/ITERATION_007.md",
+    "results/ITER007_G6C_LOCAL_NET_AND_PHYSICAL_QUOTIENT_DESCENT.md",
+    "results/ITER007_G6B_OVERLAPPING_CELL_GLUING_AND_CURVED_HISTORY_SPREAD.md",
     "results/ITER007_G6A_HISTORY_COMPOSITION_AND_LOCAL_GLOBAL_SCALING.md",
     "results/ITER007_G5B_PARALLEL_NETWORK_RG_AND_READOUT_AUDIT.md",
     "results/ITER007_G5A_PATH_SCALING_AND_PURITY_OBSERVABLE.md",
