@@ -5,14 +5,14 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-11",
     "iteration": 6,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_QUANTUM_COMPOSITION_SEARCH"
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_STATE_SPACE_AND_LOCAL_DISCRETE_CONNECTION_RECONSTRUCTED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 49,
+    "candidate_program_pct": 58,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
-    "iter006_pct": 20,
+    "iter006_pct": 82,
     "theory_established_pct": 0
   },
   "roadmap": {
@@ -21,63 +21,87 @@
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
     "R3_minimal_dynamical_ansatz": "COMPLETE_LINEARIZED_QGR_L1_SELECTED",
     "R4_local_mathematical_closure": "COMPLETE_THROUGH_QUARTIC_PLUS_LOCAL_WEAK_BACKGROUND_CHARACTERISTIC_AUDIT",
-    "R5_same_realization_uv_ir": "ACTIVE_STATE_MEASURE_COMPOSITION_RECONSTRUCTION",
+    "R5_same_realization_uv_ir": "ACTIVE_PHYSICAL_RIGGING_MEASURE_AND_STRONG_CURVATURE_PROJECTIVE_CLOSURE",
     "R6_gr_recovery": "PARTIAL_LOCAL_TWO_DERIVATIVE_STRUCTURE_THROUGH_QUARTIC_ONLY",
-    "R7_observable_closure": "INACTIVE",
+    "R7_observable_closure": "PARTIAL_WEAK_CURVATURE_G_PLUS_RIEMANN20_CANDIDATE",
     "R8_independent_benchmark_export": "INACTIVE",
     "R9_prediction_discrimination": "INACTIVE"
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
     "lead_architecture": "A_CCRC",
-    "status": "LOCAL_GAUGE_CLOSED_CAUSAL_TWO_MODE_UNIQUE_CUBIC_AND_QUARTIC__QUANTUM_STATE_SPACE_OPEN",
+    "status": "LOCAL_NONLINEAR_GAUGE_CLOSED_THROUGH_QUARTIC_PLUS_KINEMATIC_HILBERT_AND_LOCAL_DISCRETE_CONNECTION_RECONSTRUCTED",
     "unreduced_field_arena": "Sym^2(W4_rank1_relational_frame)",
     "field_dimension": 10,
     "derivative_gauge_parameters": 4,
     "physical_null_modes_on_local_characteristic_cone": 2,
     "incidence_contravariant_form": "C=J-I",
     "masslessness_protected_linearized": true,
-    "nonlinear_pullback_delta1_derived": true,
-    "transformation_algebra_closed": true,
     "unique_two_derivative_cubic_self_coupling": true,
     "unique_two_derivative_quartic_completion": true,
     "weak_background_local_characteristic_stability": true,
-    "physical_state_space_defined": false,
-    "dynamic_refinement_defined": false,
+    "kinematic_hilbert_defined": true,
+    "kinematic_hilbert": "L2(Q_13, |det G|^(-5/2) d^10G)",
+    "symmetric_seed_physical_quotient_defined": true,
+    "seed_physical_modes_per_cover": 2,
+    "seed_physical_dimension_four_covers": 8,
+    "generic_curved_physical_rigging_defined": false,
+    "finite_discrete_connection_local_uniqueness_near_seed": true,
+    "generic_strong_curvature_projective_closure": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter005_closed": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "cubic_physical_dimension": 317,
-    "cubic_homogeneous_kernel_dimension": 0,
-    "cubic_exact_solution_nonzero_raw_coefficients": 75,
-    "quartic_physical_dimension": 1694,
-    "quartic_raw_orbits": 2066,
-    "quartic_kinematic_nullity": 372,
-    "quartic_exact_solution_nonzero_raw_orbits": 1089,
-    "quartic_exact_noether_coefficients_each_side": 259596,
-    "quartic_exact_residual_nonzero_coefficients": 0,
-    "quartic_affine_rank_mod_prime": 1694,
-    "quartic_homogeneous_physical_kernel_dimension": 0,
-    "weak_background_H_rank_on_cone": 4,
-    "weak_background_H_rank_off_cone": 6,
-    "weak_background_gauge_rank": 4,
-    "weak_background_physical_modes_on_cone": 2,
-    "refinement_handoff": "KINEMATIC_TOWER_EXISTS_DYNAMIC_COARSE_MAP_REQUIRES_MEASURE_COMPOSITION_OBJECT"
-  },
   "iter006": {
     "status": "ACTIVE",
-    "completion_pct": 20,
-    "g1_channel_candidate": {
+    "completion_pct": 82,
+    "g1_history_normalization": {
       "histories_per_B4_cell": 24,
       "branch_amplitude_magnitude": "1/sqrt(24)",
-      "coarse_channel_weight_per_history": "1/24",
-      "idealized_channel": "rho -> P rho P",
-      "n_level_normalization": "24^n*(1/24)^n=1",
-      "classification": "PASS_SCOPED_CHANNEL_LEVEL_NORMALIZATION_CANDIDATE",
-      "physical_projector_constructed": false
+      "branch_channel_weight": "1/24",
+      "system_projector_required": false
+    },
+    "g2_state_space": {
+      "direct_Hermitian_covariance_interpretation": "FAIL_SCOPED_POSITIVE_SEMIDEFINITE_ONLY",
+      "configuration_space": "Q_13 Lorentzian symmetric nondegenerate 4x4 forms",
+      "invariant_measure": "|det G|^(-5/2) d^10G",
+      "sym2_congruence_jacobian": "|det A|^5",
+      "physical_space_form": "constraint quotient rather than preferred 10x10 projector",
+      "seed_cover_H_rank": 4,
+      "seed_cover_kernel_dim": 6,
+      "seed_cover_gauge_rank": 4,
+      "seed_cover_physical_quotient_dim": 2,
+      "four_cover_seed_physical_dim": 8
+    },
+    "g3_transport": {
+      "first_jet_components": 40,
+      "compatible_connection_unique_from_G_DG": true,
+      "configuration_dependent_quantum_lift": "Koopman/Radon-Nikodym if invertible and quasi-invariant"
+    },
+    "g4_frame_holonomy": {
+      "frame_lift": "G=F^T C F",
+      "coset": "O(C)\\GL(4)",
+      "dimension_count": "16-6=10",
+      "edge_transport": "A_wv=F_w^-1 L_wv F_v",
+      "metric_compatibility_exact": true
+    },
+    "g5_discrete_torsion": {
+      "torsion_equations": 24,
+      "connection_unknowns": 24,
+      "seed_jacobian_rank": 24,
+      "seed_jacobian_determinant_recorded_basis": 11664,
+      "homogeneous_kernel_dim": 0,
+      "local_finite_uniqueness_near_seed": true
+    },
+    "g6_projective": {
+      "ordered_chain_projective_composition": "PASS_SCOPED_EXACT",
+      "generic_curved_G_only_closure": "FAIL_SCOPED",
+      "repair": "retain derived coarse holonomy/curvature observables"
+    },
+    "g7a_weak_curvature": {
+      "raw_curvature_components": 36,
+      "after_pair_symmetry": 21,
+      "after_first_Bianchi": 20,
+      "field_equations_used": false
     }
   },
   "governance": {
@@ -98,32 +122,38 @@
     "global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
     "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED",
-    "latest_scoped_delta": "Iter333 S5 cross-face transport reduces 15 labeled K3/K4 strata to two normalization orbits but does not supply missing jet values/source glue"
+    "latest_scoped_delta": "Iter333 S5 cross-face transport reduces labeled normalization bookkeeping but does not close missing source-defined jet/glue/transport objects"
   },
   "active_question": {
-    "id": "QGR-ITER006-G2-STATE_SPACE_AND_PROJECTOR_RECONSTRUCTION",
-    "text": "Can QGR construct a physical state space and refinement projector whose projective quantum channel reproduces the 24-history normalization and whose same realization has QGR-L1 as its second-moment response sector?"
+    "id": "QGR-ITER006-G7B_PHYSICAL_RIGGING_AND_STRONG_CURVATURE_MEASURE",
+    "text": "Can QGR construct a generic curved physical rigging/constraint Hilbert completion and interacting quantum measure whose coarse observable algebra retains the required derived holonomy information while remaining projectively consistent?"
   },
   "next_gate": {
     "iteration": 6,
-    "id": "QGR-ITER006-G2-STATE_SPACE_AND_PROJECTOR_RECONSTRUCTION",
-    "action": "Construct and compare minimal state-space realizations for four relational directions, derive rather than import the refinement projector, define the coarse observable algebra, and test whether QGR-L1 arises from the same object.",
-    "fatal_criterion": "Reject any Hilbert/projector realization chosen solely because it reproduces QGR-L1 or that requires uncontrolled history-dependent functions or post-hoc coarse rules."
+    "id": "QGR-ITER006-G7B_PHYSICAL_RIGGING_AND_STRONG_CURVATURE_MEASURE",
+    "action": "Construct the generic physical constraint/rigging completion, specify the minimal strong-curvature holonomy observable algebra, define the interacting measure from the same QGR action, and test two-level curved projective consistency.",
+    "fatal_criterion": "Reject normalized-Haar fiction for the noncompact internal group and reject any added history-dependent weight, phase, counterterm, or coarse function not generated by QGR field/connection/composition data."
   },
   "artifacts": {
-    "iteration_5": "iterations/ITERATION_005.md",
     "iteration_6": "iterations/ITERATION_006.md",
-    "iter005_g2_exists": "results/ITER005_G2_EXACT_QUARTIC_NOETHER_CLOSURE.md",
-    "iter005_g2_unique": "results/ITER005_G2_QUARTIC_UNIQUENESS_AFFINE_RANK.md",
-    "iter005_g3": "results/ITER005_G3_WEAK_BACKGROUND_CAUSAL_STABILITY.md",
-    "iter005_g4": "results/ITER005_G4_REFINEMENT_HANDOFF.md",
-    "iter006_g1": "results/ITER006_G1_CHANNEL_COMPOSITION_CANDIDATE.md"
+    "g2_state_space": "results/ITER006_G2_STATE_SPACE_AND_PROJECTOR_AUDIT.md",
+    "g2c_seed_physical": "results/ITER006_G2C_SEED_PHYSICAL_HILBERT_AND_UNITARY_HISTORY.md",
+    "g3a_transport": "results/ITER006_G3A_DERIVED_HISTORY_TRANSPORT.md",
+    "g3b_quantum_lift": "results/ITER006_G3B_CONTROLLED_CONFIGURATION_TRANSPORT.md",
+    "g4_frame_holonomy": "results/ITER006_G4_FRAME_HOLONOMY_LIFT.md",
+    "g5_torsion": "results/ITER006_G5_DISCRETE_LEVI_CIVITA_UNIQUENESS.md",
+    "g6_projective": "results/ITER006_G6_PROJECTIVE_CLOSURE_AND_HOLONOMY.md",
+    "g7a_curvature": "results/ITER006_G7A_WEAK_CURVATURE_OBSERVABLE_COUNT.md",
+    "g2_code": "code/qgr_iter006_g2_state_space_history_audit.py",
+    "g2c_code": "code/qgr_iter006_g2c_seed_physical_hilbert.py",
+    "g5_code": "code/qgr_iter006_g5_discrete_torsion_rank.py"
   },
   "claim_locks": {
     "qgr_is_all_orders_nonlinear_gravity": false,
     "qgr_recovers_einstein_equations_all_orders": false,
-    "qgr_physical_hilbert_space_defined": false,
-    "qgr_quantum_measure_defined": false,
+    "qgr_generic_physical_hilbert_defined": false,
+    "qgr_finite_interacting_quantum_measure_defined": false,
+    "qgr_strong_curvature_projective_closure_proved": false,
     "qgr_continuum_limit_proved": false,
     "qgr_equivalence_principle_derived": false,
     "qgr_normalized_operational_observable_closed": false,
@@ -136,12 +166,12 @@
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
     "iterations/ITERATION_006.md",
-    "results/ITER006_G1_CHANNEL_COMPOSITION_CANDIDATE.md",
+    "results/ITER006_G5_DISCRETE_LEVI_CIVITA_UNIQUENESS.md",
+    "results/ITER006_G6_PROJECTIVE_CLOSURE_AND_HOLONOMY.md",
+    "results/ITER006_G4_FRAME_HOLONOMY_LIFT.md",
+    "results/ITER006_G2_STATE_SPACE_AND_PROJECTOR_AUDIT.md",
+    "results/ITER006_G2C_SEED_PHYSICAL_HILBERT_AND_UNITARY_HISTORY.md",
     "iterations/ITERATION_005.md",
-    "results/ITER005_G2_EXACT_QUARTIC_NOETHER_CLOSURE.md",
-    "results/ITER005_G2_QUARTIC_UNIQUENESS_AFFINE_RANK.md",
-    "results/ITER005_G3_WEAK_BACKGROUND_CAUSAL_STABILITY.md",
-    "results/ITER005_G4_REFINEMENT_HANDOFF.md",
     "docs/CONSTITUTION.md",
     "newest Iter006 results/code",
     "current KMQGB scoped deltas and authoritative benchmark front"
