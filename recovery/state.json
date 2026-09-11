@@ -4,23 +4,24 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-11",
-    "iteration": 4,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_LINEARIZED_ANSATZ_PROPOSED"
+    "iteration": 5,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_LINEARIZED_GAUGE_CLOSED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 30,
+    "candidate_program_pct": 36,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "current_task_pct": 55,
+    "iter004_pct": 100,
+    "iter005_pct": 0,
     "theory_established_pct": 0
   },
   "roadmap": {
     "R0_governance_recovery": "COMPLETE",
     "R1_requirement_closure": "COMPLETE_FOR_CURRENT_FRONT",
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
-    "R3_minimal_dynamical_ansatz": "PROPOSED_LINEARIZED_QGR_L0",
-    "R4_local_mathematical_closure": "ACTIVE_MASS_GAUGE_CONSTRAINT_BLOCKER",
-    "R5_same_realization_uv_ir": "INACTIVE",
+    "R3_minimal_dynamical_ansatz": "COMPLETE_LINEARIZED_QGR_L1_SELECTED",
+    "R4_local_mathematical_closure": "LINEARIZED_GAUGE_MASS_CLOSURE_COMPLETE_NONLINEAR_OPEN",
+    "R5_same_realization_uv_ir": "NOT_YET_ACTIVE_PENDING_NONLINEAR_LOCAL_CLOSURE",
     "R6_gr_recovery": "INACTIVE",
     "R7_observable_closure": "INACTIVE",
     "R8_independent_benchmark_export": "INACTIVE",
@@ -28,51 +29,61 @@
   },
   "candidate": {
     "promoted_ansatz": true,
-    "promotion_scope": "LINEARIZED_ONLY",
-    "active_branch": "QGR_L0_PAIR_INCIDENCE",
+    "promotion_scope": "LINEARIZED_GAUGE_CLOSED_ONLY",
+    "active_branch": "QGR_L1_SECOND_MOMENT",
+    "supersedes_linear_seed": "QGR_L0_PAIR_INCIDENCE",
     "lead_architecture": "A_CCRC",
-    "status": "PROPOSED_LINEARIZED_MASS_GAUGE_BLOCKED",
+    "status": "PROPOSED_LINEARIZED_GAUGE_CLOSED_CAUSAL_TWO_MODE_NONLINEAR_OPEN",
     "benchmark_winner": false,
     "independent_validation": false,
-    "linearized_action": "S2=(kappa/2) Dq^T (J-I) Dq",
-    "free_relative_kinetic_coefficients": 0,
-    "overall_linearized_normalization_parameters": 1,
-    "masslessness_protected": false
+    "unreduced_field_arena": "Sym^2(W4_rank1_relational_frame)",
+    "field_dimension": 10,
+    "derivative_gauge_parameters": 4,
+    "physical_null_modes_on_incidence_cone": 2,
+    "incidence_contravariant_form": "C=J-I",
+    "onsite_quadratic_mass_allowed_dimension": 0,
+    "masslessness_protected_linearized": true,
+    "a_posteriori_fierz_pauli_match": true,
+    "fierz_pauli_used_as_selection_criterion": false
   },
   "iter003_closed": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "boolean_seed": {
-      "object": "B4",
-      "events": 16,
-      "rank_counts": [1, 4, 6, 4, 1],
-      "maximal_chains": 24,
-      "equal_chain_weight": "1/24"
-    },
-    "pair_representation": "6=1+3+2",
-    "rank1_redefinition_dimension": 4,
-    "physical_pair_quotient_dimension": 2,
-    "pair_incidence_form": "C=J-I",
-    "pair_incidence_spectrum": [3, -1, -1, -1],
-    "classification": "PROPOSED_LINEARIZED_PAIR_INCIDENCE_ANSATZ_WITH_MASS_GAUGE_NONLINEAR_GR_CLOSURE_OPEN"
+    "classification": "L0_LORENTZIAN_SEED_COMPLETE_MASS_GAUGE_OPEN_AT_EXIT"
   },
-  "iter004": {
-    "status": "ACTIVE",
-    "completion_pct": 55,
-    "mechanisms": {
-      "M1_local_frame_constraint": "PARTIAL_CURRENT_FORM_ALLOWS_Q2",
-      "M2_refinement_fixed_background": "FAIL_SCOPED_CURRENT_REFINEMENT_DOES_NOT_FORCE_MASSLESSNESS",
-      "M3_goldstone_shift": "FAIL_SCOPED_NO_MICROSCOPIC_CONTINUOUS_SHIFT_DERIVED",
-      "M4_cohomological_origin": "FAIL_SCOPED_Q2_REMAINS_GAUGE_INVARIANT",
-      "M5_symmetry_enhancement": "BLOCKED_CONTINUOUS_O13_STABILIZER_NOT_REALIZED_AS_EXACT_B4_AUTOMORPHISM"
+  "iter004_closed": {
+    "status": "COMPLETE",
+    "completion_pct": 100,
+    "g4": {
+      "pair6_S4_degree2_hessian_orbits": 15,
+      "symmetric_coboundary_solution_dimension": 0,
+      "relative_derivative_solution_dimension_before_static_redundancy": 1,
+      "relative_derivative_plus_static_redundancy_solution_dimension": 0,
+      "classification": "FAIL_SCOPED_CURRENT_BOOLEAN_PAIR6_DERIVATIVE_GAUGE_CLOSURE"
     },
-    "tensor_representation": {
-      "pair6_is": "Sym^2(V3_standard_S4)",
-      "pair6_character": [6, 2, 2, 0, 0],
-      "decomposition": "1+3+2",
-      "rank1_image": "1+3",
-      "quotient": "2",
-      "continuous_spin2_claim": false
+    "g5": {
+      "unreduced_arena": "Sym^2(W4)",
+      "dimension": 10,
+      "representation_decomposition": "2*1+2*3+2",
+      "S4_degree2_hessian_orbits": 38,
+      "derivative_noether_rank": 36,
+      "gauge_compatible_hessian_dimension": 2,
+      "exact_L0_embedding_dimension": 0,
+      "classification": "PASS_SCOPED_NATURAL_10D_ARENA_FAIL_SCOPED_EXACT_L0_EMBEDDING"
+    },
+    "g6": {
+      "family_parameterization": "H(t)=H0+tH1",
+      "cover_characteristic_factorization": "-(t+1)^4(2t-1)^2/4",
+      "cover_null_branches": ["t=-1", "t=1/2"],
+      "selected_branch": "t=1/2",
+      "selection_reason": "incidence null cone plus independently derived exact two-mode quotient",
+      "selected_rank_on_tested_incidence_null_covectors": 4,
+      "selected_rank_on_tested_nonnull_covectors": 6,
+      "onsite_S4_mass_orbits": 7,
+      "onsite_mass_noether_rank": 7,
+      "allowed_nonzero_onsite_mass_dimension": 0,
+      "a_posteriori_match": "massless Fierz-Pauli quadratic operator in C=J-I tetrahedral null frame, up to normalization",
+      "classification": "PASS_SCOPED_UNIQUE_CAUSAL_TWO_MODE_DERIVATIVE_GAUGE_CLOSED_LINEARIZED_QGR_L1"
     }
   },
   "governance": {
@@ -94,31 +105,30 @@
     "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED"
   },
   "active_question": {
-    "id": "QGR-ITER004-G4-DERIVATIVE-CONSTRAINT-CLOSURE",
-    "text": "Can a local derivative first-class/Noether-like constraint algebra be derived from the full six pair variables plus four rank-1 relational-frame directions using only existing incidence/composition rules, and does it forbid the physical mass deformation without importing continuum diffeomorphism symmetry?"
+    "id": "QGR-ITER005-NONLINEAR-CONSTRAINT-AND-SELF-COUPLING-CLOSURE",
+    "text": "Can QGR-L1 be completed beyond quadratic order by relational composition and Noether consistency, with a closed nonlinear constraint algebra and low-dimensional self-coupling, without inserting Einstein-Hilbert or continuum diffeomorphism dynamics by hand?"
   },
   "next_gate": {
-    "iteration": 4,
-    "id": "QGR-ITER004-G4-DERIVATIVE-CONSTRAINT-CLOSURE",
-    "action": "Derive the most general first-neighbor transformation of full pair data generated by neighboring rank-1 relational redefinitions, test the QGR-L0 Hessian for a null/Noether identity, and test whether the onsite physical mass operator is forbidden.",
-    "fatal_criterion": "If the required derivative gauge law must be inserted in continuum diffeomorphism form or a mass parameter must simply be set to zero, do not promote closure."
+    "iteration": 5,
+    "id": "QGR-ITER005-G1-CUBIC-DEFORMATION-CENSUS",
+    "action": "Enumerate the lowest-order local cubic deformations and first nonlinear gauge corrections compatible with S4/incidence locality and impose order-by-order Noether consistency before any comparison with GR interactions.",
+    "fatal_criterion": "If nonlinear closure requires inserting Einstein-Hilbert because it is known to work, adding arbitrary free functions, or changing the linearized incidence cone solely to obtain closure, reject that branch."
   },
   "artifacts": {
-    "iteration_3": "iterations/ITERATION_003.md",
     "iteration_4": "iterations/ITERATION_004.md",
-    "iter003_g2": "results/ITER003_G2_TETRAHEDRAL_LORENTZ_SECTOR.md",
-    "iter003_g3": "results/ITER003_G3_HYPERBOLIC_KINETIC_SEED.md",
-    "iter003_g4": "results/ITER003_G4_MICRO_INCIDENCE_BRIDGE.md",
-    "iter003_g5": "results/ITER003_G5_PAIR_ACTION.md",
-    "iter003_g6": "results/ITER003_G6_GAUGE_MASS_AUDIT.md",
-    "iter004_g1_g2": "results/ITER004_G1_G2_PROTECTION_AUDIT.md",
-    "iter004_g3": "results/ITER004_G3_TENSOR_REPRESENTATION_AUDIT.md"
+    "iter004_g4": "results/ITER004_G4_DERIVATIVE_CONSTRAINT_AUDIT.md",
+    "iter004_g5": "results/ITER004_G5_SECOND_MOMENT_ARENA.md",
+    "iter004_g6": "results/ITER004_G6_SELECT_L1.md",
+    "iter004_g4_code": "code/qgr_iter004_g4_derivative_constraint_audit.py",
+    "iter004_g5_code": "code/qgr_iter004_g5_second_moment_arena.py",
+    "iter004_g6_code": "code/qgr_iter004_g6_select_l1.py"
   },
   "claim_locks": {
-    "qgr_is_graviton_theory": false,
+    "qgr_is_full_graviton_theory": false,
     "qgr_recovers_einstein_equations": false,
-    "qgr_masslessness_protected": false,
-    "continuous_lorentz_symmetry_derived": false,
+    "qgr_nonlinear_diffeomorphism_invariance_derived": false,
+    "qgr_masslessness_protected_linearized_only": true,
+    "qgr_continuum_limit_proved": false,
     "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
     "qgr_correct": false,
@@ -127,10 +137,11 @@
   "recovery_order": [
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
+    "iterations/ITERATION_005.md",
     "iterations/ITERATION_004.md",
-    "iterations/ITERATION_003.md",
+    "results/ITER004_G6_SELECT_L1.md",
     "docs/CONSTITUTION.md",
-    "newest Iter004 results and code",
-    "current KMQGB recovery front and recent commits"
+    "newest Iter005 results and code",
+    "current KMQGB front and recent commits"
   ]
 }
