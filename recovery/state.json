@@ -5,14 +5,14 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-11",
     "iteration": 5,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_LINEARIZED_GAUGE_CLOSED"
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_UNIQUE_CUBIC_SELF_COUPLING_CLOSED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 36,
+    "candidate_program_pct": 42,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter004_pct": 100,
-    "iter005_pct": 15,
+    "iter005_pct": 60,
     "theory_established_pct": 0
   },
   "roadmap": {
@@ -20,48 +20,62 @@
     "R1_requirement_closure": "COMPLETE_FOR_CURRENT_FRONT",
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
     "R3_minimal_dynamical_ansatz": "COMPLETE_LINEARIZED_QGR_L1_SELECTED",
-    "R4_local_mathematical_closure": "LINEARIZED_GAUGE_MASS_CLOSURE_COMPLETE_NONLINEAR_OPEN",
-    "R5_same_realization_uv_ir": "NOT_YET_ACTIVE_PENDING_NONLINEAR_LOCAL_CLOSURE",
-    "R6_gr_recovery": "INACTIVE",
+    "R4_local_mathematical_closure": "CUBIC_NOETHER_SELF_COUPLING_COMPLETE_QUARTIC_OPEN",
+    "R5_same_realization_uv_ir": "NOT_YET_ACTIVE_PENDING_QUARTIC_AND_BACKGROUND_LOCAL_CLOSURE",
+    "R6_gr_recovery": "PARTIAL_LINEAR_AND_CUBIC_STRUCTURE_ONLY",
     "R7_observable_closure": "INACTIVE",
     "R8_independent_benchmark_export": "INACTIVE",
     "R9_prediction_discrimination": "INACTIVE"
   },
   "candidate": {
-    "promoted_ansatz": true,
-    "promotion_scope": "LINEARIZED_GAUGE_CLOSED_ONLY",
     "active_branch": "QGR_L1_SECOND_MOMENT",
-    "supersedes_linear_seed": "QGR_L0_PAIR_INCIDENCE",
     "lead_architecture": "A_CCRC",
-    "status": "PROPOSED_LINEARIZED_GAUGE_CLOSED_CAUSAL_TWO_MODE_NONLINEAR_OPEN",
-    "benchmark_winner": false,
-    "independent_validation": false,
+    "status": "LINEARIZED_GAUGE_CLOSED_CAUSAL_TWO_MODE_PLUS_UNIQUE_CUBIC_NOETHER_SELF_COUPLING_QUARTIC_OPEN",
     "unreduced_field_arena": "Sym^2(W4_rank1_relational_frame)",
     "field_dimension": 10,
     "derivative_gauge_parameters": 4,
     "physical_null_modes_on_incidence_cone": 2,
     "incidence_contravariant_form": "C=J-I",
-    "onsite_quadratic_mass_allowed_dimension": 0,
     "masslessness_protected_linearized": true,
-    "a_posteriori_fierz_pauli_match": true,
-    "fierz_pauli_used_as_selection_criterion": false
-  },
-  "iter004_closed": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "classification": "PASS_SCOPED_LINEARIZED_QGR_L1_GAUGE_MASS_CLOSURE_NONLINEAR_OPEN"
+    "nonlinear_pullback_delta1_derived": true,
+    "transformation_algebra_closed": true,
+    "unique_two_derivative_cubic_self_coupling": true,
+    "quartic_completion": false,
+    "benchmark_winner": false,
+    "independent_validation": false
   },
   "iter005": {
     "status": "ACTIVE",
-    "completion_pct": 15,
+    "completion_pct": 60,
     "g1a": {
-      "field": "H=Sym^2(W4)",
-      "Sym3_character": [220, 32, 12, 4, 0],
       "S4_zero_derivative_cubic_invariants": 20,
       "allowed_after_affine_gauge_shift": 0,
-      "classification": "PASS_SCOPED_20_S4_CUBIC_POTENTIALS_CENSUSED_AND_ALL_EXCLUDED_BY_DERIVED_AFFINE_GAUGE_SHIFT"
+      "classification": "PASS_SCOPED_ZERO_DERIVATIVE_CUBIC_SECTOR_EXCLUDED"
     },
-    "active_gate": "G1B_TWO_DERIVATIVE_CUBIC_CENSUS_AND_NOETHER_SYSTEM"
+    "g1b_pullback": {
+      "delta1": "xi^k D_k h_ij + h_kj D_i xi^k + h_ik D_j xi^k",
+      "algebra": "[delta_xi,delta_eta]G=delta_[xi,eta]G",
+      "classification": "PASS_SCOPED_RELATIONAL_FRAME_PULLBACK_FIXES_DELTA1_AND_CLOSES_TRANSFORMATION_ALGEBRA"
+    },
+    "g1b_cubic": {
+      "physical_two_derivative_cubic_dimension": 317,
+      "raw_S4_orbits": 399,
+      "raw_kinematic_nullity": 82,
+      "noether_physical_rank": 317,
+      "homogeneous_physical_kernel_dimension": 0,
+      "exact_rational_solution_exists": true,
+      "nonzero_raw_solution_coefficients": 75,
+      "solution_denominators": [1,2,4,8],
+      "exact_polynomial_noether_residual_nonzero_coefficients": 0,
+      "classification": "PASS_SCOPED_EXACT_RATIONAL_CUBIC_NOETHER_SOLUTION_UNIQUE_MODULO_KINEMATIC_NULLS"
+    },
+    "g2_quartic_front": {
+      "physical_two_derivative_quartic_dimension": 1694,
+      "raw_hhDhDh_monomials": 45100,
+      "raw_S4_orbits": 2066,
+      "raw_kinematic_IBP_nullity": 372,
+      "quartic_noether_status": "OPEN"
+    }
   },
   "governance": {
     "constitution": "docs/CONSTITUTION.md",
@@ -82,38 +96,44 @@
     "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED"
   },
   "active_question": {
-    "id": "QGR-ITER005-G1B-TWO_DERIVATIVE_CUBIC_CENSUS_AND_NOETHER_SYSTEM",
-    "text": "Does the complete local two-derivative cubic deformation space of QGR-L1 admit a unique or low-dimensional Noether-consistent self-coupling under a nonlinear gauge correction derived from relational frame composition, without importing Einstein-Hilbert?"
+    "id": "QGR-ITER005-G2_G3-QUARTIC_CONSISTENCY_AND_WEAK_BACKGROUND_CAUSAL_STABILITY",
+    "text": "Does the fixed QGR-L1 quadratic+cubic theory admit a quartic Noether completion without new physical coupling freedom, and do weak interacting backgrounds preserve a controlled two-mode causal cone?"
   },
   "next_gate": {
     "iteration": 5,
-    "id": "QGR-ITER005-G1B-TWO_DERIVATIVE_CUBIC_CENSUS_AND_NOETHER_SYSTEM",
-    "action": "Enumerate two-derivative cubic S4 invariants, quotient integration-by-parts redundancies, parameterize the first nonlinear gauge correction from relational frame composition, and solve delta0 S3 + delta1 S2 = 0 exactly.",
-    "fatal_criterion": "If nonlinear closure requires inserting Einstein-Hilbert because it is known to work, arbitrary post-hoc functions/counterterms, or changing the QGR-L1 quadratic cone solely to obtain closure, reject the branch."
+    "id": "QGR-ITER005-G2-QUARTIC_NOETHER_SOLVE",
+    "action": "Reduce the 2066 raw quartic S4 orbit basis to the 1694-dimensional physical quotient, solve delta0 S4 = -delta1 S3, and determine quartic existence and homogeneous physical kernel dimension before any Einstein-Hilbert comparison.",
+    "fatal_criterion": "If quartic closure requires inserting Einstein-Hilbert because it is known to work, adding arbitrary post-hoc functions/counterterms, or changing the QGR-L1 quadratic incidence cone solely to obtain closure, reject that repair."
   },
   "artifacts": {
     "iteration_5": "iterations/ITERATION_005.md",
-    "iter005_g1a": "results/ITER005_G1A_CUBIC_POTENTIAL_CENSUS.md",
-    "iter005_g1a_code": "code/qgr_iter005_g1a_cubic_potential_census.py",
-    "iteration_4": "iterations/ITERATION_004.md",
-    "iter004_g6": "results/ITER004_G6_SELECT_L1.md"
+    "g1b_pullback": "results/ITER005_G1B_FRAME_PULLBACK_ALGEBRA.md",
+    "g1b_cubic_count": "results/ITER005_G1B_TWO_DERIVATIVE_CUBIC_COUNT.md",
+    "g1b_cubic_noether": "results/ITER005_G1B_CUBIC_NOETHER_CLOSURE.md",
+    "g2_quartic_count": "results/ITER005_G2_QUARTIC_KINEMATIC_COUNT.md",
+    "g1b_noether_rank_code": "code/qgr_iter005_g1b_noether_rank.py",
+    "g1b_exact_noether_code": "code/qgr_iter005_g1b_exact_noether_certificate.py",
+    "g2_quartic_count_code": "code/qgr_iter005_g2_quartic_two_derivative_count.py",
+    "g2_quartic_raw_orbit_code": "code/qgr_iter005_g2_quartic_raw_orbit_count.py"
   },
   "claim_locks": {
-    "qgr_is_nonlinear_gravity": false,
-    "qgr_recovers_einstein_equations": false,
-    "qgr_nonlinear_diffeomorphism_invariance_derived": false,
-    "qgr_masslessness_protected_linearized_only": true,
+    "qgr_is_all_orders_nonlinear_gravity": false,
+    "qgr_recovers_einstein_equations_all_orders": false,
+    "qgr_quartic_completion_proved": false,
+    "qgr_equivalence_principle_derived": false,
     "qgr_continuum_limit_proved": false,
+    "qgr_quantum_measure_defined": false,
     "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
     "qgr_correct": false,
-    "qgr_unique": false
+    "qgr_unique_full_theory": false
   },
   "recovery_order": [
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
     "iterations/ITERATION_005.md",
-    "results/ITER005_G1A_CUBIC_POTENTIAL_CENSUS.md",
+    "results/ITER005_G1B_CUBIC_NOETHER_CLOSURE.md",
+    "results/ITER005_G2_QUARTIC_KINEMATIC_COUNT.md",
     "iterations/ITERATION_004.md",
     "results/ITER004_G6_SELECT_L1.md",
     "docs/CONSTITUTION.md",
