@@ -50,21 +50,31 @@ def one(h):
  assert np.max(np.abs(nulls))<1e-9
  Gram=ks@Bt@ks.T
  off=Gram[~np.eye(24,dtype=bool)]
- # Branch mean and centered coordinate covariance are diagnostic only; Gram is frame-scalar.
+ # Exact null-pair identity: for two null target covectors,
+ # k_p B k_q = -1/2 (k_p-k_q) B (k_p-k_q).
+ ident=[]
+ for p in range(24):
+  for q in range(24):
+   d=ks[p]-ks[q]
+   ident.append(Gram[p,q]+0.5*(d@Bt@d))
+ ident_max=float(np.max(np.abs(ident)))
+ assert ident_max<1e-9,ident_max
+ # This coordinate covariance is intentionally retained as a non-invariant side diagnostic.
  mean=ks.mean(axis=0);center=ks-mean;cov=center.T@center/24
  return {
   'h':h,
   'max_target_null_residual':float(np.max(np.abs(nulls))),
+  'null_pair_identity_max_error':ident_max,
   'offdiag_gram_rms':float(np.sqrt(np.mean(off**2))),
   'offdiag_gram_mean_abs':float(np.mean(np.abs(off))),
   'offdiag_gram_max_abs':float(np.max(np.abs(off))),
-  'coordinate_centered_cov_trace':float(np.trace(cov)),
+  'coordinate_centered_cov_trace_noninvariant':float(np.trace(cov)),
  }
 rows=[one(h) for h in [1.,0.5,0.25,0.125]]
-logh=np.log([r['h'] for r in rows]);gr=np.array([r['offdiag_gram_rms'] for r in rows]);ct=np.array([r['coordinate_centered_cov_trace'] for r in rows])
+logh=np.log([r['h'] for r in rows]);gr=np.array([r['offdiag_gram_rms'] for r in rows]);ct=np.array([r['coordinate_centered_cov_trace_noninvariant'] for r in rows])
 slope_g=float(np.polyfit(logh,np.log(gr),1)[0]);slope_c=float(np.polyfit(logh,np.log(ct),1)[0])
+# Fatal scaling criterion applies only to the common-target frame-invariant Gram scalar.
 assert 3.7<slope_g<4.3,(slope_g,rows)
-assert 3.7<slope_c<4.3,(slope_c,rows)
 scaled=[r['offdiag_gram_rms']/r['h']**4 for r in rows]
 out={
  'lane':'CURVED_NULL_BUNDLE_GRAM',
@@ -72,10 +82,11 @@ out={
  'history_count':24,
  'rows':rows,
  'offdiag_gram_rms_log_h_slope':slope_g,
- 'coordinate_cov_trace_log_h_slope':slope_c,
+ 'coordinate_cov_trace_log_h_slope_noninvariant_nonfatal':slope_c,
  'offdiag_gram_rms_over_h4':scaled,
- 'classification':'NUMERICALLY_VERIFIED_SCOPED_BRANCH_SYMMETRIC_COMMON_TARGET_NULL_COVECTOR_GRAM_SPREAD_IS_NONZERO_AND_SCALES_AS_H4_ON_G9',
- 'scientific_interpretation':'Each curved history transports the same source null covector to a target null covector using the same finite QGR path transport. The 24x24 matrix s_pq=k_p^T G_target^{-1} k_q is common-target frame invariant and branch-permutation covariant. Its off-diagonal RMS is nonzero and scales as h^4, providing a basis-free bundle-separation observable before choosing a two-polarization detector basis.',
- 'guard':'This is a characteristic-bundle/path-transport observable, not yet the quantum two-mode density matrix or purity. The source covector normalization is inherited and fixed across branches; phenomenological frequency normalization is not fixed here.'
+ 'null_pair_identity':'k_p^T B k_q = -1/2 (k_p-k_q)^T B (k_p-k_q) for null target covectors',
+ 'classification':'NUMERICALLY_VERIFIED_SCOPED_BRANCH_SYMMETRIC_COMMON_TARGET_NULL_GRAM_SPREAD_NONZERO_AND_H4_ON_G9__COORDINATE_COVARIANCE_NONINVARIANT_NONFATAL',
+ 'scientific_interpretation':'Each curved history transports the same source null covector to a target null covector using the same finite QGR path transport. The 24x24 matrix s_pq=k_p^T G_target^{-1} k_q is common-target frame invariant and branch-permutation covariant. Its off-diagonal RMS is nonzero and scales approximately h^4. The h^4 onset is geometrically natural because all target covectors are null and the exact pair identity makes the scalar quadratic in branch separation.',
+ 'guard':'This is a characteristic-bundle/path-transport observable, not yet the quantum two-mode density matrix or purity. The coordinate-centered covariance is reported only as a non-invariant side diagnostic and is not a pass/fail criterion. Source covector normalization is inherited and fixed across branches; phenomenological frequency normalization is not fixed here.'
 }
 open(args.output,'w').write(json.dumps(out,indent=2,sort_keys=True)+'\n');print(json.dumps(out,sort_keys=True))
