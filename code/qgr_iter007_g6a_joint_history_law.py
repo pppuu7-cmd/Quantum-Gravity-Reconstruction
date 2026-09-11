@@ -22,7 +22,6 @@ def audit(rows):
  m2=[sum(w*S[j][u] for i,j,w in rows) for u in range(6)]
  cross=[[sum(w*S[i][u]*S[j][v] for i,j,w in rows)-m1[u]*m2[v] for v in range(6)] for u in range(6)]
  summ=[[2*C[u][v]+cross[u][v]+cross[v][u] for v in range(6)] for u in range(6)]
- # marginals exactly uniform
  marg1=[sum(w for i,j,w in rows if i==k) for k in range(24)]
  marg2=[sum(w for i,j,w in rows if j==k) for k in range(24)]
  assert all(x==Fraction(1,24) for x in marg1+marg2)
@@ -39,6 +38,7 @@ assert res['synchronized']['sum_sign_variance_trace']=='24'
 assert res['reversed']['sum_sign_variance_trace']=='0'
 out={
  'lane':'JOINT_HISTORY_LAW',
+ 'workflow_revision':1,
  'all_three_local_marginals':'uniform 1/24 exactly',
  'sum_sign_variance_trace':{k:v['sum_sign_variance_trace'] for k,v in res.items()},
  'classification':'BLOCKED_LOCAL_1_OVER_24_HISTORY_NORMALIZATION_DOES_NOT_FIX_CROSS_CELL_CORRELATIONS',
