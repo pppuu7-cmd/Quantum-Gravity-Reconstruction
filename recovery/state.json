@@ -4,20 +4,20 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-11",
-    "iteration": 1,
+    "iteration": 2,
     "phase": "MODEL_CONSTRUCTION_ACTIVE_PRE_ANSATZ"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 24,
     "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory.",
-    "current_task_pct": 100,
+    "current_task_pct": 45,
     "theory_established_pct": 0
   },
   "roadmap": {
     "R0_governance_recovery": "COMPLETE",
-    "R1_requirement_closure": "ACTIVE",
-    "R2_ontology_search": "NOT_PROMOTED",
+    "R1_requirement_closure": "COMPLETE_FOR_BOOTSTRAP",
+    "R2_ontology_search": "ACTIVE",
     "R3_minimal_dynamical_ansatz": "INACTIVE",
     "R4_local_mathematical_closure": "INACTIVE",
     "R5_same_realization_uv_ir": "INACTIVE",
@@ -29,9 +29,17 @@
   "candidate": {
     "promoted_ansatz": false,
     "active_branch": null,
-    "status": "UNFORMED",
+    "status": "UNFORMED_MULTI_BRANCH_SEARCH",
     "benchmark_winner": false,
-    "independent_validation": false
+    "independent_validation": false,
+    "branches": {
+      "A_CCRC": {"score": 30, "max_score": 40, "status": "PARTIAL_HIGH_PRIORITY_FOR_KILL_TESTS"},
+      "B_CQCG": {"score": 30, "max_score": 40, "status": "PARTIAL_HIGH_RIGIDITY_BUT_GR_ROUTE_WEAK"},
+      "C_PCMH": {"score": 30, "max_score": 40, "status": "PARTIAL_HIGH_SAME_REALIZATION_POTENTIAL"},
+      "D_LCSD": {"score": 29, "max_score": 40, "status": "PARTIAL_GEOMETRY_STRONGER_THAN_COMPOSITION"},
+      "E_RQEC": {"score": 31, "max_score": 40, "status": "PARTIAL_HIGHEST_RAW_SCORE_BUT_FATAL_GR_RISK"}
+    },
+    "kill_round_1_queue": ["A_CCRC", "C_PCMH", "E_RQEC"]
   },
   "governance": {
     "constitution": "docs/CONSTITUTION.md",
@@ -40,7 +48,8 @@
     "fail_closed": true,
     "same_realization_required": true,
     "blocked_is_failure": false,
-    "post_hoc_benchmark_tuning_forbidden": true
+    "post_hoc_benchmark_tuning_forbidden": true,
+    "raw_score_can_override_fatal_gate": false
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
@@ -56,13 +65,13 @@
     "candidate_family_terminal_coverage": "0/14"
   },
   "active_question": {
-    "id": "QGR-G0",
-    "text": "Identify the minimum viable microscopic ontology and dynamical closure architecture satisfying quantum, causal/compositional, finiteness/extension, emergent 4D Lorentzian GR, normalized-observable, same-realization, and rigidity obligations."
+    "id": "QGR-G0-KILL-ROUND-1",
+    "text": "Test the A/CCRC, C/PCMH, and E/RQEC architecture classes with their predeclared minimal toy-model kill tests before promoting any ansatz."
   },
   "next_gate": {
     "iteration": 2,
-    "id": "QGR-G0-ARCHITECTURE-MATRIX",
-    "action": "Generate and score at least four genuinely distinct architecture classes before promoting any physical ansatz.",
+    "id": "QGR-G0-KILL-ROUND-1",
+    "action": "Execute explicit toy mathematics for A, C, and E under the already declared tests; reject early on fatal-gate failure and do not add post-hoc rescue terms.",
     "minimum_kill_tests_before_branch_promotion": 3
   },
   "claim_locks": {
