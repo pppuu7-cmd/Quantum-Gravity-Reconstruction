@@ -1,0 +1,64 @@
+name: qgr-iter007-g6f-wavepacket
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'code/qgr_iter007_g6f_*.py'
+      - '.github/workflows/qgr-iter007-g6f-wavepacket.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        mode: [hilbert, overlap, g9-envelope]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Run lane
+        shell: bash
+        run: |
+          mkdir -p build/g6f
+          case '${{ matrix.mode }}' in
+            hilbert) python code/qgr_iter007_g6f_common_characteristic_hilbert.py --output build/g6f/result.json ;;
+            overlap) python code/qgr_iter007_g6f_packet_overlap_identities.py --output build/g6f/result.json ;;
+            g9-envelope) python code/qgr_iter007_g6f_repaired_g9_envelope_purity.py --output build/g6f/result.json ;;
+          esac
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter007-g6f-${{ matrix.mode }}
+          path: build/g6f/result.json
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: qgr-iter007-g6f-*
+          path: iter007-g6f-results
+      - run: python code/qgr_iter007_g6f_aggregate.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter007-g6f-summary
+          path: iter007-g6f-summary.json
+          if-no-files-found: error
+          retention-days: 90
