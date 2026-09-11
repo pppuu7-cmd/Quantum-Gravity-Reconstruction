@@ -1,88 +1,93 @@
 # QGR Current Research Front
 
 Updated: 2026-09-11
-Iteration: `Iter001`
+Iteration: `Iter002`
 Project phase: `MODEL_CONSTRUCTION_ACTIVE / PRE_ANSATZ`
-Active roadmap stage: `R1 — requirement closure / failure-mode map`
+Active roadmap stage: `R2 — ontology search`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **24%** (external KMQGB R3 baseline carried as a bookkeeping marker only)
-- Current iteration completion: **100%**
+- Candidate-program readiness: **24%** (external KMQGB R3 bookkeeping baseline; unchanged until a branch becomes promotable)
+- Current iteration completion: **45%**
 - Physical ansatz promoted: **NO**
-- Active model branch: `NONE`
+- Active model branch: `NONE — three branches queued for kill tests`
 - Theory established: **NO**
 - Independent benchmark passed: **NO**
 - KMQGB `NEW_REQUIRED` authorization: **NO**
 
-## Iter001 result
+## Iter002 result so far
 
-QGR has been separated institutionally and scientifically from RQIR and KMQGB. A frozen construction constitution, roadmap, benchmark handoff, recovery discipline, and first scientific target now exist.
+The QGR-G0 architecture matrix has been generated prospectively under Constitution v1.0. Five distinct design classes are now tracked:
 
-This closes the bootstrap task but does not advance a physical ansatz by itself.
+- `A / CCRC` — Constraint-Closed Relational Complex;
+- `B / CQCG` — Compositional Quantum-Channel Geometry;
+- `C / PCMH` — Projectively Consistent Causal Measure on Histories;
+- `D / LCSD` — Lorentzian Causal-Spectral Dynamics;
+- `E / RQEC` — Relational Quantum Error-Correcting Geometry.
 
-## Strongest imported lesson
+No branch is promoted. Preliminary raw scores cluster tightly (29-31/40) and therefore do not justify a winner.
 
-The candidate should not merely add enough adjustable structure to evade the known-framework blockers. In particular, current benchmark work repeatedly exposes the distinction between:
+## Current priority
 
-- formal existence and finite normalized physical definition;
-- symmetry reduction and actual dynamical coefficient determination;
-- algebraic completion and physically admissible measure support;
-- separate endpoint evidence and a same-realization UV-to-IR chain.
+Run a first prospective cheap-kill round on A, C, and E because they expose three substantially different proposed rigidity mechanisms:
 
-QGR should therefore search first for a **rigidity mechanism**: a principle or mathematical structure that fixes dynamics/extension data prospectively rather than supplying an ever-growing counterterm/function space.
+- A — closure-generated amplitudes;
+- C — projective measure consistency;
+- E — isometric/recoverability consistency.
 
-## Active scientific question — QGR-G0
+B and D remain live controls.
 
-What is the minimum microscopic ontology and dynamical architecture capable of simultaneously supporting:
+## Strongest current methodological result
 
-1. quantum state/information;
-2. composition/gluing;
-3. causal structure;
-4. emergent geometric observables;
-5. a prospective finite/extension mechanism;
-6. a controlled 4D Lorentzian continuum/GR limit;
-7. normalized operational observables;
-8. sufficiently low free-function freedom to remain falsifiable?
+A raw architecture score cannot override a fatal scientific weakness. Branch E currently has the highest preliminary total but a weak Lorentzian/GR route, so it is explicitly **not** promoted. This prevents score gaming and preserves fail-closed construction.
 
-The goal is not to answer these by naming an existing school. The goal is to derive a minimal specification and use it to generate a small number of candidate architecture branches.
+## Active scientific gate — QGR-G0-KILL-ROUND-1
 
-## Iter002 exact next gate
+### A / CCRC
+Build the minimal nontrivial relational complex and test:
+1. exact composition/gluing consistency;
+2. existence of a nonzero geometric observable without continuum metric input;
+3. whether the smallest consistency system fixes coefficients to a low-dimensional space.
 
-Construct the `QGR-G0 architecture matrix` before writing a preferred action/amplitude.
+### C / PCMH
+Build a two-resolution causal-history system and test:
+1. exact pushforward/projective consistency;
+2. growth of compatible-measure freedom under refinement;
+3. normalized causal quantum measure without post-hoc regulator choice.
 
-Required columns for each architecture class:
+### E / RQEC
+Build a minimal relational encoder and test:
+1. whether adjacency/dimension is derived rather than hard-coded;
+2. whether causal order is intrinsic rather than supplied externally;
+3. whether any route to dynamical curvature exists beyond kinematic entanglement/encoding structure.
 
-- microscopic object;
-- state space;
-- fundamental symmetry;
-- composition/gluing law;
-- causal primitive;
-- geometry map;
-- source of dynamics;
-- finiteness/extension mechanism;
-- estimated independent functions/coefficients;
-- plausible 4D Lorentzian route;
-- cheapest kill test;
-- immediate fatal risk.
+## Promotion rule
 
-At least four genuinely distinct architecture classes should be generated and scored. Existing frameworks may inspire primitives, but a branch must not simply rename an existing theory.
+No branch becomes “the QGR model” unless it:
 
-## Promotion rule for Iter002+
+- triggers no fatal gate;
+- passes at least three prospective cheap kill tests;
+- has explicit/bounded residual functional freedom;
+- has a concrete finite-definition mechanism;
+- has a plausible same-realization UV-to-IR path.
 
-No branch becomes “the QGR model” until one architecture wins prospectively on rigidity, same-realization closure potential, and falsifiability and passes at least three predeclared cheap kill tests.
+If none qualifies, record `NO_PROMOTION` and remain in R2.
 
 ## Claim locks
 
 Unchanged:
 
-- do not claim existing models are all wrong;
-- do not claim a new model is formally required by KMQGB;
-- do not convert BLOCKED to FAIL;
-- do not call QGR unique or correct;
-- do not treat theory-specific LQG extension burdens as universal no-go theorems.
+- existing models are not collectively declared wrong;
+- a new model is not formally required by KMQGB;
+- `BLOCKED` is never silently converted to `FAIL`;
+- QGR is not called unique or correct;
+- theory-specific LQG extension results are not universalized into quantum-gravity no-go claims.
 
-## Next action
+## KMQGB synchronization
 
-Begin `Iter002`: derive and compare candidate ontology/dynamics architectures under the frozen Constitution v1.0, then select **at most one** provisional branch for deeper mathematical construction. If no branch clears the pre-ansatz gate, remain in R2 and redesign rather than forcing an ansatz.
+Last observed KMQGB commit: `35bd20ed562365af4cc9f6431c487f223b419e82` (Iter323 recovery delta). Global decision remains `NOT_YET_AUTHORIZED`.
+
+## Exact next action
+
+Execute `QGR-G0-KILL-ROUND-1` with explicit toy mathematics for A, C, and E. Preserve the predeclared tests exactly; do not add rescue terms after seeing failures.
