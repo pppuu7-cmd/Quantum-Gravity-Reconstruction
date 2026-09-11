@@ -1,104 +1,101 @@
 # QGR Current Research Front
 
 Updated: 2026-09-11
-Active iteration: `Iter003`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / PRE_ANSATZ`
-Active roadmap stage: `R3 gate — 4D Lorentzian/GR seed`
+Active iteration: `Iter004`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / LINEARIZED_ANSATZ_PROPOSED`
+Active roadmap stage: `R4 — local mathematical / gauge-constraint closure`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **24%** (unchanged; still no promotable physical ansatz)
-- Iter003 completion: **25%**
-- Physical ansatz promoted: **NO**
+- Candidate-program readiness: **30%**
+- Iter003 completion: **100%**
+- Iter004 completion: **55%**
 - Lead architecture: `A / CCRC`
-- Theory established: **NO**
+- Active candidate: `QGR-L0`
+- Candidate state: `PROPOSED_LINEARIZED / MASS_GAUGE_BLOCKED`
+- Full theory established: **NO**
 - Independent benchmark passed: **NO**
 - KMQGB `NEW_REQUIRED` authorization: **NO**
 
-## Iter002 closed result
+Readiness is an internal construction-roadmap metric, not probability of correctness.
 
-Two prospective kill rounds selected A/CCRC as the unique current lead architecture. B, C and E acquired scoped standalone failures; D remains only partially viable. Issue #1 is closed as completed.
+## Iter003 closed result
 
-## Iter003 seed result
+The same finite `B_4` realization now supplies the chain
 
-A branching/recombining metric-free causal test object has been constructed using the Boolean causal cell `B_d`.
+`Boolean causal order -> derived d=4 -> six rank-2 pair variables -> exact 2D physical quotient -> Lorentzian pair-incidence form -> hyperbolic linearized pair action`.
 
-Events are subsets of `d` independent relational generators, ordered by set inclusion. The rank profile is purely combinatorial:
+Key exact results:
 
-`N_r = C(d,r)` and `R_d(x)=(1+x)^d`.
+- `B_4` has 16 events, rank profile `(1,4,6,4,1)`, 24 maximal chains;
+- exact symmetric path normalization `w_4=1/24`;
+- pair representation `6=1+3+2`;
+- rank-1 redefinition image has dimension 4, leaving exact 2D quotient;
+- rank-2 pair incidence `C=J-I` has spectrum `(3,-1,-1,-1)`;
+- proposed linearized action `S2=(kappa/2) Dq^T (J-I) Dq` is hyperbolic;
+- both physical pair components share the same kinetic tensor;
+- current lower-rank redundancy does **not** forbid `m^2 q^2`.
 
-Thus `d` is recoverable from relational-order data rather than supplied by a continuum metric.
+Iter003 therefore promoted the first explicit linearized candidate `QGR-L0` but ended with mass/gauge protection open.
 
-For `B_4`:
+Authoritative record: `iterations/ITERATION_003.md`.
 
-- events: `16`;
-- rank profile: `(1,4,6,4,1)`;
-- maximal monotone causal chains: `4! = 24`;
-- derived combinatorial direction count: `d=4`.
+## Iter004 results so far
 
-Retaining the Iter002 CCRC projector `P=I-J/3`, each chain has kernel `P^4=P`. Equal-chain symmetry plus exact coarse consistency requires
+### Protection mechanism audit
 
-`24 * w_4 * P = P`,
+- M1 local lower-rank/frame redundancy: `PARTIAL`; current form allows `q^2`.
+- M2 refinement-fixed background protection: `FAIL_SCOPED`; kinematic `T=I` does not imply dynamical stationarity.
+- M3 microscopic Goldstone/shift protection: `FAIL_SCOPED`; no continuous microscopic shift generator derived.
+- M4 cohomological origin alone: `FAIL_SCOPED`; physical `q` is gauge invariant, so `q^2` is too.
+- M5 Lorentz symmetry enhancement: `BLOCKED`; `C` has continuous `O(1,3)` stabilizer, but exact `B_4` automorphisms are only finite `S_4`.
 
-therefore the path weight is uniquely fixed to
+### Exact tensor representation audit
 
-`w_4 = 1/24`.
+The six Boolean pair variables satisfy
 
-More generally `w_d=1/d!` on the symmetric `B_d` cell.
+`pair6 ~= Sym^2(V3)`
 
-Classification: `PASS_SCOPED_DERIVED_COMBINATORIAL_DIMENSION_AND_UNIQUE_PATH_NORMALIZATION`.
+for the standard 3D `S_4` representation `V3`.
 
-Reproducibility: `code/qgr_iter003_boolean_causal_cell.py`.
-Detailed record: `iterations/ITERATION_003.md`.
+Exact decomposition:
 
-## Why this matters
+`6=1+3+2`.
 
-The first branching/recombining extension did not require a new tunable amplitude weight. Path multiplicity plus refinement closure fixed the symmetric normalization combinatorially. This is consistent with the QGR rigidity objective and avoids repeating a major class of underdetermination seen in benchmark work.
+The rank-1 redefinition image is
 
-## Critical boundary
+`4=1+3`,
 
-`d=4` here means a derived **combinatorial direction count**, not yet physical 4D Lorentzian spacetime.
+leaving the exact two-dimensional quotient.
 
-Still unproved:
+This means the correct arena for a future gauge/constraint theorem is the **full six-component tensor-like pair field plus four lower-rank constraint directions**, not only the reduced 2D field.
 
-- Lorentzian signature;
-- approximate local Lorentz invariance;
-- metric/tetrad degrees of freedom;
-- propagating massless spin-2 sector;
-- Einstein dynamics;
-- equivalence principle;
-- continuum locality;
-- normalized clock/rod observable.
+## Current blocker
 
-No readiness increase is granted for merely matching the number four.
+`BLOCKED_MISSING_DERIVED_DERIVATIVE_FIRST_CLASS_OR_NOETHER_LIKE_CONSTRAINT_ALGEBRA_ON_FULL_6_PLUS_4_RELATIONAL_STRUCTURE_THAT_FORBIDS_MASS_DEFORMATION_WITHOUT_POST_HOC_CONTINUUM_GAUGE_INSERTION`
 
-## Active scientific gate — Iter003-G2
+## Active gate — Iter004-G4
 
-`QGR-ITER003-G2-LORENTZIAN-TENSOR-SEED`
+`QGR-ITER004-G4-DERIVATIVE-CONSTRAINT-CLOSURE`
 
-1. Perturb local incidence/gluing data around symmetric `B_4` without a background metric.
-2. Decompose perturbations into symmetry sectors before choosing dynamics.
-3. Look for a nontrivial traceless tensor-like sector that survives causal gluing/refinement.
-4. Test multi-cell composition; a mode existing only in one isolated cell does not count.
-5. Determine whether any candidate Lorentzian signature or hyperbolic propagation structure arises intrinsically.
-6. Reject the branch in its present form if continuum GR structure must be inserted by hand.
-
-## Fatal criterion
-
-If 4D Lorentzian/GR recovery requires inserting a background metric, Einstein-Hilbert term, arbitrary continuum/spectral function, or gate-specific coefficients solely to hit GR, A/CCRC fails the reconstruction objective in its current form.
+1. Work with full `x_ij(n)` pair data plus four rank-1 relational-frame variables.
+2. Generate transformations only from neighboring relational redefinitions and existing incidence/composition maps.
+3. Derive the most general first-neighbor derivative transformation compatible with `S_4`.
+4. Test the QGR-L0 Hessian for a Noether/first-class-like null identity.
+5. Determine whether the unique onsite mass deformation is forbidden.
+6. Fail closed if the needed transformation must simply be copied from continuum linearized diffeomorphisms.
 
 ## KMQGB synchronization
 
-Last inspected KMQGB head remains `f503c39177012879a80bf767282a15d0c441e2f9` (Iter324-325 merge). Its finite-source-`i-epsilon` result reinforces, but does not change, the QGR prospective finite-definition rule. D7 remains unauthorized in the inspected snapshot.
+Last inspected KMQGB head: `f503c39177012879a80bf767282a15d0c441e2f9` (Iter324-325 merge). Global D7 remains unauthorized in the inspected snapshot.
 
-## Recovery pointers
+## Recovery order
 
-- `recovery/state.json`
-- `iterations/ITERATION_003.md`
-- `code/qgr_iter003_boolean_causal_cell.py`
-- GitHub issue #2 — Iter003 4D Lorentzian/GR seed gate
-
-## Exact next action
-
-Begin the symmetry-sector perturbation analysis around `B_4`. The next useful milestone is not another combinatorial dimension count; it is evidence for or against an intrinsically generated Lorentzian tensor-like propagating sector.
+1. `recovery/state.json`
+2. `recovery/CURRENT_FRONT.md`
+3. `iterations/ITERATION_004.md`
+4. `iterations/ITERATION_003.md`
+5. `docs/CONSTITUTION.md`
+6. newest files under `results/` and `code/` for Iter004
+7. current KMQGB front and recent commits
