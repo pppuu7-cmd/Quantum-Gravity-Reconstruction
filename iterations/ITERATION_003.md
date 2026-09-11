@@ -1,55 +1,44 @@
 # QGR Iteration 003 — 4D Lorentzian/GR Seed Gate
 
 Date: 2026-09-11
-Status: `ACTIVE / G2_KINEMATIC_LORENTZ_SEED_PASSED / HYPERBOLIC_DYNAMICS_OPEN`
-Current task completion: **60%**
-Canonical candidate-program readiness: **24%**
-Physical ansatz promoted: **NO**
+Status: `COMPLETE / PROPOSED_LINEARIZED_ANSATZ / MASS_GAUGE_BLOCKED`
+Current task completion: **100%**
+Candidate-program readiness: **30%**
+Readiness semantics: internal construction-roadmap progress only; not probability of correctness and not fraction of quantum gravity solved.
+Physical ansatz promoted: **YES — LINEARIZED L0 ONLY**
 Lead architecture: **A / CCRC**
 
-## Objective
+## Objective and outcome
 
-Test whether the A/CCRC architecture can move beyond a directed chain toward a genuinely branching/recombining causal complex with a derived local dimension notion and then toward a Lorentzian tensor-like sector, while preserving exact rigidity and without inserting a background metric or Einstein-Hilbert action.
+Iter003 tested whether the A/CCRC architecture could progress from a branching metric-free causal combinatorics to a rigid Lorentzian tensor-like linearized candidate without inserting a background metric or Einstein-Hilbert action.
 
-## Predeclared fatal rule
+Outcome:
 
-Reject A/CCRC in its current reconstruction form if obtaining a 4D Lorentzian/GR regime requires any of the following solely to hit the target:
+- a derived four-direction Boolean causal seed exists;
+- the exact rank-2 perturbation space contains a structurally selected two-dimensional physical quotient;
+- microscopic rank-2 pair incidence carries a `(1,3)` Lorentzian signature for `d=4`;
+- a minimal equal-pair quadratic action gives an explicit hyperbolic two-component linearized ansatz with no relative kinetic tuning;
+- current microscopic redundancy does **not** protect masslessness;
+- nonlinear GR, gauge/diffeomorphism closure, continuum recovery and observables remain open.
 
-- inserting a continuum background metric;
-- assuming an Einstein-Hilbert action;
-- choosing an arbitrary continuum/spectral function after the fact;
-- adding gate-specific free coefficients with no generating principle;
-- switching to a different realization for the GR limit.
+This is enough to close the seed-construction iteration, but not to call the object a graviton theory or a quantum-gravity model.
 
-## G1 — Boolean causal cell `B_d`
+## G1 — Boolean causal cell
 
-Define the events of `B_d` as all subsets of a set of `d` independent relational generators. The causal order is set inclusion. Elementary causal links add one generator.
+Events of `B_d` are subsets of `d` independent relational generators, ordered by inclusion.
 
-The rank profile is
-
-`N_r = C(d,r)`
-
-with generating polynomial
-
-`R_d(x)=(1+x)^d`.
-
-Thus the combinatorial direction count `d` is recoverable from relational-order data.
+`N_r=C(d,r)`, with rank polynomial `(1+x)^d`.
 
 For `B_4`:
 
-- event count: `16`;
-- rank profile: `(1,4,6,4,1)`;
-- maximal causal chains: `4!=24`.
+- `16` events;
+- rank profile `(1,4,6,4,1)`;
+- `24` maximal causal chains;
+- derived combinatorial direction count `d=4`.
 
-Retaining the CCRC projector `P=I-J/3`, `P^2=P`, every four-step chain has kernel `P^4=P`. Equal-chain symmetry plus exact coarse/refinement consistency requires
+With the previously tested CCRC projector `P^2=P`, equal-chain symmetry plus exact coarse/refinement consistency fixes
 
-`24 w_4 P = P`,
-
-so
-
-`w_4=1/24`.
-
-More generally `w_d=1/d!`.
+`w_d=1/d!`, hence `w_4=1/24`.
 
 Classification:
 
@@ -57,126 +46,189 @@ Classification:
 
 Reproducibility: `code/qgr_iter003_boolean_causal_cell.py`.
 
-## G2 — exact `S_4` perturbation decomposition
+## G2 — exact pair-sector decomposition
 
-The four `B_4` relational directions define six unordered direction pairs. Small pair-incidence/gluing perturbations therefore form a six-dimensional representation of `S_4`.
+The six unordered direction pairs form the `S_4` pair representation
 
-The representation decomposes exactly as
+`6=1+3+2`.
 
-`6 = 1 + 3 + 2`.
+Let `M` be the unsigned `4 x 6` vertex-edge incidence matrix of `K_4`. The balanced sector
 
-A concrete realization is:
+`M x=0`
 
-- `1D`: scalar/common pair perturbation;
-- `3D`: vector-like sector `x_ij=u_i+u_j`, `sum_i u_i=0`;
-- `2D`: balanced sector satisfying `sum_{j!=i} x_ij=0` for every `i`.
+has dimension `2` and an exact basis
 
-The two-dimensional sector is exactly the kernel of the unsigned `K_4` vertex-edge incidence matrix. Since that matrix has rank four, the sector dimension is exactly two.
+`TT1=(0,1,-1,-1,1,0)`,
 
-One exact basis in pair order `(01,02,03,12,13,23)` is
+`TT2=(1,0,-1,-1,0,1)`
 
-`TT1=(0,1,-1,-1,1,0)`
+in pair order `(01,02,03,12,13,23)`.
 
-`TT2=(1,0,-1,-1,0,1)`.
+Embedded as symmetric zero-diagonal pair tensors, this sector is transverse to the fully symmetric direction and traceless relative to the Lorentzian seed.
 
-Detailed record: `results/ITER003_G2_TETRAHEDRAL_LORENTZ_SECTOR.md`.
+The exact `S_4` commutant on this 2D sector is one-dimensional, so every equivariant internal transfer acts as `lambda I`.
+
+Detailed result: `results/ITER003_G2_TETRAHEDRAL_LORENTZ_SECTOR.md`.
 Reproducibility: `code/qgr_iter003_tetrahedral_lorentz_sector.py`.
 
-## Conditional Lorentzian seed
+## G3 — hyperbolic principal tensor
 
-The most general symmetric bilinear form on the four generator directions invariant under all `S_4` permutations is
+For four equivalent directions, the most general symmetric `S_4`-invariant principal tensor is
 
-`g=alpha I + beta J`.
+`G=A I+B J`.
 
-G2 tests the explicit candidate causal hypothesis that the four equivalent elementary causal generators are null links of the emergent local bilinear form. Then diagonal entries vanish:
+Requiring its inverse propagation geometry to make the elementary causal directions null gives
 
-`alpha+beta=0`.
+`A+3B=0`, hence `B/A=-1/3`.
 
-Up to overall scale,
+After removing overall normalization,
 
-`g_0=I-J`.
+`G=I-J/3`,
 
-Its eigenvalues are
+with eigenvalues
 
-`(-3,+1,+1,+1)`.
+`(-1/3,+1,+1,+1)`.
 
-Therefore `S_4` equivalence plus the null-cover hypothesis fixes a Lorentzian `(1,3)` signature seed without inserting a continuum background metric.
+Thus the relative linearized kinetic structure is Lorentzian and fixed, not fitted coefficient by coefficient.
 
-This result is **conditional**: the null-cover interpretation has not yet been derived from earlier CCRC axioms and is not promoted to a theorem of QGR.
+Detailed result: `results/ITER003_G3_HYPERBOLIC_KINETIC_SEED.md`.
+Reproducibility: `code/qgr_iter003_g3_hyperbolic_operator.py`.
 
-## TT-like property
+## G4 — microscopic incidence origin
 
-Embed a pair perturbation as a symmetric `4x4` matrix `H` with zero diagonal and off-diagonal entries `H_ij=x_ij`.
+The rank-2 events of `B_d` are exactly unordered pairs of **distinct** generators. Therefore the canonical equal-weight rank-2 incidence matrix is, up to scale/sign,
 
-For every vector in the exact 2D balanced sector,
+`C_d=J-I`.
 
-`H (1,1,1,1)^T=0`.
+Its spectrum is
 
-Also, since
+`(d-1,-1,...,-1)`.
 
-`g_0^{-1}=I-J/3`,
+For `d=4`:
 
-one has exactly
+`spec(C_4)=(3,-1,-1,-1)`.
 
-`Tr(g_0^{-1}H)=0`.
+Hence the microscopic pair-incidence form itself already carries one sign opposite to the remaining three. Its inverse is
 
-Thus the two-dimensional finite sector is transverse to the distinguished symmetric direction and traceless relative to the conditional Lorentzian seed.
+`C_4^{-1}=-I+J/3`,
+
+matching the G3 tensor up to overall sign.
+
+A separate exact intertwiner audit shows that the most general first-order direction-resolved `S_4`-equivariant update of the 2D sector has only one degree of freedom:
+
+`T_0=T_1=T_2=T_3=lambda I`.
+
+Therefore first directional order cannot produce nontrivial spatial Lorentzian TT propagation; second directional order is the minimal nontrivial level under the current symmetry structure.
+
+Detailed result: `results/ITER003_G4_MICRO_INCIDENCE_BRIDGE.md`.
+Reproducibility: `code/qgr_iter003_g4_micro_incidence.py`.
+
+## G5 — proposed linearized QGR-L0 action
+
+The existing six rank-2 Boolean events provide the minimal equal-weight quadratic cell functional
+
+`S_cell^(2)=kappa sum_{i<j} D_i q · D_j q`
+
+or equivalently
+
+`S_cell^(2)=(kappa/2) Dq^T (J-I) Dq`.
+
+This action uses only distinct rank-2 pair events. There is no diagonal self-pair coefficient to tune, because `{i,i}` is not a rank-2 Boolean event. `S_4` gives one common pair weight.
+
+The principal polynomial is
+
+`K(p)=(sum_i p_i)^2-sum_i p_i^2`
+
+and, in the symmetric/spatial decomposition,
+
+`K(p)=3 p_0^2-|p_perp|^2`.
+
+The four elementary generator directions are exact null/characteristic directions.
+
+The two TT-like components have identical kinetic structure because the internal commutant is one-dimensional.
+
+Parameter audit at this level:
+
+- relative directional kinetic coefficients: `0`;
+- polarization splitting coefficients: `0`;
+- overall normalization/coupling: `1` (`kappa`);
+- protected mass parameter: not yet available;
+- nonlinear interaction functions: not defined.
+
+This is promoted as the first explicit linearized ansatz:
+
+`QGR-L0 = two-component balanced relational quotient field with pair-incidence kinetic action`.
+
+Detailed result: `results/ITER003_G5_PAIR_ACTION.md`.
+Reproducibility: `code/qgr_iter003_g5_pair_action.py`.
+
+## G6 — quotient origin and mass blocker
+
+Rank-1 generator redefinitions act on pair data as
+
+`x -> x+M^T u`, i.e. `x_ij -> x_ij+u_i+u_j`.
+
+Because `rank(M)=4`, the physical pair quotient has dimension
+
+`6-4=2`.
+
+The exact projector is
+
+`P_phys=I-M^T(MM^T)^(-1)M`,
+
+with `P_phys^2=P_phys`, `M P_phys=0`, `rank(P_phys)=2`.
+
+Thus the earlier 2D TT-like sector is not selected merely because it has dimension two: it is exactly the part of rank-2 data that cannot be changed by rank-1 redefinitions.
+
+However `q=P_phys x` is itself gauge/redefinition invariant, so the onsite operator
+
+`m^2 q·q`
+
+is also invariant. The currently derived microscopic redundancy therefore does **not** forbid mass.
+
+The G5 difference action has a global shift symmetry `q(n)->q(n)+c`, but Iter003 does not derive that shift as a fundamental microscopic gauge redundancy. Masslessness is therefore provisional and unprotected.
 
 Classification:
 
-`PASS_SCOPED_CONDITIONAL_LORENTZIAN_TETRAHEDRAL_FRAME_AND_2D_TRANSVERSE_TRACELESS_LIKE_SECTOR__NO_GRAVITON_OR_GR_DYNAMICS_CLAIM`.
+`PASS_SCOPED_LOWER_RANK_REDEFINITION_QUOTIENT_EXACTLY_PRODUCES_TWO_DIMENSIONAL_TT_LIKE_PHYSICAL_PAIR_SECTOR__CURRENT_MICROSCOPIC_REDUNDANCY_DOES_NOT_FORBID_ONSITE_MASS_TERM__MASSLESSNESS_NOT_YET_PROTECTED`.
 
-The equality of this sector dimension with the two continuum graviton helicities is only suggestive. Finite `S_4` representation dimension is not a Lorentz/Poincare spin-2 theorem.
+Detailed result: `results/ITER003_G6_GAUGE_MASS_AUDIT.md`.
+Reproducibility: `code/qgr_iter003_g6_gauge_mass_audit.py`.
 
-## Refinement rigidity and blocker
+## What Iter003 established
 
-The direct commutant audit of the two-dimensional `S_4` representation shows that every `S_4`-equivariant linear transfer map is
+Within the stated finite/linearized scope, QGR now has one coherent same-realization chain:
 
-`T=lambda I`.
+`Boolean causal order -> derived d=4 -> rank-2 pair incidence -> 2D physical quotient -> Lorentzian pair form -> hyperbolic pair-action`.
 
-If exact CCRC refinement remains idempotent,
+This is materially stronger than an isolated numerology match because each arrow has an explicit finite algebraic object and the same `B_4` realization is retained.
 
-`T^2=T`,
+## What Iter003 did not establish
 
-then
+No claim is made for:
 
-`lambda in {0,1}`.
+- protected masslessness;
+- local Lorentz group in a continuum limit;
+- diffeomorphism/first-class gauge algebra;
+- Lorentz/Poincare spin-2 representation theorem;
+- nonlinear self-coupling;
+- Einstein equations;
+- universal matter coupling/equivalence principle;
+- continuum/refinement theorem;
+- normalized operational observables;
+- experimental validation;
+- independent KMQGB PASS.
 
-A surviving nonzero mode therefore has `lambda=1` with no continuous transfer coefficient.
+## Readiness decision
 
-This is strong rigidity but not yet dynamics: `T=I` gives persistence, not a derived hyperbolic wave equation or dispersion law.
+Candidate-program readiness moves from **24% to 30%** because QGR has crossed the pre-ansatz boundary and now possesses an explicit, low-freedom, reproducible linearized candidate action.
 
-A path-response test over all 24 maximal `B_4` chains gives, for each exact TT-like basis vector:
+This percentage is only an internal roadmap metric. It is not probability that QGR is correct.
 
-- mean first-order response: `0`;
-- variance: `2`.
+## Exact next stage — Iter004
 
-So the mode is microscopically nonzero while first-order scalar path normalization is unchanged.
+`QGR-ITER004-MASSLESS-GAUGE-CLOSURE`
 
-## What remains open
+The next stage must search for a mechanism that protects masslessness and supplies a genuine constraint/gauge structure **for reasons independent of the desire to reproduce GR**.
 
-Still unproved:
-
-- derivation, rather than assumption, of null elementary links;
-- approximate local Lorentz invariance beyond finite tetrahedral symmetry;
-- diffeomorphism/gauge redundancy;
-- a hyperbolic kinetic operator;
-- massless dispersion;
-- Lorentz/Poincare spin-2 transformation law;
-- Einstein dynamics;
-- equivalence principle;
-- continuum locality;
-- normalized clock/rod observable.
-
-## Exact next gate — Iter003-G3
-
-`QGR-ITER003-G3-DISCRETE-HYPERBOLIC-PROPAGATION`
-
-1. Carry the exact 2D balanced sector on the smallest repeated/multi-cell causal complex.
-2. Start from the most general local, linear, `S_4`-covariant quadratic/second-order update compatible with the already derived conditional null frame.
-3. Determine whether its principal symbol is fixed, up to physically irrelevant overall scale, by locality + symmetry + null-link structure rather than by fitting a continuum target.
-4. Check whether a genuine hyperbolic/light-cone characteristic surface appears.
-5. Check whether both TT-like components propagate with the same operator by representation rigidity.
-6. Record a blocker instead of inserting a d'Alembertian by hand if the operator is underdetermined.
-
-The gate is passed only as a scoped linearized seed if the relative kinetic structure is fixed prospectively and no new gate-specific function is introduced.
+At least four candidate mechanisms must be compared prospectively before one is adopted. Any mechanism that merely tunes `m=0`, declares a gauge symmetry after seeing the spectrum, or introduces arbitrary compensator functions fails the anti-overfitting constitution.
