@@ -10,15 +10,16 @@
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 24,
-    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory. Held fixed until the full pre-ansatz promotion rule is satisfied.",
-    "current_task_pct": 78,
+    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory. Held fixed until a physical ansatz satisfies the pre-ansatz promotion rule.",
+    "current_task_pct": 100,
+    "next_task_pct": 0,
     "theory_established_pct": 0
   },
   "roadmap": {
     "R0_governance_recovery": "COMPLETE",
     "R1_requirement_closure": "COMPLETE_FOR_PRE_ANSATZ",
-    "R2_ontology_search": "ACTIVE_LEAD_ARCHITECTURE_IDENTIFIED_NOT_PROMOTED",
-    "R3_minimal_dynamical_ansatz": "INACTIVE",
+    "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
+    "R3_minimal_dynamical_ansatz": "BLOCKED_PENDING_4D_LORENTZIAN_GR_SEED_GATE",
     "R4_local_mathematical_closure": "INACTIVE",
     "R5_same_realization_uv_ir": "INACTIVE",
     "R6_gr_recovery": "INACTIVE",
@@ -30,46 +31,47 @@
     "promoted_ansatz": false,
     "active_branch": null,
     "lead_architecture": "A_CCRC",
-    "status": "UNFORMED_MULTI_BRANCH_SEARCH_WITH_LEAD_ARCHITECTURE",
+    "status": "UNFORMED_LEAD_ARCHITECTURE_SELECTED",
     "benchmark_winner": false,
     "independent_validation": false,
     "branches": {
       "A_CCRC": {
-        "score": 30,
-        "max_score": 40,
-        "status": "PASS_SCOPED_LEAD_BRANCH_NOT_PROMOTABLE",
+        "status": "PASS_SCOPED_LEAD_ARCHITECTURE_NOT_YET_PHYSICAL_ANSATZ",
         "kill_round_1": {
           "composition_refinement": "PASS_SCOPED",
           "nonzero_geometry": "PASS_SCOPED",
           "rigidity": "PASS_SCOPED"
         },
+        "kill_round_2": {
+          "directed_causal_composition": "PASS_SCOPED",
+          "associativity": "PASS_SCOPED",
+          "two_scale_coarse_consistency": "PASS_SCOPED",
+          "same_realization_geometry_survival": "PASS_SCOPED",
+          "rigidity_survives_causal_upgrade": "PASS_SCOPED"
+        },
         "next_blockers": [
-          "directed_causal_gluing",
-          "two_scale_same_realization_survival",
+          "derived_local_dimension",
+          "branching_recombining_causal_complex",
           "4d_lorentzian_route",
+          "spin2_or_metric_sector",
           "gr_dynamics_route",
+          "continuum_fixed_structure",
           "normalized_operational_observable"
         ]
       },
       "B_CQCG": {
-        "score": 30,
-        "max_score": 40,
-        "status": "PARTIAL_CONTROL_BRANCH_QUEUED_ROUND2"
+        "status": "FAIL_SCOPED_RIGIDITY_AS_STATED",
+        "retained_role": "possible_operational_observable_or_coarse_map_language"
       },
       "C_PCMH": {
-        "score": 30,
-        "max_score": 40,
         "status": "FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED",
         "retained_role": "projective_refinement_consistency_gate"
       },
       "D_LCSD": {
-        "score": 29,
-        "max_score": 40,
-        "status": "PARTIAL_CONTROL_BRANCH_QUEUED_ROUND2"
+        "status": "PARTIAL_SPECTRUM_ONLY_GEOMETRY_NONUNIQUE_FULL_ALGEBRAIC_VERSION_NOT_KILLED",
+        "retained_role": "possible_geometric_diagnostic_or_constraint"
       },
       "E_RQEC": {
-        "score": 31,
-        "max_score": 40,
         "status": "FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY",
         "retained_role": "possible_emergent_robustness_encoding_layer"
       }
@@ -98,20 +100,21 @@
     "latest_relevant_delta": "Iter324-325: finite source spectral i-epsilon does not soften the tested minimal-spin Toller short-distance pole, including explicit causal K5 witness; separate distributional/renormalized extension remains open and D7 remains unauthorized."
   },
   "active_question": {
-    "id": "QGR-G0-KILL-ROUND-2-A-CAUSAL-REFINEMENT",
-    "text": "Does A/CCRC retain discrete low-freedom closure when upgraded to directed causal gluing, and can one nonzero geometry mode survive an explicit two-scale coarse-graining map in the same realization?"
+    "id": "QGR-ITER003-4D-LORENTZIAN-GR-SEED",
+    "text": "Can A/CCRC generate a nontrivial branching/recombining causal cell complex with derived dimension/geometry and a prospective 4D Lorentzian spin-2/GR route without inserting a metric action or arbitrary continuum function by hand?"
   },
   "next_gate": {
-    "iteration": 2,
-    "id": "QGR-G0-KILL-ROUND-2-A-CAUSAL-REFINEMENT",
-    "action": "Construct a directed causal A/CCRC toy with exact gluing/refinement and two-scale coarse graining; run B/CQCG and D/LCSD cheap control tests before branch promotion.",
-    "minimum_kill_tests_before_branch_promotion": 3,
-    "lead_branch_has_minimum_toy_kill_tests": true,
-    "full_promotion_obligations_satisfied": false
+    "iteration": 3,
+    "id": "QGR-ITER003-4D-LORENTZIAN-GR-SEED",
+    "action": "Construct the smallest branching/recombining A/CCRC causal cell complex, derive a local dimension/geometry candidate, test exact gluing/refinement rigidity, and identify a prospective Lorentzian tensor/spin-2 coarse mode without assuming Einstein-Hilbert dynamics.",
+    "fatal_criterion": "If 4D Lorentzian/GR recovery requires inserting a continuum metric action, Einstein-Hilbert term, arbitrary action/spectral function, or gate-specific coefficients solely to hit GR, reject the A branch in its current form."
   },
   "artifacts": {
     "kill_round_1_script": "code/qgr_iter002_kill_round1.py",
-    "kill_round_1_report": "results/ITER002_KILL_ROUND1.md"
+    "kill_round_1_report": "results/ITER002_KILL_ROUND1.md",
+    "kill_round_2_script": "code/qgr_iter002_kill_round2.py",
+    "kill_round_2_report": "results/ITER002_KILL_ROUND2.md",
+    "iteration_2": "iterations/ITERATION_002.md"
   },
   "claim_locks": {
     "all_known_models_wrong": false,
@@ -123,7 +126,7 @@
   "recovery_order": [
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
-    "latest iterations/ITERATION_NNN.md and any same-iteration results files",
+    "latest iterations/ITERATION_NNN.md and same-iteration results files",
     "docs/CONSTITUTION.md",
     "docs/KMQGB_HANDOFF.md",
     "current KMQGB recovery front and recent commits"
