@@ -9,11 +9,11 @@
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 76,
+    "candidate_program_pct": 78,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
     "iter006_pct": 100,
-    "iter007_pct": 55,
+    "iter007_pct": 65,
     "theory_established_pct": 0
   },
   "roadmap": {
@@ -24,9 +24,9 @@
     "R4_local_mathematical_closure": "COMPLETE_ALL_ORDERS_METRIC_ONLY_TWO_DERIVATIVE_LOCAL_ACTION",
     "R5_same_realization_uv_ir": "COMPLETE_SCOPED_REGULAR_REFINEMENT_CONNECTED_STATE_MEASURE_COMPOSITION",
     "R6_gr_recovery": "COMPLETE_SCOPED_LOCAL_ALL_ORDERS_TWO_DERIVATIVE_ZERO_LAMBDA_BRANCH",
-    "R7_observable_closure": "ACTIVE_HISTORY_ORDERING_CORRECTION_SCALE_AND_NORMALIZED_OBSERVABLE",
+    "R7_observable_closure": "ACTIVE_PURITY_FORM_CLOSED_PHYSICAL_SCALE_AND_NETWORK_RG_OPEN",
     "R8_independent_benchmark_export": "INACTIVE",
-    "R9_prediction_discrimination": "ACTIVE_PRECURSOR_MICROSCOPIC_LORENTZ_BREAKING_IDENTIFIED"
+    "R9_prediction_discrimination": "ACTIVE_MICROSCOPIC_S4_LORENTZ_BREAKING_AND_H4_CORRECTION_IDENTIFIED"
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
@@ -36,78 +36,66 @@
     "derivative_gauge_parameters": 4,
     "physical_modes_on_local_characteristic_cone": 2,
     "incidence_contravariant_form": "C=J-I",
-    "masslessness_protected_linearized": true,
-    "all_orders_local_metric_only_two_derivative_action_fixed": true,
-    "local_action": "a * integral sqrt(|det G|) R[G], zero cosmological branch",
+    "all_orders_local_action": "a * integral sqrt(|det G|) R[G], zero cosmological branch",
     "kinematic_hilbert": "L2(Q_13, |det G|^(-5/2) d^10G)",
+    "physical_connection": "identity-connected refinement branch matching infinitesimal Levi-Civita connection",
     "strong_curvature_path_groupoid_algebra": true,
     "normalized_history_instrument": true,
     "brst_constraint_descent": true,
     "operational_physical_positivity": true,
-    "physical_connection_selector": "identity-connected refinement branch matching infinitesimal Levi-Civita connection",
-    "finite_cell_all_root_finiteness": false,
+    "finite_cell_all_torsion_root_finiteness": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
   "iter006_closed": {
     "status": "COMPLETE_SCOPED_REGULAR_REFINEMENT_DOMAIN",
-    "completion_pct": 100,
     "g10a": {
       "classification": "REFUTED_IN_SCOPE_ALL_TORSION_ROOTS_FINITE",
-      "reduced_flat_seed_system": "24 quadrics in 24 variables",
-      "identity_reduced_jacobian_det": 47775744,
+      "flat_seed_reduced_system": "24 quadratic Gram equations in 24 variables",
+      "identity_jacobian_det": 47775744,
       "distant_branch_rank": 22,
-      "distant_branch_local_dimension": 2,
-      "continued_solution_norm": ">30.2 with residual ~1e-14"
+      "continued_norm": ">30.2 with residual ~1e-14"
     },
     "g10b": {
       "classification": "PASS_SCOPED_REFINEMENT_CONNECTED_PRINCIPAL_CONNECTION",
-      "selector": "same-realization match to G,DG Levi-Civita connection",
-      "finite_cell_scaling": "L-I = O(h)",
-      "fixed_path_product_convergence": "successive differences ~0.0338,0.0185,0.00972,0.00499"
+      "cell_scaling": "L-I=O(h)",
+      "fixed_path_product_differences": "~0.0338,0.0185,0.00972,0.00499"
     }
   },
   "iter007": {
     "status": "ACTIVE",
-    "completion_pct": 55,
+    "completion_pct": 65,
     "g1_all_orders_local": {
       "classification": "PASS_SCOPED",
-      "zero_derivative_density": "sqrt(|det G|) Lambda with Lambda=0 on active flat branch",
       "two_derivative_scalar_dimension": 1,
-      "action": "a sqrt(|det G|) R[G] modulo boundary"
+      "action": "a sqrt(|det G|) R[G] modulo boundary",
+      "cosmological_branch": 0
     },
     "g2_history_correction": {
       "histories": 24,
-      "pair_components": 6,
       "ordering_sign_mean": 0,
       "covariance_spectrum": "1/3 x3; 5/3 x3",
       "leading_nonunitary_order": "h^4",
       "leading_form": "(h^4/8) C_ab [K_a,[K_b,rho]]",
       "relative_S4_sector_strength": "1:5"
     },
-    "g3_lorentz_audit": {
-      "continuous_lorentz_invariant": false,
+    "g3_g4_lorentz": {
+      "finite_cell_continuous_lorentz_invariant": false,
       "microscopic_symmetry": "S4",
-      "r2_nonzero_covariance_delta_entries": 33,
-      "r2_max_abs_delta": "8/3"
+      "positive_full_lorentz_invariant_noise_nogo": true
     },
-    "g4_positive_covariance_nogo": {
+    "g5a": {
       "classification": "PASS_SCOPED",
-      "statement": "nonzero positive pair-space covariance cannot be exactly invariant under the full noncompact continuous Lorentz representation",
-      "consequence": "Lorentz recovery requires correction suppression as h->0 or predicts finite preferred-frame effect"
+      "fixed_path_accumulated_scaling": "O(L h^3)",
+      "uniform_refinement_scaling": "b^-3",
+      "normalized_observable": "purity P=Tr(rho^2)",
+      "leading_purity_loss": "(h^4/4) C_ab Tr([H_a,rho]^dagger[H_b,rho])",
+      "physical_scale_h_fixed": false,
+      "full_network_rg_closed": false
     }
-  },
-  "governance": {
-    "constitution": "docs/CONSTITUTION.md",
-    "constitution_version": "1.0",
-    "constitution_frozen": true,
-    "fail_closed": true,
-    "same_realization_required": true,
-    "post_hoc_benchmark_tuning_forbidden": true
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
-    "snapshot_date": "2026-09-12",
     "latest_observed_commit": "c806465e255dbbf87675b5c03d235851c6f5ce0b",
     "latest_observed_iteration_bundle": "342-343",
     "global_decision": "NOT_YET_AUTHORIZED",
@@ -116,19 +104,20 @@
     "latest_scoped_delta": "RQCP fixed-band payload independently reproduced and cutoff-stressed; remains PARTIAL_SUBFAMILY_ONLY and does not derive autonomous gravity sector"
   },
   "active_question": {
-    "id": "QGR-ITER007-G5-REFINEMENT_SCALE_AND_NORMALIZED_OBSERVABLE_CLOSURE",
-    "text": "How does the fixed O(h^4) S4 history-ordering correction scale under repeated refinement, what physical scale h does QGR assign, and can the correction be mapped to one normalized observable without arbitrary matching freedom?"
+    "id": "QGR-ITER007-G5B-PHYSICAL_SCALE_AND_FULL_NETWORK_RG_CLOSURE",
+    "text": "Does QGR determine the physical microscopic scale h and the full graph/4D RG scaling of its fixed history-ordering correction strongly enough to yield a numerical normalized beyond-GR prediction?"
   },
   "next_gate": {
     "iteration": 7,
-    "id": "QGR-ITER007-G5-REFINEMENT_SCALE_AND_NORMALIZED_OBSERVABLE_CLOSURE",
-    "action": "Derive repeated-blocking scaling of the ordering channel, close the physical scale map, and construct one normalized observable sensitive to the fixed curvature covariance before comparison to data.",
-    "fatal_criterion": "Do not add orientation weights, a Lorentz averaging measure, arbitrary scale matching, or free decoherence coefficients solely to hide the finite-cell correction."
+    "id": "QGR-ITER007-G5B-PHYSICAL_SCALE_AND_FULL_NETWORK_RG_CLOSURE",
+    "action": "Derive full graph/4D blocking, determine the status of the microscopic scale h, evaluate the induced two-mode purity-loss coefficient on a concrete background, and only then compare to data.",
+    "fatal_criterion": "Do not introduce orientation weights, noncompact averaging, arbitrary scale matching, or a free decoherence coefficient to hide the finite-cell correction."
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
-    "qgr_normalized_beyond_gr_observable_closed": false,
+    "qgr_numerical_beyond_gr_prediction_closed": false,
     "qgr_physical_micro_cell_scale_fixed": false,
+    "qgr_full_network_rg_closed": false,
     "qgr_independent_benchmark_passed": false,
     "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
@@ -139,6 +128,7 @@
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
     "iterations/ITERATION_007.md",
+    "results/ITER007_G5A_PATH_SCALING_AND_PURITY_OBSERVABLE.md",
     "results/ITER007_G4_POSITIVE_NOISE_LORENTZ_NOGO.md",
     "results/ITER007_G3_MICROSCOPIC_LORENTZ_BREAKING_OF_ORDERING_CORRECTION.md",
     "results/ITER007_G2_HISTORY_ORDERING_QUANTUM_CORRECTION.md",
