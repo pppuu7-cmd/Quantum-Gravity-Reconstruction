@@ -1,252 +1,127 @@
-# QGR Iteration 002 — G0 Architecture Matrix
+# QGR Iteration 002 — Architecture Matrix and Kill Round 1
 
 Date: 2026-09-11
-Status: `ACTIVE / MATRIX_GENERATED / KILL_TESTS_NOT_YET_EXECUTED`
-Current task completion: **45%**
-Canonical candidate-program readiness: **24%** (unchanged pending a promotable branch)
+Status: `ACTIVE / KILL_ROUND_1_COMPLETE / ROUND_2_QUEUED`
+Current task completion: **78%**
+Canonical candidate-program readiness: **24%** (held fixed pending full pre-ansatz promotion)
+Physical ansatz promoted: **NO**
 
 ## Objective
 
-Generate genuinely distinct candidate architecture classes under Constitution v1.0 before writing a preferred QGR action/amplitude. Score them prospectively and predeclare cheap kill tests.
+Generate multiple genuinely distinct pre-ansatz architectures under Constitution v1.0, declare cheap falsification tests before computation, and select at most one lead architecture without forcing a winner.
 
-This iteration does **not** claim novelty for the architecture classes themselves. Several primitives have analogues in existing research traditions; the purpose is to identify a reconstruction architecture that may later become distinct through its jointly imposed closure rules.
+## Initial architecture matrix
 
-## Fixed scoring
+| Branch | Core idea | Raw score | Initial risk |
+|---|---|---:|---|
+| A / CCRC | constraint-closed relational complex | 30/40 | could reproduce known amplitude/counterterm freedom |
+| B / CQCG | compositional quantum-channel geometry | 30/40 | weak intrinsic Lorentzian/GR route |
+| C / PCMH | projectively consistent causal measure on histories | 30/40 | compatible measure family may remain huge |
+| D / LCSD | Lorentzian causal-spectral dynamics | 29/40 | arbitrary spectral function / weak composition |
+| E / RQEC | relational quantum error-correcting geometry | 31/40 | coding structure may not derive gravity dynamics |
 
-Scores 0-4 use the dimensions from `docs/ARCHITECTURE_MATRIX_TEMPLATE.md`:
-`O,C,K,F,G,L,S,R,Q,E`.
+Raw score was explicitly forbidden from selecting the winner. E had the highest initial score but was not promoted because its weakest dimension was a potentially fatal GR/causality obligation.
 
-A high preliminary score does not promote a branch. Fatal gates and kill tests dominate totals.
+## Predeclared Kill Round 1
 
----
+Priority branches were A, C and E because they represented three different proposed rigidity mechanisms:
 
-## Branch A — CCRC: Constraint-Closed Relational Complex
+- A: exact constraint/gluing closure;
+- C: projective/refinement consistency;
+- E: isometric/recoverability consistency.
 
-### Primitive
-Finite relational events/cells with typed adjacency and orientation data. Quantum states are amplitudes over finite labelled relational complexes. Geometry is not a fundamental background variable; geometric operators must be reconstructed from relational labels/invariants.
+Detailed derivation: `results/ITER002_KILL_ROUND1.md`.
+Reproducibility: `code/qgr_iter002_kill_round1.py`.
 
-### Dynamics concept
-Do not choose independent local amplitudes freely. Define a small generating set of local consistency constraints and seek a physical projector/measure whose composition, causal admissibility, and refinement consistency fix the allowed amplitudes.
+## Result A / CCRC
 
-### Candidate rigidity mechanism
-`constraint closure + exact gluing + refinement consistency + normalization` jointly determine or sharply reduce local coefficients.
+Scoped toy: three relational labels with full `S3` symmetry. The most general invariant gluing operator is `K=aI+bJ`. Exact refinement/composition closure `K^2=K` forces the trivial and standard irreducible eigenvalues into `{0,1}`. Hence the continuous two-parameter family collapses to four discrete projectors: `0`, `I`, `J/3`, `I-J/3`.
 
-### Main risk
-The consistency equations may either have no nontrivial solution or reproduce a known spin-foam/group-field-type structure with the same extension freedom.
+For `G=diag(-1,0,1)`, the standard-sector projector `P=I-J/3` satisfies `PGP != 0`, while `P^2=P` exactly.
 
-### Prospective cheap kill tests
-A1. **Composition test:** show that the proposed constrained gluing is associative / refinement-compatible on the smallest nontrivial complexes.
-A2. **Geometry test:** construct at least one nonzero geometric observable from relational data without inserting a continuum metric.
-A3. **Rigidity test:** solve the smallest coefficient system and verify that consistency reduces the coefficient space to finite low dimension rather than leaving arbitrary functions.
+Predeclared verdicts:
 
-### Preliminary score
-- O=4
-- C=3
-- K=4
-- F=2
-- G=3
-- L=2
-- S=3
-- R=4
-- Q=3
-- E=2
-- **Total = 30/40**
+- A1 composition/refinement: `PASS_SCOPED`;
+- A2 nonzero relational geometry: `PASS_SCOPED`;
+- A3 coefficient rigidity: `PASS_SCOPED`.
 
-Status: `PARTIAL / HIGH_PRIORITY_FOR_KILL_TESTS`
+Classification: `PASS_SCOPED / LEAD_BRANCH / NOT_PROMOTABLE`.
 
----
+Boundary: no causal direction, continuum theorem, 4D Lorentzian limit, GR dynamics, or normalized operational observable has yet been derived.
 
-## Branch B — CQCG: Compositional Quantum-Channel Geometry
+## Result C / PCMH
 
-### Primitive
-Finite local quantum systems/operator algebras connected by physically admissible quantum channels or compositional morphisms. The primitive structure is operational/compositional rather than geometric.
+In the positive binary-refinement subcase,
 
-### Dynamics concept
-Seek a restricted class of channels selected by global consistency, reversibility/causal conditions where appropriate, symmetry, and a variational or fixed-point principle. Geometry is reconstructed from distinguishability/correlation/response structure rather than assumed adjacency lengths.
+`p(h)=p(h0)+p(h1)`
 
-### Candidate rigidity mechanism
-`complete positivity / physical probability + compositional consistency + causal factorization + extremal/fixed-point condition`.
+allows
 
-### Main risk
-It may naturally reconstruct information geometry but fail to generate a dynamical 4D Lorentzian metric satisfying Einstein equations without importing extra geometric structure.
+`p(h0)=q_h p(h)`, `p(h1)=(1-q_h)p(h)`
 
-### Prospective cheap kill tests
-B1. **Lorentzian-signature test:** determine whether causal/signature structure can arise intrinsically rather than by an external graph/time label.
-B2. **Geometry-content test:** determine whether channel invariants support tensorial geometric observables beyond generic information distance.
-B3. **Dynamics-rigidity test:** count admissible channel families after constraints; reject if arbitrary channel functions remain.
+with one free `q_h` per internal history. At refinement depth `d`, the number of free split parameters is `2^d-1`; depths 1..6 give `1,3,7,15,31,63`.
 
-### Preliminary score
-- O=4
-- C=4
-- K=3
-- F=3
-- G=2
-- L=1
-- S=2
-- R=4
-- Q=4
-- E=3
-- **Total = 30/40**
+Exact child-exchange symmetry fixes `q_h=1/2`, but then the refinement is the unique uniform split and local dynamics has been trivialized rather than dynamically derived.
 
-Status: `PARTIAL / HIGH_RIGIDITY_BUT_GR_ROUTE_WEAK`
+Classification: `FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED`.
 
----
+Retained value: projective consistency remains a strong cross-scale/same-realization gate, but not the standalone source of dynamics.
 
-## Branch C — PCMH: Projectively Consistent Causal Measure on Histories
+## Result E / RQEC
 
-### Primitive
-A directed family of finite causal histories/complexes with coarse-graining maps. The fundamental object is a consistent family of finite-resolution quantum measures/amplitudes rather than a single fixed lattice.
+Exact witness: the three-qutrit code
 
-### Dynamics concept
-Define finite-level measures and require exact projective/cylindrical consistency under coarse graining. The continuum object, if it exists, is the compatible limit. Causality is encoded in the admissible-history category rather than imposed only after summation.
+`|0L>=(|000>+|111>+|222>)/sqrt(3)`,
 
-### Candidate rigidity mechanism
-`projective consistency + causal support + normalization + symmetry` fixes admissible finite-level measures.
+`|1L>=(|012>+|120>+|201>)/sqrt(3)`,
 
-### Main risk
-Projective consistency may still permit a huge measure family, or the physically interesting Lorentzian continuum may not exist.
+`|2L>=(|021>+|102>+|210>)/sqrt(3)`.
 
-### Prospective cheap kill tests
-C1. **Two-level consistency test:** construct the smallest refinement pair and solve the exact pushforward consistency equation.
-C2. **Freedom-count test:** measure the dimension of the compatible finite-level measure family; reject if it grows uncontrollably with refinement.
-C3. **Causal normalization test:** verify normalized interference/measure rules on the smallest causal history set without post-hoc regulator choices.
-
-### Preliminary score
-- O=3
-- C=4
-- K=4
-- F=3
-- G=2
-- L=2
-- S=4
-- R=3
-- Q=3
-- E=2
-- **Total = 30/40**
+For every single site,
 
-Status: `PARTIAL / HIGH_SAME_REALIZATION_POTENTIAL`
+`Tr_rest |iL><jL| = delta_ij I_3/3`,
 
----
+so any one-qutrit erasure is exactly correctable. Yet for the maximally mixed logical state every two-qutrit reduced state equals `I_9/9`; all pair mutual informations vanish exactly.
 
-## Branch D — LCSD: Lorentzian Causal-Spectral Dynamics
+Therefore exact recoverability/isometry need not generate adjacency, spatial dimension, causal direction or curvature dynamics.
 
-### Primitive
-An algebra/state together with a causal-spectral operator whose invariants encode geometry. The primitive object is algebraic/spectral rather than a discretized metric.
-
-### Dynamics concept
-Seek dynamics from spectral consistency plus causal/state conditions, with the spectrum/operator jointly constrained across scales. Geometric observables are reconstructed spectrally.
+Classification: `FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY`.
 
-### Candidate rigidity mechanism
-`algebraic representation + causal spectral constraints + spectral normalization + fixed-point/consistency law`.
-
-### Main risk
-Euclidean/spectral reconstruction may be much easier than Lorentzian causal dynamics; a generic spectral functional can hide arbitrary functions and reproduce the same underdetermination QGR is trying to avoid.
+Retained value: QEC may still be an emergent robustness/encoding mechanism inside another architecture.
 
-### Prospective cheap kill tests
-D1. **Lorentzian reconstruction test:** identify a finite toy object where causal order/signature is recoverable from the exact algebraic-spectral data.
-D2. **Functional-freedom test:** determine whether dynamics require an arbitrary spectral function; reject absent a principle fixing it.
-D3. **Composition test:** establish how two microscopic subsystems glue without destroying the causal-spectral constraints.
+## Current scientific synthesis
 
-### Preliminary score
-- O=3
-- C=2
-- K=3
-- F=3
-- G=4
-- L=2
-- S=3
-- R=3
-- Q=3
-- E=3
-- **Total = 29/40**
+The first evidence-backed role separation is:
 
-Status: `PARTIAL / GEOMETRY_STRONGER_THAN_COMPOSITION`
+`A-style constraint closure = candidate rigidity generator`
 
----
+`C-style projective consistency = cross-scale gate`
 
-## Branch E — RQEC: Relational Quantum Error-Correcting Geometry
+`E-style QEC = possible emergent robustness layer`.
 
-### Primitive
-Finite relational quantum degrees of freedom with constrained isometric encoding maps. Robust subspaces encode emergent collective/geometric information; no background metric is accepted as fundamental input.
+A later combination of these roles is only `CONJECTURED`. It is not yet a physical model and no terms may be added merely to rescue a failed gate.
 
-### Dynamics concept
-Search for encoding/composition rules fixed by consistency and local recoverability, then test whether geometry and gravitational dynamics emerge from the same code structure.
+## KMQGB delta incorporated
 
-### Candidate rigidity mechanism
-`isometry + recoverability + compositional consistency + symmetry/minimality`.
+Fresh KMQGB Iter324-325 was checked. In its explicit minimal-spin Toller probes, finite source spectral `i-epsilon` does not remove the tested short-distance pole, including the full causal K5 witness. The KMQGB scope guard explicitly leaves separately specified distributional/renormalized extensions open and does not authorize D7.
 
-### Main risk
-Error-correcting structure may explain robustness/emergence of geometry while failing to derive Lorentzian causal dynamics and Einstein evolution. It may also smuggle a graph/boundary geometry into the code architecture.
+QGR implication: the finite-definition mechanism must be generated prospectively by the construction; a regulator chosen only after divergence is detected will not count as closure.
 
-### Prospective cheap kill tests
-E1. **Background-independence test:** verify that dimensional/adjacency structure is derived rather than hard-coded in the encoder.
-E2. **Causal test:** determine whether a physical causal relation follows from code/channel structure without an external time ordering.
-E3. **GR-content test:** identify any mechanism capable of generating dynamical curvature equations rather than only kinematic area/entropy relations.
+## Exact next gate — Kill Round 2
 
-### Preliminary score
-- O=4
-- C=4
-- K=2
-- F=4
-- G=3
-- L=1
-- S=2
-- R=4
-- Q=4
-- E=3
-- **Total = 31/40**
+`QGR-G0-KILL-ROUND-2-A-CAUSAL-REFINEMENT`
 
-Status: `PARTIAL / HIGHEST_RAW_SCORE_BUT_FATAL_GR_RISK`
+1. Replace the undirected A toy with a directed causal relational complex.
+2. Demand exact associative gluing/refinement compatibility with orientation present.
+3. Check whether coefficient freedom remains discrete/low-dimensional.
+4. Construct an explicit two-scale coarse map and require a nonzero geometry mode to survive in the same realization.
+5. Run cheap comparison-control tests on B/CQCG and D/LCSD before considering A for promotion.
 
----
+## Readiness decision
 
-## Matrix summary
+- Iter002 completion: **78%**.
+- Candidate-program readiness: **24%**, intentionally unchanged.
+- Lead architecture: **A/CCRC**, but only at `PASS_SCOPED` level.
+- Physical ansatz: **none**.
 
-| Branch | Core strength | Dominant risk | Score | Current status |
-|---|---|---|---:|---|
-| A — CCRC | direct causal/compositional reconstruction and high falsifiability | may reproduce known amplitude freedom | 30/40 | PARTIAL / high priority |
-| B — CQCG | quantum/compositional consistency and low-level rigidity | weak Lorentzian-GR mechanism | 30/40 | PARTIAL |
-| C — PCMH | strongest explicit same-realization/refinement logic | measure family may remain huge | 30/40 | PARTIAL / high priority |
-| D — LCSD | direct geometry reconstruction | Lorentzian composition and arbitrary spectral functional | 29/40 | PARTIAL |
-| E — RQEC | strong finite quantum consistency/rigidity | gravity dynamics may not emerge | 31/40 | PARTIAL |
-
-## Decision
-
-`NO_PROMOTION_YET`.
-
-The highest raw score (E) is **not** declared the winner because its weakest dimension is precisely the required Lorentzian/GR route. Score maximization cannot override a fatal scientific risk.
-
-The next efficient move is to execute a first cheap-kill round on **A, C, and E** because together they test three different rigidity mechanisms:
-
-- A: closure-generated amplitudes;
-- C: projective measure consistency;
-- E: isometric/recoverability constraints.
-
-B and D remain live comparison controls but are not first in the kill-test queue.
-
-## Iter002 progress accounting
-
-Completed:
-- architecture generation;
-- common scoring rubric;
-- preliminary scoring;
-- prospective kill-test declaration;
-- no-promotion decision.
-
-Not completed:
-- explicit toy constructions;
-- algebraic kill tests;
-- freedom-count calculations;
-- any physical ansatz promotion.
-
-Therefore current task completion is set to **45%**, while canonical candidate-program readiness remains **24%** until a branch clears the pre-ansatz gate.
-
-## Exact next gate
-
-`QGR-G0-KILL-ROUND-1`:
-
-1. Build the minimal nontrivial A/CCRC complex and test composition + coefficient closure.
-2. Build a two-resolution C/PCMH toy history system and solve its exact pushforward consistency equations.
-3. Build a minimal E/RQEC relational encoder and test whether adjacency/causal structure is derived or merely inserted.
-
-Reject a branch early if a fatal gate is triggered. Do not rescue it by adding new arbitrary functions after the test outcome.
+The readiness percentage will not be increased merely because one toy is encouraging. It moves only after the causal/two-scale gate establishes that the same rigidity mechanism survives beyond the smallest symmetric example.
