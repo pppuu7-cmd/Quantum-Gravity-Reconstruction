@@ -1,9 +1,9 @@
 # QGR Iteration 007 — All-Orders Local Gravity and Distinguishability
 
 Date: 2026-09-12
-Status: `ACTIVE / MODEL_SIDE_BROADBAND_OBSERVABLE_CLOSED_SCOPED / ABSOLUTE_MICROSCOPIC_SCALE_BLOCKED`
-Current task completion: **98%**
-Candidate-program readiness: **86%**
+Status: `COMPLETE / MODEL_SIDE_BROADBAND_OBSERVABLE_CLOSED_SCOPED / ABSOLUTE_SCALE_BOUNDARY_EXPLICIT`
+Current task completion: **100%**
+Candidate-program readiness: **87%**
 Active candidate: **QGR-L1**
 Theory established: **0%**
 
@@ -11,11 +11,13 @@ Readiness is an internal construction-roadmap metric, not a probability of corre
 
 ## Objective
 
-1. Close the local nonlinear gravitational action in the metric-only two-derivative class.
-2. Derive the first QGR-specific finite-refinement correction without adding a novelty coefficient.
-3. Derive network composition, overlapping-region gluing and physical two-mode transport/readout from the same realization.
-4. Produce a normalized curved broadband comparator.
-5. Determine whether its absolute physical magnitude is fixed by the current microscopic normalization chain.
+1. close the local nonlinear gravitational action in the metric-only two-derivative class;
+2. derive the first QGR-specific finite-refinement correction without adding a novelty coefficient;
+3. derive network composition, overlapping-region gluing and physical two-mode transport/readout from the same realization;
+4. produce a normalized curved broadband comparator;
+5. determine whether its absolute physical magnitude is fixed by the current microscopic normalization chain.
+
+All five questions are now answered in scope. The fifth is closed **negatively**: the current realization leaves one dimensionless microscopic action normalization unfixed.
 
 ## G1 — all-orders local two-derivative action
 
@@ -40,163 +42,146 @@ and after tracing the normalized history register
 
 `Delta E(rho)=(h^4/8) C_ab [K_a,[K_b,rho]] + O(h^5)`.
 
-The finite-cell covariance is only microscopic S4, not exact continuous Lorentz. On a fixed causal path the accumulated correction is `O(L h^3)` and the normalized purity-loss form is positive.
+The finite-cell covariance is microscopic `S4`, not exact continuous Lorentz. On a fixed causal path the accumulated correction is `O(L h^3)` and the normalized purity-loss form is positive.
 
 A naive same-carrier four-volume accumulation is only a stress bound. Later path-groupoid analysis proves that face-neighbour B4 cells are overlapping supports rather than serial history-channel steps.
 
-Records:
-- `results/ITER007_G2_HISTORY_ORDERING_QUANTUM_CORRECTION.md`
-- `results/ITER007_G3_MICROSCOPIC_LORENTZ_BREAKING_OF_ORDERING_CORRECTION.md`
-- `results/ITER007_G4_POSITIVE_NOISE_LORENTZ_NOGO.md`
-- `results/ITER007_G5A_PATH_SCALING_AND_PURITY_OBSERVABLE.md`
-- `results/ITER007_G5B_PARALLEL_NETWORK_RG_AND_READOUT_AUDIT.md`
-
 ## G6A-G6C — history composition, finite local net and physical quotient
 
-Runs `34653478008`, `34654604762`, and `34655130571` close the relevant finite-network structure in scope.
+Runs `34653478008`, `34654604762`, and `34655130571` establish in scope:
 
-Key results:
-
-- local `1/24` marginals alone do not determine arbitrary overlap correlations, but true serial B4 diagonals have the exact product-uniform `24^-n` branch law;
+- true serial B4 diagonals have the exact product-uniform `24^-n` branch law;
 - face-neighbour B4 cells share a complete B3 face but their opposite-vertex 24-history morphisms are not serially composable;
-- the minimal regular two-cell configuration glues as the exact fiber product
-  `352+352-152=552` over the common B3 data;
+- the minimal regular two-cell configuration glues as the exact fiber product `352+352-152=552` over common B3 data;
 - cylindrical multiplication algebras intersect on the shared B3 subalgebra;
 - quantum boundary matching is relative/direct-integral gluing rather than an independent tensor product duplicating the boundary;
-- finite frame pullback maps `ker H / im R` canonically between the two-dimensional physical characteristic fibers;
-- no arbitrary phenomenological 2x2 polarization projector is permitted or required.
+- finite frame pullback maps `ker H / im R` canonically between two-dimensional physical characteristic fibers;
+- no arbitrary phenomenological `2x2` polarization projector is required or permitted.
 
-Records:
-- `results/ITER007_G6A_HISTORY_COMPOSITION_AND_LOCAL_GLOBAL_SCALING.md`
-- `results/ITER007_G6B_OVERLAPPING_CELL_GLUING_AND_CURVED_HISTORY_SPREAD.md`
-- `results/ITER007_G6C_LOCAL_NET_AND_PHYSICAL_QUOTIENT_DESCENT.md`
+## G6E-G6H — curved physical pairing and full broadband comparator
 
-## G6E — same-realization convention repair and positive physical pairing
+Runs:
 
-Run `34657301235`: five lanes plus aggregate `SUCCESS`.
+- G6E `34657301235`: 5 lanes + aggregate SUCCESS;
+- G6F `34657631926`: 3 lanes + aggregate SUCCESS;
+- G6G `34657905251`: 3 lanes + aggregate SUCCESS;
+- G6H `34658915788`: 4 lanes + aggregate SUCCESS.
 
-The earlier `C` versus `C^-1` convention boundary was repaired explicitly. With
+The earlier `C` versus `C^-1` same-realization convention boundary was repaired explicitly and the finite torsion/history construction rerun on the covariant seed `E=C^-1`.
 
-`C=J-I`, `E=C^-1`, `S=I-J/6`,
+A trace-reversed covariant bilinear has the four derivative-gauge directions as its exact radical on the six-dimensional characteristic kernel and leaves a positive two-dimensional quotient. This supports a common positive characteristic direct-integral Hilbert space on the regular one-particle/readout domain.
 
-one has
+Normalized packet, polarization/Wigner and full momentum-dependent broadband calculations all retain a leading `O(h^4)` history-mixture loss on repaired G9.
 
-`S^T C S = E`.
+Full broadband exponents:
 
-The finite torsion/history calculation was rerun with the covariant seed `E`, not merely relabeled. Repaired G9 history slopes remain approximately four:
+- radial profile `m0`: `4.034237010354219`;
+- radial profile `m1`: `4.034735702727535`;
+- envelope-only control: `4.092362452141089`;
+- fixed linear spin-2: `4.05492344294805`;
+- definite helicity: `4.059195890628427`.
 
-- relative trace: `4.0705480`;
-- common-target null Gram: `4.0984388`;
-- branch-pair barycentric rapidity scalar: `4.0685627`.
+The radial null-energy integral is analytic, so no arbitrary UV momentum cutoff enters this normalized comparator. Coefficients are explicitly preparation/readout dependent; no universal decoherence constant is claimed.
 
-The trace-reversed covariant bilinear has the four derivative-gauge directions as its exact radical on the six-dimensional characteristic kernel and leaves a positive two-dimensional quotient. A regular positive boundary measure admits disintegration over the shared B3 pushforward without assuming conditional independence.
+Record: `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`.
 
-## G6F — normalized common characteristic Hilbert
+## G7A — microscopic scale identifiability
 
-Run `34657631926`: three lanes plus aggregate `SUCCESS`.
+Corrected run `34659176245`: 4 lanes + aggregate SUCCESS.
 
-The future-null-cone measure and positive two-mode quotient pairing define a common target direct-integral characteristic Hilbert space on the regular one-particle/readout domain.
-
-Two normalized packet families have exact overlaps
-
-`A0(gamma)=2/(1+gamma)`
-
-and
-
-`A1(gamma)=4(2+gamma)/(3(1+gamma)^2)`.
-
-Their repaired-G9 history-mixture losses scale with exponents `4.0707806` and `4.0707012`. The coefficient ratio tends to `4/3`, proving explicitly that the coefficient depends on preparation while the `h^4` order is robust in this test.
-
-## G6G — physical polarization holonomy
-
-Run `34657905251`: three lanes plus aggregate `SUCCESS`.
-
-Relative branch Lorentz generators scale as `O(h^2)`. Their quadratic Lorentz-algebra Casimirs and finite trace defect scale as `O(h^4)`.
-
-In a specified relational standard section, central-ray Wigner-angle spread scales as `O(h^2)` and fixed linear spin-2 polarization overlap loss as `O(h^4)`. A specified narrow-packet combined envelope+polarization comparator has fitted loss exponent `4.0050639`.
-
-This is preparation/readout dependent and is not promoted as a universal coefficient.
-
-## G6H — cutoff-free full broadband two-mode comparator
-
-Run `34658915788`: four lanes plus aggregate `SUCCESS`.
-
-The radial future-null-cone integral is analytic; no arbitrary UV momentum cutoff enters the normalized comparator. For every target null direction and every history, the source momentum, little-group element and spin-2 rotation are recomputed, removing the G6G narrow-packet approximation.
-
-Broadband coherent two-mode history-mixture loss exponents:
-
-- profile `m0`: `4.0342370`;
-- profile `m1`: `4.0347357`.
-
-For `m0`, changing polarization preparation gives
-
-- envelope-only: `4.0923625`;
-- linear spin-2: `4.0549234`;
-- helicity: `4.0591959`.
-
-Classification:
-`PASS_SCOPED_CONVENTION_REPAIRED_CURVED_TWO_MODE_POSITIVE_PAIRING_COMMON_CHARACTERISTIC_HILBERT_AND_CUTOFF_FREE_BROADBAND_24_HISTORY_COMPARATOR_WITH_ROBUST_H4_REFINEMENT_ORDER`.
-
-Record:
-`results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`.
-
-## G7A — absolute microscopic scale identifiability
-
-Initial run `34659076333` failed closed because one lightweight script unnecessarily imported NumPy; no physical criterion was changed. After removing that dependency, run `34659176245` completed four lanes plus aggregate `SUCCESS`.
-
-For the current dimensionless metric/response variable,
-
-`Dq ~ h partial q`,
-
-and in four dimensions
-
-`kappa sum_cells (Dq)^2 -> (c_geom kappa/h^2) integral d^4x (partial q)^2`.
-
-Hence
+Four-dimensional refinement matching gives
 
 `a_cont = c_geom kappa/h^2`.
 
-The logarithmic normalization Jacobian with respect to `(log kappa, log h)` is `[1,-2]`, rank one. The exact unresolved direction is
+The logarithmic normalization Jacobian in `(log kappa,log h)` is `[1,-2]`, rank one, leaving
 
-`h -> lambda h`,
-`kappa -> lambda^2 kappa`.
+`h -> lambda h`, `kappa -> lambda^2 kappa`
 
-The continuum GR normalization is unchanged along this direction, but the leading history correction changes as `lambda^4`.
-
-The authoritative microscopic action still explicitly retains `kappa` as one free overall normalization, and no later QGR result derives an absolute physical `h`.
+unresolved. The continuum GR normalization is unchanged while the leading history correction changes as `lambda^4`.
 
 Classification:
 `BLOCKED_SCOPED_ABSOLUTE_MICROSCOPIC_SCALE_NOT_IDENTIFIABLE_FROM_CURRENT_QGR_NORMALIZATION_CHAIN`.
 
-Record:
-`results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`.
+Record: `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`.
 
-## Active blocker / next gate
+## G7B — immediate scale-fixing routes fail closed
 
-`MISSING_DERIVED_MICROSCOPIC_NORMALIZATION_OR_SECOND_INDEPENDENT_PHYSICAL_SCALE_OBSERVABLE`
+Run `34659478647`: 4 lanes + aggregate SUCCESS.
 
-Active gate:
-`QGR-ITER007-G7B-MICROSCOPIC-NORMALIZATION-OR-MATTER-SECOND-SCALE`
+Results:
 
-Prospective routes:
+- the existing history isometry/CPTP normalization is independent of the overall real action coefficient `kappa`; it fixes branch modulus `1/sqrt(24)` but not the phase scale;
+- the current Lorentzian configuration measure `|det G|^-5/2 d^10G` is exactly scale neutral;
+- metric-only scalar covariance fixes the principal causal cone but leaves independent matter mass/nonminimal data;
+- shared metric cones do not by themselves derive multi-species universality or a second physical scale relation.
 
-1. derive `kappa` from the same microscopic quantum/amplitude/measure normalization, with no phenomenological fit; or
-2. derive a universal matter/detector coupling that supplies a second independent physical-scale relation.
+Classification:
+`BLOCKED_SCOPED_EXISTING_QGR_QUANTUM_NORMALIZATION_DOES_NOT_FIX_KAPPA_AND_METRIC_ONLY_MATTER_COVARIANCE_DOES_NOT_SUPPLY_A_DERIVED_SECOND_SCALE`.
 
-Fail closed if the route requires declaring `h=l_P`, setting `kappa` physically by convention, or fitting the scale solely to obtain a desired history effect.
+## G7C — no derived nonzero refinement stop scale
+
+Run `34659644866`: 4 lanes + aggregate SUCCESS.
+
+Results:
+
+- if `h` is a removed regulator, keeping continuum gravity normalization fixed requires `kappa~h^2`, while the leading history correction vanishes as `h^4`;
+- current `Q_13` geometry is continuous and its invariant measure contains no minimum nonzero scale;
+- naive canonical `T*Q_13` prequantization does not quantize `kappa` because the canonical symplectic form is exact;
+- B4 incidence/history/S4 counts are dimensionless and unchanged by global physical rescaling.
+
+Classification:
+`BLOCKED_SCOPED_CURRENT_CCRC_QGR_HAS_NO_DERIVED_NONZERO_STOP_SCALE__H_IS_EITHER_REMOVED_REGULATOR_WITH_VANISHING_H4_EFFECT_OR_REQUIRES_A_NEW_PHYSICAL_DISCRETENESS_PRINCIPLE`.
+
+## G7D — one dimensionless microscopic coupling remains
+
+Run `34659779779`: 4 lanes + aggregate SUCCESS.
+
+Restore physical units and define
+
+`g = kappa/hbar`,
+
+`ell_Q^2 = hbar/a_cont`.
+
+Then
+
+`h^2 = c_geom g ell_Q^2`.
+
+Thus, once the continuum normalization and `hbar` are specified, the unresolved freedom is equivalent to **one dimensionless microscopic coupling `g`**, not an independently arbitrary new dimensionful length.
+
+A generic leading broadband effect can be written schematically as
+
+`loss = C_prep c_geom^2 g^2 (ell_Q^2 R_eff)^2 + ...`.
+
+Pure classical vacuum gravity does not operationally calibrate the overall Einstein-Hilbert coefficient by itself, and no authoritative current QGR rule fixes `g=1` or any other value. Choosing units `hbar=1` does not fix a dimensionless coupling.
+
+Classification:
+`PARTIAL_SCOPED_ABSOLUTE_SCALE_AMBIGUITY_REDUCED_TO_ONE_DIMENSIONLESS_MICROSCOPIC_COUPLING_G_KAPPA_OVER_HBAR__G_REMAINS_UNFIXED_AND_MATTER_CLOCK_CALIBRATION_OPEN`.
+
+Record: `results/ITER007_G7B_G7D_SCALE_BOUNDARY.md`.
+
+## Iter007 conclusion
+
+The distinguishability problem is closed in its intended scope:
+
+- **positive:** QGR-L1 has a normalized, cutoff-free, curved broadband two-mode 24-history comparator for specified preparations, with robust tested leading order `O(h^4)`;
+- **negative:** the current CCRC/QGR realization does not derive a nonzero physical refinement stop scale or the remaining dimensionless microscopic action normalization `g`.
+
+If `h` is only a regulator and is removed, the leading finite-history correction disappears and the scoped local continuum remains the Einstein-Hilbert/GR sector. A finite beyond-GR effect therefore requires a new prospectively derived physical-discreteness, relational-clock/matter, or nontrivial microscopic amplitude/symplectic principle.
+
+This negative boundary is a completion result, not a reason to set `g=1` or `h=l_P` by convention.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `d14e48f6790c49cca5b202dc227a179a9577819a`, Iter353-355 bundle. A GFT condensate child obtained a scoped dispersion-rigidity result, but its own scope guard keeps the parent family nonterminal and explicitly forbids D7 promotion. `NEW_REQUIRED` remains unauthorized.
+Latest observed KMQGB head: `d14e48f6790c49cca5b202dc227a179a9577819a`, Iter353-355. The GFT condensate child has a scoped dispersion-rigidity result, but its source/scope guard keeps the parent family nonterminal and explicitly forbids D7 promotion. `NEW_REQUIRED` remains unauthorized.
 
 ## Claim locks
 
 - theory established remains `0%`;
 - no experimental confirmation;
 - no universal QGR decoherence coefficient;
-- no absolute physical prediction until `h/kappa` is separated;
-- no identification `h=l_P` by convention;
-- no arbitrary 2x2 polarization projector;
+- no absolute physical prediction until `g`/matter-clock calibration is derived or independently bounded;
+- no identification `h=l_P` or `g=1` by convention;
+- no arbitrary `2x2` polarization projector;
 - no face-neighbour cells treated as serial history channels;
 - no independent KMQGB pass;
 - no claim all known models fail;
@@ -205,6 +190,8 @@ Latest observed KMQGB head: `d14e48f6790c49cca5b202dc227a179a9577819a`, Iter353-
 
 ## Progress accounting
 
-- Iter007 completion: **98%**.
-- Candidate-program readiness: **86%**.
+- Iter007 completion: **100%**.
+- Candidate-program readiness: **87%**.
 - Theory established: **0%**.
+
+Next stage: `Iter008 — Physical Scale and Relational Matter Reconstruction`.
