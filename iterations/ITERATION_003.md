@@ -1,15 +1,15 @@
 # QGR Iteration 003 — 4D Lorentzian/GR Seed Gate
 
 Date: 2026-09-11
-Status: `ACTIVE / BOOLEAN_CAUSAL_CELL_SEED_CONSTRUCTED`
-Current task completion: **25%**
+Status: `ACTIVE / G2_KINEMATIC_LORENTZ_SEED_PASSED / HYPERBOLIC_DYNAMICS_OPEN`
+Current task completion: **60%**
 Canonical candidate-program readiness: **24%**
 Physical ansatz promoted: **NO**
 Lead architecture: **A / CCRC**
 
 ## Objective
 
-Test whether the A/CCRC architecture can move beyond a directed chain toward a genuinely branching/recombining causal complex with a derived local dimension notion, while preserving exact rigidity and without inserting a background metric or Einstein-Hilbert action.
+Test whether the A/CCRC architecture can move beyond a directed chain toward a genuinely branching/recombining causal complex with a derived local dimension notion and then toward a Lorentzian tensor-like sector, while preserving exact rigidity and without inserting a background metric or Einstein-Hilbert action.
 
 ## Predeclared fatal rule
 
@@ -21,114 +21,162 @@ Reject A/CCRC in its current reconstruction form if obtaining a 4D Lorentzian/GR
 - adding gate-specific free coefficients with no generating principle;
 - switching to a different realization for the GR limit.
 
-## Seed construction — Boolean causal cell `B_d`
+## G1 — Boolean causal cell `B_d`
 
-Define the events of `B_d` as all subsets of a set of `d` independent relational generators. The causal order is set inclusion:
+Define the events of `B_d` as all subsets of a set of `d` independent relational generators. The causal order is set inclusion. Elementary causal links add one generator.
 
-`S -> T` when `S` is a proper subset of `T`, with elementary causal links given by adding one generator.
+The rank profile is
 
-This gives a finite directed acyclic branching/recombining causal complex without a metric input.
+`N_r = C(d,r)`
 
-### Derived combinatorial dimension
+with generating polynomial
 
-The number of rank-`r` events is
+`R_d(x)=(1+x)^d`.
 
-`N_r = C(d,r)`.
+Thus the combinatorial direction count `d` is recoverable from relational-order data.
 
-Hence the rank-generating polynomial is
+For `B_4`:
 
-`R_d(x) = sum_r C(d,r)x^r = (1+x)^d`.
+- event count: `16`;
+- rank profile: `(1,4,6,4,1)`;
+- maximal causal chains: `4!=24`.
 
-The integer `d` is therefore recoverable directly from relational-order data, for example from `N_1=d` together with the binomial rank profile.
+Retaining the CCRC projector `P=I-J/3`, `P^2=P`, every four-step chain has kernel `P^4=P`. Equal-chain symmetry plus exact coarse/refinement consistency requires
 
-For the first 4-direction seed:
+`24 w_4 P = P`,
 
-`B_4: N_r = (1,4,6,4,1)`
+so
 
-with exactly `2^4=16` events.
+`w_4=1/24`.
 
-No continuum dimension or metric is inserted to obtain this `d=4` combinatorial dimension.
+More generally `w_d=1/d!`.
 
-### Branching/recombination
+Classification:
 
-From the bottom event to the top event of `B_d`, each maximal causal history is an ordering of the `d` generators. Therefore the number of maximal chains is exactly
-
-`N_paths = d!`.
-
-For `B_4`, `N_paths=24`.
-
-## CCRC gluing on `B_d`
-
-Retain the already-tested nontrivial CCRC label projector
-
-`P = I - J/3`,
-
-with `P^2=P`.
-
-Along any `d`-step maximal causal chain,
-
-`P^d = P`.
-
-If all symmetry-related maximal chains carry an equal weight `w_d`, then exact coarse/refinement consistency requires
-
-`d! * w_d * P = P`.
-
-For nonzero `P`, this fixes the equal-chain weight uniquely:
-
-`w_d = 1/d!`.
-
-Thus for `B_4`, the symmetry-compatible refinement weight is fixed to
-
-`w_4 = 1/24`.
-
-This is not introduced as a tunable coupling; it is forced by path multiplicity + exact coarse-kernel closure in the scoped construction.
+`PASS_SCOPED_DERIVED_COMBINATORIAL_DIMENSION_AND_UNIQUE_PATH_NORMALIZATION`.
 
 Reproducibility: `code/qgr_iter003_boolean_causal_cell.py`.
 
-## Scoped result
+## G2 — exact `S_4` perturbation decomposition
 
-`PASS_SCOPED_DERIVED_COMBINATORIAL_DIMENSION_AND_UNIQUE_PATH_NORMALIZATION`
+The four `B_4` relational directions define six unordered direction pairs. Small pair-incidence/gluing perturbations therefore form a six-dimensional representation of `S_4`.
 
-Established in scope:
+The representation decomposes exactly as
 
-- branching/recombining causal complex exists;
-- a dimension count can be derived from pure relational order data;
-- `d=4` can be represented by a 16-event `B_4` cell with binomial rank profile `(1,4,6,4,1)`;
-- CCRC projector gluing remains exact along every causal chain;
-- symmetric path normalization is fixed to `1/d!` by refinement consistency, with no continuous coefficient freedom added.
+`6 = 1 + 3 + 2`.
 
-## Critical boundary
+A concrete realization is:
 
-This is **not yet 4D Lorentzian gravity**.
+- `1D`: scalar/common pair perturbation;
+- `3D`: vector-like sector `x_ij=u_i+u_j`, `sum_i u_i=0`;
+- `2D`: balanced sector satisfying `sum_{j!=i} x_ij=0` for every `i`.
 
-A combinatorial `d=4` does not by itself provide:
+The two-dimensional sector is exactly the kernel of the unsigned `K_4` vertex-edge incidence matrix. Since that matrix has rank four, the sector dimension is exactly two.
 
-- Lorentzian signature;
-- approximate local Lorentz invariance;
-- metric/tetrad degrees of freedom;
-- a massless spin-2 excitation;
+One exact basis in pair order `(01,02,03,12,13,23)` is
+
+`TT1=(0,1,-1,-1,1,0)`
+
+`TT2=(1,0,-1,-1,0,1)`.
+
+Detailed record: `results/ITER003_G2_TETRAHEDRAL_LORENTZ_SECTOR.md`.
+Reproducibility: `code/qgr_iter003_tetrahedral_lorentz_sector.py`.
+
+## Conditional Lorentzian seed
+
+The most general symmetric bilinear form on the four generator directions invariant under all `S_4` permutations is
+
+`g=alpha I + beta J`.
+
+G2 tests the explicit candidate causal hypothesis that the four equivalent elementary causal generators are null links of the emergent local bilinear form. Then diagonal entries vanish:
+
+`alpha+beta=0`.
+
+Up to overall scale,
+
+`g_0=I-J`.
+
+Its eigenvalues are
+
+`(-3,+1,+1,+1)`.
+
+Therefore `S_4` equivalence plus the null-cover hypothesis fixes a Lorentzian `(1,3)` signature seed without inserting a continuum background metric.
+
+This result is **conditional**: the null-cover interpretation has not yet been derived from earlier CCRC axioms and is not promoted to a theorem of QGR.
+
+## TT-like property
+
+Embed a pair perturbation as a symmetric `4x4` matrix `H` with zero diagonal and off-diagonal entries `H_ij=x_ij`.
+
+For every vector in the exact 2D balanced sector,
+
+`H (1,1,1,1)^T=0`.
+
+Also, since
+
+`g_0^{-1}=I-J/3`,
+
+one has exactly
+
+`Tr(g_0^{-1}H)=0`.
+
+Thus the two-dimensional finite sector is transverse to the distinguished symmetric direction and traceless relative to the conditional Lorentzian seed.
+
+Classification:
+
+`PASS_SCOPED_CONDITIONAL_LORENTZIAN_TETRAHEDRAL_FRAME_AND_2D_TRANSVERSE_TRACELESS_LIKE_SECTOR__NO_GRAVITON_OR_GR_DYNAMICS_CLAIM`.
+
+The equality of this sector dimension with the two continuum graviton helicities is only suggestive. Finite `S_4` representation dimension is not a Lorentz/Poincare spin-2 theorem.
+
+## Refinement rigidity and blocker
+
+The direct commutant audit of the two-dimensional `S_4` representation shows that every `S_4`-equivariant linear transfer map is
+
+`T=lambda I`.
+
+If exact CCRC refinement remains idempotent,
+
+`T^2=T`,
+
+then
+
+`lambda in {0,1}`.
+
+A surviving nonzero mode therefore has `lambda=1` with no continuous transfer coefficient.
+
+This is strong rigidity but not yet dynamics: `T=I` gives persistence, not a derived hyperbolic wave equation or dispersion law.
+
+A path-response test over all 24 maximal `B_4` chains gives, for each exact TT-like basis vector:
+
+- mean first-order response: `0`;
+- variance: `2`.
+
+So the mode is microscopically nonzero while first-order scalar path normalization is unchanged.
+
+## What remains open
+
+Still unproved:
+
+- derivation, rather than assumption, of null elementary links;
+- approximate local Lorentz invariance beyond finite tetrahedral symmetry;
+- diffeomorphism/gauge redundancy;
+- a hyperbolic kinetic operator;
+- massless dispersion;
+- Lorentz/Poincare spin-2 transformation law;
 - Einstein dynamics;
-- the equivalence principle;
+- equivalence principle;
 - continuum locality;
-- physical clock/rod observables.
+- normalized clock/rod observable.
 
-The current construction is therefore a seed only.
+## Exact next gate — Iter003-G3
 
-## Strongest new insight
+`QGR-ITER003-G3-DISCRETE-HYPERBOLIC-PROPAGATION`
 
-The first non-chain refinement test did **not** immediately reintroduce arbitrary amplitude weights. Instead, branching multiplicity plus exact projector closure fixes the symmetric path weight factorially.
+1. Carry the exact 2D balanced sector on the smallest repeated/multi-cell causal complex.
+2. Start from the most general local, linear, `S_4`-covariant quadratic/second-order update compatible with the already derived conditional null frame.
+3. Determine whether its principal symbol is fixed, up to physically irrelevant overall scale, by locality + symmetry + null-link structure rather than by fitting a continuum target.
+4. Check whether a genuine hyperbolic/light-cone characteristic surface appears.
+5. Check whether both TT-like components propagate with the same operator by representation rigidity.
+6. Record a blocker instead of inserting a d'Alembertian by hand if the operator is underdetermined.
 
-This strengthens A/CCRC as a rigidity architecture, but creates the next decisive question: can the same relational structure produce Lorentzian tensor dynamics rather than merely a finite causal combinatorics?
-
-## Exact next gate — Iter003-G2
-
-`QGR-ITER003-G2-LORENTZIAN-TENSOR-SEED`
-
-1. Introduce no background metric.
-2. Define the most general small perturbation of local relational incidence/gluing data around the symmetric `B_4` seed consistent with causal orientation.
-3. Decompose perturbations into symmetry sectors before choosing dynamics.
-4. Identify whether a tensor-like traceless sector exists that can propagate nontrivially under exact composition/refinement.
-5. Test whether obtaining such a sector requires arbitrary functions or manually inserting continuum spin-2 structure.
-6. Separate clearly: combinatorial dimension, causal order, Lorentzian signature, and GR dynamics must not be conflated.
-
-If no candidate tensor/Lorentzian sector arises without importing continuum GR structure, record a scoped failure and redesign rather than inserting Einstein dynamics by hand.
+The gate is passed only as a scoped linearized seed if the relative kinetic structure is fixed prospectively and no new gate-specific function is introduced.
