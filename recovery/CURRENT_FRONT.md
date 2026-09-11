@@ -10,11 +10,12 @@ Active roadmap stage: `R4->R5 bridge — nonlinear constraint/self-coupling and 
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **36%**
 - Iter004 completion: **100%**
-- Iter005 completion: **0%**
+- Iter005 completion: **15%**
 - Lead architecture: `A / CCRC`
 - Active candidate: `QGR-L1`
 - Candidate state: `PROPOSED_LINEARIZED_GAUGE_CLOSED_CAUSAL_TWO_MODE / NONLINEAR_OPEN`
 - Linearized masslessness protected: **YES, scoped**
+- Zero-derivative cubic potential sector: **CLOSED / 20 of 20 S4 directions excluded**
 - Full nonlinear theory established: **NO**
 - Einstein equations derived: **NO**
 - Independent benchmark passed: **NO**
@@ -24,80 +25,61 @@ Readiness is an internal construction-roadmap metric, not probability of correct
 
 ## Iter004 closed result
 
-The original six-component QGR-L0 arena fails a complete `S4`-invariant local two-derivative derivative-gauge audit: the natural symmetric coboundary admits only the zero Hessian. This identified the six-field realization as too strongly pre-reduced for derivative Noether closure.
+The original six-component QGR-L0 arena fails the complete local `S4` two-derivative derivative-gauge audit. A natural unreduced response arena was then derived from the existing four rank-1 relational directions:
 
-A natural unreduced arena was then derived without adding repeated Boolean events:
+`W4 -> Sym^2(W4) -> 10 components`.
 
-`four rank-1 relational directions W4 -> Sym^2(W4) -> 10 second-moment components`.
+Within this arena, derivative Noether closure leaves a two-dimensional quadratic Hessian family. Prior QGR data — the incidence cone and exact two-mode quotient — uniquely select QGR-L1 up to normalization. The selected branch has exactly two physical null modes on the incidence cone and forbids every `S4`-invariant onsite quadratic mass deformation.
 
-The old six Boolean pair responses remain the canonical off-diagonal subspace; four self-response components supply the missing unreduced sector.
+A posteriori only, QGR-L1 coincides up to scale with the standard massless Fierz-Pauli quadratic operator in the tetrahedral null frame `C=J-I`. This was not used to select it.
 
-On this 10D arena:
+Authoritative record: `iterations/ITERATION_004.md`.
 
-- complete local `S4`-invariant two-derivative Hessian family: 38 orbit coefficients;
-- derivative Noether identity leaves a 2D nonzero Hessian family;
-- exact embedding of old QGR-L0 kinetic operator is impossible except trivially;
-- incidence-cover characteristic condition reduces the family to two discrete branches;
-- the independently derived 2D physical quotient selects one branch uniquely up to normalization;
-- selected `QGR-L1` has rank 4 on tested incidence-null covectors and rank 6 off cone;
-- all seven `S4`-invariant onsite quadratic mass deformations are forbidden by the derivative Noether identity.
+## Iter005 G1A result
 
-A posteriori only, the selected quadratic Hessian coincides up to scale with the standard massless Fierz-Pauli kinetic operator in the tetrahedral null frame with contravariant form `C=J-I`. This was not used as a selection criterion.
+The ten-component QGR-L1 field `H=Sym^2(W4)` admits exactly **20** `S4`-invariant zero-derivative cubic invariants before gauge constraints.
 
-Authoritative records:
+For constant `h` and affine gauge parameter `xi`,
 
-- `iterations/ITERATION_004.md`
-- `results/ITER004_G4_DERIVATIVE_CONSTRAINT_AUDIT.md`
-- `results/ITER004_G5_SECOND_MOMENT_ARENA.md`
-- `results/ITER004_G6_SELECT_L1.md`
+`delta_0 h_ij = D_i xi_j + D_j xi_i`
 
-Reproducibility:
+spans arbitrary constant symmetric shifts in all ten field components. Since the quadratic action is derivative-only, no local variation of `S2` can cancel an arbitrary algebraic cubic variation on constant fields.
 
-- `code/qgr_iter004_g4_derivative_constraint_audit.py`
-- `code/qgr_iter004_g5_second_moment_arena.py`
-- `code/qgr_iter004_g6_select_l1.py`
+Therefore
 
-## What is genuinely closed
+`V_3(h)=0`,
 
-At linearized level, QGR-L1 now has:
+and all **20/20** zero-derivative cubic directions are excluded.
 
-- an independently motivated unreduced tensor-response arena;
-- a derivative gauge/Noether identity;
-- a uniquely selected causal two-mode kinetic branch;
-- a characteristic cone matching the earlier incidence cone on tested nontrivial rational null covectors;
-- structural exclusion of onsite quadratic mass terms.
+Classification:
 
-## What is not closed
+`PASS_SCOPED_20_S4_CUBIC_POTENTIALS_CENSUSED_AND_ALL_EXCLUDED_BY_DERIVED_AFFINE_GAUGE_SHIFT`.
 
-No claim is made yet for:
+Records:
 
-- nonlinear gauge algebra;
-- nonlinear self-coupling;
-- finite exact transformation law beyond linear response;
-- Einstein equations;
-- equivalence principle;
-- continuum/refinement theorem;
-- finite interacting quantum measure/amplitude;
-- normalized observables;
-- experimental prediction;
-- independent KMQGB pass.
+- `results/ITER005_G1A_CUBIC_POTENTIAL_CENSUS.md`
+- `code/qgr_iter005_g1a_cubic_potential_census.py`
 
 ## Active blocker
 
-`BLOCKED_MISSING_NONLINEAR_RELATIONAL_CONSTRAINT_ALGEBRA_AND_SELF_COUPLING_COMPLETION_OF_QGR_L1_WITHOUT_POST_HOC_EINSTEIN_HILBERT_INSERTION_PLUS_SAME_REALIZATION_REFINEMENT_CONTROL`
+`BLOCKED_MISSING_COMPLETE_TWO_DERIVATIVE_CUBIC_CENSUS_AND_ORDER_BY_ORDER_NOETHER_SOLUTION_FOR_QGR_L1_WITHOUT_POST_HOC_EINSTEIN_HILBERT_INSERTION`
 
-## Active gate — Iter005
+## Active gate — Iter005-G1B
 
-`QGR-ITER005-NONLINEAR-CONSTRAINT-AND-SELF-COUPLING-CLOSURE`
+`QGR-ITER005-G1B-TWO_DERIVATIVE_CUBIC_CENSUS_AND_NOETHER_SYSTEM`
 
-1. Start from QGR-L1 and the finite relational/second-moment ontology, not from continuum GR.
-2. Enumerate the lowest-order local cubic deformations compatible with `S4`, incidence locality, and the existing derivative gauge identity.
-3. Derive the first nonlinear correction to the gauge transformation from relational composition if it exists.
-4. Test Noether consistency order-by-order.
-5. Determine whether self-coupling is unique/low-dimensional or underdetermined.
-6. Check whether the incidence causal cone survives weak nonlinear backgrounds.
-7. Reject any branch whose justification is simply “use Einstein-Hilbert because it works.”
-8. Begin same-realization refinement/coarse-graining only after a nonlinear candidate survives the local closure gate.
+1. Enumerate local `S4`-invariant cubic terms with exactly two first-neighbor derivatives.
+2. Remove integration-by-parts / field-permutation redundancies.
+3. Derive the most general first nonlinear gauge correction allowed by relational frame composition.
+4. Solve `delta_0 S_3 + delta_1 S_2 = 0` exactly.
+5. Count surviving coupling directions before any comparison with Einstein-Hilbert.
+6. If no internal QGR principle selects among multiple surviving directions, record `BLOCKED_UNDERDETERMINED` rather than choosing the GR-like interaction.
+
+## Subsequent gates
+
+- G2: nonlinear gauge-algebra closure;
+- G3: weak-background causal-cone stability;
+- G4: same-realization refinement/coarse-graining handoff.
 
 ## KMQGB synchronization
 
@@ -108,8 +90,9 @@ Last inspected KMQGB head: `f503c39177012879a80bf767282a15d0c441e2f9` (Iter324-3
 1. `recovery/state.json`
 2. `recovery/CURRENT_FRONT.md`
 3. `iterations/ITERATION_005.md`
-4. `iterations/ITERATION_004.md`
-5. `results/ITER004_G6_SELECT_L1.md`
-6. `docs/CONSTITUTION.md`
-7. newest Iter005 results/code
-8. current KMQGB front and recent commits
+4. `results/ITER005_G1A_CUBIC_POTENTIAL_CENSUS.md`
+5. `iterations/ITERATION_004.md`
+6. `results/ITER004_G6_SELECT_L1.md`
+7. `docs/CONSTITUTION.md`
+8. newest Iter005 results/code
+9. current KMQGB front and recent commits
