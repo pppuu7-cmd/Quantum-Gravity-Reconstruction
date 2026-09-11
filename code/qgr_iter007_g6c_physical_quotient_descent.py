@@ -13,7 +13,7 @@ def inv(A):
  n=len(A);M=[list(A[i])+eye(n)[i] for i in range(n)]
  for c in range(n):
   p=next(r for r in range(c,n) if M[r][c]);M[c],M[p]=M[p],M[c]
-  z=1/M[c][c];M[c]=[x*z for x in M[c]]
+  z=F(1)/M[c][c];M[c]=[x*z for x in M[c]]
   for r in range(n):
    if r!=c and M[r][c]:
     z=M[r][c];M[r]=[M[r][j]-z*M[c][j] for j in range(2*n)]
@@ -23,7 +23,7 @@ def rank(A):
  for c in range(n):
   p=next((i for i in range(rr,m) if M[i][c]),None)
   if p is None:continue
-  M[rr],M[p]=M[p],M[rr];z=1/M[rr][c];M[rr]=[x*z for x in M[rr]]
+  M[rr],M[p]=M[p],M[rr];z=F(1)/M[rr][c];M[rr]=[x*z for x in M[rr]]
   for i in range(m):
    if i!=rr and M[i][c]:
     z=M[i][c];M[i]=[M[i][j]-z*M[rr][j] for j in range(n)]
@@ -34,7 +34,7 @@ def nullspace(A):
  for c in range(n):
   p=next((i for i in range(rr,m) if M[i][c]),None)
   if p is None:continue
-  M[rr],M[p]=M[p],M[rr];z=1/M[rr][c];M[rr]=[x*z for x in M[rr]]
+  M[rr],M[p]=M[p],M[rr];z=F(1)/M[rr][c];M[rr]=[x*z for x in M[rr]]
   for i in range(m):
    if i!=rr and M[i][c]:
     z=M[i][c];M[i]=[M[i][j]-z*M[rr][j] for j in range(n)]
@@ -68,7 +68,6 @@ def gauge(k):
  for a,(i,j) in enumerate(FIELDS):R[a][j]+=k[i];R[a][i]+=k[j]
  return R
 def sym2_map(A):
- # vec_sym(h) -> vec_sym(A^T h A)
  M=[[F(0) for _ in range(10)] for __ in range(10)]
  for col,(i,j) in enumerate(FIELDS):
   H=[[F(0) for _ in V] for __ in V];H[i][j]=1;H[j][i]=1
@@ -76,7 +75,6 @@ def sym2_map(A):
   K=mm(mm(T(A),H),A)
   for row,(r,s) in enumerate(FIELDS):M[row][col]=K[r][s]
  return M
-def iszero(A):return all(x==0 for r in A for x in r)
 def nullform(B,k):return sum(k[i]*B[i][j]*k[j] for i in V for j in V)
 
 AS=[
@@ -84,7 +82,9 @@ AS=[
  [[1,0,0,0],[F(1,7),1,F(1,6),0],[0,0,1,0],[0,0,0,1]],
  [[F(6,5),0,F(1,8),0],[0,F(9,10),0,F(1,9)],[0,0,1,0],[0,0,0,F(11,10)]],
 ]
+AS=[[[F(x) for x in row] for row in A] for A in AS]
 KS=[[F(1),0,0,0],[1,1,1,-1],[1,2,3,F(-11,6)]]
+KS=[[F(x) for x in k] for k in KS]
 checks=0
 for A in AS:
  Ai=inv(A);B=mm(mm(Ai,C),T(Ai));S=sym2_map(A);AT=T(A)
@@ -94,13 +94,10 @@ for A in AS:
   kp=mv(AT,k0); assert nullform(B,kp)==0
   H0=hessian(C,k0);Hp=hessian(B,kp);R0=gauge(k0);Rp=gauge(kp)
   assert rank(H0)==4 and rank(Hp)==4 and rank(R0)==4 and rank(Rp)==4
-  # exact gauge covariance S R(k)=R(A^T k) A^T
   assert mm(S,R0)==mm(Rp,AT)
-  # Every old on-shell null vector maps to a new on-shell null vector.
   N0=nullspace(H0); assert len(N0)==6
   for n in N0:
    sn=mv(S,n); assert all(x==0 for x in mv(Hp,sn))
-  # Invertibility plus dimensions make the induced quotient map an isomorphism.
   checks+=1
 
 out={
