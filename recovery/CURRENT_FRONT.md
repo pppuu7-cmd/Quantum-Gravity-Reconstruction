@@ -1,107 +1,104 @@
 # QGR Current Research Front
 
 Updated: 2026-09-11
-Completed iteration: `Iter002`
+Active iteration: `Iter003`
 Project phase: `MODEL_CONSTRUCTION_ACTIVE / PRE_ANSATZ`
-Active roadmap stage: `R2 -> R3 boundary / 4D Lorentzian-GR seed gate`
+Active roadmap stage: `R3 gate — 4D Lorentzian/GR seed`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **24%** (KMQGB R3 bookkeeping baseline; intentionally unchanged because no physical ansatz is yet promotable)
-- Iter002 completion: **100%**
-- Next task completion: **0%**
+- Candidate-program readiness: **24%** (unchanged; still no promotable physical ansatz)
+- Iter003 completion: **25%**
 - Physical ansatz promoted: **NO**
-- Active physical model branch: `NONE`
-- Lead architecture: `A / CCRC — Constraint-Closed Relational Complex`
+- Lead architecture: `A / CCRC`
 - Theory established: **NO**
 - Independent benchmark passed: **NO**
 - KMQGB `NEW_REQUIRED` authorization: **NO**
 
-## Iter002 terminal result
+## Iter002 closed result
 
-Five architecture classes were prospectively compared under Constitution v1.0. Two kill rounds were executed without changing the tests after seeing outcomes.
+Two prospective kill rounds selected A/CCRC as the unique current lead architecture. B, C and E acquired scoped standalone failures; D remains only partially viable. Issue #1 is closed as completed.
 
-### A / CCRC — `PASS_SCOPED_LEAD_ARCHITECTURE_NOT_YET_PHYSICAL_ANSATZ`
+## Iter003 seed result
 
-Kill Round 1 showed that an `S3`-invariant three-label gluing operator `K=aI+bJ`, when required to satisfy exact composition/refinement closure `K^2=K`, loses its continuous coefficient freedom and collapses to four discrete projectors. The nontrivial standard-sector projector `P=I-J/3` preserves a nonzero projected traceless relational geometry operator.
+A branching/recombining metric-free causal test object has been constructed using the Boolean causal cell `B_d`.
 
-Kill Round 2 upgraded the toy to directed causal morphisms. Forward-only layer composition is associative, `P^2=P` gives an exact two-link-to-one-link coarse map, and the same nonzero geometry mode survives coarse graining without retuning or switching realization.
+Events are subsets of `d` independent relational generators, ordered by set inclusion. The rank profile is purely combinatorial:
 
-This is the strongest current evidence for A: **rigidity + causal composition + two-scale same-realization survival** coexist in the smallest exact toy.
+`N_r = C(d,r)` and `R_d(x)=(1+x)^d`.
 
-Boundary: no 4D Lorentzian dimension, continuum field content, massless spin-2 sector, Einstein dynamics, physical normalization theorem, or empirical observable has been derived.
+Thus `d` is recoverable from relational-order data rather than supplied by a continuum metric.
 
-### B / CQCG — `FAIL_SCOPED_RIGIDITY_AS_STATED`
+For `B_4`:
 
-The `SU(2)`-covariant qubit depolarizing family is CPTP on a continuous interval and closes under composition `p_eff=pq`. Thus positivity + symmetry + channel composition do not determine dynamics uniquely. B is retained only as a possible operational/coarse-graining language.
+- events: `16`;
+- rank profile: `(1,4,6,4,1)`;
+- maximal monotone causal chains: `4! = 24`;
+- derived combinatorial direction count: `d=4`.
 
-### C / PCMH — `FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED`
+Retaining the Iter002 CCRC projector `P=I-J/3`, each chain has kernel `P^4=P`. Equal-chain symmetry plus exact coarse consistency requires
 
-Binary projective refinement leaves `2^d-1` continuous split parameters by depth `d`; exact exchange symmetry removes them only by forcing uniform trivial refinement. C is retained as a cross-scale consistency requirement rather than standalone dynamics.
+`24 * w_4 * P = P`,
 
-### D / LCSD — `PARTIAL / SPECTRUM_ONLY_NONUNIQUE`
+therefore the path weight is uniquely fixed to
 
-`K_(1,4)` and `C4 + isolated vertex` are non-isomorphic but have identical adjacency spectrum `{2,-2,0,0,0}`. Spectrum alone therefore cannot uniquely reconstruct finite adjacency geometry. A full algebra/state/operator version is not refuted, but D remains underspecified and non-leading.
+`w_4 = 1/24`.
 
-### E / RQEC — `FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY`
+More generally `w_d=1/d!` on the symmetric `B_d` cell.
 
-An exact three-qutrit one-erasure-correcting code can have maximally mixed two-qutrit reduced states `I_9/9` for every pair, so perfect recoverability need not generate adjacency, dimension, causal order or curvature dynamics. E is retained only as possible emergent robustness.
+Classification: `PASS_SCOPED_DERIVED_COMBINATORIAL_DIMENSION_AND_UNIQUE_PATH_NORMALIZATION`.
 
-## Controlled role decomposition
+Reproducibility: `code/qgr_iter003_boolean_causal_cell.py`.
+Detailed record: `iterations/ITERATION_003.md`.
 
-The only currently permitted synthesis hypothesis is:
+## Why this matters
 
-- `A/CCRC` = candidate microscopic rigidity/dynamics architecture;
-- `C/projective consistency` = mandatory cross-scale consistency gate;
-- `E/QEC` = optional emergent robustness if derived, never inserted as gravity;
-- `B/channels` = possible operational-observable/coarse-map language;
-- `D/spectral data` = possible diagnostic/geometric observable, not substitute for dynamics.
+The first branching/recombining extension did not require a new tunable amplitude weight. Path multiplicity plus refinement closure fixed the symmetric normalization combinatorially. This is consistent with the QGR rigidity objective and avoids repeating a major class of underdetermination seen in benchmark work.
 
-This is a construction policy, not yet a theory.
+## Critical boundary
 
-## Reproducibility
+`d=4` here means a derived **combinatorial direction count**, not yet physical 4D Lorentzian spacetime.
 
-- `code/qgr_iter002_kill_round1.py`
-- `results/ITER002_KILL_ROUND1.md`
-- `code/qgr_iter002_kill_round2.py`
-- `results/ITER002_KILL_ROUND2.md`
-- `iterations/ITERATION_002.md`
+Still unproved:
+
+- Lorentzian signature;
+- approximate local Lorentz invariance;
+- metric/tetrad degrees of freedom;
+- propagating massless spin-2 sector;
+- Einstein dynamics;
+- equivalence principle;
+- continuum locality;
+- normalized clock/rod observable.
+
+No readiness increase is granted for merely matching the number four.
+
+## Active scientific gate — Iter003-G2
+
+`QGR-ITER003-G2-LORENTZIAN-TENSOR-SEED`
+
+1. Perturb local incidence/gluing data around symmetric `B_4` without a background metric.
+2. Decompose perturbations into symmetry sectors before choosing dynamics.
+3. Look for a nontrivial traceless tensor-like sector that survives causal gluing/refinement.
+4. Test multi-cell composition; a mode existing only in one isolated cell does not count.
+5. Determine whether any candidate Lorentzian signature or hyperbolic propagation structure arises intrinsically.
+6. Reject the branch in its present form if continuum GR structure must be inserted by hand.
+
+## Fatal criterion
+
+If 4D Lorentzian/GR recovery requires inserting a background metric, Einstein-Hilbert term, arbitrary continuum/spectral function, or gate-specific coefficients solely to hit GR, A/CCRC fails the reconstruction objective in its current form.
 
 ## KMQGB synchronization
 
-Latest inspected KMQGB head: `f503c39177012879a80bf767282a15d0c441e2f9` (Iter324-325 merge).
+Last inspected KMQGB head remains `f503c39177012879a80bf767282a15d0c441e2f9` (Iter324-325 merge). Its finite-source-`i-epsilon` result reinforces, but does not change, the QGR prospective finite-definition rule. D7 remains unauthorized in the inspected snapshot.
 
-Relevant delta: finite source spectral `i-epsilon` does not soften the tested minimal-spin Toller short-distance pole, including the explicit causal K5 witness. The KMQGB scope guard leaves separate distributional/renormalized extensions open, does not terminally fail LQG/spinfoam, and does not authorize D7.
+## Recovery pointers
 
-QGR consequence: finite definition must be prospective and structural, not a regulator choice added after divergence is observed.
-
-## Active scientific gate — QGR Iter003
-
-`QGR-ITER003-4D-LORENTZIAN-GR-SEED`
-
-The lead A/CCRC architecture now faces its first genuinely gravity-specific test:
-
-1. replace the directed chain by the smallest branching/recombining causal cell complex capable of carrying a derived local dimension notion;
-2. define volume/area/distance-like relational observables without a background metric;
-3. test exact gluing/refinement rigidity on that nontrivial complex;
-4. construct a prospective coarse/continuum mode and ask whether a Lorentzian tensor/spin-2 sector can emerge from the same realization;
-5. identify what would make Einstein/GR dynamics unavoidable or approximately universal rather than inserted by hand.
-
-### Predeclared fatal criterion
-
-If obtaining a 4D Lorentzian/GR regime requires inserting a continuum metric action, Einstein-Hilbert term, arbitrary spectral/action function, or gate-specific free coefficients solely to hit GR, the A branch fails the QGR reconstruction objective in its current form.
-
-## Claim locks
-
-Unchanged:
-
-- existing models are not collectively declared wrong;
-- a new model is not formally required by KMQGB;
-- `BLOCKED` is not `FAIL`;
-- QGR is not unique or correct merely because A leads the internal architecture search;
-- scoped LQG results are not universal QG no-go theorems.
+- `recovery/state.json`
+- `iterations/ITERATION_003.md`
+- `code/qgr_iter003_boolean_causal_cell.py`
+- GitHub issue #2 — Iter003 4D Lorentzian/GR seed gate
 
 ## Exact next action
 
-Begin `Iter003`: construct the smallest nontrivial A/CCRC causal cell complex with branching/recombination and derive, rather than assume, a dimension/geometry candidate. Do not write an Einstein-Hilbert action as an input.
+Begin the symmetry-sector perturbation analysis around `B_4`. The next useful milestone is not another combinatorial dimension count; it is evidence for or against an intrinsically generated Lorentzian tensor-like propagating sector.
