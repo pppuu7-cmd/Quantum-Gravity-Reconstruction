@@ -10,14 +10,14 @@
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 24,
-    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory.",
-    "current_task_pct": 45,
+    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory. Held fixed until the full pre-ansatz promotion rule is satisfied.",
+    "current_task_pct": 78,
     "theory_established_pct": 0
   },
   "roadmap": {
     "R0_governance_recovery": "COMPLETE",
-    "R1_requirement_closure": "COMPLETE_FOR_BOOTSTRAP",
-    "R2_ontology_search": "ACTIVE",
+    "R1_requirement_closure": "COMPLETE_FOR_PRE_ANSATZ",
+    "R2_ontology_search": "ACTIVE_LEAD_ARCHITECTURE_IDENTIFIED_NOT_PROMOTED",
     "R3_minimal_dynamical_ansatz": "INACTIVE",
     "R4_local_mathematical_closure": "INACTIVE",
     "R5_same_realization_uv_ir": "INACTIVE",
@@ -29,17 +29,51 @@
   "candidate": {
     "promoted_ansatz": false,
     "active_branch": null,
-    "status": "UNFORMED_MULTI_BRANCH_SEARCH",
+    "lead_architecture": "A_CCRC",
+    "status": "UNFORMED_MULTI_BRANCH_SEARCH_WITH_LEAD_ARCHITECTURE",
     "benchmark_winner": false,
     "independent_validation": false,
     "branches": {
-      "A_CCRC": {"score": 30, "max_score": 40, "status": "PARTIAL_HIGH_PRIORITY_FOR_KILL_TESTS"},
-      "B_CQCG": {"score": 30, "max_score": 40, "status": "PARTIAL_HIGH_RIGIDITY_BUT_GR_ROUTE_WEAK"},
-      "C_PCMH": {"score": 30, "max_score": 40, "status": "PARTIAL_HIGH_SAME_REALIZATION_POTENTIAL"},
-      "D_LCSD": {"score": 29, "max_score": 40, "status": "PARTIAL_GEOMETRY_STRONGER_THAN_COMPOSITION"},
-      "E_RQEC": {"score": 31, "max_score": 40, "status": "PARTIAL_HIGHEST_RAW_SCORE_BUT_FATAL_GR_RISK"}
-    },
-    "kill_round_1_queue": ["A_CCRC", "C_PCMH", "E_RQEC"]
+      "A_CCRC": {
+        "score": 30,
+        "max_score": 40,
+        "status": "PASS_SCOPED_LEAD_BRANCH_NOT_PROMOTABLE",
+        "kill_round_1": {
+          "composition_refinement": "PASS_SCOPED",
+          "nonzero_geometry": "PASS_SCOPED",
+          "rigidity": "PASS_SCOPED"
+        },
+        "next_blockers": [
+          "directed_causal_gluing",
+          "two_scale_same_realization_survival",
+          "4d_lorentzian_route",
+          "gr_dynamics_route",
+          "normalized_operational_observable"
+        ]
+      },
+      "B_CQCG": {
+        "score": 30,
+        "max_score": 40,
+        "status": "PARTIAL_CONTROL_BRANCH_QUEUED_ROUND2"
+      },
+      "C_PCMH": {
+        "score": 30,
+        "max_score": 40,
+        "status": "FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED",
+        "retained_role": "projective_refinement_consistency_gate"
+      },
+      "D_LCSD": {
+        "score": 29,
+        "max_score": 40,
+        "status": "PARTIAL_CONTROL_BRANCH_QUEUED_ROUND2"
+      },
+      "E_RQEC": {
+        "score": 31,
+        "max_score": 40,
+        "status": "FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY",
+        "retained_role": "possible_emergent_robustness_encoding_layer"
+      }
+    }
   },
   "governance": {
     "constitution": "docs/CONSTITUTION.md",
@@ -54,25 +88,30 @@
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
     "snapshot_date": "2026-09-11",
-    "latest_observed_commit": "35bd20ed562365af4cc9f6431c487f223b419e82",
-    "latest_observed_iteration": 323,
+    "latest_observed_commit": "f503c39177012879a80bf767282a15d0c441e2f9",
+    "latest_observed_iteration": 325,
     "global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
     "D2": "NOT_CLOSED_COVERAGE_AND_OBJECTS",
     "D4": "PARTIAL_GLOBAL_NOT_CLOSED",
     "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED",
-    "tier1_terminal_coverage": "1/15",
-    "candidate_family_terminal_coverage": "0/14"
+    "latest_relevant_delta": "Iter324-325: finite source spectral i-epsilon does not soften the tested minimal-spin Toller short-distance pole, including explicit causal K5 witness; separate distributional/renormalized extension remains open and D7 remains unauthorized."
   },
   "active_question": {
-    "id": "QGR-G0-KILL-ROUND-1",
-    "text": "Test the A/CCRC, C/PCMH, and E/RQEC architecture classes with their predeclared minimal toy-model kill tests before promoting any ansatz."
+    "id": "QGR-G0-KILL-ROUND-2-A-CAUSAL-REFINEMENT",
+    "text": "Does A/CCRC retain discrete low-freedom closure when upgraded to directed causal gluing, and can one nonzero geometry mode survive an explicit two-scale coarse-graining map in the same realization?"
   },
   "next_gate": {
     "iteration": 2,
-    "id": "QGR-G0-KILL-ROUND-1",
-    "action": "Execute explicit toy mathematics for A, C, and E under the already declared tests; reject early on fatal-gate failure and do not add post-hoc rescue terms.",
-    "minimum_kill_tests_before_branch_promotion": 3
+    "id": "QGR-G0-KILL-ROUND-2-A-CAUSAL-REFINEMENT",
+    "action": "Construct a directed causal A/CCRC toy with exact gluing/refinement and two-scale coarse graining; run B/CQCG and D/LCSD cheap control tests before branch promotion.",
+    "minimum_kill_tests_before_branch_promotion": 3,
+    "lead_branch_has_minimum_toy_kill_tests": true,
+    "full_promotion_obligations_satisfied": false
+  },
+  "artifacts": {
+    "kill_round_1_script": "code/qgr_iter002_kill_round1.py",
+    "kill_round_1_report": "results/ITER002_KILL_ROUND1.md"
   },
   "claim_locks": {
     "all_known_models_wrong": false,
@@ -84,7 +123,7 @@
   "recovery_order": [
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
-    "latest iterations/ITERATION_NNN.md",
+    "latest iterations/ITERATION_NNN.md and any same-iteration results files",
     "docs/CONSTITUTION.md",
     "docs/KMQGB_HANDOFF.md",
     "current KMQGB recovery front and recent commits"
