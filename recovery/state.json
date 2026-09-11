@@ -4,22 +4,21 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-11",
-    "iteration": 2,
+    "iteration": 3,
     "phase": "MODEL_CONSTRUCTION_ACTIVE_PRE_ANSATZ"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 24,
-    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory. Held fixed until a physical ansatz satisfies the pre-ansatz promotion rule.",
-    "current_task_pct": 100,
-    "next_task_pct": 0,
+    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory. No increase for matching combinatorial d=4 alone.",
+    "current_task_pct": 25,
     "theory_established_pct": 0
   },
   "roadmap": {
     "R0_governance_recovery": "COMPLETE",
     "R1_requirement_closure": "COMPLETE_FOR_PRE_ANSATZ",
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
-    "R3_minimal_dynamical_ansatz": "BLOCKED_PENDING_4D_LORENTZIAN_GR_SEED_GATE",
+    "R3_minimal_dynamical_ansatz": "ACTIVE_GATE_NOT_PROMOTED",
     "R4_local_mathematical_closure": "INACTIVE",
     "R5_same_realization_uv_ir": "INACTIVE",
     "R6_gr_recovery": "INACTIVE",
@@ -31,51 +30,26 @@
     "promoted_ansatz": false,
     "active_branch": null,
     "lead_architecture": "A_CCRC",
-    "status": "UNFORMED_LEAD_ARCHITECTURE_SELECTED",
+    "status": "UNFORMED_LEAD_ARCHITECTURE_WITH_4D_COMBINATORIAL_SEED",
     "benchmark_winner": false,
-    "independent_validation": false,
-    "branches": {
-      "A_CCRC": {
-        "status": "PASS_SCOPED_LEAD_ARCHITECTURE_NOT_YET_PHYSICAL_ANSATZ",
-        "kill_round_1": {
-          "composition_refinement": "PASS_SCOPED",
-          "nonzero_geometry": "PASS_SCOPED",
-          "rigidity": "PASS_SCOPED"
-        },
-        "kill_round_2": {
-          "directed_causal_composition": "PASS_SCOPED",
-          "associativity": "PASS_SCOPED",
-          "two_scale_coarse_consistency": "PASS_SCOPED",
-          "same_realization_geometry_survival": "PASS_SCOPED",
-          "rigidity_survives_causal_upgrade": "PASS_SCOPED"
-        },
-        "next_blockers": [
-          "derived_local_dimension",
-          "branching_recombining_causal_complex",
-          "4d_lorentzian_route",
-          "spin2_or_metric_sector",
-          "gr_dynamics_route",
-          "continuum_fixed_structure",
-          "normalized_operational_observable"
-        ]
-      },
-      "B_CQCG": {
-        "status": "FAIL_SCOPED_RIGIDITY_AS_STATED",
-        "retained_role": "possible_operational_observable_or_coarse_map_language"
-      },
-      "C_PCMH": {
-        "status": "FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED",
-        "retained_role": "projective_refinement_consistency_gate"
-      },
-      "D_LCSD": {
-        "status": "PARTIAL_SPECTRUM_ONLY_GEOMETRY_NONUNIQUE_FULL_ALGEBRAIC_VERSION_NOT_KILLED",
-        "retained_role": "possible_geometric_diagnostic_or_constraint"
-      },
-      "E_RQEC": {
-        "status": "FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY",
-        "retained_role": "possible_emergent_robustness_encoding_layer"
-      }
-    }
+    "independent_validation": false
+  },
+  "iter003_seed": {
+    "object": "Boolean causal cell B_d",
+    "metric_input": false,
+    "causal_order": "subset inclusion",
+    "rank_profile_formula": "N_r=C(d,r)",
+    "rank_generating_polynomial": "(1+x)^d",
+    "dimension_candidate": "d recovered from relational rank profile",
+    "B4": {
+      "events": 16,
+      "rank_counts": [1, 4, 6, 4, 1],
+      "maximal_chains": 24,
+      "equal_chain_weight": "1/24",
+      "classification": "PASS_SCOPED_DERIVED_COMBINATORIAL_DIMENSION_AND_UNIQUE_PATH_NORMALIZATION"
+    },
+    "general_equal_chain_weight": "1/d!",
+    "weight_origin": "fixed by equal-chain symmetry plus exact coarse-kernel condition d!*w_d*P=P"
   },
   "governance": {
     "constitution": "docs/CONSTITUTION.md",
@@ -94,39 +68,37 @@
     "latest_observed_iteration": 325,
     "global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
-    "D2": "NOT_CLOSED_COVERAGE_AND_OBJECTS",
-    "D4": "PARTIAL_GLOBAL_NOT_CLOSED",
-    "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED",
-    "latest_relevant_delta": "Iter324-325: finite source spectral i-epsilon does not soften the tested minimal-spin Toller short-distance pole, including explicit causal K5 witness; separate distributional/renormalized extension remains open and D7 remains unauthorized."
+    "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED"
   },
   "active_question": {
-    "id": "QGR-ITER003-4D-LORENTZIAN-GR-SEED",
-    "text": "Can A/CCRC generate a nontrivial branching/recombining causal cell complex with derived dimension/geometry and a prospective 4D Lorentzian spin-2/GR route without inserting a metric action or arbitrary continuum function by hand?"
+    "id": "QGR-ITER003-G2-LORENTZIAN-TENSOR-SEED",
+    "text": "Does a nontrivial traceless tensor-like perturbation sector arise intrinsically around the symmetric B4 causal cell and survive exact causal gluing/refinement and multi-cell composition without importing continuum GR structure?"
   },
   "next_gate": {
     "iteration": 3,
-    "id": "QGR-ITER003-4D-LORENTZIAN-GR-SEED",
-    "action": "Construct the smallest branching/recombining A/CCRC causal cell complex, derive a local dimension/geometry candidate, test exact gluing/refinement rigidity, and identify a prospective Lorentzian tensor/spin-2 coarse mode without assuming Einstein-Hilbert dynamics.",
-    "fatal_criterion": "If 4D Lorentzian/GR recovery requires inserting a continuum metric action, Einstein-Hilbert term, arbitrary action/spectral function, or gate-specific coefficients solely to hit GR, reject the A branch in its current form."
+    "id": "QGR-ITER003-G2-LORENTZIAN-TENSOR-SEED",
+    "action": "Construct and symmetry-decompose incidence/gluing perturbations around B4, test survival under exact composition and multi-cell coarse graining, and look for intrinsic Lorentzian/hyperbolic structure.",
+    "fatal_criterion": "If obtaining a Lorentzian spin-2/GR sector requires a background metric, Einstein-Hilbert term, arbitrary continuum/spectral function, or gate-specific coefficients solely to hit GR, reject A_CCRC in its current form."
   },
   "artifacts": {
-    "kill_round_1_script": "code/qgr_iter002_kill_round1.py",
-    "kill_round_1_report": "results/ITER002_KILL_ROUND1.md",
-    "kill_round_2_script": "code/qgr_iter002_kill_round2.py",
-    "kill_round_2_report": "results/ITER002_KILL_ROUND2.md",
-    "iteration_2": "iterations/ITERATION_002.md"
+    "iteration_2": "iterations/ITERATION_002.md",
+    "iteration_3": "iterations/ITERATION_003.md",
+    "iter003_seed_script": "code/qgr_iter003_boolean_causal_cell.py",
+    "issue_1": "closed_completed",
+    "issue_2": "open_iter003_gate"
   },
   "claim_locks": {
+    "combinatorial_d4_is_lorentzian_spacetime": false,
     "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
     "qgr_correct": false,
-    "qgr_unique": false,
-    "lqg_scoped_result_is_universal_no_go": false
+    "qgr_unique": false
   },
   "recovery_order": [
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
-    "latest iterations/ITERATION_NNN.md and same-iteration results files",
+    "iterations/ITERATION_003.md",
+    "code/qgr_iter003_boolean_causal_cell.py",
     "docs/CONSTITUTION.md",
     "docs/KMQGB_HANDOFF.md",
     "current KMQGB recovery front and recent commits"
