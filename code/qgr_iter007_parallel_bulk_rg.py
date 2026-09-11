@@ -63,6 +63,7 @@ assert bulk4[-1] > 0.03
 
 out={
  'lane':'FULL_NETWORK_RG',
+ 'workflow_revision':1,
  'cell_correction_order':'h^4',
  'power_counting_by_effective_support_dimension':scaling,
  'numeric_purity_loss':losses,
