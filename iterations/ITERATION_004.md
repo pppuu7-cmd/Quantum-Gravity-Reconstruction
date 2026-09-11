@@ -1,152 +1,236 @@
 # QGR Iteration 004 — Massless / Gauge Closure
 
 Date: 2026-09-11
-Status: `ACTIVE / PROTECTION_MECHANISMS_NARROWED / FULL_CONSTRAINT_ARENA_IDENTIFIED`
-Current task completion: **55%**
-Candidate-program readiness: **30%**
-Active candidate: `QGR-L0` proposed linearized pair-incidence ansatz
+Status: `COMPLETE / LINEARIZED_GAUGE_CLOSURE_PASSED / NONLINEAR_CLOSURE_OPEN`
+Current task completion: **100%**
+Candidate-program readiness: **36%**
+Active candidate: **QGR-L1**
+Candidate state: `PROPOSED_LINEARIZED_GAUGE_CLOSED_CAUSAL_TWO_MODE`
 
 ## Objective
 
-Determine whether masslessness and the required gauge/constraint structure follow from an independently motivated relational/refinement principle rather than from setting a mass parameter to zero because GR requires it.
+Determine whether masslessness and the required derivative gauge/constraint structure can follow from independently motivated relational structure rather than from setting `m=0` or inserting continuum GR by hand.
 
-## Fixed anti-overfitting rule
+## Anti-overfitting lock
 
-A mechanism fails if it:
+The iteration was not allowed to:
 
-- simply declares `m=0`;
-- introduces gauge symmetry only after observing the desired two-mode spectrum;
-- adds arbitrary compensator functions;
-- requires an isolated critical tuning with no structural reason;
-- changes the G5 kinetic cone solely to match GR.
+- declare `m=0`;
+- choose a gauge law merely because it matches linearized GR;
+- add arbitrary compensators;
+- choose the GR-like member of an underdetermined family by resemblance;
+- alter the previously derived causal cone solely to obtain a desired answer.
 
-## Mechanism matrix
+## G1-G3 — mechanisms and tensor arena
 
-### M1 — local relational-frame / constraint redundancy
+Earlier protection candidates were narrowed:
 
-Existing exact local redundancy:
+- current local lower-rank redundancy: insufficient by itself because `q^2` is invariant;
+- refinement-fixed `T=I`: does not imply dynamical stationarity;
+- microscopic Goldstone shift: not derived;
+- cohomological origin alone: does not forbid `q^2`;
+- continuous `O(1,3)` stabilizer of the incidence form: not yet an exact Boolean automorphism.
 
-`x(n) -> x(n)+M^T u(n)`.
+The six Boolean pair variables obey exactly
 
-It removes the lower-rank `1+3` sector cell by cell. However `q=P_phys x` is invariant, so `q·q` is also invariant.
+`pair6 ~= Sym^2(V3_standard_S4) = 1+3+2`,
 
-Status: `PARTIAL / CURRENT_FORM_INSUFFICIENT_FOR_MASS_PROTECTION`.
+while the rank-1 redefinition image is
 
-A stronger derivative/first-class closure would have to be **derived**, not declared.
+`4=1+3`,
 
-### M2 — refinement fixed-background protection
+leaving the exact old two-dimensional quotient.
 
-The surviving TT-like branch has kinematic refinement transfer `T=I`.
+Detailed records:
 
-Iter004-G1 separates this from dynamics: the equation `T^2=T` contains no mass parameter. Candidate dynamics with `m^2=0` and `m^2!=0` can share exactly the same current refinement map.
+- `results/ITER004_G1_G2_PROTECTION_AUDIT.md`
+- `results/ITER004_G3_TENSOR_REPRESENTATION_AUDIT.md`
 
-Therefore current refinement data do not imply
+## G4 — scoped obstruction for the original six-component arena
 
-`refinement-fixed => dynamically stationary`.
+The complete local `S4`-invariant quadratic two-derivative Hessian space on the six Boolean off-diagonal pair fields has **15** orbit coefficients.
 
-Status: `FAIL_SCOPED_CURRENT_REFINEMENT_DOES_NOT_FORCE_MASSLESSNESS`.
+For the natural derivative pair-boundary law
 
-### M3 — microscopic Goldstone/shift protection
+`delta x_ij = k_i u_j + k_j u_i`,
 
-No continuous microscopic symmetry generating `q->q+c` has been derived from the finite Boolean ontology.
+the Noether constraints have rank **15**, so the only compatible Hessian is zero.
 
-Status: `FAIL_SCOPED_AS_CURRENT_MICROSCOPIC_MECHANISM`.
+A relative law
 
-### M4 — cohomological/curvature origin alone
+`delta x_ij=(k_i-k_j)(u_j-u_i)`
 
-Because the physical quotient `q` is already gauge invariant, `q·q` remains gauge invariant.
+leaves one Hessian direction by itself, but imposing the already frozen exact local redundancy
 
-Status: `FAIL_SCOPED_AS_STANDALONE_MASS_PROTECTION`.
+`x_ij -> x_ij + u_i + u_j`
 
-### M5 — symmetry enhancement under refinement
+again leaves only the zero Hessian.
 
-The pair form `C=J-I` has continuous real stabilizer `O(1,3)` at the bilinear-form level. Its infinitesimal stabilizer satisfies
+Classification:
 
-`X^T C + C X=0`
+`FAIL_SCOPED_DERIVATIVE_GAUGE_CLOSURE_FOR_CURRENT_BOOLEAN_PAIR6_TWO_DERIVATIVE_ARENA`.
 
-and has exact dimension `6`.
+This localizes the failure: QGR-L0 is too strongly pre-reduced to carry the desired derivative gauge closure.
 
-But the exact finite Boolean-poset automorphism group is only
+Detailed record:
 
-`Aut(B_4)=S_4`,
+`results/ITER004_G4_DERIVATIVE_CONSTRAINT_AUDIT.md`
 
-with `24` elements.
+Reproducibility:
 
-Therefore continuous Lorentz symmetry is not yet an exact microscopic automorphism.
+`code/qgr_iter004_g4_derivative_constraint_audit.py`
 
-Status: `BLOCKED_CONTINUOUS_STABILIZER_NOT_YET_REALIZED_BY_REFINEMENT`.
+## G5 — natural unreduced second-moment arena
 
-Moreover continuous Lorentz invariance alone would not by itself forbid a mass term; a genuine gauge/constraint structure remains necessary.
+The repair was not allowed to add four diagonal fields merely because ten components are convenient.
 
-Detailed G1-G2 result: `results/ITER004_G1_G2_PROTECTION_AUDIT.md`.
-Reproducibility: `code/qgr_iter004_g1_g2_protection_audit.py`.
+The existing four rank-1 relational directions already define the four-dimensional permutation representation `W4`. Its symmetric second moment
 
-## G3 — exact tensor-representation structure
+`Sym^2(W4)`
 
-The six unordered Boolean pair variables have character
+has dimension **10** and a canonical split
 
-`[6,2,2,0,0]`
+`diag4 + offdiag6`.
 
-on the five `S_4` conjugacy classes.
+The four diagonal entries can be interpreted as self-response/second-moment components of the existing rank-1 frame, not repeated Boolean events `{i,i}`.
 
-For the standard three-dimensional representation `V_3`,
+Exact representation decomposition:
 
-`chi_Sym2(V3)=[6,2,2,0,0]`.
+`Sym^2(W4)=2*1 + 2*3 + 2`.
 
-Therefore exactly
+On this ten-component arena, the complete `S4`-invariant quadratic two-derivative Hessian space has 38 orbit coefficients. Imposing
 
-`pair6 ~= Sym^2(V_3)`.
+`delta h_ij = k_i xi_j + k_j xi_i`
 
-The irreducible decomposition is
+leaves a **two-dimensional** nonzero Hessian family.
 
-`6=1+3+2`.
+However no nonzero member embeds the old QGR-L0 kinetic operator unchanged on the old 2D quotient. The augmented exact matching system has full rank 39/39.
 
-The rank-1 redefinition image `im(M^T)` is the four-dimensional vertex permutation representation
+Therefore the repair cannot be cosmetic: a new pre-reduction linear candidate is required.
 
-`4=1+3`.
+Classification:
 
-Hence
+`PASS_SCOPED_NATURAL_10D_SECOND_MOMENT_ARENA__FAIL_SCOPED_EXACT_QGR_L0_KINETIC_EMBEDDING`.
 
-`pair6 / im(M^T)=2`.
+Detailed record:
 
-This gives the two physical pair modes a precise tensor/constraint origin rather than selecting them only because the number two is suggestive.
+`results/ITER004_G5_SECOND_MOMENT_ARENA.md`
 
-### Important interpretation guard
+Reproducibility:
 
-The fixed 2D `S_4` quotient is **not** by itself a continuous Lorentz/Poincare spin-2 representation.
+`code/qgr_iter004_g5_second_moment_arena.py`
 
-The correct arena for continuous constraint closure is the full six-component tensor-like pair space plus four lower-rank constraint/redefinition directions. The two physical modes should emerge only after the continuous/coarse constraint structure is understood.
+## G6 — unique causal two-mode gauge-closed branch
 
-Detailed result: `results/ITER004_G3_TENSOR_REPRESENTATION_AUDIT.md`.
-Reproducibility: `code/qgr_iter004_g3_tensor_rep_audit.py`.
+Let `(H0,H1)` be a deterministic exact basis of the two-dimensional gauge-compatible Hessian family and write
 
-## Current scientific synthesis
+`H(t)=H0+t H1`.
 
-QGR-L0 has the following unusually rigid finite structure:
+### Selection criterion 1 — preserve the previously derived incidence cone
 
-`4 relational directions -> 6=Sym^2(3) pair variables -> 4 lower-rank redefinition directions -> 2 physical quotient modes`.
+At a fundamental cover covector, the determinant of the six-dimensional gauge-complement block factorizes exactly as
 
-This is compatible with the counting pattern expected of a constrained tensor theory, but no equivalence with GR constraints is claimed.
+`-(t+1)^4 (2t-1)^2 / 4`.
 
-The main blocker has sharpened from generic “need gauge invariance” to:
+Thus only two projective branches make the fundamental covers characteristic:
 
-> derive a local/coarse constraint algebra on the **full 6+4 structure** whose physical reduction is the existing two-mode sector and whose Ward identities prevent a mass deformation, without inserting linearized diffeomorphism symmetry by hand.
+- `t=-1`;
+- `t=1/2`.
 
-## Exact next gate — Iter004-G4
+### Selection criterion 2 — reproduce the independently derived two-mode quotient
 
-`QGR-ITER004-G4-DERIVATIVE-CONSTRAINT-CLOSURE`
+At an incidence-null covector:
 
-1. Start from the full six pair variables `x_ij(n)` and four rank-1 frame/redefinition variables.
-2. Allow only transformation laws generated by relational changes of neighboring rank-1 data and existing incidence maps.
-3. Derive the most general first-neighbor derivative transformation of pair data compatible with `S_4` and composition.
-4. Test whether a first-class/Noether-like identity appears for the QGR-L0 kinetic Hessian.
-5. Check explicitly whether the unique onsite physical mass operator is forbidden.
-6. Reject the mechanism if the required derivative gauge law must simply be postulated in the continuum form.
+- `t=-1` gives Hessian rank 3, i.e. three additional non-gauge null modes;
+- `t=1/2` gives Hessian rank 4, i.e. exactly two additional non-gauge null modes beyond the four gauge directions.
 
-## Progress accounting
+Therefore the already derived two-dimensional physical quotient uniquely selects
 
-- Iter004 completion: **55%**.
-- Candidate-program readiness: **30%**.
-- Masslessness protected: **NO**.
-- Continuous Lorentz symmetry derived as physical local symmetry: **NO**.
-- Exact tensor/constraint counting: **PASS_SCOPED**.
+`QGR-L1 := H0 + (1/2) H1`
+
+up to overall normalization.
+
+This selection uses only prior QGR data: the incidence cone and the independently derived two-mode quotient.
+
+### Nontrivial cone checks
+
+The selected branch has rank 4 on tested nontrivial rational covectors satisfying
+
+`K_C(k)=k^T(J-I)k=0`,
+
+including `(1,1,1,-1)`, `(1,2,3,-11/6)`, and `(2,-1,3,-1/4)`.
+
+Representative non-null covectors retain rank 6.
+
+### Mass protection
+
+The complete onsite `S4`-invariant quadratic mass-matrix space has seven orbit coefficients. The derivative Noether identity has rank **7**, leaving
+
+`dim allowed nonzero onsite mass deformations = 0`.
+
+Thus linearized masslessness is now structurally protected rather than imposed.
+
+Classification:
+
+`PASS_SCOPED_UNIQUE_CAUSAL_TWO_MODE_DERIVATIVE_GAUGE_CLOSED_LINEARIZED_BRANCH_QGR_L1`.
+
+Detailed record:
+
+`results/ITER004_G6_SELECT_L1.md`
+
+Reproducibility:
+
+`code/qgr_iter004_g6_select_l1.py`
+
+## A posteriori sanity check — not a selection criterion
+
+Only after the internal QGR selection was completed, QGR-L1 was compared with the standard massless Fierz-Pauli quadratic kinetic operator written in the tetrahedral null frame whose contravariant form is
+
+`C=J-I`.
+
+They coincide up to overall normalization.
+
+This is a consistency check, not the reason QGR-L1 was selected. It does **not** prove nonlinear GR, diffeomorphism invariance beyond the linearized response, or quantum gravity.
+
+## Iter004 final decision
+
+The Iter004 mass/gauge blocker is **closed at linearized level**.
+
+Promoted candidate:
+
+`QGR-L1 = PROPOSED_LINEARIZED_GAUGE_CLOSED_CAUSAL_TWO_MODE_CANDIDATE`.
+
+QGR-L0 is retained as the six-component Lorentzian seed but is superseded as the active candidate.
+
+### Established in scope
+
+- natural unreduced ten-component second-moment arena from existing rank-1 relational data;
+- nontrivial local derivative Noether closure;
+- unique branch after prior-QGR causal-cone and two-mode criteria;
+- incidence characteristic cone preserved on tested nontrivial rational null covectors;
+- exactly two physical null modes on that cone;
+- all `S4`-invariant onsite quadratic mass terms forbidden;
+- a posteriori agreement with the known consistent massless spin-2 linear kinetic structure.
+
+### Still open
+
+- nonlinear gauge/constraint algebra;
+- nonlinear self-coupling;
+- exact microscopic derivation of the finite transformation law beyond linear response;
+- Einstein equations and equivalence principle;
+- same-realization refinement/continuum theorem;
+- finite interacting quantum amplitude/measure;
+- normalized observables;
+- independent KMQGB evaluation.
+
+## Readiness
+
+- Iter004 completion: **100%**.
+- Candidate-program readiness: **36%**.
+- Readiness is a construction-roadmap metric, not probability of correctness.
+
+## Exact next gate
+
+`QGR-ITER005-NONLINEAR-CONSTRAINT-AND-SELF-COUPLING-CLOSURE`
+
+Do not improve the quadratic action further. Test whether the same relational construction can generate a nonlinear completion without importing Einstein-Hilbert by hand.
