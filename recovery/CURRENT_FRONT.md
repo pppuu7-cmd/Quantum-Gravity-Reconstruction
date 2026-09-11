@@ -179,7 +179,7 @@ This is now the dominant Iter006 uncertainty.
 
 Latest observed KMQGB head: `6a979ad41012198b5e69b47494bc6d6d947dca06` (Iter334-337 authority workflow).
 
-Its fail-closed aggregate keeps strict terminal coverage at `1/15`, authorizes **0** new CW2 terminal promotions, and outputs `D7=NOT_AUTHORIZED`. LQG, asymptotic-safety, and CFS/high-value closure lanes remain blocked by distinct missing source-defined objects; these are not family FAIL evidence.
+Its fail-closed aggregate keeps strict terminal coverage at `1/15`, authorizes **0** new CW2 terminal promotions, and outputs `D7=NOT_AUTHORIZED`. The LQG, asymptotic-safety, and CFS lanes remain blocked by distinct missing source-defined objects; these are not family FAIL evidence.
 
 ## Recovery order
 
