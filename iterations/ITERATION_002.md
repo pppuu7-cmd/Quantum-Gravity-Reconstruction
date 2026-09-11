@@ -1,127 +1,113 @@
-# QGR Iteration 002 — Architecture Matrix and Kill Round 1
+# QGR Iteration 002 — Architecture Selection
 
 Date: 2026-09-11
-Status: `ACTIVE / KILL_ROUND_1_COMPLETE / ROUND_2_QUEUED`
-Current task completion: **78%**
-Canonical candidate-program readiness: **24%** (held fixed pending full pre-ansatz promotion)
+Status: `COMPLETE`
+Current task completion: **100%**
+Canonical candidate-program readiness: **24%**
 Physical ansatz promoted: **NO**
+Lead architecture: **A / CCRC**
 
 ## Objective
 
-Generate multiple genuinely distinct pre-ansatz architectures under Constitution v1.0, declare cheap falsification tests before computation, and select at most one lead architecture without forcing a winner.
+Generate several genuinely distinct pre-ansatz quantum-gravity architectures under Constitution v1.0, predeclare cheap falsification tests, execute them without post-hoc criterion changes, and identify at most one lead architecture.
 
-## Initial architecture matrix
+## Initial matrix
 
-| Branch | Core idea | Raw score | Initial risk |
+| Branch | Core idea | Raw score | Initial dominant risk |
 |---|---|---:|---|
-| A / CCRC | constraint-closed relational complex | 30/40 | could reproduce known amplitude/counterterm freedom |
-| B / CQCG | compositional quantum-channel geometry | 30/40 | weak intrinsic Lorentzian/GR route |
-| C / PCMH | projectively consistent causal measure on histories | 30/40 | compatible measure family may remain huge |
-| D / LCSD | Lorentzian causal-spectral dynamics | 29/40 | arbitrary spectral function / weak composition |
-| E / RQEC | relational quantum error-correcting geometry | 31/40 | coding structure may not derive gravity dynamics |
+| A / CCRC | constraint-closed relational complex | 30/40 | may reproduce known amplitude freedom |
+| B / CQCG | compositional quantum-channel geometry | 30/40 | continuous channel freedom / weak GR route |
+| C / PCMH | projectively consistent causal histories | 30/40 | refinement family may remain huge |
+| D / LCSD | Lorentzian causal-spectral dynamics | 29/40 | spectral nonuniqueness / arbitrary functional freedom |
+| E / RQEC | relational quantum error-correcting geometry | 31/40 | coding may not derive geometry/causality/dynamics |
 
-Raw score was explicitly forbidden from selecting the winner. E had the highest initial score but was not promoted because its weakest dimension was a potentially fatal GR/causality obligation.
+Raw score was never allowed to override a fatal scientific weakness.
 
-## Predeclared Kill Round 1
+## Kill Round 1
 
-Priority branches were A, C and E because they represented three different proposed rigidity mechanisms:
+Artifacts:
+- `code/qgr_iter002_kill_round1.py`
+- `results/ITER002_KILL_ROUND1.md`
 
-- A: exact constraint/gluing closure;
-- C: projective/refinement consistency;
-- E: isometric/recoverability consistency.
+### A / CCRC
+With three relational labels and exact `S3` symmetry, the invariant gluing operator `K=aI+bJ` subject to `K^2=K` loses continuous coefficient freedom and collapses to four discrete projectors. The nontrivial standard-sector projector `P=I-J/3` preserves a nonzero projected traceless relational geometry operator.
 
-Detailed derivation: `results/ITER002_KILL_ROUND1.md`.
-Reproducibility: `code/qgr_iter002_kill_round1.py`.
+Verdict: `PASS_SCOPED_TOY_COMPOSITION_GEOMETRY_RIGIDITY`.
 
-## Result A / CCRC
+### C / PCMH
+Binary projective refinement leaves one free split parameter per internal history, giving `2^d-1` continuous parameters by depth `d`. Exact exchange symmetry kills the freedom only by forcing uniform refinement.
 
-Scoped toy: three relational labels with full `S3` symmetry. The most general invariant gluing operator is `K=aI+bJ`. Exact refinement/composition closure `K^2=K` forces the trivial and standard irreducible eigenvalues into `{0,1}`. Hence the continuous two-parameter family collapses to four discrete projectors: `0`, `I`, `J/3`, `I-J/3`.
+Verdict: `FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED`.
 
-For `G=diag(-1,0,1)`, the standard-sector projector `P=I-J/3` satisfies `PGP != 0`, while `P^2=P` exactly.
+Retained role: cross-scale consistency gate.
 
-Predeclared verdicts:
+### E / RQEC
+An exact three-qutrit one-erasure-correcting code has `Tr_rest |iL><jL|=delta_ij I_3/3`, yet for the maximally mixed logical state every two-qutrit reduced state is `I_9/9`, so all pair mutual informations vanish. Exact recoverability therefore need not generate adjacency, dimension, causal order or curvature dynamics.
 
-- A1 composition/refinement: `PASS_SCOPED`;
-- A2 nonzero relational geometry: `PASS_SCOPED`;
-- A3 coefficient rigidity: `PASS_SCOPED`.
+Verdict: `FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY`.
 
-Classification: `PASS_SCOPED / LEAD_BRANCH / NOT_PROMOTABLE`.
+Retained role: possible emergent robustness layer.
 
-Boundary: no causal direction, continuum theorem, 4D Lorentzian limit, GR dynamics, or normalized operational observable has yet been derived.
+## Kill Round 2
 
-## Result C / PCMH
+Artifacts:
+- `code/qgr_iter002_kill_round2.py`
+- `results/ITER002_KILL_ROUND2.md`
 
-In the positive binary-refinement subcase,
+### A / CCRC directed causal upgrade
+The A toy was upgraded to forward-only causal layers. The same `P=I-J/3` kernel obeys exact associative gluing `(PP)P=P(PP)=P`, and the two-link coarse kernel is exactly `P^2=P`. The same nonzero projected geometry operator survives the fine-to-coarse map without coefficient retuning or realization switching.
 
-`p(h)=p(h0)+p(h1)`
+Verdict: `PASS_SCOPED_DIRECTED_CAUSAL_TWO_SCALE_RIGIDITY`.
 
-allows
+### B / CQCG control
+The qubit depolarizing channel `D_p(rho)=p rho+(1-p)I/2` is CPTP for a continuous interval `-1/3<=p<=1` and closes under composition as `p_eff=pq`. Positivity, rotational covariance and composition therefore do not uniquely determine dynamics.
 
-`p(h0)=q_h p(h)`, `p(h1)=(1-q_h)p(h)`
+Verdict: `FAIL_SCOPED_RIGIDITY_AS_STATED`.
 
-with one free `q_h` per internal history. At refinement depth `d`, the number of free split parameters is `2^d-1`; depths 1..6 give `1,3,7,15,31,63`.
+Retained role: possible operational-observable/coarse-map language.
 
-Exact child-exchange symmetry fixes `q_h=1/2`, but then the refinement is the unique uniform split and local dynamics has been trivialized rather than dynamically derived.
+### D / LCSD control
+The non-isomorphic graphs `K_(1,4)` and `C4 + isolated vertex` have different degree sequences but the identical adjacency spectrum `{2,-2,0,0,0}`. Spectral eigenvalues alone therefore do not uniquely reconstruct even finite adjacency geometry.
 
-Classification: `FAIL_SCOPED_RIGIDITY_MECHANISM_AS_STATED`.
+Verdict: `PARTIAL / SPECTRUM_ONLY_GEOMETRY_NONUNIQUE / FULL_ALGEBRAIC_VERSION_NOT_KILLED`.
 
-Retained value: projective consistency remains a strong cross-scale/same-realization gate, but not the standalone source of dynamics.
+Retained role: possible diagnostic/geometric observable.
 
-## Result E / RQEC
+## Terminal Iter002 decision
 
-Exact witness: the three-qutrit code
+A/CCRC is the **unique current lead architecture**, because it alone survived both predeclared cheap-kill rounds while maintaining exact low-freedom composition and same-realization two-scale survival.
 
-`|0L>=(|000>+|111>+|222>)/sqrt(3)`,
+This is not a truth claim. A has not yet derived:
 
-`|1L>=(|012>+|120>+|201>)/sqrt(3)`,
+- four macroscopic dimensions;
+- Lorentzian signature from relational data;
+- a continuum tensor/spin-2 mode;
+- Einstein/GR dynamics;
+- a full finite-definition theorem beyond finite toys;
+- a normalized empirical observable.
 
-`|2L>=(|021>+|102>+|210>)/sqrt(3)`.
+Therefore A is **not yet promoted to a physical QGR ansatz** and the canonical candidate-program readiness remains **24%**.
 
-For every single site,
+## Controlled subordinate roles
 
-`Tr_rest |iL><jL| = delta_ij I_3/3`,
+The only permitted cross-architecture synthesis at the next stage is prospective and role-limited:
 
-so any one-qutrit erasure is exactly correctable. Yet for the maximally mixed logical state every two-qutrit reduced state equals `I_9/9`; all pair mutual informations vanish exactly.
+- A/CCRC: candidate microscopic rigidity/dynamics architecture;
+- C/projective consistency: cross-scale gate;
+- E/QEC: optional emergent robustness if derived;
+- B/channels: operational/coarse-map language if required;
+- D/spectral data: diagnostic/geometric constraints if required.
 
-Therefore exact recoverability/isometry need not generate adjacency, spatial dimension, causal direction or curvature dynamics.
+None may be added later solely to rescue a failed A gate.
 
-Classification: `FAIL_SCOPED_STANDALONE_GEOMETRY_CAUSALITY`.
+## KMQGB synchronization
 
-Retained value: QEC may still be an emergent robustness/encoding mechanism inside another architecture.
+Latest inspected KMQGB head: `f503c39177012879a80bf767282a15d0c441e2f9`, containing Iter324-325 source spectral-epsilon audits. In the tested minimal-spin Toller objects, finite source spectral `i-epsilon` does not soften the short-distance pole; the explicit scope guard leaves a separate distributional/renormalized extension open and does not authorize D7.
 
-## Current scientific synthesis
+QGR consequence: finite definition must be prospective and structural, not an after-the-fact regulator choice.
 
-The first evidence-backed role separation is:
+## Next iteration
 
-`A-style constraint closure = candidate rigidity generator`
+`QGR Iter003 — 4D Lorentzian/GR Seed Gate`
 
-`C-style projective consistency = cross-scale gate`
-
-`E-style QEC = possible emergent robustness layer`.
-
-A later combination of these roles is only `CONJECTURED`. It is not yet a physical model and no terms may be added merely to rescue a failed gate.
-
-## KMQGB delta incorporated
-
-Fresh KMQGB Iter324-325 was checked. In its explicit minimal-spin Toller probes, finite source spectral `i-epsilon` does not remove the tested short-distance pole, including the full causal K5 witness. The KMQGB scope guard explicitly leaves separately specified distributional/renormalized extensions open and does not authorize D7.
-
-QGR implication: the finite-definition mechanism must be generated prospectively by the construction; a regulator chosen only after divergence is detected will not count as closure.
-
-## Exact next gate — Kill Round 2
-
-`QGR-G0-KILL-ROUND-2-A-CAUSAL-REFINEMENT`
-
-1. Replace the undirected A toy with a directed causal relational complex.
-2. Demand exact associative gluing/refinement compatibility with orientation present.
-3. Check whether coefficient freedom remains discrete/low-dimensional.
-4. Construct an explicit two-scale coarse map and require a nonzero geometry mode to survive in the same realization.
-5. Run cheap comparison-control tests on B/CQCG and D/LCSD before considering A for promotion.
-
-## Readiness decision
-
-- Iter002 completion: **78%**.
-- Candidate-program readiness: **24%**, intentionally unchanged.
-- Lead architecture: **A/CCRC**, but only at `PASS_SCOPED` level.
-- Physical ansatz: **none**.
-
-The readiness percentage will not be increased merely because one toy is encouraging. It moves only after the causal/two-scale gate establishes that the same rigidity mechanism survives beyond the smallest symmetric example.
+Predeclared fatal rule: if a 4D Lorentzian/GR regime can only be obtained by inserting a background metric, Einstein-Hilbert action, arbitrary continuum/spectral function, or gate-specific free coefficients to hit the target, reject A/CCRC in its current reconstruction form.
