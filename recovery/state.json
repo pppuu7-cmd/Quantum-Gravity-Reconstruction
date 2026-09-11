@@ -5,15 +5,15 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
     "iteration": 7,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_CURVED_WAVEPACKET_READOUT_AND_OBSERVABLE_CLOSURE"
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_BROADBAND_OBSERVABLE_CLOSED_SCOPED_ABSOLUTE_SCALE_BLOCKED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 82,
+    "candidate_program_pct": 86,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
     "iter006_pct": 100,
-    "iter007_pct": 93,
+    "iter007_pct": 98,
     "theory_established_pct": 0
   },
   "roadmap": {
@@ -22,16 +22,16 @@
     "R2_ontology_search": "COMPLETE_LEAD_ARCHITECTURE_SELECTED_SCOPED",
     "R3_minimal_dynamical_ansatz": "COMPLETE_QGR_L1",
     "R4_local_mathematical_closure": "COMPLETE_ALL_ORDERS_METRIC_ONLY_TWO_DERIVATIVE_LOCAL_ACTION",
-    "R5_same_realization_uv_ir": "COMPLETE_SCOPED_REGULAR_REFINEMENT_CONNECTED_STATE_MEASURE_COMPOSITION_PLUS_FINITE_LOCAL_NET",
+    "R5_same_realization_uv_ir": "COMPLETE_SCOPED_REGULAR_REFINEMENT_CONNECTED_STATE_MEASURE_COMPOSITION_FINITE_LOCAL_NET_AND_REPAIRED_C_E_CONVENTION",
     "R6_gr_recovery": "COMPLETE_SCOPED_LOCAL_ALL_ORDERS_TWO_DERIVATIVE_ZERO_LAMBDA_BRANCH",
-    "R7_observable_closure": "ACTIVE_CURVED_COMMON_TARGET_WAVEPACKET_READOUT_AND_LOCAL_PURITY",
+    "R7_observable_closure": "ACTIVE_MODEL_SIDE_NORMALIZED_BROADBAND_COMPARATOR_CLOSED_SCOPED_ABSOLUTE_PHYSICAL_SCALE_OPEN",
     "R8_independent_benchmark_export": "INACTIVE",
-    "R9_prediction_discrimination": "ACTIVE_H4_HISTORY_CORRECTION_AND_CURVED_HISTORY_SPREAD_IDENTIFIED_NUMERICAL_LOCAL_PREDICTION_OPEN"
+    "R9_prediction_discrimination": "ACTIVE_H4_BROADBAND_HISTORY_CORRECTION_IDENTIFIED_ABSOLUTE_MAGNITUDE_BLOCKED_BY_H_KAPPA_DEGENERACY"
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
     "lead_architecture": "A_CCRC",
-    "status": "ALL_ORDERS_LOCAL_GRAVITY_PLUS_FINITE_HISTORY_CORRECTION_PLUS_SCOPED_FINITE_LOCAL_NET_AND_TWO_MODE_QUOTIENT_DESCENT",
+    "status": "ALL_ORDERS_LOCAL_GRAVITY_PLUS_REPAIRED_CURVED_QUANTUM_HISTORY_BROADBAND_COMPARATOR_ABSOLUTE_SCALE_BLOCKED",
     "field_dimension": 10,
     "derivative_gauge_parameters": 4,
     "physical_modes_on_local_characteristic_cone": 2,
@@ -39,18 +39,25 @@
     "finite_history_correction": "(h^4/8) C_ab [K_a,[K_b,rho]] + O(h^5)",
     "history_covariance_spectrum": "1/3 x3; 5/3 x3",
     "fixed_path_accumulated_scaling": "O(L h^3)",
-    "normalized_observable_form": "purity loss",
+    "normalized_observable_form": "specified-preparation broadband history-mixture purity/loss",
+    "full_broadband_two_mode_comparator_closed_scoped": true,
+    "broadband_refinement_order": "O(h^4) on repaired G9 across tested envelope/polarization preparations",
+    "broadband_coefficient_universal": false,
+    "absolute_h_fixed": false,
+    "microscopic_overall_kappa_free": true,
+    "continuum_matching": "a_cont = c_geom * kappa / h^2",
     "face_neighbour_cells_serial_history_steps": false,
     "serial_history_joint_measure": "exact product-uniform 24^-n",
     "overlap_configuration_gluing": "fiber product over shared B3 on regular finite path-groupoid domain",
     "naive_overlap_hilbert_tensor_product_authorized": false,
     "canonical_physical_two_mode_quotient_descent": true,
+    "positive_covariant_two_mode_pairing": true,
     "benchmark_winner": false,
     "independent_validation": false
   },
   "iter007": {
     "status": "ACTIVE",
-    "completion_pct": 93,
+    "completion_pct": 98,
     "g1_all_orders_local": {
       "classification": "PASS_SCOPED",
       "action": "a sqrt(|det G|) R[G] modulo boundary",
@@ -62,77 +69,84 @@
       "leading_nonunitary_order": "h^4",
       "relative_S4_sector_strength": "1:5"
     },
-    "g5a_path": {
-      "fixed_path_scaling": "O(L h^3)",
-      "normalized_observable": "purity"
-    },
-    "g5b_parallel_run": {
-      "github_actions_run_id": 34653064309,
+    "g6e_parallel_run": {
+      "github_actions_run_id": 34657301235,
       "lanes": 5,
       "aggregate_success": true,
-      "same_carrier_4d_stress": "h^0 upper-stress construction, not authorized all-face-cell path evolution"
+      "convention_repair": "S=I-J/6, S^T C S=C^-1, finite torsion/history rerun on E=C^-1",
+      "positive_covariant_two_mode_quotient_pairing": true,
+      "regular_boundary_measure_disintegration": true
     },
-    "g6a_parallel_run": {
-      "github_actions_run_id": 34653478008,
+    "g6f_parallel_run": {
+      "github_actions_run_id": 34657631926,
       "lanes": 3,
       "aggregate_success": true,
-      "local_marginals_alone_fix_arbitrary_cross_cell_correlations": false,
-      "local_reduced_purity_scaling_toy": "b^-3",
-      "global_extensive_minus_log_purity_toy": "O(1)"
+      "common_characteristic_hilbert": true,
+      "m0_loss_slope": 4.070780612231773,
+      "m1_loss_slope": 4.070701231283697,
+      "profile_coefficient_ratio": 1.333333315328487
     },
-    "g6b_parallel_run": {
-      "github_actions_run_id": 34654604762,
-      "lanes": 5,
+    "g6g_parallel_run": {
+      "github_actions_run_id": 34657905251,
+      "lanes": 3,
       "aggregate_success": true,
-      "face_overlap": "B3 with 8 vertices, 12 edges, 6 plaquettes",
-      "face_neighbour_diagonals_serially_composable": false,
-      "serial_diagonal_shift": [1,1,1,1],
-      "serial_branch_measure": "24^-n exact",
-      "two_face_cell_union_global_monotone_paths": 60,
-      "global_paths_factorable_as_two_complete_overlap_diagonals": 6,
-      "G9_history_trace_spread_rms_h_exponent": 3.978612308864641,
-      "G9_history_trace_spread_is_decoherence": false
+      "relative_lorentz_generator_slope": 2.0290239063330713,
+      "casimir_r2_minus_b2_slope": 4.054146011907256,
+      "casimir_r_dot_b_slope": 4.049341788512877,
+      "central_ray_wigner_angle_slope": 1.9763871610069832,
+      "linear_polarization_loss_slope": 3.952583281626355,
+      "narrow_packet_combined_loss_slope": 4.005063892783682
     },
-    "g6c_parallel_run": {
-      "github_actions_run_id": 34655130571,
+    "g6h_parallel_run": {
+      "github_actions_run_id": 34658915788,
       "lanes": 4,
       "aggregate_success": true,
-      "regular_B4_configuration_dim": 352,
-      "shared_B3_configuration_dim": 152,
-      "two_cell_union_configuration_dim": 552,
-      "fiber_product_dimension_identity": "352+352-152=552",
-      "cylindrical_algebra_intersection": "shared B3",
-      "boundary_quantum_gluing": "relative/direct-integral structure required; naive independent tensor product rejected",
-      "physical_quotient_dim": 2,
-      "finite_frame_pullback_descends_to_physical_quotient": true,
-      "arbitrary_2x2_readout_projector_needed": false
+      "uv_momentum_cutoff_required": false,
+      "m0_broadband_loss_slope": 4.034237010354219,
+      "m1_broadband_loss_slope": 4.034735702727535,
+      "envelope_polarization_control_slope": 4.092362452141089,
+      "linear_polarization_slope": 4.05492344294805,
+      "helicity_polarization_slope": 4.059195890628427,
+      "coefficient_preparation_dependent": true
+    },
+    "g7a_parallel_run": {
+      "initial_failed_run_id": 34659076333,
+      "initial_failure_reason": "infrastructure only: unnecessary numpy import in lightweight identifiability lane",
+      "github_actions_run_id": 34659176245,
+      "lanes": 4,
+      "aggregate_success": true,
+      "classification": "BLOCKED_SCOPED_ABSOLUTE_MICROSCOPIC_SCALE_NOT_IDENTIFIABLE_FROM_CURRENT_QGR_NORMALIZATION_CHAIN",
+      "continuum_matching": "a_cont = c_geom * kappa / h^2",
+      "normalization_jacobian_rank": 1,
+      "unidentified_direction": "h -> lambda h; kappa -> lambda^2 kappa",
+      "history_effect_change_along_unidentified_direction": "lambda^4"
     }
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
-    "latest_observed_commit": "a55eed66b399c212083e6e1283aaa641817e769b",
-    "latest_observed_iteration_bundle": "342b-344",
+    "latest_observed_commit": "d14e48f6790c49cca5b202dc227a179a9577819a",
+    "latest_observed_iteration_bundle": "353-355",
     "global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
     "D7": "NOT_AUTHORIZED",
-    "latest_scoped_delta": "RQCP remains PARTIAL_SUBFAMILY_ONLY; Iter344 fakeon NNLL certificate scoped, parent family nonterminal"
+    "latest_scoped_delta": "GFT condensate child obtains scoped dispersion-rigidity result; source/scope guard keeps parent family nonterminal and forbids D7 promotion"
   },
   "active_question": {
-    "id": "QGR-ITER007-G6D-CURVED-WAVEPACKET-QUOTIENT-READOUT-AND-LOCAL-PURITY",
-    "text": "How do the 24 curved history transports move one physical characteristic wavepacket into branch-dependent target quotient fibers, and can a branch-symmetric common-target readout and normalized local two-mode purity be derived without an arbitrary polarization choice?"
+    "id": "QGR-ITER007-G7B-MICROSCOPIC-NORMALIZATION-OR-MATTER-SECOND-SCALE",
+    "text": "Can the same CCRC realization derive an absolute microscopic normalization kappa or a universal matter/detector coupling supplying a second independent scale relation, thereby separating h from kappa without setting h to the Planck length by convention?"
   },
   "next_gate": {
     "iteration": 7,
-    "id": "QGR-ITER007-G6D-CURVED-WAVEPACKET-QUOTIENT-READOUT-AND-LOCAL-PURITY",
-    "action": "Quantify branch-dependent target characteristic-fiber separation on G9, derive common-target wavepacket/bundle readout, derive local two-mode reduced density matrix and purity, and separately establish the interacting boundary-relative measure disintegration.",
-    "fatal_criterion": "Do not choose a branch-dependent polarization basis, arbitrary 2x2 projector, boundary tensor factorization, or cross-history correlation merely to force cancellation or a desired phenomenological result."
+    "id": "QGR-ITER007-G7B-MICROSCOPIC-NORMALIZATION-OR-MATTER-SECOND-SCALE",
+    "action": "Audit microscopic amplitude/measure normalization for a derived kappa rule in parallel with a minimal universal matter/detector coupling route that could provide a second independent scale relation.",
+    "fatal_criterion": "Do not identify h with the Planck length, fix kappa by convention, or fit either parameter solely to obtain a desired beyond-GR effect. Any second scale relation must be derived prospectively from the same microscopic realization."
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
-    "qgr_local_continuum_decoherence_prediction_closed": false,
-    "qgr_common_target_curved_two_mode_readout_closed": false,
-    "qgr_interacting_boundary_measure_disintegration_closed": false,
+    "qgr_local_continuum_decoherence_prediction_closed_absolute": false,
+    "qgr_model_side_broadband_comparator_closed_scoped": true,
     "qgr_physical_micro_cell_scale_fixed": false,
+    "qgr_h_equals_planck_length_derived": false,
     "qgr_independent_benchmark_passed": false,
     "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
@@ -143,15 +157,10 @@
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
     "iterations/ITERATION_007.md",
+    "results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md",
+    "results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md",
     "results/ITER007_G6C_LOCAL_NET_AND_PHYSICAL_QUOTIENT_DESCENT.md",
     "results/ITER007_G6B_OVERLAPPING_CELL_GLUING_AND_CURVED_HISTORY_SPREAD.md",
-    "results/ITER007_G6A_HISTORY_COMPOSITION_AND_LOCAL_GLOBAL_SCALING.md",
-    "results/ITER007_G5B_PARALLEL_NETWORK_RG_AND_READOUT_AUDIT.md",
-    "results/ITER007_G5A_PATH_SCALING_AND_PURITY_OBSERVABLE.md",
-    "results/ITER007_G4_POSITIVE_NOISE_LORENTZ_NOGO.md",
-    "results/ITER007_G3_MICROSCOPIC_LORENTZ_BREAKING_OF_ORDERING_CORRECTION.md",
-    "results/ITER007_G2_HISTORY_ORDERING_QUANTUM_CORRECTION.md",
-    "results/ITER007_G1_ALL_ORDERS_TWO_DERIVATIVE_LOCAL_ACTION.md",
     "iterations/ITERATION_006.md",
     "docs/CONSTITUTION.md",
     "current KMQGB scoped deltas and authoritative benchmark front"
