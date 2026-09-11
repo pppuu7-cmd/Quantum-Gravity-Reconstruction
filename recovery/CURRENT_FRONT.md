@@ -2,176 +2,198 @@
 
 Updated: 2026-09-11
 Active iteration: `Iter006`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / LOCAL_NONLINEAR_THROUGH_QUARTIC / STATE_SPACE_AND_DISCRETE_CONNECTION_RECONSTRUCTED_NEAR_SEED`
-Active roadmap stage: `R5 — physical state/measure/composition and same-realization refinement`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / LOCAL_NONLINEAR_THROUGH_QUARTIC / PHYSICAL_ALGEBRA_AND_NORMALIZED_HISTORY_INSTRUMENT_RECONSTRUCTED`
+Active roadmap stage: `R5 — same-realization state/measure/composition and projective refinement`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **58%**
+- Candidate-program readiness: **64%**
 - Iter005 completion: **100%**
-- Iter006 completion: **82%**
+- Iter006 completion: **94%**
 - Lead architecture: `A / CCRC`
-- Active local candidate: `QGR-L1`
-- Local candidate state: `UNIQUE_LINEAR+CUBIC+QUARTIC / TWO_MODE_CAUSAL / KINEMATIC_HILBERT + LOCAL_DISCRETE_CONNECTION_RECONSTRUCTED / GENERIC_PHYSICAL_MEASURE_OPEN`
-- Full all-orders nonlinear theory established: **NO**
-- Positive kinematic Hilbert space: **YES, scoped**
-- Symmetric-seed physical quotient: **YES, 2 modes per cover / 8 modes over 4 covers**
-- Finite discrete torsion-free connection: **locally unique near symmetric seed**
-- Ordered-chain projective composition: **PASS_SCOPED exact**
-- Generic curved `G`-only coarse closure: **FAIL_SCOPED**
-- Weak-curvature derived curvature sector: **20 off-shell components**
-- Generic curved physical rigging/interacting measure: **OPEN/BLOCKED**
-- Independent benchmark passed: **NO**
-- KMQGB `NEW_REQUIRED` authorization: **NO**
+- Active candidate: `QGR-L1`
+- Local candidate: unique linear+cubic+quartic two-derivative closure, two-mode causal sector, weak-background stability
+- Positive kinematic Hilbert space: **PASS_SCOPED**
+- Symmetric-seed physical quotient: **PASS_SCOPED, 2 modes/cover; 8 over four covers**
+- Exact strong-curvature coarse observable algebra: **PASS_SCOPED path-groupoid closure**
+- Normalized interacting 24-history instrument: **PASS_SCOPED**
+- BRST algebraic physical descent: **PASS_SCOPED**
+- Operational physical positivity/CPTP coarse evolution: **PASS_SCOPED**
+- Local regular-stratum physical quotient/branch measure: **PASS_SCOPED**
+- Finite-curvature nonlinear torsion branch with nonzero holonomy: **NUMERICALLY_VERIFIED**
+- Global strong-curvature branch finiteness/normalizability: **BLOCKED**
+- Full all-orders nonlinear theory: **NO**
+- Continuum/RG theorem: **NO**
+- Independent KMQGB pass: **NO**
+- KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
 Readiness is an internal construction-roadmap metric, not probability of correctness.
 
-## Iter005 closed authority
+## Established QGR chain so far
 
-QGR-L1 has exact protected linear masslessness, exact two-mode characteristic structure, a unique cubic Noether self-coupling, a unique quartic continuation modulo kinematic null directions, closed pullback transformation algebra, and scoped weak-background characteristic stability.
+`B4 relational seed`
+`-> derived d=4 / incidence Lorentzian form`
+`-> 10-component Sym^2(W4) response arena`
+`-> derivative gauge closure / protected masslessness`
+`-> exact 2 physical modes on the characteristic cone`
+`-> unique cubic Noether self-coupling`
+`-> unique quartic continuation modulo kinematic nulls`
+`-> weak-background two-mode cone stability`
+`-> positive configuration Hilbert space`
+`-> finite frame/holonomy lift`
+`-> locally unique discrete torsion-free connection near seed`
+`-> exact strong-curvature path-groupoid coarse algebra`
+`-> normalized interacting history instrument`
+`-> BRST algebraic physical quotient + operational positivity`.
 
-Authoritative record: `iterations/ITERATION_005.md`.
+This is one realization chain; no separate continuum model has been spliced into the local or quantum-composition layers.
 
-## Iter006 results
+## Iter006 state-space result
 
-### G1 — history normalization
+The Lorentzian response is a configuration variable, not an ordinary Hermitian covariance.
 
-The 24-history register supports branch amplitude magnitude `1/sqrt(24)` and channel weight `1/24`. The early assumed system projector is no longer used as a fundamental object.
+`Q_13={G=G^T | signature(G)=(1,3)}`
 
-### G2 — state-space reconstruction
+carries the congruence-invariant measure
 
-Directly identifying Lorentzian `G` with a Hermitian covariance is impossible because a symmetrized Hermitian covariance is positive semidefinite.
+`dmu(G)=|det G|^(-5/2)d^10G`,
 
-Instead define the Lorentzian response configuration space
-
-`Q_13={G=G^T | signature(G)=(1,3)}`.
-
-The congruence-invariant measure is
-
-`dmu(G)=|det G|^(-5/2) d^10G`,
-
-because the `Sym^2` congruence Jacobian is `|det A|^5`.
-
-This gives
+so
 
 `H_kin=L^2(Q_13,dmu)`.
 
-Physical states are a derivative-constraint quotient, not the image of a preferred covariant `10x10` projector.
+At each fundamental cover,
 
-At each fundamental null cover `e_i`,
+`dim[ker H / im R]=2`.
 
-`dim[ker H(e_i)/im R(e_i)]=2`.
+No preferred covariant `10x10` physical projector is used.
 
-The four-cover symmetric-seed physical space therefore has exact dimension `8`, and `S4` acts unitarily between the physical quotient fibers without removing the two polarization modes.
+## Exact finite connection and strong-curvature algebra
+
+Use
+
+`G=F^T C F`, `Q_13 ~= O(C)\GL(4)`.
+
+For edge `v->w`,
+
+`A_wv=F_w^-1 L_wv F_v`
+
+is internal-Lorentz gauge invariant and exactly metric compatible.
+
+At the symmetric seed the finite torsion system has a `24x24` Jacobian of rank `24` and determinant `11664`, giving local uniqueness by the implicit-function theorem.
+
+For a finite graph, retain `(G_v,A_e)` and define path transport by products. Coarse blocking is exact and associative; loop holonomy is not discarded. On a connected graph the cycle sector can be generated by `b1=E-V+1` fundamental loop holonomies after a spanning-tree choice.
+
+Record: `results/ITER006_G7B_STRONG_CURVATURE_PATH_GROUPOID_CLOSURE.md`.
+
+## Normalized interacting quantum composition
+
+For the 24 histories,
+
+`K_alpha=24^(-1/2) exp(iS_alpha/hbar) U_alpha`.
+
+With unitary branch transport and real QGR action phase,
+
+`sum K_alpha^dagger K_alpha=I`.
+
+Thus the coherent history-register map is an isometry and the traced coarse map is CPTP. No free branch modulus or history probability is introduced.
+
+Record: `results/ITER006_G8A_NORMALIZED_INTERACTING_HISTORY_INSTRUMENT.md`.
+
+## Generic constraint descent and positivity
+
+The exact pullback algebra gives a nilpotent BRST differential
+
+`sG=L_cG`, `sc=-(1/2)[c,c]`, `s^2=0`.
+
+Physical observables are represented by ghost-number-zero cohomology `H^0(s)`. Exact path-groupoid blocking is covariant and descends to cohomology.
+
+Physical states may be taken operationally as positive normalized functionals on the physical `*`-algebra. Because the coarse history channel is CPTP and gauge covariant, positivity and normalization are preserved after coarse graining.
 
 Records:
 
-- `results/ITER006_G2_STATE_SPACE_AND_PROJECTOR_AUDIT.md`
-- `results/ITER006_G2C_SEED_PHYSICAL_HILBERT_AND_UNITARY_HISTORY.md`
+- `results/ITER006_G8C_BRST_CONSTRAINT_DESCENT.md`
+- `results/ITER006_G8D_OPERATIONAL_PHYSICAL_POSITIVITY.md`
 
-### G3 — history transport
+## Regular-stratum branch measure
 
-The forty first-jet components `D_iG_jk` uniquely determine the same torsion-free compatible connection already used in the local nonlinear QGR construction.
+Internal Lorentz redundancy is removed algebraically using `(G,A)`; no normalized noncompact Haar average is used.
 
-Frozen-background history differences are therefore generated by QGR curvature/holonomy, not arbitrary branch functions.
+On a regular local derivative-gauge slice,
 
-Configuration-dependent classical maps can be quantized linearly through Koopman/Radon-Nikodym lifts whenever the actual map is invertible and quasi-invariant.
+`dmu_phys=dmu_kin delta(chi)|det(Dchi.R)|`.
 
-Records:
+If strong-curvature torsion equations have isolated regular roots `L_r`, invariant unnormalized group measure plus delta/coarea reduction gives relative branch weights
 
-- `results/ITER006_G3A_DERIVED_HISTORY_TRANSPORT.md`
-- `results/ITER006_G3B_CONTROLLED_CONFIGURATION_TRANSPORT.md`
+`w_r proportional to j_Haar(L_r)/|det(dT/domega)_r|`.
 
-### G4 — finite frame/holonomy lift
+Near the seed the root is unique and regular.
 
-The response space is naturally
+Record: `results/ITER006_G8B_REGULAR_STRATUM_RIGGING_AND_BRANCH_MEASURE.md`.
 
-`G=F^T C F`, `Q_13 ~= O(C) \ GL(4)`, `16-6=10`.
+## Finite-curvature audit
 
-For an edge `v->w`,
+A deterministic nonlinear conformal-frame lattice toy was solved at the central vertex and four neighbors.
 
-`A_wv=F_w^(-1)L_wvF_v`, `L_wv in O(C)`
+Central root:
 
-gives exact gauge-invariant finite transport and exact metric compatibility.
+- residual about `2e-14`;
+- smallest Jacobian singular value about `0.349`;
+- condition number about `23.1`.
 
-The six-dimensional endpoint ambiguity is therefore the connection fiber, not six arbitrary couplings.
+Six plaquette holonomies satisfy `||H-I||` about `0.129..0.249`, with metric-preservation error about `1e-15`. Twelve local restarts converged to the same transport branch within `4e-11`.
 
-Record: `results/ITER006_G4_FRAME_HOLONOMY_LIFT.md`.
+Classification:
 
-### G5 — local discrete Levi-Civita uniqueness
+`NUMERICALLY_VERIFIED_FINITE_CURVATURE_REGULAR_TORSION_BRANCH_WITH_NONZERO_HOLONOMY`.
 
-Finite plaquette torsion-free closure is
-
-`e_i(v)+L_i^(-1)e_j(v+i)=e_j(v)+L_j^(-1)e_i(v+j)`.
-
-At the symmetric seed the exact `24x24` connection Jacobian has
-
-- rank `24`;
-- determinant `11664` in the recorded basis;
-- zero homogeneous kernel.
-
-Therefore the implicit-function theorem gives locally unique finite torsion-free holonomies near the symmetric seed from the existing frame data.
-
-Record: `results/ITER006_G5_DISCRETE_LEVI_CIVITA_UNIQUENESS.md`.
-Code: `code/qgr_iter006_g5_discrete_torsion_rank.py`.
-
-### G6 — projective closure boundary
-
-Ordered-chain blocking is exactly projective because transports and RN factors compose.
-
-Generic curved blocks are not closed by a local ten-component `G` alone: loop holonomy can affect later transports while being lost by a `G`-only coarse description.
-
-Minimal repair is to retain derived coarse holonomy/curvature observables, not new free couplings.
-
-Record: `results/ITER006_G6_PROJECTIVE_CLOSURE_AND_HOLONOMY.md`.
-
-### G7A — weak-curvature coarse observable count
-
-The local torsion-free metric-compatible curvature sector has
-
-`36 -> 21 -> 20`
-
-components after pair symmetries and first Bianchi.
-
-Thus the minimal weak-curvature coarse candidate retains `G(10)` plus `Riemann(20)` before using field equations.
-
-Record: `results/ITER006_G7A_WEAK_CURVATURE_OBSERVABLE_COUNT.md`.
+Record: `results/ITER006_G9_FINITE_CURVATURE_TORSION_BRANCH_AUDIT.md`.
+Code: `code/qgr_iter006_g9_finite_curvature_torsion_toy.py`.
 
 ## Active blocker
 
-`BLOCKED_MISSING_GENERIC_PHYSICAL_RIGGING_OR_CONSTRAINT_HILBERT_COMPLETION_PLUS_NORMALIZED_INTERACTING_MEASURE_AND_STRONG_CURVATURE_PROJECTIVE_HOLONOMY_CLOSURE`.
+`BLOCKED_GLOBAL_STRONG_CURVATURE_TORSION_ROOT_FINITE_REGULARITY_AND_NONCOMPACT_ESCAPE_CONTROL`.
 
-This is now the main R5 barrier. Local/near-seed state and connection reconstruction no longer dominate the uncertainty.
+Still unexcluded for arbitrary finite-complex strong-curvature data:
 
-## Active gate — Iter006 G7B/G8
+- singular connection roots;
+- continuous solution components;
+- infinitely many distinct roots;
+- runaway solutions along noncompact Lorentz directions.
 
-`QGR-ITER006-G7B_PHYSICAL_RIGGING_AND_STRONG_CURVATURE_MEASURE`
+This is now the dominant Iter006 uncertainty.
 
-1. Specify the minimal strong-curvature coarse holonomy observable algebra.
-2. Construct the physical constraint/rigging completion of `H_kin` without normalized noncompact-Haar fiction.
-3. Define the interacting quantum amplitude/measure from the same QGR local action and frame/connection variables.
-4. Prove positivity/unitarity or an explicit replacement principle.
-5. Test two-level coarse/refinement consistency on a curved block.
-6. Do not add history-dependent weights/functions or matching counterterms by hand.
+## Active gate — Iter006-G10
+
+`QGR-ITER006-G10-GLOBAL_TORSION_BRANCH_FINITE_MEASURE`
+
+1. analyze noncompact/large-rapidity asymptotics of the finite torsion map;
+2. derive sufficient conditions excluding runaway roots, or construct a counterexample;
+3. determine generic finiteness of regular solution branches;
+4. audit singular/branch-merger strata;
+5. test coarea branch-measure finiteness under two-level blocking;
+6. reject any regulator/cutoff/history weight added only to force normalization.
 
 ## KMQGB synchronization
 
-Latest observed repository head remains `e806bea830402b03e9c8c9ddcbfda3224d06178e` (Iter333 scoped cross-face transport delta).
+Latest observed KMQGB head: `6a979ad41012198b5e69b47494bc6d6d947dca06` (Iter334-337 authority workflow).
 
-The authoritative KMQGB recovery front remains globally `NOT_YET_AUTHORIZED`; newer Iter332-333 deltas reduce some LQG normalization bookkeeping but do not close the missing source-defined jet/glue/transport objects. `NEW_REQUIRED` remains unauthorized.
+Its fail-closed aggregate keeps strict terminal coverage at `1/15`, authorizes **0** new CW2 terminal promotions, and outputs `D7=NOT_AUTHORIZED`. LQG, asymptotic-safety, and CFS/high-value closure lanes remain blocked by distinct missing source-defined objects; these are not family FAIL evidence.
 
 ## Recovery order
 
 1. `recovery/state.json`
 2. `recovery/CURRENT_FRONT.md`
 3. `iterations/ITERATION_006.md`
-4. `results/ITER006_G5_DISCRETE_LEVI_CIVITA_UNIQUENESS.md`
-5. `results/ITER006_G6_PROJECTIVE_CLOSURE_AND_HOLONOMY.md`
-6. `results/ITER006_G4_FRAME_HOLONOMY_LIFT.md`
-7. `results/ITER006_G2_STATE_SPACE_AND_PROJECTOR_AUDIT.md`
-8. `results/ITER006_G2C_SEED_PHYSICAL_HILBERT_AND_UNITARY_HISTORY.md`
-9. `iterations/ITERATION_005.md`
-10. `docs/CONSTITUTION.md`
-11. newest Iter006 results/code
-12. current KMQGB scoped deltas + authoritative benchmark front
+4. `results/ITER006_G9_FINITE_CURVATURE_TORSION_BRANCH_AUDIT.md`
+5. `results/ITER006_G8D_OPERATIONAL_PHYSICAL_POSITIVITY.md`
+6. `results/ITER006_G8C_BRST_CONSTRAINT_DESCENT.md`
+7. `results/ITER006_G8B_REGULAR_STRATUM_RIGGING_AND_BRANCH_MEASURE.md`
+8. `results/ITER006_G8A_NORMALIZED_INTERACTING_HISTORY_INSTRUMENT.md`
+9. `results/ITER006_G7B_STRONG_CURVATURE_PATH_GROUPOID_CLOSURE.md`
+10. `results/ITER006_G5_DISCRETE_LEVI_CIVITA_UNIQUENESS.md`
+11. `iterations/ITERATION_005.md`
+12. `docs/CONSTITUTION.md`
+13. newest Iter006 results/code
+14. current KMQGB scoped deltas + authoritative benchmark front
