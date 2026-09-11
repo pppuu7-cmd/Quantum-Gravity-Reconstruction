@@ -1,0 +1,83 @@
+{
+  "project": {
+    "name": "Quantum Gravity Reconstruction",
+    "short_name": "QGR",
+    "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
+    "date": "2026-09-11",
+    "iteration": 1,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_PRE_ANSATZ"
+  },
+  "readiness": {
+    "repository_infrastructure_pct": 100,
+    "candidate_program_pct": 24,
+    "candidate_program_pct_semantics": "Inherited canonical KMQGB Candidate Gravity R3 bookkeeping baseline; not probability of correctness and not fraction of a completed physical theory.",
+    "current_task_pct": 100,
+    "theory_established_pct": 0
+  },
+  "roadmap": {
+    "R0_governance_recovery": "COMPLETE",
+    "R1_requirement_closure": "ACTIVE",
+    "R2_ontology_search": "NOT_PROMOTED",
+    "R3_minimal_dynamical_ansatz": "INACTIVE",
+    "R4_local_mathematical_closure": "INACTIVE",
+    "R5_same_realization_uv_ir": "INACTIVE",
+    "R6_gr_recovery": "INACTIVE",
+    "R7_observable_closure": "INACTIVE",
+    "R8_independent_benchmark_export": "INACTIVE",
+    "R9_prediction_discrimination": "INACTIVE"
+  },
+  "candidate": {
+    "promoted_ansatz": false,
+    "active_branch": null,
+    "status": "UNFORMED",
+    "benchmark_winner": false,
+    "independent_validation": false
+  },
+  "governance": {
+    "constitution": "docs/CONSTITUTION.md",
+    "constitution_version": "1.0",
+    "constitution_frozen": true,
+    "fail_closed": true,
+    "same_realization_required": true,
+    "blocked_is_failure": false,
+    "post_hoc_benchmark_tuning_forbidden": true
+  },
+  "external_authority_snapshot": {
+    "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
+    "snapshot_date": "2026-09-11",
+    "latest_observed_commit": "35bd20ed562365af4cc9f6431c487f223b419e82",
+    "latest_observed_iteration": 323,
+    "global_decision": "NOT_YET_AUTHORIZED",
+    "new_required_authorized": false,
+    "D2": "NOT_CLOSED_COVERAGE_AND_OBJECTS",
+    "D4": "PARTIAL_GLOBAL_NOT_CLOSED",
+    "D7": "NOT_CLOSED_NOT_YET_AUTHORIZED",
+    "tier1_terminal_coverage": "1/15",
+    "candidate_family_terminal_coverage": "0/14"
+  },
+  "active_question": {
+    "id": "QGR-G0",
+    "text": "Identify the minimum viable microscopic ontology and dynamical closure architecture satisfying quantum, causal/compositional, finiteness/extension, emergent 4D Lorentzian GR, normalized-observable, same-realization, and rigidity obligations."
+  },
+  "next_gate": {
+    "iteration": 2,
+    "id": "QGR-G0-ARCHITECTURE-MATRIX",
+    "action": "Generate and score at least four genuinely distinct architecture classes before promoting any physical ansatz.",
+    "minimum_kill_tests_before_branch_promotion": 3
+  },
+  "claim_locks": {
+    "all_known_models_wrong": false,
+    "new_model_required_by_kmqgb": false,
+    "qgr_correct": false,
+    "qgr_unique": false,
+    "lqg_scoped_result_is_universal_no_go": false
+  },
+  "recovery_order": [
+    "recovery/state.json",
+    "recovery/CURRENT_FRONT.md",
+    "latest iterations/ITERATION_NNN.md",
+    "docs/CONSTITUTION.md",
+    "docs/KMQGB_HANDOFF.md",
+    "current KMQGB recovery front and recent commits"
+  ]
+}
