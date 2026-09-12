@@ -1,0 +1,52 @@
+name: qgr-iter026-g26-existing-micro-event-source-authority
+on:
+  push:
+    paths:
+      - 'code/qgr_iter026_g26_existing_micro_event_source_authority.py'
+      - 'code/qgr_iter026_g26_aggregate.py'
+      - '.github/workflows/qgr-iter026-g26-existing-micro-event-source-authority.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 30
+      matrix:
+        audit: [incidence-authority, pair-action-homogeneity, connection-scale-homogeneity, history-normalization-authority, coarea-measure-vs-phase]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G26 existing microscopic event-source authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter026_g26_existing_micro_event_source_authority.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g26-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g26-*
+          path: iter026-g26-results
+          merge-multiple: false
+      - name: Aggregate 30 G26 lanes
+        run: python code/qgr_iter026_g26_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g26-summary
+          path: iter026-g26-summary/summary.json
