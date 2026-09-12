@@ -1,49 +1,59 @@
 # QGR Current Research Front
 
 Updated: 2026-09-13
-Primary active iteration: `Iter050`
-Project phase: `MODEL_CONSTRUCTION / COVARIANT WEYL3 VARIATION PREREQUISITE`
+Primary active iteration: `Iter051`
+Project phase: `MODEL_CONSTRUCTION / FULL COVARIANT WEYL3 METRIC VARIATION`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**.
-- Candidate-program roadmap readiness: **98%** — internal construction-roadmap readiness only, not correctness probability and not fraction of quantum gravity solved. The increase 97 -> 98 is credited only to terminal Iter049 closure of a second independent curved symmetry-reduced variational sector.
-- Iter005–Iter049: completed in their stated scopes.
+- Candidate-program roadmap readiness: **99%** — internal construction-roadmap readiness only, not correctness probability and not fraction of quantum gravity solved. The increase 98 -> 99 is credited only to terminal Iter050 closure of the first generic non-symmetry-reduced curvature-direction/P-tensor prerequisite.
+- Iter005–Iter050: completed in their stated scopes.
 - Theory established: **0%**.
 - `beta`: explicit matching/calibration parameter; `beta=1` is not authorized as physics.
-- `c6`: **unfixed**; current gates compute only its coefficient.
+- `c6`: **unfixed**.
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Terminal Iter049 — independent static-spherical variational sector
-Durable record: `results/ITER049_WEYL3_SPHERICALLY_REDUCED_VARIATIONAL_RESPONSE.md`.
+## Terminal Iter050 — covariant curvature-direction prerequisite
+Durable record: `results/ITER050_WEYL3_COVARIANT_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE.md`.
 
-Frozen gate preregistered at `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`. Initial run `34719814120` is diagnostic/non-authoritative because a symbolic exact-zero trig simplifier produced a false-negative control. Authority record `83a5d538b4d2987bae304d0396c96d644bf24810`; control-only canonical-trig repair `73298317eaf5a401caf4dea3fe8eee3808727042`. No scientific target, threshold, witness or interpretation changed.
+Frozen gate preregistered at `f711706587c3119a0b50d42deed8d188bc6cbcef`; implementation `60da97ddb8afa3b293c22fef1c8af530b476bf9e`; frozen aggregate `a6245ccb401d2caca3cc5d660d45d4b3cbda1d93`; authoritative production head `aff866ef2437b38e0981ee11f3d3b759c1710423`.
 
-Authoritative retry:
-- head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`;
-- run `34719948722`;
-- aggregate job `103624666186`;
-- aggregate artifact `10306068977` (`qgr-iter049-summary`);
-- digest `sha256:d474a1eeb41b2a56c74ec5266794b0362c26560bdcb062e232ae564c2381ce22`;
-- 24/24 frozen scientific lanes consumed; controls valid.
+Authoritative terminal provenance:
+- run `34721494038`;
+- aggregate job `103628161706`;
+- aggregate artifact `10305494635` (`qgr-iter050-summary`);
+- digest `sha256:b61db7ae72d17071fff8790c5dc7029f9c67ec01cb4d2714bbc18fcaa219fb2e`;
+- 12/12 frozen scientific lanes consumed and passed.
+
+Aggregate extrema:
+- max algebraic residual `5.551115123125783e-17`;
+- max Weyl-trace residual `5.551115123125783e-17`;
+- max scalar Lorentz-covariance relative discrepancy `1.6429934460979685e-14`;
+- max directional-derivative covariance relative discrepancy `5.173731054391887e-14`;
+- max finest-step analytic-vs-FD relative discrepancy `7.310078440487533e-08`;
+- nonzero calibration `12/12`.
 
 Terminal classification:
-`PASS_SCOPED_WEYL3_SPHERICALLY_REDUCED_VARIATIONAL_RESPONSE`.
+`PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE`.
 
-This is a real second independent symmetry-reduced variational response of the coefficient of `c6`. It is **not** the complete four-dimensional covariant Weyl^3 Euler–Lagrange tensor.
+This is a genuine non-symmetry-reduced fixed-metric curvature-direction/P-tensor certificate for the local Weyl-cubic invariant on the frozen generic panel. It is **not** the complete metric functional derivative of `sqrt(-g) C^3`: metric variation of the measure/projectors and the covariant double-divergence sector remain outside Iter050.
 
-## Current frontier — Iter050
-Do not start a third repetitive symmetry reduction. The next high-information gate is a genuinely covariant, non-symmetry-reduced variation prerequisite for the local Weyl-cubic scalar.
+## Current frontier — Iter051
+Do not start another symmetry reduction. The next high-information programme is a full four-dimensional covariant metric-functional-derivative certificate for `sqrt(-g) C^3` with symbolic `c6`.
 
-Planned gate: `ITER050-WEYL3-COVARIANT-CURVATURE-DIRECTIONAL-VARIATION-PREREQUISITE`.
+Planned gate: `ITER051-WEYL3-FULL-COVARIANT-METRIC-FUNCTIONAL-DERIVATIVE-CERTIFICATE`.
 
-The gate must be prospectively preregistered before implementation. It may test the curvature-direction derivative/P-tensor of `I3=C_{mu nu}^{ rho sigma} C_{rho sigma}^{ alpha beta} C_{alpha beta}^{ mu nu}` on generic four-dimensional algebraic-curvature data, with independent finite-difference convergence, Lorentz-basis covariance and conformally-flat/null controls. Passing such a gate is only a prerequisite to the full metric functional derivative: it does not certify the metric variation of the Weyl projectors/measure nor the covariant double-divergence term in the full f(Riemann) Euler–Lagrange tensor.
+The gate must be prospectively preregistered before implementation and must explicitly separate at least two independently controlled ingredients:
+1. algebraic metric/measure/projector variation of the Weyl-cubic density;
+2. the covariant derivative contribution built from the curvature derivative/P-tensor, including the double-divergence structure.
+
+No complete covariant Weyl^3 Euler-Lagrange claim is allowed if either component is missing, invalid, numerically unresolved, or only symmetry-reduced.
 
 ## Claim locks
 - theory established = **0%**;
 - no experimental confirmation;
 - `c6` remains unfixed;
-- G48/G49 reduced variations are not the full 4D covariant six-derivative field equation;
-- a future Iter050 curvature-direction certificate is also not the full metric field equation;
+- Iter050 is a prerequisite, not the full 4D covariant six-derivative field equation;
 - finite panels and symmetry-reduced calculations are not global theorems;
 - beta remains matching/calibration parameter and `beta=1` is not physics;
 - G45 does not establish absolute energy positivity or quantum unitarity;
