@@ -1,0 +1,54 @@
+name: qgr-iter018-g18-refinement-variational-profile
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter018_g18_refinement_variational_profile.py'
+      - 'code/qgr_iter018_g18_aggregate.py'
+      - '.github/workflows/qgr-iter018-g18-refinement-variational-profile.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        audit: [linear-profile, strict-minimality, s4-lift, authority-rank]
+        lane: [0, 1, 2, 3, 4, 5]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G18 exact refinement variational profile audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter018_g18_refinement_variational_profile.py \
+            --audit '${{ matrix.audit }}' \
+            --lane '${{ matrix.lane }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g18-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g18-*
+          path: iter018-g18-results
+      - name: Aggregate 24 G18 lanes
+        run: python code/qgr_iter018_g18_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g18-summary
+          path: iter018-g18-summary/summary.json
