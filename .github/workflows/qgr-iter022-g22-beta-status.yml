@@ -1,0 +1,51 @@
+name: qgr-iter022-g22-beta-status
+on:
+  push:
+    paths:
+      - 'code/qgr_iter022_g22_beta_status.py'
+      - 'code/qgr_iter022_g22_aggregate.py'
+      - '.github/workflows/qgr-iter022-g22-beta-status.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [reparam-invariance, authority-rank, beta-invariant-ratios, preparation-vs-calibration]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G22 exact conditional beta-status audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter022_g22_beta_status.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g22-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g22-*
+          path: iter022-g22-results
+          merge-multiple: false
+      - name: Aggregate 24 G22 lanes
+        run: python code/qgr_iter022_g22_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g22-summary
+          path: iter022-g22-summary/summary.json
