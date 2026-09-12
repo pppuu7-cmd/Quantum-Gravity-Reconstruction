@@ -1,0 +1,9 @@
+Iter048 production authority trigger.
+Preregistration commit: 278ec25f089430a09d8b64540cbc57ed481f4fce
+Implementation commit: b618e848785e96ed6968e5ca06282d84c7925950
+Aggregate commit: 4da8340f0dbc1a2ff1a51a55ff1fb8061592b992
+Workflow commit: 983521bef48fcb2feb73f3c1f0137e5a679079c9
+Frozen gate: ITER048-WEYL3-SYMMETRY-REDUCED-VARIATIONAL-RESPONSE
+Expected scientific lanes: 24 (A6+B6+C6+D6).
+c6 remains symbolic/unfixed; production extracts only its coefficient.
+Do not modify frozen criteria after this trigger.
