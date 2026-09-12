@@ -4,18 +4,18 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
-    "iteration": 47,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_SIX_DERIVATIVE_WEYL3_CURVATURE_CLASS_ACTIVATION"
+    "iteration": 48,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_WEYL3_SYMMETRY_REDUCED_VARIATIONAL_RESPONSE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 96,
-    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Increase from 95 to 96 is credited specifically to terminal Iter046 exact finite-amplitude nonlinear pp-wave radiative closure, not to compute volume.",
-    "iter043_pct": 100,
+    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Iter047 operator-activation PASS is important but does not by itself earn another roadmap point because six-derivative dynamics remain open.",
     "iter044_pct": 100,
     "iter045_pct": 100,
     "iter046_pct": 100,
-    "iter047_pct": 20,
+    "iter047_pct": 100,
+    "iter048_pct": 25,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -32,69 +32,67 @@
     "end_to_end_qgr_l1_linearized_radiative_dynamics": "PASS_SCOPED_48_OF_48",
     "relative_two_polarization_residue_signature": "PASS_SCOPED_18_OF_18",
     "exact_nonlinear_ppwave_radiative_sector": "PASS_SCOPED_34_OF_34",
-    "weyl3_curvature_class_activation_under_test": true,
+    "weyl3_curvature_class_activation": "PASS_SCOPED_24_OF_24",
+    "weyl3_reduced_variational_response_under_test": true,
     "generic_nonlinear_radiative_stability_established": false,
+    "full_covariant_six_derivative_eom_established": false,
     "physical_multiple_branch_measure_selection_derived": false,
     "independent_validation": false
-  },
-  "iter044": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "run_id": 34716363645,
-    "aggregate_job_id": 103616604387,
-    "aggregate_artifact_id": 10305230612,
-    "aggregate_digest": "sha256:48e15c3872ae6963582b4cada787b5c54e74e6654f1de6565d5c3b373062fadb",
-    "passes": 48,
-    "terminal_classification": "PASS_SCOPED_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION_CONTRACT"
-  },
-  "iter045": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "authoritative_run_id": 34716924227,
-    "non_authoritative_duplicate_run_id": 34716911042,
-    "aggregate_job_id": 103616970603,
-    "aggregate_artifact_id": 10305091648,
-    "aggregate_digest": "sha256:3a80f6865140410aadc521d6b5e7eb8f612c30ff4b2c062656632513faff56d4",
-    "passes": 18,
-    "terminal_classification": "PASS_SCOPED_QGR_L1_TWO_POLARIZATION_RELATIVE_RESIDUE_DEGENERACY"
   },
   "iter046": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "preregistration_commit": "125d030e90ac86697710c9ed0cee432c5ff54596",
-    "trigger_commit": "37ff955a57b6822d800b6755282a6bc557c3a0e2",
     "run_id": 34718135187,
     "aggregate_job_id": 103621013033,
     "aggregate_artifact_id": 10305972518,
     "aggregate_digest": "sha256:ca1cfb10420cb4e79f4324f009c0a664317098b7bb08b717f052d82397961a89",
-    "expected_scientific_lanes": 34,
-    "found_scientific_lanes": 34,
     "passes": 34,
-    "controls_valid": true,
-    "terminal_classification": "PASS_SCOPED_QGR_L1_EXACT_FINITE_AMPLITUDE_NONLINEAR_PPWAVE_RADIATIVE_SECTOR",
-    "scope_lock": "SPECIAL_EXACT_PPWAVE_FAMILY_ONLY_NOT_GENERIC_NONLINEAR_OR_STRONG_FIELD_STABILITY"
+    "terminal_classification": "PASS_SCOPED_QGR_L1_EXACT_FINITE_AMPLITUDE_NONLINEAR_PPWAVE_RADIATIVE_SECTOR"
   },
   "iter047": {
-    "status": "PREREGISTERED_IMPLEMENTED_PRODUCTION_QUEUED",
-    "completion_pct": 20,
+    "status": "COMPLETE",
+    "completion_pct": 100,
     "preregistration_commit": "dbd3745ad1082141790502b8423240771112ee03",
     "implementation_commit": "bb44a0b2721dca861c84e7de55b482cd79bc9b25",
     "aggregate_commit": "cb018321e7a061e2d82f558c68ed0e14d051ceb2",
     "workflow_commit": "84280ed3fef58d10e3759e63b5b7277c08dc9497",
     "trigger_commit": "2c731e9a14c288e6e359c160476bc4bb0e78b801",
     "run_id": 34719070003,
+    "aggregate_job_id": 103621600017,
+    "aggregate_artifact_id": 10305937870,
+    "aggregate_digest": "sha256:7249e022a4b39241a5d61234c982e7b932b2eb9245c468c36f9ca1b54a35d2fb",
+    "expected_scientific_lanes": 24,
+    "found_scientific_lanes": 24,
+    "passes": 24,
+    "controls_valid": true,
+    "terminal_classification": "PASS_SCOPED_EXACT_WEYL3_CURVATURE_CLASS_ACTIVATION_MAP",
+    "scope_lock": "OPERATOR_ACTIVATION_MAP_ONLY_NOT_SIX_DERIVATIVE_EOM_NOT_C6_DETERMINATION"
+  },
+  "iter048": {
+    "status": "PREREGISTERED_IMPLEMENTED_AUTHORITATIVE_PRODUCTION_ACTIVE",
+    "completion_pct": 25,
+    "preregistration_commit": "278ec25f089430a09d8b64540cbc57ed481f4fce",
+    "implementation_commit": "b618e848785e96ed6968e5ca06282d84c7925950",
+    "aggregate_commit": "4da8340f0dbc1a2ff1a51a55ff1fb8061592b992",
+    "initial_workflow_commit": "983521bef48fcb2feb73f3c1f0137e5a679079c9",
+    "workflow_yaml_fix_commit": "3513818d3f50a93c1d62743d7013cae1bc7f4b61",
+    "run_authority_record_commit": "9ddba17221e83ca96255a8a382a82692462eb21d",
+    "invalid_zero_evidence_run_id": 34719340456,
+    "authoritative_trigger_commit": "68cf38c745f146039cf63ed0f345e24bd87d5f01",
+    "authoritative_run_id": 34719396082,
     "expected_scientific_lanes": 24,
     "streams": {"A":6,"B":6,"C":6,"D":6},
-    "active_gate": "ITER047-EXACT-WEYL3-CURVATURE-CLASS-ACTIVATION-MAP",
+    "active_gate": "ITER048-WEYL3-SYMMETRY-REDUCED-VARIATIONAL-RESPONSE",
     "terminal_classification": null,
-    "c6_status": "SYMBOLIC_UNFIXED"
+    "c6_status": "SYMBOLIC_UNFIXED_COEFFICIENT_ONLY",
+    "scope_lock": "LAPSE_RETAINING_AXISYMMETRIC_BIANCHI_I_REDUCED_VARIATION_ONLY_NOT_FULL_COVARIANT_SIX_DERIVATIVE_EOM"
   },
   "active_question": {
-    "id": "QGR-ITER047-EXACT-WEYL3-CURVATURE-CLASS-ACTIVATION-MAP",
-    "text": "Across exact type-N, Petrov-D, anisotropic Ricci-flat and conformally-flat metric geometries, where is the already-selected QGR Weyl^3 operator exactly blind or active, with c6 left symbolic and unfixed?"
+    "id": "QGR-ITER048-WEYL3-SYMMETRY-REDUCED-VARIATIONAL-RESPONSE",
+    "text": "Within a lapse-retaining axisymmetric Bianchi-I reduction, is the coefficient of c6 in the generalized Euler-Lagrange response of sqrt(-g) Weyl^3 nonzero on exact Kasner while vanishing on conformally-flat isotropic controls?"
   },
-  "active_blocker": "SIX_DERIVATIVE_CURVED_BACKGROUND_ACTIVATION_THEN_ACTUAL_EULER_LAGRANGE_RESPONSE_OR_GENERIC_NONSPECIAL_CURVED_DYNAMICS",
-  "next_gate_lock": "Iter047 is an operator-activation map only. Even full PASS must not be promoted to six-derivative dynamics or a corrected Schwarzschild/Kasner solution. The next high-value gate should derive/test the actual curved-background Euler-Lagrange response of c6*Weyl^3 with c6 symbolic, or attack a genuinely generic non-special curved-background dynamical question.",
+  "active_blocker": "SIX_DERIVATIVE_VARIATIONAL_DYNAMICS_BEYOND_INVARIANT_ACTIVATION",
+  "next_gate_lock": "Consume Iter048 raw lane and aggregate evidence before terminal promotion. Even full PASS is symmetry-reduced only, not the full four-dimensional covariant Weyl^3 Euler-Lagrange tensor. c6 remains symbolic/unfixed. Do not weaken frozen analytic targets after production output.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
@@ -108,6 +106,6 @@
     "absolute_energy_positivity_established": false,
     "quantum_unitarity_established": false,
     "generic_nonlinear_radiative_stability_established": false,
-    "six_derivative_curved_eom_established": false
+    "full_covariant_six_derivative_eom_established": false
   }
 }
