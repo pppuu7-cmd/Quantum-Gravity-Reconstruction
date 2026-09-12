@@ -1,0 +1,51 @@
+name: qgr-iter023-g23-history-order-vs-action-cumulants
+on:
+  push:
+    paths:
+      - 'code/qgr_iter023_g23_history_order_vs_action_cumulants.py'
+      - 'code/qgr_iter023_g23_aggregate.py'
+      - '.github/workflows/qgr-iter023-g23-history-order-vs-action-cumulants.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [prefix-moments, phase-authority-rank, coefficient-family-witness, order-vs-action-cumulant]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G23 exact history-order versus action-cumulant audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter023_g23_history_order_vs_action_cumulants.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g23-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g23-*
+          path: iter023-g23-results
+          merge-multiple: false
+      - name: Aggregate 24 G23 lanes
+        run: python code/qgr_iter023_g23_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g23-summary
+          path: iter023-g23-summary/summary.json
