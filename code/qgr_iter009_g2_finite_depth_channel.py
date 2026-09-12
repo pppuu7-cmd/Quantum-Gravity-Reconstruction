@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 import json
+from fractions import Fraction
 
 N = 24
 checks = []
 for depth in range(1, 9):
     paths = N**depth
-    weight = N**(-depth)
+    weight = Fraction(1, paths)
     completeness = paths * weight
-    assert completeness == 1.0
-    checks.append({"depth": depth, "histories": paths, "branch_weight": weight, "sum_KdagK": completeness})
+    assert completeness == 1
+    checks.append({
+        "depth": depth,
+        "histories": paths,
+        "branch_weight": f"1/{paths}",
+        "sum_KdagK": str(completeness)
+    })
 
 out = {
     "gate": "ITER009-G2-FINITE-DEPTH-CHANNEL",
