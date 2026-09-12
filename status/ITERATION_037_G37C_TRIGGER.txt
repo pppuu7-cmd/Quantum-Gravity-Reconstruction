@@ -1,0 +1,5 @@
+ITER037-G37C production trigger
+Frozen preregistration: status/ITERATION_037_G37C_REFINEMENT_CONNECTED_ADMISSIBILITY.md
+Frozen seeds: six G36 jointly persistent witnesses
+Audit: G10B identity/O(h)/linearized connection + fixed-path fine-product convergence
+Date: 2026-09-12
