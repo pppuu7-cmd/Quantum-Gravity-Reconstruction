@@ -15,7 +15,7 @@
     "iter042_pct": 100,
     "iter042r_pct": 100,
     "iter043_pct": 100,
-    "iter044_pct": 20,
+    "iter044_pct": 35,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -41,39 +41,6 @@
     "physical_multiple_branch_measure_selection_derived": false,
     "independent_validation": false
   },
-  "iter041": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "run_id": 34712571244,
-    "aggregate_job_id": 103604189849,
-    "aggregate_artifact_id": 10303324187,
-    "aggregate_digest": "sha256:289bbbbe42b1f089f0c933423b4b026f53aa1b95296d85e823c643bfe0e8f735",
-    "terminal_classification": "PASS_SCOPED_HELDOUT_WEYL3_GENERALIZATION_AND_PREDICTION_CONTRACT_STRESS"
-  },
-  "iter042": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "run_id": 34712954629,
-    "head_sha": "b6e1c31c961f2536f10e3f9480053b2a62138253",
-    "aggregate_job_id": 103606707505,
-    "aggregate_artifact_id": 10304692021,
-    "aggregate_digest": "sha256:c762dbe4532ec9adca18043c42e2d9a8768f85c7c2cec44c0a00fc359b351844",
-    "terminal_classification": "PARTIAL_SCOPED_NONSTATIC_MAGNETIC_WEYL_COVARIANCE",
-    "passes": {"A": 6, "B": 0, "C": 4, "D": 4, "E": 4},
-    "controls_valid": true
-  },
-  "iter042r": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "run_id": 34713234061,
-    "head_sha": "650a7424d0377388619ca975496c12edf702ddfd",
-    "aggregate_job_id": 103610525399,
-    "aggregate_artifact_id": 10303868886,
-    "aggregate_digest": "sha256:8790997c6ad28eb68d8342d0092d2b6fc5c2f20dcf567819463fe05cd7277f56",
-    "terminal_classification": "PASS_SCOPED_G42_COVARIANCE_DEFECT_ATTRIBUTED_TO_MIXED_FRAME_RECONSTRUCTION_AND_FRAME_COMPLETION_VALIDATED",
-    "passes": {"A": 8, "B": 6, "C": 4, "D": 6},
-    "controls_valid": true
-  },
   "iter043": {
     "status": "COMPLETE",
     "completion_pct": 100,
@@ -89,11 +56,15 @@
     "terminal_classification": "PASS_SCOPED_INDEPENDENT_TT_RADIATIVE_WEYL_COVARIANCE"
   },
   "iter044": {
-    "status": "PREREGISTERED_IMPLEMENTED_READY_FOR_PRODUCTION",
-    "completion_pct": 20,
+    "status": "PRODUCTION_ACTIVE",
+    "completion_pct": 35,
+    "run_id": 34716363645,
+    "head_sha": "e27602b367acffbc9473df95607278042fce5e02",
     "expected_scientific_lanes": 48,
     "streams": {"A": 24, "B": 12, "C": 8, "D": 4},
-    "active_gate": "ITER044-QGR-L1-END-TO-END-LINEARIZED-TT-RADIATION"
+    "active_gate": "ITER044-QGR-L1-END-TO-END-LINEARIZED-TT-RADIATION",
+    "early_nonterminal_lane_passes_observed": ["A0", "C3", "D1"],
+    "terminal_classification": null
   },
   "active_question": {
     "id": "QGR-ITER044-QGR-L1-END-TO-END-LINEARIZED-TT-RADIATION",
