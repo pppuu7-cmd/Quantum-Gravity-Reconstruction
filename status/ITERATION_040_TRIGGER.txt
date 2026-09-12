@@ -1,0 +1,5 @@
+ITER040 production trigger
+Frozen preregistration: status/ITERATION_040.md
+Streams: A4 + B3 + C3 + D4 + E6 = 20 scientific lanes
+No beta/c6 fitting; calibration-free response-kernel audit only
+Date: 2026-09-12
