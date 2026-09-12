@@ -1,0 +1,52 @@
+name: qgr-iter029-g29-weyl-active-authority
+on:
+  push:
+    paths:
+      - 'code/qgr_iter029_g29_weyl_active_authority.py'
+      - 'code/qgr_iter029_g29_aggregate.py'
+      - '.github/workflows/qgr-iter029-g29-weyl-active-authority.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        audit: [source-weyl-rank, conformal-null, absolute-phase-positive-control, nonuniqueness-witness]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G29 Weyl-active authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter029_g29_weyl_active_authority.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g29-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g29-*
+          path: iter029-g29-results
+          merge-multiple: false
+      - name: Aggregate 24 G29 lanes
+        run: python code/qgr_iter029_g29_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g29-summary
+          path: iter029-g29-summary/summary.json
