@@ -1,0 +1,48 @@
+name: qgr-iter051a-weyl3-metric-density-variation
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/qgr-iter051a-weyl3-metric-density-variation.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy
+      - name: Run frozen Iter051A lane
+        run: |
+          python code/qgr_iter051a_weyl3_metric_density_variation.py --lane ${{ matrix.lane }} | tee lane.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051a-lane-${{ matrix.lane }}
+          path: lane.json
+
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051a-lane-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen aggregate classification
+        run: python code/qgr_iter051a_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter051a-summary
+          path: iter051a-summary.json
