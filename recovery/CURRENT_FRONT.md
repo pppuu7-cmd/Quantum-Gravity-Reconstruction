@@ -1,113 +1,92 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter038`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / PRINCIPAL REFINEMENT REGULARITY AND ACTUAL BLOCKING`
-Active roadmap stage: `finite algebraic multiplicity -> frozen G10B physical admissibility -> principal-branch uniform refinement authority -> projective action-limit closure -> absolute phase/source authority`
+Active iteration: `Iter039`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / ABSOLUTE SOURCE AND PHASE IDENTIFIABILITY`
+Active roadmap stage: `principal refinement closure -> absolute source/phase identifiability -> minimal calibration authority -> Weyl-active matching -> higher-derivative coefficient status`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **93%**
-- Iter005–Iter037 completion: **100%**
-- Iter038 completion: **PRODUCTION ACTIVE**
+- Iter005–Iter038 completion: **100%**
+- Iter039 completion: **PRODUCTION ACTIVE**
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - Primitive additive source-law shape: **PASS_SCOPED `J(n)=beta*n`**
-- Projective refinement-limit action mechanism: **PASS_CONDITIONAL_SCOPED (G32)**
-- Principal identity/refinement-connected connection: **PHYSICAL BRANCH RULE PASS_SCOPED (prospective G10B)**
+- Projective refinement-limit action mechanism: **PASS_SCOPED on the frozen principal smooth compact realization after G38**
+- Principal identity/refinement-connected connection: **PASS_SCOPED / G10B physical branch rule**
+- Principal compact-domain small-h uniform regularity: **PASS_SCOPED (G38)**
+- Actual principal fixed-path/loop fine-to-coarse blocking: **PASS_SCOPED (G38)**
 - Finite nonlinear torsion equation multiplicity: **VERIFIED_SCOPED (G35–G37)**
-- Additional physical connection branches from the six strongest distant roots: **NOT SUPPORTED UNDER FROZEN G10B (G37C)**
+- Additional physical connection branches from strongest distant roots: **NOT SUPPORTED UNDER FROZEN G10B (G37C)**
 - Physical multiple-branch measure/selection from G35–G37 roots: **NOT AUTHORIZED**
-- Principal compact-domain small-h uniform regularity: **ACTIVE G38**
-- Actual principal fixed-path/loop fine-to-coarse blocking: **ACTIVE G38**
-- Global arbitrary-background branch compactness/finiteness: **NOT DERIVED**
-- Absolute source normalization `beta`: **NOT DERIVED**
+- Absolute source normalization `beta`: **UNDER IDENTIFIABILITY AUDIT (G39)**
 - Physical Weyl-active same-realization finite absolute phase target: **NOT DERIVED**
 - `c6` fixed: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
-## Iter035 terminal — finite invariant branch multiplicity
-Run `34706686021`, aggregate job `103588230856`, artifact `10301772238`, digest `sha256:d41b2ec8657b27585c1d3735a6b060d21915145454a0ef5fc1e8b819de6be1a0`.
+## Iter038 terminal — principal refinement regularity and actual blocking
+Authoritative run `34709394158`, head `ae8f365ea1ad9e92cdeaed8fefa81a9f05e152d9`, aggregate job `103595441181`, artifact `10303065332`, digest `sha256:26bf51ad50a90cc42b8ee92ba997a237df25aa82dc0ffedeb538170d9997a432`.
 
-Classification: `SCIENTIFIC_PASS_SCOPED_DISTINCT_EXTENDABLE_BRANCH_COUNTEREXAMPLE`.
+Frozen outcome:
+- exact certificate **1/1 PASS**;
+- finite-range gap bridge **8/8 PASS**;
+- fixed-physical-path blocking **8/8 PASS**;
+- elementary loop/groupoid blocking **12/12 PASS**;
+- total **29/29 PASS**.
 
-Eight frozen large-start witnesses gave distinct extendable finite torsion branch patches with invariant edge/holonomy separation. This falsifies single-root uniqueness on the tested finite patch, not global physical uniqueness.
+Exact common scaled-residual h=0 torsion Jacobian:
+- exact rank **24**;
+- exact determinant **11664**;
+- numerical minimum singular value `0.3742889790499052`.
 
-Record: `results/ITER035_G35_DISTANT_BRANCH_VERIFICATION.md`.
+Finite bridge/blocking diagnostics:
+- minimum finite-bridge Jacobian singular value `0.3117043266205393`;
+- maximum finite-bridge condition number `18.83979439212241`;
+- maximum final path contraction ratio `0.5053863019927789`;
+- maximum final loop contraction ratio `0.5080076341318422`.
 
-## Iter036 terminal — larger-patch/deformation persistence
-Run `34708104944`, aggregate job `103592614169`, artifact `10302791375`, digest `sha256:78df0730836beb3ca463c46def82b9ce07b2b2a3a66ebad191f93bd7ebbe4087`.
+Classification: `PASS_SCOPED_PRINCIPAL_COMPACT_REFINEMENT_REGULARITY_AND_FINE_TO_COARSE_BLOCKING`.
 
-All 48 controls valid; 44/48 lanes promoted. All eight G35 witnesses survived the shrinking-cell proxy through `h=0.35` on the 15-cell patch; six seed indices `[0,1,3,4,5,7]` survived all frozen background plus shrinking-cell conditions.
+Scientific authority: after scaling `z=h w`, the exact common h=0 derivative is invertible. Analyticity plus compactness of frozen `K=[0,1]^4` therefore supplies a uniform sufficiently-small-h principal identity-connected IFT branch and positive local Jacobian gap on this smooth compact realization. The independent numerical B/C/D streams bridge the finite range and verify actual physical-path/loop fine blocking. Thus the G32 regularity assumption is no longer unsupported within this scoped principal realization.
 
-Classification: `SCIENTIFIC_PASS_SCOPED_SAME_BRANCH_PERSISTS_ACROSS_BACKGROUND_AND_REFINEMENT_PROXY`.
+Record: `results/ITER038_PRINCIPAL_REFINEMENT_REGULARITY_AND_BLOCKING.md`.
 
-## Iter037 G37 terminal — supporting deeper finite algebraic persistence
-Run `34708971979`, head `cfe59ac5ab31325cd7978f761a9a5264a24f63b8`, aggregate job `103594387725`, artifact `10302384093`, digest `sha256:ebde6d1d48870bb983bef368c78ce7984bb5738cd3cb9959059c34b5c64c25c2`.
+## Why the front changed
+G38 removes the immediate reason to spend more compute on principal regularity grids for the same smooth compact realization. Existing G27–G32 authority now leaves a narrower unresolved problem: the absolute source/action-phase scale. G27 gives `J(n)=beta*n` but one free scalar; G28 gives exact beta-quotiented predictions; G29/G30 localize missing Weyl-active absolute phase authority; G31 shows stationarity does not fix overall quantum phase normalization. G38 adds regular refinement authority but introduces no new absolute source datum.
 
-All **36/36** frozen supporting lanes passed. All six strongest distant roots survived the local shrinking-cell proxy through `h=0.08` and path-consistent positive-orthant radius growth through `R=4` / 70 cells. Maximum independent multi-parent transport disagreement was `3.187584583331305e-13`. Minimum candidate origin torsion-Jacobian singular value in the frozen deep grid was `1.6287333043387907e-05`; invariant edge and holonomy separation remained numerically resolved.
+## Active gate — Iter039
+`QGR-ITER039-ABSOLUTE-SOURCE-PHASE-IDENTIFIABILITY-AFTER-REFINEMENT-CLOSURE`.
 
-Classification: `SCIENTIFIC_PASS_SCOPED_SAME_BRANCH_SURVIVES_DEEPER_REFINEMENT_AND_RADIUS4_PATH_CONSISTENCY`.
+Preregistered before production in `status/ITERATION_039.md`.
+Production workflow: `qgr-iter039-absolute-scale-identifiability`.
+Production run: `34709657749`, launch head `15cedcd3507f0223dc50827a2f72e3d0762ec901`.
 
-Interpretation: finite algebraic multiplicity is robust. This gate does not grant physical same-realization admissibility.
+Five audit classes x six frozen lanes = **30**:
+1. exact homogeneous source-law null direction;
+2. negative-authority audit that G38 principal refinement/blocking has zero beta authority;
+3. exact current absolute-parameter authority rank over `(u=beta^2,c6)`;
+4. minimal calibration-rank theorem using hypothetical target rows only as identifiability controls;
+5. beta-sign authority: phase is even in beta while a signed absolute source/endpoint datum is odd.
 
-Record: `results/ITER037_G37_DEEP_REFINEMENT_RADIUS_STRESS.md`.
+Full PASS classification is `PASS_SCOPED_INTERNAL_ABSOLUTE_SCALE_NONIDENTIFIABILITY_AND_MINIMAL_CALIBRATION_RANK_DERIVED`.
 
-## Iter037 G37C terminal — prospective G10B physical admissibility
-Run `34709108991`, head `409d94df3cd800218a6e883a2ada22f60ec2caeb`, aggregate job `103594543411`, artifact `10302319341`, digest `sha256:6c90ffc66305d2a444638280959db573f7ec8f415095480a8625f441162f205d`.
-
-Frozen outcome over the exact six G36 jointly persistent witnesses:
-- controls valid: **6/6**;
-- numerically blocked: **0/6**;
-- merge-to-principal classification: **0/6**;
-- finite-resolution refinement-connected distinct physical candidates: **0/6**;
-- fail frozen G10B same-realization admissibility: **6/6**;
-- final scaled-linearized errors ranged from `86.0654111432344` to `386.58923202342703`;
-- candidate/principal fixed-path product distance at `N=32` ranged from `0.18825538308337464` to `1.2369141143912622e15`.
-
-Classification: `SCOPED_EVIDENCE_G35_G36_DISTANT_ROOTS_DO_NOT_YET_SUPPLY_ADDITIONAL_PHYSICAL_CONNECTION_BRANCHES_UNDER_FROZEN_G10B`.
-
-Decision: preserve G35–G37 as finite algebraic branch structure, but stop promoting those distant roots toward physical branch probabilities or continuum alternatives. The prospective G10B identity/refinement-connected principal branch retains physical same-realization authority in the current construction.
-
-Record: `results/ITER037_G37C_G10B_SAME_REALIZATION_ADMISSIBILITY.md`.
-
-## Active gate — Iter038
-`QGR-ITER038-PRINCIPAL-REFINEMENT-REGULARITY-AND-ACTUAL-FINE-TO-COARSE-BLOCKING`.
-
-Preregistered in `status/ITERATION_038.md` before production.
-Production workflow: `qgr-iter038-principal-refinement`.
-Production run: `34709394158`, launch head `ae8f365ea1ad9e92cdeaed8fefa81a9f05e152d9`.
-
-Frozen smooth compact domain: `K=[0,1]^4` in the existing G10B conformal realization.
-
-Four independent streams:
-1. **Exact small-h certificate:** exact integer/rational rank and determinant of the common 24x24 scaled-residual `h=0` torsion Jacobian. Invertibility plus analyticity and compactness is the structural small-h IFT authority; it does not rely on numerical extrapolation.
-2. **Finite-range bridge:** eight frozen positions, `h=[1/4,1/8,1/16,1/32,1/64,1/128]`, checking residuals, metric compatibility, singular gaps, first-order approach and scaled-linearized error.
-3. **Actual fixed-physical-path blocking:** eight frozen physical paths with principal fine products at `N=[4,8,16,32,64]`.
-4. **Loop/groupoid blocking:** twelve frozen elementary squares with fine principal loop holonomies through `N=32` subdivisions per side.
-
-Total: **29 scientific lanes** plus aggregate.
-
-Full PASS classification is `PASS_SCOPED_PRINCIPAL_COMPACT_REFINEMENT_REGULARITY_AND_FINE_TO_COARSE_BLOCKING` and requires all 29 frozen lanes.
+If G39 passes, beta must stop being treated as a number that more internal numerical search can discover under the same authority. It remains an explicit matching/calibration parameter unless an independent microscopic normalization principle is derived. `c6` remains unfixed until an independent genuine Weyl-active absolute phase/matching equation exists. Hypothetical controls are not physical data.
 
 ## Strongest positive result
-The apparent G35–G37 multiplicity has now been cleanly separated into robust finite algebraic structure versus physical same-realization branch authority. G37C prevents a post-hoc reinterpretation of distant roots as physical alternatives merely because they numerically persist.
+Principal projective refinement regularity and actual fine-to-coarse blocking are now closed at scoped authority for the frozen smooth compact realization, with an exact nonzero determinant rather than numerical extrapolation alone.
 
 ## Strongest blocker
-`PRINCIPAL_BRANCH_UNIFORM_REFINEMENT_REGULARITY_AND_ACTUAL_FINE_TO_COARSE_BLOCKING_ON_THE_FROZEN_SMOOTH_COMPACT_REALIZATION`.
-
-If Iter038 passes, the G32 conditional projective-action mechanism can be promoted on this scoped principal compact realization; the next blockers remain absolute quantum phase/source normalization and Weyl-active same-realization phase authority, not branch weights.
+`ABSOLUTE_SOURCE_ACTION_PHASE_NORMALIZATION_AND_WEYL_ACTIVE_MATCHING_AUTHORITY`.
 
 ## Claim locks
 - theory established `0%`;
-- G35–G37 finite algebraic multiplicity remains valid but does not authorize multiple physical branches under current G10B evidence;
-- G10B same-realization criterion may not be weakened post hoc;
-- no physical branch weights/measures from the distant roots;
-- Iter038 exact IFT authority is scoped to the frozen smooth compact realization, not arbitrary global strong-curvature field space;
-- finite path/loop convergence is not an analytic all-path theorem;
-- solver nonconvergence is not proof that a root does not exist;
+- G38 authority is scoped to the frozen smooth compact principal realization, not arbitrary global field space;
+- G35–G37 distant algebraic roots do not authorize physical branch weights under current G10B evidence;
+- no physical branch weights/measures from those roots;
+- hypothetical calibration rows are not physical QGR data;
 - `beta=1` unauthorized;
-- absolute quantum phase normalization unfixed;
+- absolute quantum phase normalization remains unfixed pending G39 authority classification;
 - `c6` unfixed;
 - no physical Weyl-active absolute finite-phase target yet;
 - no experimental confirmation;
