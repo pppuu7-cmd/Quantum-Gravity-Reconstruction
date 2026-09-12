@@ -1,21 +1,23 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter029`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / WEYL-ACTIVE PHASE AUTHORITY`
-Active roadmap stage: `primitive source law -> quotient free normalization -> Weyl-active same-realization finite-phase authority`
+Active iteration: `Iter030`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / MICROSCOPIC WEYL-ACTIVE PHASE-SOURCE CENSUS`
+Active roadmap stage: `primitive source law -> scale quotient -> Weyl identifiability -> census existing finite-cell phase authority`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **93%**
-- Iter005–Iter028 completion: **100%**
-- Iter029 completion: **ACTIVE**
+- Iter005–Iter029 completion: **100%**
+- Iter030 completion: **ACTIVE**
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - Primitive additive source-law shape: **PASS_SCOPED `J(n)=beta*n`**
 - Common-conformal scale-free endpoint/phase relations: **PASS_SCOPED**
+- Finite nontrivial holonomy geometry: **NUMERICALLY_VERIFIED_SCOPED**
+- Weyl-active forward `c6` sensitivity: **PASS_SCOPED IDENTIFIABILITY STRUCTURE**
 - Absolute source normalization `beta`: **NOT DERIVED**
-- Physical Weyl-active same-realization finite phase target: **NOT DERIVED**
+- Physical Weyl-active same-realization finite absolute phase target: **NOT DERIVED**
 - `c6` fixed: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
@@ -29,44 +31,54 @@ Durable record: `results/ITER027_G27_PRIMITIVE_BOOLEAN_COMPOSITION_SOURCE_LAW.md
 ## Iter028 terminal
 Run `34703724717`, head `1ea63cb271c4e3c8ecfbc15c6c016ca260f0815a`, aggregate job `103579925131`, aggregate artifact `10301241876`, digest `sha256:7220428d044e1a33fa6b3d923bed3d4c42e9ce1861bc79292fc9bfc29b2a8230`.
 
-All 24/24 required lane artifacts were present and all frozen checks passed.
-
 Classification: `PASS_SCOPED_SOURCE_SCALE_QUOTIENT_YIELDS_EXACT_BETA_INDEPENDENT_ENDPOINT_AND_COMMON_CONFORMAL_PHASE_RATIOS_AND_ACTION_ENDPOINT_INVARIANT__NEGATIVE_CONTROL_CONFIRMS_ZERO_C6_AUTHORITY`.
-
-Exact retained conclusions:
-- endpoint displacement ratios equal primitive-count ratios independent of beta;
-- common-conformal on-shell phase ratios scale as count squared independent of beta;
-- `S_on/(r-1)^2=-lambda` exactly;
-- conformally flat quotient observables have exact zero authority on `c6`.
 
 Durable record: `results/ITER028_G28_SOURCE_SCALE_QUOTIENT_FINITE_PHASE_INVARIANTS.md`.
 
-## Active gate — Iter029 G29
-`QGR-ITER029-G29-WEYL-ACTIVE-SAME-REALIZATION-FINITE-PHASE-AUTHORITY-SEARCH`.
+## Iter029 terminal
+Run `34703816372`, head `ffa1176569b14f4a029c4dc22f899610802dd2f5`, aggregate job `103580256407`, aggregate artifact `10301636254`, digest `sha256:b126dfd082a28b00e68afdfd210862258a9c72b851743f8a6b82f2286ac2fb3c`.
 
-Workflow:
-- run `34703816372`
-- head `ffa1176569b14f4a029c4dc22f899610802dd2f5`
-- matrix: 4 authority/identifiability audit classes x 6 lanes = 24 lanes, fail-fast disabled.
+All 24/24 lanes and the aggregate completed successfully.
+
+Classification: `BLOCKED_SCOPED_EXISTING_QGR_HAS_WEYL_ACTIVE_C6_SENSITIVITY_BUT_CURRENT_SOURCE_SHAPE_AND_SCALE_FREE_CONFORMAL_DATA_HAVE_INSUFFICIENT_AUTHORITY_RANK_TO_FIX_C6_OR_ABSOLUTE_SOURCE_SCALE__ONE_GENUINE_NONHOMOGENEOUS_WEYL_ACTIVE_ABSOLUTE_PHASE_TARGET_WOULD_CLOSE_THE_C6_DIRECTION`.
+
+Strongest positive: one genuine same-realization nonzero-Weyl absolute phase target would close the `c6` direction.
+
+Strongest blocker: current authorized source/quotient data contain no such absolute phase target and cannot determine `c6` or `beta`.
+
+Durable record: `results/ITER029_G29_WEYL_ACTIVE_PHASE_AUTHORITY.md`.
+
+## Active gate — Iter030 G30
+`QGR-ITER030-G30-EXISTING-MICROSCOPIC-WEYL-ACTIVE-FINITE-CELL-PHASE-SOURCE-CENSUS`.
+
+Workflow head: `3e7ed565f388528e53d8c9ff5ef93acfc9bdb71b`.
+GitHub Actions run: `34705297620`.
+Matrix: **5 independent audit classes x 6 lanes = 30 lanes**, fail-fast disabled.
 
 Frozen audits:
-1. joint source/Weyl authority rank with unknown `(beta,c6)`;
-2. exact c6-null control for G28 conformal quotient observables;
-3. positive identifiability control showing that one genuine nonzero-Weyl3 absolute phase target would close the c6 direction;
-4. explicit two-witness nonuniqueness under current authority-bearing quotient data.
+1. `weyl-forward-sensitivity` — forward action sensitivity only, no inverse authority inflation;
+2. `finite-geometry-phase-nonuniqueness` — nontrivial holonomy geometry versus missing geometry-to-phase map;
+3. `history-phase-blindness` — exact 24-history completeness has zero absolute-phase authority;
+4. `coarea-measure-phase-nonuniqueness` — positive real branch measure is not coherent Lorentzian phase;
+5. `composition-absolute-scale-null` — G27/G28 relative ratios retain the one-parameter absolute `beta` null direction.
 
-Synthetic positive-control targets are not physical data and cannot be promoted to QGR physics.
+Aggregate is fail-closed and requires all 30 lane artifacts. Green CI alone is not a theory PASS.
 
 ## Active blocker
-`WEYL_ACTIVE_NONHOMOGENEOUS_ABSOLUTE_MICROSCOPIC_PHASE_TARGET`.
+`MISSING_DERIVED_NONHOMOGENEOUS_ABSOLUTE_FINITE_CELL_WEYL_ACTIVE_COHERENT_PHASE_SOURCE_TARGET`.
 
-Existing QGR work already has a Weyl-active background with nonzero Weyl^3 sensitivity in principle, but prior authority audits did not derive the required absolute microscopic phase/action target. G29 tests that identifiability statement against the newly closed G27/G28 source-law and quotient structure before any further microscopic census.
+The census must decide whether an already-derived QGR microscopic object supplies that target. It may not introduce a new fitted coupling, identify nonzero holonomy with Weyl^3 by fiat, reinterpret `1/sqrt(24)` as source strength, or turn a coarea Jacobian into `iS/hbar` without a derived map.
+
+## Conditional next gate if G30 remains blocked
+`QGR-ITER031-G31-DERIVE-FINITE-CELL-ACTION-PHASE-FROM-EXISTING-DISCRETE-CURVATURE-AND-LOCAL-ACTION-WITHOUT-NEW-COUPLINGS`.
 
 ## Claim locks
 - theory established `0%`;
 - `beta=1` unauthorized;
 - `c6` unfixed;
-- no physical same-realization Weyl-active finite phase target yet;
-- no finite pair/triple coherent amplitudes from the same microscopic realization;
+- no physical same-realization Weyl-active finite absolute phase target yet;
+- nonzero holonomy is not by itself a Weyl-cubic phase datum;
+- history branch modulus is not action-phase normalization;
+- coarea measure is not coherent Lorentzian phase;
 - no experimental confirmation;
 - no KMQGB `NEW_REQUIRED` authorization.
