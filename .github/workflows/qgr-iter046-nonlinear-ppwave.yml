@@ -1,0 +1,139 @@
+name: qgr-iter046-nonlinear-ppwave
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'status/ITERATION_046_TRIGGER.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  stream-a:
+    name: stream-a (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy numpy
+      - name: Exact nonlinear harmonic pp-wave vacuum
+        run: python code/qgr_iter046_nonlinear_ppwave.py --stream A --index ${{ matrix.index }} --out iter046-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter046-A-${{ matrix.index }}
+          path: iter046-output/result.json
+
+  stream-b:
+    name: stream-b (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        index: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy numpy
+      - name: Non-harmonic falsification control
+        run: python code/qgr_iter046_nonlinear_ppwave.py --stream B --index ${{ matrix.index }} --out iter046-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter046-B-${{ matrix.index }}
+          path: iter046-output/result.json
+
+  stream-c:
+    name: stream-c (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        index: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy numpy
+      - name: Held-out polarization superposition
+        run: python code/qgr_iter046_nonlinear_ppwave.py --stream C --index ${{ matrix.index }} --out iter046-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter046-C-${{ matrix.index }}
+          path: iter046-output/result.json
+
+  stream-d:
+    name: stream-d (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        index: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy numpy
+      - name: Exact finite-amplitude Riemann scaling
+        run: python code/qgr_iter046_nonlinear_ppwave.py --stream D --index ${{ matrix.index }} --out iter046-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter046-D-${{ matrix.index }}
+          path: iter046-output/result.json
+
+  stream-e:
+    name: stream-e (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        index: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy numpy
+      - name: Coordinate-covariance anti-artifact
+        run: python code/qgr_iter046_nonlinear_ppwave.py --stream E --index ${{ matrix.index }} --out iter046-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter046-E-${{ matrix.index }}
+          path: iter046-output/result.json
+
+  aggregate:
+    name: aggregate
+    if: always()
+    needs: [stream-a,stream-b,stream-c,stream-d,stream-e]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter046-*
+          path: iter046-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter046 gate
+        run: python code/qgr_iter046_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter046-summary
+          path: iter046-summary/summary.json
