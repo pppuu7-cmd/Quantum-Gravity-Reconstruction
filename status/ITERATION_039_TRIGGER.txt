@@ -1,0 +1,5 @@
+ITER039 production trigger
+Frozen preregistration: status/ITERATION_039.md
+Matrix: 5 authority audits x 6 lanes = 30
+No new physical targets or fitted couplings introduced
+Date: 2026-09-12
