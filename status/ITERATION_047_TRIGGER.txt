@@ -1,0 +1,8 @@
+Iter047 production authority trigger.
+Preregistration commit: dbd3745ad1082141790502b8423240771112ee03
+Implementation commit: bb44a0b2721dca861c84e7de55b482cd79bc9b25
+Aggregate commit: cb018321e7a061e2d82f558c68ed0e14d051ceb2
+Workflow commit: 84280ed3fef58d10e3759e63b5b7277c08dc9497
+Frozen gate: ITER047-EXACT-WEYL3-CURVATURE-CLASS-ACTIVATION-MAP
+Expected scientific lanes: 24 (A6+B6+C6+D6).
+Do not modify frozen criteria after this trigger.
