@@ -1,0 +1,59 @@
+name: qgr-iter036-g36-expanded-patch-persistence
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_036_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  persistence:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        mode: [amplitude, refine]
+        seed_index: [0,1,2,3,4,5,6,7]
+        param_index: [0,1,2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Iter036 G36 expanded-patch persistence lane
+        run: |
+          mkdir -p out
+          python code/qgr_iter036_g36_expanded_patch_persistence.py \
+            --mode '${{ matrix.mode }}' \
+            --seed-index '${{ matrix.seed_index }}' \
+            --param-index '${{ matrix.param_index }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g36-${{ matrix.mode }}-${{ matrix.seed_index }}-${{ matrix.param_index }}
+          path: out/result.json
+
+  aggregate:
+    if: always()
+    needs: persistence
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g36-*
+          path: iter036-g36-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter036 G36 gate
+        run: python code/qgr_iter036_g36_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-g36-summary
+          path: iter036-g36-summary/summary.json
