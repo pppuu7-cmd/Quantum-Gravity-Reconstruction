@@ -1,0 +1,32 @@
+name: qgr-iter013-g11-gluing-cocycle-identifiability
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/qgr_iter013_g11_gluing_cocycle_identifiability.py'
+      - '.github/workflows/qgr-iter013-g11-gluing-cocycle-identifiability.yml'
+
+jobs:
+  g11:
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: G11 gluing cocycle identifiability audit
+        run: |
+          mkdir -p artifacts
+          python code/qgr_iter013_g11_gluing_cocycle_identifiability.py --lane ${{ matrix.lane }} | tee artifacts/g11_lane_${{ matrix.lane }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: g11-lane-${{ matrix.lane }}
+          path: artifacts/g11_lane_${{ matrix.lane }}.json
