@@ -1,34 +1,31 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter007`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / MODEL_SIDE_BROADBAND_OBSERVABLE_CLOSED_SCOPED / ABSOLUTE_SCALE_BLOCKED`
-Active roadmap stage: `R7 observable closure / R9 prediction-discrimination precursor`
+Active iteration: `Iter008`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTRINSIC_RELATIONAL_CLOCK_DERIVED / PHYSICAL_SCALE_CALIBRATION_OPEN`
+Active roadmap stage: `R9 prediction-discrimination / physical-scale and relational-matter reconstruction`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **86%**
+- Candidate-program readiness: **87%**
 - Iter005 completion: **100%**
 - Iter006 completion: **100%**
-- Iter007 completion: **98%**
+- Iter007 completion: **100%**
+- Iter008 completion: **25%**
 - Theory established: **0%**
 - Lead architecture: `A / CCRC`
 - Active candidate: `QGR-L1`
 - Local metric-only two-derivative action: **all-orders PASS_SCOPED**
-- Local action: `a integral sqrt(|det G|) R[G]`, zero-cosmological active branch
 - Physical characteristic quotient: **2 modes**
-- Regular state/measure/composition/refinement layer: **PASS_SCOPED**
-- Strong-curvature path-groupoid transport: **PASS_SCOPED**
-- Normalized 24-history instrument: **PASS_SCOPED**
-- First history correction: **PASS_SCOPED, O(h^4)**
-- Finite overlapping-region local net: **PASS_SCOPED**
-- Positive curved two-mode quotient pairing: **PASS_SCOPED**
-- Common target characteristic Hilbert: **PASS_SCOPED**
-- Full cutoff-free broadband two-mode 24-history comparator for specified preparations: **PASS_SCOPED**
-- Absolute physical microscopic scale `h`: **BLOCKED / not identified separately from kappa**
+- Full cutoff-free broadband two-mode history comparator: **PASS_SCOPED**
+- Leading tested finite-history refinement order: **O(h^4)**
+- Intrinsic relational clock `tau(S)=|S|`: **PASS_SCOPED**
+- Clock-conditioned sequential history/isometry factorization: **PASS_SCOPED**
+- Physical duration of one rank tick: **OPEN**
+- Remaining microscopic normalization: `g=kappa/hbar`, **unfixed**
 - Independent KMQGB pass: **NO**
-- KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
+- KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED by latest authoritative recovery state**
 
 Readiness is an internal construction-roadmap metric, not probability of correctness.
 
@@ -46,123 +43,103 @@ Readiness is an internal construction-roadmap metric, not probability of correct
 `-> path-groupoid transport`
 `-> normalized 24-history instrument`
 `-> O(h^4) finite-history correction`
-`-> exact serial history branch law`
-`-> finite B3 overlap fiber-product local net`
-`-> canonical two-mode quotient descent`
-`-> repaired C/E same-realization convention`
-`-> positive covariant two-mode characteristic pairing`
-`-> common characteristic direct-integral Hilbert`
-`-> physical Wigner/polarization transport`
-`-> cutoff-free full broadband two-mode comparator`
-`-> microscopic-scale identifiability gate`.
+`-> finite overlapping-region local net`
+`-> positive two-mode characteristic pairing`
+`-> cutoff-free broadband comparator`
+`-> scale identifiability boundary g=kappa/hbar`
+`-> intrinsic Boolean rank clock tau=|S|`
+`-> exact clock-conditioned one-tick branch/isometry factorization`.
 
-No phenomenological noise coefficient, arbitrary 2x2 polarization projector, arbitrary cross-cell correlation, or Planck-scale identification has been inserted.
+No Planck-scale identification, `g=1`, arbitrary noise coefficient, arbitrary polarization projector, or external matter normalization has been inserted.
 
-## G6E-G6H — curved physical/broadband observable closure
+## Iter007 closed boundary
 
-### G6E
+Iter007 is complete. The model-side observable problem closed positively, while the absolute physical-scale problem closed negatively in the current realization.
 
-Actions run `34657301235`: 5 lanes + aggregate SUCCESS.
+The continuum matching is
 
-The `C` versus `C^-1` convention boundary was repaired explicitly with `S=I-J/6`, `S^T C S=C^-1`. The finite G9 torsion/history construction was rerun using the covariant seed `E=C^-1`.
+`a_cont = c_geom kappa/h^2`.
 
-Repaired history-invariant refinement slopes remain approximately four:
+Restoring `hbar` gives
 
-- relative history trace: `4.0705480`;
-- common-target null Gram: `4.0984388`;
-- branch-pair barycentric rapidity scalar: `4.0685627`.
+`g=kappa/hbar`, `ell_Q^2=hbar/a_cont`,
 
-A trace-reversed covariant bilinear has the four derivative-gauge directions as its exact radical on the six-dimensional characteristic kernel and descends to a positive two-dimensional physical quotient. Regular positive boundary-measure disintegration over the shared B3 is also available without assuming conditional independence.
+and therefore
 
-### G6F
+`h^2=c_geom g ell_Q^2`.
 
-Actions run `34657631926`: 3 lanes + aggregate SUCCESS.
+The current QGR chain fixes neither `g` nor a nonzero refinement stop scale. If `h` is only a regulator and is removed with continuum normalization fixed, the finite-history correction vanishes as `h^4`.
 
-A common positive target characteristic Hilbert is defined on the regular one-particle/readout domain. Two normalized packet families have exact overlaps
+Authoritative records:
 
-`2/(1+gamma)`
+- `iterations/ITERATION_007.md`
+- `results/ITER007_G7B_G7D_SCALE_BOUNDARY.md`
+- `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`
+- `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`
 
-and
+## Iter008 G1 — intrinsic Boolean clock
 
-`4(2+gamma)/(3(1+gamma)^2)`.
+Actions run `34660061343`: four lanes + aggregate SUCCESS.
 
-Repaired-G9 history-mixture losses have slopes `4.0707806` and `4.0707012`, with fine-scale coefficient ratio approaching `4/3`. Thus the order is robust in this test but the coefficient is preparation dependent.
+Within the tested `S4`-invariant, zero-at-empty, disjoint-additive scalar class, unit elementary increment fixes uniquely
 
-### G6G
+`tau(S)=|S|`.
 
-Actions run `34657905251`: 3 lanes + aggregate SUCCESS.
+Its symmetric gradient is the timelike direction of the already-derived `1+3` Lorentzian seed; the sum-zero transverse sector is three-dimensional with opposite sign. Fixed-rank levels are antichains, and all 24 maximal histories share the exact profile
 
-Relative Lorentz generator RMS scales with exponent `2.0290`, while two independent quadratic Lorentz-algebra Casimirs and the finite trace defect scale near exponent `4.05`. In a specified relational detector section, Wigner-angle spread is `O(h^2)` and fixed linear spin-2 overlap loss is `O(h^4)`. The specified narrow-packet combined loss exponent is `4.0051`.
+`0 -> 1 -> 2 -> 3 -> 4`.
 
-### G6H
+Rank composes across true serial B4 cells. Its dual quasi-frequency is compact but dimensionless; no physical tick duration follows yet.
 
-Actions run `34658915788`: 4 lanes + aggregate SUCCESS.
+## Iter008 G2 — sequential clock-conditioned quantum instrument
 
-The radial future-null-cone integral is analytic, so no arbitrary UV momentum cutoff is used. For every target null direction and every history, the branch-dependent source momentum and physical little-group/spin-2 transport are recomputed.
+Actions run `34660219520`: four lanes + aggregate SUCCESS.
 
-Full broadband two-mode history-mixture loss slopes:
+At rank `r`, the exact conditional next-direction law is
 
-- `m0`: `4.0342370`;
-- `m1`: `4.0347357`.
+`P(next | r)=1/(4-r)`.
 
-For `m0`, polarization-preparation slopes are:
+The one-step coherent moduli are
 
-- envelope-only `4.0923625`;
-- linear `4.0549234`;
-- helicity `4.0591959`.
+`1/sqrt(4), 1/sqrt(3), 1/sqrt(2), 1`,
 
-Therefore the current strongest model-side distinction from the GR continuum sector is a normalized finite-history correction whose tested refinement order is robustly `O(h^4)`, while the numerical coefficient is preparation/readout dependent.
+whose product is exactly `1/sqrt(24)`. Thus the global normalized 24-history amplitude is the product of intrinsic-clock one-step isometries.
 
-Record: `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`.
+Clock-conditioned prefixes/suffixes are compatible with the established path-groupoid composition law.
 
-## G7A — microscopic-scale identifiability obstruction
+A clock-only `S4`-invariant edge phase is removable by rank-slice vertex rephasing, so the intrinsic scalar clock does not by itself create a physical Hamiltonian phase or fix `g`.
 
-First run `34659076333` failed closed because a lightweight script imported NumPy although the workflow omitted that dependency. The criterion was unchanged; after removing the unnecessary dependency, run `34659176245` completed 4 lanes + aggregate SUCCESS.
+Record:
+`results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`.
 
-Four-dimensional refinement power counting gives
+## Active blocker / G3
 
-`a_cont = c_geom * kappa / h^2`.
-
-In `(log kappa, log h)` coordinates the continuum normalization Jacobian is `[1,-2]`, rank one. The exact unresolved direction is
-
-`h -> lambda h`,
-`kappa -> lambda^2 kappa`.
-
-The GR normalization is unchanged, while a leading `h^4` history observable changes as `lambda^4`.
-
-The authoritative microscopic QGR action still retains one free overall normalization `kappa`; no existing later result derives an absolute physical `h`.
-
-Classification:
-`BLOCKED_SCOPED_ABSOLUTE_MICROSCOPIC_SCALE_NOT_IDENTIFIABLE_FROM_CURRENT_QGR_NORMALIZATION_CHAIN`.
-
-Record: `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`.
-
-## Active blocker / next gate
-
-`MISSING_DERIVED_MICROSCOPIC_NORMALIZATION_OR_SECOND_INDEPENDENT_PHYSICAL_SCALE_OBSERVABLE`
+`MISSING_DERIVED_PHYSICAL_TICK_CALIBRATION_OR_NONTRIVIAL_MICROSCOPIC_QUANTIZATION_PRINCIPLE_FIXING_OR_BOUNDING_G`
 
 Active gate:
-`QGR-ITER007-G7B-MICROSCOPIC-NORMALIZATION-OR-MATTER-SECOND-SCALE`
+`QGR-ITER008-G3-CLOCK-GEOMETRY-TOPOLOGICAL-QUANTIZATION-AND-MATTER-CALIBRATION`
 
-Prospective routes:
+Parallel tests:
 
-1. derive `kappa` from the existing microscopic quantum/amplitude/measure realization; or
-2. derive universal matter/detector coupling that supplies a second independent scale relation.
+1. distinguish rank increment from proper time and test whether the derived Lorentzian geometry supplies a non-arbitrary tick/lapse calibration;
+2. audit the topology of the Lorentzian configuration space for a continuous two-form class capable of quantizing the microscopic action normalization;
+3. derive the minimal rank-translation-invariant clock dynamics and determine whether its frequency normalization is fixed or is a new free coupling;
+4. derive the minimal relational matter principal operator from the same incidence/metric structure and test whether operational normalization gives an independent scale relation.
 
-Fail closed if either route requires setting `h=l_P`, fixing `kappa` by convention, or fitting the scale to a desired effect.
+Fail closed if the answer requires `g=1`, `h=l_P`, one rank tick = Planck time, or phenomenological fitting.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `d14e48f6790c49cca5b202dc227a179a9577819a`, Iter353-355. The GFT condensate child has a scoped dispersion-rigidity result, but its source/scope guard keeps the parent family nonterminal and explicitly forbids D7 promotion. `NEW_REQUIRED` remains unauthorized.
+Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`, message `Iter374-378: launch parallel DSI parity observable audit`.
+
+Its latest authoritative `recovery/state.json` is older than that head but still records `Paper-IV global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, and `D7=NOT_CLOSED`. Until KMQGB itself updates that authoritative decision, QGR may not infer `NEW_REQUIRED` from later commits.
 
 ## Claim locks
 
 - no experimental confirmation;
-- no universal broadband/decoherence coefficient;
-- no absolute numerical phenomenology until `h/kappa` separation is derived;
-- no `h=l_P` identification by convention;
-- no arbitrary 2x2 polarization projector;
-- no face-neighbour cells treated as serial history channels;
+- theory established remains `0%`;
+- no absolute numerical phenomenology until `g`/clock-matter calibration is derived or independently bounded;
+- no `g=1`, `h=l_P`, Planck-time tick, or minimum length by convention;
 - no independent KMQGB pass;
 - no claim all known models fail;
 - no `NEW_REQUIRED` authorization;
@@ -172,11 +149,12 @@ Latest observed KMQGB head: `d14e48f6790c49cca5b202dc227a179a9577819a`, Iter353-
 
 1. `recovery/state.json`
 2. `recovery/CURRENT_FRONT.md`
-3. `iterations/ITERATION_007.md`
-4. `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`
-5. `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`
-6. `results/ITER007_G6C_LOCAL_NET_AND_PHYSICAL_QUOTIENT_DESCENT.md`
-7. `results/ITER007_G6B_OVERLAPPING_CELL_GLUING_AND_CURVED_HISTORY_SPREAD.md`
-8. `iterations/ITERATION_006.md`
-9. `docs/CONSTITUTION.md`
-10. current KMQGB scoped deltas and authoritative front
+3. `iterations/ITERATION_008.md`
+4. `results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`
+5. `iterations/ITERATION_007.md`
+6. `results/ITER007_G7B_G7D_SCALE_BOUNDARY.md`
+7. `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`
+8. `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`
+9. `iterations/ITERATION_006.md`
+10. `docs/CONSTITUTION.md`
+11. current KMQGB authoritative benchmark decision and latest scoped deltas
