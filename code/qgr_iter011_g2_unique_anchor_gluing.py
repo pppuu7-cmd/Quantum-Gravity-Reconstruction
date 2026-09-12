@@ -46,16 +46,18 @@ def grid(n,H,k):
 
 H=0.4;k=0.04
 rows=[grid(n,H,k) for n in (1,2,3)]
-# Correct unique-anchor counting should approach a finite even fixed-volume value.
 rel23=abs(rows[2]['even_total']-rows[1]['even_total'])/(abs(rows[2]['even_total'])+1e-30)
-assert rel23<0.30,(rel23,rows)
-# Cubic/odd contribution should be increasingly suppressed under refinement.
-assert abs(rows[2]['odd_total'])<abs(rows[0]['odd_total']),rows
+# This was a prospective hypothesis test. It fails strongly and is retained as a scientific result:
+# a one-sided forward-anchor determinant contains lower-order first-jet/coordinate pieces that do not
+# define a convergent local density when simply summed over unique anchors.
+hypothesis_passed=(rel23<0.30 and abs(rows[2]['odd_total'])<abs(rows[0]['odd_total']))
+assert not hypothesis_passed,(rel23,rows)
 out={
  'gate':'ITER011-G2-UNIQUE-ANCHOR-GLUED-REFINEMENT',
  'H':H,'kappa_abs':k,'rows':rows,'relative_even_change_n2_to_n3':rel23,
- 'classification':'PASS_SCOPED_COUNTING_EACH_FINE_TORSION_ANCHOR_ONCE_REMOVES_THE_NAIVE_SHARED_VERTEX_OVERCOUNT_AND_THE_EVEN_FLAT_SUBTRACTED_COAREA_LOG_WEIGHT_APPROACHES_A_FINITE_FIXED_VOLUME_REFINEMENT_LIMIT',
- 'interpretation':'The large G1 naive-composition defect was dominated by multiplying 16-vertex local-cell determinants for every subcell and thereby recounting shared anchors. Unique-anchor lattice counting gives the appropriate local-product baseline before true shared-variable/projective pushforward effects are studied.',
- 'guard':'This is still a regular finite lattice with fixed background geometry; it is not yet the full projective pushforward measure on a fluctuating continuum configuration space.'
+ 'prospective_unique_anchor_convergence_hypothesis_passed':False,
+ 'classification':'FAIL_SCOPED_SIMPLE_UNIQUE_ANCHOR_PRODUCT_DOES_NOT_DEFINE_A_CONVERGENT_GLUED_COAREA_MEASURE__ONE_SIDED_LOCAL_JACOBIANS_RETAIN_LOWER_ORDER_FIRST_JET_OR_COORDINATE_PIECES',
+ 'interpretation':'The severe naive-composition defect is not cured by counting each forward torsion anchor once. The symmetric 16-vertex cell average used in G1 cancels lower-order pieces that a single forward anchor retains. The next valid construction must form the full glued constraint map on shared variables, or an equivalent projective/coarea pushforward, before taking a determinant.',
+ 'guard':'This is a failure of the simple unique-anchor product ansatz, not a failure of the underlying coarea construction or proof that no global glued measure exists.'
 }
 print(json.dumps(out,sort_keys=True))
