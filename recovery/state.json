@@ -15,7 +15,7 @@
     "iter006_pct": 100,
     "iter007_pct": 100,
     "iter008_pct": 100,
-    "iter009_pct": 10,
+    "iter009_pct": 30,
     "theory_established_pct": 0
   },
   "roadmap": {
@@ -29,33 +29,23 @@
     "R7_observable_closure": "COMPLETE_SCOPED_MODEL_SIDE_NORMALIZED_BROADBAND_COMPARATOR",
     "R8_independent_benchmark_export": "INACTIVE",
     "R9_prediction_discrimination": "COMPLETE_SCOPED_SCALE_CLASSIFICATION_AND_ONE_PARAMETER_LOCAL_PREDICTIVITY",
-    "R10_interacting_quantum_completion": "ACTIVE_MEASURE_RADIATIVE_STABILITY_GLOBAL_SECTOR"
+    "R10_interacting_quantum_completion": "ACTIVE_FINITE_OPERATOR_AND_EFFECTIVE_ACTION_G2"
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
     "lead_architecture": "A_CCRC",
     "status": "ALL_ORDERS_LOCAL_GRAVITY_PLUS_NORMALIZED_BROADBAND_HISTORY_COMPARATOR_PLUS_INTRINSIC_CLOCK_PLUS_ONE_PARAMETER_LOCAL_PHENOMENOLOGY__INTERACTING_QUANTUM_COMPLETION_OPEN",
     "field_dimension": 10,
-    "derivative_gauge_parameters": 4,
     "physical_modes_on_local_characteristic_cone": 2,
     "all_orders_local_action": "a * integral sqrt(|det G|) R[G], zero cosmological branch",
-    "finite_history_correction": "(h^4/8) C_ab [K_a,[K_b,rho]] + O(h^5)",
-    "full_broadband_two_mode_comparator_closed_scoped": true,
-    "broadband_refinement_order": "O(h^4) on repaired curved realization across tested preparations",
     "local_continuous_microscopic_parameter": "Gamma=h^2/ell_Q^2=c_geom*g",
     "local_continuous_parameter_count": 1,
     "gamma_fixed_internally": false,
     "parameter_free_relative_prediction": "leading specified G6F m1/m0 packet loss ratio 4/3",
     "intrinsic_clock": "tau(S)=|S|",
     "global_flat_quantum_sectors": "+1,-1 over pi1(Q_13)=Z2",
-    "z2_local_leading_broadband_sensitive": false,
     "benchmark_winner": false,
     "independent_validation": false
-  },
-  "iter007": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "scale_boundary": "One dimensionless microscopic normalization remains before Iter008 reparameterization/classification."
   },
   "iter008": {
     "status": "COMPLETE",
@@ -65,44 +55,42 @@
     "g3_run_id": 34661538161,
     "g4_run_id": 34661941803,
     "g5_run_id": 34662193575,
-    "final_classification": "PASS_SCOPED_QGR_LOCAL_BROADBAND_SECTOR_IS_ONE_CONTINUOUS_PARAMETER_FALSIFIABLE_AND_HAS_PARAMETER_FREE_RELATIVE_PREDICTIONS__Z2_GLOBAL_SECTOR_IS_LOCALLY_INVISIBLE_BUT_GLOBALLY_DISTINGUISHABLE",
-    "continuous_local_parameter_count": 1,
-    "invariant_parameter": "Gamma=h^2/ell_Q^2=c_geom*g",
-    "global_sector_count": 2,
-    "absolute_gamma_derived": false
+    "final_classification": "PASS_SCOPED_QGR_LOCAL_BROADBAND_SECTOR_IS_ONE_CONTINUOUS_PARAMETER_FALSIFIABLE_AND_HAS_PARAMETER_FREE_RELATIVE_PREDICTIONS__Z2_GLOBAL_SECTOR_IS_LOCALLY_INVISIBLE_BUT_GLOBALLY_DISTINGUISHABLE"
   },
   "iter009": {
     "status": "ACTIVE",
-    "completion_pct": 10,
-    "active_gate": "QGR-ITER009-G1-MEASURE-OBSTRUCTION-AND-RADIATIVE-OPERATOR-CENSUS",
-    "workflow_run_id": 34662453224
+    "completion_pct": 30,
+    "g1_run_id": 34662453224,
+    "g1_classification": "BLOCKED_SCOPED_NAIVE_GLOBAL_INTERACTING_VACUUM_MEASURE_IS_NOT_NORMALIZED_ALONG_THE_FLAT_SCALE_ZERO_MODE__TWO_DERIVATIVE_LOCAL_ACTION_IS_NOT_QUANTUM_CLOSED_BY_SYMMETRY_POWER_COUNTING__Z2_SECTORS_ARE_REFINEMENT_SUPERSELECTED",
+    "naive_global_vacuum_weight_normalized": false,
+    "finite_operator_history_normalized_scoped": true,
+    "four_derivative_bulk_directions_before_field_redefinition": 2,
+    "power_counting": "omega=2L+2 allowance only",
+    "active_gate": "QGR-ITER009-G2-FINITE-OPERATOR-DYNAMICS-AND-FINITE-CELL-EFFECTIVE-ACTION-CLOSURE"
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
     "latest_observed_commit": "d812ccd09f93defb5b407d5cc2cc970764d8ffe6",
-    "latest_observed_commit_message": "Iter374-378: launch parallel DSI parity observable audit",
     "latest_authoritative_recovery_global_decision": "NOT_YET_AUTHORIZED",
     "new_required_authorized": false,
-    "D7": "NOT_CLOSED",
-    "note": "KMQGB recovery is older than latest head; no QGR D7/NEW_REQUIRED promotion may be inferred without an updated authoritative benchmark decision."
+    "D7": "NOT_CLOSED"
   },
   "active_question": {
-    "id": "QGR-ITER009-G1-MEASURE-OBSTRUCTION-AND-RADIATIVE-OPERATOR-CENSUS",
-    "text": "Does the QGR state/history construction extend to a controlled interacting quantum completion, and are higher-derivative operators fixed or suppressed by microscopic refinement rather than arbitrary counterterms?"
+    "id": "QGR-ITER009-G2-FINITE-OPERATOR-DYNAMICS-AND-FINITE-CELL-EFFECTIVE-ACTION-CLOSURE",
+    "text": "Can finite-depth QGR operator dynamics be closed independently of a normalized global vacuum measure, which higher-derivative directions are physically nonredundant, and does the current microscopic realization fix their coefficients and an infinite-refinement limit?"
   },
   "next_gate": {
     "iteration": 9,
-    "id": "QGR-ITER009-G1-MEASURE-OBSTRUCTION-AND-RADIATIVE-OPERATOR-CENSUS",
-    "action": "Audit invariant scale-orbit normalizability, flat action zero mode, Z2 sector preservation, four-derivative operator census, and two-derivative gravity power counting.",
-    "fatal_criterion": "Do not conflate normalized history channels with a normalized interacting vacuum, import Wick rotation, or infer actual loop divergences from power counting alone."
+    "id": "QGR-ITER009-G2-FINITE-OPERATOR-DYNAMICS-AND-FINITE-CELL-EFFECTIVE-ACTION-CLOSURE",
+    "action": "Run parallel exact audits of L2 state normalizability, arbitrary finite-depth CPTP composition, finite-cell action authority, curvature-squared field-redefinition redundancy, first remaining effective-action ambiguity, and sufficient infinite-refinement convergence criteria.",
+    "fatal_criterion": "No Wick rotation, no arbitrary finite-cell action or curvature-squared coefficients, no conflation of scalar observable convergence with operator convergence, and no claim of loop divergence from power counting alone."
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
     "qgr_absolute_gamma_predicted": false,
-    "qgr_g_equals_one_derived": false,
-    "qgr_h_equals_planck_length_derived": false,
     "qgr_interacting_quantum_measure_closed": false,
+    "qgr_infinite_refinement_operator_limit_closed": false,
     "qgr_radiatively_closed": false,
     "qgr_independent_benchmark_passed": false,
     "all_known_models_wrong": false,
@@ -114,11 +102,9 @@
     "recovery/state.json",
     "recovery/CURRENT_FRONT.md",
     "iterations/ITERATION_009.md",
+    "results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md",
     "iterations/ITERATION_008.md",
     "results/ITER008_G5_ONE_PARAMETER_PREDICTIVITY_AND_Z2_OBSERVABILITY.md",
-    "results/ITER008_G4_INTERACTING_SCALE_AND_GLOBAL_SECTOR_AUDIT.md",
-    "results/ITER008_G3_SCALE_CALIBRATION_NO_GO.md",
-    "results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md",
     "iterations/ITERATION_007.md",
     "iterations/ITERATION_006.md",
     "docs/CONSTITUTION.md",
