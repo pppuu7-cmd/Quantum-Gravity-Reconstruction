@@ -1,79 +1,117 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Primary active iteration: `Iter044`
-Parallel independent audit: `Iter045`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / END_TO_END_LINEARIZED_RADIATIVE_DYNAMICS + RELATIVE_TT_RESIDUE_AUDIT`
+Primary active iteration: `Iter046`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / EXACT_NONLINEAR_CURVED_RADIATIVE_SECTOR`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **94%** — unchanged; launching more compute does not earn rubric credit.
-- Iter005–Iter043 completion: **100%**
-- Iter044: **PRODUCTION ACTIVE**, 48 scientific lanes + aggregate.
-- Iter045: **PREREGISTERED / IMPLEMENTED / PRODUCTION QUEUED**, 18 scientific lanes + aggregate.
+- Candidate-program readiness: **95%** — internal construction-roadmap readiness only, not probability of correctness and not fraction of quantum gravity solved.
+- Iter005–Iter045 completion: **100%**
+- Iter046: **PREREGISTERED / IMPLEMENTED / PRODUCTION QUEUED**, 34 scientific lanes + aggregate.
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - `beta`: explicit matching/calibration parameter; `beta=1` is not authorized as physics.
 - `c6`: unfixed.
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Terminal G43
-Run `34715559793`, head `79b7325179aab34e83bbbc998152b81398221ef5`, aggregate job `103613094190`, artifact `10303724918`, digest `sha256:bd74de5bd2b0b17a9a0e043954f5f97e8fc964e1e64da1bb3d137b01f0286b83`.
+## Terminal G44 — end-to-end QGR-L1 linearized TT radiation
+Durable record: `results/ITER044_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION.md`.
 
-Classification: `PASS_SCOPED_INDEPENDENT_TT_RADIATIVE_WEYL_COVARIANCE`, **24/24** frozen lanes with valid controls. This is independent radiative tensor/observable geometry, not by itself QGR dynamical derivation.
+Authoritative production:
+- run `34716363645`;
+- head `e27602b367acffbc9473df95607278042fce5e02`;
+- aggregate job `103616604387`;
+- summary artifact `10305230612`;
+- digest `sha256:48e15c3872ae6963582b4cada787b5c54e74e6654f1de6565d5c3b373062fadb`.
 
-## Primary active G44 — end-to-end QGR-L1 linearized radiative dynamics
-Preregistered before production in `status/ITERATION_044.md`.
-Production run: **`34716363645`**, head `e27602b367acffbc9473df95607278042fce5e02`.
-Frozen matrix:
-- A: 24 QGR-L1 dynamics -> TT-curvature lanes;
-- B: 12 off-shell dispersion falsification lanes;
-- C: 8 gauge end-to-end robustness lanes;
-- D: 4 flat-background `c6 Weyl^3` quadratic-decoupling lanes;
-- aggregate after all prerequisites.
+Classification: `PASS_SCOPED_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION_CONTRACT`.
 
-Frozen full-PASS class: `PASS_SCOPED_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION_CONTRACT`.
+All **48/48** frozen scientific lanes passed with valid controls:
+- A 24/24 QGR-L1 dynamics -> TT curvature;
+- B 12/12 off-shell dispersion falsification;
+- C 8/8 gauge robustness;
+- D 4/4 flat-background `c6 Weyl^3` quadratic decoupling.
 
-### Non-terminal evidence observed so far
-These are early lane-level observations only; they do not authorize terminal classification.
-- A0: Hessian rank 4, gauge rank 4, TT QGR residual `2.8864167148346014e-17`, curvature bridge error `5.206173234540566e-16`.
-- B0: scientific lane PASS. At shell ratio `r=1`, Hessian rank 4 and TT residual `9.041084098513864e-17`; at `r=0.8,0.9,1.1,1.2` rank returns to 6, with unique residual minimum at the null shell. Minimum tested off-shell residual `0.017486179466437605`.
-- C3: pure-gauge QGR residual `8.96229702303301e-18`, shifted residual `1.673496586579566e-17`, curvature invariance within frozen tolerance.
-- D1: exact tested cubic scaling `W3(2)/W3(1)=8`, exact oddness and zero centered second variation.
-- Additional completed-success matrix jobs have appeared, but green CI is not promoted to scientific PASS without reading the frozen lane output or terminal aggregate.
+Key aggregate metrics:
+- max curvature bridge error `5.340208237110733e-16`;
+- max TT QGR residual `2.507048651523522e-16`;
+- max gauge QGR residual `3.829588338046111e-17`;
+- minimum tested off-shell residual `0.017486179466437605`;
+- max shifted-curvature gauge error `3.769148233304873e-14`;
+- tested `Weyl^3` oddness and centered quadratic variation exactly zero in Stream D.
 
-G44 remains nonterminal and is the primary blocker.
+Scientific meaning: within the frozen flat-background linearized domain, the internally reconstructed QGR-L1 kernel generates the massless two-mode TT sector and bridges to the independently validated G43 curvature without inserting G43 curvature as dynamics. This is **not** a generic nonlinear/curved-background radiation theorem.
 
-## Parallel independent G45 — relative two-polarization residue/signature
-Scientific object preregistered **before implementation** in `status/ITERATION_045.md`, preregistration commit `d08b131bc94007460b9ea517460f4d57e432fc16`.
-Implementation commits:
-- `a483681222a93eac73d9ce92365b19bbf90c9969` — lane code;
-- `6d368ac30bdeff1bfa1671cb3f15c57fe53e02a9` — frozen aggregate;
-- `a4f03fb58105042a775f7940a33d628e98782901` — workflow.
-Explicit trigger commit: `cad39c37bfdc56e8b66d0d45e907eb2a33d18d09`.
+## Terminal G45 — relative TT residue/signature
+Durable record: `results/ITER045_QGR_L1_RELATIVE_TT_RESIDUE_SIGNATURE.md`.
 
-Authoritative production run: **`34716924227`**, 18 frozen lanes (6 held-out generic directions × 3 wave-number scales) + aggregate. At the latest check, all 18 scientific lanes are queued because the runner pool is occupied by earlier useful work; no third heavy stream should be launched merely to create load.
+Authoritative production:
+- run `34716924227`;
+- head `cad39c37bfdc56e8b66d0d45e907eb2a33d18d09`;
+- aggregate job `103616970603`;
+- summary artifact `10305091648`;
+- digest `sha256:3a80f6865140410aadc521d6b5e7eb8f612c30ff4b2c062656632513faff56d4`.
 
-The workflow-definition push also generated accidental duplicate run `34716911042`. Authority lock `status/ITERATION_045_RUN_AUTHORITY.md` (commit `3562b3b93a46f6dfd4dfa84a5e59375129aaaba2`) marks it `+0 / NON_AUTHORITATIVE_DUPLICATE`; its evidence must never be combined with the authoritative run.
+Classification: `PASS_SCOPED_QGR_L1_TWO_POLARIZATION_RELATIVE_RESIDUE_DEGENERACY`.
+All **18/18** frozen held-out lanes passed with valid controls.
 
-Frozen full-PASS class: `PASS_SCOPED_QGR_L1_TWO_POLARIZATION_RELATIVE_RESIDUE_DEGENERACY`.
+Key metrics:
+- max polarization mixing `5.775329183325975e-16`;
+- max plus/cross relative coefficient difference `1.4432899320127063e-15`;
+- max coefficient spreads around `5.1e-15`;
+- minimum relative sign product `0.24999999999999853 > 0`.
 
-Interpretation lock: even a full G45 PASS establishes only same-sign/equal **relative** TT pole/kinetic coefficients and absence of polarization mixing on the frozen panel. It does **not** fix the overall action sign, prove absolute energy positivity, prove quantum unitarity, or establish nonlinear stability.
+The workflow-definition push accidentally generated run `34716911042`; it remains `+0 / NON_AUTHORITATIVE_DUPLICATE` and is never combined with the authoritative evidence.
+
+Interpretation lock: G45 establishes relative two-polarization degeneracy/sign only. It does not fix the overall action sign, absolute energy positivity or quantum unitarity.
+
+## Why G46 is new rather than a repeat of Iter005-G3
+Iter005-G3 already proved scoped local weak-background **principal-symbol** stability: deformed Lorentzian cone, four gauge directions and exactly two physical high-frequency modes on tested regular weak backgrounds.
+
+Therefore G46 does not rerun that result. It asks whether the already reconstructed **all-orders** local two-derivative QGR-L1 action admits a nontrivial **exact curved finite-amplitude radiative vacuum sector** without flat-background linearization.
+
+## Active G46 — exact nonlinear pp-wave radiative sector
+Prospectively preregistered before implementation in `status/ITERATION_046.md`.
+
+Authority/provenance:
+- preregistration commit `125d030e90ac86697710c9ed0cee432c5ff54596`;
+- lane implementation `bd7ea711e8f1f98e5727321f77bc90841510b440`;
+- frozen aggregate `d625cb2f636ef6781513c30600572156b7c806d3`;
+- path-triggered workflow `0a4c93cae719379ca4b38c10047fc6a41e92ed0b`;
+- production trigger/head `37ff955a57b6822d800b6755282a6bc557c3a0e2`;
+- run **`34718135187`**.
+
+Frozen production matrix: **34 scientific lanes + aggregate**:
+- A: 12 exact finite-amplitude harmonic pp-wave vacuum lanes;
+- B: 6 deliberately non-harmonic falsification controls;
+- C: 6 held-out plus/cross superposition lanes;
+- D: 6 exact finite-amplitude full-Riemann scaling lanes;
+- E: 4 independent constant-linear coordinate-chart anti-artifact lanes.
+
+The production implementation reconstructs inverse metric, Levi-Civita connection, Riemann, Ricci, scalar curvature and the Euler-Lagrange/Einstein tensor symbolically from the already fixed all-orders two-derivative action. It does not use a pre-solved pp-wave field equation as the solver.
+
+Frozen full-PASS classification:
+`PASS_SCOPED_QGR_L1_EXACT_FINITE_AMPLITUDE_NONLINEAR_PPWAVE_RADIATIVE_SECTOR`.
+
+Negative-control invalidity has its own frozen class `CONTROL_INVALID_NONLINEAR_PPWAVE_GATE`; any other scientific failure gives `PARTIAL_OR_FAIL_QGR_L1_NONLINEAR_PPWAVE_RADIATIVE_SECTOR`. No profile/threshold retuning is allowed after trigger.
+
+`c6` is deliberately excluded from G46 dynamics because its coefficient remains unfixed. A later independent curved-radiation correction gate may keep `c6` symbolic and ask whether the higher-derivative operator vanishes, deforms or obstructs this special exact sector.
 
 ## Strongest positive result
-G43 independently validates the TT radiative observable layer. G44 is actively testing whether the internally reconstructed QGR-L1 dynamical kernel itself produces that massless TT sector. Early A/B/C/D lanes are consistent with that contract, including an explicit off-shell rank/residual falsification lane.
+The programme now has independent radiative geometry (G43), an end-to-end internally reconstructed linearized QGR-L1 TT dynamical contract (G44), and a held-out relative two-polarization residue/signature closure (G45).
 
 ## Strongest blocker
-`QGR_L1_END_TO_END_LINEARIZED_RADIATIVE_DYNAMICAL_CLOSURE` (G44 terminal aggregate). After that, the highest-value dependent frontier is genuinely nonlinear/curved-background radiation rather than another duplicate linear TT panel. Quantum amplitude/measure closure and absolute matching (`beta`, `c6`) remain separate blockers.
+The frontier has moved to exact/generic nonlinear curved-background dynamics, then higher-derivative curved-radiation effects, quantum amplitude/measure closure, and absolute matching (`beta`, `c6`). G46 attacks the first of these only on a special exact radiative family.
 
 ## Claim locks
 - theory established = `0%`;
 - no experimental confirmation;
-- G43 alone is not QGR dynamical derivation;
-- even G44 PASS would be scoped linearized closure, not a nonlinear/global radiation theorem;
-- finite numerical panels are not global theorems;
+- G44 is linearized/scoped, not a nonlinear/global theorem;
+- even a full G46 PASS is a special pp-wave family, not generic nonlinear stability;
+- finite computational panels are not global theorems;
 - beta remains matching/calibration parameter and `beta=1` is not physics;
 - c6 remains unfixed without a genuine independent Weyl-active absolute matching datum;
-- G45 cannot establish absolute energy positivity or quantum unitarity;
+- G45 does not establish absolute energy positivity or quantum unitarity;
 - no physical multiple-branch weights from G35–G37;
 - no KMQGB `NEW_REQUIRED` without independent benchmark authority.
