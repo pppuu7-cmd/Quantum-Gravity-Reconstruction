@@ -1,15 +1,15 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter040`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / CALIBRATION_FREE_WEYL3_RESPONSE_MANIFOLD`
-Active roadmap stage: `principal refinement closure -> absolute-scale no-go -> calibration-free Weyl-active predictions -> end-to-end parameterized model contract -> independent matching/validation`
+Active iteration: `Iter041`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / HELDOUT_WEYL3_GENERALIZATION`
+Active roadmap stage: `principal refinement closure -> absolute-scale no-go -> calibration-free Weyl3 manifold -> held-out generalization -> genuinely new dynamical/magnetic Weyl sector -> independent matching/validation`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **93%**
-- Iter005–Iter039 completion: **100%**
-- Iter040 completion: **PRODUCTION ACTIVE**
+- Iter005–Iter040 completion: **100%**
+- Iter041 completion: **PREREGISTERED / IMPLEMENTED / AWAITING PRODUCTION TRIGGER**
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - Primitive additive source-law shape: **PASS_SCOPED `J(n)=beta*n`**
@@ -23,7 +23,8 @@ Active roadmap stage: `principal refinement closure -> absolute-scale no-go -> c
 - Current absolute authority rank on `(beta^2,c6)`: **0 (G39)**
 - Minimal local rank for `(beta^2,c6)` identification: **2 independent absolute directions (G39)**
 - Physical Weyl-active same-realization finite absolute phase target: **NOT DERIVED**
-- Calibration-free Weyl^3 response manifold: **ACTIVE G40**
+- Calibration-free Weyl^3 response manifold: **PASS_SCOPED (G40)**
+- Held-out/off-diagonal Weyl^3 transfer: **ACTIVE G41**
 - `c6` fixed: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
@@ -32,61 +33,77 @@ Authoritative run `34709394158`, head `ae8f365ea1ad9e92cdeaed8fefa81a9f05e152d9`
 
 Classification: `PASS_SCOPED_PRINCIPAL_COMPACT_REFINEMENT_REGULARITY_AND_FINE_TO_COARSE_BLOCKING`.
 
-All **29/29** frozen scientific lanes passed. Exact common scaled-residual h=0 torsion Jacobian has rank **24**, determinant **11664**, and numerical minimum singular value `0.3742889790499052`. Analyticity plus compactness of frozen `K=[0,1]^4` supplies a uniform sufficiently-small-h principal identity-connected IFT branch/gap on this scoped smooth realization; physical-path and loop fine-blocking streams independently passed.
+All **29/29** frozen scientific lanes passed. Exact common scaled-residual h=0 torsion Jacobian has rank **24**, determinant **11664**, numerical minimum singular value `0.3742889790499052`. This supplies scoped small-h IFT/refinement authority on the frozen smooth compact principal realization, not arbitrary field space.
 
 Record: `results/ITER038_PRINCIPAL_REFINEMENT_REGULARITY_AND_BLOCKING.md`.
 
 ## Iter039 terminal — absolute source/action-phase identifiability
 Authoritative run `34709657749`, head `15cedcd3507f0223dc50827a2f72e3d0762ec901`, aggregate job `103596064182`, artifact `10302389728`, digest `sha256:11d4f47b32e269573e491d06d188d1ee90da92a9f5000377876e498d037b23e3`.
 
-Frozen outcome: all **30/30** authority lanes passed.
-
+All **30/30** authority lanes passed.
 Classification: `PASS_SCOPED_INTERNAL_ABSOLUTE_SCALE_NONIDENTIFIABILITY_AND_MINIMAL_CALIBRATION_RANK_DERIVED`.
 
-Exact/scoped conclusions under current authorized QGR inputs:
+Scoped conclusions:
 - source-scale nullity = **1**;
 - current absolute identifying rank on `(u=beta^2,c6)` = **0**;
-- G38 principal refinement/blocking outputs are exactly beta-blind in the frozen audit (`max difference = 0.0` across dummy beta witnesses);
-- one genuine absolute datum supplies rank 1;
-- independent common-conformal + Weyl-active absolute directions supply rank 2;
-- phase-only calibration is even in beta and can at most determine `|beta|`; a signed absolute source/endpoint datum is needed for its sign.
+- G38 refinement/blocking is beta-blind in the frozen audit;
+- one genuine absolute datum gives rank 1; independent conformal + Weyl-active absolute directions give rank 2.
 
-Decision: stop treating beta as an internally missing numerical root. Keep beta explicit as a matching/calibration parameter unless a genuinely new microscopic normalization principle is independently derived. Do not set `beta=1` and promote the convention as physics. Keep c6 explicit/unfixed until a genuine independent Weyl-active absolute phase or equivalent matching equation exists.
+Decision: beta is an explicit matching/calibration parameter under current authority, not an internally missing numerical root. `beta=1` is not physics. `c6` remains unfixed until a genuine independent Weyl-active absolute phase/matching equation exists.
 
 Record: `results/ITER039_ABSOLUTE_SCALE_IDENTIFIABILITY.md`.
 
-## Active gate — Iter040
-`QGR-ITER040-CALIBRATION-FREE-WEYL3-RESPONSE-MANIFOLD`.
+## Iter040 terminal — calibration-free Weyl^3 response manifold
+Authoritative run `34709914980`, head `b990644250a4df7d29ddec467629c56956fd83e9`, aggregate job `103596975475`, artifact `10302927388`, digest `sha256:898899c85f7c304b9f0032e6138f55dd7dc12339fa07f03728b0f774e1e03fe9`.
 
-Preregistered before production in `status/ITERATION_040.md`.
-Production workflow: `qgr-iter040-weyl-response`.
-Production run: `34709914980`, launch head `b990644250a4df7d29ddec467629c56956fd83e9`.
+All **20/20** preregistered scientific lanes passed.
+Classification: `PASS_SCOPED_CALIBRATION_FREE_WEYL3_RESPONSE_MANIFOLD_ESTABLISHED`.
 
-No beta/c6 fitting is allowed. The gate generalizes the existing G10 same-field-content weak static vacuum tidal witness to four frozen trace-free Hessian shapes and proper spatial rotations, while retaining c6 only as an overall unknown multiplier of the Weyl^3 response kernel.
+Frozen strongest diagnostics:
+- H2 finest normalized cubic null residual `1.875882416525863e-05` with nonzero Weyl curvature;
+- maximum finest rotation discrepancy `5.168073699081922e-08`;
+- q-spread for `q=W3/tr(H^3)` across nonzero training shapes drops from `9.853846896674696e-04` at h=0.10 to `2.453977185447458e-04` at h=0.05;
+- Weyl norm amplitude slopes `[0.9998691592541441,1.000002740132653]`;
+- Weyl^3 amplitude slopes `[2.999514418717107,3.0000081778357783]`;
+- calibration-free nonzero tidal shape ratio `H0:H1:H3 = 1:3:-1` up to one common convention/c6 factor.
 
-Frozen response tests:
-1. **A / refinement-null-sign:** four tidal shapes, including a nonzero-Weyl profile with zero cubic tidal trace and a sign-reversed pair;
-2. **B / amplitude law:** three nonzero-cubic shapes, checking Weyl ~ kappa and Weyl^3 ~ kappa^3;
-3. **C / shape-ratio universality:** tests whether `W3/tr(H^3)` approaches a common discretization-independent factor across nonzero shapes;
-4. **D / rotational recovery:** four frozen orientations of H0, testing recovery of normalized cubic response under proper spatial rotations toward refinement;
-5. **E / exact prediction table:** six exact control lanes proving c6 cancels from response ratios/nulls and beta does not enter pure Weyl^3 kernel ratios.
+Scientific scope: a parameterized/falsifiable response-shape manifold inside the same-field weak static tidal family. It does not fix the absolute phase amplitude, beta or c6 and is not an arbitrary-spacetime theorem.
 
-Total **20 scientific lanes** + aggregate. Full PASS classification is `PASS_SCOPED_CALIBRATION_FREE_WEYL3_RESPONSE_MANIFOLD_ESTABLISHED`.
+Record: `results/ITER040_CALIBRATION_FREE_WEYL3_RESPONSE_MANIFOLD.md`.
+
+## Active gate — Iter041
+`QGR-ITER041-HELDOUT-WEYL3-GENERALIZATION-AND-PREDICTION-CONTRACT-STRESS`.
+
+Preregistered before implementation in `status/ITERATION_041.md`.
+Implementation: `code/qgr_iter041_heldout_weyl.py`.
+Aggregate: `code/qgr_iter041_aggregate.py`.
+Workflow: `qgr-iter041-heldout-weyl`.
+
+Frozen matrix: **24 scientific lanes** + aggregate, fail-fast disabled:
+- A: 6 generic off-diagonal trace-free held-out Hessians, fixed-scale q transfer;
+- B: same 6 shapes under refinement transfer;
+- C: 4 held-out amplitude-law lanes;
+- D: 4 new rotated cubic-null falsifier profiles;
+- E: 4 new rotation-covariance lanes for an off-diagonal held-out profile.
+
+Full PASS classification is `PASS_SCOPED_HELDOUT_WEYL3_GENERALIZATION_AND_PREDICTION_CONTRACT_STRESS`.
+No held-out shape or frozen threshold may be removed/relaxed after production.
+
+If full PASS occurs, do not spend the next gate densifying static electric-tidal scans. Move to a genuinely new dynamical/magnetic-Weyl or non-static covariance sector, preserving beta/c6 as external matching directions.
 
 ## Strongest positive result
-The scoped principal model now has a mathematically supported refinement mechanism and an exact characterization of what cannot be internally normalized. This cleanly separates structural predictions from matching parameters instead of hiding calibration freedom inside conventions.
+QGR now has, within a scoped same-field weak static tidal realization, both a mathematically supported principal refinement mechanism and a calibration-free Weyl^3 response law with signs, nulls, cubic amplitude scaling, tidal-shape ratios and rotational recovery. G41 asks whether that response law transfers prospectively out of sample.
 
 ## Strongest blocker
-`CALIBRATION_FREE_WEYL_ACTIVE_PREDICTION_STRUCTURE_AND_THEN_END_TO_END_PARAMETERIZED_MODEL_CLOSURE`.
-
-Even if G40 passes, absolute Weyl-active phase amplitude remains proportional to unfixed c6 and no experiment/matching datum is invented.
+`OUT_OF_SAMPLE_WEYL3_TRANSFER_THEN_GENUINELY_NEW_DYNAMICAL_MAGNETIC_WEYL_SECTOR_AND_ABSOLUTE_MATCHING_AUTHORITY`.
 
 ## Claim locks
 - theory established `0%`;
-- beta is explicit matching/calibration parameter under current G39 authority; `beta=1` is not physics;
+- beta is an explicit matching/calibration parameter under current G39 authority; `beta=1` is not physics;
 - c6 remains unfixed;
-- G40 response-kernel ratios are not absolute quantum phases;
+- response-kernel ratios/nulls are not absolute quantum phases;
 - G38 authority remains scoped to the frozen smooth compact principal realization;
+- G40/G41 weak static tidal evidence is not arbitrary-spacetime authority;
 - G35–G37 distant algebraic roots do not authorize physical branch weights under current G10B evidence;
 - no experimental confirmation;
 - no KMQGB `NEW_REQUIRED` authorization.
