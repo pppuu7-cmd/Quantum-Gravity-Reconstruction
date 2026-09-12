@@ -1,0 +1,4 @@
+QGR Iter044 production trigger
+Date: 2026-09-12
+Gate preregistered in status/ITERATION_044.md before implementation/production.
+Frozen matrix: A24 + B12 + C8 + D4 = 48 scientific lanes; aggregate classification unchanged.
