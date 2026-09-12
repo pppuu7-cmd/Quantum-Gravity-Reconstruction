@@ -1,0 +1,51 @@
+name: qgr-iter050-weyl3-covariant-curvature-direction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-iter050-weyl3-covariant-curvature-direction.yml'
+      - 'status/ITERATION_050_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy
+      - name: Run frozen Iter050 lane
+        run: |
+          mkdir -p out
+          python code/qgr_iter050_weyl3_covariant_curvature_direction.py --lane ${{ matrix.lane }} | tee out/lane-${{ matrix.lane }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter050-lane-${{ matrix.lane }}
+          path: out/lane-${{ matrix.lane }}.json
+
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter050-lane-*
+          path: artifacts
+      - name: Frozen aggregate classification
+        run: python code/qgr_iter050_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter050-summary
+          path: iter050-summary.json
