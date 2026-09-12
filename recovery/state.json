@@ -4,19 +4,16 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 28,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_SOURCE_SCALE_QUOTIENT"
+    "iteration": 29,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_WEYL_ACTIVE_PHASE_AUTHORITY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "iter023_pct": 100,
-    "iter024_pct": 100,
-    "iter025_pct": 100,
-    "iter026_pct": 100,
     "iter027_pct": 100,
-    "iter028_pct": 15,
+    "iter028_pct": 100,
+    "iter029_pct": 15,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -25,43 +22,42 @@
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
-    "all_orders_local_two_derivative_action_closed_scoped": true,
-    "common_conformal_dirichlet_bulk_derived_scoped": true,
     "primitive_additive_source_law_shape": "J(n)=beta*n",
     "primitive_additive_source_law_shape_closed_scoped": true,
+    "common_conformal_scale_free_relations_closed_scoped": true,
     "absolute_event_source_scale_beta_derived": false,
-    "physical_same_realization_finite_curved_phase_samples_derived": false,
+    "physical_weyl_active_same_realization_phase_target_derived": false,
     "finite_pair_triple_coherent_amplitudes_derived": false,
-    "finite_depth_history_channel_closed_scoped": true,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter027": {
+  "iter028": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "run_id": 34703351650,
-    "head_sha": "8cc21d1e604a673a1e2db2b44149bc4d9aebacb7",
-    "aggregate_artifact_id": 10301111911,
-    "aggregate_digest": "sha256:d2e65df6fc9ef4332b444bd17baee1f7f817f1cae4f8d2297e6daf564e2f4f3e",
-    "terminal_classification": "PASS_SCOPED_PRIMITIVE_BOOLEAN_COMPOSITION_FIXES_THE_ADDITIVE_EVENT_SOURCE_LAW_SHAPE_TO_LINEAR_COUNT_AND_EXACT_RELATIVE_COMPOSITION_RATIOS__BLOCKED_ABSOLUTE_PHYSICAL_NORMALIZATION_REMAINS_ONE_SCALAR_AND_BRANCH_PREFIX_GLUING_NORMALIZATION_HAS_ZERO_AUTHORITY_ON_IT"
-  },
-  "iter028": {
-    "status": "ACTIVE",
-    "completion_pct": 15,
     "run_id": 34703724717,
     "head_sha": "1ea63cb271c4e3c8ecfbc15c6c016ca260f0815a",
-    "active_gate": "QGR-ITER028-G28-SOURCE-SCALE-QUOTIENT-FINITE-PHASE-INVARIANTS"
+    "aggregate_job_id": 103579925131,
+    "aggregate_artifact_id": 10301241876,
+    "aggregate_digest": "sha256:7220428d044e1a33fa6b3d923bed3d4c42e9ce1861bc79292fc9bfc29b2a8230",
+    "terminal_classification": "PASS_SCOPED_SOURCE_SCALE_QUOTIENT_YIELDS_EXACT_BETA_INDEPENDENT_ENDPOINT_AND_COMMON_CONFORMAL_PHASE_RATIOS_AND_ACTION_ENDPOINT_INVARIANT__NEGATIVE_CONTROL_CONFIRMS_ZERO_C6_AUTHORITY"
+  },
+  "iter029": {
+    "status": "ACTIVE",
+    "completion_pct": 15,
+    "run_id": 34703816372,
+    "head_sha": "ffa1176569b14f4a029c4dc22f899610802dd2f5",
+    "active_gate": "QGR-ITER029-G29-WEYL-ACTIVE-SAME-REALIZATION-FINITE-PHASE-AUTHORITY-SEARCH"
   },
   "active_question": {
-    "id": "QGR-ITER028-G28-SOURCE-SCALE-QUOTIENT-FINITE-PHASE-INVARIANTS",
-    "text": "Which exact predictions of the already-derived common-conformal Dirichlet response survive quotienting the still-free primitive event-to-source normalization beta, without fixing beta or importing new physics?"
+    "id": "QGR-ITER029-G29-WEYL-ACTIVE-SAME-REALIZATION-FINITE-PHASE-AUTHORITY-SEARCH",
+    "text": "Do the newly closed primitive source-law shape and scale-free quotient relations, combined with the already-existing Weyl-active QGR background, provide sufficient authority rank to determine c6 or an absolute microscopic phase without importing a new fitted target?"
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "qgr_event_insertion_strength_derived": false,
-    "qgr_physical_same_realization_finite_curved_phase_samples_derived": false,
+    "qgr_physical_weyl_active_same_realization_phase_target_derived": false,
     "qgr_finite_pair_triple_coherent_amplitudes_derived": false,
     "qgr_independent_benchmark_passed": false,
     "new_model_required_by_kmqgb": false,
