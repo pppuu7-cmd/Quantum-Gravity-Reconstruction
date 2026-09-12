@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 36,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_BRANCH_PERSISTENCE_AND_REFINEMENT_STRESS"
+    "iteration": 37,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_REFINEMENT_CONNECTED_BRANCH_ADMISSIBILITY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -13,7 +13,8 @@
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter034_pct": 100,
     "iter035_pct": 100,
-    "iter036_pct": 25,
+    "iter036_pct": 100,
+    "iter037_pct": 10,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -25,7 +26,10 @@
     "local_compact_patch_torsion_regularity_mechanism_closed_scoped": true,
     "finite_patch_single_branch_uniqueness_counterexample_verified_scoped": true,
     "g35_verified_distinct_extendable_patch_count": 8,
-    "branch_persistence_larger_patch_multi_deformation_derived": false,
+    "branch_persistence_larger_patch_multi_deformation_derived": true,
+    "g36_refinement_proxy_persistent_seed_count": 8,
+    "g36_jointly_persistent_seed_count": 6,
+    "g36_jointly_persistent_seed_indices": [0, 1, 3, 4, 5, 7],
     "full_projective_refinement_branch_persistence_derived": false,
     "physical_multiple_branch_measure_selection_derived": false,
     "tower_wide_uniform_torsion_jacobian_gap_derived": false,
@@ -38,15 +42,6 @@
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter034": {
-    "status": "COMPLETE_COUNTEREXAMPLE_CANDIDATE",
-    "completion_pct": 100,
-    "run_id": 34705929851,
-    "head_sha": "46423cb63a899b4c5a4077be81b003edc2d95280",
-    "aggregate_job_id": 103585911907,
-    "aggregate_artifact_id": 10300838970,
-    "aggregate_digest": "sha256:05b0ee793eac19e50f89774fc24af6d619479d07825e4a16ba36fd4808d740de"
-  },
   "iter035": {
     "status": "COMPLETE_PASS_SCOPED",
     "completion_pct": 100,
@@ -56,26 +51,38 @@
     "aggregate_artifact_id": 10301772238,
     "aggregate_digest": "sha256:d41b2ec8657b27585c1d3735a6b060d21915145454a0ef5fc1e8b819de6be1a0",
     "terminal_classification": "SCIENTIFIC_PASS_SCOPED_DISTINCT_EXTENDABLE_BRANCH_COUNTEREXAMPLE",
-    "residual_qualified_origin_candidates": 22,
     "verified_distinct_extendable_patches": 8
   },
   "iter036": {
-    "status": "ACTIVE",
-    "completion_pct": 25,
+    "status": "COMPLETE_PASS_SCOPED",
+    "completion_pct": 100,
     "run_id": 34708104944,
     "head_sha": "0d5a0be6b5d7336f42747a2b3010013f1aa51ab7",
-    "active_gate": "QGR-ITER036-G36-BRANCH-PERSISTENCE-LARGER-PATCH-BACKGROUND-AND-REFINEMENT-PROXY",
-    "parallel_streams": 48,
-    "frozen_g35_seed_count": 8,
-    "expanded_patch_cells": 15,
-    "background_gamma_targets": [0.8, 1.0, 1.2],
-    "refinement_proxy_h_targets": [0.75, 0.5, 0.35]
+    "aggregate_job_id": 103592614169,
+    "aggregate_artifact_id": 10302791375,
+    "aggregate_digest": "sha256:78df0730836beb3ca463c46def82b9ce07b2b2a3a66ebad191f93bd7ebbe4087",
+    "terminal_classification": "SCIENTIFIC_PASS_SCOPED_SAME_BRANCH_PERSISTS_ACROSS_BACKGROUND_AND_REFINEMENT_PROXY",
+    "expected_lanes": 48,
+    "found_unique_lanes": 48,
+    "lane_passes": 44,
+    "reference_control_valid_lanes": 48,
+    "background_persistent_seed_indices": [0, 1, 3, 4, 5, 7],
+    "refinement_proxy_persistent_seed_indices": [0, 1, 2, 3, 4, 5, 6, 7],
+    "jointly_persistent_seed_indices": [0, 1, 3, 4, 5, 7]
+  },
+  "iter037": {
+    "status": "PREREGISTRATION_ACTIVE",
+    "completion_pct": 10,
+    "active_gate": "QGR-ITER037-G37-REFINEMENT-CONNECTED-BRANCH-ADMISSIBILITY-AND-TWO-LEVEL-PROJECTIVE-BLOCKING",
+    "frozen_g36_seed_indices": [0, 1, 3, 4, 5, 7],
+    "planned_h_targets": [0.25, 0.125, 0.0625, 0.03125],
+    "planned_parallel_lanes": 24
   },
   "active_question": {
-    "id": "QGR-ITER036-G36-BRANCH-PERSISTENCE-LARGER-PATCH-BACKGROUND-AND-REFINEMENT-PROXY",
-    "text": "Does at least one of the exact eight G35 verified distinct finite torsion branch patches remain invariantly distinct and fully extendable on the frozen 15-cell patch across all preregistered background-amplitude and shrinking-cell refinement-proxy targets?"
+    "id": "QGR-ITER037-G37-REFINEMENT-CONNECTED-BRANCH-ADMISSIBILITY-AND-TWO-LEVEL-PROJECTIVE-BLOCKING",
+    "text": "Do the exact six G36 jointly persistent distant torsion branches satisfy the previously frozen G10B identity/refinement-connected same-realization criterion and actual two-level fine-to-coarse path-groupoid blocking, or are they finite-cell auxiliary roots that merge into or fail the principal continuum branch criterion?"
   },
-  "active_blocker": "FINITE_BRANCH_PERSISTENCE_REFINEMENT_AND_PHYSICAL_BRANCH_WEIGHT_SELECTION",
+  "active_blocker": "REFINEMENT_CONNECTED_SAME_REALIZATION_ADMISSIBILITY_OF_PERSISTENT_DISTANT_BRANCHES",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
