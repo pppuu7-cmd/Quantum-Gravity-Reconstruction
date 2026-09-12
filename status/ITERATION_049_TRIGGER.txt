@@ -1,8 +1,12 @@
-Iter049 production authority trigger.
+Iter049 authoritative production retry trigger.
 Preregistration commit: 72b21197d594ab6c5f36a34dfbd18a68b97d0a1d
-Implementation commit: 2e6e8d527bb81e415c3eb5c93526e5eb0a127673
+Original implementation commit: 2e6e8d527bb81e415c3eb5c93526e5eb0a127673
 Aggregate commit: 939353319ac7158f27d2841323c1e34b6d491fc9
 Workflow commit: 1ef0baf2d96fba9187a409e1108b433fd5cb072b
+Run-authority/diagnostic commit: 83a5d538b4d2987bae304d0396c96d644bf24810
+Canonical-trig control fix commit: 73298317eaf5a401caf4dea3fe8eee3808727042
+Prior run 34719814120: ITER049_INITIAL_PRODUCTION_SYMBOLIC_CONTROL_INVALID_REQUIRES_CANONICAL_TRIG_RETRY.
+Scientific criteria, witnesses, targets and interpretation locks are unchanged.
 Frozen gate: ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE
 Expected scientific lanes: 24 (A6+B6+C6+D6).
-c6 remains symbolic/unfixed; scientific criteria are frozen.
+c6 remains symbolic/unfixed.
