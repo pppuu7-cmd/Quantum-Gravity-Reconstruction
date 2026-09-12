@@ -1,0 +1,117 @@
+name: qgr-iter044-end-to-end-radiative
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'status/ITERATION_044_TRIGGER.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  stream-a:
+    name: stream-a (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: QGR-L1 dynamics to TT curvature
+        run: python code/qgr_iter044_end_to_end_radiative.py --stream A --index ${{ matrix.index }} --out iter044-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter044-A-${{ matrix.index }}
+          path: iter044-output/result.json
+
+  stream-b:
+    name: stream-b (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: Off-shell dispersion falsification
+        run: python code/qgr_iter044_end_to_end_radiative.py --stream B --index ${{ matrix.index }} --out iter044-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter044-B-${{ matrix.index }}
+          path: iter044-output/result.json
+
+  stream-c:
+    name: stream-c (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        index: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: Gauge end-to-end robustness
+        run: python code/qgr_iter044_end_to_end_radiative.py --stream C --index ${{ matrix.index }} --out iter044-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter044-C-${{ matrix.index }}
+          path: iter044-output/result.json
+
+  stream-d:
+    name: stream-d (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        index: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: Flat-background c6 Weyl-cubic linearization
+        run: python code/qgr_iter044_end_to_end_radiative.py --stream D --index ${{ matrix.index }} --out iter044-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter044-D-${{ matrix.index }}
+          path: iter044-output/result.json
+
+  aggregate:
+    name: aggregate
+    if: always()
+    needs: [stream-a, stream-b, stream-c, stream-d]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter044-*
+          path: iter044-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter044 gate
+        run: python code/qgr_iter044_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter044-summary
+          path: iter044-summary/summary.json
