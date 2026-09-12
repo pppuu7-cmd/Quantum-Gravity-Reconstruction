@@ -1,0 +1,31 @@
+name: qgr-iter014-g12-triadic-event-identifiability
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'code/qgr_iter014_g12_triadic_event_identifiability.py'
+      - '.github/workflows/qgr-iter014-g12-triadic-event-identifiability.yml'
+  workflow_dispatch:
+
+jobs:
+  g12:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G12 triadic event identifiability audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter014_g12_triadic_event_identifiability.py --lane ${{ matrix.lane }} --out out/g12-${{ matrix.lane }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g12-${{ matrix.lane }}
+          path: out/g12-${{ matrix.lane }}.json
