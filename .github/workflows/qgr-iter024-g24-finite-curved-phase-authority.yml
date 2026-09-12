@@ -1,0 +1,51 @@
+name: qgr-iter024-g24-finite-curved-phase-authority
+on:
+  push:
+    paths:
+      - 'code/qgr_iter024_g24_finite_curved_phase_authority.py'
+      - 'code/qgr_iter024_g24_aggregate.py'
+      - '.github/workflows/qgr-iter024-g24-finite-curved-phase-authority.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [current-authority-rank, minimal-phase-basis, beta-invariant-readout, insufficient-sample-witness]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G24 exact finite-curved phase authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter024_g24_finite_curved_phase_authority.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g24-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g24-*
+          path: iter024-g24-results
+          merge-multiple: false
+      - name: Aggregate 24 G24 lanes
+        run: python code/qgr_iter024_g24_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g24-summary
+          path: iter024-g24-summary/summary.json
