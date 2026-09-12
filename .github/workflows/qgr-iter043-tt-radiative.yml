@@ -1,0 +1,49 @@
+name: qgr-iter043-tt-radiative
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_043_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  radiative:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Independent analytic TT-wave lane
+        run: |
+          mkdir -p out
+          python code/qgr_iter043_tt_radiative.py --index '${{ matrix.index }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: 'qgr-iter043-${{ matrix.index }}', path: out/result.json}
+
+  aggregate:
+    if: always()
+    needs: [radiative]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter043-*
+          path: iter043-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter043 gate
+        run: python code/qgr_iter043_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter043-summary
+          path: iter043-summary/summary.json
