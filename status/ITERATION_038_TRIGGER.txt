@@ -1,0 +1,4 @@
+ITER038 production trigger
+Frozen preregistration: status/ITERATION_038.md
+Scientific lanes: 1 exact certificate + 8 gap bridge + 8 physical path + 12 loop = 29
+Date: 2026-09-12
