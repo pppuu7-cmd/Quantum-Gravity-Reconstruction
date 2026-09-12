@@ -1,0 +1,117 @@
+name: qgr-iter047-weyl3-activation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'status/ITERATION_047_TRIGGER.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  stream-a:
+    name: stream-a (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Exact type-N Weyl3 blindness
+        run: python code/qgr_iter047_weyl3_activation.py --stream A --index ${{ matrix.index }} --out iter047-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter047-A-${{ matrix.index }}
+          path: iter047-output/result.json
+
+  stream-b:
+    name: stream-b (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Exact Schwarzschild Petrov-D Weyl3 activation
+        run: python code/qgr_iter047_weyl3_activation.py --stream B --index ${{ matrix.index }} --out iter047-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter047-B-${{ matrix.index }}
+          path: iter047-output/result.json
+
+  stream-c:
+    name: stream-c (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Exact Kasner Weyl3 activation
+        run: python code/qgr_iter047_weyl3_activation.py --stream C --index ${{ matrix.index }} --out iter047-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter047-C-${{ matrix.index }}
+          path: iter047-output/result.json
+
+  stream-d:
+    name: stream-d (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Conformally-flat FLRW falsification control
+        run: python code/qgr_iter047_weyl3_activation.py --stream D --index ${{ matrix.index }} --out iter047-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter047-D-${{ matrix.index }}
+          path: iter047-output/result.json
+
+  aggregate:
+    name: aggregate
+    if: always()
+    needs: [stream-a, stream-b, stream-c, stream-d]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter047-*
+          path: iter047-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter047 gate
+        run: python code/qgr_iter047_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter047-summary
+          path: iter047-summary/summary.json
