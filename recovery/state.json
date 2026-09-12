@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 43,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_INDEPENDENT_RADIATIVE_GEOMETRY"
+    "iteration": 44,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_END_TO_END_LINEARIZED_RADIATIVE_DYNAMICS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -14,7 +14,8 @@
     "iter041_pct": 100,
     "iter042_pct": 100,
     "iter042r_pct": 100,
-    "iter043_pct": 20,
+    "iter043_pct": 100,
+    "iter044_pct": 20,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -29,11 +30,11 @@
     "minimal_absolute_identification_rank_u_c6": 2,
     "calibration_free_weyl3_response_manifold_scoped_closed": true,
     "heldout_weyl3_generalization_scoped_closed": true,
-    "boosted_magnetic_sector_positive_partial_evidence": true,
     "original_boosted_scalar_covariance_gate": "PARTIAL_FAIL_STREAM_B",
     "frame_completion_diagnostic": "PASS_SCOPED_MIXED_FRAME_DEFECT_LOCALIZED_AND_CORRECTED",
     "boosted_scalar_covariance_closed_scoped_after_frame_completion": true,
-    "independent_radiative_geometry_under_test": true,
+    "independent_radiative_geometry": "PASS_SCOPED_24_OF_24",
+    "end_to_end_qgr_l1_linearized_radiative_dynamics_under_test": true,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
@@ -58,7 +59,7 @@
     "aggregate_artifact_id": 10304692021,
     "aggregate_digest": "sha256:c762dbe4532ec9adca18043c42e2d9a8768f85c7c2cec44c0a00fc359b351844",
     "terminal_classification": "PARTIAL_SCOPED_NONSTATIC_MAGNETIC_WEYL_COVARIANCE",
-    "passes": {"A":6,"B":0,"C":4,"D":4,"E":4},
+    "passes": {"A": 6, "B": 0, "C": 4, "D": 4, "E": 4},
     "controls_valid": true
   },
   "iter042r": {
@@ -70,23 +71,36 @@
     "aggregate_artifact_id": 10303868886,
     "aggregate_digest": "sha256:8790997c6ad28eb68d8342d0092d2b6fc5c2f20dcf567819463fe05cd7277f56",
     "terminal_classification": "PASS_SCOPED_G42_COVARIANCE_DEFECT_ATTRIBUTED_TO_MIXED_FRAME_RECONSTRUCTION_AND_FRAME_COMPLETION_VALIDATED",
-    "passes": {"A":8,"B":6,"C":4,"D":6},
+    "passes": {"A": 8, "B": 6, "C": 4, "D": 6},
     "controls_valid": true
   },
   "iter043": {
-    "status": "PREREGISTERED_IMPLEMENTED_PRODUCTION_QUEUED",
-    "completion_pct": 20,
+    "status": "COMPLETE",
+    "completion_pct": 100,
     "run_id": 34715559793,
     "head_sha": "79b7325179aab34e83bbbc998152b81398221ef5",
+    "aggregate_job_id": 103613094190,
+    "aggregate_artifact_id": 10303724918,
+    "aggregate_digest": "sha256:bd74de5bd2b0b17a9a0e043954f5f97e8fc964e1e64da1bb3d137b01f0286b83",
     "expected_scientific_lanes": 24,
-    "active_gate": "ITER043-INDEPENDENT-TT-RADIATIVE-WEYL-COVARIANCE"
+    "found_scientific_lanes": 24,
+    "passes": 24,
+    "controls_valid": true,
+    "terminal_classification": "PASS_SCOPED_INDEPENDENT_TT_RADIATIVE_WEYL_COVARIANCE"
+  },
+  "iter044": {
+    "status": "PREREGISTERED_IMPLEMENTED_READY_FOR_PRODUCTION",
+    "completion_pct": 20,
+    "expected_scientific_lanes": 48,
+    "streams": {"A": 24, "B": 12, "C": 8, "D": 4},
+    "active_gate": "ITER044-QGR-L1-END-TO-END-LINEARIZED-TT-RADIATION"
   },
   "active_question": {
-    "id": "QGR-ITER043-INDEPENDENT-TT-RADIATIVE-WEYL-COVARIANCE",
-    "text": "Does the corrected all-coordinate Weyl observable layer reproduce and covariantly transport an independent analytic linearized TT radiative geometry without retuning?"
+    "id": "QGR-ITER044-QGR-L1-END-TO-END-LINEARIZED-TT-RADIATION",
+    "text": "Does the internally reconstructed QGR-L1 dynamical kinetic operator itself generate exactly the two massless TT radiative modes on the incidence cone, with gauge-invariant curvature matching the independently validated G43 observable geometry?"
   },
-  "active_blocker": "INDEPENDENT_RADIATIVE_GEOMETRY_HELDOUT_VALIDATION",
-  "next_gate_lock": "DO_NOT_PROMOTE_TO_END_TO_END_RADIATION_DYNAMICS_UNLESS_ITER043_TERMINAL_PASS; TT tensor reconstruction alone is not QGR dynamical derivation",
+  "active_blocker": "QGR_L1_END_TO_END_LINEARIZED_RADIATIVE_DYNAMICAL_CLOSURE",
+  "next_gate_lock": "ITER044_MUST_BEGIN_FROM_RECONSTRUCTED_QGR_L1_HESSIAN_AND_MUST_NOT_INSERT_THE_TT_CURVATURE_AS_A_DYNAMICAL_INPUT; even PASS is linearized/scoped only",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
