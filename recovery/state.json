@@ -4,91 +4,77 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 38,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_PRINCIPAL_REFINEMENT_REGULARITY_AND_BLOCKING"
+    "iteration": 39,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_ABSOLUTE_SOURCE_PHASE_IDENTIFIABILITY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "iter035_pct": 100,
-    "iter036_pct": 100,
-    "iter037_pct": 100,
-    "iter038_pct": 15,
+    "iter038_pct": 100,
+    "iter039_pct": 20,
     "theory_established_pct": 0
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
     "field_arena": "Sym^2(W4)",
     "primitive_additive_source_law_shape": "J(n)=beta*n",
-    "projective_refinement_limit_mechanism_closed_conditional_scoped": true,
+    "projective_refinement_limit_mechanism_scoped_closed": true,
     "principal_identity_refinement_connected_connection_authorized_scoped": true,
+    "principal_compact_domain_uniform_small_h_regularity_derived_scoped": true,
+    "principal_actual_fine_to_coarse_blocking_derived_scoped": true,
     "finite_algebraic_torsion_multiplicity_verified_scoped": true,
-    "g35_verified_distinct_extendable_patch_count": 8,
-    "g36_jointly_persistent_distant_seed_count": 6,
-    "g37_deep_and_radius_support_pass_count": 6,
-    "g37c_g10b_distant_seed_audit_count": 6,
-    "g37c_g10b_distant_seed_fail_count": 6,
-    "g37c_refinement_connected_distinct_physical_candidate_count": 0,
-    "g37c_numerically_blocked_count": 0,
+    "additional_physical_distant_connection_branch_supported_under_g10b": false,
     "physical_multiple_branch_measure_selection_derived": false,
-    "principal_compact_domain_uniform_small_h_regularity_derived": false,
-    "principal_actual_fine_to_coarse_blocking_derived": false,
-    "global_arbitrary_background_branch_compactness_derived": false,
+    "absolute_event_source_scale_beta_derived": false,
+    "absolute_source_phase_identifiability_under_audit": true,
+    "physical_weyl_active_same_realization_phase_target_derived": false,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
-    "absolute_event_source_scale_beta_derived": false,
-    "physical_weyl_active_same_realization_phase_target_derived": false,
+    "global_arbitrary_background_branch_compactness_derived": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter037": {
+  "iter038": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "supporting_g37": {
-      "run_id": 34708971979,
-      "head_sha": "cfe59ac5ab31325cd7978f761a9a5264a24f63b8",
-      "aggregate_job_id": 103594387725,
-      "aggregate_artifact_id": 10302384093,
-      "aggregate_digest": "sha256:ebde6d1d48870bb983bef368c78ce7984bb5738cd3cb9959059c34b5c64c25c2",
-      "terminal_classification": "SCIENTIFIC_PASS_SCOPED_SAME_BRANCH_SURVIVES_DEEPER_REFINEMENT_AND_RADIUS4_PATH_CONSISTENCY",
-      "lane_passes": 36,
-      "expected_lanes": 36
-    },
-    "authoritative_g37c": {
-      "run_id": 34709108991,
-      "head_sha": "409d94df3cd800218a6e883a2ada22f60ec2caeb",
-      "aggregate_job_id": 103594543411,
-      "aggregate_artifact_id": 10302319341,
-      "aggregate_digest": "sha256:6c90ffc66305d2a444638280959db573f7ec8f415095480a8625f441162f205d",
-      "terminal_classification": "SCOPED_EVIDENCE_G35_G36_DISTANT_ROOTS_DO_NOT_YET_SUPPLY_ADDITIONAL_PHYSICAL_CONNECTION_BRANCHES_UNDER_FROZEN_G10B",
-      "reference_control_valid_seeds": 6,
-      "fails_g10b_same_realization_seeds": 6,
-      "refinement_connected_distinct_candidates": 0,
-      "numerically_blocked": 0
-    }
-  },
-  "iter038": {
-    "status": "PRODUCTION_ACTIVE",
-    "completion_pct": 15,
-    "active_gate": "QGR-ITER038-PRINCIPAL-REFINEMENT-REGULARITY-AND-ACTUAL-FINE-TO-COARSE-BLOCKING",
     "run_id": 34709394158,
     "head_sha": "ae8f365ea1ad9e92cdeaed8fefa81a9f05e152d9",
-    "frozen_compact_domain": "[0,1]^4",
-    "expected_scientific_lanes": 29,
-    "streams": {
-      "exact_small_h_jacobian_certificate": 1,
-      "finite_range_gap_bridge": 8,
-      "fixed_physical_path_blocking": 8,
-      "elementary_loop_blocking": 12
-    }
+    "aggregate_job_id": 103595441181,
+    "aggregate_artifact_id": 10303065332,
+    "aggregate_digest": "sha256:26bf51ad50a90cc42b8ee92ba997a237df25aa82dc0ffedeb538170d9997a432",
+    "terminal_classification": "PASS_SCOPED_PRINCIPAL_COMPACT_REFINEMENT_REGULARITY_AND_FINE_TO_COARSE_BLOCKING",
+    "expected_lanes": 29,
+    "lane_passes": 29,
+    "exact_linearized_rank": 24,
+    "exact_linearized_determinant": 11664,
+    "exact_linearized_min_singular_numeric": 0.3742889790499052,
+    "minimum_finite_bridge_jacobian_singular": 0.3117043266205393,
+    "maximum_path_final_contraction_ratio": 0.5053863019927789,
+    "maximum_loop_final_contraction_ratio": 0.5080076341318422,
+    "scope": "Frozen smooth compact principal realization K=[0,1]^4; exact small-h IFT authority plus finite-range/path/loop bridge. Not arbitrary global field space."
+  },
+  "iter039": {
+    "status": "PRODUCTION_ACTIVE",
+    "completion_pct": 20,
+    "active_gate": "QGR-ITER039-ABSOLUTE-SOURCE-PHASE-IDENTIFIABILITY-AFTER-REFINEMENT-CLOSURE",
+    "run_id": 34709657749,
+    "head_sha": "15cedcd3507f0223dc50827a2f72e3d0762ec901",
+    "expected_scientific_lanes": 30,
+    "audits": [
+      "source-null",
+      "refinement-beta-blind",
+      "current-authority-rank",
+      "minimal-calibration-rank",
+      "beta-sign"
+    ]
   },
   "active_question": {
-    "id": "QGR-ITER038-PRINCIPAL-REFINEMENT-REGULARITY-AND-ACTUAL-FINE-TO-COARSE-BLOCKING",
-    "text": "Can the G10B principal identity-connected branch close the G32/G33 uniform refinement regularity requirement on the frozen smooth compact realization by an exact common small-h Jacobian invertibility certificate plus finite-range gap bridge, and independently exhibit actual fixed-physical-path and elementary-loop fine-to-coarse blocking convergence?"
+    "id": "QGR-ITER039-ABSOLUTE-SOURCE-PHASE-IDENTIFIABILITY-AFTER-REFINEMENT-CLOSURE",
+    "text": "After scoped principal refinement closure, can existing QGR authority internally identify the absolute source/action-phase scale beta and c6, or does the exact authority structure retain a scale null direction requiring independent matching/calibration data?"
   },
-  "active_blocker": "PRINCIPAL_BRANCH_UNIFORM_REFINEMENT_REGULARITY_AND_ACTUAL_FINE_TO_COARSE_BLOCKING_ON_FROZEN_SMOOTH_COMPACT_REALIZATION",
+  "active_blocker": "ABSOLUTE_SOURCE_ACTION_PHASE_NORMALIZATION_AND_WEYL_ACTIVE_MATCHING_AUTHORITY",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
