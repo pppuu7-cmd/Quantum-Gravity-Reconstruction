@@ -2,15 +2,16 @@
 import json
 from pathlib import Path
 
-roots=[Path('iterations'),Path('results'),Path('recovery'),Path('code')]
+# Canonical scientific authority lives in iteration/result/recovery records.  Source-code audit
+# scripts are intentionally excluded because they may contain marker names as search literals.
+roots=[Path('iterations'),Path('results'),Path('recovery')]
 files=[]
 for root in roots:
     if root.exists():
         for p in root.rglob('*'):
-            if p.is_file() and p.suffix in {'.md','.py','.json'} and p.name!=Path(__file__).name:
+            if p.is_file() and p.suffix in {'.md','.json'}:
                 try: files.append((str(p),p.read_text(encoding='utf-8',errors='ignore')))
                 except OSError: pass
-# Build positive markers by concatenation so this scanner does not self-trigger.
 markers=[
  'EXACT_'+'FINITE_CELL_ACTION_CLOSED',
  'UNIQUE_'+'EXACT_FINITE_CELL_ACTION',
@@ -30,6 +31,7 @@ for path,txt in files:
         related.append(path)
 out={
  'gate':'ITER010-G1-HIGHER-DERIVATIVE-AUTHORITY-SCAN',
+ 'authority_roots':['iterations','results','recovery'],
  'files_scanned':len(files),
  'positive_exact_uv_closure_markers':len(hits),
  'related_records':len(set(related)),
