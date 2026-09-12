@@ -1,0 +1,57 @@
+name: qgr-iter039-absolute-scale-identifiability
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_039_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        audit: [source-null, refinement-beta-blind, current-authority-rank, minimal-calibration-rank, beta-sign]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Iter039 frozen identifiability audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter039_absolute_scale_identifiability.py \
+            --audit '${{ matrix.audit }}' \
+            --lane '${{ matrix.lane }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter039-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+
+  aggregate:
+    if: always()
+    needs: audit
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter039-*
+          path: iter039-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter039 gate
+        run: python code/qgr_iter039_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter039-summary
+          path: iter039-summary/summary.json
