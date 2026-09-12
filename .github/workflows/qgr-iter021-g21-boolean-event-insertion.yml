@@ -1,0 +1,51 @@
+name: qgr-iter021-g21-boolean-event-insertion
+on:
+  push:
+    paths:
+      - 'code/qgr_iter021_g21_boolean_event_insertion.py'
+      - 'code/qgr_iter021_g21_aggregate.py'
+      - '.github/workflows/qgr-iter021-g21-boolean-event-insertion.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [sym2-invariants, pair-support, count-response-map, finite-admissibility]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G21 exact Boolean event-insertion audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter021_g21_boolean_event_insertion.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g21-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g21-*
+          path: iter021-g21-results
+          merge-multiple: false
+      - name: Aggregate 24 G21 lanes
+        run: python code/qgr_iter021_g21_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g21-summary
+          path: iter021-g21-summary/summary.json
