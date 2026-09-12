@@ -1,0 +1,60 @@
+name: qgr-iter032-g32-projective-refinement-limit
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter032_g32_projective_refinement_limit.py'
+      - 'code/qgr_iter032_g32_aggregate.py'
+      - '.github/workflows/qgr-iter032-g32-projective-refinement-limit.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit:
+          - weak-log-refinement-lift
+          - lipschitz-null-bound
+          - riemann-polynomial-convergence
+          - quadrature-common-limit
+          - local-integral-cylindrical-additivity
+        lane: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G32 projective refinement-limit audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter032_g32_projective_refinement_limit.py \
+            --audit '${{ matrix.audit }}' \
+            --lane '${{ matrix.lane }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g32-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+
+  aggregate:
+    if: always()
+    needs: lane
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g32-*
+          path: iter032-g32-results
+          merge-multiple: false
+      - name: Aggregate 30 G32 lanes
+        run: python code/qgr_iter032_g32_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g32-summary
+          path: iter032-g32-summary/summary.json
