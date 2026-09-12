@@ -1,117 +1,78 @@
 # QGR Current Research Front
 
-Updated: 2026-09-12
-Primary active iteration: `Iter046`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / EXACT_NONLINEAR_CURVED_RADIATIVE_SECTOR`
+Updated: 2026-09-13
+Primary active iteration: `Iter047`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / SIX_DERIVATIVE_WEYL3_CURVATURE_CLASS_ACTIVATION`
 
 ## Canonical status
-- Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **95%** — internal construction-roadmap readiness only, not probability of correctness and not fraction of quantum gravity solved.
-- Iter005–Iter045 completion: **100%**
-- Iter046: **PREREGISTERED / IMPLEMENTED / PRODUCTION QUEUED**, 34 scientific lanes + aggregate.
-- Theory established: **0%**
-- Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
+- Repository infrastructure readiness: **100%**.
+- Candidate-program readiness: **96%** — internal roadmap readiness only, not probability of correctness and not fraction of quantum gravity solved. The increase 95 -> 96 is credited specifically to terminal Iter046 exact finite-amplitude nonlinear pp-wave closure.
+- Iter005–Iter046: completed in their stated scopes.
+- Iter047: preregistered, implemented and production launched, 24 scientific lanes + aggregate.
+- Theory established: **0%**.
+- Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`.
 - `beta`: explicit matching/calibration parameter; `beta=1` is not authorized as physics.
-- `c6`: unfixed.
+- `c6`: **unfixed** and remains symbolic in Iter047.
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Terminal G44 — end-to-end QGR-L1 linearized TT radiation
-Durable record: `results/ITER044_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION.md`.
+## Terminal Iter046 — exact finite-amplitude nonlinear pp-wave radiation
+Durable record: `results/ITER046_QGR_L1_EXACT_NONLINEAR_PPWAVE_RADIATIVE_SECTOR.md`.
 
-Authoritative production:
-- run `34716363645`;
-- head `e27602b367acffbc9473df95607278042fce5e02`;
-- aggregate job `103616604387`;
-- summary artifact `10305230612`;
-- digest `sha256:48e15c3872ae6963582b4cada787b5c54e74e6654f1de6565d5c3b373062fadb`.
-
-Classification: `PASS_SCOPED_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION_CONTRACT`.
-
-All **48/48** frozen scientific lanes passed with valid controls:
-- A 24/24 QGR-L1 dynamics -> TT curvature;
-- B 12/12 off-shell dispersion falsification;
-- C 8/8 gauge robustness;
-- D 4/4 flat-background `c6 Weyl^3` quadratic decoupling.
-
-Key aggregate metrics:
-- max curvature bridge error `5.340208237110733e-16`;
-- max TT QGR residual `2.507048651523522e-16`;
-- max gauge QGR residual `3.829588338046111e-17`;
-- minimum tested off-shell residual `0.017486179466437605`;
-- max shifted-curvature gauge error `3.769148233304873e-14`;
-- tested `Weyl^3` oddness and centered quadratic variation exactly zero in Stream D.
-
-Scientific meaning: within the frozen flat-background linearized domain, the internally reconstructed QGR-L1 kernel generates the massless two-mode TT sector and bridges to the independently validated G43 curvature without inserting G43 curvature as dynamics. This is **not** a generic nonlinear/curved-background radiation theorem.
-
-## Terminal G45 — relative TT residue/signature
-Durable record: `results/ITER045_QGR_L1_RELATIVE_TT_RESIDUE_SIGNATURE.md`.
-
-Authoritative production:
-- run `34716924227`;
-- head `cad39c37bfdc56e8b66d0d45e907eb2a33d18d09`;
-- aggregate job `103616970603`;
-- summary artifact `10305091648`;
-- digest `sha256:3a80f6865140410aadc521d6b5e7eb8f612c30ff4b2c062656632513faff56d4`.
-
-Classification: `PASS_SCOPED_QGR_L1_TWO_POLARIZATION_RELATIVE_RESIDUE_DEGENERACY`.
-All **18/18** frozen held-out lanes passed with valid controls.
-
-Key metrics:
-- max polarization mixing `5.775329183325975e-16`;
-- max plus/cross relative coefficient difference `1.4432899320127063e-15`;
-- max coefficient spreads around `5.1e-15`;
-- minimum relative sign product `0.24999999999999853 > 0`.
-
-The workflow-definition push accidentally generated run `34716911042`; it remains `+0 / NON_AUTHORITATIVE_DUPLICATE` and is never combined with the authoritative evidence.
-
-Interpretation lock: G45 establishes relative two-polarization degeneracy/sign only. It does not fix the overall action sign, absolute energy positivity or quantum unitarity.
-
-## Why G46 is new rather than a repeat of Iter005-G3
-Iter005-G3 already proved scoped local weak-background **principal-symbol** stability: deformed Lorentzian cone, four gauge directions and exactly two physical high-frequency modes on tested regular weak backgrounds.
-
-Therefore G46 does not rerun that result. It asks whether the already reconstructed **all-orders** local two-derivative QGR-L1 action admits a nontrivial **exact curved finite-amplitude radiative vacuum sector** without flat-background linearization.
-
-## Active G46 — exact nonlinear pp-wave radiative sector
-Prospectively preregistered before implementation in `status/ITERATION_046.md`.
-
-Authority/provenance:
+Authority:
 - preregistration commit `125d030e90ac86697710c9ed0cee432c5ff54596`;
-- lane implementation `bd7ea711e8f1f98e5727321f77bc90841510b440`;
-- frozen aggregate `d625cb2f636ef6781513c30600572156b7c806d3`;
-- path-triggered workflow `0a4c93cae719379ca4b38c10047fc6a41e92ed0b`;
-- production trigger/head `37ff955a57b6822d800b6755282a6bc557c3a0e2`;
-- run **`34718135187`**.
+- production head `37ff955a57b6822d800b6755282a6bc557c3a0e2`;
+- run `34718135187`;
+- aggregate job `103621013033`;
+- aggregate artifact `10305972518`;
+- digest `sha256:ca1cfb10420cb4e79f4324f009c0a664317098b7bb08b717f052d82397961a89`.
 
-Frozen production matrix: **34 scientific lanes + aggregate**:
-- A: 12 exact finite-amplitude harmonic pp-wave vacuum lanes;
-- B: 6 deliberately non-harmonic falsification controls;
-- C: 6 held-out plus/cross superposition lanes;
-- D: 6 exact finite-amplitude full-Riemann scaling lanes;
-- E: 4 independent constant-linear coordinate-chart anti-artifact lanes.
-
-The production implementation reconstructs inverse metric, Levi-Civita connection, Riemann, Ricci, scalar curvature and the Euler-Lagrange/Einstein tensor symbolically from the already fixed all-orders two-derivative action. It does not use a pre-solved pp-wave field equation as the solver.
-
-Frozen full-PASS classification:
+Terminal classification:
 `PASS_SCOPED_QGR_L1_EXACT_FINITE_AMPLITUDE_NONLINEAR_PPWAVE_RADIATIVE_SECTOR`.
 
-Negative-control invalidity has its own frozen class `CONTROL_INVALID_NONLINEAR_PPWAVE_GATE`; any other scientific failure gives `PARTIAL_OR_FAIL_QGR_L1_NONLINEAR_PPWAVE_RADIATIVE_SECTOR`. No profile/threshold retuning is allowed after trigger.
+Frozen aggregate consumed all **34/34** unique scientific lanes with valid controls:
+- A 12/12 exact finite-amplitude harmonic pp-wave vacuum witnesses;
+- B 6/6 deliberately non-harmonic non-vacuum falsification controls;
+- C 6/6 held-out polarization mixtures;
+- D 6/6 exact full-Riemann amplitude-scaling witnesses;
+- E 4/4 transformed-coordinate anti-artifact witnesses.
 
-`c6` is deliberately excluded from G46 dynamics because its coefficient remains unfixed. A later independent curved-radiation correction gate may keep `c6` symbolic and ask whether the higher-derivative operator vanishes, deforms or obstructs this special exact sector.
+The aggregate reports minimum nonzero Riemann-component count 8 in Stream A. A raw negative-control witness gave exactly `G_uu=-u/5-1/5` and transverse Laplacian `2u/5+2/5`, with the exact relation `G_uu=-1/2 Laplacian(H)`, so the vacuum PASS is not a trivial zero-return artifact.
 
-## Strongest positive result
-The programme now has independent radiative geometry (G43), an end-to-end internally reconstructed linearized QGR-L1 TT dynamical contract (G44), and a held-out relative two-polarization residue/signature closure (G45).
+Scientific meaning: the already reconstructed all-orders local two-derivative QGR-L1 action admits a nontrivial exact finite-amplitude curved radiative pp-wave family. This is genuinely nonlinear within that action, but remains a **special algebraically structured pp-wave family**. It does not establish generic nonlinear/strong-field stability, quantum unitarity, or physical distinctness from GR in the two-derivative sector.
 
-## Strongest blocker
-The frontier has moved to exact/generic nonlinear curved-background dynamics, then higher-derivative curved-radiation effects, quantum amplitude/measure closure, and absolute matching (`beta`, `c6`). G46 attacks the first of these only on a special exact radiative family.
+## Active Iter047 — exact `Weyl^3` curvature-class activation map
+Preregistered before implementation in `status/ITERATION_047.md`.
+
+Authority so far:
+- preregistration commit `dbd3745ad1082141790502b8423240771112ee03`;
+- implementation commit `bb44a0b2721dca861c84e7de55b482cd79bc9b25`;
+- frozen aggregate commit `cb018321e7a061e2d82f558c68ed0e14d051ceb2`;
+- workflow commit `84280ed3fef58d10e3759e63b5b7277c08dc9497`;
+- trigger/head `2c731e9a14c288e6e359c160476bc4bb0e78b801`;
+- production run **`34719070003`**.
+
+Frozen matrix: **24 scientific lanes + aggregate**:
+- A6: exact harmonic pp-wave/type-N curvature with nonzero Riemann but `W2=W3=0`;
+- B6: exact Schwarzschild/Petrov-D activation with frozen targets `W2=48 M^2/r^6`, `W3=96 M^3/r^9` and exact mass/radius scaling;
+- C6: exact vacuum Kasner activation with `W2~t^-4`, `W3~t^-6`;
+- D6: conformally-flat FLRW controls with nonzero curvature but exact zero Weyl, `W2=W3=0`.
+
+Frozen full-PASS class:
+`PASS_SCOPED_EXACT_WEYL3_CURVATURE_CLASS_ACTIVATION_MAP`.
+
+Interpretation lock: Iter047 is a metric-level **operator activation** map only. It does not derive the six-derivative Euler-Lagrange tensor, does not show Schwarzschild/Kasner remain solutions after nonzero `c6`, and does not determine `c6`.
+
+## Current scientific frontier
+The linear TT sector (G43–G45) and one exact nonlinear special radiative family (G46) are now closed in scope. The active frontier has moved to the QGR-specific beyond-two-derivative sector. Iter047 asks where `Weyl^3` is actually visible or algebraically blind. If it passes, the next decisive gate should move from invariant activation to the **actual curved-background Euler-Lagrange response of `c6*Weyl^3` with `c6` symbolic**, or to another genuinely generic/non-special curved-background dynamical problem.
 
 ## Claim locks
-- theory established = `0%`;
+- theory established = **0%**;
 - no experimental confirmation;
-- G44 is linearized/scoped, not a nonlinear/global theorem;
-- even a full G46 PASS is a special pp-wave family, not generic nonlinear stability;
-- finite computational panels are not global theorems;
-- beta remains matching/calibration parameter and `beta=1` is not physics;
-- c6 remains unfixed without a genuine independent Weyl-active absolute matching datum;
+- finite panels and exact special families are not global theorems;
+- Iter046 is special pp-wave closure, not generic nonlinear stability;
+- Iter047 cannot fix `c6` or substitute for six-derivative EOM;
+- beta remains a matching/calibration parameter and `beta=1` is not physics;
+- `c6` remains unfixed absent independent Weyl-active absolute matching authority;
 - G45 does not establish absolute energy positivity or quantum unitarity;
 - no physical multiple-branch weights from G35–G37;
 - no KMQGB `NEW_REQUIRED` without independent benchmark authority.
