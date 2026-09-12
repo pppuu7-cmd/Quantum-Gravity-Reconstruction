@@ -1,9 +1,11 @@
-Iter048 production authority trigger.
+Iter048 authoritative production retry trigger.
 Preregistration commit: 278ec25f089430a09d8b64540cbc57ed481f4fce
-Implementation commit: b618e848785e96ed6968e5ca06282d84c7925950
+Scientific implementation commit: b618e848785e96ed6968e5ca06282d84c7925950
 Aggregate commit: 4da8340f0dbc1a2ff1a51a55ff1fb8061592b992
-Workflow commit: 983521bef48fcb2feb73f3c1f0137e5a679079c9
+Original workflow commit: 983521bef48fcb2feb73f3c1f0137e5a679079c9
+Workflow YAML-only fix commit: 3513818d3f50a93c1d62743d7013cae1bc7f4b61
+Run authority record commit: 9ddba17221e83ca96255a8a382a82692462eb21d
+Prior run 34719340456: ITER048_PREPRODUCTION_WORKFLOW_INVALID_ZERO_SCIENTIFIC_EVIDENCE.
 Frozen gate: ITER048-WEYL3-SYMMETRY-REDUCED-VARIATIONAL-RESPONSE
 Expected scientific lanes: 24 (A6+B6+C6+D6).
-c6 remains symbolic/unfixed; production extracts only its coefficient.
-Do not modify frozen criteria after this trigger.
+c6 remains symbolic/unfixed; scientific criteria unchanged.
