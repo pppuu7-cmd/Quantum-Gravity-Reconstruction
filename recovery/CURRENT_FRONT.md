@@ -1,94 +1,79 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter044`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / END_TO_END_LINEARIZED_RADIATIVE_DYNAMICS`
-Active roadmap stage: `principal refinement closure -> absolute-scale no-go -> calibration-free Weyl3 manifold -> held-out generalization -> boosted covariance stress -> frame completion -> independent TT geometry -> QGR-L1 dynamical TT contract`
+Primary active iteration: `Iter044`
+Parallel independent audit: `Iter045`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / END_TO_END_LINEARIZED_RADIATIVE_DYNAMICS + RELATIVE_TT_RESIDUE_AUDIT`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **94%**
+- Candidate-program readiness: **94%** — unchanged; launching more compute does not earn rubric credit.
 - Iter005–Iter043 completion: **100%**
-- Iter044: **PRODUCTION ACTIVE**
+- Iter044: **PRODUCTION ACTIVE**, 48 scientific lanes + aggregate.
+- Iter045: **PREREGISTERED / IMPLEMENTED / PRODUCTION QUEUED**, 18 scientific lanes + aggregate.
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
-- Primitive additive source-law shape: **PASS_SCOPED `J(n)=beta*n`**
-- Principal projective refinement / fixed-path-loop blocking: **PASS_SCOPED (G38)**
-- Absolute source normalization `beta`: **EXPLICIT MATCHING/CALIBRATION PARAMETER (G39)**; `beta=1` not authorized as physics
-- `c6` fixed: **NO**
-- Calibration-free static Weyl^3 response manifold: **PASS_SCOPED (G40)**
-- Held-out generic off-diagonal static Weyl^3 transfer: **PASS_SCOPED (G41)**
-- Original boosted G42: **PARTIAL**, preserving scalar-covariance Stream-B negative result
-- G42R frame completion: **PASS_SCOPED 24/24**
-- Independent TT radiative tensor/observable geometry: **PASS_SCOPED 24/24 (G43)**
-- End-to-end QGR-L1 dynamical TT radiation contract: **ACTIVE G44**
-- KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
+- `beta`: explicit matching/calibration parameter; `beta=1` is not authorized as physics.
+- `c6`: unfixed.
+- KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Terminal G42 / G42R boundary
-G42 head `b6e1c31c961f2536f10e3f9480053b2a62138253`, run `34712954629`, aggregate job `103606707505`, artifact `10304692021`, digest `sha256:c762dbe4532ec9adca18043c42e2d9a8768f85c7c2cec44c0a00fc359b351844`.
-Classification: `PARTIAL_SCOPED_NONSTATIC_MAGNETIC_WEYL_COVARIANCE`.
+## Terminal G43
+Run `34715559793`, head `79b7325179aab34e83bbbc998152b81398221ef5`, aggregate job `103613094190`, artifact `10303724918`, digest `sha256:bd74de5bd2b0b17a9a0e043954f5f97e8fc964e1e64da1bb3d137b01f0286b83`.
 
-G42R head `650a7424d0377388619ca975496c12edf702ddfd`, run `34713234061`, aggregate job `103610525399`, artifact `10303868886`, digest `sha256:8790997c6ad28eb68d8342d0092d2b6fc5c2f20dcf567819463fe05cd7277f56`.
-Classification: `PASS_SCOPED_G42_COVARIANCE_DEFECT_ATTRIBUTED_TO_MIXED_FRAME_RECONSTRUCTION_AND_FRAME_COMPLETION_VALIDATED`.
-Durable record: `results/ITER042_042R_TERMINAL.md`. The original G42 Stream-B failure remains a preserved discovery record.
+Classification: `PASS_SCOPED_INDEPENDENT_TT_RADIATIVE_WEYL_COVARIANCE`, **24/24** frozen lanes with valid controls. This is independent radiative tensor/observable geometry, not by itself QGR dynamical derivation.
 
-## Terminal G43 — independent analytic TT radiative geometry
-Preregistered in `status/ITERATION_043.md` before production.
-
-Authoritative production:
-- head `79b7325179aab34e83bbbc998152b81398221ef5`;
-- run `34715559793`;
-- aggregate job `103613094190`;
-- artifact `10303724918`;
-- digest `sha256:bd74de5bd2b0b17a9a0e043954f5f97e8fc964e1e64da1bb3d137b01f0286b83`.
-
-Classification: `PASS_SCOPED_INDEPENDENT_TT_RADIATIVE_WEYL_COVARIANCE`.
-All **24/24** frozen lanes passed with valid controls. Max Lorentz error `4.681459141485685e-16`, W2 covariance error `2.0872426177969475e-16`, W3 covariance error `2.9099380740141584e-17`, E/B balance error `2.220446049250313e-16`, type-N W3 null `7.972433079490845e-19`.
-Scientific meaning: corrected observable layer reproduces and Lorentz-transports an independent held-out linearized TT vacuum geometry. It is not by itself a derivation of radiation from QGR equations.
-Durable record: `results/ITER043_TT_RADIATIVE_WEYL_COVARIANCE.md`.
-
-## Existing dynamical authority permitting G44
-The next gate does not insert Einstein equations by hand. Existing repository authority already gives:
-- Iter004: exact reconstruction/selection of QGR-L1 from the complete S4-invariant quadratic two-derivative Noether family, exactly two non-gauge null modes on the incidence cone, no allowed S4-invariant onsite mass term;
-- Iter005: exact cubic/quartic Noether continuation under the independently derived relational pullback law;
-- Iter007: unique all-orders local metric-only at-most-two-derivative action within its scoped domain, with Einstein-Hilbert identification only a posteriori.
-
-## Active G44 — end-to-end QGR-L1 linearized radiative dynamics
-Preregistered before implementation in `status/ITERATION_044.md`.
-Production implementation: `code/qgr_iter044_end_to_end_radiative.py` plus frozen aggregate `code/qgr_iter044_aggregate.py`.
-Workflow: `qgr-iter044-end-to-end-radiative`.
-Production head/trigger: `e27602b367acffbc9473df95607278042fce5e02`.
-Production run: `34716363645`.
-
-Frozen production matrix: **48 scientific lanes + aggregate**:
-- A: 24 dynamics -> TT-curvature lanes;
+## Primary active G44 — end-to-end QGR-L1 linearized radiative dynamics
+Preregistered before production in `status/ITERATION_044.md`.
+Production run: **`34716363645`**, head `e27602b367acffbc9473df95607278042fce5e02`.
+Frozen matrix:
+- A: 24 QGR-L1 dynamics -> TT-curvature lanes;
 - B: 12 off-shell dispersion falsification lanes;
 - C: 8 gauge end-to-end robustness lanes;
-- D: 4 flat-background `c6 Weyl^3` linearization/decoupling lanes.
-Fail-fast is disabled; max useful matrix parallelism target is 24.
-
-Early non-terminal diagnostics only, not aggregate authority:
-- A0 passed frozen lane criteria: Hessian rank 4, gauge rank 4, TT QGR residual `2.8864167148346014e-17`, curvature bridge error `5.206173234540566e-16`;
-- C3 passed: pure-gauge QGR residual `8.96229702303301e-18`, shifted QGR residual `1.673496586579566e-17`, curvature errors below `4e-14`;
-- D1 passed: exact cubic scaling `W3(2)/W3(1)=8`, exact oddness and zero centered second variation in the tested arithmetic.
-These partial lanes do not authorize terminal classification.
+- D: 4 flat-background `c6 Weyl^3` quadratic-decoupling lanes;
+- aggregate after all prerequisites.
 
 Frozen full-PASS class: `PASS_SCOPED_QGR_L1_END_TO_END_LINEARIZED_TT_RADIATION_CONTRACT`.
-No threshold may be retuned after production.
+
+### Non-terminal evidence observed so far
+These are early lane-level observations only; they do not authorize terminal classification.
+- A0: Hessian rank 4, gauge rank 4, TT QGR residual `2.8864167148346014e-17`, curvature bridge error `5.206173234540566e-16`.
+- B0: scientific lane PASS. At shell ratio `r=1`, Hessian rank 4 and TT residual `9.041084098513864e-17`; at `r=0.8,0.9,1.1,1.2` rank returns to 6, with unique residual minimum at the null shell. Minimum tested off-shell residual `0.017486179466437605`.
+- C3: pure-gauge QGR residual `8.96229702303301e-18`, shifted residual `1.673496586579566e-17`, curvature invariance within frozen tolerance.
+- D1: exact tested cubic scaling `W3(2)/W3(1)=8`, exact oddness and zero centered second variation.
+- Additional completed-success matrix jobs have appeared, but green CI is not promoted to scientific PASS without reading the frozen lane output or terminal aggregate.
+
+G44 remains nonterminal and is the primary blocker.
+
+## Parallel independent G45 — relative two-polarization residue/signature
+Scientific object preregistered **before implementation** in `status/ITERATION_045.md`, preregistration commit `d08b131bc94007460b9ea517460f4d57e432fc16`.
+Implementation commits:
+- `a483681222a93eac73d9ce92365b19bbf90c9969` — lane code;
+- `6d368ac30bdeff1bfa1671cb3f15c57fe53e02a9` — frozen aggregate;
+- `a4f03fb58105042a775f7940a33d628e98782901` — workflow.
+Explicit trigger commit: `cad39c37bfdc56e8b66d0d45e907eb2a33d18d09`.
+
+Authoritative production run: **`34716924227`**, 18 frozen lanes (6 held-out generic directions × 3 wave-number scales) + aggregate. At the latest check, all 18 scientific lanes are queued because the runner pool is occupied by earlier useful work; no third heavy stream should be launched merely to create load.
+
+The workflow-definition push also generated accidental duplicate run `34716911042`. Authority lock `status/ITERATION_045_RUN_AUTHORITY.md` (commit `3562b3b93a46f6dfd4dfa84a5e59375129aaaba2`) marks it `+0 / NON_AUTHORITATIVE_DUPLICATE`; its evidence must never be combined with the authoritative run.
+
+Frozen full-PASS class: `PASS_SCOPED_QGR_L1_TWO_POLARIZATION_RELATIVE_RESIDUE_DEGENERACY`.
+
+Interpretation lock: even a full G45 PASS establishes only same-sign/equal **relative** TT pole/kinetic coefficients and absence of polarization mixing on the frozen panel. It does **not** fix the overall action sign, prove absolute energy positivity, prove quantum unitarity, or establish nonlinear stability.
 
 ## Strongest positive result
-The programme now has independently held-out TT radiative observable geometry (G43), internally reconstructed QGR-L1 dynamics, and an active end-to-end gate joining the two chains without inserting the G43 curvature as a dynamical input.
+G43 independently validates the TT radiative observable layer. G44 is actively testing whether the internally reconstructed QGR-L1 dynamical kernel itself produces that massless TT sector. Early A/B/C/D lanes are consistent with that contract, including an explicit off-shell rank/residual falsification lane.
 
 ## Strongest blocker
-`QGR_L1_END_TO_END_LINEARIZED_RADIATIVE_DYNAMICAL_CLOSURE`, followed by genuinely nonlinear/higher-background radiation, quantum amplitudes/measure closure, and absolute matching/calibration (`beta`, `c6`).
+`QGR_L1_END_TO_END_LINEARIZED_RADIATIVE_DYNAMICAL_CLOSURE` (G44 terminal aggregate). After that, the highest-value dependent frontier is genuinely nonlinear/curved-background radiation rather than another duplicate linear TT panel. Quantum amplitude/measure closure and absolute matching (`beta`, `c6`) remain separate blockers.
 
 ## Claim locks
-- theory established `0%`;
-- G43 is tensor/observable validation, not QGR dynamical derivation;
-- even G44 PASS is scoped linearized end-to-end closure, not a nonlinear/global radiation theorem;
+- theory established = `0%`;
+- no experimental confirmation;
+- G43 alone is not QGR dynamical derivation;
+- even G44 PASS would be scoped linearized closure, not a nonlinear/global radiation theorem;
 - finite numerical panels are not global theorems;
-- beta remains explicit matching/calibration parameter and `beta=1` is not physics;
+- beta remains matching/calibration parameter and `beta=1` is not physics;
 - c6 remains unfixed without a genuine independent Weyl-active absolute matching datum;
+- G45 cannot establish absolute energy positivity or quantum unitarity;
 - no physical multiple-branch weights from G35–G37;
-- no KMQGB `NEW_REQUIRED` without independent benchmark authority;
-- no experimental confirmation.
+- no KMQGB `NEW_REQUIRED` without independent benchmark authority.
