@@ -6,54 +6,64 @@ Project phase: `MODEL_CONSTRUCTION / FULL COVARIANT WEYL3 METRIC VARIATION`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**.
-- Candidate-program roadmap readiness: **99%** — internal construction-roadmap readiness only, not correctness probability and not fraction of quantum gravity solved. The increase 98 -> 99 is credited only to terminal Iter050 closure of the first generic non-symmetry-reduced curvature-direction/P-tensor prerequisite.
+- Candidate-program roadmap readiness: **99%** — internal construction-roadmap readiness only, not correctness probability and not fraction of quantum gravity solved.
 - Iter005–Iter050: completed in their stated scopes.
+- Iter051 current completion: **20%**.
 - Theory established: **0%**.
 - `beta`: explicit matching/calibration parameter; `beta=1` is not authorized as physics.
 - `c6`: **unfixed**.
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Terminal Iter050 — covariant curvature-direction prerequisite
-Durable record: `results/ITER050_WEYL3_COVARIANT_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE.md`.
+## Terminal Iter050
+Iter050 remains `PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE` on 12/12 generic non-symmetry-reduced fixed-metric curvature-direction lanes. It is a prerequisite only, not the complete metric functional derivative.
 
-Frozen gate preregistered at `f711706587c3119a0b50d42deed8d188bc6cbcef`; implementation `60da97ddb8afa3b293c22fef1c8af530b476bf9e`; frozen aggregate `a6245ccb401d2caca3cc5d660d45d4b3cbda1d93`; authoritative production head `aff866ef2437b38e0981ee11f3d3b759c1710423`.
+## Terminal Iter051A — frozen scientific failure
+Durable record: `results/ITER051A_WEYL3_METRIC_DENSITY_VARIATION_SCIENTIFIC_FAIL.md`.
+
+Parent preregistration: `bf5615dd36b533ba536c85f4c8d7658cd7e3568c`.
+Implementation: `307b4bd66a54a03fb7162c069e9d3e5fc4928d53`.
+Frozen aggregate: `4cbe7971910d3108472e4ce08026a783fecca82f`.
+Authoritative production head: `55e4c099516cbfe9a76ab826994cc5f28cae69c0`.
 
 Authoritative terminal provenance:
-- run `34721494038`;
-- aggregate job `103628161706`;
-- aggregate artifact `10305494635` (`qgr-iter050-summary`);
-- digest `sha256:b61db7ae72d17071fff8790c5dc7029f9c67ec01cb4d2714bbc18fcaa219fb2e`;
-- 12/12 frozen scientific lanes consumed and passed.
-
-Aggregate extrema:
-- max algebraic residual `5.551115123125783e-17`;
-- max Weyl-trace residual `5.551115123125783e-17`;
-- max scalar Lorentz-covariance relative discrepancy `1.6429934460979685e-14`;
-- max directional-derivative covariance relative discrepancy `5.173731054391887e-14`;
-- max finest-step analytic-vs-FD relative discrepancy `7.310078440487533e-08`;
+- run `34724233650`;
+- aggregate job `103635469747`;
+- aggregate artifact `10307431104` (`qgr-iter051a-summary`);
+- digest `sha256:17b0d975691abdee5e7cbf4fa45198f7f6b3c8e0136a017c7b3cb8c5902e8a33`;
+- expected/found lanes `12/12`;
+- frozen lane PASS `5/12`;
 - nonzero calibration `12/12`.
 
+Aggregate extrema:
+- max algebraic residual `8.326672684688674e-17`;
+- max Weyl-trace residual `1.1102230246251565e-16`;
+- max density-covariance relative discrepancy `1.4471991837432272e-14`;
+- max directional-covariance relative discrepancy `3.355094633829336e-14`;
+- max finest-step complex-step/FD relative discrepancy `1.6407915760785562e-09`.
+
 Terminal classification:
-`PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE`.
+`SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION`.
 
-This is a genuine non-symmetry-reduced fixed-metric curvature-direction/P-tensor certificate for the local Weyl-cubic invariant on the frozen generic panel. It is **not** the complete metric functional derivative of `sqrt(-g) C^3`: metric variation of the measure/projectors and the covariant double-divergence sector remain outside Iter050.
+The aggregate failure is scientifically binding for this frozen gate. At least one raw failing lane is localized to the preregistered finite-difference convergence predicate despite excellent algebraic/covariance controls and small complex-step/FD discrepancy. This does not authorize post-hoc weakening of the convergence rule.
 
-## Current frontier — Iter051
-Do not start another symmetry reduction. The next high-information programme is a full four-dimensional covariant metric-functional-derivative certificate for `sqrt(-g) C^3` with symbolic `c6`.
+## Active diagnostic — Iter051A-D1
+A separate numerical diagnostic was prospectively preregistered after terminal G51A and before implementation:
+- preregistration commit `5536412cc6b5a82535737bc60228fc8259320707`;
+- implementation commit `ea474bafa31ecb31bbc19d103706307427e45001`;
+- aggregate commit `7bcadb5cdc7869ac1ffd294d1436d2698288d889`;
+- workflow trigger/head `9a20884caa150dce0852b6c173174d33847d37f8`.
 
-Planned gate: `ITER051-WEYL3-FULL-COVARIANT-METRIC-FUNCTIONAL-DERIVATIVE-CERTIFICATE`.
+Purpose: test whether the seven original G51A failures are predominantly centered-FD roundoff turnover on a broader frozen step ladder while retaining exactly the same physical lanes, complex-step reference and inherited controls. No diagnostic outcome can retroactively change G51A from FAIL to PASS.
 
-The gate must be prospectively preregistered before implementation and must explicitly separate at least two independently controlled ingredients:
-1. algebraic metric/measure/projector variation of the Weyl-cubic density;
-2. the covariant derivative contribution built from the curvature derivative/P-tensor, including the double-divergence structure.
+## Frontier lock
+Full 4D covariant Weyl3 Euler-Lagrange promotion is blocked. A valid G51A-class algebraic metric/measure/projector certificate and an independent G51B covariant double-divergence/connection-response certificate are both required. G51B may be designed in analysis, but no full-EOM promotion is allowed while G51A is failed.
 
-No complete covariant Weyl^3 Euler-Lagrange claim is allowed if either component is missing, invalid, numerically unresolved, or only symmetry-reduced.
+If Iter051A-D1 confirms dominant FD roundoff turnover, the next admissible step is a newly preregistered high-precision algebraic metric-variation certificate using an independently controlled derivative comparator. If it does not, the algebraic metric-variation formulation itself must be audited before further promotion.
 
 ## Claim locks
 - theory established = **0%**;
 - no experimental confirmation;
 - `c6` remains unfixed;
-- Iter050 is a prerequisite, not the full 4D covariant six-derivative field equation;
 - finite panels and symmetry-reduced calculations are not global theorems;
 - beta remains matching/calibration parameter and `beta=1` is not physics;
 - G45 does not establish absolute energy positivity or quantum unitarity;
