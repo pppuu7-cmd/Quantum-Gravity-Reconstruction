@@ -4,16 +4,16 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 41,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_HELDOUT_WEYL3_GENERALIZATION"
+    "iteration": 42,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_NONSTATIC_MAGNETIC_WEYL_COVARIANCE_BRIDGE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "iter039_pct": 100,
     "iter040_pct": 100,
-    "iter041_pct": 15,
+    "iter041_pct": 100,
+    "iter042_pct": 10,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -21,10 +21,8 @@
     "field_arena": "Sym^2(W4)",
     "primitive_additive_source_law_shape": "J(n)=beta*n",
     "projective_refinement_limit_mechanism_scoped_closed": true,
-    "principal_identity_refinement_connected_connection_authorized_scoped": true,
     "principal_compact_domain_uniform_small_h_regularity_derived_scoped": true,
     "principal_actual_fine_to_coarse_blocking_derived_scoped": true,
-    "finite_algebraic_torsion_multiplicity_verified_scoped": true,
     "additional_physical_distant_connection_branch_supported_under_g10b": false,
     "physical_multiple_branch_measure_selection_derived": false,
     "absolute_event_source_scale_beta_derived": false,
@@ -33,56 +31,56 @@
     "minimal_absolute_identification_rank_u_c6": 2,
     "physical_weyl_active_same_realization_phase_target_derived": false,
     "calibration_free_weyl3_response_manifold_scoped_closed": true,
-    "heldout_weyl3_generalization_under_test": true,
+    "heldout_weyl3_generalization_scoped_closed": true,
+    "nonstatic_magnetic_weyl_covariance_under_test": true,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
-    "global_arbitrary_background_branch_compactness_derived": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter040": {
+  "iter041": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "run_id": 34709914980,
-    "head_sha": "b990644250a4df7d29ddec467629c56956fd83e9",
-    "aggregate_job_id": 103596975475,
-    "aggregate_artifact_id": 10302927388,
-    "aggregate_digest": "sha256:898899c85f7c304b9f0032e6138f55dd7dc12339fa07f03728b0f774e1e03fe9",
-    "terminal_classification": "PASS_SCOPED_CALIBRATION_FREE_WEYL3_RESPONSE_MANIFOLD_ESTABLISHED",
-    "expected_lanes": 20,
-    "lane_passes": 20,
-    "H2_finest_normalized_abs_cubic": 1.875882416525863e-05,
-    "maximum_finest_rotation_discrepancy": 5.168073699081922e-08,
-    "weyl_norm_amplitude_slope_range": [0.9998691592541441, 1.000002740132653],
-    "weyl_cubic_amplitude_slope_range": [2.999514418717107, 3.0000081778357783],
-    "relative_nonzero_tidal_shape_ratio": "1:3:-1"
+    "run_id": 34712571244,
+    "head_sha": "3c4d96d2658c2bd1aff6565c0f2cbc43595502bf",
+    "aggregate_job_id": 103604189849,
+    "aggregate_artifact_id": 10303324187,
+    "aggregate_digest": "sha256:289bbbbe42b1f089f0c933423b4b026f53aa1b95296d85e823c643bfe0e8f735",
+    "terminal_classification": "PASS_SCOPED_HELDOUT_WEYL3_GENERALIZATION_AND_PREDICTION_CONTRACT_STRESS",
+    "expected_lanes": 24,
+    "lane_passes": 24,
+    "maximum_fixed_scale_heldout_q_error": 0.0002769683280777905,
+    "maximum_finest_refinement_heldout_q_error": 0.00027696835073143515,
+    "maximum_finest_heldout_rotation_discrepancy": 2.9473460146349044e-05,
+    "maximum_finest_rotated_null_normalized_cubic": 1.8275144691009777e-05,
+    "weyl_norm_amplitude_slope_range": [0.999941304636997, 1.0000103050279203],
+    "weyl_cubic_amplitude_slope_range": [2.9997228598916252, 3.0000742431607224]
   },
-  "iter041": {
-    "status": "PREREGISTERED_IMPLEMENTED_AWAITING_TRIGGER",
-    "completion_pct": 15,
-    "active_gate": "QGR-ITER041-HELDOUT-WEYL3-GENERALIZATION-AND-PREDICTION-CONTRACT-STRESS",
+  "iter042": {
+    "status": "PREREGISTERED_READY_FOR_IMPLEMENTATION",
+    "completion_pct": 10,
+    "active_gate": "QGR-ITER042-NONSTATIC-MAGNETIC-WEYL-LORENTZ-COVARIANCE-BRIDGE",
     "expected_scientific_lanes": 24,
     "streams": {
-      "heldout_fixed_scale_shape_transfer": 6,
-      "heldout_refinement_transfer": 6,
-      "heldout_amplitude_law": 4,
-      "rotated_cubic_null_falsifiers": 4,
-      "heldout_rotation_covariance": 4
+      "magnetic_weyl_emergence": 6,
+      "scalar_lorentz_invariance_refinement": 6,
+      "boost_reversal_magnetic_parity": 4,
+      "boosted_amplitude_law": 4,
+      "small_velocity_magnetic_response": 4
     }
   },
   "active_question": {
-    "id": "QGR-ITER041-HELDOUT-WEYL3-GENERALIZATION-AND-PREDICTION-CONTRACT-STRESS",
-    "text": "Does the preregistered calibration-free Weyl^3 response law from Iter040 transfer out of sample to generic off-diagonal trace-free weak static tidal tensors, held-out null profiles and held-out rotations without fitting beta or c6?"
+    "id": "QGR-ITER042-NONSTATIC-MAGNETIC-WEYL-LORENTZ-COVARIANCE-BRIDGE",
+    "text": "Does the same-field finite-cell QGR torsion/Weyl construction retain scalar Weyl covariance and produce the expected observer-dependent magnetic Weyl sector when the authorized static tidal geometry is described in globally Lorentz-boosted, time-dependent/off-diagonal coordinates?"
   },
-  "active_blocker": "OUT_OF_SAMPLE_WEYL3_TRANSFER_THEN_GENUINELY_NEW_DYNAMICAL_MAGNETIC_WEYL_SECTOR_AND_ABSOLUTE_MATCHING_AUTHORITY",
+  "active_blocker": "NONSTATIC_MAGNETIC_WEYL_COVARIANCE_THEN_INDEPENDENT_RADIATIVE_GEOMETRY_AND_ABSOLUTE_MATCHING_AUTHORITY",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "qgr_event_insertion_strength_derived": false,
     "qgr_physical_weyl_active_same_realization_phase_target_derived": false,
-    "qgr_global_arbitrary_background_compactness_derived": false,
     "qgr_physical_multiple_branch_measure_selection_derived": false,
     "qgr_independent_benchmark_passed": false,
     "new_model_required_by_kmqgb": false,
