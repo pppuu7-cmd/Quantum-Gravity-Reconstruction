@@ -9,39 +9,38 @@
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 90,
+    "candidate_program_pct": 91,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
     "iter006_pct": 100,
     "iter007_pct": 100,
     "iter008_pct": 100,
-    "iter009_pct": 75,
+    "iter009_pct": 85,
     "theory_established_pct": 0
   },
   "candidate": {
     "active_branch": "QGR_L1_SECOND_MOMENT",
-    "lead_architecture": "A_CCRC",
-    "status": "ALL_ORDERS_LOCAL_TWO_DERIVATIVE_GRAVITY_PLUS_FINITE_DEPTH_QUANTUM_HISTORY_DYNAMICS_PLUS_SCOPED_ONE_PARAMETER_FIXED_GEOMETRY_BROADBAND_COMPARATOR__C6_SELF_CONSISTENT_CURVED_RESPONSE_AND_INFINITE_REFINEMENT_OPEN",
-    "finite_depth_history_channel_closed_scoped": true,
-    "global_interacting_vacuum_probability_measure_closed": false,
-    "curvature_squared_pure_vacuum_physical_bulk_dimension_first_order": 0,
-    "six_derivative_parity_even_ricci_flat_bulk_dimension": 1,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
-    "six_derivative_scaling": "c6*Gamma^2*(ell_Q^2 R_eff)^2",
+    "flat_linearized_c6_response": "ZERO_THROUGH_HESSIAN",
+    "curved_quadratic_c6_response": "GENERICALLY_NONZERO",
+    "existing_G6H_scope": "FIXED_GEOMETRY_TRANSPORT_COMPARATOR_WITH_NO_EXPLICIT_C6_OR_ACTION_PHASE_INPUT",
+    "finite_depth_history_channel_closed_scoped": true,
+    "global_interacting_vacuum_probability_measure_closed": false,
     "infinite_refinement_operator_limit_closed": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
   "iter009": {
     "status": "ACTIVE",
-    "completion_pct": 75,
+    "completion_pct": 85,
     "g1_run_id": 34662453224,
     "g2_run_id": 34663104103,
     "g3_run_id": 34663353057,
-    "g3_classification": "PARTIAL_SCOPED_ON_SHELL_PARITY_EVEN_PURE_VACUUM_SIX_DERIVATIVE_OPERATOR_SHAPE_COLLAPSES_TO_ONE_WEYL_CUBED_CLASS__ITS_QGR_COEFFICIENT_C6_IS_UNFIXED_AND_COMPETES_AT_THE_SAME_OH4_ORDER_AS_THE_HISTORY_EFFECT",
-    "active_gate": "QGR-ITER009-G4-MICROSCOPIC-C6-MATCHING-OR-OBSERVABLE-DECOUPLING-AND-CHANNEL-CONVERGENCE"
+    "g4_run_id": 34663799182,
+    "g4_classification": "PARTIAL_SCOPED_C6_IS_NOT_FIXED_BY_CURRENT_LOWER_ORDER_DATA_BUT_DECOUPLES_FROM_FLAT_LINEARIZED_PROPAGATION_AND_FROM_THE_EXISTING_FIXED_GEOMETRY_TRACED_G6H_CHANNEL_AS_A_SCALAR_PHASE__SELF_CONSISTENT_CURVED_C6_DYNAMICS_AND_INFINITE_REFINEMENT_REMAIN_OPEN",
+    "active_gate": "QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL"
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
@@ -51,41 +50,19 @@
     "D7": "NOT_CLOSED"
   },
   "active_question": {
-    "id": "QGR-ITER009-G4-MICROSCOPIC-C6-MATCHING-OR-OBSERVABLE-DECOUPLING-AND-CHANNEL-CONVERGENCE",
-    "text": "Is c6 determined by current QGR microscopic data, does Weyl^3 affect the existing G6H fixed-geometry broadband comparator or only self-consistent curved dynamics, and can the finite-depth channels be controlled uniformly toward infinite refinement?"
-  },
-  "next_gate": {
-    "iteration": 9,
-    "id": "QGR-ITER009-G4-MICROSCOPIC-C6-MATCHING-OR-OBSERVABLE-DECOUPLING-AND-CHANNEL-CONVERGENCE",
-    "action": "Run parallel exact audits of c6 underdetermination, flat Hessian decoupling, curved-background activation, Kraus phase cancellation, G6H code scope, and sufficient uniform channel convergence bounds.",
-    "fatal_criterion": "Do not import continuum c6, do not confuse fixed-geometry phase independence with self-consistent curved independence, and do not promote scalar O(h4) convergence to operator convergence."
+    "id": "QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL",
+    "text": "Does an O(h^4)c6 self-consistent geometry correction modify the leading O(h^4) history-mixture loss, and can the repaired packet domain support a strong infinite-refinement limit even though uniform operator-norm convergence is not established?"
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
-    "qgr_global_interacting_vacuum_measure_closed": false,
-    "qgr_infinite_refinement_operator_limit_closed": false,
     "qgr_six_derivative_coefficient_fixed": false,
-    "qgr_complete_Oh4_effective_theory_one_parameter": false,
-    "qgr_existing_G6H_fixed_geometry_comparator_one_parameter_scoped": true,
-    "qgr_radiatively_closed": false,
+    "qgr_all_observables_c6_independent": false,
+    "qgr_existing_G6H_fixed_geometry_comparator_c6_independent_scoped": true,
+    "qgr_full_hilbert_operator_norm_limit_closed": false,
+    "qgr_global_interacting_vacuum_measure_closed": false,
     "qgr_independent_benchmark_passed": false,
-    "all_known_models_wrong": false,
     "new_model_required_by_kmqgb": false,
-    "qgr_correct": false,
-    "qgr_unique_full_theory": false
-  },
-  "recovery_order": [
-    "recovery/state.json",
-    "recovery/CURRENT_FRONT.md",
-    "iterations/ITERATION_009.md",
-    "results/ITER009_G3_SIX_DERIVATIVE_PHYSICAL_OPERATOR_CENSUS.md",
-    "results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md",
-    "results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md",
-    "iterations/ITERATION_008.md",
-    "iterations/ITERATION_007.md",
-    "iterations/ITERATION_006.md",
-    "docs/CONSTITUTION.md",
-    "current KMQGB authoritative benchmark decision plus latest scoped deltas"
-  ]
+    "qgr_correct": false
+  }
 }
