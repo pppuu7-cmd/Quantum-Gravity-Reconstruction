@@ -1,0 +1,52 @@
+name: qgr-iter025-g25-same-realization-phase-bridge
+on:
+  push:
+    paths:
+      - 'code/qgr_iter025_g25_same_realization_phase_bridge.py'
+      - 'code/qgr_iter025_g25_aggregate.py'
+      - '.github/workflows/qgr-iter025-g25-same-realization-phase-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        audit: [current-bridge-rank, free-endpoint-collapse, source-map-nonuniqueness, three-probe-source-authority]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G25 same-realization phase bridge authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter025_g25_same_realization_phase_bridge.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g25-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g25-*
+          path: iter025-g25-results
+          merge-multiple: false
+      - name: Aggregate 24 G25 lanes
+        run: python code/qgr_iter025_g25_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g25-summary
+          path: iter025-g25-summary/summary.json
