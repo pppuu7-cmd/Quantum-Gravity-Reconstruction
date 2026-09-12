@@ -1,0 +1,51 @@
+name: qgr-iter019-g19-conformal-refinement-authority
+on:
+  push:
+    paths:
+      - 'code/qgr_iter019_g19_conformal_refinement_authority.py'
+      - 'code/qgr_iter019_g19_aggregate.py'
+      - '.github/workflows/qgr-iter019-g19-conformal-refinement-authority.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [conformal-reduction, weight-uniqueness, character-tension, normalization-inheritance]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G19 exact conformal/refinement authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter019_g19_conformal_refinement_authority.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g19-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g19-*
+          path: iter019-g19-results
+          merge-multiple: false
+      - name: Aggregate 24 G19 lanes
+        run: python code/qgr_iter019_g19_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g19-summary
+          path: iter019-g19-summary/summary.json
