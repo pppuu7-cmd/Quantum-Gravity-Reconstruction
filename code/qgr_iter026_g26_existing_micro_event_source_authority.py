@@ -156,9 +156,11 @@ def audit_history(lane):
     # equation with respect to any action/source phase coefficient is zero.
     branch_prob = F(1,24)
     completeness = 24 * branch_prob
-    # Two distinct formal phase/source values have identical K^dagger K.
+    # Two deliberately distinct formal phase/source values have identical K^dagger K.
+    # The +1 witness is chosen prospectively to avoid accidental rational equality;
+    # it changes no frozen scientific criterion.
     s1 = F(lane + 1, lane + 2)
-    s2 = F(lane + 3, lane + 5)
+    s2 = s1 + F(1)
     norm1 = branch_prob
     norm2 = branch_prob
     phase_authority_rank = 0
