@@ -1,0 +1,102 @@
+name: qgr-iter048-weyl3-variational
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'status/ITERATION_048_TRIGGER.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  stream-a:
+    name: stream-a (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Exact Kasner reduced variational activation
+        run: python code/qgr_iter048_weyl3_variational.py --stream A --index ${{ matrix.index }} --out iter048-output/result.json
+      - uses: actions/upload-artifact@v4
+        with: {name: qgr-iter048-A-${{ matrix.index }}, path: iter048-output/result.json}
+
+  stream-b:
+    name: stream-b (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Isotropic conformally-flat variational controls
+        run: python code/qgr_iter048_weyl3_variational.py --stream B --index ${{ matrix.index }} --out iter048-output/result.json
+      - uses: actions/upload-artifact@v4
+        with: {name: qgr-iter048-B-${{ matrix.index }}, path: iter048-output/result.json}
+
+  stream-c:
+    name: stream-c (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Generic anisotropic power-law certificate audit
+        run: python code/qgr_iter048_weyl3_variational.py --stream C --index ${{ matrix.index }} --out iter048-output/result.json
+      - uses: actions/upload-artifact@v4
+        with: {name: qgr-iter048-C-${{ matrix.index }}, path: iter048-output/result.json}
+
+  stream-d:
+    name: stream-d (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Kasner time-reparameterization density control
+        run: python code/qgr_iter048_weyl3_variational.py --stream D --index ${{ matrix.index }} --out iter048-output/result.json
+      - uses: actions/upload-artifact@v4
+        with: {name: qgr-iter048-D-${{ matrix.index }}, path: iter048-output/result.json}
+
+  aggregate:
+    name: aggregate
+    if: always()
+    needs: [stream-a, stream-b, stream-c, stream-d]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter048-*
+          path: iter048-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter048 gate
+        run: python code/qgr_iter048_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with: {name: qgr-iter048-summary, path: iter048-summary/summary.json}
