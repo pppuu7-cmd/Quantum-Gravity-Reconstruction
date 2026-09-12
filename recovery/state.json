@@ -4,16 +4,16 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 40,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_CALIBRATION_FREE_WEYL3_RESPONSE"
+    "iteration": 41,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_HELDOUT_WEYL3_GENERALIZATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "iter038_pct": 100,
     "iter039_pct": 100,
-    "iter040_pct": 20,
+    "iter040_pct": 100,
+    "iter041_pct": 15,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -32,7 +32,8 @@
     "current_absolute_authority_rank_u_c6": 0,
     "minimal_absolute_identification_rank_u_c6": 2,
     "physical_weyl_active_same_realization_phase_target_derived": false,
-    "calibration_free_weyl3_response_manifold_under_test": true,
+    "calibration_free_weyl3_response_manifold_scoped_closed": true,
+    "heldout_weyl3_generalization_under_test": true,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
@@ -40,43 +41,41 @@
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter039": {
+  "iter040": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "run_id": 34709657749,
-    "head_sha": "15cedcd3507f0223dc50827a2f72e3d0762ec901",
-    "aggregate_job_id": 103596064182,
-    "aggregate_artifact_id": 10302389728,
-    "aggregate_digest": "sha256:11d4f47b32e269573e491d06d188d1ee90da92a9f5000377876e498d037b23e3",
-    "terminal_classification": "PASS_SCOPED_INTERNAL_ABSOLUTE_SCALE_NONIDENTIFIABILITY_AND_MINIMAL_CALIBRATION_RANK_DERIVED",
-    "expected_lanes": 30,
-    "lane_passes": 30,
-    "source_scale_nullity": 1,
-    "current_absolute_authority_rank_on_u_c6": 0,
-    "minimal_rank_with_one_absolute_target": 1,
-    "minimal_rank_with_independent_conformal_plus_weyl_absolute_targets": 2,
-    "maximum_g38_output_difference_across_dummy_beta_witnesses": 0.0
-  },
-  "iter040": {
-    "status": "PRODUCTION_ACTIVE",
-    "completion_pct": 20,
-    "active_gate": "QGR-ITER040-CALIBRATION-FREE-WEYL3-RESPONSE-MANIFOLD",
     "run_id": 34709914980,
     "head_sha": "b990644250a4df7d29ddec467629c56956fd83e9",
-    "expected_scientific_lanes": 20,
+    "aggregate_job_id": 103596975475,
+    "aggregate_artifact_id": 10302927388,
+    "aggregate_digest": "sha256:898899c85f7c304b9f0032e6138f55dd7dc12339fa07f03728b0f774e1e03fe9",
+    "terminal_classification": "PASS_SCOPED_CALIBRATION_FREE_WEYL3_RESPONSE_MANIFOLD_ESTABLISHED",
+    "expected_lanes": 20,
+    "lane_passes": 20,
+    "H2_finest_normalized_abs_cubic": 1.875882416525863e-05,
+    "maximum_finest_rotation_discrepancy": 5.168073699081922e-08,
+    "weyl_norm_amplitude_slope_range": [0.9998691592541441, 1.000002740132653],
+    "weyl_cubic_amplitude_slope_range": [2.999514418717107, 3.0000081778357783],
+    "relative_nonzero_tidal_shape_ratio": "1:3:-1"
+  },
+  "iter041": {
+    "status": "PREREGISTERED_IMPLEMENTED_AWAITING_TRIGGER",
+    "completion_pct": 15,
+    "active_gate": "QGR-ITER041-HELDOUT-WEYL3-GENERALIZATION-AND-PREDICTION-CONTRACT-STRESS",
+    "expected_scientific_lanes": 24,
     "streams": {
-      "refinement_null_sign": 4,
-      "amplitude_power_law": 3,
-      "shape_ratio_universality": 3,
-      "rotational_invariance_recovery": 4,
-      "exact_calibration_free_relations": 6
+      "heldout_fixed_scale_shape_transfer": 6,
+      "heldout_refinement_transfer": 6,
+      "heldout_amplitude_law": 4,
+      "rotated_cubic_null_falsifiers": 4,
+      "heldout_rotation_covariance": 4
     }
   },
   "active_question": {
-    "id": "QGR-ITER040-CALIBRATION-FREE-WEYL3-RESPONSE-MANIFOLD",
-    "text": "With beta and c6 explicitly unfixed as classified by Iter039, does the existing same-field-content Weyl-active QGR realization nevertheless produce robust calibration-free signs, nulls, amplitude powers, tidal-shape ratios and rotationally invariant response-kernel relations that can serve as a parameterized falsifiable prediction manifold?"
+    "id": "QGR-ITER041-HELDOUT-WEYL3-GENERALIZATION-AND-PREDICTION-CONTRACT-STRESS",
+    "text": "Does the preregistered calibration-free Weyl^3 response law from Iter040 transfer out of sample to generic off-diagonal trace-free weak static tidal tensors, held-out null profiles and held-out rotations without fitting beta or c6?"
   },
-  "active_blocker": "CALIBRATION_FREE_WEYL_ACTIVE_PREDICTION_STRUCTURE_AND_END_TO_END_PARAMETERIZED_MODEL_CLOSURE",
+  "active_blocker": "OUT_OF_SAMPLE_WEYL3_TRANSFER_THEN_GENUINELY_NEW_DYNAMICAL_MAGNETIC_WEYL_SECTOR_AND_ABSOLUTE_MATCHING_AUTHORITY",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
