@@ -3,96 +3,75 @@
 Updated: 2026-09-12
 Active iteration: `Iter009`
 Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTERACTING_QUANTUM_MEASURE_AND_RADIATIVE_STABILITY`
-Active roadmap stage: `R10 interacting quantum completion / c6 microscopic matching or observable decoupling`
+Active roadmap stage: `R10 interacting quantum completion / leading history-loss c6 order and strong refinement control`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **90%**
+- Candidate-program readiness: **91%**
 - Iter005 completion: **100%**
 - Iter006 completion: **100%**
 - Iter007 completion: **100%**
 - Iter008 completion: **100%**
-- Iter009 completion: **75%**
+- Iter009 completion: **85%**
 - Theory established: **0%**
 - Active candidate: `QGR-L1`
-- All-orders local metric-only two-derivative action: **PASS_SCOPED**
-- Finite-depth history instrument: **PASS_SCOPED at arbitrary finite depth under verified branch-lift conditions**
+- Finite-depth history instrument: **PASS_SCOPED**
 - Naive global normalized interacting vacuum weight: **BLOCKED**
-- Pure-vacuum curvature-squared physical bulk directions at first correction order: **0 after rank-2 field-redefinition quotient**
-- Ricci-flat parity-even six-derivative bulk dimension: **1**, represented by `Weyl^3`
-- `c6` fixed by current QGR microscopic authority: **NO**
-- Existing G6H fixed-geometry broadband code path: **does not use branch action phases or c6 explicitly**
-- Infinite-refinement operator/channel limit: **OPEN**
+- First nonredundant Ricci-flat parity-even local correction: **one Weyl^3 class**
+- `c6` fixed: **NO**
+- Flat QGR-L1 Hessian dependence on `c6`: **none through second variation**
+- Nonzero-Weyl curved Hessian dependence on `c6`: **generic**
+- Existing G6H fixed-geometry comparator explicit `c6` dependence: **none**
+- Full self-consistent curved leading-loss `c6` dependence: **ACTIVE TEST**
+- Infinite-refinement full operator limit: **OPEN**
 - Independent KMQGB pass: **NO**
-- KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
-Readiness is an internal construction-roadmap metric, not probability of correctness and not fraction of quantum gravity solved.
+## Iter009 completed gates
 
-## Iter009 G1-G2
+G1 run `34662453224` blocked the naive global vacuum weight but preserved the operator route.
 
-G1 run `34662453224` blocked the naive global vacuum weight because of the infinite scale orbit and unsuppressed flat zero mode. G2 run `34663104103` established normalized `L2` states and arbitrary finite-depth CPTP/isometric history composition, and proved both parity-even curvature-squared pure-vacuum bulk directions EOM-redundant at first correction order.
+G2 run `34663104103` established normalized L2 states and arbitrary finite-depth history-channel normalization, and removed both curvature-squared pure-vacuum bulk directions by an exact rank-2 field-redefinition audit.
 
-Records:
-- `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`
-- `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`
+G3 run `34663353057` reduced the parity-even Ricci-flat six-derivative bulk sector to one nontrivial `Weyl^3` class and found its coefficient `c6` unfixed.
 
-## Iter009 G3 — first physically nonredundant local vacuum class
+G4 run `34663799182` proved:
 
-Run `34663353057`: **6 lanes + aggregate SUCCESS**.
+- lower-order QGR data admit an explicit continuous `c6` family;
+- `Weyl^3` has zero first and second variations at the exact flat seed;
+- nonzero background Weyl curvature generically activates a `c6` quadratic response;
+- scalar branch action phases cancel exactly from the traced Kraus channel;
+- actual G6H code is a fixed-geometry transport/overlap comparator with no explicit action phase or `c6` input;
+- a sufficient uniform operator convergence condition is known but not yet established by the current RMS/scalar data.
 
-In 4D Ricci-flat vacuum, the parity-even algebraic curvature-cubed sector is one-dimensional. Derivative-curvature six-derivative bulk terms reduce in the scoped vacuum sector by EOM/IBP/Bianchi identities to the same `Weyl^3` class. A Petrov-D-type Weyl block `diag(-2,1,1)` gives nonzero cubic trace.
+Record: `results/ITER009_G4_C6_DECOUPLING_AND_CHANNEL_SCOPE.md`.
 
-The local correction has the dimensional form
+## Active gate — G5
 
-`S6=a_cont*c6*h^4*integral(Weyl^3)`
+`QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL`
 
-and therefore scales relatively as
+Tests:
 
-`c6*Gamma^2*(ell_Q^2 R_eff)^2`.
-
-This is the same formal `O(h^4)` order as the previously constructed history effect. Current repository authority does not fix `c6`.
-
-Classification:
-`PARTIAL_SCOPED_ON_SHELL_PARITY_EVEN_PURE_VACUUM_SIX_DERIVATIVE_OPERATOR_SHAPE_COLLAPSES_TO_ONE_WEYL_CUBED_CLASS__ITS_QGR_COEFFICIENT_C6_IS_UNFIXED_AND_COMPETES_AT_THE_SAME_OH4_ORDER_AS_THE_HISTORY_EFFECT`.
-
-Record: `results/ITER009_G3_SIX_DERIVATIVE_PHYSICAL_OPERATOR_CENSUS.md`.
-
-## G6H scope audit before G4
-
-The actual G6H implementation was inspected. `qgr_iter007_g6h_common.py` obtains branch Lorentz maps from `solve_paths(h)` and constructs source momenta, little-group/Wigner rotations and normalized overlaps. `qgr_iter007_g6h_broadband_profile.py` computes the broadband history-mixture purity from those branch transports. Neither file inserts `S_alpha`, an action phase, or `c6`.
-
-Therefore the existing G6H result is a fixed-geometry transport comparator. This does **not** prove a fully self-consistent curved solution is `c6`-independent, because `c6 Weyl^3` can in principle modify the curved branch geometry/equations of motion.
+1. expand branch generators `X_alpha=h^2 A_alpha+c6 h^4 B_alpha+...` and determine the first `c6` order in pairwise mixture loss;
+2. test exact purity invariance under common geometry/unitary shifts;
+3. test branch-dependent `c6 h^4` corrections and cross-order with the existing `h^2` branch spread;
+4. keep absolute coherent observables separate from history-mixture purity;
+5. extend the repaired-G9 numerical relative Lorentz-generator scaling toward smaller `h` and test the `h^-2` rescaled spread;
+6. use exact packet-overlap formulas to test strong convergence on the specified physical packet domain without claiming full operator-norm convergence.
 
 ## Active blocker
 
-`MISSING_SAME_REALIZATION_MICROSCOPIC_DERIVATION_OR_OBSERVABLE_DECOUPLING_OF_C6_AND_UNIFORM_INFINITE_REFINEMENT_OPERATOR_CONTROL`
+`MISSING_ORDER_CLASSIFICATION_OF_SELF_CONSISTENT_C6_EFFECT_ON_HISTORY_MIXTURE_LOSS_AND_STRONG_INFINITE_REFINEMENT_CONTROL_ON_THE_SPECIFIED_PACKET_DOMAIN`
 
-## Active gate — G4
+## KMQGB lock
 
-`QGR-ITER009-G4-MICROSCOPIC-C6-MATCHING-OR-OBSERVABLE-DECOUPLING-AND-CHANNEL-CONVERGENCE`
-
-Parallel tests:
-
-1. construct the explicit family `S_lambda=S_EH+lambda*a_cont*h^4*integral(Weyl^3)` and test whether all already frozen lower-order/two-derivative data leave `lambda` free;
-2. compute first/second variation of `Weyl^3` about the exact flat seed;
-3. compute quadratic activation on a nonzero-Weyl background;
-4. prove cancellation of arbitrary scalar branch phases in the traced Kraus channel;
-5. freeze the scope of the existing G6H code as fixed-geometry/action-phase-independent, while retaining self-consistent curved dynamics as open;
-6. derive a sufficient uniform channel convergence bound and compare it with current evidence.
-
-## KMQGB synchronization
-
-Latest observed KMQGB head: `12a28d7b58c082b2f817cf3d0296ea9e11267097` (`Iter388: add CMB transport scope guard`). Authoritative recovery remains older with `NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
+Latest observed head remains `12a28d7b58c082b2f817cf3d0296ea9e11267097`; authoritative recovery remains `NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
 
 ## Claim locks
 
-- theory established remains `0%`;
+- theory established `0%`;
 - no experimental confirmation;
-- no microscopic `c6` value claim;
-- no claim complete leading `O(h^4)` EFT is one-parameter while self-consistent curved `c6` response is open;
-- existing G6H one-parameter claim remains only for its fixed-geometry comparator;
-- no global normalized vacuum measure claim;
-- no infinite-refinement operator-limit claim;
-- no independent KMQGB pass or `NEW_REQUIRED` authorization;
-- no claim QGR is unique/correct as a full quantum-gravity theory.
+- no microscopic `c6` value;
+- no claim all observables are `c6` independent;
+- no full-Hilbert operator-norm/infinite-refinement completion;
+- no independent KMQGB pass or `NEW_REQUIRED` authorization.
