@@ -1,0 +1,54 @@
+name: qgr-iter016-g14-microscopic-amplitude-bridge
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter016_g14_microscopic_amplitude_bridge.py'
+      - 'code/qgr_iter016_g14_aggregate.py'
+      - '.github/workflows/qgr-iter016-g14-microscopic-amplitude-bridge.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        audit: [equivariant-map, quadratic-authority, history-normalization, authority-rank]
+        lane: [0, 1, 2, 3, 4, 5]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact-rational G14 audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter016_g14_microscopic_amplitude_bridge.py \
+            --audit '${{ matrix.audit }}' \
+            --lane '${{ matrix.lane }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g14-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g14-*
+          path: iter016-g14-results
+      - name: Aggregate 24 exact lanes
+        run: python code/qgr_iter016_g14_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g14-summary
+          path: iter016-g14-summary/summary.json
