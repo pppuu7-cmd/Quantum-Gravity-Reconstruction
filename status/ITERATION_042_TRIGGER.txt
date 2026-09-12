@@ -1,0 +1,3 @@
+ITER042 production trigger
+Frozen preregistration: status/ITERATION_042.md
+Do not modify boost vectors, thresholds, stream definitions or claim locks based on production output.
