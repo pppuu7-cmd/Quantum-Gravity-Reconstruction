@@ -5,15 +5,15 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
     "iteration": 42,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_NONSTATIC_MAGNETIC_WEYL_COVARIANCE_BRIDGE"
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_BOOSTED_COVARIANCE_DIAGNOSTIC"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "iter040_pct": 100,
     "iter041_pct": 100,
-    "iter042_pct": 10,
+    "iter042_pct": 55,
+    "iter042r_pct": 20,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -23,64 +23,75 @@
     "projective_refinement_limit_mechanism_scoped_closed": true,
     "principal_compact_domain_uniform_small_h_regularity_derived_scoped": true,
     "principal_actual_fine_to_coarse_blocking_derived_scoped": true,
-    "additional_physical_distant_connection_branch_supported_under_g10b": false,
-    "physical_multiple_branch_measure_selection_derived": false,
-    "absolute_event_source_scale_beta_derived": false,
     "absolute_event_source_scale_beta_status": "EXPLICIT_MATCHING_CALIBRATION_PARAMETER_UNDER_CURRENT_AUTHORITY",
     "current_absolute_authority_rank_u_c6": 0,
     "minimal_absolute_identification_rank_u_c6": 2,
-    "physical_weyl_active_same_realization_phase_target_derived": false,
     "calibration_free_weyl3_response_manifold_scoped_closed": true,
     "heldout_weyl3_generalization_scoped_closed": true,
-    "nonstatic_magnetic_weyl_covariance_under_test": true,
+    "boosted_magnetic_sector_positive_partial_evidence": true,
+    "boosted_scalar_covariance_closed": false,
+    "frame_completion_diagnostic_under_test": true,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
-    "benchmark_winner": false,
+    "physical_multiple_branch_measure_selection_derived": false,
     "independent_validation": false
   },
   "iter041": {
     "status": "COMPLETE",
     "completion_pct": 100,
     "run_id": 34712571244,
-    "head_sha": "3c4d96d2658c2bd1aff6565c0f2cbc43595502bf",
     "aggregate_job_id": 103604189849,
     "aggregate_artifact_id": 10303324187,
     "aggregate_digest": "sha256:289bbbbe42b1f089f0c933423b4b026f53aa1b95296d85e823c643bfe0e8f735",
     "terminal_classification": "PASS_SCOPED_HELDOUT_WEYL3_GENERALIZATION_AND_PREDICTION_CONTRACT_STRESS",
     "expected_lanes": 24,
-    "lane_passes": 24,
-    "maximum_fixed_scale_heldout_q_error": 0.0002769683280777905,
-    "maximum_finest_refinement_heldout_q_error": 0.00027696835073143515,
-    "maximum_finest_heldout_rotation_discrepancy": 2.9473460146349044e-05,
-    "maximum_finest_rotated_null_normalized_cubic": 1.8275144691009777e-05,
-    "weyl_norm_amplitude_slope_range": [0.999941304636997, 1.0000103050279203],
-    "weyl_cubic_amplitude_slope_range": [2.9997228598916252, 3.0000742431607224]
+    "lane_passes": 24
   },
   "iter042": {
-    "status": "PREREGISTERED_READY_FOR_IMPLEMENTATION",
-    "completion_pct": 10,
-    "active_gate": "QGR-ITER042-NONSTATIC-MAGNETIC-WEYL-LORENTZ-COVARIANCE-BRIDGE",
+    "status": "PRODUCTION_ACTIVE_WITH_VALID_SCIENTIFIC_FAILURE_OBSERVED",
+    "completion_pct": 55,
+    "run_id": 34712954629,
     "expected_scientific_lanes": 24,
-    "streams": {
-      "magnetic_weyl_emergence": 6,
-      "scalar_lorentz_invariance_refinement": 6,
-      "boost_reversal_magnetic_parity": 4,
-      "boosted_amplitude_law": 4,
-      "small_velocity_magnetic_response": 4
+    "full_pass_still_possible": false,
+    "observed_failure": {
+      "stream": "B",
+      "index": 3,
+      "shape": "G0_heldout_offdiag",
+      "velocity": [0.15, 0.0, 0.0],
+      "controls_valid": true,
+      "finest_w2_error": 0.020130752262185782,
+      "finest_w3_error": 0.10325268252592992,
+      "w3_trend_pass": false
+    },
+    "positive_terminal_examples": {
+      "E1_velocity_growth": 3.0791994798062874,
+      "A5_magnetic_to_electric_ratio": 0.24086383352122614,
+      "C0_finest_parity_error": 0.0013934547915806722,
+      "D0_weyl3_kappa_slope": 2.9997071028479483,
+      "D0_magnetic_kappa_slope": 0.999809693602646
     }
   },
-  "active_question": {
-    "id": "QGR-ITER042-NONSTATIC-MAGNETIC-WEYL-LORENTZ-COVARIANCE-BRIDGE",
-    "text": "Does the same-field finite-cell QGR torsion/Weyl construction retain scalar Weyl covariance and produce the expected observer-dependent magnetic Weyl sector when the authorized static tidal geometry is described in globally Lorentz-boosted, time-dependent/off-diagonal coordinates?"
+  "iter042r": {
+    "status": "PREREGISTERED_IMPLEMENTED_PRODUCTION_QUEUED",
+    "completion_pct": 20,
+    "run_id": 34713234061,
+    "head_sha": "650a7424d0377388619ca975496c12edf702ddfd",
+    "expected_scientific_lanes": 24,
+    "active_gate": "ITER042R-FRAME-COMPLETION-COVARIANCE-DIAGNOSTIC",
+    "primary_hypothesis": "The original boosted curvature proxy mixes an internal Lorentz first index-pair with boosted-coordinate curvature-form indices before Weyl contractions; base-tetrad frame completion may restore scalar covariance."
   },
-  "active_blocker": "NONSTATIC_MAGNETIC_WEYL_COVARIANCE_THEN_INDEPENDENT_RADIATIVE_GEOMETRY_AND_ABSOLUTE_MATCHING_AUTHORITY",
+  "active_question": {
+    "id": "QGR-ITER042R-FRAME-COMPLETION-COVARIANCE-DIAGNOSTIC",
+    "text": "Is the valid G42 scalar-covariance failure a genuine finite-cell covariance defect or an observable-reconstruction error caused by contracting mixed internal and boosted-coordinate index frames?"
+  },
+  "active_blocker": "BOOSTED_SCALAR_COVARIANCE_INTERNAL_TO_COORDINATE_FRAME_COMPLETION",
+  "next_gate_lock": "DO_NOT_LAUNCH_INDEPENDENT_RADIATIVE_GEOMETRY_UNTIL_G42_AND_G42R_ARE_INTERPRETED",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "qgr_event_insertion_strength_derived": false,
-    "qgr_physical_weyl_active_same_realization_phase_target_derived": false,
     "qgr_physical_multiple_branch_measure_selection_derived": false,
     "qgr_independent_benchmark_passed": false,
     "new_model_required_by_kmqgb": false,
