@@ -1,67 +1,60 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter009`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTERACTING_QUANTUM_MEASURE_AND_RADIATIVE_STABILITY`
-Active roadmap stage: `R10 interacting quantum completion / leading history-loss c6 order and strong refinement control`
+Active iteration: `Iter010`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / MICROSCOPIC_UV_MATCHING`
+Active roadmap stage: `R11 microscopic higher-derivative authority / c6 matching`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **91%**
+- Candidate-program readiness: **92%**
 - Iter005 completion: **100%**
 - Iter006 completion: **100%**
 - Iter007 completion: **100%**
 - Iter008 completion: **100%**
-- Iter009 completion: **85%**
+- Iter009 completion: **100%**
+- Iter010 completion: **0%**
 - Theory established: **0%**
 - Active candidate: `QGR-L1`
 - Finite-depth history instrument: **PASS_SCOPED**
+- Established one-particle full-L2 strong refinement limit in regular weak-curvature branch: **PASS_SCOPED**
+- Normal one-particle finite 24-history trace-class channel limit: **PASS_SCOPED**
 - Naive global normalized interacting vacuum weight: **BLOCKED**
 - First nonredundant Ricci-flat parity-even local correction: **one Weyl^3 class**
 - `c6` fixed: **NO**
-- Flat QGR-L1 Hessian dependence on `c6`: **none through second variation**
-- Nonzero-Weyl curved Hessian dependence on `c6`: **generic**
-- Existing G6H fixed-geometry comparator explicit `c6` dependence: **none**
-- Full self-consistent curved leading-loss `c6` dependence: **ACTIVE TEST**
-- Infinite-refinement full operator limit: **OPEN**
+- Leading `O(h^4)` history-mixture purity `c6` dependence under regular `O(h^4)` geometry correction: **NONE; first branch-dependent term O(h^6)**
+- Generic absolute curved coherent observable `c6` dependence: **OPEN / GENERICALLY POSSIBLE**
+- Exact higher-derivative finite-cell UV action/equivalent microscopic rule: **NOT YET DERIVED**
 - Independent KMQGB pass: **NO**
 
-## Iter009 completed gates
+## Iter009 terminal result
 
-G1 run `34662453224` blocked the naive global vacuum weight but preserved the operator route.
+G5 run `34664051772`: leading `O(h^4)` history-mixture loss is `c6` independent under regular self-consistent `O(h^4)` `c6` geometry corrections; specified G6F packet states have summable strong refinement control.
 
-G2 run `34663104103` established normalized L2 states and arbitrary finite-depth history-channel normalization, and removed both curvature-squared pure-vacuum bulk directions by an exact rank-2 field-redefinition audit.
+G6 run `34664435506`: 6 lanes + aggregate SUCCESS. Exact flat torsion Jacobian rank is `24/24`; the established one-particle characteristic representation is strongly continuous on its full physical `L2` space; finite 24-history channels converge in trace norm for every normal one-particle state; fixed-time serial accumulation of regular per-cell `O(h^2)` branch spread vanishes as `O(h)`. `c6` remains unidentifiable from current microscopic authority for absolute curved coherent observables.
 
-G3 run `34663353057` reduced the parity-even Ricci-flat six-derivative bulk sector to one nontrivial `Weyl^3` class and found its coefficient `c6` unfixed.
+Records:
+- `iterations/ITERATION_009.md`
+- `results/ITER009_G5_LEADING_LOSS_AND_STRONG_REFINEMENT.md`
+- `results/ITER009_G6_STRONG_LIMIT_AND_C6_DECISION.md`
 
-G4 run `34663799182` proved:
+## Active gate — Iter010 G1
 
-- lower-order QGR data admit an explicit continuous `c6` family;
-- `Weyl^3` has zero first and second variations at the exact flat seed;
-- nonzero background Weyl curvature generically activates a `c6` quadratic response;
-- scalar branch action phases cancel exactly from the traced Kraus channel;
-- actual G6H code is a fixed-geometry transport/overlap comparator with no explicit action phase or `c6` input;
-- a sufficient uniform operator convergence condition is known but not yet established by the current RMS/scalar data.
-
-Record: `results/ITER009_G4_C6_DECOUPLING_AND_CHANNEL_SCOPE.md`.
-
-## Active gate — G5
-
-`QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL`
+`QGR-ITER010-G1-EXISTING-MICROSCOPIC-AUTHORITY-C6-IDENTIFIABILITY`
 
 Tests:
 
-1. expand branch generators `X_alpha=h^2 A_alpha+c6 h^4 B_alpha+...` and determine the first `c6` order in pairwise mixture loss;
-2. test exact purity invariance under common geometry/unitary shifts;
-3. test branch-dependent `c6 h^4` corrections and cross-order with the existing `h^2` branch spread;
-4. keep absolute coherent observables separate from history-mixture purity;
-5. extend the repaired-G9 numerical relative Lorentz-generator scaling toward smaller `h` and test the `h^-2` rescaled spread;
-6. use exact packet-overlap formulas to test strong convergence on the specified physical packet domain without claiming full operator-norm convergence.
+1. prove the derivative order of the exact Iter005 connection-density construction;
+2. compute the exact `c6` sensitivity rank/nullspace of all frozen lower-order constraints;
+3. verify the first `c6` order in the history-mixture observable;
+4. scan authority for any already-frozen exact higher-derivative finite-cell action/rule;
+5. exhibit or rule out a continuous `Weyl^3` deformation compatible with frozen lower-order data;
+6. identify the minimal independent microscopic datum required to lift the `c6` null direction.
 
 ## Active blocker
 
-`MISSING_ORDER_CLASSIFICATION_OF_SELF_CONSISTENT_C6_EFFECT_ON_HISTORY_MIXTURE_LOSS_AND_STRONG_INFINITE_REFINEMENT_CONTROL_ON_THE_SPECIFIED_PACKET_DOMAIN`
+`MISSING_EXACT_FINITE_CELL_UV_RULE_OR_EQUIVALENT_MICROSCOPIC_MATCHING_CONDITION_THAT_IDENTIFIES_C6`
 
 ## KMQGB lock
 
@@ -73,5 +66,6 @@ Latest observed head remains `12a28d7b58c082b2f817cf3d0296ea9e11267097`; authori
 - no experimental confirmation;
 - no microscopic `c6` value;
 - no claim all observables are `c6` independent;
-- no full-Hilbert operator-norm/infinite-refinement completion;
+- no full interacting nonperturbative many-body Hilbert-space completion;
+- no global strong-curvature uniqueness theorem;
 - no independent KMQGB pass or `NEW_REQUIRED` authorization.
