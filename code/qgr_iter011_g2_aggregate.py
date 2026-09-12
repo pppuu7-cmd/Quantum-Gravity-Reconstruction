@@ -10,20 +10,23 @@ required={
  'ITER011-G2-COMMON-COAREA-HISTORY-CANCELLATION',
 }
 assert required<=set(recs),(required,set(recs))
+ua=recs['ITER011-G2-UNIQUE-ANCHOR-GLUED-REFINEMENT']
+assert ua['prospective_unique_anchor_convergence_hypothesis_passed'] is False
 out={
  'gate':'ITER011-G2-AGGREGATE',
  'parallel_lanes':4,
  'aggregate_success':True,
- 'classification':'PARTIAL_SCOPED_TORSION_COAREA_MEASURE_HAS_A_WELL_DEFINED_FLAT_SUBTRACTED_LOCAL_REFINEMENT_BASELINE_AND_CONSTANT_BASIS_INVARIANCE__ITS_LEADING_CURVATURE2_CLASS_HAS_NO_NEW_PURE_VACUUM_BULK_DIRECTION_AND_COMMON_HISTORY_FACTORS_CANCEL_CONDITIONALLY',
+ 'classification':'PARTIAL_SCOPED_FLAT_SUBTRACTED_TORSION_JACOBIAN_HAS_CONSTANT_BASIS_INVARIANCE_AND_A_CONSTRAINED_MEASURE_SECTOR_ROLE__BUT_SIMPLE_UNIQUE_ANCHOR_FACTORISATION_FAILS_AND_FULL_GLUED_SHARED_VARIABLE_COAREA_PUSHFORWARD_REMAINS_OPEN',
  'key_results':[
-  'Unique-anchor counting removes the severe shared-vertex overcount in the naive local-cell product and yields a finite even fixed-volume refinement baseline on the test lattice.',
+  'Prospective simple unique-anchor factorisation fails strongly: the forward local Jacobian retains lower-order first-jet/coordinate pieces and its summed flat-subtracted log determinant does not converge under n=1,2,3 refinement.',
+  'Therefore the full glued constraint map on shared variables, or an equivalent projective/coarea pushforward, must be constructed before a global determinant can be assigned.',
   'Flat-subtracted Delta log|det J| is invariant under curvature-independent linear changes of constraint and connection coordinates.',
   'Modulo Euler/topological and EH equation-of-motion field redefinitions, the local parity-even curvature-squared pure-vacuum bulk quotient has dimension zero.',
   'Any positive coarea factor common to all 24 history labels at fixed geometry cancels exactly from normalized conditional history probabilities.'
  ],
  'c6_fixed':False,
- 'claim_lock':'This does not establish the full glued/projective continuum measure, BRST anomaly freedom, or a coherent c6 phase. It narrows the coarea correction to a measure/configuration-sector effect in the tested scope.',
- 'next_gate':'QGR-ITER011-G3-PROJECTIVE-PUSHFORWARD-COAREA-MEASURE-AND-BRST-JACOBIAN-CLOSURE'
+ 'claim_lock':'G2 does not establish a global/projective coarea measure, BRST anomaly freedom, or a coherent c6 phase. The local G1 Jacobian effect remains valid in its scoped symmetric-cell average, but naive local products are not an authorized continuum gluing rule.',
+ 'next_gate':'QGR-ITER011-G3-FULL_SHARED_VARIABLE_COAREA_PUSHFORWARD_AND_BRST_JACOBIAN_CLOSURE'
 }
 open('iter011-g2-summary.json','w').write(json.dumps(out,indent=2,sort_keys=True)+'\n')
 print(json.dumps(out,sort_keys=True))
