@@ -3,7 +3,7 @@
 Updated: 2026-09-12
 Active iteration: `Iter009`
 Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTERACTING_QUANTUM_MEASURE_AND_RADIATIVE_STABILITY`
-Active roadmap stage: `R10 interacting quantum completion / six-derivative physical operator and finite-refinement matching`
+Active roadmap stage: `R10 interacting quantum completion / c6 microscopic matching or observable decoupling`
 
 ## Canonical status
 
@@ -13,111 +13,86 @@ Active roadmap stage: `R10 interacting quantum completion / six-derivative physi
 - Iter006 completion: **100%**
 - Iter007 completion: **100%**
 - Iter008 completion: **100%**
-- Iter009 completion: **55%**
+- Iter009 completion: **75%**
 - Theory established: **0%**
-- Lead architecture: `A / CCRC`
 - Active candidate: `QGR-L1`
-- Local metric-only two-derivative action: **all-orders PASS_SCOPED**
-- Physical characteristic quotient: **2 modes**
-- Normalized finite-depth history instrument: **PASS_SCOPED at arbitrary finite depth under verified branch-lift conditions**
-- Normalized `L2` states on the invariant configuration measure: **exist**
-- Naive globally normalized interacting vacuum weight: **BLOCKED**
-- Curvature-squared pure-vacuum physical bulk quotient at first correction order: **0 after rank-2 local field-redefinition audit**
-- First local vacuum correction order not eliminated by current redundancy argument: **6 derivatives**
-- Infinite-refinement interacting operator/state limit: **OPEN**
+- All-orders local metric-only two-derivative action: **PASS_SCOPED**
+- Finite-depth history instrument: **PASS_SCOPED at arbitrary finite depth under verified branch-lift conditions**
+- Naive global normalized interacting vacuum weight: **BLOCKED**
+- Pure-vacuum curvature-squared physical bulk directions at first correction order: **0 after rank-2 field-redefinition quotient**
+- Ricci-flat parity-even six-derivative bulk dimension: **1**, represented by `Weyl^3`
+- `c6` fixed by current QGR microscopic authority: **NO**
+- Existing G6H fixed-geometry broadband code path: **does not use branch action phases or c6 explicitly**
+- Infinite-refinement operator/channel limit: **OPEN**
 - Independent KMQGB pass: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
 Readiness is an internal construction-roadmap metric, not probability of correctness and not fraction of quantum gravity solved.
 
-## Iter009 G1
+## Iter009 G1-G2
 
-Run `34662453224`: 5 lanes + aggregate SUCCESS.
+G1 run `34662453224` blocked the naive global vacuum weight because of the infinite scale orbit and unsuppressed flat zero mode. G2 run `34663104103` established normalized `L2` states and arbitrary finite-depth CPTP/isometric history composition, and proved both parity-even curvature-squared pure-vacuum bulk directions EOM-redundant at first correction order.
 
-The invariant reference measure has infinite scale-orbit volume and the flat zero-Lambda action does not suppress that orbit. This blocks using `exp(iS/hbar)dmu` as a ready-made normalized vacuum measure. Refinement-connected maps preserve the two global `Z2` sectors. Before field-redefinition quotient, two parity-even curvature-squared bulk directions are allowed. Power counting gives `omega=2L+2` as an allowance only.
+Records:
+- `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`
+- `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`
 
-Record: `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`.
+## Iter009 G3 — first physically nonredundant local vacuum class
 
-## Iter009 G2
+Run `34663353057`: **6 lanes + aggregate SUCCESS**.
 
-Run `34663104103`: 6 lanes + aggregate SUCCESS. Earlier run `34663065413` had one technical floating-point equality failure; exact rational arithmetic repaired it without criterion change.
+In 4D Ricci-flat vacuum, the parity-even algebraic curvature-cubed sector is one-dimensional. Derivative-curvature six-derivative bulk terms reduce in the scoped vacuum sector by EOM/IBP/Bianchi identities to the same `Weyl^3` class. A Petrov-D-type Weyl block `diag(-2,1,1)` gives nonzero cubic trace.
 
-### Finite-depth quantum closure
+The local correction has the dimensional form
 
-Infinite reference volume does not preclude normalized `L2` states. At history depth `n`, exact completeness is
+`S6=a_cont*c6*h^4*integral(Weyl^3)`
 
-`24^n * 24^-n = 1`.
+and therefore scales relatively as
 
-Thus the finite history instrument remains isometric/CPTP at arbitrary finite depth, conditional on the already verified unitary/quasi-invariant branch lifts.
+`c6*Gamma^2*(ell_Q^2 R_eff)^2`.
 
-### Four-derivative physical redundancy
-
-For the pure vacuum EH/QGR branch,
-
-`delta g^munu = a R^munu + b g^munu R`
-
-induces coefficient map
-
-`(a,b) -> (a, -(a/2+b))`
-
-in basis `(R_munu R^munu, R^2)`. Its matrix `[[1,0],[-1/2,-1]]` has determinant `-1`, rank `2`. Both parity-even curvature-squared bulk directions are therefore EOM-redundant for first-order pure-vacuum on-shell physics, modulo Euler/boundary terms.
-
-The first power-counting level not removed by this argument is six derivatives.
-
-### Remaining operator-limit boundary
-
-Current `O(h^4)` convergence is established for specified observables/comparators, not as a uniform diamond/strong operator bound. Exact finite-depth channel normalization therefore does not yet prove the infinite-refinement channel limit.
+This is the same formal `O(h^4)` order as the previously constructed history effect. Current repository authority does not fix `c6`.
 
 Classification:
-`PARTIAL_SCOPED_FINITE_DEPTH_INTERACTING_OPERATOR_DYNAMICS_IS_WELL_DEFINED_WITH_NORMALIZED_L2_STATES__CURVATURE_SQUARED_VACUUM_BULK_DIRECTIONS_ARE_FIELD_REDEFINITION_REDUNDANT__SIX_DERIVATIVE_MICROSCOPIC_MATCHING_AND_INFINITE_REFINEMENT_LIMIT_REMAIN_OPEN`.
+`PARTIAL_SCOPED_ON_SHELL_PARITY_EVEN_PURE_VACUUM_SIX_DERIVATIVE_OPERATOR_SHAPE_COLLAPSES_TO_ONE_WEYL_CUBED_CLASS__ITS_QGR_COEFFICIENT_C6_IS_UNFIXED_AND_COMPETES_AT_THE_SAME_OH4_ORDER_AS_THE_HISTORY_EFFECT`.
 
-Record: `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`.
+Record: `results/ITER009_G3_SIX_DERIVATIVE_PHYSICAL_OPERATOR_CENSUS.md`.
+
+## G6H scope audit before G4
+
+The actual G6H implementation was inspected. `qgr_iter007_g6h_common.py` obtains branch Lorentz maps from `solve_paths(h)` and constructs source momenta, little-group/Wigner rotations and normalized overlaps. `qgr_iter007_g6h_broadband_profile.py` computes the broadband history-mixture purity from those branch transports. Neither file inserts `S_alpha`, an action phase, or `c6`.
+
+Therefore the existing G6H result is a fixed-geometry transport comparator. This does **not** prove a fully self-consistent curved solution is `c6`-independent, because `c6 Weyl^3` can in principle modify the curved branch geometry/equations of motion.
 
 ## Active blocker
 
-`MISSING_COMPLETE_SIX_DERIVATIVE_PHYSICAL_OPERATOR_CENSUS_AND_MICROSCOPIC_COEFFICIENT_MATCHING_PLUS_UNIFORM_OPERATOR_CONVERGENCE_CONTROL_FOR_INFINITE_REFINEMENT`
+`MISSING_SAME_REALIZATION_MICROSCOPIC_DERIVATION_OR_OBSERVABLE_DECOUPLING_OF_C6_AND_UNIFORM_INFINITE_REFINEMENT_OPERATOR_CONTROL`
 
-## Active gate — G3
+## Active gate — G4
 
-`QGR-ITER009-G3-SIX-DERIVATIVE-PHYSICAL-OPERATOR-CENSUS-AND-FINITE-REFINEMENT-MATCHING`
+`QGR-ITER009-G4-MICROSCOPIC-C6-MATCHING-OR-OBSERVABLE-DECOUPLING-AND-CHANNEL-CONVERGENCE`
 
 Parallel tests:
 
-1. count the parity-even on-shell pure-vacuum six-derivative basis in 4D;
-2. reduce derivative-curvature terms using Ricci-flat EOM, Bianchi identities and integration by parts;
-3. construct a nonzero Ricci-flat curvature-cubed witness;
-4. derive the correction's refinement and `Gamma` scaling;
-5. audit whether any current QGR microscopic authority fixes its coefficient;
-6. compare its order directly with the existing `O(h^4)` finite-history broadband correction.
-
-Fail closed if a continuum two-loop coefficient is imported as QGR microscopic input or if a same-order local correction is silently omitted from phenomenology.
+1. construct the explicit family `S_lambda=S_EH+lambda*a_cont*h^4*integral(Weyl^3)` and test whether all already frozen lower-order/two-derivative data leave `lambda` free;
+2. compute first/second variation of `Weyl^3` about the exact flat seed;
+3. compute quadratic activation on a nonzero-Weyl background;
+4. prove cancellation of arbitrary scalar branch phases in the traced Kraus channel;
+5. freeze the scope of the existing G6H code as fixed-geometry/action-phase-independent, while retaining self-consistent curved dynamics as open;
+6. derive a sufficient uniform channel convergence bound and compare it with current evidence.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `12a28d7b58c082b2f817cf3d0296ea9e11267097`, `Iter388: add CMB transport scope guard`. Its authoritative recovery state remains older and still records `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
+Latest observed KMQGB head: `12a28d7b58c082b2f817cf3d0296ea9e11267097` (`Iter388: add CMB transport scope guard`). Authoritative recovery remains older with `NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
 
 ## Claim locks
 
 - theory established remains `0%`;
 - no experimental confirmation;
-- no absolute `Gamma`, `g=1`, `h=l_P`, Planck tick, or minimum length by convention;
+- no microscopic `c6` value claim;
+- no claim complete leading `O(h^4)` EFT is one-parameter while self-consistent curved `c6` response is open;
+- existing G6H one-parameter claim remains only for its fixed-geometry comparator;
 - no global normalized vacuum measure claim;
 - no infinite-refinement operator-limit claim;
-- no actual loop-divergence claim from power counting alone;
-- no four-derivative pure-vacuum physical free parameters after G2D;
-- no six-derivative coefficient claim until microscopic matching is done;
 - no independent KMQGB pass or `NEW_REQUIRED` authorization;
 - no claim QGR is unique/correct as a full quantum-gravity theory.
-
-## Recovery order
-
-1. `recovery/state.json`
-2. `recovery/CURRENT_FRONT.md`
-3. `iterations/ITERATION_009.md`
-4. `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`
-5. `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`
-6. `iterations/ITERATION_008.md`
-7. `iterations/ITERATION_007.md`
-8. `iterations/ITERATION_006.md`
-9. `docs/CONSTITUTION.md`
-10. current KMQGB authoritative benchmark decision plus latest scoped deltas
