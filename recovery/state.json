@@ -14,7 +14,7 @@
     "iter046_pct": 100,
     "iter047_pct": 100,
     "iter048_pct": 100,
-    "iter049_pct": 20,
+    "iter049_pct": 35,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -60,27 +60,37 @@
     "scope_lock": "LAPSE_RETAINING_AXISYMMETRIC_BIANCHI_I_REDUCED_VARIATION_ONLY_NOT_FULL_COVARIANT_SIX_DERIVATIVE_EOM"
   },
   "iter049": {
-    "status": "PREREGISTERED_IMPLEMENTED_PRODUCTION_QUEUED",
-    "completion_pct": 20,
+    "status": "AUTHORITATIVE_RETRY_PRODUCTION_ACTIVE",
+    "completion_pct": 35,
     "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
-    "implementation_commit": "2e6e8d527bb81e415c3eb5c93526e5eb0a127673",
+    "initial_implementation_commit": "2e6e8d527bb81e415c3eb5c93526e5eb0a127673",
     "aggregate_commit": "939353319ac7158f27d2841323c1e34b6d491fc9",
     "workflow_commit": "1ef0baf2d96fba9187a409e1108b433fd5cb072b",
-    "trigger_commit": "237cd84006afa867352c27fa274c8aa7c25d14ae",
-    "run_id": 34719814120,
+    "initial_trigger_commit": "237cd84006afa867352c27fa274c8aa7c25d14ae",
+    "initial_run_id": 34719814120,
+    "initial_run_authority": "ITER049_INITIAL_PRODUCTION_SYMBOLIC_CONTROL_INVALID_REQUIRES_CANONICAL_TRIG_RETRY",
+    "run_authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
+    "canonical_trig_control_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042",
+    "authoritative_retry_trigger_commit": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
+    "authoritative_run_id": 34719948722,
     "expected_scientific_lanes": 24,
     "streams": {"A":6,"B":6,"C":6,"D":6},
     "active_gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
     "terminal_classification": null,
     "c6_status": "SYMBOLIC_UNFIXED_COEFFICIENT_ONLY",
-    "scope_lock": "RADIAL_GAUGE_UNFIXED_STATIC_SPHERICAL_REDUCED_VARIATION_ONLY_NOT_FULL_4D_COVARIANT_WEYL3_EOM"
+    "scope_lock": "RADIAL_GAUGE_UNFIXED_STATIC_SPHERICAL_REDUCED_VARIATION_ONLY_NOT_FULL_4D_COVARIANT_WEYL3_EOM",
+    "diagnostic_evidence": {
+      "initial_A0": "PASS exact Schwarzschild W3/L6/E_F/E_N/E_S formulas and Ricci-flatness",
+      "initial_D3": "PASS exact generic radial Noether identity with nonzero reduced responses",
+      "initial_B0_issue": "W3=L6=E_F=E_N=E_S=0 but default simplifier left one identically-zero trigonometric Weyl component; fixed by exact canonical trig simplification without changing science criteria"
+    }
   },
   "active_question": {
     "id": "QGR-ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
     "text": "Does the coefficient of c6 in a radial-gauge-unfixed static spherical reduction of sqrt(-g) Weyl^3 give a nonzero reduced Euler-Lagrange response on Schwarzschild, zero response on conformally-flat constant-curvature controls, and exact radial Noether covariance?"
   },
   "active_blocker": "SECOND_INDEPENDENT_CURVED_SYMMETRY_CLASS_FOR_SIX_DERIVATIVE_VARIATIONAL_RESPONSE_THEN_FULL_COVARIANT_CERTIFICATE",
-  "next_gate_lock": "Consume Iter049 raw lanes and frozen aggregate before promotion. Even full PASS is a second independent symmetry-reduced variational sector, not the complete four-dimensional covariant Weyl^3 Euler-Lagrange tensor. c6 remains symbolic/unfixed. Do not weaken frozen Schwarzschild targets or Noether identity after production inspection.",
+  "next_gate_lock": "Consume authoritative retry Iter049 raw lanes and frozen aggregate before promotion. Initial run 34719814120 is diagnostic/non-authoritative for terminal classification. Even full PASS is a second independent symmetry-reduced variational sector, not the complete four-dimensional covariant Weyl^3 Euler-Lagrange tensor. c6 remains symbolic/unfixed. Do not weaken frozen Schwarzschild targets, constant-curvature Weyl-zero criterion, or Noether identity.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
