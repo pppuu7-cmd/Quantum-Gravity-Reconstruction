@@ -1,0 +1,51 @@
+name: qgr-iter020-g20-event-boundary-authority
+on:
+  push:
+    paths:
+      - 'code/qgr_iter020_g20_event_boundary_authority.py'
+      - 'code/qgr_iter020_g20_aggregate.py'
+      - '.github/workflows/qgr-iter020-g20-event-boundary-authority.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [free-endpoint, boundary-source, s4-source-count, history-normalization]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G20 exact event-boundary authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter020_g20_event_boundary_authority.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g20-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g20-*
+          path: iter020-g20-results
+          merge-multiple: false
+      - name: Aggregate 24 G20 lanes
+        run: python code/qgr_iter020_g20_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g20-summary
+          path: iter020-g20-summary/summary.json
