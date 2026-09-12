@@ -1,0 +1,3 @@
+ITER041 production trigger
+Preregistered scientific gate: status/ITERATION_041.md
+Do not modify frozen shapes, thresholds or claim locks after this commit based on production output.
