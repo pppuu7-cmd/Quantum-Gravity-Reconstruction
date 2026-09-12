@@ -1,0 +1,73 @@
+name: qgr-iter009-g4-c6-decoupling
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter009_g4_*.py'
+      - '.github/workflows/qgr-iter009-g4-c6-decoupling.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: c6-underdetermination
+            script: code/qgr_iter009_g4_c6_underdetermination.py
+            output: iter009-g4-c6-underdetermination.json
+          - name: flat-hessian-decoupling
+            script: code/qgr_iter009_g4_flat_hessian_decoupling.py
+            output: iter009-g4-flat-hessian-decoupling.json
+          - name: curved-hessian-activation
+            script: code/qgr_iter009_g4_curved_hessian_activation.py
+            output: iter009-g4-curved-hessian-activation.json
+          - name: kraus-phase-cancellation
+            script: code/qgr_iter009_g4_kraus_phase_cancellation.py
+            output: iter009-g4-kraus-phase-cancellation.json
+          - name: g6h-scope-audit
+            script: code/qgr_iter009_g4_g6h_scope_audit.py
+            output: iter009-g4-g6h-scope-audit.json
+          - name: channel-convergence-bound
+            script: code/qgr_iter009_g4_channel_convergence_bound.py
+            output: iter009-g4-channel-convergence-bound.json
+    runs-on: ubuntu-24.04
+    name: lane (${{ matrix.name }})
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - name: Run lane
+        run: python "${{ matrix.script }}" > "${{ matrix.output }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter009-g4-${{ matrix.name }}
+          path: ${{ matrix.output }}
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: qgr-iter009-g4-*
+          path: iter009-g4-results
+          merge-multiple: false
+      - name: Aggregate
+        run: python code/qgr_iter009_g4_aggregate.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter009-g4-summary
+          path: iter009-g4-summary.json
+          if-no-files-found: error
+          retention-days: 90
