@@ -1,0 +1,2 @@
+ITER043-INDEPENDENT-TT-RADIATIVE-WEYL-COVARIANCE
+Preregistered in status/ITERATION_043.md before implementation and production.
