@@ -1,0 +1,70 @@
+name: qgr-iter008-g3-scale-calibration
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter008_g3_*.py'
+      - '.github/workflows/qgr-iter008-g3-scale-calibration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: clock-geometry
+            script: code/qgr_iter008_g3_clock_geometry.py
+            output: iter008-g3-clock-geometry.json
+          - name: topology-symplectic
+            script: code/qgr_iter008_g3_topology_symplectic.py
+            output: iter008-g3-topology-symplectic.json
+          - name: clock-dynamics
+            script: code/qgr_iter008_g3_clock_dynamics.py
+            output: iter008-g3-clock-dynamics.json
+          - name: clock-matter-normalization
+            script: code/qgr_iter008_g3_clock_matter_normalization.py
+            output: iter008-g3-clock-matter-normalization.json
+          - name: b4-spectrum
+            script: code/qgr_iter008_g3_b4_spectrum.py
+            output: iter008-g3-b4-spectrum.json
+    runs-on: ubuntu-24.04
+    name: lane (${{ matrix.name }})
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - name: Run lane
+        run: python "${{ matrix.script }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter008-g3-${{ matrix.name }}
+          path: ${{ matrix.output }}
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: qgr-iter008-g3-*
+          path: iter008-g3-results
+          merge-multiple: false
+      - name: Aggregate
+        run: python code/qgr_iter008_g3_aggregate.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter008-g3-summary
+          path: iter008-g3-summary.json
+          if-no-files-found: error
+          retention-days: 90
