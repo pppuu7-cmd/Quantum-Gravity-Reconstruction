@@ -1,0 +1,117 @@
+name: qgr-iter038-principal-refinement
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_038_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  certificate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Exact small-h Jacobian certificate
+        run: |
+          mkdir -p out
+          python code/qgr_iter038_principal_refinement.py --stream certificate --index 0 --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter038-certificate-0
+          path: out/result.json
+
+  gap:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        index: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Principal finite-range gap bridge
+        run: |
+          mkdir -p out
+          python code/qgr_iter038_principal_refinement.py --stream gap --index '${{ matrix.index }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter038-gap-${{ matrix.index }}
+          path: out/result.json
+
+  path:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        index: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Fixed physical path fine blocking
+        run: |
+          mkdir -p out
+          python code/qgr_iter038_principal_refinement.py --stream path --index '${{ matrix.index }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter038-path-${{ matrix.index }}
+          path: out/result.json
+
+  loop:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Elementary loop fine blocking
+        run: |
+          mkdir -p out
+          python code/qgr_iter038_principal_refinement.py --stream loop --index '${{ matrix.index }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter038-loop-${{ matrix.index }}
+          path: out/result.json
+
+  aggregate:
+    if: always()
+    needs: [certificate,gap,path,loop]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter038-*
+          path: iter038-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter038 gate
+        run: python code/qgr_iter038_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter038-summary
+          path: iter038-summary/summary.json
