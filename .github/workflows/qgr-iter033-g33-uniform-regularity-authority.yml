@@ -1,0 +1,59 @@
+name: qgr-iter033-g33-uniform-regularity-authority
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter033_g33_uniform_regularity_authority.py'
+      - 'code/qgr_iter033_g33_aggregate.py'
+      - '.github/workflows/qgr-iter033-g33-uniform-regularity-authority.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit:
+          - local-ift-inverse-bound
+          - existing-finite-regularity-anchors
+          - pointwise-not-uniform
+          - compact-gap-sufficient-control
+          - bounded-action-not-coercive
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G33 refinement-tower uniform regularity authority audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter033_g33_uniform_regularity_authority.py \
+            --audit '${{ matrix.audit }}' \
+            --lane '${{ matrix.lane }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g33-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    if: always()
+    needs: lane
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g33-*
+          path: iter033-g33-results
+          merge-multiple: false
+      - name: Aggregate 30 G33 lanes
+        run: python code/qgr_iter033_g33_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g33-summary
+          path: iter033-g33-summary/summary.json
