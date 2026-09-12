@@ -1,0 +1,5 @@
+ITER037-G37 production trigger
+Frozen preregistration: status/ITERATION_037.md
+Streams: 24 deeper-refinement lanes + 12 radius/path-consistency lanes
+Intended concurrent cap: 16 deep + 8 radius
+Date: 2026-09-12
