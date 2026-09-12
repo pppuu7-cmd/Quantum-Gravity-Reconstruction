@@ -1,0 +1,4 @@
+Iter045 preregistered relative two-polarization residue/signature production trigger.
+Preregistration commit: d08b131bc94007460b9ea517460f4d57e432fc16
+Implementation commits: a483681222a93eac73d9ce92365b19bbf90c9969, 6d368ac30bdeff1bfa1671cb3f15c57fe53e02a9, a4f03fb58105042a775f7940a33d628e98782901
+Frozen criteria: status/ITERATION_045.md
