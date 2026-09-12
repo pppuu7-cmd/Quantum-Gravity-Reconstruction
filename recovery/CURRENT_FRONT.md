@@ -1,17 +1,16 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter026`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / MICROSCOPIC EVENT-TO-SOURCE AUTHORITY`
-Active roadmap stage: `Boolean event -> selected response ray -> authorized boundary/source strength -> finite curved action phase`
+Active iteration: `Iter027`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / PRIMITIVE BOOLEAN SOURCE COMPOSITION`
+Active roadmap stage: `Boolean event -> selected response ray -> primitive composition law -> absolute source normalization -> finite curved action phase`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **93%**
-- Iter005–Iter024 completion: **100%**
-- Iter025 completion: **100% / BLOCKED_SCIENTIFIC terminal result recorded**
-- Iter026 completion: **ACTIVE**
+- Iter005–Iter026 completion: **100%**
+- Iter027 completion: **ACTIVE**
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - All-orders local metric-only two-derivative action: **PASS_SCOPED**
@@ -25,75 +24,73 @@ Active roadmap stage: `Boolean event -> selected response ray -> authorized boun
 - `c6` fixed: **NO**
 - Independent KMQGB pass / `NEW_REQUIRED`: **NO / NOT AUTHORIZED**
 
-## Iter023 terminal result
+## Iter023–Iter025 retained authority
 
-Run `34696333843`: the normalized 24-history order register fixes exact combinatorial order statistics but has zero authority rank on action-phase coefficients `(K,A,B)`. Order cumulants are not finite microscopic action amplitudes.
+- Iter023 run `34696333843`: uniform 24-history order measure fixes combinatorial order statistics but has zero authority rank on action-phase coefficients `(K,A,B)`.
+- Iter024 run `34697849130`: three nonredundant probes `(1,1,0,0)`, `(2,1,0,0)`, `(1,1,1,0)` form an exact rank-three algebraic basis for the cubic count-coordinate phase jet, but physical same-realization phase samples are absent.
+- Iter025 run `34700789596`: the existing action-source response maps a **specified** source to exact endpoint/on-shell phase, but the current authority chain does not derive a unique event-count-to-source map. Classification remains `BLOCKED_SCIENTIFIC`, not numerical/infrastructure failure.
 
-Record: `results/ITER023_G23_HISTORY_ORDER_ACTION_AUTHORITY.md`.
+Durable records:
+- `results/ITER023_G23_HISTORY_ORDER_ACTION_AUTHORITY.md`
+- `results/ITER024_G24_FINITE_CURVED_PHASE_AUTHORITY.md`
+- `results/ITER025_G25_SAME_REALIZATION_PHASE_BRIDGE_AUTHORITY.md`
 
-## Iter024 terminal result
+## Iter026 terminal result
 
-Run `34697849130`, head `26394a6c942015d5a8c5efd2f8d2da7803ffa28b`, aggregate job `103564470755`, aggregate artifact id `10299755570`, digest `sha256:e95bd44d2106d5d5bae86a5e15dd51c5d7f00c80a4597a216b1679fa5cc73352`.
+Authoritative corrected workflow:
+- run `34702933587`
+- head `1df4c4ef1fea82a6b43a3cc72ab5a97ec39924bf`
+- aggregate job `103577828439`
+- aggregate artifact `qgr-g26-summary`, id `10301066274`
+- digest `sha256:225b3351a3536e026aecbcd67c9be9f282b33496486adf708bab5ecb874bd408`
 
-Classification:
-`PASS_SCOPED_ALGEBRAIC_PHASE_AUTHORITY_DESIGN__BLOCKED_PHYSICAL_SAME_REALIZATION_FINITE_CURVED_PHASE_DATA_NOT_YET_DERIVED`.
+All **30/30 exact scientific lanes + aggregate** completed successfully.
 
-The three probes `(1,1,0,0)`, `(2,1,0,0)`, `(1,1,1,0)` form an exact rank-three basis for the cubic count-coordinate phase jet `(K,A,B)`. Current derived QGR inputs still supply zero numerical physical finite-curved phase samples.
+An earlier run `34702864879` contained one control-witness defect: two intended distinct rational history-phase witnesses accidentally coincided at lane 1 (`2/3=2/3`). This was an infrastructure/test-witness defect, not a scientific result. The frozen gate was unchanged and the corrected witness construction `s2=s1+1` produced the authoritative run above.
 
-Record: `results/ITER024_G24_FINITE_CURVED_PHASE_AUTHORITY.md`.
+Terminal classification:
+`PASS_SCOPED_EXISTING_QGR_MICROSCOPIC_INCIDENCE_FIXES_THE_EVENT_RESPONSE_DIRECTION_WHILE_THE_CURRENT_PAIR_ACTION_CONNECTION_HOLONOMY_HISTORY_NORMALIZATION_AND_COAREA_MEASURE_CHAIN_IS_HOMOGENEOUS_SOURCE_CONDITIONAL_OR_PHASE_BLIND_AND_HAS_NO_AUTHORITY_TO_FIX_A_NONZERO_ABSOLUTE_EVENT_TO_BOUNDARY_SOURCE_STRENGTH`.
 
-## Iter025 terminal result
+Exact conclusions:
+1. strict B4/S4 incidence fixes the response ray `C=J-I` but leaves one scalar;
+2. the existing pair action is homogeneous quadratic and has zero nonhomogeneous source gradient at the identity;
+3. compatible connection/holonomy is exactly blind to constant common second-moment rescaling;
+4. normalized history completeness fixes branch modulus `1/sqrt(24)` but has zero authority on source/action-phase strength;
+5. torsion/coarea Jacobian is a real positive measure datum, not a canonically derived coherent Lorentzian phase/source coefficient.
 
-Run `34700789596`, head `79c74ebf1309f8a0e39bfefed411c66dae4b3905`, aggregate job `103572183944`, aggregate artifact id `10300072883`, digest `sha256:f55c5a2d1bab55b2ee8b1ef900d1019869584d7acb69ee9e809d034255776fd5`.
+Durable record: `results/ITER026_G26_EXISTING_MICRO_EVENT_SOURCE_AUTHORITY.md`.
 
-24/24 structural lanes plus aggregate completed successfully.
-
-Scientific classification:
-`BLOCKED_SCIENTIFIC_EXISTING_QGR_ACTION_CAN_EVALUATE_AUTHORIZED_BOUNDARY_SOURCE_DATA_BUT_CURRENT_DERIVED_AUTHORITY_CHAIN_DOES_NOT_SUPPLY_A_UNIQUE_EVENT_COUNT_TO_SOURCE_MAP_AND_THEREFORE_DOES_NOT_DERIVE_THE_THREE_PHYSICAL_G24_FINITE_CURVED_PHASE_SAMPLES`.
-
-Strongest positive: the existing action-source response maps a **specified** source to an exact endpoint/on-shell phase, and G24 supplies a full-rank target basis.
-
-Strongest blocker: multiple exact S4-symmetric event-dependent source laws remain compatible with current structural constraints while giving different phase triples. Therefore the source law is not derived.
-
-Record: `results/ITER025_G25_SAME_REALIZATION_PHASE_BRIDGE_AUTHORITY.md`.
-
-## Active gate — Iter026 G26
-
-`QGR-ITER026-G26-SEEK-DERIVED-EVENT-TO-SOURCE-AUTHORITY-IN-EXISTING-MICROSCOPIC-INCIDENCE-HOLONOMY-AND-HISTORY-TRANSPORT-WITHOUT-ADDING-A-NEW-COUPLING`.
-
-Corrected authoritative workflow run: `34702933587`, head `1df4c4ef1fea82a6b43a3cc72ab5a97ec39924bf`.
-
-An earlier run `34702864879` exposed a control-witness defect in one history-normalization lane: two intended distinct rational phase witnesses accidentally coincided at lane 1 (`2/3=2/3`). This was an infrastructure/test-witness defect, not a scientific result. The frozen gate was unchanged; the second witness was replaced by the guaranteed-distinct exact construction `s2=s1+1`.
-
-Prospectively frozen G26 audits:
-
-1. `incidence-authority`: exact S4 rank of the six distinct-pair event responses;
-2. `pair-action-homogeneity`: whether the existing homogeneous pair action contains any nonzero source at the identity;
-3. `connection-scale-homogeneity`: whether the derived compatible connection/holonomy can fix a constant common response scale;
-4. `history-normalization-authority`: whether exact `1/sqrt(24)` branch normalization has authority on source/action phase strength;
-5. `coarea-measure-vs-phase`: whether the derived positive real torsion/coarea measure canonically determines a coherent phase/source coefficient.
-
-Matrix: **5 independent audit classes x 6 exact lanes = 30 lanes**, fail-fast disabled. Green CI is not itself scientific PASS; aggregate classification is authoritative only after all required artifacts are present.
-
-## Active blocker
-
-`MISSING_NONHOMOGENEOUS_SAME_REALIZATION_EVENT_COUNT_TO_BOUNDARY_SOURCE_OBJECT`.
-
-Current evidence already distinguishes several roles:
-
-- B4 distinct-pair incidence selects the response **direction** `C=J-I` but leaves an overall scalar;
-- the homogeneous pair action supplies dynamics but no nonzero free-endpoint source at the identity;
-- compatible connection/holonomy is constructed from an already supplied `G` and first jet;
-- the history instrument fixes branch modulus, not action/source phase magnitude;
-- torsion/coarea Jacobian is a real measure datum and has no derived canonical conversion to coherent Lorentzian phase.
-
-Iter026 must test these statements together before the project is allowed to introduce or search for any new primitive object.
-
-## Conditional next gate if G26 closes with zero absolute-source authority
+## Active gate — Iter027 G27
 
 `QGR-ITER027-G27-PRIMITIVE-BOOLEAN-COMPOSITION-BOUNDARY-INSERTION-AUTHORITY`.
 
-Search the primitive Boolean composition/refinement law for a genuinely nonhomogeneous insertion/boundary object that can map event count to response strength without introducing a fitted coupling. Do not launch as a dependent scientific gate before terminal G26 classification.
+Workflow:
+- run `34703351650`
+- head `8cc21d1e604a673a1e2db2b44149bc4d9aebacb7`
+- matrix: **5 exact audit classes x 6 lanes = 30 lanes**, fail-fast disabled.
+
+Prospectively frozen audits:
+1. `additive-valuation`: whether zero empty insertion + S4-equivalent primitive events + admissible additive composition reduces arbitrary source values to `J(n)=beta*n`;
+2. `multiplicative-character`: whether multiplicative composition fixes only the character shape `A_n=a^n` while leaving its generator free;
+3. `prefix-scale-blindness`: whether exact B4 prefix probabilities and `1/24` history normalization have zero authority on physical source scale;
+4. `boundary-coboundary`: whether rank-shell path independence plus homogeneous primitive insertion leaves one linear scale;
+5. `composition-ratios`: whether one B4, face-overlap and two-block serial regions fix beta-independent relative primitive insertion counts `4:5:8` while leaving common scale free.
+
+Green CI alone is not scientific PASS. The G27 aggregate is authoritative only after all required lane artifacts are present.
+
+## Active blocker
+
+`PRIMITIVE_COMPOSITION_SOURCE_LAW_SHAPE_AND_ABSOLUTE_SCALE_AUTHORITY`.
+
+G26 ruled out the already-derived incidence/action/connection/history/measure layers as sources of an absolute event-to-source scalar. G27 now tests whether primitive Boolean composition nevertheless fixes the **functional shape** of the source law, potentially reducing G25's arbitrary source-law family to a one-dimensional normalization ray.
+
+## Conditional next gate if G27 closes as prospectively expected
+
+`QGR-ITER028-G28-SOURCE-SCALE-QUOTIENT-FINITE-PHASE-INVARIANTS`.
+
+The intended question is whether physical predictions can be formed after quotienting the still-free source normalization. In the existing common-conformal Dirichlet sector, a specified linear boundary source obeys `r-1=J/(2 lambda)` and on-shell action scales as `-J^2/(4 lambda)`. If G27 establishes `J(n)=beta*n`, exact phase ratios can become beta-independent. Scope guard: that common-conformal sector has vanishing Weyl tensor, so such ratios cannot by themselves fix the Weyl^3 coefficient `c6` or substitute for genuinely Weyl-active finite-curved phase data.
+
+Do not launch G28 before terminal G27 classification.
 
 ## KMQGB lock
 
@@ -110,6 +107,7 @@ KMQGB terminal `NEW_REQUIRED` authority has not been established for QGR. No ben
 - synthetic/witness source laws are not candidate QGR physics;
 - branch modulus `1/sqrt(24)` is not an event-source strength;
 - real coarea measure weight is not a Lorentzian coherent phase;
+- any future `J(n)=beta*n` result is scoped to the prospectively frozen primitive additive S4-equivalent event-composition class unless enlarged by proof;
 - no full interacting nonperturbative many-body Hilbert-space completion;
 - no global strong-curvature uniqueness theorem;
 - no independent KMQGB pass or `NEW_REQUIRED` authorization.
