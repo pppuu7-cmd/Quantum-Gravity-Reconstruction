@@ -1,0 +1,32 @@
+name: qgr-iter011-g9-pair-action-nonlinearity
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/qgr_iter011_g9_pair_action_nonlinearity_audit.py'
+      - '.github/workflows/qgr-iter011-g9-pair-action-nonlinearity.yml'
+
+jobs:
+  g9:
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: G9 pair-action nonlinearity audit
+        run: |
+          mkdir -p artifacts
+          python code/qgr_iter011_g9_pair_action_nonlinearity_audit.py --lane ${{ matrix.lane }} | tee artifacts/g9_lane_${{ matrix.lane }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: g9-lane-${{ matrix.lane }}
+          path: artifacts/g9_lane_${{ matrix.lane }}.json
