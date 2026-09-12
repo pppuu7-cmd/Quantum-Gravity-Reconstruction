@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 29,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_WEYL_ACTIVE_PHASE_AUTHORITY"
+    "iteration": 30,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_MICROSCOPIC_WEYL_PHASE_SOURCE_CENSUS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -13,7 +13,8 @@
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter027_pct": 100,
     "iter028_pct": 100,
-    "iter029_pct": 15,
+    "iter029_pct": 100,
+    "iter030_pct": 10,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -25,32 +26,35 @@
     "primitive_additive_source_law_shape": "J(n)=beta*n",
     "primitive_additive_source_law_shape_closed_scoped": true,
     "common_conformal_scale_free_relations_closed_scoped": true,
+    "finite_nontrivial_holonomy_geometry_verified_scoped": true,
+    "weyl_active_forward_c6_sensitivity_closed_scoped": true,
     "absolute_event_source_scale_beta_derived": false,
     "physical_weyl_active_same_realization_phase_target_derived": false,
     "finite_pair_triple_coherent_amplitudes_derived": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter028": {
-    "status": "COMPLETE",
-    "completion_pct": 100,
-    "run_id": 34703724717,
-    "head_sha": "1ea63cb271c4e3c8ecfbc15c6c016ca260f0815a",
-    "aggregate_job_id": 103579925131,
-    "aggregate_artifact_id": 10301241876,
-    "aggregate_digest": "sha256:7220428d044e1a33fa6b3d923bed3d4c42e9ce1861bc79292fc9bfc29b2a8230",
-    "terminal_classification": "PASS_SCOPED_SOURCE_SCALE_QUOTIENT_YIELDS_EXACT_BETA_INDEPENDENT_ENDPOINT_AND_COMMON_CONFORMAL_PHASE_RATIOS_AND_ACTION_ENDPOINT_INVARIANT__NEGATIVE_CONTROL_CONFIRMS_ZERO_C6_AUTHORITY"
-  },
   "iter029": {
-    "status": "ACTIVE",
-    "completion_pct": 15,
+    "status": "COMPLETE_BLOCKED_SCIENTIFIC",
+    "completion_pct": 100,
     "run_id": 34703816372,
     "head_sha": "ffa1176569b14f4a029c4dc22f899610802dd2f5",
-    "active_gate": "QGR-ITER029-G29-WEYL-ACTIVE-SAME-REALIZATION-FINITE-PHASE-AUTHORITY-SEARCH"
+    "aggregate_job_id": 103580256407,
+    "aggregate_artifact_id": 10301636254,
+    "aggregate_digest": "sha256:b126dfd082a28b00e68afdfd210862258a9c72b851743f8a6b82f2286ac2fb3c",
+    "terminal_classification": "BLOCKED_SCOPED_EXISTING_QGR_HAS_WEYL_ACTIVE_C6_SENSITIVITY_BUT_CURRENT_SOURCE_SHAPE_AND_SCALE_FREE_CONFORMAL_DATA_HAVE_INSUFFICIENT_AUTHORITY_RANK_TO_FIX_C6_OR_ABSOLUTE_SOURCE_SCALE__ONE_GENUINE_NONHOMOGENEOUS_WEYL_ACTIVE_ABSOLUTE_PHASE_TARGET_WOULD_CLOSE_THE_C6_DIRECTION"
+  },
+  "iter030": {
+    "status": "ACTIVE",
+    "completion_pct": 10,
+    "run_id": 34705297620,
+    "head_sha": "3e7ed565f388528e53d8c9ff5ef93acfc9bdb71b",
+    "active_gate": "QGR-ITER030-G30-EXISTING-MICROSCOPIC-WEYL-ACTIVE-FINITE-CELL-PHASE-SOURCE-CENSUS",
+    "planned_lane_count": 30
   },
   "active_question": {
-    "id": "QGR-ITER029-G29-WEYL-ACTIVE-SAME-REALIZATION-FINITE-PHASE-AUTHORITY-SEARCH",
-    "text": "Do the newly closed primitive source-law shape and scale-free quotient relations, combined with the already-existing Weyl-active QGR background, provide sufficient authority rank to determine c6 or an absolute microscopic phase without importing a new fitted target?"
+    "id": "QGR-ITER030-G30-EXISTING-MICROSCOPIC-WEYL-ACTIVE-FINITE-CELL-PHASE-SOURCE-CENSUS",
+    "text": "Does any already-derived microscopic QGR object provide a nonhomogeneous absolute finite-cell coherent action phase/source target with Weyl-active authority, without adding a fitted coupling or reinterpreting geometry, history normalization, or coarea measure as phase by fiat?"
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
