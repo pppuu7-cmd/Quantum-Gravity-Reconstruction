@@ -11,7 +11,7 @@ Authoritative GitHub Actions run: `34706686021`.
 - 24 preregistered verification lanes + aggregate, workflow completed `SUCCESS`
 - aggregate job: `103588230856`
 - aggregate artifact: `10301772238`
-- aggregate digest: `sha256:d41b2ecb33301b4bdcb6e63fa006133656611481919455921551239a4e13ee53`
+- aggregate digest: `sha256:d41b2ec8657b27585c1d3735a6b060d21915145454a0ef5fc1e8b819de6be1a0`
 
 ## Frozen gate result
 
