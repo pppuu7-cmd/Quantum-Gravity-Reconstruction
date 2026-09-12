@@ -2,8 +2,8 @@
 
 Updated: 2026-09-12
 Active iteration: `Iter008`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTRINSIC_RELATIONAL_CLOCK_DERIVED / PHYSICAL_SCALE_CALIBRATION_OPEN`
-Active roadmap stage: `R9 prediction-discrimination / physical-scale and relational-matter reconstruction`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTRINSIC_CLOCK_DERIVED / G3_SCALE_ROUTES_CLOSED_NEGATIVELY / G4_INTERACTING_CONSTRAINT_ACTIVE`
+Active roadmap stage: `R9 prediction-discrimination / interacting clock-gravity scale reconstruction`
 
 ## Canonical status
 
@@ -12,136 +12,101 @@ Active roadmap stage: `R9 prediction-discrimination / physical-scale and relatio
 - Iter005 completion: **100%**
 - Iter006 completion: **100%**
 - Iter007 completion: **100%**
-- Iter008 completion: **25%**
+- Iter008 completion: **50%**
 - Theory established: **0%**
 - Lead architecture: `A / CCRC`
 - Active candidate: `QGR-L1`
 - Local metric-only two-derivative action: **all-orders PASS_SCOPED**
 - Physical characteristic quotient: **2 modes**
 - Full cutoff-free broadband two-mode history comparator: **PASS_SCOPED**
-- Leading tested finite-history refinement order: **O(h^4)**
+- Leading tested finite-history order: **O(h^4)**
 - Intrinsic relational clock `tau(S)=|S|`: **PASS_SCOPED**
-- Clock-conditioned sequential history/isometry factorization: **PASS_SCOPED**
+- Exact clock-conditioned history/isometry factorization: **PASS_SCOPED**
 - Physical duration of one rank tick: **OPEN**
 - Remaining microscopic normalization: `g=kappa/hbar`, **unfixed**
+- Immediate clock/discreteness/topological continuous scale-fixing routes: **CLOSED NEGATIVELY IN SCOPE**
 - Independent KMQGB pass: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED by latest authoritative recovery state**
 
 Readiness is an internal construction-roadmap metric, not probability of correctness.
 
-## Established same-realization chain
+## Same-realization chain
 
 `B4 relational seed`
-`-> four derived directions + Lorentzian incidence form`
-`-> Sym^2(W4) ten-component response`
-`-> derivative gauge closure / no onsite mass`
-`-> two physical characteristic modes`
-`-> unique cubic + quartic self-coupling`
-`-> all-orders metric-only two-derivative local action`
-`-> Lorentzian configuration Hilbert / BRST operational algebra`
-`-> refinement-connected finite torsion-free connection`
-`-> path-groupoid transport`
+`-> derived Lorentzian incidence geometry`
+`-> Sym^2(W4) QGR-L1`
+`-> derivative gauge closure / two modes / no onsite mass`
+`-> unique nonlinear self-coupling`
+`-> all-orders local metric-only two-derivative action`
+`-> state/measure/BRST/path-groupoid refinement layer`
 `-> normalized 24-history instrument`
 `-> O(h^4) finite-history correction`
-`-> finite overlapping-region local net`
-`-> positive two-mode characteristic pairing`
-`-> cutoff-free broadband comparator`
-`-> scale identifiability boundary g=kappa/hbar`
-`-> intrinsic Boolean rank clock tau=|S|`
-`-> exact clock-conditioned one-tick branch/isometry factorization`.
+`-> cutoff-free curved broadband comparator`
+`-> scale boundary g=kappa/hbar`
+`-> intrinsic Boolean rank clock`
+`-> exact clock-conditioned one-tick branch/isometry factorization`
+`-> G3 no-go for immediate proper-time, B4-spectrum, continuous topological, free-clock and clock-matter calibration routes`.
 
-No Planck-scale identification, `g=1`, arbitrary noise coefficient, arbitrary polarization projector, or external matter normalization has been inserted.
+## Iter007 closed scale boundary
 
-## Iter007 closed boundary
+`a_cont=c_geom*kappa/h^2`, with `g=kappa/hbar` and `ell_Q^2=hbar/a_cont`, so `h^2=c_geom*g*ell_Q^2`.
 
-Iter007 is complete. The model-side observable problem closed positively, while the absolute physical-scale problem closed negatively in the current realization.
+Current QGR does not fix `g` or a nonzero refinement stop scale. If `h` is removed as a regulator with continuum normalization fixed, the finite-history correction vanishes as `h^4`.
 
-The continuum matching is
+## Iter008 G1-G2
 
-`a_cont = c_geom kappa/h^2`.
+Runs `34660061343` and `34660219520`: both aggregate SUCCESS.
 
-Restoring `hbar` gives
+`tau(S)=|S|` is the unique unit-increment clock in the tested additive S4 class. All 24 histories share `0->1->2->3->4`.
 
-`g=kappa/hbar`, `ell_Q^2=hbar/a_cont`,
+Conditioning on rank gives `P(next|r)=1/(4-r)` and one-step coherent moduli `1/sqrt(4),1/sqrt(3),1/sqrt(2),1`, whose product is exactly `1/sqrt(24)`.
 
-and therefore
+Clock-only S4-invariant phases are removable by rank-slice rephasing.
 
-`h^2=c_geom g ell_Q^2`.
+Record: `results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`.
 
-The current QGR chain fixes neither `g` nor a nonzero refinement stop scale. If `h` is only a regulator and is removed with continuum normalization fixed, the finite-history correction vanishes as `h^4`.
+## Iter008 G3 — five-route scale-calibration no-go
 
-Authoritative records:
+Actions run `34661538161`: five lanes + aggregate SUCCESS.
 
-- `iterations/ITERATION_007.md`
-- `results/ITER007_G7B_G7D_SCALE_BOUNDARY.md`
-- `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`
-- `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`
+1. Every actual unit-rank Boolean cover is null under `C=J-I`; the symmetric rank direction and barycentric mean are timelike but do not define a unique nonzero proper-time tick.
+2. `Q_{1,3}` has homotopy type `RP^3`, with `H^2_dR=0` and integral `H^2=Z2`; continuous two-form prequantization cannot fix positive real `g`.
+3. Minimal rank-translation-invariant clock dynamics leaves one free physical frequency scale `J_clock` after removing a common phase.
+4. Treating rank as a physical scalar makes its kinetic normalization a new free coefficient rather than fixing gravity.
+5. The exact B4 graph-Laplacian spectrum `0,2,4,6,8` with multiplicities `1,4,6,4,1` is dimensionless; physical eigenvalues still scale as `1/h^2`.
 
-## Iter008 G1 — intrinsic Boolean clock
+Classification:
+`BLOCKED_SCOPED_INTRINSIC_CLOCK_AND_B4_DISCRETENESS_DO_NOT_CALIBRATE_PHYSICAL_SCALE__CURRENT_Q13_TOPOLOGY_HAS_NO_CONTINUOUS_H2_PREQUANTIZATION_CLASS__MINIMAL_CLOCK_OR_CLOCK_MATTER_DYNAMICS_INTRODUCE_A_NEW_FREE_SCALE`.
 
-Actions run `34660061343`: four lanes + aggregate SUCCESS.
+Record: `results/ITER008_G3_SCALE_CALIBRATION_NO_GO.md`.
 
-Within the tested `S4`-invariant, zero-at-empty, disjoint-additive scalar class, unit elementary increment fixes uniquely
+## Active blocker / G4
 
-`tau(S)=|S|`.
-
-Its symmetric gradient is the timelike direction of the already-derived `1+3` Lorentzian seed; the sum-zero transverse sector is three-dimensional with opposite sign. Fixed-rank levels are antichains, and all 24 maximal histories share the exact profile
-
-`0 -> 1 -> 2 -> 3 -> 4`.
-
-Rank composes across true serial B4 cells. Its dual quasi-frequency is compact but dimensionless; no physical tick duration follows yet.
-
-## Iter008 G2 — sequential clock-conditioned quantum instrument
-
-Actions run `34660219520`: four lanes + aggregate SUCCESS.
-
-At rank `r`, the exact conditional next-direction law is
-
-`P(next | r)=1/(4-r)`.
-
-The one-step coherent moduli are
-
-`1/sqrt(4), 1/sqrt(3), 1/sqrt(2), 1`,
-
-whose product is exactly `1/sqrt(24)`. Thus the global normalized 24-history amplitude is the product of intrinsic-clock one-step isometries.
-
-Clock-conditioned prefixes/suffixes are compatible with the established path-groupoid composition law.
-
-A clock-only `S4`-invariant edge phase is removable by rank-slice vertex rephasing, so the intrinsic scalar clock does not by itself create a physical Hamiltonian phase or fix `g`.
-
-Record:
-`results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`.
-
-## Active blocker / G3
-
-`MISSING_DERIVED_PHYSICAL_TICK_CALIBRATION_OR_NONTRIVIAL_MICROSCOPIC_QUANTIZATION_PRINCIPLE_FIXING_OR_BOUNDING_G`
+`MISSING_NONTRIVIAL_SAME_REALIZATION_QUANTUM_GEOMETRIC_OR_INTERACTING_CLOCK_GRAVITY_PRINCIPLE_THAT_RELATES_CLOCK_ENERGY_SCALE_TO_G_WITHOUT_NEW_FREE_NORMALIZATION`
 
 Active gate:
-`QGR-ITER008-G3-CLOCK-GEOMETRY-TOPOLOGICAL-QUANTIZATION-AND-MATTER-CALIBRATION`
+`QGR-ITER008-G4-INTERACTING-CLOCK-GRAVITY-CONSTRAINT-AND-DISCRETE-QUANTIZATION-AUDIT`
 
 Parallel tests:
 
-1. distinguish rank increment from proper time and test whether the derived Lorentzian geometry supplies a non-arbitrary tick/lapse calibration;
-2. audit the topology of the Lorentzian configuration space for a continuous two-form class capable of quantizing the microscopic action normalization;
-3. derive the minimal rank-translation-invariant clock dynamics and determine whether its frequency normalization is fixed or is a new free coupling;
-4. derive the minimal relational matter principal operator from the same incidence/metric structure and test whether operational normalization gives an independent scale relation.
-
-Fail closed if the answer requires `g=1`, `h=l_P`, one rank tick = Planck time, or phenomenological fitting.
+1. exact frozen-normalization `c_geom` matching from the already-derived QGR quadratic/connection-density convention;
+2. linear and quadratic common clock-gravity constraint deparametrization and relative-normalization audit;
+3. classification of the two `Z2` flat-line-bundle sectors of `Q_{1,3}~RP^3` and audit of the current scalar-Hilbert sector choice;
+4. loop/history phase single-valuedness versus continuously variable curvature holonomy;
+5. backreaction of an ordinary dynamical rank-clock scalar on the established zero-cosmological flat vacuum branch.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`, message `Iter374-378: launch parallel DSI parity observable audit`.
-
-Its latest authoritative `recovery/state.json` is older than that head but still records `Paper-IV global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, and `D7=NOT_CLOSED`. Until KMQGB itself updates that authoritative decision, QGR may not infer `NEW_REQUIRED` from later commits.
+Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`, `Iter374-378: launch parallel DSI parity observable audit`. Its latest authoritative recovery state remains older than this head and records `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`. No QGR `NEW_REQUIRED` inference is permitted.
 
 ## Claim locks
 
 - no experimental confirmation;
-- theory established remains `0%`;
-- no absolute numerical phenomenology until `g`/clock-matter calibration is derived or independently bounded;
-- no `g=1`, `h=l_P`, Planck-time tick, or minimum length by convention;
+- theory established `0%`;
+- no absolute phenomenology until `g`/clock-matter calibration is derived or independently bounded;
+- no `g=1`, `h=l_P`, Planck tick, or minimum length by convention;
 - no independent KMQGB pass;
-- no claim all known models fail;
+- no all-known-models-fail claim;
 - no `NEW_REQUIRED` authorization;
 - no claim QGR is unique/correct as a full quantum-gravity theory.
 
@@ -150,11 +115,12 @@ Its latest authoritative `recovery/state.json` is older than that head but still
 1. `recovery/state.json`
 2. `recovery/CURRENT_FRONT.md`
 3. `iterations/ITERATION_008.md`
-4. `results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`
-5. `iterations/ITERATION_007.md`
-6. `results/ITER007_G7B_G7D_SCALE_BOUNDARY.md`
-7. `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`
-8. `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`
-9. `iterations/ITERATION_006.md`
-10. `docs/CONSTITUTION.md`
-11. current KMQGB authoritative benchmark decision and latest scoped deltas
+4. `results/ITER008_G3_SCALE_CALIBRATION_NO_GO.md`
+5. `results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`
+6. `iterations/ITERATION_007.md`
+7. `results/ITER007_G7B_G7D_SCALE_BOUNDARY.md`
+8. `results/ITER007_G7A_MICROSCOPIC_SCALE_IDENTIFIABILITY.md`
+9. `results/ITER007_G6E_G6H_CURVED_BROADBAND_OBSERVABLE_CLOSURE.md`
+10. `iterations/ITERATION_006.md`
+11. `docs/CONSTITUTION.md`
+12. current KMQGB authoritative benchmark decision and latest scoped deltas
