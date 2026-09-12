@@ -1,0 +1,50 @@
+name: qgr-iter045-relative-residue
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_045_TRIGGER.txt'
+      - '.github/workflows/qgr-iter045-relative-residue.yml'
+  workflow_dispatch:
+
+jobs:
+  residue:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: Relative TT residue signature
+        run: python code/qgr_iter045_relative_residue.py --index ${{ matrix.index }} --out iter045-output/result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter045-${{ matrix.index }}
+          path: iter045-output/result.json
+
+  aggregate:
+    if: always()
+    needs: residue
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter045-*
+          path: iter045-all
+      - name: Frozen aggregate classification
+        run: python code/qgr_iter045_aggregate.py --root iter045-all --out iter045-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter045-summary
+          path: iter045-summary/summary.json
