@@ -1,8 +1,8 @@
 # QGR Iteration 008 — Physical Scale and Relational Matter Reconstruction
 
 Date: 2026-09-12
-Status: `ACTIVE / INTRINSIC_CLOCK_DERIVED / IMMEDIATE_SCALE_CALIBRATION_ROUTES_CLOSED_NEGATIVELY / G4_ACTIVE`
-Current task completion: **50%**
+Status: `ACTIVE / G4_COMPLETE / ONE_CONTINUOUS_MICROSCOPIC_NORMALIZATION_PLUS_Z2_GLOBAL_SECTOR / G5_ACTIVE`
+Current task completion: **75%**
 Candidate-program readiness: **87%**
 Active candidate: **QGR-L1**
 Theory established: **0%**
@@ -11,105 +11,95 @@ Readiness is an internal construction-roadmap metric, not probability of correct
 
 ## Objective
 
-Determine whether the same CCRC/QGR microscopic realization can supply an operational physical scale without inserting `g=1`, `h=l_P`, or an external matter normalization by hand.
+Determine whether the same CCRC/QGR microscopic realization can supply an operational physical scale without inserting `g=1`, `h=l_P`, or external matter normalization, and determine whether the theory remains predictive if the last continuous microscopic normalization cannot be derived internally.
 
-Iter007 reduced the unresolved scale freedom to one dimensionless microscopic action normalization
+Iter007 reduced the unresolved scale freedom to `g=kappa/hbar`, with `h^2=c_geom g ell_Q^2`, `ell_Q^2=hbar/a_cont`.
 
-`g = kappa/hbar`,
+## G1-G2 — intrinsic clock and sequential history
 
-with
+Runs `34660061343` and `34660219520`: aggregate SUCCESS.
 
-`h^2 = c_geom g ell_Q^2`, `ell_Q^2=hbar/a_cont`.
-
-## G1 — intrinsic Boolean rank clock
-
-Run `34660061343`: 4 lanes + aggregate SUCCESS.
-
-`tau(S)=|S|` is the unique unit-increment scalar in the tested `S4`-invariant, zero-at-empty, disjoint-additive class. Its symmetric direction is timelike, its fixed-rank slices are antichains, and all 24 maximal histories share `0,1,2,3,4`.
-
-Classification:
-`PASS_SCOPED_INTRINSIC_BOOLEAN_RANK_CLOCK_DERIVED_UNIQUELY_IN_ADDITIVE_S4_CLASS_WITH_TIMELIKE_1_PLUS_3_CAUSAL_STRUCTURE_AND_EXACT_SERIAL_COMPOSITION__PHYSICAL_TICK_SCALE_REMAINS_OPEN`.
-
-## G2 — exact clock-conditioned history instrument
-
-Run `34660219520`: 4 lanes + aggregate SUCCESS.
-
-`P(next|r)=1/(4-r)` and
+`tau(S)=|S|` is the unique unit-increment clock in the tested additive `S4` class. All 24 histories share `0,1,2,3,4`, and the normalized global history modulus factorizes exactly as
 
 `1/sqrt(4) * 1/sqrt(3) * 1/sqrt(2) * 1 = 1/sqrt(24)`.
 
-Thus the global normalized history modulus factorizes exactly into intrinsic-clock one-step isometries. A clock-only `S4`-invariant phase is removable by rank-slice rephasing.
-
-Classification:
-`PASS_SCOPED_INTRINSIC_RANK_CLOCK_GIVES_EXACT_SEQUENTIAL_BRANCH_MEASURE_AND_ISOMETRY_FACTORIZATION_COMPATIBLE_WITH_PATH_COMPOSITION__CLOCK_ALONE_HAS_NO_NONTRIVIAL_PHYSICAL_PHASE`.
+Clock-only `S4` phases are removable by rank-slice rephasing.
 
 Record: `results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`.
 
-## G3 — five-route scale-calibration audit
+## G3 — immediate scale-calibration routes close negatively
 
 Run `34661538161`: 5 lanes + aggregate SUCCESS.
 
-### Clock versus proper time
-
-Every elementary unit-rank cover is null under `C=J-I`. The symmetric rank direction is timelike and the barycentric mean step has dimensionless norm `3/4`, but that mean is not an actual history edge. No nonzero physical proper-time tick is fixed.
-
-### Topology / symplectic route
-
-`Q_{1,3}` deformation-retracts to `RP^3`. Thus
-
-`H^2_dR(Q_{1,3})=0`,
-
-while integral `H^2=Z2` is torsion. There is no continuous real two-form class capable of ordinary flux quantization of a positive real `g`; only a possible discrete sign/flat-line-bundle sector remains.
-
-### Minimal clock dynamics
-
-After removing a common phase, the minimal rank-translation-invariant nearest-neighbour clock generator retains one free frequency/hopping scale `J_clock`.
-
-### Clock as matter
-
-A freely normalized scalar removes its kinetic coefficient by field rescaling and gives no calibration. Identifying the scalar with the fixed-unit rank clock forbids that rescaling, making its kinetic coefficient a new free physical normalization instead of fixing `g`.
-
-### B4 spectrum
-
-The natural B4 graph-Laplacian spectrum is exactly
-
-`0,2,4,6,8`
-
-with multiplicities `1,4,6,4,1`, but physical eigenvalues remain proportional to `1/h^2`.
+- actual unit-rank covers are null and do not define nonzero proper-time ticks;
+- `Q_{1,3}~RP^3`, with `H^2_dR=0` and only `Z2` torsion;
+- minimal clock dynamics has one free frequency `J_clock`;
+- clock-as-matter introduces a new free kinetic normalization;
+- B4 spectral discreteness fixes ratios but not the overall `1/h^2` scale.
 
 Classification:
 `BLOCKED_SCOPED_INTRINSIC_CLOCK_AND_B4_DISCRETENESS_DO_NOT_CALIBRATE_PHYSICAL_SCALE__CURRENT_Q13_TOPOLOGY_HAS_NO_CONTINUOUS_H2_PREQUANTIZATION_CLASS__MINIMAL_CLOCK_OR_CLOCK_MATTER_DYNAMICS_INTRODUCE_A_NEW_FREE_SCALE`.
 
 Record: `results/ITER008_G3_SCALE_CALIBRATION_NO_GO.md`.
 
-## Active blocker
+## G4 — interacting clock-gravity and global quantization
 
-`MISSING_NONTRIVIAL_SAME_REALIZATION_QUANTUM_GEOMETRIC_OR_INTERACTING_CLOCK_GRAVITY_PRINCIPLE_THAT_RELATES_CLOCK_ENERGY_SCALE_TO_G_WITHOUT_NEW_FREE_NORMALIZATION`
+Run `34661941803`: 5 lanes + aggregate SUCCESS.
 
-## Active gate — G4
+### Frozen normalization
 
-`QGR-ITER008-G4-INTERACTING-CLOCK-GRAVITY-CONSTRAINT-AND-DISCRETE-QUANTIZATION-AUDIT`
+The exact earlier identity `S2_connection=-2 S2_QGR`, together with the frozen coordinate-cell convention, gives
+
+`a_cont=-kappa/(2h^2)`
+
+and therefore signed `c_geom=-1/2` in this repository convention. This factor is convention dependent; only the product `c_geom*g` is invariant under quadratic basis normalization changes.
+
+### Deparametrization
+
+Linear `A P_tau+B C_g=0` retains the ratio `B/A`; quadratic `P_tau^2/(2Z_tau)+C_g=0` retains `sqrt(Z_tau)` in the deparametrized generator. The fixed unit rank clock prevents absorbing these relative coefficients by rescaling `tau`.
+
+### Global `Z2` quantum sectors
+
+`pi_1(Q_{1,3})=Z2` gives exactly two flat `U(1)` line-bundle sectors with holonomy `+1` or `-1`. The current scalar `L^2(Q_13,dmu)` construction is the trivial sector. Existing covariance does not select it uniquely. This is a discrete global ambiguity, not a continuous `g` quantization.
+
+### Loop phase
+
+Because regular QGR curvature holonomy varies continuously, imposing `exp(i g Phi)=1` for every small loop phase would force `g=0`; it cannot quantize a nonzero `g` without an independently derived discrete curvature-flux spectrum.
+
+### Clock backreaction
+
+An ordinary dynamical rank-clock scalar with nonzero timelike gradient has nonzero stress energy for every nonzero kinetic normalization, so it does not preserve the already fixed flat zero-cosmological vacuum branch without additional compensation/tuning.
+
+Classification:
+`PARTIAL_SCOPED_FROZEN_ACTION_MATCHING_CLOSES_C_GEOM_IN_REPOSITORY_CONVENTION_BUT_INTERACTING_CLOCK_CONSTRAINTS_RETAIN_RELATIVE_NORMALIZATION__Q13_HAS_TWO_UNSELECTED_Z2_GLOBAL_SECTORS__NO_ABSOLUTE_SCALE_FIX`.
+
+Record: `results/ITER008_G4_INTERACTING_SCALE_AND_GLOBAL_SECTOR_AUDIT.md`.
+
+## Active question
+
+At this point repeated attempts to derive the remaining positive real normalization from clock/discreteness/topology have failed closed. The scientifically stronger next question is whether QGR is still restrictive and falsifiable as a **one-continuous-parameter local phenomenological theory plus a possible discrete global sector**.
+
+## Active gate — G5
+
+`QGR-ITER008-G5-ONE-PARAMETER-PREDICTIVITY-AND-Z2-SECTOR-OBSERVABILITY-AUDIT`
 
 Parallel tests:
 
-1. derive the exact frozen-normalization geometric conversion factor linking microscopic `kappa/h^2` to the continuum action coefficient, and separate convention-dependent factors from invariant coupling content;
-2. test linear and quadratic common clock-gravity constraints under deparametrization for whether a free relative normalization survives;
-3. classify the `Z2` flat-line-bundle quantization sectors implied by `Q_{1,3}~RP^3` and determine whether the current scalar Hilbert choice selected the trivial sector without derivation;
-4. test whether history/loop single-valuedness can quantize `g` in the presence of continuously variable curvature holonomy;
-5. test whether promoting the intrinsic rank clock to an ordinary dynamical scalar is compatible with the already fixed zero-cosmological flat vacuum branch without adding compensating/tuned stress energy.
-
-Fail closed if a scale is obtained only by normalization convention, unit choice, topological sector choice, or background tuning.
+1. count the remaining continuous theory parameters after fixing continuum gravitational normalization and a specified preparation/readout;
+2. derive parameter-free ratios between specified observables/preparations in which the remaining scale cancels;
+3. derive conditional bounds on the invariant microscopic normalization from any future upper bound on the broadband loss, without choosing `g=1`;
+4. prove whether the existing local/refinement broadband calculations live in a contractible neighborhood of the symmetric seed and are therefore insensitive to the `Z2` sector;
+5. construct an explicit noncontractible loop in `Q_{1,3}` whose quantum holonomy distinguishes the `+` and `-` sectors, and determine what genuinely global experiment/history would be needed to access it.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`. Its latest authoritative recovery state still records `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED` and is older than the latest head. No QGR `NEW_REQUIRED` inference is allowed.
+Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`; its latest authoritative recovery remains `NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED` and is older than the latest head. No QGR `NEW_REQUIRED` inference is allowed.
 
 ## Claim locks
 
 - theory established remains `0%`;
-- intrinsic rank time is not yet physical proper time;
-- no Planck-time/Planck-length identification;
-- no `g=1` by naturalness or units;
+- no `g=1`, `h=l_P`, Planck tick or minimum length by convention;
+- no absolute beyond-GR rate without a fitted/independently bounded microscopic normalization;
 - no experimental confirmation;
 - no independent KMQGB pass;
 - no `NEW_REQUIRED` authorization;
