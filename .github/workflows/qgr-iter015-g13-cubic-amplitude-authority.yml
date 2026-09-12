@@ -1,0 +1,32 @@
+name: qgr-iter015-g13-cubic-amplitude-authority
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter015_g13_cubic_amplitude_authority.py'
+      - '.github/workflows/qgr-iter015-g13-cubic-amplitude-authority.yml'
+  workflow_dispatch:
+
+jobs:
+  g13:
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        lane: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G13 cubic amplitude authority audit
+        run: |
+          mkdir -p results/iter015_g13
+          python code/qgr_iter015_g13_cubic_amplitude_authority.py \
+            --lane ${{ matrix.lane }} \
+            --out results/iter015_g13/lane_${{ matrix.lane }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g13-lane-${{ matrix.lane }}
+          path: results/iter015_g13/lane_${{ matrix.lane }}.json
