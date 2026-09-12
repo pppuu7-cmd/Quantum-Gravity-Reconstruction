@@ -4,19 +4,20 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 10,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_MICROSCOPIC_UV_MATCHING"
+    "iteration": 11,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_FINITE_CELL_UV_ACTION_PRINCIPLE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 92,
+    "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
     "iter006_pct": 100,
     "iter007_pct": 100,
     "iter008_pct": 100,
     "iter009_pct": 100,
-    "iter010_pct": 0,
+    "iter010_pct": 100,
+    "iter011_pct": 0,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -24,33 +25,34 @@
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
+    "weyl_active_same_field_background_closed_scoped": true,
     "flat_linearized_c6_response": "ZERO_THROUGH_HESSIAN",
     "curved_quadratic_c6_response": "GENERICALLY_NONZERO",
     "leading_history_mixture_c6_response": "ZERO_AT_H4_FIRST_BRANCH_DEPENDENT_TERM_H6_UNDER_REGULAR_H4_GEOMETRY_CORRECTION",
     "finite_depth_history_channel_closed_scoped": true,
     "one_particle_full_l2_strong_refinement_closed_scoped": true,
     "normal_one_particle_trace_class_history_channel_limit_closed_scoped": true,
+    "regular_torsion_coarea_branch_measure_derived_scoped": true,
     "global_interacting_vacuum_probability_measure_closed": false,
     "exact_higher_derivative_finite_cell_uv_action_derived": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter009": {
+  "iter010": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "g1_run_id": 34662453224,
-    "g2_run_id": 34663104103,
-    "g3_run_id": 34663353057,
-    "g4_run_id": 34663799182,
-    "g5_run_id": 34664051772,
-    "g6_run_id": 34664435506,
-    "terminal_classification": "PASS_SCOPED_ONE_PARTICLE_STRONG_AND_NORMAL_STATE_TRACE_CLASS_REFINEMENT_LIMIT_ESTABLISHED_IN_THE_REGULAR_WEAK_CURVATURE_BRANCH__C6_ABSOLUTE_CURVED_UV_MATCHING_REMAINS_BLOCKED"
+    "issue_number": 9,
+    "g1_run_id": 34664851024,
+    "g2_run_id": 34665138673,
+    "g3_run_id": 34665317072,
+    "g4_run_id": 34665566358,
+    "terminal_classification": "BLOCKED_SCOPED_NO_EXISTING_QGR_NORMALIZATION_PHASE_LOOP_OR_HOMOGENEOUS_REFINEMENT_RULE_FIXES_C6__THE_WEYL_ACTIVE_BACKGROUND_IS_SENSITIVE_BUT_THE_REQUIRED_ABSOLUTE_MICROSCOPIC_TARGET_IS_MISSING"
   },
-  "iter010": {
+  "iter011": {
     "status": "ACTIVE",
     "completion_pct": 0,
-    "issue_number": 9,
-    "active_gate": "QGR-ITER010-G1-EXISTING-MICROSCOPIC-AUTHORITY-C6-IDENTIFIABILITY"
+    "issue_number": 10,
+    "active_gate": "QGR-ITER011-G1-TORSION-COAREA-JACOBIAN-CURVATURE-AND-PHASE-AUDIT"
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
@@ -60,8 +62,8 @@
     "D7": "NOT_CLOSED"
   },
   "active_question": {
-    "id": "QGR-ITER010-G1-EXISTING-MICROSCOPIC-AUTHORITY-C6-IDENTIFIABILITY",
-    "text": "Does the already-frozen QGR microscopic finite-cell/history authority uniquely determine the coefficient c6 of the single on-shell Ricci-flat parity-even Weyl^3 correction, or is one additional microscopic UV rule required?"
+    "id": "QGR-ITER011-G1-TORSION-COAREA-JACOBIAN-CURVATURE-AND-PHASE-AUDIT",
+    "text": "Does the already-derived finite torsion coarea/Jacobian branch measure supply an internally normalized Weyl^3-sensitive nonhomogeneous datum that can fix the coherent six-derivative coefficient c6, or only a separate real measure-sector correction?"
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
