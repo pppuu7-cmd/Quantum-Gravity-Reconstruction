@@ -1,9 +1,9 @@
 # QGR Iteration 008 — Physical Scale and Relational Matter Reconstruction
 
 Date: 2026-09-12
-Status: `ACTIVE / G4_COMPLETE / ONE_CONTINUOUS_MICROSCOPIC_NORMALIZATION_PLUS_Z2_GLOBAL_SECTOR / G5_ACTIVE`
-Current task completion: **75%**
-Candidate-program readiness: **87%**
+Status: `COMPLETE / SCALE_FREEDOM_CLASSIFIED / ONE_PARAMETER_LOCAL_PREDICTIVITY / Z2_GLOBAL_SECTOR_EXPOSED`
+Current task completion: **100%**
+Candidate-program readiness: **89%**
 Active candidate: **QGR-L1**
 Theory established: **0%**
 
@@ -11,31 +11,29 @@ Readiness is an internal construction-roadmap metric, not probability of correct
 
 ## Objective
 
-Determine whether the same CCRC/QGR microscopic realization can supply an operational physical scale without inserting `g=1`, `h=l_P`, or external matter normalization, and determine whether the theory remains predictive if the last continuous microscopic normalization cannot be derived internally.
+Determine whether the same CCRC/QGR realization can derive an operational physical microscopic scale without inserting `g=1`, `h=l_P`, or external matter normalization, and determine whether the model remains restrictive/falsifiable if the final continuous microscopic normalization is not derived internally.
 
-Iter007 reduced the unresolved scale freedom to `g=kappa/hbar`, with `h^2=c_geom g ell_Q^2`, `ell_Q^2=hbar/a_cont`.
-
-## G1-G2 — intrinsic clock and sequential history
+## G1-G2 — intrinsic clock and exact sequential history instrument
 
 Runs `34660061343` and `34660219520`: aggregate SUCCESS.
 
-`tau(S)=|S|` is the unique unit-increment clock in the tested additive `S4` class. All 24 histories share `0,1,2,3,4`, and the normalized global history modulus factorizes exactly as
+`tau(S)=|S|` is the unique unit-increment clock in the tested additive `S4` class. Every maximal B4 history has `0,1,2,3,4`, and
 
 `1/sqrt(4) * 1/sqrt(3) * 1/sqrt(2) * 1 = 1/sqrt(24)`.
 
-Clock-only `S4` phases are removable by rank-slice rephasing.
+Thus the global normalized history modulus is exactly the product of intrinsic-clock one-step isometries. Clock-only `S4` phases are removable by rank-slice rephasing.
 
 Record: `results/ITER008_G1_G2_INTRINSIC_BOOLEAN_CLOCK_AND_SEQUENTIAL_HISTORY.md`.
 
-## G3 — immediate scale-calibration routes close negatively
+## G3 — immediate scale-calibration routes
 
 Run `34661538161`: 5 lanes + aggregate SUCCESS.
 
 - actual unit-rank covers are null and do not define nonzero proper-time ticks;
-- `Q_{1,3}~RP^3`, with `H^2_dR=0` and only `Z2` torsion;
-- minimal clock dynamics has one free frequency `J_clock`;
-- clock-as-matter introduces a new free kinetic normalization;
-- B4 spectral discreteness fixes ratios but not the overall `1/h^2` scale.
+- `Q_{1,3}~RP^3`, with `H^2_dR=0` and integral `H^2=Z2`;
+- minimal clock dynamics retains a free frequency `J_clock`;
+- clock-as-matter introduces a free kinetic normalization;
+- B4 spectral discreteness fixes ratios but not the overall physical scale.
 
 Classification:
 `BLOCKED_SCOPED_INTRINSIC_CLOCK_AND_B4_DISCRETENESS_DO_NOT_CALIBRATE_PHYSICAL_SCALE__CURRENT_Q13_TOPOLOGY_HAS_NO_CONTINUOUS_H2_PREQUANTIZATION_CLASS__MINIMAL_CLOCK_OR_CLOCK_MATTER_DYNAMICS_INTRODUCE_A_NEW_FREE_SCALE`.
@@ -46,61 +44,92 @@ Record: `results/ITER008_G3_SCALE_CALIBRATION_NO_GO.md`.
 
 Run `34661941803`: 5 lanes + aggregate SUCCESS.
 
-### Frozen normalization
+The frozen QGR action convention gives
 
-The exact earlier identity `S2_connection=-2 S2_QGR`, together with the frozen coordinate-cell convention, gives
+`a_cont=-kappa/(2h^2)`,
 
-`a_cont=-kappa/(2h^2)`
+so signed `c_geom=-1/2` in that convention. Separate `c_geom` and `g=kappa/hbar` are normalization-convention dependent; their product is invariant.
 
-and therefore signed `c_geom=-1/2` in this repository convention. This factor is convention dependent; only the product `c_geom*g` is invariant under quadratic basis normalization changes.
+Linear and quadratic deparametrized clock-gravity constraints retain one relative clock/gravity normalization. Ordinary dynamical rank-clock matter backreacts on the already fixed flat zero-cosmological vacuum branch for every nonzero kinetic normalization.
 
-### Deparametrization
-
-Linear `A P_tau+B C_g=0` retains the ratio `B/A`; quadratic `P_tau^2/(2Z_tau)+C_g=0` retains `sqrt(Z_tau)` in the deparametrized generator. The fixed unit rank clock prevents absorbing these relative coefficients by rescaling `tau`.
-
-### Global `Z2` quantum sectors
-
-`pi_1(Q_{1,3})=Z2` gives exactly two flat `U(1)` line-bundle sectors with holonomy `+1` or `-1`. The current scalar `L^2(Q_13,dmu)` construction is the trivial sector. Existing covariance does not select it uniquely. This is a discrete global ambiguity, not a continuous `g` quantization.
-
-### Loop phase
-
-Because regular QGR curvature holonomy varies continuously, imposing `exp(i g Phi)=1` for every small loop phase would force `g=0`; it cannot quantize a nonzero `g` without an independently derived discrete curvature-flux spectrum.
-
-### Clock backreaction
-
-An ordinary dynamical rank-clock scalar with nonzero timelike gradient has nonzero stress energy for every nonzero kinetic normalization, so it does not preserve the already fixed flat zero-cosmological vacuum branch without additional compensation/tuning.
+`Q_{1,3}~RP^3` admits exactly two flat `U(1)` line-bundle sectors, with `Z2` holonomy `+1` or `-1`. The current scalar `L^2(Q_13,dmu)` construction is the trivial sector, but no existing local rule selects it uniquely. Continuous curvature holonomy prevents root-of-unity loop conditions from quantizing a nonzero `g`.
 
 Classification:
 `PARTIAL_SCOPED_FROZEN_ACTION_MATCHING_CLOSES_C_GEOM_IN_REPOSITORY_CONVENTION_BUT_INTERACTING_CLOCK_CONSTRAINTS_RETAIN_RELATIVE_NORMALIZATION__Q13_HAS_TWO_UNSELECTED_Z2_GLOBAL_SECTORS__NO_ABSOLUTE_SCALE_FIX`.
 
 Record: `results/ITER008_G4_INTERACTING_SCALE_AND_GLOBAL_SECTOR_AUDIT.md`.
 
-## Active question
+## G5 — one-parameter predictivity and Z2 observability
 
-At this point repeated attempts to derive the remaining positive real normalization from clock/discreteness/topology have failed closed. The scientifically stronger next question is whether QGR is still restrictive and falsifiable as a **one-continuous-parameter local phenomenological theory plus a possible discrete global sector**.
+Run `34662193575`: 5 lanes + aggregate SUCCESS.
 
-## Active gate — G5
+After fixing continuum gravitational normalization and a specified preparation/readout, the local broadband sector contains one continuous microscopic parameter
 
-`QGR-ITER008-G5-ONE-PARAMETER-PREDICTIVITY-AND-Z2-SECTOR-OBSERVABILITY-AUDIT`
+`Gamma = h^2/ell_Q^2 = c_geom g`,
 
-Parallel tests:
+where `ell_Q^2=hbar/a_cont`.
 
-1. count the remaining continuous theory parameters after fixing continuum gravitational normalization and a specified preparation/readout;
-2. derive parameter-free ratios between specified observables/preparations in which the remaining scale cancels;
-3. derive conditional bounds on the invariant microscopic normalization from any future upper bound on the broadband loss, without choosing `g=1`;
-4. prove whether the existing local/refinement broadband calculations live in a contractible neighborhood of the symmetric seed and are therefore insensitive to the `Z2` sector;
-5. construct an explicit noncontractible loop in `Q_{1,3}` whose quantum holonomy distinguishes the `+` and `-` sectors, and determine what genuinely global experiment/history would be needed to access it.
+The leading specified-preparation loss has
+
+`Delta_prep = C_prep Gamma^2 (ell_Q^2 R_eff)^2 + ...`.
+
+Thus one absolute limit/measurement bounds or estimates `Gamma`; no additional free history/noise coefficient is inserted.
+
+For the two exact G6F packet profiles,
+
+`A0=2/(1+gamma_L)`,
+
+`A1=4(2+gamma_L)/(3(1+gamma_L)^2)`,
+
+the leading normalized loss ratio is exactly
+
+`(1-A1)/(1-A0) -> 4/3`,
+
+independent of `Gamma`. This is a parameter-free relative prediction for that specified comparison.
+
+The seed `E=C^-1` has spectrum `1/3,-1,-1,-1`; the operator-norm ball `||H||<1/3` is Lorentzian, convex and contractible. The leading refinement-connected `h->0` broadband construction therefore cannot see the global flat `Z2` sector.
+
+Nevertheless the explicit loop
+
+`v(s)=(cos(pi s),sin(pi s),0,0)`,
+
+`G(s)=2v(s)v(s)^T-I`
+
+closes in `Q_{1,3}` while its positive-line lift goes `e0 -> -e0`. It is the nontrivial `Z2` loop and carries flat holonomy `+1` or `-1` in the two sectors.
+
+Classification:
+`PASS_SCOPED_QGR_LOCAL_BROADBAND_SECTOR_IS_ONE_CONTINUOUS_PARAMETER_FALSIFIABLE_AND_HAS_PARAMETER_FREE_RELATIVE_PREDICTIONS__Z2_GLOBAL_SECTOR_IS_LOCALLY_INVISIBLE_BUT_GLOBALLY_DISTINGUISHABLE`.
+
+Record: `results/ITER008_G5_ONE_PARAMETER_PREDICTIVITY_AND_Z2_OBSERVABILITY.md`.
+
+## Iter008 decision
+
+The numerical value of the microscopic scale parameter is **not derived internally**. That is retained as a physical free parameter rather than hidden by `g=1` or `h=l_P`.
+
+What Iter008 closes is the structure of that freedom:
+
+1. intrinsic relational rank time exists, but is not automatically proper time;
+2. immediate clock/discreteness/topological routes do not derive a nonzero absolute scale;
+3. the frozen local normalization can be matched exactly, leaving one invariant continuous microscopic parameter `Gamma`;
+4. the local broadband theory remains falsifiable and has parameter-free relative predictions;
+5. the separate `Z2` quantum sector is invisible to leading local refinement but globally distinguishable.
+
+The next foundational blocker is not scale bookkeeping. It is the existence and stability of the **interacting quantum completion**: global/continuum interacting measure, radiative/higher-derivative closure, and completion of the discrete global sector.
+
+Recommended next iteration:
+`QGR Iter009 — Interacting Quantum Measure, Radiative Stability and Global Sector Completion`.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`; its latest authoritative recovery remains `NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED` and is older than the latest head. No QGR `NEW_REQUIRED` inference is allowed.
+Latest observed KMQGB head: `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`. Its latest authoritative recovery remains older and records `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`. No QGR `NEW_REQUIRED` inference is allowed.
 
 ## Claim locks
 
 - theory established remains `0%`;
+- `Gamma` is not numerically predicted internally;
 - no `g=1`, `h=l_P`, Planck tick or minimum length by convention;
-- no absolute beyond-GR rate without a fitted/independently bounded microscopic normalization;
+- parameter-free `4/3` is scoped to the specified packet comparison;
 - no experimental confirmation;
 - no independent KMQGB pass;
 - no `NEW_REQUIRED` authorization;
-- no claim QGR is unique/correct as a full theory.
+- no claim QGR is unique/correct as a full quantum-gravity theory.
