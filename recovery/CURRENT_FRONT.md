@@ -1,84 +1,82 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter021`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / MICROSCOPIC_EVENT_INSERTION AUTHORITY`
-Active roadmap stage: `same-realization Boolean event -> finite second-moment response`
+Active iteration: `Iter025`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / SAME_REALIZATION FINITE-CURVED PHASE AUTHORITY`
+Active roadmap stage: `event/count configuration -> authorized source/boundary datum -> finite action phase`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **93%**
-- Iter005–Iter010 completion: **100%**
-- Iter019 completion: **100%**
-- Iter020 completion: **100%**
-- Iter021 completion: **ACTIVE**
+- Iter005–Iter023 completion: **100%**
+- Iter024 completion: **100%**
+- Iter025 completion: **ACTIVE**
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - All-orders local metric-only two-derivative action: **PASS_SCOPED**
 - Finite-depth normalized 24-history instrument: **PASS_SCOPED**
 - Common-conformal Dirichlet bulk principle from existing QGR action: **PASS_SCOPED**
 - Nontrivial event insertion strength: **NOT YET DERIVED**
+- Physical same-realization finite curved phase samples: **NOT YET DERIVED**
 - Finite pair/triple coherent amplitudes from the same realization: **NO**
 - First nonredundant Ricci-flat parity-even local correction: **one Weyl^3 class**
 - `c6` fixed: **NO**
 - Independent KMQGB pass / `NEW_REQUIRED`: **NO / NOT AUTHORIZED**
 
-## Iter019 terminal result
+## Iter023 terminal result
 
-GitHub Actions run `34695443798`: 24 exact-rational lanes + aggregate `SUCCESS`.
+Run `34696333843`: the normalized 24-history order register fixes exact combinatorial order statistics but has zero authority rank on action-phase coefficients `(K,A,B)`. Order cumulants are not finite microscopic action amplitudes.
 
-For the existing all-orders QGR action restricted to `G=s^2 C` in four dimensions,
+Record: `results/ITER023_G23_HISTORY_ORDER_ACTION_AUTHORITY.md`.
 
-`S_conf,bulk = 6 a integral (D s)^2`
+## Iter024 terminal result
 
-modulo a boundary term. Exact rational refinement additivity in the local quadratic/two-derivative ansatz forces `w(h) proportional to 1/h`. Thus the G18 Dirichlet normalization is inherited from the existing QGR action and does not add an independent `lambda`.
+Run `34697849130`, head `26394a6c942015d5a8c5efd2f8d2da7803ffa28b`, aggregate job `103564470755`, aggregate artifact id `10299755570`, digest `sha256:e95bd44d2106d5d5bae86a5e15dd51c5d7f00c80a4597a216b1679fa5cc73352`.
 
-The scoped G16 multiplicative-character trajectory and the G18/G19 linear-in-`s` Dirichlet extremal cannot both describe the same nontrivial refinement trajectory for `r != 1`; the G16 character rule is retired as a fundamental trajectory unless a distinct event variable/clock map is derived.
+24/24 lanes plus aggregate completed successfully.
 
-Record: `results/ITER019_G19_CONFORMAL_REFINEMENT_AUTHORITY.md`.
+Scientific classification:
+`PASS_SCOPED_ALGEBRAIC_PHASE_AUTHORITY_DESIGN__BLOCKED_PHYSICAL_SAME_REALIZATION_FINITE_CURVED_PHASE_DATA_NOT_YET_DERIVED`.
 
-## Iter020 terminal result
+For the cubic count-coordinate jet
 
-GitHub Actions run `34695665178`: 24 exact-rational lanes + aggregate `SUCCESS`.
+`Phi(n)=K e2(n)+A p21(n)+B e3(n)`,
 
-With seed `s(0)=1` and free final endpoint, the derived Dirichlet bulk action has the unique stationary solution
+the probes `(1,1,0,0)`, `(2,1,0,0)`, `(1,1,1,0)` form an exact rank-three basis. A unit pair plus unit triple alone has rank two with exact null direction `(-2,1,0)`. Current derived QGR inputs provide zero numerical finite-curved phase samples. Synthetic controls remain nonphysical positive controls.
 
-`s(t)=1`, hence `r=1`.
+Record: `results/ITER024_G24_FINITE_CURVED_PHASE_AUTHORITY.md`.
 
-A diagnostic S4-singlet boundary source `J` generates
+## Active gate — Iter025 G25
 
-`r = 1 + J/(2 lambda)`,
+`QGR-ITER025-G25-DERIVE-SAME-REALIZATION-FINITE-CURVED-PHASE-SAMPLES-FROM-EXISTING-QGR-ACTION-WITHOUT-RETUNING`
 
-showing that a nontrivial event needs boundary/insertion authority. S4 fixes one source direction in `W4` but not its coefficient. The existing G8A history normalization has zero authority rank on this endpoint/source strength.
+Prospectively frozen question: can the already-derived QGR action/source machinery produce the three G24 physical phase samples without adding, fitting, or retuning an event-dependent source law?
 
-Terminal classification:
-`PASS_SCOPED_PURE_DERIVED_COMMON_CONFORMAL_DIRICHLET_BULK_ACTION_SELECTS_ONLY_THE_IDENTITY_ENDPOINT_R_EQUALS_ONE_WHEN_THE_FINAL_ENDPOINT_IS_FREE__A_NONTRIVIAL_EVENT_REQUIRES_BOUNDARY_OR_INSERTION_AUTHORITY__S4_ALLOWS_ONE_SINGLET_SOURCE_DIRECTION_BUT_DOES_NOT_FIX_ITS_STRENGTH__HISTORY_NORMALIZATION_IS_BLIND_TO_THAT_STRENGTH`.
+Independent audits:
 
-Record: `results/ITER020_G20_EVENT_BOUNDARY_AUTHORITY.md`.
+1. authority rank of the current derived chain on a general S4-symmetric count-to-source map;
+2. free-endpoint collapse of the G19/G20 common-conformal action;
+3. exact nonuniqueness witnesses for structurally allowed event-dependent source maps;
+4. rank of the three-probe basis as a source-authority problem.
 
-## Active gate — Iter021 G21
-
-`QGR-ITER021-G21-BOOLEAN-EVENT-INSERTION-FROM-RANK2-PAIR-INCIDENCE-AND-SECOND-MOMENT-UPDATE`
-
-Workflow run `34695884167`: 24 exact-rational lanes across four audits:
-
-1. count the S4-invariant linear insertion subspace in `Sym^2(W4)`;
-2. impose strict B4 rank-2 distinct-pair support/no self-pairs;
-3. determine the dimension of the equivariant map from combinatorial pair count to physical second-moment response;
-4. test whether finite Q13 admissibility, kinematic measure, or constant-flat local action fixes the remaining strength.
-
-Prospective kill/accept rule: promote an event insertion direction only if exact symmetry/support ranks select it before looking at desired amplitude. Do not set the remaining scalar response coefficient to one merely because the incidence matrix uses binary `0/1` entries.
+A green CI is not a physical PASS. If all exact audits succeed, the expected scientific classification is `BLOCKED_SCIENTIFIC` unless the existing authority chain itself uniquely supplies the event-to-source map.
 
 ## Active blocker
 
-`MISSING_SAME_REALIZATION_NORMALIZATION_OF_THE_MAP_FROM_ONE_COMBINATORIAL_BOOLEAN_PAIR_EVENT_TO_A_FINITE_PHYSICAL_SECOND_MOMENT_RESPONSE`.
+`MISSING_SAME_REALIZATION_EVENT_COUNT_TO_AUTHORIZED_BOUNDARY_SOURCE_MAP_NEEDED_TO_GENERATE_PHYSICAL_FINITE_CURVED_ACTION_PHASE_SAMPLES`.
 
-The current research question is whether strict pair incidence removes all directional ambiguity and leaves only one scalar conversion coefficient, or whether even the insertion direction remains nonunique.
+The existing action can evaluate supplied endpoint/source data. That is distinct from deriving the microscopic rule that maps a Boolean/count event configuration to those data.
+
+## Next gate if G25 confirms the blocker
+
+`QGR-ITER026-G26-SEEK-DERIVED-EVENT-TO-SOURCE-AUTHORITY-IN-EXISTING-MICROSCOPIC-INCIDENCE-HOLONOMY-AND-HISTORY-TRANSPORT-WITHOUT-ADDING-A-NEW-COUPLING`.
+
+This search must reuse only already-derived QGR microscopic structures. It may not introduce a desired event-dependent coupling by hand.
 
 ## KMQGB lock
 
-Latest observed benchmark commit: `d7632eeae116686ca3f11bd70d605a8ddd506596` (`Iter432` workflow work). The benchmark's authoritative recovery state still says `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`. New benchmark commits are not promoted to a QGR mandate unless that authority changes.
+KMQGB terminal `NEW_REQUIRED` authority has not been established for QGR. No benchmark work is promoted to a QGR mandate unless the benchmark's formal D7 authority changes.
 
 ## Claim locks
 
@@ -86,8 +84,9 @@ Latest observed benchmark commit: `d7632eeae116686ca3f11bd70d605a8ddd506596` (`I
 - no experimental confirmation;
 - no microscopic numerical `c6` value;
 - nontrivial event insertion strength not derived;
+- physical same-realization finite-curved phase samples not derived;
 - finite pair/triple coherent amplitudes not yet derived from the same microscopic realization;
-- no claim all observables are `c6` independent;
+- synthetic/witness source laws are not candidate QGR physics;
 - no full interacting nonperturbative many-body Hilbert-space completion;
 - no global strong-curvature uniqueness theorem;
 - no independent KMQGB pass or `NEW_REQUIRED` authorization.
