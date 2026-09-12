@@ -4,17 +4,16 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 34,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_GLOBAL_BRANCH_REGULARITY_STRESS"
+    "iteration": 36,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_BRANCH_PERSISTENCE_AND_REFINEMENT_STRESS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
-    "iter031_pct": 100,
-    "iter032_pct": 100,
-    "iter033_pct": 100,
-    "iter034_pct": 15,
+    "iter034_pct": 100,
+    "iter035_pct": 100,
+    "iter036_pct": 25,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -24,6 +23,11 @@
     "projective_refinement_limit_mechanism_closed_conditional_scoped": true,
     "local_weak_cell_principal_curvature_lift_closed_scoped": true,
     "local_compact_patch_torsion_regularity_mechanism_closed_scoped": true,
+    "finite_patch_single_branch_uniqueness_counterexample_verified_scoped": true,
+    "g35_verified_distinct_extendable_patch_count": 8,
+    "branch_persistence_larger_patch_multi_deformation_derived": false,
+    "full_projective_refinement_branch_persistence_derived": false,
+    "physical_multiple_branch_measure_selection_derived": false,
     "tower_wide_uniform_torsion_jacobian_gap_derived": false,
     "global_branch_compactness_derived": false,
     "six_derivative_operator": "Weyl^3",
@@ -34,36 +38,44 @@
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter032": {
-    "status": "COMPLETE_PASS_CONDITIONAL_SCOPED",
-    "completion_pct": 100,
-    "run_id": 34705619389,
-    "head_sha": "2d2419e6319b10645c61315c16bd1eec85fb85ef",
-    "aggregate_job_id": 103585190521,
-    "aggregate_artifact_id": 10300629276,
-    "aggregate_digest": "sha256:342102a6163c5f5b250aeff82b52f7977ed0cb3b322f0e2f9117e788be4198b2"
-  },
-  "iter033": {
-    "status": "COMPLETE_PARTIAL_SCOPED",
-    "completion_pct": 100,
-    "run_id": 34705779959,
-    "head_sha": "4770da374c40b5120c70eefd20d3cdce1a69693e",
-    "aggregate_job_id": 103585488589,
-    "aggregate_artifact_id": 10301294722,
-    "aggregate_digest": "sha256:f377cb8d95af49c05ef42161678ec26e2036369b36cfd1c6c22f120da1e55cc3"
-  },
   "iter034": {
-    "status": "ACTIVE",
-    "completion_pct": 15,
+    "status": "COMPLETE_COUNTEREXAMPLE_CANDIDATE",
+    "completion_pct": 100,
     "run_id": 34705929851,
     "head_sha": "46423cb63a899b4c5a4077be81b003edc2d95280",
-    "active_gate": "QGR-ITER034-G34-QGR-SPECIFIC-COERCIVITY-COMPACTNESS-OR-RUNAWAY-BRANCH-COUNTEREXAMPLE",
-    "parallel_streams": 12
+    "aggregate_job_id": 103585911907,
+    "aggregate_artifact_id": 10300838970,
+    "aggregate_digest": "sha256:05b0ee793eac19e50f89774fc24af6d619479d07825e4a16ba36fd4808d740de"
+  },
+  "iter035": {
+    "status": "COMPLETE_PASS_SCOPED",
+    "completion_pct": 100,
+    "run_id": 34706686021,
+    "head_sha": "faec0f17c49c43d97984b16cf048dc4a52a8f247",
+    "aggregate_job_id": 103588230856,
+    "aggregate_artifact_id": 10301772238,
+    "aggregate_digest": "sha256:d41b2ec8657b27585c1d3735a6b060d21915145454a0ef5fc1e8b819de6be1a0",
+    "terminal_classification": "SCIENTIFIC_PASS_SCOPED_DISTINCT_EXTENDABLE_BRANCH_COUNTEREXAMPLE",
+    "residual_qualified_origin_candidates": 22,
+    "verified_distinct_extendable_patches": 8
+  },
+  "iter036": {
+    "status": "ACTIVE",
+    "completion_pct": 25,
+    "run_id": 34708104944,
+    "head_sha": "0d5a0be6b5d7336f42747a2b3010013f1aa51ab7",
+    "active_gate": "QGR-ITER036-G36-BRANCH-PERSISTENCE-LARGER-PATCH-BACKGROUND-AND-REFINEMENT-PROXY",
+    "parallel_streams": 48,
+    "frozen_g35_seed_count": 8,
+    "expanded_patch_cells": 15,
+    "background_gamma_targets": [0.8, 1.0, 1.2],
+    "refinement_proxy_h_targets": [0.75, 0.5, 0.35]
   },
   "active_question": {
-    "id": "QGR-ITER034-G34-QGR-SPECIFIC-COERCIVITY-COMPACTNESS-OR-RUNAWAY-BRANCH-COUNTEREXAMPLE",
-    "text": "Do the actual nonlinear finite-torsion equations show distant regular branches, strong-background Jacobian collapse, or stable continuation in the tested G9 domain, and what does that imply for the still-open global compactness/uniform-regularity problem?"
+    "id": "QGR-ITER036-G36-BRANCH-PERSISTENCE-LARGER-PATCH-BACKGROUND-AND-REFINEMENT-PROXY",
+    "text": "Does at least one of the exact eight G35 verified distinct finite torsion branch patches remain invariantly distinct and fully extendable on the frozen 15-cell patch across all preregistered background-amplitude and shrinking-cell refinement-proxy targets?"
   },
+  "active_blocker": "FINITE_BRANCH_PERSISTENCE_REFINEMENT_AND_PHYSICAL_BRANCH_WEIGHT_SELECTION",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
@@ -72,6 +84,8 @@
     "qgr_physical_weyl_active_same_realization_phase_target_derived": false,
     "qgr_global_branch_compactness_derived": false,
     "qgr_uniform_tower_gap_derived": false,
+    "qgr_full_projective_refinement_branch_persistence_derived": false,
+    "qgr_physical_multiple_branch_measure_selection_derived": false,
     "qgr_independent_benchmark_passed": false,
     "new_model_required_by_kmqgb": false,
     "beta_set_to_one_authorized": false,
