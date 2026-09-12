@@ -4,18 +4,19 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 9,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_INTERACTING_QUANTUM_MEASURE_AND_RADIATIVE_STABILITY"
+    "iteration": 10,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_MICROSCOPIC_UV_MATCHING"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 91,
+    "candidate_program_pct": 92,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter005_pct": 100,
     "iter006_pct": 100,
     "iter007_pct": 100,
     "iter008_pct": 100,
-    "iter009_pct": 85,
+    "iter009_pct": 100,
+    "iter010_pct": 0,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -25,22 +26,31 @@
     "six_derivative_coefficient_fixed": false,
     "flat_linearized_c6_response": "ZERO_THROUGH_HESSIAN",
     "curved_quadratic_c6_response": "GENERICALLY_NONZERO",
-    "existing_G6H_scope": "FIXED_GEOMETRY_TRANSPORT_COMPARATOR_WITH_NO_EXPLICIT_C6_OR_ACTION_PHASE_INPUT",
+    "leading_history_mixture_c6_response": "ZERO_AT_H4_FIRST_BRANCH_DEPENDENT_TERM_H6_UNDER_REGULAR_H4_GEOMETRY_CORRECTION",
     "finite_depth_history_channel_closed_scoped": true,
+    "one_particle_full_l2_strong_refinement_closed_scoped": true,
+    "normal_one_particle_trace_class_history_channel_limit_closed_scoped": true,
     "global_interacting_vacuum_probability_measure_closed": false,
-    "infinite_refinement_operator_limit_closed": false,
+    "exact_higher_derivative_finite_cell_uv_action_derived": false,
     "benchmark_winner": false,
     "independent_validation": false
   },
   "iter009": {
-    "status": "ACTIVE",
-    "completion_pct": 85,
+    "status": "COMPLETE",
+    "completion_pct": 100,
     "g1_run_id": 34662453224,
     "g2_run_id": 34663104103,
     "g3_run_id": 34663353057,
     "g4_run_id": 34663799182,
-    "g4_classification": "PARTIAL_SCOPED_C6_IS_NOT_FIXED_BY_CURRENT_LOWER_ORDER_DATA_BUT_DECOUPLES_FROM_FLAT_LINEARIZED_PROPAGATION_AND_FROM_THE_EXISTING_FIXED_GEOMETRY_TRACED_G6H_CHANNEL_AS_A_SCALAR_PHASE__SELF_CONSISTENT_CURVED_C6_DYNAMICS_AND_INFINITE_REFINEMENT_REMAIN_OPEN",
-    "active_gate": "QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL"
+    "g5_run_id": 34664051772,
+    "g6_run_id": 34664435506,
+    "terminal_classification": "PASS_SCOPED_ONE_PARTICLE_STRONG_AND_NORMAL_STATE_TRACE_CLASS_REFINEMENT_LIMIT_ESTABLISHED_IN_THE_REGULAR_WEAK_CURVATURE_BRANCH__C6_ABSOLUTE_CURVED_UV_MATCHING_REMAINS_BLOCKED"
+  },
+  "iter010": {
+    "status": "ACTIVE",
+    "completion_pct": 0,
+    "issue_number": 9,
+    "active_gate": "QGR-ITER010-G1-EXISTING-MICROSCOPIC-AUTHORITY-C6-IDENTIFIABILITY"
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
@@ -50,16 +60,16 @@
     "D7": "NOT_CLOSED"
   },
   "active_question": {
-    "id": "QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL",
-    "text": "Does an O(h^4)c6 self-consistent geometry correction modify the leading O(h^4) history-mixture loss, and can the repaired packet domain support a strong infinite-refinement limit even though uniform operator-norm convergence is not established?"
+    "id": "QGR-ITER010-G1-EXISTING-MICROSCOPIC-AUTHORITY-C6-IDENTIFIABILITY",
+    "text": "Does the already-frozen QGR microscopic finite-cell/history authority uniquely determine the coefficient c6 of the single on-shell Ricci-flat parity-even Weyl^3 correction, or is one additional microscopic UV rule required?"
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "qgr_all_observables_c6_independent": false,
-    "qgr_existing_G6H_fixed_geometry_comparator_c6_independent_scoped": true,
-    "qgr_full_hilbert_operator_norm_limit_closed": false,
+    "qgr_leading_history_mixture_h4_c6_independent_scoped": true,
+    "qgr_full_interacting_nonperturbative_hilbert_closed": false,
     "qgr_global_interacting_vacuum_measure_closed": false,
     "qgr_independent_benchmark_passed": false,
     "new_model_required_by_kmqgb": false,
