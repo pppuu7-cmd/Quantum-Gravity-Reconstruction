@@ -3,121 +3,109 @@
 Updated: 2026-09-12
 Active iteration: `Iter009`
 Project phase: `MODEL_CONSTRUCTION_ACTIVE / INTERACTING_QUANTUM_MEASURE_AND_RADIATIVE_STABILITY`
-Active roadmap stage: `R10 interacting quantum completion / finite operator and effective-action closure`
+Active roadmap stage: `R10 interacting quantum completion / six-derivative physical operator and finite-refinement matching`
 
 ## Canonical status
 
 - Repository infrastructure readiness: **100%**
-- Candidate-program readiness: **89%**
+- Candidate-program readiness: **90%**
 - Iter005 completion: **100%**
 - Iter006 completion: **100%**
 - Iter007 completion: **100%**
 - Iter008 completion: **100%**
-- Iter009 completion: **30%**
+- Iter009 completion: **55%**
 - Theory established: **0%**
 - Lead architecture: `A / CCRC`
 - Active candidate: `QGR-L1`
 - Local metric-only two-derivative action: **all-orders PASS_SCOPED**
 - Physical characteristic quotient: **2 modes**
-- Normalized finite-depth history instrument: **PASS_SCOPED**
-- Full cutoff-free broadband two-mode comparator: **PASS_SCOPED**
-- Local microscopic phenomenology after gravity normalization: **1 continuous parameter** `Gamma=h^2/ell_Q^2=c_geom*g`
-- Specified parameter-free packet-loss ratio: **4/3**
-- Global flat quantum sectors: **two (`Z2`)**
+- Normalized finite-depth history instrument: **PASS_SCOPED at arbitrary finite depth under verified branch-lift conditions**
+- Normalized `L2` states on the invariant configuration measure: **exist**
 - Naive globally normalized interacting vacuum weight: **BLOCKED**
+- Curvature-squared pure-vacuum physical bulk quotient at first correction order: **0 after rank-2 local field-redefinition audit**
+- First local vacuum correction order not eliminated by current redundancy argument: **6 derivatives**
 - Infinite-refinement interacting operator/state limit: **OPEN**
-- Radiative/higher-derivative closure: **OPEN**
 - Independent KMQGB pass: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
 Readiness is an internal construction-roadmap metric, not probability of correctness and not fraction of quantum gravity solved.
 
-## Established same-realization chain
+## Iter009 G1
 
-`B4 relational seed`
-`-> Lorentzian incidence geometry`
-`-> Sym^2(W4) QGR-L1`
-`-> derivative gauge closure / two modes / no onsite mass`
-`-> unique nonlinear self-coupling`
-`-> all-orders local metric-only two-derivative action`
-`-> positive configuration Hilbert / BRST / path-groupoid layer`
-`-> normalized finite 24-history instrument`
-`-> O(h^4) finite-history correction`
-`-> cutoff-free broadband comparator`
-`-> one-parameter local scale classification`
-`-> intrinsic Boolean rank clock`
-`-> two global Z2 flat sectors`
-`-> Iter009 G1 global-vacuum-measure obstruction and higher-derivative power-counting boundary`.
+Run `34662453224`: 5 lanes + aggregate SUCCESS.
 
-## Iter008 closed result
-
-Iter008 is complete. It did not derive the numerical value of the microscopic scale. Instead it reduced the local physical freedom to
-
-`Gamma=h^2/ell_Q^2=c_geom*g`
-
-plus one discrete global `Z2` sector choice. The specified G6F packet comparison has leading ratio `Delta_m1/Delta_m0 -> 4/3`, independent of `Gamma`. The two `Z2` sectors are locally invisible near the seed but globally distinguishable on a noncontractible configuration-space loop.
-
-## Iter009 G1 — measure and radiative census
-
-GitHub Actions run `34662453224`: **5 lanes + aggregate SUCCESS**.
-
-### Global measure obstruction
-
-The positive reference measure
-
-`dmu(G)=|det G|^-5/2 d^10G`
-
-is scale invariant. Along `G=s^2 E` the positive scaling subgroup contributes Haar volume `ds/s`, which has infinite total volume. On the zero-cosmological flat branch, `R=0` and `S=0` for all `s`, hence `exp(iS/hbar)=1`; the action phase does not suppress this zero mode.
-
-Therefore `exp(iS/hbar)dmu` is not a ready-made normalized global vacuum probability measure.
-
-### What survives
-
-This does not invalidate the already proved finite-level operator construction. The finite history Kraus/isometry normalization remains exact in its verified domain, and refinement-connected maps preserve the `+/-` Z2 sectors separately.
-
-### Higher-derivative boundary
-
-Before quotienting by possible local field redefinitions, the parity-even four-derivative metric bulk space in 4D has two directions modulo Euler/topological and total-derivative identities. Generic superficial power counting for the two-derivative gravity branch gives
-
-`omega=2L+2`.
-
-This is only an allowance for higher-derivative structures, not a calculation of nonzero loop divergences.
-
-Classification:
-`BLOCKED_SCOPED_NAIVE_GLOBAL_INTERACTING_VACUUM_MEASURE_IS_NOT_NORMALIZED_ALONG_THE_FLAT_SCALE_ZERO_MODE__TWO_DERIVATIVE_LOCAL_ACTION_IS_NOT_QUANTUM_CLOSED_BY_SYMMETRY_POWER_COUNTING__Z2_SECTORS_ARE_REFINEMENT_SUPERSELECTED`.
+The invariant reference measure has infinite scale-orbit volume and the flat zero-Lambda action does not suppress that orbit. This blocks using `exp(iS/hbar)dmu` as a ready-made normalized vacuum measure. Refinement-connected maps preserve the two global `Z2` sectors. Before field-redefinition quotient, two parity-even curvature-squared bulk directions are allowed. Power counting gives `omega=2L+2` as an allowance only.
 
 Record: `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`.
 
+## Iter009 G2
+
+Run `34663104103`: 6 lanes + aggregate SUCCESS. Earlier run `34663065413` had one technical floating-point equality failure; exact rational arithmetic repaired it without criterion change.
+
+### Finite-depth quantum closure
+
+Infinite reference volume does not preclude normalized `L2` states. At history depth `n`, exact completeness is
+
+`24^n * 24^-n = 1`.
+
+Thus the finite history instrument remains isometric/CPTP at arbitrary finite depth, conditional on the already verified unitary/quasi-invariant branch lifts.
+
+### Four-derivative physical redundancy
+
+For the pure vacuum EH/QGR branch,
+
+`delta g^munu = a R^munu + b g^munu R`
+
+induces coefficient map
+
+`(a,b) -> (a, -(a/2+b))`
+
+in basis `(R_munu R^munu, R^2)`. Its matrix `[[1,0],[-1/2,-1]]` has determinant `-1`, rank `2`. Both parity-even curvature-squared bulk directions are therefore EOM-redundant for first-order pure-vacuum on-shell physics, modulo Euler/boundary terms.
+
+The first power-counting level not removed by this argument is six derivatives.
+
+### Remaining operator-limit boundary
+
+Current `O(h^4)` convergence is established for specified observables/comparators, not as a uniform diamond/strong operator bound. Exact finite-depth channel normalization therefore does not yet prove the infinite-refinement channel limit.
+
+Classification:
+`PARTIAL_SCOPED_FINITE_DEPTH_INTERACTING_OPERATOR_DYNAMICS_IS_WELL_DEFINED_WITH_NORMALIZED_L2_STATES__CURVATURE_SQUARED_VACUUM_BULK_DIRECTIONS_ARE_FIELD_REDEFINITION_REDUNDANT__SIX_DERIVATIVE_MICROSCOPIC_MATCHING_AND_INFINITE_REFINEMENT_LIMIT_REMAIN_OPEN`.
+
+Record: `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`.
+
 ## Active blocker
 
-`MISSING_MICROSCOPIC_FINITE_REFINEMENT_DERIVATION_OF_PHYSICALLY_NONREDUNDANT_HIGHER_DERIVATIVE_EFFECTIVE_COEFFICIENTS_AND_A_CONTROLLED_INFINITE_REFINEMENT_INTERACTING_OPERATOR_OR_STATE_LIMIT`
+`MISSING_COMPLETE_SIX_DERIVATIVE_PHYSICAL_OPERATOR_CENSUS_AND_MICROSCOPIC_COEFFICIENT_MATCHING_PLUS_UNIFORM_OPERATOR_CONVERGENCE_CONTROL_FOR_INFINITE_REFINEMENT`
 
-## Active gate — G2
+## Active gate — G3
 
-`QGR-ITER009-G2-FINITE-OPERATOR-DYNAMICS-AND-FINITE-CELL-EFFECTIVE-ACTION-CLOSURE`
+`QGR-ITER009-G3-SIX-DERIVATIVE-PHYSICAL-OPERATOR-CENSUS-AND-FINITE-REFINEMENT-MATCHING`
 
-Parallel prospective tests:
+Parallel tests:
 
-1. prove normalized `L2` states remain well-defined although the invariant reference measure has infinite total volume;
-2. prove arbitrary finite-depth serial history composition remains CPTP/isometric without a normalized vacuum measure;
-3. audit whether a unique exact finite-cell action beyond continuum/local matching is already present in the authoritative repository;
-4. compute the exact field-redefinition rank on the two curvature-squared bulk directions; if rank two, classify them as vacuum-redundant at first correction order rather than physical free parameters;
-5. identify the first remaining physically nonredundant local effective-action ambiguity after that quotient, without selecting coefficients by hand;
-6. state sufficient strong/diamond-norm convergence criteria for infinite refinement and test whether current QGR proves the required uniform bounds.
+1. count the parity-even on-shell pure-vacuum six-derivative basis in 4D;
+2. reduce derivative-curvature terms using Ricci-flat EOM, Bianchi identities and integration by parts;
+3. construct a nonzero Ricci-flat curvature-cubed witness;
+4. derive the correction's refinement and `Gamma` scaling;
+5. audit whether any current QGR microscopic authority fixes its coefficient;
+6. compare its order directly with the existing `O(h^4)` finite-history broadband correction.
+
+Fail closed if a continuum two-loop coefficient is imported as QGR microscopic input or if a same-order local correction is silently omitted from phenomenology.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head remains `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`; latest authoritative recovery remains `NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`. QGR may not infer `NEW_REQUIRED`.
+Latest observed KMQGB head: `12a28d7b58c082b2f817cf3d0296ea9e11267097`, `Iter388: add CMB transport scope guard`. Its authoritative recovery state remains older and still records `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
 
 ## Claim locks
 
 - theory established remains `0%`;
 - no experimental confirmation;
 - no absolute `Gamma`, `g=1`, `h=l_P`, Planck tick, or minimum length by convention;
-- no normalized global vacuum measure claim;
+- no global normalized vacuum measure claim;
 - no infinite-refinement operator-limit claim;
-- no actual loop-divergence claim from power counting;
-- no arbitrary higher-derivative counterterms;
+- no actual loop-divergence claim from power counting alone;
+- no four-derivative pure-vacuum physical free parameters after G2D;
+- no six-derivative coefficient claim until microscopic matching is done;
 - no independent KMQGB pass or `NEW_REQUIRED` authorization;
 - no claim QGR is unique/correct as a full quantum-gravity theory.
 
@@ -126,9 +114,9 @@ Latest observed KMQGB head remains `d812ccd09f93defb5b407d5cc2cc970764d8ffe6`; l
 1. `recovery/state.json`
 2. `recovery/CURRENT_FRONT.md`
 3. `iterations/ITERATION_009.md`
-4. `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`
-5. `iterations/ITERATION_008.md`
-6. `results/ITER008_G5_ONE_PARAMETER_PREDICTIVITY_AND_Z2_OBSERVABILITY.md`
+4. `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`
+5. `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`
+6. `iterations/ITERATION_008.md`
 7. `iterations/ITERATION_007.md`
 8. `iterations/ITERATION_006.md`
 9. `docs/CONSTITUTION.md`
