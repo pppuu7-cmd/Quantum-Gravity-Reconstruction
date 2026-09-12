@@ -4,15 +4,16 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 39,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_ABSOLUTE_SOURCE_PHASE_IDENTIFIABILITY"
+    "iteration": 40,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_CALIBRATION_FREE_WEYL3_RESPONSE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 93,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter038_pct": 100,
-    "iter039_pct": 20,
+    "iter039_pct": 100,
+    "iter040_pct": 20,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -27,8 +28,11 @@
     "additional_physical_distant_connection_branch_supported_under_g10b": false,
     "physical_multiple_branch_measure_selection_derived": false,
     "absolute_event_source_scale_beta_derived": false,
-    "absolute_source_phase_identifiability_under_audit": true,
+    "absolute_event_source_scale_beta_status": "EXPLICIT_MATCHING_CALIBRATION_PARAMETER_UNDER_CURRENT_AUTHORITY",
+    "current_absolute_authority_rank_u_c6": 0,
+    "minimal_absolute_identification_rank_u_c6": 2,
     "physical_weyl_active_same_realization_phase_target_derived": false,
+    "calibration_free_weyl3_response_manifold_under_test": true,
     "six_derivative_operator": "Weyl^3",
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
@@ -36,45 +40,43 @@
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter038": {
+  "iter039": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "run_id": 34709394158,
-    "head_sha": "ae8f365ea1ad9e92cdeaed8fefa81a9f05e152d9",
-    "aggregate_job_id": 103595441181,
-    "aggregate_artifact_id": 10303065332,
-    "aggregate_digest": "sha256:26bf51ad50a90cc42b8ee92ba997a237df25aa82dc0ffedeb538170d9997a432",
-    "terminal_classification": "PASS_SCOPED_PRINCIPAL_COMPACT_REFINEMENT_REGULARITY_AND_FINE_TO_COARSE_BLOCKING",
-    "expected_lanes": 29,
-    "lane_passes": 29,
-    "exact_linearized_rank": 24,
-    "exact_linearized_determinant": 11664,
-    "exact_linearized_min_singular_numeric": 0.3742889790499052,
-    "minimum_finite_bridge_jacobian_singular": 0.3117043266205393,
-    "maximum_path_final_contraction_ratio": 0.5053863019927789,
-    "maximum_loop_final_contraction_ratio": 0.5080076341318422,
-    "scope": "Frozen smooth compact principal realization K=[0,1]^4; exact small-h IFT authority plus finite-range/path/loop bridge. Not arbitrary global field space."
-  },
-  "iter039": {
-    "status": "PRODUCTION_ACTIVE",
-    "completion_pct": 20,
-    "active_gate": "QGR-ITER039-ABSOLUTE-SOURCE-PHASE-IDENTIFIABILITY-AFTER-REFINEMENT-CLOSURE",
     "run_id": 34709657749,
     "head_sha": "15cedcd3507f0223dc50827a2f72e3d0762ec901",
-    "expected_scientific_lanes": 30,
-    "audits": [
-      "source-null",
-      "refinement-beta-blind",
-      "current-authority-rank",
-      "minimal-calibration-rank",
-      "beta-sign"
-    ]
+    "aggregate_job_id": 103596064182,
+    "aggregate_artifact_id": 10302389728,
+    "aggregate_digest": "sha256:11d4f47b32e269573e491d06d188d1ee90da92a9f5000377876e498d037b23e3",
+    "terminal_classification": "PASS_SCOPED_INTERNAL_ABSOLUTE_SCALE_NONIDENTIFIABILITY_AND_MINIMAL_CALIBRATION_RANK_DERIVED",
+    "expected_lanes": 30,
+    "lane_passes": 30,
+    "source_scale_nullity": 1,
+    "current_absolute_authority_rank_on_u_c6": 0,
+    "minimal_rank_with_one_absolute_target": 1,
+    "minimal_rank_with_independent_conformal_plus_weyl_absolute_targets": 2,
+    "maximum_g38_output_difference_across_dummy_beta_witnesses": 0.0
+  },
+  "iter040": {
+    "status": "PRODUCTION_ACTIVE",
+    "completion_pct": 20,
+    "active_gate": "QGR-ITER040-CALIBRATION-FREE-WEYL3-RESPONSE-MANIFOLD",
+    "run_id": 34709914980,
+    "head_sha": "b990644250a4df7d29ddec467629c56956fd83e9",
+    "expected_scientific_lanes": 20,
+    "streams": {
+      "refinement_null_sign": 4,
+      "amplitude_power_law": 3,
+      "shape_ratio_universality": 3,
+      "rotational_invariance_recovery": 4,
+      "exact_calibration_free_relations": 6
+    }
   },
   "active_question": {
-    "id": "QGR-ITER039-ABSOLUTE-SOURCE-PHASE-IDENTIFIABILITY-AFTER-REFINEMENT-CLOSURE",
-    "text": "After scoped principal refinement closure, can existing QGR authority internally identify the absolute source/action-phase scale beta and c6, or does the exact authority structure retain a scale null direction requiring independent matching/calibration data?"
+    "id": "QGR-ITER040-CALIBRATION-FREE-WEYL3-RESPONSE-MANIFOLD",
+    "text": "With beta and c6 explicitly unfixed as classified by Iter039, does the existing same-field-content Weyl-active QGR realization nevertheless produce robust calibration-free signs, nulls, amplitude powers, tidal-shape ratios and rotationally invariant response-kernel relations that can serve as a parameterized falsifiable prediction manifold?"
   },
-  "active_blocker": "ABSOLUTE_SOURCE_ACTION_PHASE_NORMALIZATION_AND_WEYL_ACTIVE_MATCHING_AUTHORITY",
+  "active_blocker": "CALIBRATION_FREE_WEYL_ACTIVE_PREDICTION_STRUCTURE_AND_END_TO_END_PARAMETERIZED_MODEL_CLOSURE",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
