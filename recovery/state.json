@@ -4,18 +4,19 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
-    "iteration": 50,
-    "phase": "MODEL_CONSTRUCTION_COVARIANT_WEYL3_VARIATION_PREREQUISITE"
+    "iteration": 51,
+    "phase": "MODEL_CONSTRUCTION_FULL_COVARIANT_WEYL3_METRIC_VARIATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 98,
-    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Increase 97->98 is credited specifically to terminal Iter049 closing a second independent curved symmetry-reduced Weyl^3 variational sector under the frozen gate.",
+    "candidate_program_pct": 99,
+    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Increase 98->99 is credited specifically to terminal Iter050 closing the first generic non-symmetry-reduced covariant curvature-direction/P-tensor prerequisite under the frozen gate.",
     "iter046_pct": 100,
     "iter047_pct": 100,
     "iter048_pct": 100,
     "iter049_pct": 100,
-    "iter050_pct": 0,
+    "iter050_pct": 100,
+    "iter051_pct": 0,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -32,6 +33,7 @@
     "weyl3_curvature_class_activation": "PASS_SCOPED_24_OF_24",
     "weyl3_bianchi_i_reduced_variational_response": "PASS_SCOPED_24_OF_24",
     "weyl3_spherical_reduced_variational_response": "PASS_SCOPED_24_OF_24",
+    "weyl3_covariant_curvature_directional_prerequisite": "PASS_SCOPED_12_OF_12",
     "full_covariant_six_derivative_eom_established": false,
     "generic_nonlinear_radiative_stability_established": false,
     "physical_multiple_branch_measure_selection_derived": false,
@@ -68,17 +70,36 @@
     "scope_lock": "RADIAL_GAUGE_UNFIXED_STATIC_SPHERICAL_REDUCED_VARIATION_ONLY_NOT_FULL_4D_COVARIANT_WEYL3_EOM"
   },
   "iter050": {
+    "status": "COMPLETE",
+    "completion_pct": 100,
+    "preregistration_commit": "f711706587c3119a0b50d42deed8d188bc6cbcef",
+    "implementation_commit": "60da97ddb8afa3b293c22fef1c8af530b476bf9e",
+    "aggregate_commit": "a6245ccb401d2caca3cc5d660d45d4b3cbda1d93",
+    "authoritative_trigger_commit": "aff866ef2437b38e0981ee11f3d3b759c1710423",
+    "authoritative_run_id": 34721494038,
+    "aggregate_job_id": 103628161706,
+    "aggregate_artifact_id": 10305494635,
+    "aggregate_digest": "sha256:b61db7ae72d17071fff8790c5dc7029f9c67ec01cb4d2714bbc18fcaa219fb2e",
+    "expected_scientific_lanes": 12,
+    "found_scientific_lanes": 12,
+    "passes": 12,
+    "controls_valid": true,
+    "terminal_classification": "PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE",
+    "c6_status": "SYMBOLIC_UNFIXED_COEFFICIENT_ONLY",
+    "scope_lock": "GENERIC_NONSYMMETRY_REDUCED_FIXED_METRIC_CURVATURE_DIRECTIONAL_P_TENSOR_PREREQUISITE_ONLY_NOT_FULL_METRIC_FUNCTIONAL_DERIVATIVE_OR_COVARIANT_EOM"
+  },
+  "iter051": {
     "status": "PREREGISTRATION_REQUIRED_BEFORE_IMPLEMENTATION",
     "completion_pct": 0,
-    "planned_gate": "ITER050-WEYL3-COVARIANT-CURVATURE-DIRECTIONAL-VARIATION-PREREQUISITE",
-    "scope_lock": "GENERIC_NONSYMMETRY_REDUCED_CURVATURE_DIRECTIONAL_P_TENSOR_CERTIFICATE_ONLY_NOT_FULL_METRIC_FUNCTIONAL_DERIVATIVE_OR_COVARIANT_EOM"
+    "planned_gate": "ITER051-WEYL3-FULL-COVARIANT-METRIC-FUNCTIONAL-DERIVATIVE-CERTIFICATE",
+    "scope_lock": "FULL_COVARIANT_METRIC_VARIATION_PROGRAMME_MUST_SEPARATELY_CERTIFY_MEASURE_PROJECTOR_ALGEBRAIC_VARIATION_AND_COVARIANT_DOUBLE_DIVERGENCE_P_SECTOR_BEFORE_ANY_FULL_EOM_PROMOTION"
   },
   "active_question": {
-    "id": "QGR-ITER050-WEYL3-COVARIANT-CURVATURE-DIRECTIONAL-VARIATION-PREREQUISITE",
-    "text": "Can the local covariant Weyl^3 scalar admit an independently checked curvature-direction derivative/P-tensor certificate on generic non-symmetry-reduced four-dimensional algebraic-curvature data, with Lorentz-basis covariance, null calibration and numerical convergence, before attempting the full metric functional derivative?"
+    "id": "QGR-ITER051-WEYL3-FULL-COVARIANT-METRIC-FUNCTIONAL-DERIVATIVE-CERTIFICATE",
+    "text": "Can the complete metric functional derivative of sqrt(-g) times the local Weyl-cubic invariant be independently certified on generic four-dimensional metric-jet data, including measure/projector metric dependence and the covariant double-divergence P-tensor sector, without symmetry reduction?"
   },
   "active_blocker": "FULL_4D_COVARIANT_WEYL3_METRIC_FUNCTIONAL_DERIVATIVE_NOT_YET_CERTIFIED",
-  "next_gate_lock": "Preregister Iter050 before implementation. Iter050 may certify only the local curvature-direction derivative/P-tensor prerequisite. It must not be promoted to the full metric Euler-Lagrange tensor because the metric variation and covariant double-divergence term remain outside this gate.",
+  "next_gate_lock": "Preregister Iter051 before implementation. Full-EOM promotion requires both algebraic metric/measure variation and the covariant derivative sector to pass independent frozen controls. A partial component PASS cannot be promoted to the complete Weyl3 Euler-Lagrange tensor.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
