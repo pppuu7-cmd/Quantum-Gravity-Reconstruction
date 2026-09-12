@@ -1,0 +1,3 @@
+ITER042R corrective diagnostic production trigger
+Frozen preregistration: status/ITERATION_042R.md
+Do not alter frame-completion rule, thresholds or classifications based on production output.
