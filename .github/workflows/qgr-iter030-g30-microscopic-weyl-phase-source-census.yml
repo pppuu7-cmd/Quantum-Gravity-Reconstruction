@@ -1,0 +1,60 @@
+name: qgr-iter030-g30-microscopic-weyl-phase-source-census
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter030_g30_microscopic_weyl_phase_source_census.py'
+      - 'code/qgr_iter030_g30_aggregate.py'
+      - '.github/workflows/qgr-iter030-g30-microscopic-weyl-phase-source-census.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        audit:
+          - weyl-forward-sensitivity
+          - finite-geometry-phase-nonuniqueness
+          - history-phase-blindness
+          - coarea-measure-phase-nonuniqueness
+          - composition-absolute-scale-null
+        lane: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G30 microscopic Weyl phase-source census
+        run: |
+          mkdir -p out
+          python code/qgr_iter030_g30_microscopic_weyl_phase_source_census.py \
+            --audit '${{ matrix.audit }}' \
+            --lane '${{ matrix.lane }}' \
+            --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g30-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+
+  aggregate:
+    if: always()
+    needs: lane
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g30-*
+          path: iter030-g30-results
+          merge-multiple: false
+      - name: Aggregate 30 G30 lanes
+        run: python code/qgr_iter030_g30_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g30-summary
+          path: iter030-g30-summary/summary.json
