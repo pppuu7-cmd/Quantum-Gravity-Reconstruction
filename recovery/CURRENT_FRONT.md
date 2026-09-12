@@ -1,75 +1,80 @@
 # QGR Current Research Front
 
 Updated: 2026-09-12
-Active iteration: `Iter031`
-Project phase: `MODEL_CONSTRUCTION_ACTIVE / FINITE-CELL ACTION-PHASE DESCENT`
-Active roadmap stage: `finite holonomy + local action -> controlled curvature lift -> finite/refinement-limit action phase`
+Active iteration: `Iter034`
+Project phase: `MODEL_CONSTRUCTION_ACTIVE / GLOBAL-BRANCH REGULARITY STRESS`
+Active roadmap stage: `projective refinement limit -> uniform torsion regularity -> compactness/runaway control`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**
 - Candidate-program readiness: **93%**
-- Iter005–Iter030 completion: **100%**
-- Iter031 completion: **ACTIVE**
+- Iter005–Iter033 completion: **100%**
+- Iter034 completion: **ACTIVE**
 - Theory established: **0%**
 - Active candidate: `QGR-L1 / Sym^2(W4) second-moment branch`
 - Primitive additive source-law shape: **PASS_SCOPED `J(n)=beta*n`**
-- Common-conformal scale-free endpoint/phase relations: **PASS_SCOPED**
-- Finite nontrivial holonomy geometry: **NUMERICALLY_VERIFIED_SCOPED**
-- Weyl-active forward `c6` sensitivity: **PASS_SCOPED IDENTIFIABILITY STRUCTURE**
-- Existing microscopic-object census for absolute Weyl phase target: **BLOCKED_SCOPED / COMPLETE**
+- Projective refinement-limit action mechanism: **PASS_CONDITIONAL_SCOPED**
+- Local weak-cell principal curvature lift: **PASS_SCOPED**
+- Local/compact-patch torsion regularity mechanism: **PASS_SCOPED**
+- Tower-wide uniform torsion-Jacobian gap: **NOT DERIVED**
+- Global branch compactness/finiteness: **NOT DERIVED**
 - Absolute source normalization `beta`: **NOT DERIVED**
 - Physical Weyl-active same-realization finite absolute phase target: **NOT DERIVED**
 - `c6` fixed: **NO**
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**
 
-## Iter029 terminal
-Run `34703816372`, head `ffa1176569b14f4a029c4dc22f899610802dd2f5`, aggregate job `103580256407`, aggregate artifact `10301636254`, digest `sha256:b126dfd082a28b00e68afdfd210862258a9c72b851743f8a6b82f2286ac2fb3c`.
+## Iter031 terminal
+Run `34705471500`, head `2c2a4b3c345bf4918c961cb710b501121d63edb8`, aggregate job `103584720153`, artifact `10301339284`, digest `sha256:7d49a935fa5f59fe47df3164dde96797202debce3c73ea07015ae770e35074f0`.
 
-Classification: `BLOCKED_SCOPED_EXISTING_QGR_HAS_WEYL_ACTIVE_C6_SENSITIVITY_BUT_CURRENT_SOURCE_SHAPE_AND_SCALE_FREE_CONFORMAL_DATA_HAVE_INSUFFICIENT_AUTHORITY_RANK_TO_FIX_C6_OR_ABSOLUTE_SOURCE_SCALE__ONE_GENUINE_NONHOMOGENEOUS_WEYL_ACTIVE_ABSOLUTE_PHASE_TARGET_WOULD_CLOSE_THE_C6_DIRECTION`.
+Classification: `PARTIAL_SCOPED_WEAK_CELL_CONTINUITY_SELECTS_A_UNIQUE_LOCAL_PRINCIPAL_CURVATURE_LIFT__BLOCKED_EXACT_FINITE_CELL_ACTION_PHASE_DESCENT_BECAUSE_GLOBAL_HOLONOMY_LOG_BRANCH_FINITE_SAMPLE_QUADRATURE_AND_ABSOLUTE_PHASE_NORMALIZATION_ARE_NOT_FIXED_BY_THE_EXISTING_DISCRETE_DATA`.
 
-Durable record: `results/ITER029_G29_WEYL_ACTIVE_PHASE_AUTHORITY.md`.
+Record: `results/ITER031_G31_FINITE_CELL_ACTION_PHASE_DESCENT.md`.
 
-## Iter030 terminal
-Run `34705297620`, head `3e7ed565f388528e53d8c9ff5ef93acfc9bdb71b`, aggregate job `103584274906`, aggregate artifact `10301613425`, digest `sha256:b6625566d38ef6dc83f4e09349d7793fc4b0b9fea9db868450421f0f0fc030c2`.
+## Iter032 terminal
+Run `34705619389`, head `2d2419e6319b10645c61315c16bd1eec85fb85ef`, aggregate job `103585190521`, artifact `10300629276`, digest `sha256:342102a6163c5f5b250aeff82b52f7977ed0cb3b322f0e2f9117e788be4198b2`.
 
-All 30/30 required lane artifacts were present; all frozen checks and aggregate completed successfully.
+Classification: `PASS_CONDITIONAL_SCOPED_RESOLVED_WEAK_CELL_REFINEMENT_PLUS_UNIFORM_REGULARITY_REMOVES_LOCAL_LOG_AND_FINITE_QUADRATURE_AMBIGUITIES_IN_THE_PROJECTIVE_LIMIT_AND_THE_LIMITING_LOCAL_ACTION_IS_CYLINDRICALLY_ADDITIVE__BLOCKED_QGR_UNIFORM_REFINEMENT_REGULARITY_AND_ABSOLUTE_PHASE_NORMALIZATION_NOT_YET_DERIVED`.
 
-Classification: `BLOCKED_SCOPED_EXISTING_QGR_MICROSCOPIC_OBJECTS_CONTAIN_NONTRIVIAL_FINITE_CURVATURE_GEOMETRY_AND_WEYL_ACTIVE_FORWARD_ACTION_SENSITIVITY_BUT_THE_EXISTING_GEOMETRY_HISTORY_COAREA_AND_COMPOSITION_LAYERS_DO_NOT_DERIVE_A_NONHOMOGENEOUS_ABSOLUTE_FINITE_CELL_COHERENT_PHASE_SOURCE_TARGET`.
+Record: `results/ITER032_G32_PROJECTIVE_REFINEMENT_LIMIT_ACTION_PHASE.md`.
 
-Strongest positive: finite-cell geometry and Weyl-active forward action sensitivity already exist.
+## Iter033 terminal
+Run `34705779959`, head `4770da374c40b5120c70eefd20d3cdce1a69693e`, aggregate job `103585488589`, artifact `10301294722`, digest `sha256:f377cb8d95af49c05ef42161678ec26e2036369b36cfd1c6c22f120da1e55cc3`.
 
-Strongest blocker: no existing microscopic layer supplies a derived finite-cell geometry/event -> absolute coherent `S/hbar` map.
+Classification: `PARTIAL_SCOPED_LOCAL_TORSION_REGULARITY_AND_QUANTITATIVE_IFT_SUPPLY_THE_G32_REGULARITY_MECHANISM_ON_ANY_COMPACT_NONDEGENERATE_BRANCH_PATCH__BLOCKED_NO_DERIVED_COMPACTNESS_OR_TOWER_WIDE_UNIFORM_TORSION_JACOBIAN_GAP_AND_POINTWISE_FINITE_LEVEL_REGULARITY_IS_INSUFFICIENT`.
 
-Durable record: `results/ITER030_G30_MICROSCOPIC_WEYL_PHASE_SOURCE_CENSUS.md`.
+Strongest positive: G32's regularity condition is now tied to a concrete torsion-Jacobian gap, with real G5/G9 finite regular anchors.
 
-## Active gate — Iter031 G31
-`QGR-ITER031-G31-DERIVE-FINITE-CELL-ACTION-PHASE-FROM-EXISTING-DISCRETE-CURVATURE-AND-LOCAL-ACTION-WITHOUT-NEW-COUPLINGS`.
+Strongest blocker: compactness/noncompact escape and a tower-wide positive gap are not established.
 
-Workflow head: `2c2a4b3c345bf4918c961cb710b501121d63edb8`.
-GitHub Actions run: `34705471500`.
-Matrix: **5 independent audit classes x 6 lanes = 30 lanes**, fail-fast disabled.
+Record: `results/ITER033_G33_REFINEMENT_TOWER_UNIFORM_REGULARITY_AUTHORITY.md`.
 
-Frozen audits:
-1. `global-log-branch-nonuniqueness` — finite holonomy exponential-map branch audit;
-2. `weak-cell-principal-branch` — local weak-cell principal lift positive result;
-3. `finite-sample-integral-nullspace` — whether finite local samples determine the action integral;
-4. `overall-action-phase-scale` — classical stationarity versus absolute quantum phase normalization;
-5. `finite-refinement-integral-nullspace` — whether any finite refinement eliminates the integration nullspace.
+## Active gate — Iter034 G34
+`QGR-ITER034-G34-QGR-SPECIFIC-COERCIVITY-COMPACTNESS-OR-RUNAWAY-BRANCH-COUNTEREXAMPLE`.
 
-Prospective classification allows a scoped positive result for the weak-cell principal curvature lift while forbidding promotion of an exact finite-cell action phase if global log, integration, or phase-normalization authority remains open.
+Workflow head: `46423cb63a899b4c5a4077be81b003edc2d95280`.
+GitHub Actions run: `34705929851`.
+
+This gate uses the actual Iter006 G9 nonlinear 24-equation finite torsion system, not only algebraic controls.
+
+Parallel numerical streams:
+1. six deterministic `large-start` lanes: four increasingly distant initial conditions per lane around the finite-curvature G9 root, comparing converged transport matrices to the reference branch;
+2. six `background-continuation` lanes: continuation of the same G9 conformal finite-curvature frame family to stronger background amplitudes up to `gamma=4`, recording residuals and the smallest torsion-Jacobian singular value.
+
+The aggregate distinguishes:
+- a distinct finite transport-root candidate;
+- branch degeneration / Jacobian-gap collapse candidate;
+- no candidate found in the scanned domain.
+
+None of those finite numerical outcomes is promoted to a global theorem without further authority.
 
 ## Active blocker
-`EXACT_FINITE_CELL_ACTION_PHASE_NOT_YET_A_UNIQUE_FUNCTION_OF_CURRENT_DISCRETE_DATA`.
-
-## Conditional next gate
-If G31 confirms a local weak-cell lift but exact finite-cell integration remains underdetermined:
-`QGR-ITER032-G32-PROJECTIVE-REFINEMENT-LIMIT-ACTION-PHASE-CYLINDRICAL-CONSISTENCY-AND-UNIQUENESS`.
+`GLOBAL_STRONG_CURVATURE_BRANCH_COMPACTNESS_AND_TOWER_WIDE_UNIFORM_TORSION_REGULARITY_NOT_DERIVED`.
 
 ## Claim locks
 - theory established `0%`;
-- principal holonomy log authority, if obtained, is local weak-cell only;
-- finite holonomy is not assumed to define a unique global curvature logarithm;
-- finite samples are not assumed to equal an exact continuum action integral;
+- finite numerical scans are not global uniqueness/compactness theorems;
+- solver nonconvergence is not proof that a root does not exist;
+- G5/G9 finite anchors do not imply a tower-wide gap;
 - `beta=1` unauthorized;
 - `c6` unfixed;
 - no physical same-realization Weyl-active finite absolute phase target yet;
