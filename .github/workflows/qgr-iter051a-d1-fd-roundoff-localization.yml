@@ -1,0 +1,50 @@
+name: qgr-iter051a-d1-fd-roundoff-localization
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/qgr-iter051a-d1-fd-roundoff-localization.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy
+      - name: Run frozen Iter051A-D1 lane
+        run: |
+          set -o pipefail
+          python code/qgr_iter051a_d1_fd_roundoff_localization.py --lane ${{ matrix.lane }} | tee lane.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter051a-d1-lane-${{ matrix.lane }}
+          path: lane.json
+
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051a-d1-lane-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen diagnostic classification
+        run: python code/qgr_iter051a_d1_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter051a-d1-summary
+          path: iter051a-d1-summary.json
