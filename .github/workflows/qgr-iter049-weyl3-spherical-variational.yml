@@ -1,0 +1,117 @@
+name: qgr-iter049-weyl3-spherical-variational
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'status/ITERATION_049_TRIGGER.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  stream-a:
+    name: stream-a (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Schwarzschild reduced Weyl3 variational activation
+        run: python code/qgr_iter049_weyl3_spherical_variational.py --stream A --index ${{ matrix.index }} --out iter049-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter049-A-${{ matrix.index }}
+          path: iter049-output/result.json
+
+  stream-b:
+    name: stream-b (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Constant-curvature conformally-flat controls
+        run: python code/qgr_iter049_weyl3_spherical_variational.py --stream B --index ${{ matrix.index }} --out iter049-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter049-B-${{ matrix.index }}
+          path: iter049-output/result.json
+
+  stream-c:
+    name: stream-c (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Radial reparameterization anti-artifact controls
+        run: python code/qgr_iter049_weyl3_spherical_variational.py --stream C --index ${{ matrix.index }} --out iter049-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter049-C-${{ matrix.index }}
+          path: iter049-output/result.json
+
+  stream-d:
+    name: stream-d (${{ matrix.index }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        index: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Radial Noether identity and generic-profile audit
+        run: python code/qgr_iter049_weyl3_spherical_variational.py --stream D --index ${{ matrix.index }} --out iter049-output/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter049-D-${{ matrix.index }}
+          path: iter049-output/result.json
+
+  aggregate:
+    name: aggregate
+    if: always()
+    needs: [stream-a, stream-b, stream-c, stream-d]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter049-*
+          path: iter049-results
+          merge-multiple: false
+      - name: Aggregate frozen Iter049 gate
+        run: python code/qgr_iter049_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter049-summary
+          path: iter049-summary/summary.json
