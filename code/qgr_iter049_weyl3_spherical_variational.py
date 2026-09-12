@@ -16,8 +16,9 @@ coords=(t,r,th,ph)
 F=sp.Function('F')(r); N=sp.Function('N')(r); S=sp.Function('S')(r)
 
 def simp(x): return sp.factor(sp.cancel(sp.simplify(x)))
+def zero_exact(x): return sp.trigsimp(simp(x),method='fu')==0
 def matrix_zero(M): return all(simp(M[i,j])==0 for i,j in itertools.product(range(M.rows),range(M.cols)))
-def tensor_zero(T): return all(simp(T[a][b][c][d])==0 for a,b,c,d in itertools.product(range(D),repeat=4))
+def tensor_zero(T): return all(zero_exact(T[a][b][c][d]) for a,b,c,d in itertools.product(range(D),repeat=4))
 
 def geometry(g):
     gi=g.inv().applyfunc(simp)
@@ -88,7 +89,7 @@ def stream_b(i,A):
     h=HS[i]; sig=SIGMAS[i]; pt=B_RADII[i]
     ff=1-sig*h**2*r**2; fv=sp.sqrt(ff); nv=1/fv; sv=r
     vals=[prof(x,fv,nv,sv) for x in (W3,L6,EF,EN,ES)]
-    czero=all(prof(C[a][b][c][d],fv,nv,sv)==0 for a,b,c,d in itertools.product(range(D),repeat=4))
+    czero=all(zero_exact(prof(C[a][b][c][d],fv,nv,sv)) for a,b,c,d in itertools.product(range(D),repeat=4))
     nz=rmnz(Rm,fv,nv,sv,pt)
     det=simp((-fv**2*nv**2*sv**4).subs(r,pt))
     control=cert and det!=0 and nz>0 and (sig<0 or 1-h**2*pt**2>0)
@@ -108,7 +109,6 @@ def stream_c(i,A):
     return {'stream':'C','index':i,'m':str(m),'M':str(mass),'rho':str(pt),'W3':str(w),'L6':str(l),'ricci_zero_exact':matrix_zero(ric),'reparameterized_invariants_and_density_exact':bool(exact),'generic_certificate_valid':bool(cert),'control_valid':bool(control),'lane_pass':bool(control and exact and w!=0 and l!=0)}
 
 def jet_value(expr,fv,nv,sv,pt):
-    # Evaluate generic functional expression at a polynomial-profile jet without first expanding the full profile function.
     mapping={F:fv.subs(r,pt),N:nv.subs(r,pt),S:sv.subs(r,pt)}
     for order in range(1,6):
         mapping[sp.diff(F,r,order)]=sp.diff(fv,r,order).subs(r,pt)
@@ -122,7 +122,6 @@ def stream_d(i,A):
     vals=[jet_value(x,fv,nv,sv,pt) for x in (EF,EN,ES)]
     nonzero=sum(x!=0 for x in vals)>=2
     det=simp((-fv**2*nv**2*sv**4).subs(r,pt))
-    # Generic identity is the primary authority; substitution into exact zero remains exact zero.
     profile_identity=simp(noether.subs({F:fv,N:nv,S:sv}).doit()) if noether!=0 else sp.Integer(0)
     control=cert and det!=0
     return {'stream':'D','index':i,'r':str(pt),'F':str(fv),'N':str(nv),'S':str(sv),'E_F_at_witness':str(vals[0]),'E_N_at_witness':str(vals[1]),'E_S_at_witness':str(vals[2]),'generic_noether_identity_exact':bool(noether==0),'profile_noether_identity_exact':bool(profile_identity==0),'at_least_two_responses_nonzero':bool(nonzero),'generic_certificate_valid':bool(cert),'control_valid':bool(control),'lane_pass':bool(control and noether==0 and profile_identity==0 and nonzero)}
