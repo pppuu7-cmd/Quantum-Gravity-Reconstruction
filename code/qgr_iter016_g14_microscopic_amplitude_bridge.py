@@ -29,7 +29,9 @@ def s4_constraints():
         P=[[0]*4 for _ in range(4)]
         for i in range(4): P[p[i]][i]=1
         Q=[[0]*10 for _ in range(10)]
-        for a,(i,j) in enumerate(PAIRS): Q[PIDX[tuple(sorted((p[i],p[j])))][a]=1
+        for a,(i,j) in enumerate(PAIRS):
+            out=tuple(sorted((p[i],p[j])))
+            Q[PIDX[out]][a]=1
         for rr in range(10):
             for c in range(4):
                 row=[0]*40
@@ -94,7 +96,6 @@ def audit_history(lane):
     pair=mobius_constant(2,c);triple=mobius_constant(3,c)
     branches=24
     norm=sum(F(1,branches) for _ in range(branches))
-    # |exp(i theta)|^2=1 exactly, so completeness has zero derivative with respect to every phase coordinate.
     phase_response_pair=F(0);phase_response_triple=F(0)
     passed=(norm==1 and pair==0 and triple==0 and phase_response_pair==0 and phase_response_triple==0)
     return {
@@ -107,11 +108,10 @@ def audit_history(lane):
     }
 
 def audit_rank(lane):
-    # Coordinates are (k,a,b) in the G13 cubic family.
     current=[[1,0,0],[0,0,0],[0,0,0],[0,0,0]]
     r0=rank_fraction(current);n0=3-r0
-    pair=[1,2,0]     # F(1,1,0,0)=k+2a
-    triple=[0,0,1]   # connected three-event cumulant isolates b
+    pair=[1,2,0]
+    triple=[0,0,1]
     r1=rank_fraction(current+[pair]);r2=rank_fraction(current+[pair,triple])
     passed=(r0==1 and n0==2 and r1==2 and r2==3)
     return {
