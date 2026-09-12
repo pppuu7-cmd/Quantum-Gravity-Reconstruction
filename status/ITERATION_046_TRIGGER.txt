@@ -1,0 +1,8 @@
+ITER046 production trigger
+Preregistration authority: status/ITERATION_046.md
+Preregistration commit: 125d030e90ac86697710c9ed0cee432c5ff54596
+Lane implementation commit: bd7ea711e8f1f98e5727321f77bc90841510b440
+Aggregate commit: d625cb2f636ef6781513c30600572156b7c806d3
+Workflow commit: 0a4c93cae719379ca4b38c10047fc6a41e92ed0b
+Frozen lanes: 34 + aggregate
+No post-trigger threshold/profile changes authorized.
