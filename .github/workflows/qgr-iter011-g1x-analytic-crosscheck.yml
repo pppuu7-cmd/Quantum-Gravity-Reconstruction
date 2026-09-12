@@ -1,0 +1,74 @@
+name: qgr-iter011-g1x-analytic-crosscheck
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'code/qgr_iter011_g1_frechet_common.py'
+      - 'code/qgr_iter011_g1_frechet_refinement.py'
+      - 'code/qgr_iter011_g1_odd_h_scaling.py'
+      - 'code/qgr_iter011_g1_measure_phase_separation.py'
+      - 'code/qgr_iter011_g1_fixed_volume_accumulation.py'
+      - 'code/qgr_iter011_g1x_aggregate.py'
+      - '.github/workflows/qgr-iter011-g1x-analytic-crosscheck.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        mode: [frechet-refinement, odd-cubic-h-scaling, measure-phase-separation, fixed-volume-accumulation]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - name: Install numeric dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Run lane
+        shell: bash
+        run: |
+          mkdir -p build/g1x
+          case '${{ matrix.mode }}' in
+            frechet-refinement) python code/qgr_iter011_g1_frechet_refinement.py > build/g1x/result.json ;;
+            odd-cubic-h-scaling) python code/qgr_iter011_g1_odd_h_scaling.py > build/g1x/result.json ;;
+            measure-phase-separation) python code/qgr_iter011_g1_measure_phase_separation.py > build/g1x/result.json ;;
+            fixed-volume-accumulation) python code/qgr_iter011_g1_fixed_volume_accumulation.py > build/g1x/result.json ;;
+          esac
+          cat build/g1x/result.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter011-g1x-${{ matrix.mode }}
+          path: build/g1x/result.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: qgr-iter011-g1x-*
+          path: iter011-g1x-results
+          merge-multiple: false
+      - name: Aggregate
+        run: python code/qgr_iter011_g1x_aggregate.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter011-g1x-summary
+          path: iter011-g1x-summary.json
+          if-no-files-found: error
+          retention-days: 90
