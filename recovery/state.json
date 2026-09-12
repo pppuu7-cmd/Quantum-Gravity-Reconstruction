@@ -4,17 +4,18 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
-    "iteration": 49,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_WEYL3_SPHERICALLY_REDUCED_VARIATIONAL_RESPONSE"
+    "iteration": 50,
+    "phase": "MODEL_CONSTRUCTION_COVARIANT_WEYL3_VARIATION_PREREQUISITE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 97,
-    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Increase 96->97 is credited specifically to terminal Iter048 variational activation of the Weyl^3 coefficient in a lapse-retaining curved anisotropic sector, not to compute volume.",
+    "candidate_program_pct": 98,
+    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Increase 97->98 is credited specifically to terminal Iter049 closing a second independent curved symmetry-reduced Weyl^3 variational sector under the frozen gate.",
     "iter046_pct": 100,
     "iter047_pct": 100,
     "iter048_pct": 100,
-    "iter049_pct": 35,
+    "iter049_pct": 100,
+    "iter050_pct": 0,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -30,7 +31,7 @@
     "exact_nonlinear_ppwave_radiative_sector": "PASS_SCOPED_34_OF_34",
     "weyl3_curvature_class_activation": "PASS_SCOPED_24_OF_24",
     "weyl3_bianchi_i_reduced_variational_response": "PASS_SCOPED_24_OF_24",
-    "weyl3_spherical_reduced_variational_response_under_test": true,
+    "weyl3_spherical_reduced_variational_response": "PASS_SCOPED_24_OF_24",
     "full_covariant_six_derivative_eom_established": false,
     "generic_nonlinear_radiative_stability_established": false,
     "physical_multiple_branch_measure_selection_derived": false,
@@ -39,58 +40,45 @@
   "iter048": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "preregistration_commit": "278ec25f089430a09d8b64540cbc57ed481f4fce",
-    "implementation_commit": "b618e848785e96ed6968e5ca06282d84c7925950",
-    "aggregate_commit": "4da8340f0dbc1a2ff1a51a55ff1fb8061592b992",
-    "initial_workflow_commit": "983521bef48fcb2feb73f3c1f0137e5a679079c9",
-    "workflow_yaml_fix_commit": "3513818d3f50a93c1d62743d7013cae1bc7f4b61",
-    "run_authority_record_commit": "9ddba17221e83ca96255a8a382a82692462eb21d",
-    "invalid_zero_evidence_run_id": 34719340456,
-    "authoritative_trigger_commit": "68cf38c745f146039cf63ed0f345e24bd87d5f01",
     "authoritative_run_id": 34719396082,
     "aggregate_job_id": 103622629715,
     "aggregate_artifact_id": 10305449033,
     "aggregate_digest": "sha256:2d183a735d97408c1145b077cb9817ec6f4456aaa7d3e405de916ff596cafb97",
-    "expected_scientific_lanes": 24,
-    "found_scientific_lanes": 24,
-    "passes": 24,
-    "controls_valid": true,
-    "terminal_classification": "PASS_SCOPED_WEYL3_SYMMETRY_REDUCED_VARIATIONAL_RESPONSE",
-    "c6_status": "SYMBOLIC_UNFIXED_COEFFICIENT_ONLY",
-    "scope_lock": "LAPSE_RETAINING_AXISYMMETRIC_BIANCHI_I_REDUCED_VARIATION_ONLY_NOT_FULL_COVARIANT_SIX_DERIVATIVE_EOM"
+    "terminal_classification": "PASS_SCOPED_WEYL3_SYMMETRY_REDUCED_VARIATIONAL_RESPONSE"
   },
   "iter049": {
-    "status": "AUTHORITATIVE_RETRY_PRODUCTION_ACTIVE",
-    "completion_pct": 35,
+    "status": "COMPLETE",
+    "completion_pct": 100,
     "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
-    "initial_implementation_commit": "2e6e8d527bb81e415c3eb5c93526e5eb0a127673",
-    "aggregate_commit": "939353319ac7158f27d2841323c1e34b6d491fc9",
-    "workflow_commit": "1ef0baf2d96fba9187a409e1108b433fd5cb072b",
-    "initial_trigger_commit": "237cd84006afa867352c27fa274c8aa7c25d14ae",
     "initial_run_id": 34719814120,
     "initial_run_authority": "ITER049_INITIAL_PRODUCTION_SYMBOLIC_CONTROL_INVALID_REQUIRES_CANONICAL_TRIG_RETRY",
     "run_authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
     "canonical_trig_control_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042",
     "authoritative_retry_trigger_commit": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
     "authoritative_run_id": 34719948722,
+    "aggregate_job_id": 103624666186,
+    "aggregate_artifact_id": 10306068977,
+    "aggregate_digest": "sha256:d474a1eeb41b2a56c74ec5266794b0362c26560bdcb062e232ae564c2381ce22",
     "expected_scientific_lanes": 24,
-    "streams": {"A":6,"B":6,"C":6,"D":6},
-    "active_gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
-    "terminal_classification": null,
+    "found_scientific_lanes": 24,
+    "passes": 24,
+    "controls_valid": true,
+    "terminal_classification": "PASS_SCOPED_WEYL3_SPHERICALLY_REDUCED_VARIATIONAL_RESPONSE",
     "c6_status": "SYMBOLIC_UNFIXED_COEFFICIENT_ONLY",
-    "scope_lock": "RADIAL_GAUGE_UNFIXED_STATIC_SPHERICAL_REDUCED_VARIATION_ONLY_NOT_FULL_4D_COVARIANT_WEYL3_EOM",
-    "diagnostic_evidence": {
-      "initial_A0": "PASS exact Schwarzschild W3/L6/E_F/E_N/E_S formulas and Ricci-flatness",
-      "initial_D3": "PASS exact generic radial Noether identity with nonzero reduced responses",
-      "initial_B0_issue": "W3=L6=E_F=E_N=E_S=0 but default simplifier left one identically-zero trigonometric Weyl component; fixed by exact canonical trig simplification without changing science criteria"
-    }
+    "scope_lock": "RADIAL_GAUGE_UNFIXED_STATIC_SPHERICAL_REDUCED_VARIATION_ONLY_NOT_FULL_4D_COVARIANT_WEYL3_EOM"
+  },
+  "iter050": {
+    "status": "PREREGISTRATION_REQUIRED_BEFORE_IMPLEMENTATION",
+    "completion_pct": 0,
+    "planned_gate": "ITER050-WEYL3-COVARIANT-CURVATURE-DIRECTIONAL-VARIATION-PREREQUISITE",
+    "scope_lock": "GENERIC_NONSYMMETRY_REDUCED_CURVATURE_DIRECTIONAL_P_TENSOR_CERTIFICATE_ONLY_NOT_FULL_METRIC_FUNCTIONAL_DERIVATIVE_OR_COVARIANT_EOM"
   },
   "active_question": {
-    "id": "QGR-ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
-    "text": "Does the coefficient of c6 in a radial-gauge-unfixed static spherical reduction of sqrt(-g) Weyl^3 give a nonzero reduced Euler-Lagrange response on Schwarzschild, zero response on conformally-flat constant-curvature controls, and exact radial Noether covariance?"
+    "id": "QGR-ITER050-WEYL3-COVARIANT-CURVATURE-DIRECTIONAL-VARIATION-PREREQUISITE",
+    "text": "Can the local covariant Weyl^3 scalar admit an independently checked curvature-direction derivative/P-tensor certificate on generic non-symmetry-reduced four-dimensional algebraic-curvature data, with Lorentz-basis covariance, null calibration and numerical convergence, before attempting the full metric functional derivative?"
   },
-  "active_blocker": "SECOND_INDEPENDENT_CURVED_SYMMETRY_CLASS_FOR_SIX_DERIVATIVE_VARIATIONAL_RESPONSE_THEN_FULL_COVARIANT_CERTIFICATE",
-  "next_gate_lock": "Consume authoritative retry Iter049 raw lanes and frozen aggregate before promotion. Initial run 34719814120 is diagnostic/non-authoritative for terminal classification. Even full PASS is a second independent symmetry-reduced variational sector, not the complete four-dimensional covariant Weyl^3 Euler-Lagrange tensor. c6 remains symbolic/unfixed. Do not weaken frozen Schwarzschild targets, constant-curvature Weyl-zero criterion, or Noether identity.",
+  "active_blocker": "FULL_4D_COVARIANT_WEYL3_METRIC_FUNCTIONAL_DERIVATIVE_NOT_YET_CERTIFIED",
+  "next_gate_lock": "Preregister Iter050 before implementation. Iter050 may certify only the local curvature-direction derivative/P-tensor prerequisite. It must not be promoted to the full metric Euler-Lagrange tensor because the metric variation and covariant double-divergence term remain outside this gate.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
