@@ -1,0 +1,52 @@
+name: qgr-iter028-g28-source-scale-quotient
+on:
+  push:
+    paths:
+      - 'code/qgr_iter028_g28_source_scale_quotient.py'
+      - 'code/qgr_iter028_g28_aggregate.py'
+      - '.github/workflows/qgr-iter028-g28-source-scale-quotient.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        audit: [endpoint-ratio, phase-ratio, action-endpoint-invariant, weyl-authority-null]
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: G28 source-scale quotient finite-phase audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter028_g28_source_scale_quotient.py --audit '${{ matrix.audit }}' --lane '${{ matrix.lane }}' --out out/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g28-${{ matrix.audit }}-${{ matrix.lane }}
+          path: out/result.json
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-g28-*
+          path: iter028-g28-results
+          merge-multiple: false
+      - name: Aggregate 24 G28 lanes
+        run: python code/qgr_iter028_g28_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-g28-summary
+          path: iter028-g28-summary/summary.json
