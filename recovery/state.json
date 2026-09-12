@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-12",
-    "iteration": 21,
-    "phase": "MODEL_CONSTRUCTION_ACTIVE_MICROSCOPIC_EVENT_INSERTION_AUTHORITY"
+    "iteration": 25,
+    "phase": "MODEL_CONSTRUCTION_ACTIVE_SAME_REALIZATION_FINITE_CURVED_PHASE_AUTHORITY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -19,7 +19,11 @@
     "iter010_pct": 100,
     "iter019_pct": 100,
     "iter020_pct": 100,
-    "iter021_pct": 0,
+    "iter021_pct": 100,
+    "iter022_pct": 100,
+    "iter023_pct": 100,
+    "iter024_pct": 100,
+    "iter025_pct": 15,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -32,6 +36,7 @@
     "common_conformal_dirichlet_bulk_derived_scoped": true,
     "event_endpoint_r_status": "BOUNDARY_EVENT_DATUM_NOT_BULK_COUPLING_IN_SCOPED_CONFORMAL_SECTOR",
     "nontrivial_event_insertion_derived": false,
+    "physical_same_realization_finite_curved_phase_samples_derived": false,
     "finite_pair_triple_coherent_amplitudes_derived": false,
     "finite_depth_history_channel_closed_scoped": true,
     "one_particle_full_l2_strong_refinement_closed_scoped": true,
@@ -42,24 +47,28 @@
     "benchmark_winner": false,
     "independent_validation": false
   },
-  "iter019": {
+  "iter023": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "run_id": 34695443798,
-    "terminal_classification": "PASS_SCOPED_G18_DIRICHLET_BULK_FUNCTIONAL_AND_ONE_OVER_H_REFINEMENT_WEIGHT_ARE_DERIVED_WITHIN_THE_EXISTING_QGR_LOCAL_TWO_DERIVATIVE_COMMON_CONFORMAL_SECTOR_UP_TO_THE_ALREADY_EXISTING_OVERALL_ACTION_NORMALIZATION__FAIL_SCOPED_G16_MULTIPLICATIVE_CHARACTER_AND_G18_LINEAR_S_PROFILE_AS_SIMULTANEOUS_NONTRIVIAL_REFINEMENT_LAWS__R_REMAINS_UNSELECTED_BOUNDARY_DATUM"
+    "run_id": 34696333843,
+    "terminal_classification": "PASS_SCOPED_UNIFORM_24_HISTORY_ORDER_MEASURE_EXACTLY_FIXES_COMBINATORIAL_PREFIX_OCCUPANCY_MOMENTS_AND_CONNECTED_ORDER_CUMULANTS__BLOCKED_SCOPED_THE_SAME_NORMALIZED_ORDER_MEASURE_HAS_ZERO_AUTHORITY_RANK_ON_QUADRATIC_AND_CUBIC_ACTION_PHASE_COEFFICIENTS_AND_CANNOT_SUPPLY_G13_FINITE_PAIR_CONNECTED_TRIPLE_ACTION_DATA"
   },
-  "iter020": {
+  "iter024": {
     "status": "COMPLETE",
     "completion_pct": 100,
-    "run_id": 34695665178,
-    "terminal_classification": "PASS_SCOPED_PURE_DERIVED_COMMON_CONFORMAL_DIRICHLET_BULK_ACTION_SELECTS_ONLY_THE_IDENTITY_ENDPOINT_R_EQUALS_ONE_WHEN_THE_FINAL_ENDPOINT_IS_FREE__A_NONTRIVIAL_EVENT_REQUIRES_BOUNDARY_OR_INSERTION_AUTHORITY__S4_ALLOWS_ONE_SINGLET_SOURCE_DIRECTION_BUT_DOES_NOT_FIX_ITS_STRENGTH__HISTORY_NORMALIZATION_IS_BLIND_TO_THAT_STRENGTH"
+    "run_id": 34697849130,
+    "head_sha": "26394a6c942015d5a8c5efd2f8d2da7803ffa28b",
+    "aggregate_job_id": 103564470755,
+    "aggregate_artifact_id": 10299755570,
+    "aggregate_digest": "sha256:e95bd44d2106d5d5bae86a5e15dd51c5d7f00c80a4597a216b1679fa5cc73352",
+    "terminal_classification": "PASS_SCOPED_ALGEBRAIC_PHASE_AUTHORITY_DESIGN__BLOCKED_PHYSICAL_SAME_REALIZATION_FINITE_CURVED_PHASE_DATA_NOT_YET_DERIVED"
   },
-  "iter021": {
+  "iter025": {
     "status": "ACTIVE",
-    "completion_pct": 0,
-    "issue_number": 10,
-    "run_id": 34695884167,
-    "active_gate": "QGR-ITER021-G21-BOOLEAN-EVENT-INSERTION-FROM-RANK2-PAIR-INCIDENCE-AND-SECOND-MOMENT-UPDATE"
+    "completion_pct": 15,
+    "run_id": 34700789596,
+    "head_sha": "79c74ebf1309f8a0e39bfefed411c66dae4b3905",
+    "active_gate": "QGR-ITER025-G25-DERIVE-SAME-REALIZATION-FINITE-CURVED-PHASE-SAMPLES-FROM-EXISTING-QGR-ACTION-WITHOUT-RETUNING"
   },
   "external_authority_snapshot": {
     "kmqgb_repository": "pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
@@ -70,14 +79,15 @@
     "D7": "NOT_CLOSED"
   },
   "active_question": {
-    "id": "QGR-ITER021-G21-BOOLEAN-EVENT-INSERTION-FROM-RANK2-PAIR-INCIDENCE-AND-SECOND-MOMENT-UPDATE",
-    "text": "Does strict B4 distinct-pair incidence plus S4 select a unique event insertion direction in Sym^2(W4), and if so does any existing same-realization authority fix the scalar conversion from one combinatorial pair event to finite physical second-moment response?"
+    "id": "QGR-ITER025-G25-DERIVE-SAME-REALIZATION-FINITE-CURVED-PHASE-SAMPLES-FROM-EXISTING-QGR-ACTION-WITHOUT-RETUNING",
+    "text": "Can the already-derived QGR action/source machinery, without adding or fitting a new event-dependent source law, uniquely map the G24 finite event probes to boundary/source data and hence to physical finite-curved action phases?"
   },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "qgr_event_insertion_strength_derived": false,
+    "qgr_physical_same_realization_finite_curved_phase_samples_derived": false,
     "qgr_finite_pair_triple_coherent_amplitudes_derived": false,
     "qgr_full_interacting_nonperturbative_hilbert_closed": false,
     "qgr_global_interacting_vacuum_measure_closed": false,
