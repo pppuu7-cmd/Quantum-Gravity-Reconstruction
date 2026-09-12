@@ -1,0 +1,4 @@
+ITER036-G36 production trigger
+Frozen preregistration: status/ITERATION_036.md
+Production matrix: 48 lanes, max-parallel 24
+Date: 2026-09-12
