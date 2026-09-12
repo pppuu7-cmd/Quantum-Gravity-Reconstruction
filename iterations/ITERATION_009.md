@@ -1,109 +1,106 @@
 # QGR Iteration 009 — Interacting Quantum Measure, Radiative Stability and Global Sector Completion
 
 Date: 2026-09-12
-Status: `ACTIVE / G1_G2_G3_COMPLETE / UNIQUE_ONSHELL_WEYL_CUBED_SHAPE / C6_AND_INFINITE_LIMIT_G4_ACTIVE`
-Current task completion: **75%**
-Candidate-program readiness: **90%**
+Status: `ACTIVE / G1_G2_G3_G4_COMPLETE / FIXED_GEOMETRY_G6H_C6_DECOUPLED / LEADING_LOSS_AND_STRONG_LIMIT_G5_ACTIVE`
+Current task completion: **85%**
+Candidate-program readiness: **91%**
 Active candidate: **QGR-L1**
 Theory established: **0%**
 
 Readiness is an internal construction-roadmap metric, not probability of correctness and not fraction of quantum gravity solved.
 
-## Starting point from Iter008
+## G1-G2 summary
 
-After continuum gravity normalization, the explicitly constructed history/two-derivative broadband comparator has one continuous microscopic parameter
+G1 run `34662453224` blocked the naive globally normalized `exp(iS/hbar)dmu` vacuum weight because the invariant measure has an infinite scale orbit and the flat zero-Lambda action does not suppress it. G2 run `34663104103` established normalized `L2` states and arbitrary finite-depth CPTP/isometric history composition, and proved both parity-even curvature-squared pure-vacuum bulk directions EOM-redundant at first correction order.
 
-`Gamma=h^2/ell_Q^2=c_geom*g`,
-
-plus a discrete global `Z2` sector choice. The specified G6F packet comparison has leading relative ratio `4/3`.
-
-## G1 — interacting-measure obstruction and radiative census
-
-Run `34662453224`: 5 lanes + aggregate SUCCESS.
-
-The invariant reference measure has infinite scale-orbit volume, while the zero-Lambda flat action does not suppress that orbit. Therefore `exp(iS/hbar)dmu` is not a ready-made normalized vacuum probability measure. Refinement-connected maps preserve the two `Z2` sectors. Before field-redefinition quotient, two parity-even curvature-squared bulk directions exist; power counting gives `omega=2L+2` as an allowance only.
-
-Record: `results/ITER009_G1_MEASURE_AND_RADIATIVE_CENSUS.md`.
-
-## G2 — finite-depth operator closure and four-derivative redundancy
-
-Run `34663104103`: 6 lanes + aggregate SUCCESS. Earlier run `34663065413` had one technical floating-point equality failure repaired with exact rational arithmetic and no criterion change.
-
-Normalized `L2` states exist despite infinite reference volume. The 24-history instrument remains exactly normalized at arbitrary finite depth under the verified branch-lift assumptions:
-
-`24^n * 24^-n = 1`.
-
-For pure vacuum, the first-order local field redefinition
-
-`delta g^munu=a R^munu+b g^munu R`
-
-maps to the `(R_munu R^munu,R^2)` coefficient basis with exact matrix
-
-`[[1,0],[-1/2,-1]]`,
-
-whose determinant is `-1` and rank is `2`. Thus both parity-even curvature-squared bulk directions are EOM-redundant for first-order pure-vacuum on-shell physics modulo Euler/boundary terms.
-
-The first power-counting level not removed by this argument is six derivatives. Current scalar/comparator `O(h^4)` convergence does not establish a uniform diamond/strong-operator infinite-refinement limit.
-
-Record: `results/ITER009_G2_FINITE_OPERATOR_AND_FIELD_REDEFINITION_CLOSURE.md`.
-
-## G3 — six-derivative on-shell physical operator census
+## G3 — first nonredundant local vacuum operator
 
 Run `34663353057`: 6 lanes + aggregate SUCCESS.
 
-### Unique parity-even vacuum shape
+On four-dimensional Ricci-flat vacuum the parity-even six-derivative bulk sector reduces, modulo vacuum EOM/IBP/Bianchi identities, to one nontrivial `Weyl^3` class. Its coefficient `c6` is not fixed by current microscopic authority. Dimensional matching gives
 
-In four-dimensional Ricci-flat vacuum, `Riemann=Weyl`. The Weyl tensor splits into self-dual and anti-self-dual symmetric traceless 3x3 blocks. At cubic order each chiral block has one class function `tr(C^3)`; parity selects the sum. Therefore the algebraic curvature-cubed parity-even sector is one-dimensional.
+`S6=a_cont*c6*h^4*integral(Weyl^3)`,
 
-Derivative-curvature six-derivative bulk structures reduce, within the scoped Ricci-flat sector and modulo integration by parts, differential Bianchi/Lichnerowicz identities and the vacuum EOM, to the same parity-even Weyl-cubed class.
-
-A Petrov-D-type traceless block with eigenvalues `(-2,1,1)` has `tr(C^3)=-6`, proving the surviving class is not an identity-zero.
-
-### Scaling and coefficient boundary
-
-The first local nonredundant vacuum correction has the form
-
-`S6=a_cont*c6*h^4*integral(I6)`, `I6~Weyl^3`.
-
-Using `Gamma=h^2/ell_Q^2`, its relative magnitude at curvature scale `R_eff` is
-
-`~ c6*Gamma^2*(ell_Q^2 R_eff)^2`.
-
-Therefore it is formally the same `O(h^4)` / `O(Gamma^2)` order as the finite-history broadband effect. No current authoritative finite-cell/microscopic QGR record fixes `c6`.
-
-Hence the **complete** leading `O(h^4)` effective theory cannot yet be called one-parameter unless `c6` is fixed or its response is shown to decouple from the specified observable. The Iter008 one-parameter claim remains valid for the explicitly constructed history/two-derivative comparator.
-
-Classification:
-`PARTIAL_SCOPED_ON_SHELL_PARITY_EVEN_PURE_VACUUM_SIX_DERIVATIVE_OPERATOR_SHAPE_COLLAPSES_TO_ONE_WEYL_CUBED_CLASS__ITS_QGR_COEFFICIENT_C6_IS_UNFIXED_AND_COMPETES_AT_THE_SAME_OH4_ORDER_AS_THE_HISTORY_EFFECT`.
+so a generic local curved response is formally the same `O(h^4)` / `O(Gamma^2)` order as the finite-history effect.
 
 Record: `results/ITER009_G3_SIX_DERIVATIVE_PHYSICAL_OPERATOR_CENSUS.md`.
 
+## G4 — c6 decoupling and actual G6H scope
+
+Run `34663799182`: 6 lanes + aggregate SUCCESS.
+
+### Lower-order underdetermination
+
+The explicit family
+
+`S_lambda=S_EH+lambda*a_cont*h^4*integral(Weyl^3)`
+
+preserves the frozen two-derivative sector and continuum limit, so current lower-order data do not determine `c6`.
+
+### Flat decoupling versus curved activation
+
+Because the exact flat seed has `W0=0`, the homogeneous cubic invariant begins at cubic order in perturbations:
+
+`delta S6|flat=0`, `delta^2 S6|flat=0`.
+
+Therefore `c6` does not modify the flat QGR-L1 Hessian or tree-level characteristic cone.
+
+On a nonzero-Weyl background the second variation is generically nonzero. The exact traceless block witness `W0=diag(-2,1,1)`, `w=diag(1,-1,0)` gives a nonzero quadratic coefficient in `tr((W0+epsilon w)^3)`.
+
+### Kraus phase and G6H code scope
+
+For the traced history channel,
+
+`K_alpha=N^-1/2 exp(iS_alpha/hbar) U_alpha`
+
+gives exactly
+
+`K_alpha rho K_alpha^dagger=N^-1 U_alpha rho U_alpha^dagger`.
+
+Thus scalar branch action phases cancel from the coarse mixture.
+
+The actual G6H code path was audited directly. It computes branch Lorentz transports from the torsion/connection `solve_paths(h)` construction and then source momenta, Wigner rotations and normalized overlaps. It contains no explicit `S_alpha`, `c6`, or corrected equation-of-motion solve. Therefore the existing G6H result is a **fixed-geometry transport comparator** and remains `c6`-independent in that scope.
+
+A fully self-consistent curved solution can still depend on `c6` through the branch geometry.
+
+### Infinite-refinement boundary
+
+A sufficient operator-norm condition such as
+
+`sup_alpha ||U_alpha(h_{n+1})-U_alpha(h_n)|| <= C h_n^p`, `p>0`,
+
+would make the dyadic channel sequence summable. Current evidence remains observable/RMS rather than a uniform full-domain operator bound.
+
+Classification:
+`PARTIAL_SCOPED_C6_IS_NOT_FIXED_BY_CURRENT_LOWER_ORDER_DATA_BUT_DECOUPLES_FROM_FLAT_LINEARIZED_PROPAGATION_AND_FROM_THE_EXISTING_FIXED_GEOMETRY_TRACED_G6H_CHANNEL_AS_A_SCALAR_PHASE__SELF_CONSISTENT_CURVED_C6_DYNAMICS_AND_INFINITE_REFINEMENT_REMAIN_OPEN`.
+
+Record: `results/ITER009_G4_C6_DECOUPLING_AND_CHANNEL_SCOPE.md`.
+
 ## Active blocker
 
-`MISSING_SAME_REALIZATION_MICROSCOPIC_DERIVATION_OR_OBSERVABLE_DECOUPLING_OF_C6_AND_UNIFORM_INFINITE_REFINEMENT_OPERATOR_CONTROL`
+`MISSING_ORDER_AUDIT_OF_SELF_CONSISTENT_C6_GEOMETRY_ON_THE_HISTORY_MIXTURE_LOSS_AND_A_JUSTIFIED_STRONG_REFINEMENT_LIMIT_ON_THE_PHYSICAL_PACKET_DOMAIN`
 
-## Active gate — G4
+## Active gate — G5
 
-`QGR-ITER009-G4-MICROSCOPIC-C6-MATCHING-OR-OBSERVABLE-DECOUPLING-AND-CHANNEL-CONVERGENCE`
+`QGR-ITER009-G5-LEADING-HISTORY-LOSS-C6-ORDER-AND-STRONG-REFINEMENT-CONTROL`
 
 Parallel tests:
 
-1. prove or refute that the current lower-order/symmetry/refinement data determine `c6`, by constructing an explicit admissible `S_EH + lambda h^4 Weyl^3` family if possible;
-2. test the first and second variation of `Weyl^3` about the exact flat QGR seed;
-3. test the quadratic response on a weak curved background with nonzero background Weyl curvature;
-4. prove exact cancellation of arbitrary scalar branch phases in the traced Kraus/history-mixture channel;
-5. audit the actual G6H code path for whether its present fixed-geometry comparator depends on any branch action phase or recomputes corrected dynamics;
-6. derive a sufficient uniform operator/channel convergence bound and compare it with the evidence currently available.
+1. expand branch generators as `X_alpha=h^2 A_alpha+c6 h^4 B_alpha+...` and determine the first `c6` order in pairwise history-mixture loss;
+2. prove exact invariance of purity/history-mixture loss under a common `O(h^4)` unitary geometry shift;
+3. test branch-dependent `c6 h^4` shifts and the cross-order with the existing `h^2` branch spread;
+4. distinguish the history-mixture purity observable from absolute coherent propagation observables that may remain `O(h^4)c6` sensitive;
+5. numerically extend the repaired-G9 relative branch Lorentz-generator scaling and test boundedness of the `h^-2` rescaled spread;
+6. use the exact G6F overlap formulas to test strong convergence on the specified normalized packet states and separate that from unavailable operator-norm convergence on the full Hilbert space.
 
 ## Claim guards
 
-- no import of the known continuum two-loop coefficient as a QGR microscopic prediction;
-- no claim that `c6` affects flat linearized propagation if its flat Hessian vanishes;
-- no claim that present G6H fixed-geometry phase-independence proves a self-consistent curved solution is `c6`-independent;
-- no infinite-depth completion inferred from finite-depth CPTP normalization;
+- no claim `c6` is fixed;
+- no claim all observables are `c6` independent if only history-mixture purity is protected at leading order;
+- no full-Hilbert operator-norm convergence claim from packet strong convergence;
 - theory established remains `0%`;
 - no independent KMQGB pass or `NEW_REQUIRED` authorization.
 
 ## KMQGB synchronization
 
-Latest observed KMQGB head: `12a28d7b58c082b2f817cf3d0296ea9e11267097` (`Iter388: add CMB transport scope guard`). Its authoritative recovery state remains older and still records `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
+Latest observed KMQGB head remains `12a28d7b58c082b2f817cf3d0296ea9e11267097`; authoritative recovery remains older with `global_decision=NOT_YET_AUTHORIZED`, `new_required_authorized=false`, `D7=NOT_CLOSED`.
