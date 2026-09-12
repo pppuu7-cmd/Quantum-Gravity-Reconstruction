@@ -1,0 +1,70 @@
+name: qgr-iter009-g1-measure-radiative
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter009_g1_*.py'
+      - '.github/workflows/qgr-iter009-g1-measure-radiative.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: scale-measure
+            script: code/qgr_iter009_g1_scale_measure.py
+            output: iter009-g1-scale-measure.json
+          - name: flat-zero-mode
+            script: code/qgr_iter009_g1_flat_zero_mode.py
+            output: iter009-g1-flat-zero-mode.json
+          - name: z2-superselection
+            script: code/qgr_iter009_g1_z2_superselection.py
+            output: iter009-g1-z2-superselection.json
+          - name: four-derivative-census
+            script: code/qgr_iter009_g1_four_derivative_census.py
+            output: iter009-g1-four-derivative-census.json
+          - name: power-counting
+            script: code/qgr_iter009_g1_power_counting.py
+            output: iter009-g1-power-counting.json
+    runs-on: ubuntu-24.04
+    name: lane (${{ matrix.name }})
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - name: Run lane
+        run: python "${{ matrix.script }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter009-g1-${{ matrix.name }}
+          path: ${{ matrix.output }}
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    needs: lane
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.11'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: qgr-iter009-g1-*
+          path: iter009-g1-results
+          merge-multiple: false
+      - name: Aggregate
+        run: python code/qgr_iter009_g1_aggregate.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qgr-iter009-g1-summary
+          path: iter009-g1-summary.json
+          if-no-files-found: error
+          retention-days: 90
