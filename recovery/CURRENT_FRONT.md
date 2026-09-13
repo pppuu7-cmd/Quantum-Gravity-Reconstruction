@@ -1,87 +1,131 @@
 # QGR Current Research Front
 
-Updated: 2026-09-13
-Primary active iteration: `Iter053 / integrated compact-support Weyl3 action variation`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 COVARIANT FUNCTIONAL-VARIATION CLOSURE`
+Updated: 2026-09-14
+Primary active gate: `Iter053S / H5 tensor-density covariance localization`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 COVARIANCE IMPLEMENTATION LOCALIZATION`
 
 ## Canonical status
+
 - Repository infrastructure readiness: **100%**.
 - Candidate-program roadmap readiness: **99%** — roadmap readiness only, not correctness probability.
-- Iter051 completion: **100%**.
-- Iter052 completion: **100%**.
-- Iter053 operational completion: **55%**.
 - Theory established: **0%**.
 - `beta` remains a matching/calibration parameter; `beta=1` is not authorized.
 - `c6` remains **symbolic/unfixed**.
 - Full covariant six-derivative EOM established as a global theorem: **false**.
+- Transition to quantum amplitude/measure closure: **not authorized**.
+
+GitHub main + terminal Actions/results are authoritative. Older recovery text that described Iter053 retry as in progress or Iter053R as unimplemented is superseded by the terminal records below.
 
 ## Preserved historical failures
+
 - G51C run `34741060700`: `SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY`, 12/18 PASS.
 - G51C-D2 run `34741924103`: `SCIENTIFIC_FAIL_G51C_D2_SIGN_OR_HELDOUT_VALIDATION`, 19/20 PASS.
+
 Neither is rewritten by later replacement gates.
 
 ## Iter052 — terminal genuinely-4D scoped PASS
+
 Run `34748813339`; aggregate job `103702164522`; artifact `10315226969`; digest `sha256:b4b8c4b75046541f25b6a5f3f469e2d59e94c2b6571a6f1645b6e94f53f82009`; result commit `a4ef2219c60d55dc0913e1a7c696ed949028c7bc`.
+
 Classification: `PASS_SCOPED_ITER052_WEYL3_4D_COVARIANT_DIRECTIONAL_VARIATION_CERTIFICATE`, 12/12 valid PASS. Finite computational certificate only.
 
-## Iter053 original gate — preserved numerical/infrastructure failure
-Preregistration `bb0b755f25f14b89dd44b6f16da309d0d0796d05`; initial run `34750610751`; aggregate job `103750238843`; artifact `10320808113`; digest `sha256:e6cccea46c99d1f93cf440f0d39a78bfe96dfc7f21eebacaa68690797fd0f3bc`.
-Classification: **`ITER053_NUMERICAL_OR_INFRASTRUCTURE_FAIL`** because C0/C1 hit hosted-runner wall-clock cancellation. This classification is permanent historical authority and is not rewritten by later diagnostics/replacements.
+## Iter053 original gate — historical authority preserved
 
-### Fresh original-contract retry
-Wall-clock-only repair `4e95a8dbba3967d18f86206681bbfda46b54699e`; retry head `cf3466b3f0394952c384f7cfcc5bc445e7bbd4b5`; run **`34769958632`**.
-Current status: **in progress**, A4+B2+C2 under original frozen GL3/GL4 contract. No evidence pooling from the first production.
+Initial production preregistration `bb0b755f25f14b89dd44b6f16da309d0d0796d05`, run `34750610751`.
 
-## Diagnostic chain
-- QD run `34770383463`: `PASS_DIAGNOSTIC_ITER053_OUTER_BOX_QUADRATURE_ALIASING_CONFIRMED`; artifact `10321557741`; digest `sha256:001adec3865c9d0083e842fccbc99676b914eeed6bb5e862c07008d0f1570c6b`.
-- QD2 run `34770521310`: `PASS_DIAGNOSTIC_ITER053_SUPPORT_DIRECT_QUADRATURE_CONVERGED_BY_GL8`; artifact `10322290890`; digest `sha256:bc30c712c33fca891656cede20e5de73f8c0404da99e25257a961d82a02b160a`.
-- QD3M run `34771761543`: `PASS_DIAGNOSTIC_ITER053_QD3_GAUSS_JACOBI_MOMENTS_EXACT`; job `103762519052`; artifact `10321744441`; digest `sha256:fbfd56dfbad2293c070a49e6bc02d4d0119f13e5db84f6a10025f4dbff1d749c`.
+Permanent original classification: `ITER053_NUMERICAL_OR_INFRASTRUCTURE_FAIL` because frozen C lanes hit hosted-runner wall-clock cancellation.
 
-## QD3 — terminal weighted H5 pilot PASS
-Gate `ITER053-QD3-WEIGHTED-BULK-GAUSS-JACOBI-PILOT`; prereg `b12b8f1fbf8605a17d7b35191812323b1c61dde8`; production head `ec14bd4c5ec7ebe8523bb7c06e789d20fdcef89f`.
-Run **`34770675902`**; job **`103759575844`**; artifact **`10322517083`**; digest **`sha256:5d7d7d616660a3843a097c4cd23305ee473df16c14c8b323015284926dd89bcf`**; durable result commit **`4522328868d6e018d22619d5d31cfe811487c92e`**.
-Classification: **`PASS_DIAGNOSTIC_ITER053_WEIGHTED_GJ3_BULK_PILOT_PROMISING`**.
+### Fresh original-contract retry — terminal
 
-Frozen evidence:
-- GJ2 bulk `9.065790207702158e-06`; GJ3 bulk `9.066610617407998e-06`.
-- GJ2→GJ3 relative change `9.048692399614629e-05`.
-- Direct GL7→GL8 relative change `5.086275142547632e-08`.
-- Direct GL8 `9.066613706546225e-06`.
-- GJ3 H5 bulk vs direct GL8 residual **`3.407157652190216e-07`**.
-- Wrong-sign residual **`1.944220429443305`**.
-- Signature/inverse controls valid.
+Wall-clock-only repair `4e95a8dbba3967d18f86206681bbfda46b54699e`; retry head `cf3466b3f0394952c384f7cfcc5bc445e7bbd4b5`; run `34769958632`; aggregate job `103800868498`; summary artifact `10325874510`; digest `sha256:ed377d0dad4958eda95992db0efc6cfa4808739befcacfedbc377a8b1fd07b3e`.
 
-QD3 is diagnostic only; it does not reclassify original Iter053 or establish full A4+B2+C2 closure.
+Terminal classification: **`ITER053_IMPLEMENTATION_OR_CONTROL_INVALID`**.
 
-## Iter053R — prospectively preregistered scientific replacement
-Gate: **`ITER053R-WEYL3-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION`**.
-Preregistration commit: **`952c6321bbb54530a6881ae357c149256249187f`**.
-Status: **PREREGISTERED / NOT IMPLEMENTED**.
+All 8 artifacts were present, but only 6 were control-valid and 2 passed. The retry supplies no scientific PASS/FAIL closure credit and is not pooled with the first production. Durable terminal note: `results/ITER053_FRESH_RETRY_TERMINAL.md`.
 
-Frozen before any Iter053R implementation/production:
-- full A4+B2+C2 panel, `fail-fast:false`;
-- weighted H5 tensor Gauss-Jacobi `alpha=beta=4`, coarse GJ2 and fine GJ3;
-- independent direct support-domain GL7/GL8 action variation;
-- H5 remains `A+I-2 sqrt(-g)D5`, derivative step `5e-4`;
-- generic thresholds retain the original scientific targets: direct epsilon and GL7→GL8 changes `<=5e-4`, weighted bulk GJ2→GJ3 `<=2e-3`, fine identity residual `<=3e-3`;
-- B null thresholds and C determinant-one covariance thresholds retained;
-- historical wrong-sign `A+I+2 sqrt(-g)D5` must be worse on every A lane and `>=1e-2` on at least one A lane;
-- no retuning, lane dropping, seed selection, evidence pooling or threshold weakening after implementation/production evidence.
+## Diagnostic chain before Iter053R
 
-Allowed terminal classes are only PASS scoped, scientific FAIL, control/implementation invalid, or numerical/infrastructure fail as frozen in the preregistration. Even PASS remains a finite genuinely-4D compact-support computational certificate; `c6` stays symbolic and theory established remains 0%.
+- QD `34770383463`: `PASS_DIAGNOSTIC_ITER053_OUTER_BOX_QUADRATURE_ALIASING_CONFIRMED`.
+- QD2 `34770521310`: `PASS_DIAGNOSTIC_ITER053_SUPPORT_DIRECT_QUADRATURE_CONVERGED_BY_GL8`.
+- QD3M `34771761543`: `PASS_DIAGNOSTIC_ITER053_QD3_GAUSS_JACOBI_MOMENTS_EXACT`.
+- QD3 `34770675902`: `PASS_DIAGNOSTIC_ITER053_WEIGHTED_GJ3_BULK_PILOT_PROMISING`.
 
-## Current authorization
-1. Consume fresh retry `34769958632` when terminal under its original classifier.
-2. Iter053R implementation is authorized by terminal QD3 and preregistration `952c6321bbb54530a6881ae357c149256249187f`, but must not change frozen science.
-3. Production classification requires every raw A4+B2+C2 artifact plus frozen aggregate.
-4. Only a terminal Iter053R PASS may credit compact-support functional-variation closure and permit transition toward quantum amplitude/measure closure.
+These remain diagnostics only and are not retroactive scored evidence for Iter053R.
+
+## Iter053R — terminal scientific FAIL
+
+Gate: `ITER053R-WEYL3-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION`.
+
+- preregistration: `952c6321bbb54530a6881ae357c149256249187f`
+- implementation: `d8481ae49a093626740e71c6b0c233ca74641819`
+- production head: `6946680a5261eeb56a4496ae36a99098853d33d8`
+- run: `34782291893`
+- aggregate job: `103804601776`
+- summary artifact: `10326722690`
+- digest: `sha256:4ad7ad0190ea50a8928bbf9ef47b22f80616e7810513ba778ea3f1058c0023a9`
+
+Frozen terminal classification:
+
+**`SCIENTIFIC_FAIL_ITER053R_WEYL3_WEIGHTED_H5_COMPACT_SUPPORT_ACTION_VARIATION`**
+
+Evidence localization:
+
+- all A4 generic lanes PASS;
+- both B2 null lanes PASS;
+- both C covariance lanes FAIL;
+- worst C direct covariance residual: `3.2076700199377417e-12`;
+- worst C weighted-H5 covariance residual: `0.6925581291599372`;
+- transformed C0/C1 GJ2->GJ3 changes are approximately `0.2924` and `0.2921`;
+- wrong-sign A controls behave as frozen.
+
+Durable terminal note: `results/ITER053R_WEIGHTED_H5_COMPACT_SUPPORT_TERMINAL.md`.
+
+Iter053R is not to be rerun or reinterpreted as PASS. A later replacement can only be a distinct prospectively frozen gate.
+
+## Active gate — Iter053S
+
+Gate: **`ITER053S-H5-TENSOR-DENSITY-COVARIANCE-LOCALIZATION`**.
+
+Purpose: determine whether the numerical `H5=A+I-2 sqrt(-g)D5` implementation obeys the tensor-density law required by
+
+`delta S = integral H^{ab} h_ab d4x`
+
+under the two frozen determinant-one Iter053R C shears, and localize any defect between `A+I` and the derivative-density `D5` term.
+
+Prospective preregistration: `71c077d34dba1749d0d34dc6dd0173648e82f60f`.
+Implementation: `60532767595c38e92fbc9a8a35bf9b0c59b3600c`.
+Workflow/production head: `514c4785ad500299a797281cb39a2eee7ffa7f0c`.
+Production run: `34787788933`.
+
+Frozen production architecture:
+
+- 1 algebraic transformation-law control;
+- 12 independent pointwise lanes = `2 C indices x 2 probes x 3 derivative steps`;
+- `fail-fast:false`;
+- up to 12 pointwise jobs in parallel;
+- one aggregate only after all required lanes.
+
+Do not consume partial lane values or alter thresholds while run `34787788933` is non-terminal.
+
+## Exact current blocker
+
+Compact-support Weyl3 functional-variation closure is **not established**. The highest-information blocker is now object identity/covariance of the implemented H5 bulk under coordinate change. Until Iter053S is terminal, do not launch a competing H5 covariance gate or brute-force retune the failed Iter053R quadrature.
+
+## Next admissible logic after terminal Iter053S
+
+- If `ITER053S_POINTWISE_H5_TENSOR_DENSITY_COVARIANCE_CONFIRMED`: prospectively test transformed weighted quadrature/pushforward convergence independently; Iter053R remains historical FAIL.
+- If `ITER053S_D5_COVARIANCE_DEFECT_LOCALIZED`: prospectively audit/correct the covariant double-divergence `D5` implementation and validate against independent tensor transformation controls before any replacement compact-support gate.
+- If `ITER053S_ALGEBRAIC_H5_COVARIANCE_DEFECT_LOCALIZED`: audit the algebraic `A+I` variational-density construction before any D5 or quadrature work.
+- If INVALID: repair implementation/reference controls without changing the frozen scientific question.
 
 ## Claim locks
+
 - theory established = **0%**;
 - no experimental confirmation;
 - `c6` unfixed;
 - `beta=1` not authorized;
 - finite computational panels are not global theorems;
-- G45 does not establish absolute energy positivity or quantum unitarity;
-- G35–G37 distant roots do not authorize physical weights;
-- no KMQGB `NEW_REQUIRED` authorization.
+- classical consistency is not quantum unitarity;
+- no quantum amplitude/measure transition is currently authorized;
+- no full GR recovery, UV-completion or new-physics claim;
+- historical FAIL/INVALID results remain visible and are never rewritten by replacements.
