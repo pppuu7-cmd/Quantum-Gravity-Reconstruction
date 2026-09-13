@@ -1,0 +1,6 @@
+ITER053T-GJ-NODEWISE-PUSHFORWARD-COVARIANCE-AUDIT
+preregistration=74d033551f0eb4060f9621cd9e9e10b00e57700a
+implementation=bfa059335b44eb6ac730e8b98d04a08fcb243bb0
+aggregate=a2ae31c436161d1f8458e822be5e1c7f5ccbbded
+workflow=491db03d919b18ddfbaabb9115e3a2a850710b20
+frozen=true
