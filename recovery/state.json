@@ -47,7 +47,7 @@
     "result_commit": "a4ef2219c60d55dc0913e1a7c696ed949028c7bc"
   },
   "iter053": {
-    "status": "NUMERICAL_FAILURE_PRESERVED_QD_QD2_PASS_QD3_AND_FRESH_RETRY_ACTIVE",
+    "status": "NUMERICAL_FAILURE_PRESERVED_QD_QD2_QD3M_PASS_QD3_AND_FRESH_RETRY_ACTIVE",
     "completion_pct": 45,
     "gate": "ITER053-WEYL3-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION",
     "authoritative_preregistration_commit": "bb0b755f25f14b89dd44b6f16da309d0d0796d05",
@@ -83,15 +83,26 @@
     "qd3_head": "ec14bd4c5ec7ebe8523bb7c06e789d20fdcef89f",
     "qd3_run_id": 34770675902,
     "qd3_status": "IN_PROGRESS_A0_WEIGHTED_H5_PILOT",
+    "qd3m_gate": "ITER053-QD3M-GAUSS-JACOBI-MOMENT-NORMALIZATION-AUDIT",
+    "qd3m_preregistration_commit": "a1809ae3f3d55e8700546af642daf9f9f5f19c29",
+    "qd3m_implementation_commit": "7745f253bb84e77356d96af9344255c8a7e379b0",
+    "qd3m_workflow_commit": "881e88fc90fa4ff6be69359fec256bc2f8e486ea",
+    "qd3m_head": "cc2ad005a3605a40c602e7d372e5f9ae36706b28",
+    "qd3m_run_id": 34771761543,
+    "qd3m_job_id": 103762519052,
+    "qd3m_artifact_id": 10321744441,
+    "qd3m_artifact_digest": "sha256:fbfd56dfbad2293c070a49e6bc02d4d0119f13e5db84f6a10025f4dbff1d749c",
+    "qd3m_classification": "PASS_DIAGNOSTIC_ITER053_QD3_GAUSS_JACOBI_MOMENTS_EXACT",
+    "qd3m_result_commit": "ca77a4fa67fb32602faa3039c985962309cf440f",
     "matrix": "A4+B2+C2",
-    "scope_lock": "Original Iter053 remains numerical/infrastructure failure. QD/QD2 are diagnostic only. QD3 is a diagnostic pilot only. No evidence pooling or post-hoc threshold weakening."
+    "scope_lock": "Original Iter053 remains numerical/infrastructure failure. QD/QD2/QD3M are diagnostic only. QD3 is a diagnostic H5 pilot only. No evidence pooling or post-hoc threshold weakening."
   },
   "active_question": {
     "id": "QGR-ITER053-WEIGHTED-BULK-CLOSURE",
     "text": "Can an exact bump-weighted Gauss-Jacobi quadrature make the expensive integrated H5 bulk response converge against the independently converged direct action variation, before preregistering a fresh scientific replacement gate?"
   },
   "active_blocker": "ITER053_WEIGHTED_H5_BULK_PILOT_NOT_YET_TERMINAL",
-  "next_gate_lock": "Consume fresh retry 34769958632 and QD3 34770675902. Only a prospectively promising QD3 may justify preregistering a fresh weighted-H5 scientific replacement gate; never rewrite original Iter053 numerical failure.",
+  "next_gate_lock": "Consume fresh retry 34769958632 and QD3 34770675902. QD3M already validates quadrature moments/normalization only. Only a prospectively promising QD3 may justify preregistering a fresh weighted-H5 scientific replacement gate; never rewrite original Iter053 numerical failure.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
