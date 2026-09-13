@@ -5,14 +5,14 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
     "iteration": 52,
-    "phase": "MODEL_CONSTRUCTION_WEYL3_COVARIANT_DIRECTIONAL_VARIATION_PRODUCTION"
+    "phase": "MODEL_CONSTRUCTION_WEYL3_COVARIANT_DIRECTIONAL_VARIATION_RETRY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 99,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter051_pct": 100,
-    "iter052_pct": 25,
+    "iter052_pct": 40,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -54,27 +54,42 @@
     "scope_lock": "Historical G51C and D2 failures remain terminal under their original contracts. D3 is a finite replacement computational certificate, not a global four-dimensional variational theorem."
   },
   "iter052": {
-    "status": "PRODUCTION_ACTIVE_12_PARALLEL_LANES",
-    "completion_pct": 25,
+    "status": "FULL_12_LANE_RETRY_QUEUED_AFTER_CONTROL_ONLY_FIX",
+    "completion_pct": 40,
     "gate": "ITER052-WEYL3-4D-COVARIANT-DIRECTIONAL-VARIATION",
     "preregistration_commit": "c49084e54428042cf59e5ac083ee49f0614a3de0",
-    "implementation_commit": "b9da6cdfc424d712b80db935f16f89c00f8f5b9f",
+    "original_implementation_commit": "b9da6cdfc424d712b80db935f16f89c00f8f5b9f",
     "aggregate_commit": "79dff35e80c5095688d898b78bb78d7b80768657",
     "workflow_commit": "ff68b12968fdce2b6c220880009c256406309a65",
-    "production_head": "f455d413bfe50128598b6fa11d70ab79bea52183",
-    "run_id": 34748588704,
+    "initial_production_head": "f455d413bfe50128598b6fa11d70ab79bea52183",
+    "initial_run_id": 34748588704,
+    "initial_aggregate_job_id": 103701280550,
+    "initial_summary_artifact_id": 10315495921,
+    "initial_summary_digest": "sha256:3212dd4183fe73aef626ed43a77e3856c3e55b052799d99c9bd72431444a3e08",
+    "initial_classification": "ITER052_IMPLEMENTATION_OR_CONTROL_INVALID",
+    "initial_valid_passes": 11,
+    "initial_invalid_lane": "C2_DETERMINANT_ONE_CONTROL",
+    "initial_c2_det_L": 1.000000003317951,
+    "initial_c2_base_identity_relative_residual": 4.335297618863669e-10,
+    "initial_c2_transformed_identity_relative_residual": 1.5033400152202607e-10,
+    "initial_c2_direct_covariance_relative_residual": 3.3307732623251213e-09,
+    "initial_c2_rhs_covariance_relative_residual": 3.047577502781268e-09,
+    "run_authority_commit": "888c3d398dee4785f094037a6ad56929e18da671",
+    "control_only_fix_commit": "da0957ee8f818195435e3804c2611b1411a01a98",
+    "retry_head": "d82370f18c76caebd5aa4ee567cb450a882d7bad",
+    "retry_run_id": 34748813339,
+    "retry_status": "QUEUED_FULL_12_LANE_FRESH_AUTHORITY",
     "matrix": "A6+B3+C3",
-    "scientific_jobs_in_progress": 12,
     "authorized_gate_family": "GENUINELY_4D_COVARIANT_DIRECTIONAL_VARIATION_OR_FULL_FUNCTIONAL_DERIVATIVE",
     "forbidden_substitute": "NO_ADDITIONAL_SYMMETRY_REDUCED_MINISUPERSPACE_PANEL_AS_PRIMARY_GATE",
-    "scope_lock": "Consume all 12 raw lanes and frozen aggregate. Green CI alone is not scientific authority. No coefficient fitting, sign search, threshold weakening, or dependent successor before terminal scientific classification."
+    "scope_lock": "Initial run remains permanently control-invalid and cannot be combined with retry evidence. Retry changes only determinant-one transform normalization; identity, seeds, witnesses, finite-difference steps and thresholds remain frozen."
   },
   "active_question": {
-    "id": "QGR-ITER052-COVARIANT-DIRECTIONAL-VARIATION",
-    "text": "Does the frozen H5 tensor reproduce the direct first directional variation of the full four-dimensional sqrt(-g) Weyl^3 density/action, including the covariant boundary-current divergence, for arbitrary non-symmetry-reduced metric perturbations?"
+    "id": "QGR-ITER052-COVARIANT-DIRECTIONAL-VARIATION-RETRY",
+    "text": "Does the unchanged frozen 4D Weyl3 directional-variation identity pass the full A6+B3+C3 panel after correcting only the invalid determinant-one coordinate-control construction?"
   },
-  "active_blocker": "ITER052_PRODUCTION_NOT_YET_TERMINAL",
-  "next_gate_lock": "Consume Iter052 raw lanes and frozen aggregate. If PASS, only then prospectively preregister a higher-value compact-support integrated action variation or quantum amplitude/measure closure gate. If FAIL, preserve it and diagnose independently without weakening frozen science.",
+  "active_blocker": "ITER052_AUTHORITATIVE_RETRY_NOT_YET_TERMINAL",
+  "next_gate_lock": "Consume the fresh full 12-lane retry only. Do not combine initial and retry evidence. If PASS, write durable result then prospectively preregister a stronger integrated compact-support action variation or quantum amplitude/measure closure gate. If retry FAILs with valid controls, preserve it and diagnose independently without weakening thresholds.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
