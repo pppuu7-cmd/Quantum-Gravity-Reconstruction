@@ -1,0 +1,7 @@
+ITER053-WEYL3-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION
+authority: status/ITER053_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_PREREG.md
+frozen preregistration commit: bb0b755f25f14b89dd44b6f16da309d0d0796d05
+scientific implementation commit: f52c7b067c77acbcd3d59b15749f92abca672433
+aggregate implementation commit: 6862f94bef33f092c7a8d820fa3d71769b3d4a2e
+workflow commit: 6ec44a1f40df0220e5a9ec30988fca10ea35b733
+No thresholds, panel, quadrature orders, epsilon steps, seeds or interpretation rules may change after this trigger without declaring the production non-authoritative.
