@@ -134,8 +134,6 @@ def rot(th):
 
 def transform_jets(jets,L):
     A,H,P0,PL,PQ=jets; M=np.linalg.inv(L)
-    At=np.einsum('ak,bi,cab->kic',M,M,M,A) if False else None
-    # metric jets
     A2=np.einsum('ck,ai,bj,cab->kij',M,M,M,A)
     H2=np.einsum('ck,dl,ai,bj,cdab->klij',M,M,M,M,H)
     P02=np.einsum('ia,jm,kb,ln,ajbl->imkn',L,L,L,L,P0)
@@ -150,7 +148,6 @@ def psym(P):
 
 def run(lane):
     seed=51000+137*lane; jets=make_jets(seed); hs=[2e-3,1e-3,5e-4]
-    # stencil validity
     dets=[]; invres=[]
     for h in hs:
       for c in range(N):
@@ -160,7 +157,7 @@ def run(lane):
     Da,_,_,P0=analytic_D(jets); nums=[numeric_D(jets,h) for h in hs]; errs=[relnorm(x,Da) for x in nums]
     cov=[]
     for L in (boost(0.17), boost(-0.13)@rot(0.29)):
-      jt=transform_jets(jets,L); Dt=analytic_D(jt); expected=np.einsum('ia,jb,ab->ij',L,L,Da); cov.append(relnorm(Dt,expected))
+      jt=transform_jets(jets,L); Dt=analytic_D(jt)[0]; expected=np.einsum('ia,jb,ab->ij',L,L,Da); cov.append(relnorm(Dt,expected))
     valid=(max(dets)<0 and max(invres)<=1e-11 and psym(P0)<=1e-11 and np.linalg.norm(Da)>=1e-8 and np.linalg.norm(nums[-1])>=1e-8)
     refine=(errs[-1] <= 1.20*errs[-2]) or (np.linalg.norm(nums[-1]-Da)<=2e-8)
     passed=valid and errs[-1]<=3e-5 and refine and max(cov)<=3e-7
