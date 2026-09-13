@@ -62,12 +62,13 @@ def extract_P_jets(fields,h):
     for c in range(N):
       e=np.zeros(N); e[c]=h; axes.append(e)
       pp=P_actual(fields,e); pm=P_actual(fields,-e)
-      PL[c]=(pp-pm)/(2*h)
-      PQ[c,c]=(pp-2*P0+pm)/(h*h)
+      PL[c]=w3.project_algebraic_riemann((pp-pm)/(2*h))
+      PQ[c,c]=w3.project_algebraic_riemann((pp-2*P0+pm)/(h*h))
     for c in range(N):
       for d in range(c+1,N):
         ec,ed=axes[c],axes[d]
         val=(P_actual(fields,ec+ed)-P_actual(fields,ec-ed)-P_actual(fields,-ec+ed)+P_actual(fields,-ec-ed))/(4*h*h)
+        val=w3.project_algebraic_riemann(val)
         PQ[c,d]=val; PQ[d,c]=val
     return P0,PL,PQ
 
