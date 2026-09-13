@@ -1,0 +1,6 @@
+ITER053-QD-COMPACT-SUPPORT-QUADRATURE-CONDITIONING
+prereg=8625318f69e3104b4dc67ada0f716394fb775de5
+implementation=49fa54a281ad4741e45fccf5de6078fc85882a36
+aggregate=a6e62f43e22c777f2ea67ef7aa7fbe921999da6e
+workflow=76e5b85f76249a3111edd48221d056829c7e08df
+fresh diagnostic production; no Iter053 scientific reclassification authorized
