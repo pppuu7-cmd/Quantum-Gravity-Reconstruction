@@ -1,0 +1,7 @@
+Iter051C-D2Z authoritative exact symbolic diagnostic trigger.
+Preregistration commit: 645a972a2280e645cf9f5c86d456c7f2ad333b49
+Implementation commit: 8edd979ece4b972ad49337f28b22a0ccc4066688
+Workflow commit: 4dfa87805bd8d09dd7615ac67614a7835bbfc95b
+Frozen gate: ITER051C-D2Z-EXACT-SPHERICAL-ZERO-CONDITIONING
+Independent exact Iter049 reduced-EL authority only; no numerical D2/D2N assembly enters this diagnostic.
+Historical D2 FAIL remains unchanged; c6 symbolic/unfixed; theory established 0%.
