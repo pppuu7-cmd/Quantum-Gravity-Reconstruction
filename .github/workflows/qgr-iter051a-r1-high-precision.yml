@@ -1,0 +1,48 @@
+name: qgr-iter051a-r1-high-precision
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter051a-r1-high-precision.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy mpmath
+      - name: Run frozen Iter051A-R1 lane
+        run: |
+          python code/qgr_iter051a_r1_high_precision_certificate.py --lane ${{ matrix.lane }} | tail -n 1 > iter051a-r1-lane-${{ matrix.lane }}.json
+          cat iter051a-r1-lane-${{ matrix.lane }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051a-r1-lane-${{ matrix.lane }}
+          path: iter051a-r1-lane-${{ matrix.lane }}.json
+
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051a-r1-lane-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen R1 classification
+        run: python code/qgr_iter051a_r1_aggregate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051a-r1-summary
+          path: iter051a-r1-summary.json
