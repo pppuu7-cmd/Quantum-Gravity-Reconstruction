@@ -1,0 +1,6 @@
+ITER053R-WEYL3-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION
+Preregistration: 952c6321bbb54530a6881ae357c149256249187f
+Implementation: d8481ae49a093626740e71c6b0c233ca74641819
+Aggregate: f80c822765452ba4eb9f034ddf58c9f2fa0e25a3
+Workflow: b2c979e4fbafc942b53d0a8eb8d99db0091a6d03
+Frozen science unchanged from preregistration.
