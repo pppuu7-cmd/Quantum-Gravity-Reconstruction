@@ -13,7 +13,7 @@
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter051_pct": 100,
     "iter052_pct": 100,
-    "iter053_pct": 10,
+    "iter053_pct": 20,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -57,20 +57,27 @@
     "scope_lock": "Fresh retry only. Initial invalid evidence is not pooled. This is a finite genuinely-4D computational variational certificate, not a global functional-analytic theorem."
   },
   "iter053": {
-    "status": "PROSPECTIVELY_PREREGISTERED_NOT_IMPLEMENTED",
-    "completion_pct": 10,
+    "status": "AUTHORITATIVE_PRODUCTION_QUEUED",
+    "completion_pct": 20,
     "gate": "ITER053-WEYL3-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION",
-    "preregistration_commit": "55f57ef10f5ebc103fef5b5bad48f3eeed75133e",
+    "initial_preregistration_commit": "55f57ef10f5ebc103fef5b5bad48f3eeed75133e",
+    "authoritative_preregistration_commit": "bb0b755f25f14b89dd44b6f16da309d0d0796d05",
+    "implementation_commit": "f52c7b067c77acbcd3d59b15749f92abca672433",
+    "aggregate_commit": "6862f94bef33f092c7a8d820fa3d71769b3d4a2e",
+    "workflow_commit": "6ec44a1f40df0220e5a9ec30988fca10ea35b733",
+    "production_head": "7c88a797e12968cba8f0804292e348bf82784014",
+    "production_run_id": 34750610751,
+    "matrix": "A4+B2+C2",
     "authorized_gate_family": "INTEGRATED_4D_COMPACT_SUPPORT_ACTION_VARIATION",
     "forbidden_substitute": "NO_ADDITIONAL_SYMMETRY_REDUCED_MINISUPERSPACE_PANEL_AS_PRIMARY_GATE",
-    "scope_lock": "Frozen before implementation: compact support removes the boundary term independently; thresholds, panel, quadrature orders, controls and interpretation may not be weakened after production evidence."
+    "scope_lock": "Authoritative preregistration was finalized before implementation and production; compact support removes the boundary term independently. Thresholds, panel, quadrature orders, controls and interpretation are now frozen."
   },
   "active_question": {
     "id": "QGR-ITER053-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION",
     "text": "Does the integrated Weyl3 action directional derivative agree with the integrated H5 bulk response for new genuinely-4D compactly supported perturbations, with independently frozen quadrature, null and covariance controls?"
   },
-  "active_blocker": "ITER053_IMPLEMENTATION_AND_PRODUCTION_NOT_YET_CREATED",
-  "next_gate_lock": "Implement only the prospectively frozen Iter053 contract, then run independent A4+B2+C2 lanes with fail-fast:false and consume all raw artifacts plus a frozen aggregate. Do not change thresholds or replace it with another symmetry reduction.",
+  "active_blocker": "ITER053_AUTHORITATIVE_PRODUCTION_NOT_YET_TERMINAL",
+  "next_gate_lock": "Consume all A4+B2+C2 raw artifacts and frozen aggregate from run 34750610751. Do not change the frozen contract after production evidence. If terminal PASS, write a durable result before opening any stronger gate; if technical invalid/failure, isolate the first causal failure and change only implementation/control code without weakening science.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
