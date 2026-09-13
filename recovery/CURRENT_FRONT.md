@@ -13,41 +13,34 @@ Project phase: `MODEL_CONSTRUCTION / FULL COVARIANT WEYL3 METRIC VARIATION`
 - `c6` remains **unfixed**.
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Historical failures / independent replacements
-Historical G51A remains `SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION` (5/12); independent Iter051A-R1 remains `PASS_REPLACEMENT_G51A_HIGH_PRECISION_METRIC_DENSITY_CERTIFICATE` (12/12), run `34729269493`, artifact `10308907565`, digest `sha256:24b077748f70585ffa4bf24c4e88f814de06db13e66dd4e899da062707217cab`.
+## Closed prerequisites
+Historical G51A remains `SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION`; independent Iter051A-R1 is `PASS_REPLACEMENT_G51A_HIGH_PRECISION_METRIC_DENSITY_CERTIFICATE` (12/12), run `34729269493`, artifact `10308907565`, digest `sha256:24b077748f70585ffa4bf24c4e88f814de06db13e66dd4e899da062707217cab`.
 
-Historical G51B0 remains `SCIENTIFIC_FAIL_G51B0_DOUBLE_DIVERGENCE_OPERATOR` (0/8), run `34731863909`, artifact `10309387321`, digest `sha256:3c6b77b4544c7063126d0928f7e433bf426cafb89888e353f0896d6663ba0f7f`. Independent G51B0-R1 remains `PASS_REPLACEMENT_G51B0_COVARIANT_DOUBLE_DIVERGENCE_CERTIFICATE` (8/8), run `34734247977`, aggregate job `103662730311`, artifact `10310119784`, digest `sha256:a211e21b2190d0d4c7acd2f58bb75da43ab59d36af03762d42dd9f5c1afa78b7`.
+Historical G51B0 remains `SCIENTIFIC_FAIL_G51B0_DOUBLE_DIVERGENCE_OPERATOR`; independent G51B0-R1 is `PASS_REPLACEMENT_G51B0_COVARIANT_DOUBLE_DIVERGENCE_CERTIFICATE` (8/8), run `34734247977`, aggregate job `103662730311`, artifact `10310119784`, digest `sha256:a211e21b2190d0d4c7acd2f58bb75da43ab59d36af03762d42dd9f5c1afa78b7`.
 
-## Terminal Iter051B1 — actual Weyl^3 algebraic P insertion
-Durable record: `results/ITER051B1_WEYL3_P_INSERTION_PASS.md`.
+Iter051B1 is terminal `PASS_SCOPED_WEYL3_P_INSERTION_CERTIFICATE` (8/8), run `34736761744`, aggregate job `103669479104`, artifact `10311710726`, digest `sha256:6ea83543ff58b2ac42bd02e166fed3534f37f09459e6cd55616ac1c4090fd3f0`. Durable result: `results/ITER051B1_WEYL3_P_INSERTION_PASS.md`.
 
-Prospective provenance:
-- preregistration `cbaf060790e56e4fed27290651c40104cdbbf7d9`
-- implementation `2e6f2b2430061f3d770ba727ede83d542ede5057`
-- aggregate implementation `25c02c988e60a97476f51f2f1fdb047d8edd0169`
-- authoritative head `d1f066538f18bc058564eb74a623a701295592aa`
-- run `34736761744`
-- aggregate job `103669479104`
-- summary artifact `10311710726`
-- digest `sha256:6ea83543ff58b2ac42bd02e166fed3534f37f09459e6cd55616ac1c4090fd3f0`
-- valid `8/8`; PASS `8/8`
-- classification `PASS_SCOPED_WEYL3_P_INSERTION_CERTIFICATE`.
+## Iter051B2 — actual Weyl^3 P connection response
+Prospective preregistration: `cffde199b9cd885f4d07238b8c46fdee3f966143`.
+Initial implementation: `467425bb30fcf410940bb5627c5adeb7f2e9d963`; aggregate implementation: `8a33fa56922e519185ae264acaa5621783547f6a`; initial head `a9884403a7969d53f284f3195bea37f4ad5bbc62`.
 
-Frozen worst values: P algebraic/Bianchi residual `1.1102230246251565e-16`; held-out directional derivative residual `1.2426726755610543e-14`; Euler/homogeneity residual `1.1070610622745507e-14`; P covariance residual `2.576554420675959e-15`; scalar covariance residual `1.1778614790479231e-14`; conformally-flat `|I3| = 3.8316754883881717e-47`; conformally-flat `||P|| = 2.048186428515155e-31`. All are well inside the prospectively frozen thresholds.
+Initial run `34736978191`, aggregate job `103670192517`, summary artifact `10311148731`, digest `sha256:c12216eac614c0105420f83e5fceb73d937cd9f429d5e2d0eb095020e33c1131` is permanently recorded as frozen `SCIENTIFIC_FAIL_G51B2_WEYL3_P_CONNECTION_RESPONSE` with valid/pass `1/4`. Durable audit: `results/ITER051B2_INITIAL_FROZEN_FAIL_NUMERICAL_SUBSPACE_DRIFT.md`.
 
-Interpretation is scoped: this closes the finite algebraic Weyl^3 curvature-insertion prerequisite. It is **not** the complete 4D Weyl^3 metric Euler-Lagrange tensor.
+Post-terminal causal audit localized the only failing frozen predicate to round-off/subtractive-cancellation drift of second finite-difference P derivative jets outside the exact algebraic-Riemann subspace: worst residual `1.609823385706477e-09` vs `2e-10`. All connection-response target metrics themselves were inside frozen thresholds: direct-vs-reference `2.5076338423438444e-07 < 2e-5`; direct final-step change `2.0962669356580043e-07 < 1e-5`; extracted-reference convergence `2.4933117531487735e-07 < 2e-5`; D covariance `5.351292093284897e-16 < 2e-7`; P0 covariance `3.4830092046971933e-15 < 2e-9`.
 
-## Active path
-The next authorized gate is a **prospectively preregistered Weyl^3-specific connection-response / covariant double-divergence certificate using actual P(R,g) jets**. It must include nontrivial metric connection jets, nonconstant algebraic-curvature jets, independent derivative routes, constant-frame covariance, convergence and null/nonzero controls. A generic P surrogate or another symmetry reduction cannot substitute.
+Because the algebraic-Riemann projector is linear, derivatives of an exactly subspace-valued P field remain in that subspace. A separate retry applies only that same fixed projector to finite-difference extracted `partial P` and `partial partial P`, without changing seeds, stencils, thresholds, target or interpretation.
 
-Only a PASS of that connection-response layer may authorize final full-EOM assembly/covariance/identity checks.
+Numerical-only repair commit: `b2d1ade45c3507e87541aaf86a304b3cbb54dbc5`.
+Authoritative retry head: `0d0796cc3751f31012afc04684b5836cbf580755`.
+Authoritative retry run: `34737103399`.
+All four scientific lanes have completed green; terminal classification is **not yet assigned** because aggregate job `103670518127` remains queued. Green lanes alone are not a scientific PASS.
 
 ## Frontier lock
 Full 4D covariant Weyl^3 Euler-Lagrange promotion remains blocked. Required path:
 1. **closed:** generic double-divergence replacement certificate;
 2. **closed:** actual Weyl^3 algebraic P-insertion certificate;
-3. **next:** actual Weyl^3 P connection-response / covariant double-divergence certificate;
-4. final full-EOM assembly and covariance/identity checks.
+3. **active:** actual Weyl^3 P connection-response / covariant double-divergence retry — await frozen aggregate;
+4. only after terminal PASS: final metric-consistent full-EOM assembly/covariance/identity checks.
 
 No third repetitive symmetry reduction is authorized.
 
