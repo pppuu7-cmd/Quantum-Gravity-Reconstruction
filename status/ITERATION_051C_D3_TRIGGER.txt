@@ -1,0 +1,6 @@
+ITER051C-D3 authoritative production trigger
+prereg=f4dd9630408495e915fe3c8da1812c7690a58566
+implementation=cafa7cfbd5c72458decd2ee204f5b1f0aa02400a
+aggregate=06a00065a8ac2b80e254f37fc336e894aabb5fcf
+workflow=63026f09ea6b1513b4ad9da4d12d8ff0cc9f8f8a
+science=A+I-2sqrt(-g)D5; frozen 16-lane panel; no coefficient fitting
