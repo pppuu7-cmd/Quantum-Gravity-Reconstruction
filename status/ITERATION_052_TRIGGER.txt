@@ -1,0 +1,6 @@
+ITER052-WEYL3-4D-COVARIANT-DIRECTIONAL-VARIATION
+Prospective preregistration: c49084e54428042cf59e5ac083ee49f0614a3de0
+Scientific implementation: b9da6cdfc424d712b80db935f16f89c00f8f5b9f
+Frozen aggregate: 79dff35e80c5095688d898b78bb78d7b80768657
+Workflow: ff68b12968fdce2b6c220880009c256406309a65
+Production trigger: authoritative first run; criteria and formulas frozen before this commit.
