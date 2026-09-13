@@ -1,42 +1,41 @@
 # QGR Current Research Front
 
 Updated: 2026-09-13
-Primary active iteration: `Iter051 / post-G51C-D2 replacement validation authorization`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 FRESH HELD-OUT REPLACEMENT VALIDATION`
+Primary active iteration: `Iter051 / five-point full-EOM replacement authorization`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 FULL-EOM REPLACEMENT`
 
 ## Canonical status
 - Repository infrastructure readiness: **100%**.
 - Candidate-program roadmap readiness: **99%** — roadmap readiness only, not correctness probability.
-- Iter051 roadmap completion: **87%**.
+- Iter051 roadmap completion: **90%**.
 - Theory established: **0%**.
 - `beta` remains a matching/calibration parameter; `beta=1` is not authorized.
 - `c6` remains **symbolic/unfixed**.
 - Full covariant six-derivative EOM established: **false**.
 
-## Historical G51C — terminal FAIL
-Run `34741060700`, aggregate job `103680844833`, artifact `10311749167`, digest `sha256:1b4a324a05666a2ff0c67bdb922e87efc600d70d481ab380bb4532baf43c8c99`.
-Classification: `SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY`. Frozen `A+I+2D` assembly: 12/18 PASS, exact reduced-EL Stream B 0/6. Never rewritten.
+## Historical terminal failures retained
+- G51C run `34741060700`: `SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY`, frozen historical `A+I+2D`, 12/18 PASS. Never rewritten.
+- G51C-D2 run `34741924103`: `SCIENTIFIC_FAIL_G51C_D2_SIGN_OR_HELDOUT_VALIDATION`, 19/20 PASS. Sole fail was the near-null spherical B3 angular component. Never rewritten.
 
-## G51C-D2 — historical terminal FAIL preserved
-Run `34741924103`; aggregate job `103683219373`; artifact `10312601307`; digest `sha256:dcdef4dff571b1ba3350a2e6acec7478e1aec1b6847d5fc7765c17d82b931c78`.
-Classification: `SCIENTIFIC_FAIL_G51C_D2_SIGN_OR_HELDOUT_VALIDATION`, 19/20 PASS. Sole fail: spherical B3 near-null angular component. Frozen D2 criteria remain unchanged.
+## Conditioning diagnostics
+- D2N run `34742201899`, artifact `10312526872`, digest `sha256:5809e09fb4365a745399f9db5fd1630b85d9cb280f23dca1d4a03337774b55a4`: independent five-point stencil collapses the B3 near-null numerical error.
+- D2Z run `34742259726`, artifact `10312697366`, digest `sha256:326e868eafc082965602eb9a6b57e792b4fcb45661c5546d117269ae3ed8cf5b`: exact simple near-zero conditioning confirmed.
 
-## D2N — terminal numerical-conditioning diagnostic PASS
-Prereg `b3fc227d6521b92fc6f5131f99b3812080bf4ee8`; implementation `0fbfbdcb552e170f9a228bf555057b63065d19d6`; aggregate `c294074743955d66b0e14a3fd9a56430c09428a2`; workflow `9ae51dd4e0bcc9db769ef782e16e16987d4be60c`; head `c6efa69559a0222242e6c79a617c09c3d4e42adc`.
-Run `34742201899`; aggregate job `103684234240`; artifact `10312526872`; digest `sha256:5809e09fb4365a745399f9db5fd1630b85d9cb280f23dca1d4a03337774b55a4`.
-Classification: `PASS_DIAGNOSTIC_D2N_NEAR_NULL_ERROR_COLLAPSES_UNDER_INDEPENDENT_FIVE_POINT_STENCIL`, 8/8 PASS.
-B3 angular absolute error collapsed from `7.838355602488458e-09` (nested M3) to `1.743008620663677e-11` (independent nested M5), ratio `0.002223691688739307`; M5 vector residual `2.5056495286480338e-09`.
+## D2R — terminal scoped replacement PASS
+Prereg `2597fb51bc087a4332d5974db38e0641bfacccba`; head `a5f1021f8596f8e00a4a39f0d366eb276de3b397`; run `34744139101`; aggregate job `103689280172`; artifact `10312909946`; digest `sha256:714f66fb514d9046e82a8ede2e4350bf3586989060469dbcdcc415ba22f830c0`.
 
-## D2Z — terminal exact diagnostic
-Prereg `645a972a2280e645cf9f5c86d456c7f2ad333b49`; implementation `8edd979ece4b972ad49337f28b22a0ccc4066688`; workflow `4dfa87805bd8d09dd7615ac67614a7835bbfc95b`; head `6558221ff4de5d688ab6da57aed81bdf358d6b80`.
-Run `34742259726`; job `103683830040`; artifact `10312697366`; digest `sha256:326e868eafc082965602eb9a6b57e792b4fcb45661c5546d117269ae3ed8cf5b`.
-Classification: `DIAGNOSTIC_EXACT_NEAR_ZERO_CONDITIONING_CONFIRMED`.
-At `r=6/5`, exact `E_S=-3.9949986160730709e-07`; nearest positive exact numerator root `1.199993503822622846...`, distance `6.496177377135481e-06`; derivative at root nonzero and conditioning proxy `1.8472151595166072e5`.
+Classification: `PASS_SCOPED_G51C_D2R_FRESH_SPHERICAL_REPLACEMENT_VALIDATION`.
+
+Frozen aggregate consumed all 12 raw lane artifacts: 12/12 expected, 12/12 valid, 12/12 PASS, 0 parse errors. Worst absolute component error `1.5270905373565569e-09`; worst final-step change `6.047761854580956e-09`; worst vector relative residual `7.3382674860456824e-09`; minimum historical `+2D` residual `1.4228139519895726`.
+
+Interpretation lock: this is a fresh finite spherical-panel validation of the independently implemented five-point covariant derivative with the `-2D` sign. It is not a full 4D covariant Weyl^3 EOM certificate and does not alter historical G51C/D2 failures.
+
+Durable result commit: `c12b9af1a4c930ed6ae703ca53d7e83d712b3a94`.
 
 ## Active authorization
-The historical D2 FAIL remains terminal. D2N+D2Z jointly authorize exactly one next scientific gate: a **fresh prospectively preregistered spherical replacement held-out validation** using the independent five-point covariant derivative. It must use fresh radii/profile points not used for threshold tuning, preserve `-2D` without fitting, retain a historical `+2D` negative control, and explicitly separate ordinary-scale from near-null component criteria preregistered before production.
+D2R terminal PASS authorizes a **separately prospectively preregistered full-EOM replacement gate** using the independently validated five-point derivative and the `-2D` sign, with no coefficient fitting or threshold retuning. The replacement must include mutually independent generic/non-null, anisotropic variational, conformally-flat null, and covariance controls; finite panels remain scoped evidence only.
 
-A replacement PASS may authorize a new full-EOM replacement gate. It may not rewrite G51C or D2 historical failures.
+Only a terminal artifact from that new gate may change the full-covariant-EOM status. A PASS would still be a finite computational certificate, not a global theorem.
 
 ## Claim locks
 - theory established = **0%**;
