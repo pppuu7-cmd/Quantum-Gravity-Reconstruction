@@ -1,0 +1,29 @@
+name: qgr-iter051c-d2z-exact-zero
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_051C_D2Z_TRIGGER.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-symbolic:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Frozen exact spherical zero-conditioning map
+        run: python code/qgr_iter051c_d2z_exact_zero.py
+      - name: Upload authoritative exact diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d2z-result
+          path: iter051c-d2z-output/result.json
+          if-no-files-found: warn
