@@ -1,0 +1,9 @@
+Iter051C authoritative production trigger.
+Preregistration commit: 4bdb68cfd50ea7b521372bf633c1b1b43d848625
+Implementation commit: d19aecadfc316c2ec08d75fb5dd188bff245444f
+Aggregate commit: bf4f5a2aeb376efa2e5af4f1e529bebe7864b937
+Workflow commit: 77df1829163213a6e6b2a9e6c0464adea223e1ec
+Frozen gate: ITER051C-FULL-WEYL3-EOM-ASSEMBLY
+Expected scientific lanes: 18 (A4+B6+C4+D4).
+Frozen assembly: H=A+sqrt(-g)*sym(P.R_lowering)+2*sqrt(-g)*D.
+c6 remains symbolic/unfixed. No post-trigger scientific retuning is authorized.
