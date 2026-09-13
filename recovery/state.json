@@ -5,14 +5,14 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
     "iteration": 52,
-    "phase": "MODEL_CONSTRUCTION_WEYL3_COVARIANT_DIRECTIONAL_VARIATION"
+    "phase": "MODEL_CONSTRUCTION_WEYL3_COVARIANT_DIRECTIONAL_VARIATION_PRODUCTION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 99,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter051_pct": 100,
-    "iter052_pct": 5,
+    "iter052_pct": 25,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -45,11 +45,6 @@
     "g51c_d2z_classification": "DIAGNOSTIC_EXACT_NEAR_ZERO_CONDITIONING_CONFIRMED",
     "g51c_d2r_run_id": 34744139101,
     "g51c_d2r_classification": "PASS_SCOPED_G51C_D2R_FRESH_SPHERICAL_REPLACEMENT_VALIDATION",
-    "g51c_d3_preregistration_commit": "f4dd9630408495e915fe3c8da1812c7690a58566",
-    "g51c_d3_implementation_commit": "cafa7cfbd5c72458decd2ee204f5b1f0aa02400a",
-    "g51c_d3_aggregate_commit": "06a00065a8ac2b80e254f37fc336e894aabb5fcf",
-    "g51c_d3_workflow_commit": "63026f09ea6b1513b4ad9da4d12d8ff0cc9f8f8a",
-    "g51c_d3_head": "242309e900b0c815983cc161c912b0439fbbc395",
     "g51c_d3_run_id": 34746649884,
     "g51c_d3_aggregate_job_id": 103696159498,
     "g51c_d3_summary_artifact_id": 10314332790,
@@ -59,17 +54,27 @@
     "scope_lock": "Historical G51C and D2 failures remain terminal under their original contracts. D3 is a finite replacement computational certificate, not a global four-dimensional variational theorem."
   },
   "iter052": {
-    "status": "PREREGISTRATION_FRONT_OPEN",
-    "completion_pct": 5,
+    "status": "PRODUCTION_ACTIVE_12_PARALLEL_LANES",
+    "completion_pct": 25,
+    "gate": "ITER052-WEYL3-4D-COVARIANT-DIRECTIONAL-VARIATION",
+    "preregistration_commit": "c49084e54428042cf59e5ac083ee49f0614a3de0",
+    "implementation_commit": "b9da6cdfc424d712b80db935f16f89c00f8f5b9f",
+    "aggregate_commit": "79dff35e80c5095688d898b78bb78d7b80768657",
+    "workflow_commit": "ff68b12968fdce2b6c220880009c256406309a65",
+    "production_head": "f455d413bfe50128598b6fa11d70ab79bea52183",
+    "run_id": 34748588704,
+    "matrix": "A6+B3+C3",
+    "scientific_jobs_in_progress": 12,
     "authorized_gate_family": "GENUINELY_4D_COVARIANT_DIRECTIONAL_VARIATION_OR_FULL_FUNCTIONAL_DERIVATIVE",
-    "forbidden_substitute": "NO_ADDITIONAL_SYMMETRY_REDUCED_MINISUPERSPACE_PANEL_AS_PRIMARY_GATE"
+    "forbidden_substitute": "NO_ADDITIONAL_SYMMETRY_REDUCED_MINISUPERSPACE_PANEL_AS_PRIMARY_GATE",
+    "scope_lock": "Consume all 12 raw lanes and frozen aggregate. Green CI alone is not scientific authority. No coefficient fitting, sign search, threshold weakening, or dependent successor before terminal scientific classification."
   },
   "active_question": {
     "id": "QGR-ITER052-COVARIANT-DIRECTIONAL-VARIATION",
     "text": "Does the frozen H5 tensor reproduce the direct first directional variation of the full four-dimensional sqrt(-g) Weyl^3 density/action, including the covariant boundary-current divergence, for arbitrary non-symmetry-reduced metric perturbations?"
   },
-  "active_blocker": "FULL_4D_VARIATIONAL_IDENTITY_NOT_YET_PREREGISTERED_AND_TESTED",
-  "next_gate_lock": "Prospectively preregister a genuinely four-dimensional directional/full-functional derivative certificate before implementation. Keep c6 symbolic and retain all historical failures. No coefficient fitting or post-hoc threshold changes.",
+  "active_blocker": "ITER052_PRODUCTION_NOT_YET_TERMINAL",
+  "next_gate_lock": "Consume Iter052 raw lanes and frozen aggregate. If PASS, only then prospectively preregister a higher-value compact-support integrated action variation or quantum amplitude/measure closure gate. If FAIL, preserve it and diagnose independently without weakening frozen science.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
