@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse, itertools, json, math, os
+from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 
 import qgr_iter052_4d_directional_variation as it
@@ -115,7 +116,6 @@ def integrate(metric,pert,order,map_L=None,collect_controls=True):
 
 def collar_control(pert):
     vals=[]
-    # Boundary/support-face points; polynomial bump makes value and first derivatives vanish analytically.
     probes=[]
     for axis in range(N):
         for sgn in (-1.0,1.0):
@@ -186,11 +186,23 @@ def transform_residuals(metric,pert,L):
     return max(vals),mt,pt
 
 
+def _c_analysis_worker(args):
+    i,side=args
+    metric=c.PolyMetric(C_METRIC[i]); pert=CompactPerturbation(C_PERT[i]); L=it.shear(i)
+    if side=='base':
+        return analyze_generic(metric,pert,map_L=L)
+    mt=c.TransformMetric(metric,L); pt=it.TransformPerturbation(pert,L)
+    return analyze_generic(mt,pt,map_L=None)
+
+
 def lane_c(i):
     metric=c.PolyMetric(C_METRIC[i]); pert=CompactPerturbation(C_PERT[i]); L=it.shear(i)
     tres,mt,pt=transform_residuals(metric,pert,L)
-    base=analyze_generic(metric,pert,map_L=L)
-    transformed=analyze_generic(mt,pt,map_L=None)
+    # Implementation-only wall-clock repair after the authoritative production C lanes
+    # hit the six-hour hosted-runner limit. The two frozen evaluations are independent,
+    # use identical seeds/points/orders/thresholds, and are now executed concurrently.
+    with ProcessPoolExecutor(max_workers=2) as ex:
+        base,transformed=list(ex.map(_c_analysis_worker,[(i,'base'),(i,'transformed')]))
     dcov=rel(base['fine']['direct'][-1],transformed['fine']['direct'][-1],1e-14)
     bcov=rel(base['fine']['bulk'],transformed['fine']['bulk'],1e-14)
     detres=abs(float(np.linalg.det(L))-1.0)
