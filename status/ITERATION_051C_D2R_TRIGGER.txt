@@ -1,0 +1,3 @@
+ITER051C-D2R authoritative production trigger
+Preregistration commit: 2597fb51bc087a4332d5974db38e0641bfacccba
+Frozen science unchanged after preregistration.
