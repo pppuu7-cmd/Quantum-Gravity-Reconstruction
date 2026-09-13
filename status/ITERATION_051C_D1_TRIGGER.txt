@@ -1,0 +1,6 @@
+ITER051C-D1 authoritative diagnostic production trigger
+Date: 2026-09-13
+Preregistration: 6eae32508dacccf0a2be6a947bfa84707a5aa9c4
+Implementation: a4f412632ffbbdb1989ec8049fc7e363133d03ae
+Aggregate: 39437929740a8105e63c7cf291147fda247ad4aa
+Workflow: 32e91be9d5ee619b1752a16c629097c23b301372
