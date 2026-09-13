@@ -4,14 +4,15 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
-    "iteration": 51,
-    "phase": "MODEL_CONSTRUCTION_WEYL3_FULL_EOM_REPLACEMENT_PRODUCTION"
+    "iteration": 52,
+    "phase": "MODEL_CONSTRUCTION_WEYL3_COVARIANT_DIRECTIONAL_VARIATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 99,
-    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Diagnostics and failed gates earn no new roadmap credit.",
-    "iter051_pct": 90,
+    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
+    "iter051_pct": 100,
+    "iter052_pct": 5,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -27,12 +28,13 @@
     "d2n_conditioning": "PASS_DIAGNOSTIC_D2N_NEAR_NULL_ERROR_COLLAPSES_UNDER_INDEPENDENT_FIVE_POINT_STENCIL",
     "d2z_exact_conditioning": "DIAGNOSTIC_EXACT_NEAR_ZERO_CONDITIONING_CONFIRMED",
     "d2r_fresh_replacement": "PASS_SCOPED_G51C_D2R_FRESH_SPHERICAL_REPLACEMENT_VALIDATION",
+    "d3_fivepoint_full_eom_replacement": "PASS_SCOPED_G51C_D3_FIVEPOINT_FULL_EOM_REPLACEMENT_CERTIFICATE",
     "full_covariant_six_derivative_eom_established": false,
     "independent_validation": false
   },
   "iter051": {
-    "status": "D3_FULL_EOM_REPLACEMENT_PRODUCTION_ACTIVE_16_PARALLEL_LANES",
-    "completion_pct": 90,
+    "status": "TERMINAL_SCOPED_PASS_D3",
+    "completion_pct": 100,
     "g51c_run_id": 34741060700,
     "g51c_classification": "SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY",
     "g51c_d2_run_id": 34741924103,
@@ -41,29 +43,33 @@
     "g51c_d2n_classification": "PASS_DIAGNOSTIC_D2N_NEAR_NULL_ERROR_COLLAPSES_UNDER_INDEPENDENT_FIVE_POINT_STENCIL",
     "g51c_d2z_run_id": 34742259726,
     "g51c_d2z_classification": "DIAGNOSTIC_EXACT_NEAR_ZERO_CONDITIONING_CONFIRMED",
-    "g51c_d2r_preregistration_commit": "2597fb51bc087a4332d5974db38e0641bfacccba",
-    "g51c_d2r_head": "a5f1021f8596f8e00a4a39f0d366eb276de3b397",
     "g51c_d2r_run_id": 34744139101,
-    "g51c_d2r_aggregate_job_id": 103689280172,
-    "g51c_d2r_aggregate_artifact_id": 10312909946,
-    "g51c_d2r_aggregate_digest": "sha256:714f66fb514d9046e82a8ede2e4350bf3586989060469dbcdcc415ba22f830c0",
     "g51c_d2r_classification": "PASS_SCOPED_G51C_D2R_FRESH_SPHERICAL_REPLACEMENT_VALIDATION",
-    "g51c_d2r_result_commit": "c12b9af1a4c930ed6ae703ca53d7e83d712b3a94",
     "g51c_d3_preregistration_commit": "f4dd9630408495e915fe3c8da1812c7690a58566",
     "g51c_d3_implementation_commit": "cafa7cfbd5c72458decd2ee204f5b1f0aa02400a",
     "g51c_d3_aggregate_commit": "06a00065a8ac2b80e254f37fc336e894aabb5fcf",
     "g51c_d3_workflow_commit": "63026f09ea6b1513b4ad9da4d12d8ff0cc9f8f8a",
     "g51c_d3_head": "242309e900b0c815983cc161c912b0439fbbc395",
     "g51c_d3_run_id": 34746649884,
-    "g51c_d3_status": "PRODUCTION_ACTIVE_16_PARALLEL_LANES",
-    "scope_lock": "HISTORICAL G51C AND D2 FAILS REMAIN TERMINAL. D2R IS A FRESH FINITE SPHERICAL REPLACEMENT VALIDATION ONLY. D3 USES THE FROZEN FIVE-POINT/-2D ASSEMBLY WITH NO FITTING OR POST-HOC THRESHOLD CHANGES."
+    "g51c_d3_aggregate_job_id": 103696159498,
+    "g51c_d3_summary_artifact_id": 10314332790,
+    "g51c_d3_summary_digest": "sha256:2fc0e26074e37eaa16d34cf7538f5abe1e5ec45279f0b77d714969deaafe1fb8",
+    "g51c_d3_classification": "PASS_SCOPED_G51C_D3_FIVEPOINT_FULL_EOM_REPLACEMENT_CERTIFICATE",
+    "g51c_d3_result_commit": "36be4c7caf7fe6facd2b1a2e13234c4048b83234",
+    "scope_lock": "Historical G51C and D2 failures remain terminal under their original contracts. D3 is a finite replacement computational certificate, not a global four-dimensional variational theorem."
+  },
+  "iter052": {
+    "status": "PREREGISTRATION_FRONT_OPEN",
+    "completion_pct": 5,
+    "authorized_gate_family": "GENUINELY_4D_COVARIANT_DIRECTIONAL_VARIATION_OR_FULL_FUNCTIONAL_DERIVATIVE",
+    "forbidden_substitute": "NO_ADDITIONAL_SYMMETRY_REDUCED_MINISUPERSPACE_PANEL_AS_PRIMARY_GATE"
   },
   "active_question": {
-    "id": "QGR-ITER051C-D3-FULL-EOM-REPLACEMENT",
-    "text": "Does the preregistered five-point/-2D full-EOM replacement pass generic, anisotropic variational, conformally-flat-null and covariance controls without coefficient fitting?"
+    "id": "QGR-ITER052-COVARIANT-DIRECTIONAL-VARIATION",
+    "text": "Does the frozen H5 tensor reproduce the direct first directional variation of the full four-dimensional sqrt(-g) Weyl^3 density/action, including the covariant boundary-current divergence, for arbitrary non-symmetry-reduced metric perturbations?"
   },
-  "active_blocker": "D3_FULL_EOM_REPLACEMENT_NOT_YET_TERMINAL",
-  "next_gate_lock": "Consume all 16 D3 raw lane artifacts and the frozen aggregate. Only terminal D3 PASS may authorize a genuinely covariant directional-variation/full-functional-derivative certificate.",
+  "active_blocker": "FULL_4D_VARIATIONAL_IDENTITY_NOT_YET_PREREGISTERED_AND_TESTED",
+  "next_gate_lock": "Prospectively preregister a genuinely four-dimensional directional/full-functional derivative certificate before implementation. Keep c6 symbolic and retain all historical failures. No coefficient fitting or post-hoc threshold changes.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
