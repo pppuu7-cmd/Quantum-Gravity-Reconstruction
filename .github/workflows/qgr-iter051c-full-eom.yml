@@ -1,0 +1,79 @@
+name: qgr-iter051c-full-eom
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'status/ITERATION_051C_TRIGGER.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  lanes:
+    name: ${{ matrix.stream }}-${{ matrix.index }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 18
+      matrix:
+        include:
+          - {stream: A, index: 0}
+          - {stream: A, index: 1}
+          - {stream: A, index: 2}
+          - {stream: A, index: 3}
+          - {stream: B, index: 0}
+          - {stream: B, index: 1}
+          - {stream: B, index: 2}
+          - {stream: B, index: 3}
+          - {stream: B, index: 4}
+          - {stream: B, index: 5}
+          - {stream: C, index: 0}
+          - {stream: C, index: 1}
+          - {stream: C, index: 2}
+          - {stream: C, index: 3}
+          - {stream: D, index: 0}
+          - {stream: D, index: 1}
+          - {stream: D, index: 2}
+          - {stream: D, index: 3}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: Frozen Iter051C scientific lane
+        run: python code/qgr_iter051c_full_eom.py --stream ${{ matrix.stream }} --index ${{ matrix.index }} --out iter051c-output/lane-${{ matrix.stream }}-${{ matrix.index }}.json
+      - name: Upload lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-${{ matrix.stream }}-${{ matrix.index }}
+          path: iter051c-output/lane-${{ matrix.stream }}-${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    name: aggregate
+    if: always()
+    needs: [lanes]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051c-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen Iter051C aggregate classifier
+        run: python code/qgr_iter051c_aggregate.py
+      - name: Upload authoritative summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-summary
+          path: iter051c-summary/summary.json
+          if-no-files-found: warn
