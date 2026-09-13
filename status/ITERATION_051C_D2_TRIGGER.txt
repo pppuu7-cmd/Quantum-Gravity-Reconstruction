@@ -1,0 +1,10 @@
+Iter051C-D2 authoritative production trigger.
+Preregistration commit: 72d42c480c23723b1d185d73816e8c3db5cf809a
+Implementation commit: fb5d87918ab91c2a318465f9f638bf029a512084
+Aggregate commit: 054f169a68dd0eef545f9b110b8ed2557f29571c
+Workflow commit: c2d1063d1ffdf6f3a9d3d6d05ddcb97b5602580d
+Frozen gate: ITER051C-D2-VARIATIONAL-SIGN-AND-HELDOUT-VALIDATION
+Expected scientific lanes: 20 (A8+B4+C4+D4).
+Candidate is prospectively derived H_D2=A+I-2*sqrt(-g)*D; no production fitting.
+Historical G51C failure remains authoritative and unchanged.
+c6 remains symbolic/unfixed; theory established remains 0%.
