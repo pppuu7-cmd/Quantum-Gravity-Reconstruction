@@ -101,8 +101,17 @@ def shear(i):
         L[0,2]=-0.13; L[1,3]=0.16; L[2,0]=0.07
     else:
         L[0,3]=0.12; L[1,0]=-0.08; L[2,1]=0.10; L[3,2]=-0.06
-    # Rescale one diagonal entry so det is exactly one to floating precision.
-    det=float(np.linalg.det(L)); L[3,3]/=det
+    # Control-only determinant normalization.  det(L) is affine in a single
+    # matrix entry; solve that affine equation exactly instead of dividing the
+    # entry by the pre-correction determinant (which is invalid for cyclic C2).
+    L[3,3]=0.0
+    d0=float(np.linalg.det(L))
+    L[3,3]=1.0
+    d1=float(np.linalg.det(L))
+    slope=d1-d0
+    if abs(slope)<1e-14:
+        raise RuntimeError('degenerate determinant normalization slope')
+    L[3,3]=(1.0-d0)/slope
     return L
 
 
