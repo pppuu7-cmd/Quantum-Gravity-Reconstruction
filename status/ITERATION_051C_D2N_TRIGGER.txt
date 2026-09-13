@@ -1,0 +1,10 @@
+Iter051C-D2N authoritative production trigger.
+Preregistration commit: b3fc227d6521b92fc6f5131f99b3812080bf4ee8
+Implementation commit: 0fbfbdcb552e170f9a228bf555057b63065d19d6
+Aggregate commit: c294074743955d66b0e14a3fd9a56430c09428a2
+Workflow commit: 9ae51dd4e0bcc9db769ef782e16e16987d4be60c
+Frozen gate: ITER051C-D2N-NEAR-NULL-SPHERICAL-CONDITIONING
+Expected lanes: 8 (A6+B2), fail-fast false.
+Historical D2 FAIL remains unchanged.
+Candidate sign is fixed before production; no coefficient fitting.
+c6 symbolic/unfixed; theory established 0%.
