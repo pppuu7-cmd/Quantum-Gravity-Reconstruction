@@ -1,0 +1,92 @@
+name: qgr-iter053s-h5-tensor-density-covariance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'code/qgr_iter053s_h5_tensor_density_covariance.py'
+      - '.github/workflows/qgr-iter053s-h5-tensor-density-covariance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy scipy
+      - name: Exact tensor-density contraction control
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter053s_h5_tensor_density_covariance.py \
+            --mode algebra --out out/algebra.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter053s-algebra
+          path: out/algebra.json
+          if-no-files-found: error
+
+  probe:
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        index: [0, 1]
+        point: [0, 1]
+        hstep: ['0.001', '0.0005', '0.00025']
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy scipy
+      - name: Frozen pointwise covariance probe
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter053s_h5_tensor_density_covariance.py \
+            --mode probe \
+            --index '${{ matrix.index }}' \
+            --point '${{ matrix.point }}' \
+            --hstep '${{ matrix.hstep }}' \
+            --out 'out/probe.json'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter053s-C${{ matrix.index }}-P${{ matrix.point }}-H${{ strategy.job-index }}
+          path: out/probe.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: [algebra, probe]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter053s-*
+          path: artifacts
+      - name: Frozen Iter053S aggregate classification
+        run: |
+          mkdir -p summary
+          PYTHONPATH=code python code/qgr_iter053s_h5_tensor_density_covariance.py \
+            --mode aggregate --input-dir artifacts --out summary/summary.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter053s-summary
+          path: summary/summary.json
+          if-no-files-found: error
