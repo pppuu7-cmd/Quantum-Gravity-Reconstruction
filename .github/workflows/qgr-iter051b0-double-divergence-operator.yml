@@ -6,6 +6,7 @@ on:
       - '.github/workflows/qgr-iter051b0-double-divergence-operator.yml'
   workflow_dispatch:
 
+# Retry authority: technical-only tensor extraction fix; frozen science unchanged.
 jobs:
   lane:
     strategy:
