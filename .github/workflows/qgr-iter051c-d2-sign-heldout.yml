@@ -1,0 +1,78 @@
+name: qgr-iter051c-d2-sign-heldout
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_051C_D2_TRIGGER.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scientific:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {stream: A, index: 0}
+          - {stream: A, index: 1}
+          - {stream: A, index: 2}
+          - {stream: A, index: 3}
+          - {stream: A, index: 4}
+          - {stream: A, index: 5}
+          - {stream: A, index: 6}
+          - {stream: A, index: 7}
+          - {stream: B, index: 0}
+          - {stream: B, index: 1}
+          - {stream: B, index: 2}
+          - {stream: B, index: 3}
+          - {stream: C, index: 0}
+          - {stream: C, index: 1}
+          - {stream: C, index: 2}
+          - {stream: C, index: 3}
+          - {stream: D, index: 0}
+          - {stream: D, index: 1}
+          - {stream: D, index: 2}
+          - {stream: D, index: 3}
+    name: ${{ matrix.stream }}-${{ matrix.index }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy
+      - name: Frozen Iter051C-D2 scientific lane
+        run: python code/qgr_iter051c_d2_sign_heldout.py --stream '${{ matrix.stream }}' --index '${{ matrix.index }}' --out 'iter051c-d2-output/lane-${{ matrix.stream }}-${{ matrix.index }}.json'
+      - name: Upload lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d2-${{ matrix.stream }}-${{ matrix.index }}
+          path: iter051c-d2-output/lane-${{ matrix.stream }}-${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    runs-on: ubuntu-24.04
+    if: always()
+    needs: scientific
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051c-d2-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen Iter051C-D2 aggregate classifier
+        run: python code/qgr_iter051c_d2_aggregate.py
+      - name: Upload authoritative summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d2-summary
+          path: iter051c-d2-summary/summary.json
+          if-no-files-found: warn
