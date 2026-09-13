@@ -1,0 +1,54 @@
+name: qgr-iter051c-d1-term-localization
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_051C_D1_TRIGGER.txt'
+
+jobs:
+  lane:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - name: Frozen G51C-D1 diagnostic lane
+        run: python code/qgr_iter051c_d1_term_localization.py --lane ${{ matrix.lane }} --out iter051c-d1-output/lane-${{ matrix.lane }}.json
+      - name: Upload lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d1-${{ matrix.lane }}
+          path: iter051c-d1-output/lane-${{ matrix.lane }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051c-d1-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen G51C-D1 aggregate diagnostic
+        run: python code/qgr_iter051c_d1_aggregate.py
+      - name: Upload diagnostic summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d1-summary
+          path: iter051c-d1-summary/summary.json
+          if-no-files-found: warn
