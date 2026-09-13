@@ -16,7 +16,7 @@
     "iter048_pct": 100,
     "iter049_pct": 100,
     "iter050_pct": 100,
-    "iter051_pct": 75,
+    "iter051_pct": 85,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -36,6 +36,7 @@
     "generic_double_divergence_historical_gate": "SCIENTIFIC_FAIL_G51B0_DOUBLE_DIVERGENCE_OPERATOR_0_OF_8",
     "generic_double_divergence_replacement": "PASS_REPLACEMENT_G51B0_COVARIANT_DOUBLE_DIVERGENCE_CERTIFICATE_8_OF_8",
     "weyl3_P_insertion": "PASS_SCOPED_WEYL3_P_INSERTION_CERTIFICATE_8_OF_8",
+    "weyl3_P_connection_response": "PASS_SCOPED_WEYL3_P_CONNECTION_RESPONSE_CERTIFICATE_4_OF_4",
     "full_covariant_six_derivative_eom_established": false,
     "generic_nonlinear_radiative_stability_established": false,
     "physical_multiple_branch_measure_selection_derived": false,
@@ -60,8 +61,8 @@
     "terminal_classification": "PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE"
   },
   "iter051": {
-    "status": "G51B2_RETRY_AGGREGATE_QUEUED",
-    "completion_pct": 75,
+    "status": "G51B2_COMPLETE_FINAL_EOM_ASSEMBLY_AUTHORIZED",
+    "completion_pct": 85,
     "g51a_classification": "SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION",
     "g51a_run_id": 34724233650,
     "g51a_r1_classification": "PASS_REPLACEMENT_G51A_HIGH_PRECISION_METRIC_DENSITY_CERTIFICATE",
@@ -92,15 +93,19 @@
     "g51b2_retry_head": "0d0796cc3751f31012afc04684b5836cbf580755",
     "g51b2_retry_run_id": 34737103399,
     "g51b2_retry_aggregate_job_id": 103670518127,
-    "g51b2_retry_lane_status": "4_OF_4_LANES_GREEN_AGGREGATE_QUEUED_NO_TERMINAL_CLASSIFICATION_YET",
-    "scope_lock": "INITIAL_G51B2_FROZEN_FAIL_REMAINS_RECORDED; RETRY_CHANGES_ONLY_LINEAR_ALGEBRAIC_RIEMANN_REPROJECTION_OF_NUMERIC_P_DERIVATIVE_JETS; FULL_EOM_REQUIRES_TERMINAL_B2_PASS_AND_FINAL_METRIC_CONSISTENT_ASSEMBLY"
+    "g51b2_retry_aggregate_artifact_id": 10312171778,
+    "g51b2_retry_aggregate_digest": "sha256:f076eb8a61bd2e0cc6d648533737aca349e28c14c3cb39f1f465e857442bf568",
+    "g51b2_retry_classification": "PASS_SCOPED_WEYL3_P_CONNECTION_RESPONSE_CERTIFICATE",
+    "g51b2_retry_passes": 4,
+    "g51b2_retry_valid": 4,
+    "scope_lock": "INITIAL_G51B2_FROZEN_FAIL_REMAINS_RECORDED; RETRY CHANGED ONLY LINEAR ALGEBRAIC-RIEMANN REPROJECTION OF NUMERIC P DERIVATIVE JETS; FULL EOM STILL REQUIRES FINAL METRIC-CONSISTENT ASSEMBLY/COVARIANCE/IDENTITY GATE"
   },
   "active_question": {
-    "id": "QGR-ITER051B2-WEYL3-P-CONNECTION-RESPONSE",
-    "text": "Will the numerically stabilized, frozen-science retry of actual Weyl^3 P(R,g) connection response pass the terminal aggregate?"
+    "id": "QGR-ITER051C-FULL-WEYL3-EOM-ASSEMBLY",
+    "text": "Does a prospectively frozen metric-consistent assembly of the algebraic and connection-response pieces of sqrt(-g) Weyl^3 form a symmetric covariant Euler-Lagrange tensor with the required internal identities on the frozen panel?"
   },
-  "active_blocker": "G51B2_RETRY_AGGREGATE_NOT_TERMINAL; FULL_4D_WEYL3_EOM_NOT_CERTIFIED",
-  "next_gate_lock": "Consume run 34737103399 aggregate. Only terminal PASS may authorize final metric-consistent full-EOM assembly/covariance/identity gate.",
+  "active_blocker": "FINAL_FULL_EOM_ASSEMBLY_GATE_NOT_YET_TERMINAL",
+  "next_gate_lock": "Prospectively preregister final metric-consistent full-EOM assembly/covariance/identity gate before implementation. Do not promote full 4D Weyl^3 EOM before terminal PASS.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
