@@ -1,0 +1,58 @@
+name: qgr-iter051c-d2r-fresh-spherical
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_051C_D2R_TRIGGER.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scientific:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11]
+    name: spherical-${{ matrix.index }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy
+      - name: Frozen D2R fresh held-out lane
+        run: python code/qgr_iter051c_d2r_fresh_spherical.py --index '${{ matrix.index }}' --out 'iter051c-d2r-output/lane-${{ matrix.index }}.json'
+      - name: Upload lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d2r-${{ matrix.index }}
+          path: iter051c-d2r-output/lane-${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    runs-on: ubuntu-24.04
+    if: always()
+    needs: scientific
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051c-d2r-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen D2R aggregate classifier
+        run: python code/qgr_iter051c_d2r_aggregate.py
+      - name: Upload authoritative summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter051c-d2r-summary
+          path: iter051c-d2r-summary/summary.json
+          if-no-files-found: warn
