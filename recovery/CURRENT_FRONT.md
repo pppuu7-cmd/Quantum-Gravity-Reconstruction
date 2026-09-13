@@ -9,7 +9,7 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 COVARIANT FUNCTIONAL-VARIATION CLOSUR
 - Candidate-program roadmap readiness: **99%** — roadmap readiness only, not correctness probability.
 - Iter051 completion: **100%**.
 - Iter052 completion: **100%**.
-- Iter053 completion: **10%** — prospectively preregistered; implementation/production not yet created.
+- Iter053 completion: **20%** — frozen implementation exists and authoritative A4+B2+C2 production is queued.
 - Theory established: **0%**.
 - `beta` remains a matching/calibration parameter; `beta=1` is not authorized.
 - `c6` remains **symbolic/unfixed**.
@@ -51,13 +51,24 @@ All 12/12 fresh lanes were found, valid and PASS; no initial invalid evidence wa
 
 Interpretation remains scoped: this is a finite genuinely-4D computational directional-variation certificate, not a global functional-analytic theorem and not a complete QG theory.
 
-## Active Iter053 — prospectively frozen before implementation
+## Active Iter053 — authoritative production queued
 Gate: `ITER053-WEYL3-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION`.
-Preregistration commit: **`55f57ef10f5ebc103fef5b5bad48f3eeed75133e`**.
 
-The next gate integrates the Weyl3 action and the independently assembled bulk response over a genuinely 4D domain using perturbations with an analytic compact-support collar, so the boundary-current term vanishes independently. Frozen panel: A4 generic compact-support lanes, B2 conformally-flat null controls, C2 determinant-one covariance controls; fixed coarse/fine quadrature orders; fixed epsilon stencil; historical `+2D` wrong-sign negative control; no coefficient fitting or post-hoc retuning.
+Authority chain, all frozen before production evidence:
+- initial prereg draft `55f57ef10f5ebc103fef5b5bad48f3eeed75133e`;
+- authoritative compute-safe preregistration **`bb0b755f25f14b89dd44b6f16da309d0d0796d05`** (the quadrature revision occurred before implementation or any Iter053 run);
+- implementation **`f52c7b067c77acbcd3d59b15749f92abca672433`**;
+- aggregate **`6862f94bef33f092c7a8d820fa3d71769b3d4a2e`**;
+- workflow **`6ec44a1f40df0220e5a9ec30988fca10ea35b733`**;
+- authoritative production head **`7c88a797e12968cba8f0804292e348bf82784014`**;
+- production run **`34750610751`**.
 
-At this synchronization Iter053 has not yet been implemented or run. This is the only authorized next primary gate; another symmetry-reduced minisuperspace panel is forbidden as a substitute.
+Frozen A4+B2+C2 panel integrates the Weyl3 action and independently assembled H5 bulk response over genuinely 4D domains. The perturbations have an analytic compact-support collar, so the boundary-current term is eliminated independently. Coarse/fine Gauss-Legendre orders are 3/4, epsilon stencil and H5 derivative step are frozen, conformally-flat null controls and determinant-one covariance controls are independent, and the historical `A+I+2D5` sign is retained as a deliberately wrong negative control.
+
+At the latest synchronization run `34750610751` is queued. No Iter053 scientific classification exists yet. Thresholds, lane panel, quadrature orders, seeds and interpretation are now immutable for this production.
+
+## Next authorization
+Consume all eight raw Iter053 artifacts and the frozen aggregate. A green workflow is not sufficient. If terminal PASS, write a durable result before opening a stronger gate. If valid controls produce FAIL, retain it as scientific FAIL and diagnose independently. If implementation/control invalid or infrastructure/numerical failure occurs, isolate the first causal failure and apply only a minimal implementation/control repair without weakening the frozen science.
 
 ## Claim locks
 - theory established = **0%**;
