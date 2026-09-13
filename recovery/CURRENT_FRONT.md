@@ -13,41 +13,34 @@ Project phase: `MODEL_CONSTRUCTION / FULL COVARIANT WEYL3 METRIC VARIATION`
 - `c6` remains **unfixed**.
 - KMQGB `NEW_REQUIRED`: **NOT AUTHORIZED**.
 
-## Historical Iter051A
-The original frozen Iter051A remains terminal `SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION` with 5/12 PASS. D1/D2 diagnostics do not retroactively alter that classification.
+## Terminal Iter051A / replacement
+Historical G51A remains `SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION` (5/12). Independent Iter051A-R1 remains `PASS_REPLACEMENT_G51A_HIGH_PRECISION_METRIC_DENSITY_CERTIFICATE` (12/12), run `34729269493`, artifact `10308907565`, digest `sha256:24b077748f70585ffa4bf24c4e88f814de06db13e66dd4e899da062707217cab`.
 
-## Terminal Iter051A-R1 — independent replacement certificate
-Durable record: `results/ITER051A_R1_HIGH_PRECISION_REPLACEMENT_CERTIFICATE_PASS.md`.
+## Terminal Iter051B0 — generic double-divergence operator gate
+Durable record: `results/ITER051B0_COVARIANT_DOUBLE_DIVERGENCE_OPERATOR_FAIL.md`.
 
-Authoritative provenance:
-- preregistration `b9d4162138face206901a6caafcc851ff4c40cf8`
-- implementation `7e44f9da0eaf0753d82bff0ab6b4c8a9d1c2e5f0`
-- aggregate `32998973363080cdb63e76ac333af28e1e19c149`
-- head `d502912a86564c5e3f7ce4df889199cbaf91d591`
-- run `34729269493`
-- aggregate job `103648969383`
-- artifact `10308907565`
-- digest `sha256:24b077748f70585ffa4bf24c4e88f814de06db13e66dd4e899da062707217cab`
-- classification `PASS_REPLACEMENT_G51A_HIGH_PRECISION_METRIC_DENSITY_CERTIFICATE`
-- frozen lane PASS `12/12`, nonzero calibration `12/12`.
-
-Worst frozen metrics: algebraic residual `6.05e-122`; Weyl-trace residual `7.26e-122`; complex-step precision change `2.02e-80`; Richardson precision change `2.16e-76`; CS-vs-Richardson directional discrepancy `5.11e-24`; density covariance `3.66e-120`; directional covariance `5.31e-120`.
-
-Interpretation: R1 supplies a new independent algebraic metric/measure/projector prerequisite. It does not erase the original G51A failure and does not establish the full 4D covariant Weyl^3 EOM.
-
-## Active Iter051B0 — covariant double-divergence operator prerequisite
-Prospectively frozen before implementation:
+Authoritative retry provenance:
 - preregistration `f983a3111c087289f6dc16703e99bb28f04668da`
-- implementation `1357dbe0cf9c453efd1e02eeba44eed0b434760f`
-- aggregate `a696ee8b899d6ba6129065394fc55690607f48ac`
-- workflow/head `5cb496a90eae3b60f4ab75beed43c50531d16562`
+- technical-only tensor-extraction repair `63c0c6416e2c22dd19b0166ceadbeebc880ed74e`
+- authoritative retry head `9be326cae17e9af94a6d14517251ac3193642a57`
+- run `34731863909`
+- aggregate job `103656032270`
+- summary artifact `10309387321`
+- digest `sha256:3c6b77b4544c7063126d0928f7e433bf426cafb89888e353f0896d6663ba0f7f`
+- classification `SCIENTIFIC_FAIL_G51B0_DOUBLE_DIVERGENCE_OPERATOR`
+- valid 8/8; PASS 0/8.
 
-G51B0 independently checks the generic rank-4 covariant double-divergence operator using polynomial Lorentzian metric/P jets, direct nested finite differences versus an explicit analytic connection-derivative expansion, plus constant-frame covariance controls. It is an implementation prerequisite only; a PASS does not yet insert the Weyl^3-specific P tensor.
+Worst metrics: direct-vs-expanded discrepancy `2.12485e-9`, P symmetry `2.78e-17`, inverse residual `4.44e-16`, but constant-frame covariance residual `0.748566` versus frozen `3e-7`.
+
+The historical gate stays terminal FAIL. Post-terminal audit found a concrete candidate control defect in `transform_jets`: second/fourth contravariant P indices are transformed with transposed matrix placement (`jm`,`ln`) rather than (`mj`,`nl`). This cannot be repaired post hoc inside G51B0.
+
+## Active replacement path
+A new separately preregistered `Iter051B0-R1` replacement certificate is required. It must preserve the original 8 seeds, metric/P jets, finite-difference steps, discrepancy/refinement thresholds and covariance threshold, while correcting only the tensor transformation and adding an independent transformed-P tensor-law control. Only an R1 PASS can authorize a Weyl^3-specific P insertion/connection-response gate.
 
 ## Frontier lock
-Full 4D covariant Weyl^3 Euler-Lagrange promotion remains blocked. Required remaining path is:
-1. terminal G51B0 operator certificate;
-2. separately preregistered Weyl^3-specific P insertion / connection-response certificate;
+Full 4D covariant Weyl^3 Euler-Lagrange promotion remains blocked. Required path:
+1. terminal separately preregistered G51B0-R1 replacement certificate;
+2. Weyl^3-specific P insertion / connection-response certificate;
 3. final full-EOM assembly and covariance/identity checks.
 
 No third repetitive symmetry reduction is authorized.
