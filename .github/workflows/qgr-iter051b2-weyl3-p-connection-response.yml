@@ -6,6 +6,7 @@ on:
       - '.github/workflows/qgr-iter051b2-weyl3-p-connection-response.yml'
   workflow_dispatch:
 
+# Retry after numerical-only reprojection of finite-difference P jets; frozen science unchanged.
 jobs:
   lane:
     strategy:
