@@ -1,0 +1,29 @@
+name: qgr-iter053-qd3-weighted-bulk-pilot
+
+on:
+  push:
+    paths:
+      - 'status/ITER053_QD3_TRIGGER.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy scipy
+      - name: Frozen Iter053-QD3 weighted bulk pilot
+        run: python code/qgr_iter053_qd3_gauss_jacobi_bulk_pilot.py
+      - name: Upload pilot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter053-qd3-result
+          path: iter053-qd3-output/result.json
+          if-no-files-found: warn
