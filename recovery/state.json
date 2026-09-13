@@ -5,13 +5,13 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
     "iteration": 51,
-    "phase": "MODEL_CONSTRUCTION_WEYL3_FRESH_REPLACEMENT_HELDOUT_VALIDATION"
+    "phase": "MODEL_CONSTRUCTION_WEYL3_FULL_EOM_REPLACEMENT_AUTHORIZATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 99,
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Diagnostics and failed gates earn no new roadmap credit.",
-    "iter051_pct": 87,
+    "iter051_pct": 90,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -23,44 +23,40 @@
     "six_derivative_coefficient": "c6",
     "six_derivative_coefficient_fixed": false,
     "weyl3_full_eom_historical_assembly": "SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY_12_OF_18",
-    "weyl3_variational_sign_heldout_validation": "SCIENTIFIC_FAIL_G51C_D2_SIGN_OR_HELDOUT_VALIDATION_19_OF_20",
+    "weyl3_variational_sign_historical_heldout": "SCIENTIFIC_FAIL_G51C_D2_SIGN_OR_HELDOUT_VALIDATION_19_OF_20",
     "d2n_conditioning": "PASS_DIAGNOSTIC_D2N_NEAR_NULL_ERROR_COLLAPSES_UNDER_INDEPENDENT_FIVE_POINT_STENCIL",
     "d2z_exact_conditioning": "DIAGNOSTIC_EXACT_NEAR_ZERO_CONDITIONING_CONFIRMED",
+    "d2r_fresh_replacement": "PASS_SCOPED_G51C_D2R_FRESH_SPHERICAL_REPLACEMENT_VALIDATION",
     "full_covariant_six_derivative_eom_established": false,
     "independent_validation": false
   },
   "iter051": {
-    "status": "D2R_FRESH_SPHERICAL_REPLACEMENT_PRODUCTION_ACTIVE",
-    "completion_pct": 87,
+    "status": "D2R_TERMINAL_PASS_FULL_EOM_REPLACEMENT_AUTHORIZED_NOT_YET_CLASSIFIED",
+    "completion_pct": 90,
     "g51c_run_id": 34741060700,
     "g51c_classification": "SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY",
     "g51c_d2_run_id": 34741924103,
     "g51c_d2_classification": "SCIENTIFIC_FAIL_G51C_D2_SIGN_OR_HELDOUT_VALIDATION",
     "g51c_d2n_run_id": 34742201899,
-    "g51c_d2n_aggregate_job_id": 103684234240,
-    "g51c_d2n_aggregate_artifact_id": 10312526872,
-    "g51c_d2n_aggregate_digest": "sha256:5809e09fb4365a745399f9db5fd1630b85d9cb280f23dca1d4a03337774b55a4",
     "g51c_d2n_classification": "PASS_DIAGNOSTIC_D2N_NEAR_NULL_ERROR_COLLAPSES_UNDER_INDEPENDENT_FIVE_POINT_STENCIL",
     "g51c_d2z_run_id": 34742259726,
-    "g51c_d2z_job_id": 103683830040,
-    "g51c_d2z_artifact_id": 10312697366,
-    "g51c_d2z_digest": "sha256:326e868eafc082965602eb9a6b57e792b4fcb45661c5546d117269ae3ed8cf5b",
     "g51c_d2z_classification": "DIAGNOSTIC_EXACT_NEAR_ZERO_CONDITIONING_CONFIRMED",
     "g51c_d2r_preregistration_commit": "2597fb51bc087a4332d5974db38e0641bfacccba",
-    "g51c_d2r_implementation_commit": "2b45b84a7d6c7cdb8f23d38408c211f63f0ff497",
-    "g51c_d2r_aggregate_commit": "f354def364e765fefe5de1d66ccddc1885a2ebe1",
-    "g51c_d2r_workflow_commit": "8f41ec289e996433a75a69f13b3f22215d167184",
     "g51c_d2r_head": "a5f1021f8596f8e00a4a39f0d366eb276de3b397",
     "g51c_d2r_run_id": 34744139101,
-    "g51c_d2r_status": "PRODUCTION_ACTIVE_12_PARALLEL_LANES",
-    "scope_lock": "G51C AND D2 FAILS REMAIN TERMINAL. D2R IS A FRESH REPLACEMENT VALIDATION ONLY. NO POST-HOC THRESHOLD CHANGES, NO COEFFICIENT FITTING, NO FULL G51C REPLACEMENT UNTIL D2R TERMINAL PASS."
+    "g51c_d2r_aggregate_job_id": 103689280172,
+    "g51c_d2r_aggregate_artifact_id": 10312909946,
+    "g51c_d2r_aggregate_digest": "sha256:714f66fb514d9046e82a8ede2e4350bf3586989060469dbcdcc415ba22f830c0",
+    "g51c_d2r_classification": "PASS_SCOPED_G51C_D2R_FRESH_SPHERICAL_REPLACEMENT_VALIDATION",
+    "g51c_d2r_result_commit": "c12b9af1a4c930ed6ae703ca53d7e83d712b3a94",
+    "scope_lock": "HISTORICAL G51C AND D2 FAILS REMAIN TERMINAL. D2R IS A FRESH FINITE SPHERICAL REPLACEMENT VALIDATION ONLY. A NEW FULL-EOM REPLACEMENT GATE MUST BE PREREGISTERED BEFORE IMPLEMENTATION; NO POST-HOC THRESHOLD OR COEFFICIENT CHANGES."
   },
   "active_question": {
-    "id": "QGR-ITER051C-D2R-FRESH-HELDOUT",
-    "text": "Does the independently implemented five-point covariant derivative validate the -2D Weyl^3 spherical reduced response on fresh ordinary-scale and near-null held-out points without coefficient fitting?"
+    "id": "QGR-ITER051C-FULL-EOM-REPLACEMENT",
+    "text": "Does a separately preregistered full-EOM replacement using the independently validated five-point covariant derivative and -2D sign pass generic, anisotropic, conformally-flat-null and covariance controls without coefficient fitting?"
   },
-  "active_blocker": "D2R_FRESH_REPLACEMENT_HELDOUT_VALIDATION_NOT_YET_TERMINAL",
-  "next_gate_lock": "Consume all 12 D2R raw lane artifacts and frozen aggregate. Only terminal D2R PASS may authorize a separately preregistered full-EOM replacement gate.",
+  "active_blocker": "FULL_EOM_REPLACEMENT_GATE_NOT_YET_TERMINAL",
+  "next_gate_lock": "Preregister the five-point/-2D full-EOM replacement before implementation. Only its terminal artifact may change full-covariant-EOM status.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
