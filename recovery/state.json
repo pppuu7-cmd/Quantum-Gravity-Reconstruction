@@ -47,7 +47,7 @@
     "result_commit": "a4ef2219c60d55dc0913e1a7c696ed949028c7bc"
   },
   "iter053": {
-    "status": "ORIGINAL_NUMERICAL_FAILURE_PRESERVED_QD_QD2_QD3_QD3M_PASS_FRESH_RETRY_ACTIVE",
+    "status": "ORIGINAL_NUMERICAL_FAILURE_PRESERVED_QD_QD2_QD3_QD3M_PASS_FRESH_RETRY_ACTIVE_ITER053R_PREREGISTERED",
     "completion_pct": 55,
     "gate": "ITER053-WEYL3-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION",
     "authoritative_preregistration_commit": "bb0b755f25f14b89dd44b6f16da309d0d0796d05",
@@ -100,15 +100,18 @@
     "qd3m_artifact_digest": "sha256:fbfd56dfbad2293c070a49e6bc02d4d0119f13e5db84f6a10025f4dbff1d749c",
     "qd3m_classification": "PASS_DIAGNOSTIC_ITER053_QD3_GAUSS_JACOBI_MOMENTS_EXACT",
     "qd3m_result_commit": "ca77a4fa67fb32602faa3039c985962309cf440f",
+    "iter053r_gate": "ITER053R-WEYL3-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION",
+    "iter053r_preregistration_commit": "952c6321bbb54530a6881ae357c149256249187f",
+    "iter053r_status": "PREREGISTERED_NOT_IMPLEMENTED",
     "matrix": "A4+B2+C2",
-    "scope_lock": "Original Iter053 remains numerical/infrastructure failure. QD/QD2/QD3/QD3M are diagnostic only. QD3 prospectively authorizes a fresh weighted-H5 scientific replacement gate but does not reclassify Iter053. No evidence pooling or post-hoc threshold weakening."
+    "scope_lock": "Original Iter053 remains numerical/infrastructure failure. QD/QD2/QD3/QD3M are diagnostic only. Iter053R is a new prospectively frozen scientific replacement and must not inherit diagnostic evidence as scored evidence. No evidence pooling or post-hoc threshold weakening."
   },
   "active_question": {
-    "id": "QGR-ITER053-WEIGHTED-H5-REPLACEMENT",
-    "text": "Does a prospectively frozen full A4+B2+C2 weighted-H5 compact-support gate reproduce direct action variation, null controls and coordinate covariance after the promising QD3 pilot?"
+    "id": "QGR-ITER053R-WEIGHTED-H5-REPLACEMENT",
+    "text": "Does the prospectively frozen full A4+B2+C2 weighted-H5 compact-support replacement reproduce direct action variation, null controls and coordinate covariance under unchanged scientific thresholds?"
   },
-  "active_blocker": "FRESH_RETRY_34769958632_STILL_IN_PROGRESS_AND_WEIGHTED_H5_REPLACEMENT_NOT_YET_PREREGISTERED",
-  "next_gate_lock": "Consume fresh retry 34769958632 when terminal. QD3 is terminal promising diagnostic evidence and permits prospective preregistration of a new weighted-H5 A4+B2+C2 scientific replacement gate. Freeze all panel/seeds/controls/orders/thresholds and covariance interpretation before implementation; never rewrite original Iter053 numerical failure.",
+  "active_blocker": "FRESH_RETRY_34769958632_STILL_IN_PROGRESS_ITER053R_PREREGISTERED_NOT_IMPLEMENTED",
+  "next_gate_lock": "Consume fresh retry 34769958632 when terminal. Iter053R is preregistered at 952c6321bbb54530a6881ae357c149256249187f. Implementation may proceed without changing frozen panel/orders/thresholds; production classification requires all raw A4+B2+C2 artifacts and aggregate. Never rewrite original Iter053 numerical failure.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
