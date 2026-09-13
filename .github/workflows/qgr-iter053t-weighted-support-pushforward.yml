@@ -1,0 +1,91 @@
+name: qgr-iter053t-weighted-support-pushforward
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'code/qgr_iter053t_weighted_support_pushforward.py'
+      - '.github/workflows/qgr-iter053t-weighted-support-pushforward.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  structural:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy scipy
+      - name: Frozen wrapper-depth factorization audit
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter053t_weighted_support_pushforward.py \
+            --mode structural --out out/structural.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter053t-structural
+          path: out/structural.json
+          if-no-files-found: error
+
+  numeric:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        index: [0, 1]
+        order: [2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy scipy
+      - name: Frozen source-faithful weighted pushforward lane
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter053t_weighted_support_pushforward.py \
+            --mode numeric \
+            --index '${{ matrix.index }}' \
+            --order '${{ matrix.order }}' \
+            --out out/lane.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter053t-C${{ matrix.index }}-GJ${{ matrix.order }}
+          path: out/lane.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: [structural, numeric]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy scipy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter053t-*
+          path: artifacts
+      - name: Frozen Iter053T aggregate classifier
+        run: |
+          mkdir -p summary
+          PYTHONPATH=code python code/qgr_iter053t_weighted_support_pushforward.py \
+            --mode aggregate --input-dir artifacts --out summary/summary.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter053t-summary
+          path: summary/summary.json
+          if-no-files-found: error
