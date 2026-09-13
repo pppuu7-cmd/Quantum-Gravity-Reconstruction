@@ -53,7 +53,7 @@
     "worst_finest_H5_covariance_residual": 3.8507299553315486e-08,
     "scientific_consequence": "POINTWISE_H5_OBJECT_IDENTITY_NOT_THE_ITER053R_C_FAILURE_SOURCE_WITHIN_FROZEN_SCOPE"
   },
-  "iter053t": {
+  "iter053t_primary": {
     "gate": "ITER053T-WEIGHTED-SUPPORT-PARAMETER-PUSHFORWARD-COVARIANCE",
     "status": "PROSPECTIVELY_FROZEN_PRODUCTION_ACTIVE",
     "preregistration_commit": "4a8e523753996c1b6c3756f5e19eac301c73f1c5",
@@ -64,15 +64,40 @@
     "legacy_defect": "TRANSFORMPERTURBATION_BASE_POINTS_TO_COMPACTPERTURBATION_SO_LEGACY_WEIGHTED_REDUCER_EXTRACTS_B_TIMES_P_WHILE_GAUSS_JACOBI_ALREADY_SUPPLIES_B",
     "legacy_effective_support_weight": "B(u)^2",
     "corrected_source_faithful_path": "u=x; y=L^-1 u; single_GJ_weight_B(u); polynomial_factor=L^T p(u) L",
+    "scored_unique_obligations": [
+      "STRUCTURAL_B_TO_B2_FACTORIZATION",
+      "GJ2_GJ3_CONVERGENCE",
+      "LEGACY_GJ3_NEGATIVE_CONTROL",
+      "LEGACY_TO_CORRECTED_IMPROVEMENT"
+    ],
     "partial_results_scientific_authority": false,
     "iter053r_history_rewrite_allowed": false
   },
+  "iter053t_nodewise_companion": {
+    "gate": "ITER053T-GJ-NODEWISE-PUSHFORWARD-COVARIANCE-AUDIT",
+    "status": "INDEPENDENTLY_PREREGISTERED_PRODUCTION_ACTIVE",
+    "preregistration_commit": "74d033551f0eb4060f9621cd9e9e10b00e57700a",
+    "implementation_commit": "bfa059335b44eb6ac730e8b98d04a08fcb243bb0",
+    "aggregate_commit": "a2ae31c436161d1f8458e822be5e1c7f5ccbbded",
+    "workflow_commit": "491db03d919b18ddfbaabb9115e3a2a850710b20",
+    "trigger_head": "75a30221c9a61d4a2484a9d0181cb3330d2104c0",
+    "run_id": 34788222635,
+    "architecture": "C0_C1_X_HSTEP_1E-3_5E-4_2.5E-4_GJ3_81_NODES_6_PARALLEL_LANES_THEN_AGGREGATE",
+    "scored_unique_obligations": [
+      "ALL_81_GJ3_NODE_COVARIANCE",
+      "HSTEP_ROBUSTNESS",
+      "WRONG_CONGRUENCE_NEGATIVE_CONTROL"
+    ],
+    "evidence_pooling_with_primary_before_terminal": false,
+    "select_favorable_verdict_allowed": false,
+    "partial_results_scientific_authority": false
+  },
   "active_question": {
     "id": "QGR-ITER053T-WEIGHTED-SUPPORT-PUSHFORWARD",
-    "text": "Does the prospectively frozen source-faithful single-weight Gauss-Jacobi pushforward restore nodewise and integrated C covariance and GJ2-to-GJ3 convergence while the legacy double-weight path remains discrepant?"
+    "text": "Do the independently preregistered primary and nodewise companion gates consistently establish a source-faithful single-weight corrected C pushforward, including GJ2-GJ3 convergence, legacy B^2 negative control and H5-step robustness?"
   },
-  "active_blocker": "ITER053T_PRODUCTION_ACTIVE_DO_NOT_DUPLICATE_OR_CONSUME_PARTIAL_VALUES",
-  "next_gate_lock": "Consume Iter053T run 34788261104 only after terminal aggregate. Do not change frozen thresholds or launch competing corrected-pushforward production. Only a terminal Iter053T PASS can authorize preregistration of a distinct full A4+B2+C2 corrected replacement gate.",
+  "active_blocker": "TWO_INDEPENDENTLY_PREREGISTERED_ITER053T_COMPANION_RUNS_ACTIVE_NO_PARTIAL_EVIDENCE_NO_THIRD_PRODUCTION",
+  "next_gate_lock": "Terminalize run 34788261104 and run 34788222635 independently under their own frozen classifiers. Do not pool raw lanes, modify criteria, or select the more favorable verdict. Only mutually compatible terminal scoped results can authorize preregistration of a distinct full A4+B2+C2 corrected replacement gate.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
