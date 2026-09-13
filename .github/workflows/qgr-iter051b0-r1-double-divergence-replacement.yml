@@ -1,0 +1,54 @@
+name: qgr-iter051b0-r1-double-divergence-replacement
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter051b0-r1-double-divergence-replacement.yml'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        lane: [0,1,2,3,4,5,6,7]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy
+      - name: Run frozen Iter051B0-R1 lane
+        shell: bash
+        run: |
+          set +e
+          mkdir -p out
+          python code/qgr_iter051b0_r1.py --lane ${{ matrix.lane }} | tee out/lane-${{ matrix.lane }}.json
+          rc=${PIPESTATUS[0]}
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter051b0-r1-lane-${{ matrix.lane }}
+          path: out/lane-${{ matrix.lane }}.json
+
+  aggregate:
+    needs: lane
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter051b0-r1-lane-*
+          path: artifacts
+      - name: Frozen G51B0-R1 classification
+        run: python code/qgr_iter051b0_r1_aggregate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-iter051b0-r1-summary
+          path: iter051b0-r1-summary.json
