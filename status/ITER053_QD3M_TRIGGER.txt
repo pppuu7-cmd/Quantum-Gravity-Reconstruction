@@ -1,0 +1,5 @@
+ITER053-QD3M-GAUSS-JACOBI-MOMENT-NORMALIZATION-AUDIT
+preregistered=a1809ae3f3d55e8700546af642daf9f9f5f19c29
+implementation=7745f253bb84e77356d96af9344255c8a7e379b0
+workflow=881e88fc90fa4ff6be69359fec256bc2f8e486ea
+purpose=response-blind analytic weighted-moment and normalization audit
