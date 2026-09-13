@@ -1,6 +1,9 @@
 ITER052-WEYL3-4D-COVARIANT-DIRECTIONAL-VARIATION
 Prospective preregistration: c49084e54428042cf59e5ac083ee49f0614a3de0
-Scientific implementation: b9da6cdfc424d712b80db935f16f89c00f8f5b9f
+Original scientific implementation: b9da6cdfc424d712b80db935f16f89c00f8f5b9f
 Frozen aggregate: 79dff35e80c5095688d898b78bb78d7b80768657
 Workflow: ff68b12968fdce2b6c220880009c256406309a65
-Production trigger: authoritative first run; criteria and formulas frozen before this commit.
+Initial run 34748588704: ITER052_IMPLEMENTATION_OR_CONTROL_INVALID due solely to C2 determinant-one construction control.
+Run authority record: 888c3d398dee4785f094037a6ad56929e18da671
+Control-only determinant fix: da0957ee8f818195435e3804c2611b1411a01a98
+Retry trigger: fresh full 12-lane authoritative retry; scientific identity, seeds, witnesses, finite-difference steps and frozen thresholds unchanged.
