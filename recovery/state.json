@@ -13,7 +13,7 @@
     "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved.",
     "iter051_pct": 100,
     "iter052_pct": 100,
-    "iter053_pct": 45,
+    "iter053_pct": 55,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -47,8 +47,8 @@
     "result_commit": "a4ef2219c60d55dc0913e1a7c696ed949028c7bc"
   },
   "iter053": {
-    "status": "NUMERICAL_FAILURE_PRESERVED_QD_QD2_QD3M_PASS_QD3_AND_FRESH_RETRY_ACTIVE",
-    "completion_pct": 45,
+    "status": "ORIGINAL_NUMERICAL_FAILURE_PRESERVED_QD_QD2_QD3_QD3M_PASS_FRESH_RETRY_ACTIVE",
+    "completion_pct": 55,
     "gate": "ITER053-WEYL3-INTEGRATED-COMPACT-SUPPORT-ACTION-VARIATION",
     "authoritative_preregistration_commit": "bb0b755f25f14b89dd44b6f16da309d0d0796d05",
     "initial_production_run_id": 34750610751,
@@ -82,7 +82,13 @@
     "qd3_workflow_commit": "3c8e5640176ebe96abc826de7b7986728d61bfc3",
     "qd3_head": "ec14bd4c5ec7ebe8523bb7c06e789d20fdcef89f",
     "qd3_run_id": 34770675902,
-    "qd3_status": "IN_PROGRESS_A0_WEIGHTED_H5_PILOT",
+    "qd3_job_id": 103759575844,
+    "qd3_artifact_id": 10322517083,
+    "qd3_artifact_digest": "sha256:5d7d7d616660a3843a097c4cd23305ee473df16c14c8b323015284926dd89bcf",
+    "qd3_classification": "PASS_DIAGNOSTIC_ITER053_WEIGHTED_GJ3_BULK_PILOT_PROMISING",
+    "qd3_gj3_vs_direct_gl8_relative_residual": 3.407157652190216e-7,
+    "qd3_wrong_sign_relative_residual": 1.944220429443305,
+    "qd3_result_commit": "4522328868d6e018d22619d5d31cfe811487c92e",
     "qd3m_gate": "ITER053-QD3M-GAUSS-JACOBI-MOMENT-NORMALIZATION-AUDIT",
     "qd3m_preregistration_commit": "a1809ae3f3d55e8700546af642daf9f9f5f19c29",
     "qd3m_implementation_commit": "7745f253bb84e77356d96af9344255c8a7e379b0",
@@ -95,14 +101,14 @@
     "qd3m_classification": "PASS_DIAGNOSTIC_ITER053_QD3_GAUSS_JACOBI_MOMENTS_EXACT",
     "qd3m_result_commit": "ca77a4fa67fb32602faa3039c985962309cf440f",
     "matrix": "A4+B2+C2",
-    "scope_lock": "Original Iter053 remains numerical/infrastructure failure. QD/QD2/QD3M are diagnostic only. QD3 is a diagnostic H5 pilot only. No evidence pooling or post-hoc threshold weakening."
+    "scope_lock": "Original Iter053 remains numerical/infrastructure failure. QD/QD2/QD3/QD3M are diagnostic only. QD3 prospectively authorizes a fresh weighted-H5 scientific replacement gate but does not reclassify Iter053. No evidence pooling or post-hoc threshold weakening."
   },
   "active_question": {
-    "id": "QGR-ITER053-WEIGHTED-BULK-CLOSURE",
-    "text": "Can an exact bump-weighted Gauss-Jacobi quadrature make the expensive integrated H5 bulk response converge against the independently converged direct action variation, before preregistering a fresh scientific replacement gate?"
+    "id": "QGR-ITER053-WEIGHTED-H5-REPLACEMENT",
+    "text": "Does a prospectively frozen full A4+B2+C2 weighted-H5 compact-support gate reproduce direct action variation, null controls and coordinate covariance after the promising QD3 pilot?"
   },
-  "active_blocker": "ITER053_WEIGHTED_H5_BULK_PILOT_NOT_YET_TERMINAL",
-  "next_gate_lock": "Consume fresh retry 34769958632 and QD3 34770675902. QD3M already validates quadrature moments/normalization only. Only a prospectively promising QD3 may justify preregistering a fresh weighted-H5 scientific replacement gate; never rewrite original Iter053 numerical failure.",
+  "active_blocker": "FRESH_RETRY_34769958632_STILL_IN_PROGRESS_AND_WEIGHTED_H5_REPLACEMENT_NOT_YET_PREREGISTERED",
+  "next_gate_lock": "Consume fresh retry 34769958632 when terminal. QD3 is terminal promising diagnostic evidence and permits prospective preregistration of a new weighted-H5 A4+B2+C2 scientific replacement gate. Freeze all panel/seeds/controls/orders/thresholds and covariance interpretation before implementation; never rewrite original Iter053 numerical failure.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
