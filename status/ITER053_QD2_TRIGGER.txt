@@ -1,0 +1,6 @@
+ITER053-QD2-SUPPORT-DIRECT-QUADRATURE-CONVERGENCE
+prereg=5b85e850f4ad38d8b3dcc07958c6a3f664a4f5f7
+implementation=48bee611c8482817d447af61a76ccb43af165b47
+aggregate=71c81f38a4db6b80357c1a8dbd5b1dd781e3aec2
+workflow=c8a9121954d71dae391603c9fa5685db180aba4d
+fresh diagnostic production; no H5 bulk scientific authority
