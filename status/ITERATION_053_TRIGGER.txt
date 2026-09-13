@@ -4,4 +4,6 @@ frozen preregistration commit: bb0b755f25f14b89dd44b6f16da309d0d0796d05
 scientific implementation commit: f52c7b067c77acbcd3d59b15749f92abca672433
 aggregate implementation commit: 6862f94bef33f092c7a8d820fa3d71769b3d4a2e
 workflow commit: 6ec44a1f40df0220e5a9ec30988fca10ea35b733
-No thresholds, panel, quadrature orders, epsilon steps, seeds or interpretation rules may change after this trigger without declaring the production non-authoritative.
+implementation-only timeout repair commit: 4e95a8dbba3967d18f86206681bbfda46b54699e
+retry reason: authoritative run 34750610751 produced valid A/B evidence but both frozen C covariance lanes hit the six-hour hosted-runner wall-clock limit before emitting artifacts; C base/transformed evaluations are now executed concurrently with identical frozen seeds, quadrature, thresholds and interpretation.
+No thresholds, panel, quadrature orders, epsilon steps, seeds, witnesses or interpretation rules changed. The prior A/B scientific evidence is retained; this trigger exists only to obtain a complete fresh retry under the unchanged frozen contract.
