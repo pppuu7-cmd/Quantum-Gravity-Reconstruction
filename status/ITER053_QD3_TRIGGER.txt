@@ -1,0 +1,5 @@
+ITER053-QD3-WEIGHTED-BULK-GAUSS-JACOBI-PILOT
+prereg=b12b8f1fbf8605a17d7b35191812323b1c61dde8
+implementation=471781570e1216c455e490681493e9e41ce078cd
+workflow=3c8e5640176ebe96abc826de7b7986728d61bfc3
+A0 only; diagnostic pilot; no scientific Iter053 reclassification
