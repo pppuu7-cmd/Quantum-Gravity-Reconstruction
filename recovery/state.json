@@ -10,13 +10,13 @@
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 99,
-    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Iter051A failure and diagnostics earn no new roadmap credit.",
+    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Diagnostics earn no new roadmap credit.",
     "iter046_pct": 100,
     "iter047_pct": 100,
     "iter048_pct": 100,
     "iter049_pct": 100,
     "iter050_pct": 100,
-    "iter051_pct": 25,
+    "iter051_pct": 30,
     "theory_established_pct": 0
   },
   "candidate": {
@@ -59,8 +59,8 @@
     "terminal_classification": "PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE"
   },
   "iter051": {
-    "status": "G51A_TERMINAL_FAIL_D1_MIXED_D2_QUEUED",
-    "completion_pct": 25,
+    "status": "G51A_TERMINAL_FAIL_D1_MIXED_D2_STABLE_REPLACEMENT_CERTIFICATE_AUTHORIZED",
+    "completion_pct": 30,
     "parent_preregistration_commit": "bf5615dd36b533ba536c85f4c8d7658cd7e3568c",
     "g51a_authoritative_head": "55e4c099516cbfe9a76ab826994cc5f28cae69c0",
     "g51a_run_id": 34724233650,
@@ -80,14 +80,20 @@
     "d2_preregistration_commit": "3e4fdf397afc060b02250c26be30af21f0ba6ef4",
     "d2_trigger_commit": "1dc54a4d312bb4fa63d45ef8fecbe3a1fcb6e1af",
     "d2_run_id": 34726732537,
+    "d2_aggregate_job_id": 103642066679,
+    "d2_aggregate_artifact_id": 10307943436,
+    "d2_aggregate_digest": "sha256:2a0e90b2a6f3cdfc64f44fdce879062dd43419bfed36e1f87b97cd612888ac4c",
+    "d2_classification": "DIAGNOSTIC_COMPLEX_STEP_STABLE_3_OF_3",
+    "d2_max_relative_spread": 8.771226570866013e-15,
+    "d2_max_direction_covariance_rel": 6.224741437388768e-15,
     "scope_lock": "G51A_FAILURE_REMAINS_TERMINAL; D1/D2_DIAGNOSTICS_CANNOT_RETROACTIVELY_PROMOTE_G51A; FULL_EOM_REQUIRES_NEW_VALID_G51A_CLASS_CERTIFICATE_PLUS_G51B"
   },
   "active_question": {
-    "id": "QGR-ITER051A-D2-COMPLEX-STEP-STABILITY",
-    "text": "Are the three D1-unlocalized original G51A failing lanes stable under a five-decade complex-step epsilon audit with inherited covariance controls?"
+    "id": "QGR-ITER051A-R1-HIGH-PRECISION-INDEPENDENT-CERTIFICATE",
+    "text": "Can an independently preregistered high-precision derivative certificate validate the algebraic metric/measure/Weyl-projector directional response on all 12 original G51A lanes without weakening the failed frozen G51A gate?"
   },
-  "active_blocker": "G51A_FROZEN_GATE_FAILED_5_OF_12; THREE_FAILING_LANES_NOT_LOCALIZED_BY_D1; FULL_4D_COVARIANT_WEYL3_METRIC_FUNCTIONAL_DERIVATIVE_NOT_CERTIFIED",
-  "next_gate_lock": "Consume Iter051A-D2 terminal artifact. G51A remains failed regardless. Only after comparator stability is classified may a separately preregistered replacement high-precision G51A-class certificate be designed; full-EOM promotion and G51B integration remain blocked.",
+  "active_blocker": "G51A_FROZEN_GATE_FAILED_5_OF_12; FULL_4D_COVARIANT_WEYL3_METRIC_FUNCTIONAL_DERIVATIVE_NOT_CERTIFIED",
+  "next_gate_lock": "Preregister and run a new independent high-precision G51A-class certificate. Terminal G51A remains failed. G51B/full-EOM promotion remains blocked until a replacement algebraic certificate passes prospectively frozen criteria.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
