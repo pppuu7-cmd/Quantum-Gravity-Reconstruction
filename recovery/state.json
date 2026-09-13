@@ -5,12 +5,12 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-13",
     "iteration": 51,
-    "phase": "MODEL_CONSTRUCTION_FULL_COVARIANT_WEYL3_METRIC_VARIATION"
+    "phase": "MODEL_CONSTRUCTION_WEYL3_FULL_EOM_ASSEMBLY_DIAGNOSIS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 99,
-    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Diagnostics earn no new roadmap credit.",
+    "candidate_program_pct_semantics": "Internal construction-roadmap readiness only; not probability of correctness and not fraction of quantum gravity solved. Diagnostics and failed gates earn no new roadmap credit.",
     "iter046_pct": 100,
     "iter047_pct": 100,
     "iter048_pct": 100,
@@ -37,6 +37,7 @@
     "generic_double_divergence_replacement": "PASS_REPLACEMENT_G51B0_COVARIANT_DOUBLE_DIVERGENCE_CERTIFICATE_8_OF_8",
     "weyl3_P_insertion": "PASS_SCOPED_WEYL3_P_INSERTION_CERTIFICATE_8_OF_8",
     "weyl3_P_connection_response": "PASS_SCOPED_WEYL3_P_CONNECTION_RESPONSE_CERTIFICATE_4_OF_4",
+    "weyl3_full_eom_historical_assembly": "SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY_12_OF_18",
     "full_covariant_six_derivative_eom_established": false,
     "generic_nonlinear_radiative_stability_established": false,
     "physical_multiple_branch_measure_selection_derived": false,
@@ -61,7 +62,7 @@
     "terminal_classification": "PASS_SCOPED_COVARIANT_WEYL3_CURVATURE_DIRECTIONAL_VARIATION_PREREQUISITE"
   },
   "iter051": {
-    "status": "G51B2_COMPLETE_FINAL_EOM_ASSEMBLY_AUTHORIZED",
+    "status": "G51C_TERMINAL_SCIENTIFIC_FAIL_DIAGNOSTIC_AUTHORIZED",
     "completion_pct": 85,
     "g51a_classification": "SCIENTIFIC_FAIL_G51A_ALGEBRAIC_METRIC_VARIATION",
     "g51a_run_id": 34724233650,
@@ -98,14 +99,29 @@
     "g51b2_retry_classification": "PASS_SCOPED_WEYL3_P_CONNECTION_RESPONSE_CERTIFICATE",
     "g51b2_retry_passes": 4,
     "g51b2_retry_valid": 4,
-    "scope_lock": "INITIAL_G51B2_FROZEN_FAIL_REMAINS_RECORDED; RETRY CHANGED ONLY LINEAR ALGEBRAIC-RIEMANN REPROJECTION OF NUMERIC P DERIVATIVE JETS; FULL EOM STILL REQUIRES FINAL METRIC-CONSISTENT ASSEMBLY/COVARIANCE/IDENTITY GATE"
+    "g51c_preregistration_commit": "4bdb68cfd50ea7b521372bf633c1b1b43d848625",
+    "g51c_implementation_commit": "d19aecadfc316c2ec08d75fb5dd188bff245444f",
+    "g51c_aggregate_commit": "bf4f5a2aeb376efa2e5af4f1e529bebe7864b937",
+    "g51c_workflow_commit": "77df1829163213a6e6b2a9e6c0464adea223e1ec",
+    "g51c_head": "a69562cb0552abc283dfef1ffff941809578ffd8",
+    "g51c_run_id": 34741060700,
+    "g51c_aggregate_job_id": 103680844833,
+    "g51c_aggregate_artifact_id": 10311749167,
+    "g51c_aggregate_digest": "sha256:1b4a324a05666a2ff0c67bdb922e87efc600d70d481ab380bb4532baf43c8c99",
+    "g51c_classification": "SCIENTIFIC_FAIL_G51C_FULL_WEYL3_EOM_ASSEMBLY",
+    "g51c_passes": 12,
+    "g51c_fails": 6,
+    "g51c_controls_valid": true,
+    "g51c_streams": "A=4/4 PASS; B=0/6 PASS; C=4/4 PASS; D=4/4 PASS",
+    "g51c_worst_exact_reduced_residual": 1.9999998126753908,
+    "scope_lock": "HISTORICAL G51A/G51B0/G51B2 FAILURES AND G51C FROZEN ASSEMBLY FAIL REMAIN RECORDED; NO POST_HOC SIGN_OR_COEFFICIENT RETUNING; FULL EOM REQUIRES SEPARATE PREREGISTERED DIAGNOSIS AND REPLACEMENT AUTHORITY"
   },
   "active_question": {
-    "id": "QGR-ITER051C-FULL-WEYL3-EOM-ASSEMBLY",
-    "text": "Does a prospectively frozen metric-consistent assembly of the algebraic and connection-response pieces of sqrt(-g) Weyl^3 form a symmetric covariant Euler-Lagrange tensor with the required internal identities on the frozen panel?"
+    "id": "QGR-ITER051C-D1-ASSEMBLY-TERM-LOCALIZATION",
+    "text": "Which independently computed term or index/sign convention causes the frozen G51C full Weyl^3 assembly to disagree with the exact G48 reduced Euler-Lagrange response?"
   },
-  "active_blocker": "FINAL_FULL_EOM_ASSEMBLY_GATE_NOT_YET_TERMINAL",
-  "next_gate_lock": "Prospectively preregister final metric-consistent full-EOM assembly/covariance/identity gate before implementation. Do not promote full 4D Weyl^3 EOM before terminal PASS.",
+  "active_blocker": "G51C_EXACT_REDUCED_EL_SIGN_COEFFICIENT_MISMATCH_ALL_6_STREAM_B_LANES",
+  "next_gate_lock": "Prospectively preregister a diagnostic A/I/D decomposition. Preserve G51C failure. Any replacement assembly must come from an independent variational derivation and be separately preregistered; do not select a corrected formula merely by fitting Stream-B data.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
