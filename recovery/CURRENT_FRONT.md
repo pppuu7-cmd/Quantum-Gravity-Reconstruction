@@ -9,7 +9,7 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 COVARIANT FUNCTIONAL-VARIATION CLOSUR
 - Candidate-program roadmap readiness: **99%** — roadmap readiness only, not correctness probability.
 - Iter051 completion: **100%**.
 - Iter052 completion: **100%**.
-- Iter053 operational completion: **45%** — original production is a preserved numerical/infrastructure failure; fresh frozen retry remains active; QD/QD2 have isolated and resolved the direct-action quadrature diagnosis; weighted H5 bulk pilot is active.
+- Iter053 operational completion: **45%** — original production is a preserved numerical/infrastructure failure; fresh frozen retry remains active; QD/QD2 have isolated and resolved the direct-action quadrature diagnosis; QD3 weighted H5 bulk pilot remains active; QD3M has independently validated the Gauss-Jacobi normalization/moments.
 - Theory established: **0%**.
 - `beta` remains a matching/calibration parameter; `beta=1` is not authorized.
 - `c6` remains **symbolic/unfixed**.
@@ -54,11 +54,16 @@ Classification: **`PASS_DIAGNOSTIC_ITER053_SUPPORT_DIRECT_QUADRATURE_CONVERGED_B
 Gate `ITER053-QD3-WEIGHTED-BULK-GAUSS-JACOBI-PILOT`; prereg `b12b8f1fbf8605a17d7b35191812323b1c61dde8`; implementation `471781570e1216c455e490681493e9e41ce078cd`; workflow `3c8e5640176ebe96abc826de7b7986728d61bfc3`; head `ec14bd4c5ec7ebe8523bb7c06e789d20fdcef89f`; run **`34770675902`**.
 A0-only diagnostic pilot uses the exact factorization `h=B p` and tensor Gauss-Jacobi weight `(1-u^2)^4` to evaluate the expensive H5 bulk on 16/81 weighted nodes (GJ2/GJ3), against independently converged direct support GL7/GL8. It is diagnostic only and cannot establish Iter053 PASS.
 
+### Iter053-QD3M — terminal Gauss-Jacobi implementation/moment PASS
+Gate `ITER053-QD3M-GAUSS-JACOBI-MOMENT-NORMALIZATION-AUDIT`; prereg `a1809ae3f3d55e8700546af642daf9f9f5f19c29`; implementation `7745f253bb84e77356d96af9344255c8a7e379b0`; workflow `881e88fc90fa4ff6be69359fec256bc2f8e486ea`; production head `cc2ad005a3605a40c602e7d372e5f9ae36706b28`; run **`34771761543`**; job `103762519052`; artifact `10321744441`; digest `sha256:fbfd56dfbad2293c070a49e6bc02d4d0119f13e5db84f6a10025f4dbff1d749c`; durable result commit `ca77a4fa67fb32602faa3039c985962309cf440f`.
+Classification: **`PASS_DIAGNOSTIC_ITER053_QD3_GAUSS_JACOBI_MOMENTS_EXACT`**. GJ2 worst 1D moment error `1.1102230246251565e-16`, mapped normalization relative error `7.49113563028748e-16`; GJ3 worst 1D moment error `2.220446049250313e-16`, mapped normalization relative error `1.1985817008459965e-15`. Nodes/weights and helper task-weight sums passed the prospectively frozen `5e-14` controls. This removes quadrature-weight/Jacobian normalization as a plausible QD3 implementation failure, but cannot establish QD3 weighted-H5 convergence or reclassify Iter053.
+
 ## Next authorization
 1. Consume fresh retry `34769958632` when terminal; preserve its original frozen classifier.
 2. Consume QD3 `34770675902`. If weighted GJ3 is prospectively `promising`, preregister a **new** scientific replacement gate before any full A4+B2+C2 weighted-H5 implementation.
-3. Any replacement must preserve the action, H5=`A+I-2sqrt(-g)D5`, seeds/negative-control logic or prospectively state fresh seeds, and coordinate covariance; no post-hoc threshold weakening.
-4. Only after a terminal replacement PASS may Iter053 functional-variation closure be credited and the program move to quantum amplitude/measure closure.
+3. QD3M is terminal implementation evidence only; do not substitute it for the QD3 H5 bulk-vs-direct result.
+4. Any replacement must preserve the action, H5=`A+I-2sqrt(-g)D5`, seeds/negative-control logic or prospectively state fresh seeds, and coordinate covariance; no post-hoc threshold weakening.
+5. Only after a terminal replacement PASS may Iter053 functional-variation closure be credited and the program move to quantum amplitude/measure closure.
 
 ## Claim locks
 - theory established = **0%**;
