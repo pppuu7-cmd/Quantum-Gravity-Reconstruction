@@ -1,0 +1,66 @@
+name: qgr-iter053-compact-support-action
+
+on:
+  push:
+    paths:
+      - 'status/ITERATION_053_TRIGGER.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scientific:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {stream: A, index: 0}
+          - {stream: A, index: 1}
+          - {stream: A, index: 2}
+          - {stream: A, index: 3}
+          - {stream: B, index: 0}
+          - {stream: B, index: 1}
+          - {stream: C, index: 0}
+          - {stream: C, index: 1}
+    name: ${{ matrix.stream }}-${{ matrix.index }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy sympy
+      - name: Frozen Iter053 compact-support action-variation lane
+        run: python code/qgr_iter053_compact_support_action.py --stream '${{ matrix.stream }}' --index '${{ matrix.index }}' --out 'iter053-output/${{ matrix.stream }}-${{ matrix.index }}.json'
+      - name: Upload lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter053-${{ matrix.stream }}-${{ matrix.index }}
+          path: iter053-output/${{ matrix.stream }}-${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    runs-on: ubuntu-24.04
+    if: always()
+    needs: scientific
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qgr-iter053-*
+          path: artifacts
+          merge-multiple: false
+      - name: Frozen Iter053 aggregate classifier
+        run: python code/qgr_iter053_aggregate.py
+      - name: Upload authoritative summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter053-summary
+          path: iter053-summary/summary.json
+          if-no-files-found: warn
