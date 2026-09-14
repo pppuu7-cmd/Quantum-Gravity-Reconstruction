@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055W / PHYSICAL WEYL3 DYNAMICAL-TREATMENT SELECTOR AUTHORITY`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 PHYSICAL DYNAMICS DEFINITION`
+Primary active front: `POST-ITER055Y / TEST SUFFICIENCY OF GR-LIMIT CONTINUITY AS A FUTURE TREATMENT SELECTOR`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 TREATMENT-PRINCIPLE FALSIFICATION`
 
 ## Canonical claim locks
 
@@ -11,58 +11,52 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 PHYSICAL DYNAMICS DEFINITION`
 - Theory established: **0%**.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; regulator running is not authorized.
-- Full covariant Weyl3 metric EOM as a global theorem: **not established**.
-- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent pending current audit**.
-- Strong hyperbolicity / physical ghost / quantum unitarity claims: **not established**.
-- Global interacting measure/regulator removal: **not established**.
-- Micro-to-continuum reconstruction `R_h`: **not source-defined** by Iter055V.
+- Physical Weyl3 treatment selector: **not source-defined** by authoritative Iter054G-R.
+- Mixed-order strong-hyperbolicity evolution object: **not fixed** by Iter054F.
+- Global interacting measure/regulator removal and micro-to-continuum reconstruction: **not established**.
+
+## Iter055X redundancy correction
+
+Iter055X preregistration `b16965b549b6f3248380325345c0911f9b01c623` was discovered, before a new substantive verdict, to duplicate the already-authoritative Iter054G-R treatment-selection source review. It was therefore closed at `c9f33c6740767043f160d0312faff7503e373cf9` as
+
+`INVALID_REDUNDANT_GATE_ITER055X_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`.
+
+Iter054G-R (`a02af9daf5573db14ab16c640f08899dd6f54a66`) remains authoritative: exact-HD and order-reduced physical treatments are not source-selected. Iter054H separately proves only conditional band separation and explicitly withholds physical order-reduction authority.
 
 ## Terminal Iter055W
 
-Preregistration `752a92f8ec7990579c859fd755e21aef28115f63`; result `8573681d9bddf2e6561950c7afd4439d512fffdb`.
+Prereg `752a92f8ec7990579c859fd755e21aef28115f63`; result `8573681d9bddf2e6561950c7afd4439d512fffdb`:
 
 `PASS_SCOPED_ITER055W_ANSATZ_INDEPENDENT_SURVIVAL_DECOUPLING_INCOMPATIBILITY__C6_RUNNING_NOT_AUTHORIZED`.
 
-Inside the same formal Iter054I/J fixed-background scaling object,
+Exact identity inside the formal Iter054I/J object:
 
-`rho(h,k)=A(h) h^4 k^2`,
+`rho k_HD^2 = k^2`.
 
-`k_HD(h)=1/[h^2 sqrt(A(h))]`
+Thus fixed-band nonzero Weyl3 survival and `k_HD -> infinity` are incompatible for arbitrary diagnostic coefficient running, not only pure powers.
 
-imply the exact identity
+## Terminal Iter055Y
 
-`rho(h,k) k_HD(h)^2 = k^2`
+Prereg `7a164dafb0e9cfb83fb5eb424d113c312eb229e4`; result `02c864fe3faba8c614b3e2103b29f5ddfbbdf1c3`:
 
-for every positive diagnostic `A(h)` and fixed nonzero physical `k`.
+`PASS_SCOPED_ITER055Y_NONZERO_FIXED_BAND_WEYL3_SURVIVAL_FORCES_FORMAL_HD_SCALE_INTO_ANY_FIXED_Q_BAND__PHYSICAL_MODE_NOT_AUTHORIZED`.
 
-Therefore, without any power-law ansatz:
-
-- `k_HD -> infinity` forces `rho -> 0`;
-- `rho -> rho_*` finite nonzero forces `k_HD -> |k|/sqrt(rho_*)`, finite nonzero;
-- `rho -> infinity` forces `k_HD -> 0`.
-
-This closes the pure-power loophole of Iter054J. It does **not** authorize running `c6` or identify `k_HD` as a physical ghost/mode.
+If `rho -> rho_*` finite nonzero, then `k_HD -> |k|/sqrt(rho_*)` while `q_HD=h k_HD ->0`. Conversely, keeping `q_HD>=q0>0` forces `rho<=k^2 h^2/q0^2 ->0`. So a future exact-HD nonzero-survival version cannot hide the formal root above every fixed refinement-resolved q-band by coefficient scaling alone.
 
 ## Current highest-information gate
 
-Audit whether existing QGR authority already selects the physical treatment of the Weyl3 higher-derivative term. Freeze three mutually distinct treatment classes before reading decisive sources:
+Because the treatment selector and QGR-specific evolution reduction are missing, test a **candidate selection principle** before adopting it: is the statement “physical solutions are those that approach GR solutions as the higher-derivative parameter goes to zero” mathematically sufficient to remove the singular branch?
 
-1. **EXACT_HD** — vary/use the full six-derivative action as exact finite-h/continuum equations, retaining the full formal principal polynomial and any additional roots;
-2. **ORDER_REDUCED_EFT** — treat Weyl3 perturbatively in a controlled small parameter, use lower-order equations to remove higher time derivatives/order-reduce, and interpret only the EFT-valid branch with a specified error/regime;
-3. **FINITE_PHYSICAL_REFINEMENT** — retain a nonzero physical refinement/UV stop scale so the finite-h correction is part of the physical theory rather than a removable regulator.
+Use a prospectively frozen mixed-order scalar control with the same GR-connected plus singular-scale structure as Iter054E, e.g.
 
-A valid source selector must specify more than a diagnostic computation. It must state which treatment is physical, the domain/regime and what happens to formal extra roots. A numerical principal-symbol audit or continuum scaling theorem that explicitly withholds physical interpretation does not count as a selector.
+`u'' + eps u'''' = 0`.
 
-If no selector exists, record it as a candidate-defining missing object. Do not choose the branch that best rescues Weyl3 after seeing Iter055W.
+The lower-order limit is `u''=0`, while exact solutions contain fast oscillatory modes with frequency `eps^-1/2`. Construct families whose fast-mode amplitude tends to zero so the fields converge to a GR solution in chosen finite regularity norms while the singular branch is still present for every `eps>0`. Also test whether even smooth (`C^infinity` on compact time intervals) convergence can leave an exponentially small fast component.
 
-## Parallel orthogonal blocker retained
+If such witnesses exist, vague GR-limit continuity is not enough. Any future order-reduced/analytic treatment rule must state a stronger topology/asymptotic-analyticity/remainder or initial-data condition prospectively.
 
-The quantum/emergence line remains blocked at Iter055V:
-
-`X_Gamma -> [MISSING micro-to-continuum R_h] -> continuum characteristic sector`.
-
-No finite-element/interpolation rescue is authorized.
+This is a selector-sufficiency diagnostic only, not a new QGR treatment rule.
 
 ## Operational note
 
-Short-orchestrator mode remains active. This source-authority audit requires no fake GitHub Actions load.
+Short-orchestrator mode remains active. Exact analytic selector controls require no GitHub Actions load.
