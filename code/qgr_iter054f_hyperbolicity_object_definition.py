@@ -96,8 +96,8 @@ def stream_a1():
     mu, v = sp.symbols('mu v', real=True)
     A_diag = sp.Matrix([[v, 0], [0, v]])
     A_j = sp.Matrix([[v, 1], [0, v]])
-    cp_diag = sp.expand(A_diag.charpoly(mu).as_expr())
-    cp_j = sp.expand(A_j.charpoly(mu).as_expr())
+    cp_diag = sp.expand((mu*sp.eye(2) - A_diag).det())
+    cp_j = sp.expand((mu*sp.eye(2) - A_j).det())
     target = sp.expand((mu - v)**2)
     same_poly = sp.simplify(cp_diag - cp_j) == 0 and sp.simplify(cp_diag - target) == 0
     eigdim_diag = len((A_diag - v*sp.eye(2)).nullspace())
