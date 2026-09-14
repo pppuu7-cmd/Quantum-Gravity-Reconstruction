@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `Post-Iter054Q / concrete Weyl-active history-action-transport construction`
+Primary active gate: `Iter054S / Weyl-active tidal fine-to-coarse transport blocking`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -10,7 +10,7 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 - Candidate-program roadmap readiness: **99% internal bookkeeping only**, not probability of correctness.
 - Theory established: **0%**.
 - `beta=1`: not authorized.
-- `c6`: symbolic/unfixed; no regulator-dependent scaling is authorized.
+- `c6`: symbolic/unfixed.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
 - Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
@@ -20,96 +20,80 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results are immutable.
 
-## Durable auto-research chain through Iter054K
+## Durable auto-research chain already recovered
 
-The post-Iter053U auto-research classical chain remains scoped and durable:
+The full auto-research substantive chain from Iter053U through Iter054Q has been re-read against preregistrations, implementations, terminal results and Actions.
 
-- Iter054A: Weyl3 curvature-cubic equations activate a fourth-order principal part on Weyl-active backgrounds.
-- Iter054B: finite exact principal-Hessian activation certificate; well-posedness not authorized.
-- Iter054C: corrected finite local metric principal-symbol panel confirms four diffeomorphism principal null directions; initial control-invalid run remains historical.
-- Iter054D: principal-order gauge completion lifts the four gauge null directions and preserves frozen quotient bilinears; full mixed-order system remains open.
-- Iter054E: exact proxy `P=z+eps*lambda*z^2` separates a GR-connected branch from a singular high-frequency branch; strong hyperbolicity not authorized.
-- Iter054F/G/G-R: current QGR authority does not select exact finite-`c6` versus order-reduced/EFT dynamics, so a physical strong-hyperbolicity evolution object remains definition-blocked.
-- Iter054H: conditional refinement-band separation only.
-- Iter054I/J/K: fixed-band continuum scaling yields `rho=(k/k_HD)^2`; within the frozen proxy a nonzero fixed-band Weyl3 correction cannot remain while the singular branch is simultaneously sent to infinite physical frequency. This does not authorize `c6(h)` running or UV completion.
+- Iter053U: corrected source-faithful compact-support Weyl3 variation scoped PASS.
+- Iter054A–E: progressively establish finite/scoped Weyl3 derivative-order, principal-Hessian, local principal-symbol, gauge-completion and mixed-order proxy facts; none establishes strong hyperbolicity.
+- Iter054F/G/G-R: physical exact-vs-order-reduced Weyl3 treatment remains object-definition BLOCKED.
+- Iter054H–K: conditional/fixed-band scaling results including exact proxy identity `rho=(k/k_HD)^2`; no `c6(h)` running authority.
+- Iter054L: source authority present for semantic review.
+- Iter054M: quantum-measure closure BLOCKED.
+- Iter054N: no controlled Weyl3-sensitive coarea datum / canonical measure-to-Lorentzian-phase map.
+- Iter054O: historical scoped PASS retained but adversarially `QUALIFIED` to an algebraic observable template; same-realization source map remains open.
+- Iter054P: initial green run implementation-invalid; exact control-only retry terminal `BLOCKED_OBJECT_DEFINITION_ITER054P_REGULATOR_REMOVAL_INCOMPLETE`.
+- Iter054Q: terminal `BLOCKED_MISSING_REQUIRED_OBJECT_ITER054Q_SOURCE_REALIZED_RELATIVE_OBSERVABLE_REFINEMENT_MAP`.
 
-## Iter054L–N — quantum/source authority localization
+## Important historical refinement/Weyl firewalls
 
-- Iter054L terminal source discovery: run `34840748394`, artifact `10345464439`, classification `SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L`.
-- Iter054M terminal `BLOCKED_OBJECT_DEFINITION_ITER054M_QUANTUM_MEASURE_CLOSURE_INCOMPLETE`.
-- Iter054N terminal `BLOCKED_OBJECT_DEFINITION_ITER054N_NO_CONTROLLED_WEYL3_SENSITIVE_COAREA_DATUM`.
+- Iter010-G2 proves the conformal G9 family is continuum Weyl-zero. G38 imports this conformal family and therefore cannot be used as the positive Weyl-active `c6` matching background merely because finite-h holonomies are nontrivial.
+- G38/G10B remain genuine scoped positive controls for ordered fine-to-coarse path/loop/groupoid transport.
+- Iter010-G3 and G40/G41/G42 provide genuine same-field weak-tidal Weyl-active backgrounds/response families.
+- Iter010-G4 proves nonzero `dPhi/dc6` sensitivity on the G3 tidal background, but its own guard states sensitivity is not an absolute microscopic phase target.
 
-Current semantic closure map:
+## Iter054R — terminal same-realization bridge BLOCKED
 
-- A microscopic amplitude/measure: scoped source authority present.
-- B relative-history normalization: scoped source authority present.
-- C regulator/removal: BLOCKED after Iter054P.
-- D microscopic-to-IR absolute `c6` identity: MISSING.
-- E normalized cross-level observable: algebraic template exists, but same-realization source realization remains open after adversarial review and Iter054Q.
+Preregistration: `70d375f0af98ba20cac76271b849c6b044cad404`.
+Durable result: `64a3f6c6147f9f02a9b293c39e3a2e7d1a285409`.
 
-## Iter054O — scoped PASS, adversarially qualified
+Classification:
 
-Historical terminal classification remains
+`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054R_NO_EXISTING_WEYL_ACTIVE_REFINEMENT_HISTORY_BRIDGE`
 
-`PASS_SCOPED_ITER054O_NORMALIZED_CYLINDRICAL_CROSSLEVEL_OBSERVABLE_DEFINED__C6_IDENTITY_STILL_MISSING`.
+Exact localization:
 
-Adversarial review `results/ITER054O_ADVERSARIAL_SCOPE_REVIEW.md` gives verdict `QUALIFIED`:
+1. G3/G40/G41 give a Weyl-active same-field geometric family and finite-h response convergence, but no exact G38-style parent/fine ordered transport blocking on that same tidal background.
+2. G4 gives nonzero Weyl3 phase sensitivity but no source-derived absolute history action `S_alpha`.
+3. G38 gives actual ordered blocking but is continuum Weyl-inactive.
+4. No repository authority identifies the G38 and G3 objects as one realization; splicing them is forbidden.
 
-`ITER054O_ALGEBRAIC_OBSERVABLE_TEMPLATE_DEFINED__SAME_REALIZATION_SOURCE_MAP_OPEN`.
+Thus two arrows remain:
 
-The hard-coded rational microscopic/IR cases and child splits are useful prospective algebraic witnesses, but they are not evaluations of a concrete common QGR history pair with derived `S_alpha`, compared/retained `U_alpha`, and a source-derived refinement map.
+- `WEYL_ACTIVE_TIDAL_BACKGROUND -> SOURCE_FAITHFUL_FINE_TO_COARSE_TRANSPORT_BLOCKING`
+- `WEYL_ACTIVE_TIDAL_HISTORY -> CONCRETE_SOURCE_DERIVED_S_ALPHA`
 
-## Iter054P — terminal BLOCKED after implementation-invalid initial run
+## Active Iter054S
 
-Initial green run `34859186155` is permanently implementation-invalid because its cylindrical test replaced the frozen quadratic P1 correction by a linear proxy.
+Gate: `ITER054S-WEYL-ACTIVE-TIDAL-FINE-TO-COARSE-TRANSPORT-BLOCKING`.
 
-Control-only repair commit `bac8075e65c9a266d736463bdc9adeef669e3b39`; authoritative exact retry run `34861144143`, job `104033365588`, artifact `10354603982`, raw summary digest `sha256:05b43fc8a764e98d5403d8ce405746d98b56c6260202643075e1095dc9930d7e`.
+Preregistration: `cfd9661e8363518e57c686e0f75f608cdbf99b7d`.
+Implementation: `3f5165cb23021546e7fb2e00b900a87f1e931365`.
+Production head: `7a0c65eb8ef4d0a5ec5c9a629011e24cb6dd2115`.
+Authoritative run: `34863358893`.
 
-Terminal classification:
+Frozen parallel production:
 
-`BLOCKED_OBJECT_DEFINITION_ITER054P_REGULATOR_REMOVAL_INCOMPLETE`.
+- C0: one G3 identity/Weyl/local-solver control;
+- P0–P7: eight independent fixed-physical path blocking lanes;
+- L0–L11: twelve independent elementary loop blocking lanes;
+- aggregate only after all 21 required lanes are terminal;
+- `fail-fast:false`.
 
-Seven of eight frozen requirements pass; the actual quadratic P1 correction fails the unweighted dyadic additive split exactly. This does not authorize changing the P1 exponent or inserting post-hoc child weights.
+The gate keeps the established G3 tidal background (`kappa=0.08`), field content and Lorentz connection fixed. It tests ordered fine products on frozen physical paths/loops with N={2,4,8,16}. No new source normalization, coupling, `c6`, branch weight or action phase is introduced.
 
-## Existing source-faithful refinement authority
+**Do not launch a competing Iter054S run and do not use partial lane values as scientific evidence while run 34863358893 is non-terminal.**
 
-QGR already contains real composition structure:
+Full scoped PASS string if all frozen controls and 20 transport lanes pass:
 
-1. Iter006-G8A: `K_alpha = 24^(-1/2) exp(i S_alpha/hbar) U_alpha`; 24 symmetry-related histories; branch amplitudes multiply across sequential levels; action phases add along concatenated histories.
-2. Iter006-G10B: regular identity-connected transport composes by ordered products.
-3. Iter038/G38: actual scoped smooth-compact principal fine-to-coarse path/loop/groupoid blocking and projective transport convergence.
-4. Iter032/G32: conditional projective-limit local-action/additivity mechanism under its scopes.
+`PASS_SCOPED_ITER054S_WEYL_ACTIVE_TIDAL_FINE_TO_COARSE_TRANSPORT_BLOCKING`
 
-These facts are genuine, but they are not yet one concrete Weyl-active microscopic history observable.
+A valid scientific failure remains possible if frozen convergence/composition predicates fail.
 
-## Iter054Q — terminal missing-object BLOCKED
+## Next dependency lock
 
-Preregistration `9b8fac9a8f2ce7ec932c21286c2ed8b0e774e61c`; durable result `98410ee0a867bd291b54ebb070988207e29b4498`.
+If Iter054S terminally passes, missing arrow 1 closes only. The next highest-information blocker is still the source/history arrow: derive a concrete `S_alpha` for an identified Weyl-active tidal history from existing QGR source/action primitives without inventing a new physical normalization. If no such map can be derived, record `BLOCKED_MISSING_REQUIRED_OBJECT`.
 
-Terminal classification:
+If Iter054S fails scientifically, preserve the failure and diagnose whether source-faithful transport blocking fails on the weak-tidal family before opening any downstream measure gate.
 
-**`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054Q_SOURCE_REALIZED_RELATIVE_OBSERVABLE_REFINEMENT_MAP`**
-
-Frozen obligations:
-
-- A concrete same-realization microscopic branch/action datum: **missing**.
-- A transport comparison or operator-valued treatment for the same histories: **missing**.
-- A source-defined refinement/composition map: **real ingredients exist, but not assembled for the same object**.
-- An IR symbolic map: **template/partial only for the missing same-realization object**.
-
-The repository authority audit covered G8A/G10B, G19/G20, G25, G27, G28, G29, G30, G31, G32, G38, the G23–G38 phase-bridge qualification, and Iter054L–P. The later records do not override the durable G25/G27/G29/G30 fact that a physical same-realization finite-curved/Weyl-active phase sample remains underived.
-
-## Highest-information successor
-
-Do not run another synthetic phase/refinement panel. Prospectively attempt to construct one concrete Weyl-active history/action/transport object from the already-authorized scoped G38 principal realization and existing QGR action/source primitives.
-
-The next gate must freeze before construction:
-
-1. exact G38 path/loop/groupoid history data and refinement relation;
-2. exact existing rule, if any, that maps those geometric data to a QGR source and action `S_alpha`;
-3. exact treatment/comparison of `U_alpha` in the relative observable;
-4. exact concatenation/refinement composition;
-5. Weyl-active positive and Weyl-inactive/mismatched-history negative controls;
-6. no new physical coupling, source normalization, child weighting, phase value or matching parameter.
-
-If the G38 geometric history cannot be mapped to `S_alpha` without introducing a new physical primitive, terminate `BLOCKED_MISSING_REQUIRED_OBJECT` and identify that missing history-to-source/action functional map. Only a source-realized object may feed a new regulator-removal gate.
+No regulator-removal/global-measure gate is authorized until a same-realization history/action/transport object exists.
