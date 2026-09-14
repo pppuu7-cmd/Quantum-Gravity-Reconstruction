@@ -1,0 +1,57 @@
+name: QGR Iter054F hyperbolicity object-definition audit
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054f_hyperbolicity_object_definition.py'
+      - 'prereg/ITER054F-WEYL3-MIXED-ORDER-STRONG-HYPERBOLICITY-OBJECT-DEFINITION-AUDIT.md'
+      - '.github/workflows/qgr-iter054f-hyperbolicity-object-definition.yml'
+  workflow_dispatch:
+
+jobs:
+  stream:
+    strategy:
+      fail-fast: false
+      matrix:
+        stream: [A0, A1, B0, B1]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Frozen Iter054F stream
+        run: python code/qgr_iter054f_hyperbolicity_object_definition.py --stream '${{ matrix.stream }}' --out 'iter054f/${{ matrix.stream }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054f-${{ matrix.stream }}
+          path: iter054f/${{ matrix.stream }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: stream
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054f-*
+          path: iter054f-input
+          merge-multiple: false
+      - name: Frozen Iter054F aggregate
+        run: python code/qgr_iter054f_hyperbolicity_object_definition.py --aggregate iter054f-input --out iter054f-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054f-summary
+          path: iter054f-summary/summary.json
+          if-no-files-found: error
