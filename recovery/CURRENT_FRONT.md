@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `Iter054I / regulator-limit asymptotic Weyl3 separation`
+Primary active front: `Iter054J / continuum-survival scaling trilemma`
 Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT CONSTRUCTION`
 
 ## Canonical claim locks
@@ -10,7 +10,7 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT CONSTRUCTION`
 - Candidate-program roadmap readiness: **99% internal bookkeeping only**, not probability of correctness.
 - Theory established: **0%**.
 - `beta=1`: not authorized.
-- `c6`: symbolic/unfixed.
+- `c6`: symbolic/unfixed; no regulator-dependent scaling is authorized.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
 - Complete mixed-order evolution reduction: **not established**.
@@ -20,68 +20,65 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT CONSTRUCTION`
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results are immutable.
 
-## Iter054H — TERMINAL SCOPED PASS / PHYSICAL TREATMENT NOT AUTHORIZED
+## Iter054I — TERMINAL SCOPED PASS / FINITE-H PHYSICAL TREATMENT NOT AUTHORIZED
 
-Gate: `ITER054H-WEYL3-REFINEMENT-DOMAIN-CONDITIONAL-ORDER-REDUCTION`.
+Gate: `ITER054I-WEYL3-REGULATOR-LIMIT-ASYMPTOTIC-SEPARATION`.
 
-- preregistration `3d10369e862b4bb559e6eecfadfb6d0377ddc183`
-- implementation `0295f245cb07d5ad25c5982a4e6b26b8a1aab8d4`
-- production head `8b39156c3a26d1effae5c726cc536554bdf1c43d`
-- authoritative run `34820024699`
-- aggregate job `103899290026`
-- summary artifact `10337404013`
-- digest `sha256:71bf6a33820187368a1f074d5c2f74c21cd86c42bfa377d513f889898c1c83c4`
-- classification **`PASS_SCOPED_ITER054H_CONDITIONAL_REFINEMENT_BAND_SEPARATION__PHYSICAL_ORDER_REDUCED_TREATMENT_NOT_AUTHORIZED`**
+- preregistration `691d35e4250393593a2d99eac6c4b78b51ce833d`
+- implementation `d8949b44229bf18c43ab62750253a96f4993ad3f`
+- production head `c4c89a8dc5dc14acb337eb49aad3af3aad5fff64`
+- authoritative run `34825507474`
+- aggregate job `103916655515`
+- summary artifact `10339582352`
+- digest `sha256:5a357796951d3ab001a4fde2d2728ed64badedaa807585f6e8623aacb12f0da7`
+- classification **`PASS_SCOPED_ITER054I_FIXED_BAND_REGULATOR_LIMIT_WEYL3_ASYMPTOTIC_DECOUPLING__FINITE_H_PHYSICAL_TREATMENT_NOT_AUTHORIZED`**
 
 Raw lane provenance:
 
-- A0 `103899244850` / artifact `10338320251` / `sha256:b8ed8716cfca8f4270399a95fefb68b11a5a9dd799077408b3e8f98208c61982`
-- A1 `103899244868` / artifact `10337937032` / `sha256:6d8cf66991182b64965dd9f0a8a5ddf0066607f042fafd30fb46059b0d151511`
-- B0 `103899244803` / artifact `10338310241` / `sha256:4b45b74e9ed41cc859ee225bc03856f7b75e112005470b4f450942222c5aaa64`
-- B1 `103899244652` / artifact `10337617979` / `sha256:e7790f7a2f565a9f24defa0b7a7bfd3df1a83ada251c527f4fccfe7780770eed`
+- A0 `103916603388` / artifact `10340356605` / `sha256:e5ebe6556b9a63a26cdf142bb8eb53766215eab599d58c4f7ed3b1efb8851e50`
+- A1 `103916603310` / artifact `10340630363` / `sha256:b77e6a9a5833a3fbabe2717605f2cdc5a9f40e0b187851eb21e07d325421e68e`
+- B0 `103916603456` / artifact `10339762671` / `sha256:fbf20eab3a6ac7f0dc65b7f2f9e71504e8a34ff54876867504e878bde6b8f369`
+- B1 `103916603452` / artifact `10340156993` / `sha256:52397f198ceee8e7036adf8bd8da8edf6867ac6a61355b2c7d204d91e4fd958e`
 
-Frozen algebra establishes
+Frozen result:
 
-`rho = chi q^2`, `q_HD = chi^(-1/2)`,
+`rho = |c6*Cbar| h^4 k^2`,
 
-with
+`k_HD = 1/(h^2 sqrt(|c6*Cbar|))` for nonzero finite `|c6*Cbar|`.
 
-`chi q_max^2 < 1  <=>  chi < 1/q_max^2  <=>  q_HD > q_max`.
+For every fixed compact physical-frequency/curvature set with `c6` held h-independent,
 
-All prospectively frozen small-chi positive controls and chi>=1 negative controls behave as required.
+`sup rho -> 0`, while `k_HD -> infinity` as `h -> 0`.
 
-### Promotion boundary
+For nonuniform `k ~ h^-p`, `rho ~ h^(4-2p)`: it vanishes for `p<2`, is finite nonzero at `p=2`, and diverges for `p>2`.
 
-The source audit closes only one of five promotion obligations:
+This is an asymptotic regulator-limit statement only. It does not authorize finite-h physical order reduction, a physical cutoff, a refinement-stop scale, or a regulator-dependent `c6`.
 
-- `h4_hierarchy_authority = true`
-- `chi_bound_authority = false`
-- `physical_resolved_band_authority = false`
-- `microscopic_state_mapping = false`
-- `remainder_operator_tower_control = false`
+Durable note: `results/ITER054I_TERMINAL_RESULT.md`.
 
-Therefore the result is a conditional mathematical bridge, not a finite-h physical order-reduced theory.
+## Iter054J — next highest-information gate
 
-Durable note: `results/ITER054H_TERMINAL_RESULT.md`.
+Iter054I exposes a sharp continuum-survival question. Do not choose a regulator-dependent coefficient post hoc. Prospectively test the algebraic necessity first.
 
-## Iter054I — next highest-information gate
+Use the frozen one-parameter power-law control family
 
-Iter007 already established that current QGR does not derive a nonzero physical refinement stop scale. Therefore do **not** invent a physical `q_max` or identify `h` with a fundamental length.
+`c6(h) = cbar6 * h^(-s)`
 
-The next useful question is the regulator-limit asymptotic one. Freeze before outputs:
+only as a **diagnostic scaling family**, not as a physical assignment.
 
-1. treat `h -> 0` as a removable regulator limit;
-2. keep `c6` symbolic and h-independent;
-3. keep physical background curvature `|Cbar|` bounded independently of h;
-4. on each fixed compact physical-frequency band `|k| <= K`, derive the exact h-scaling of
-   `rho = |c6 Cbar| h^4 k^2`;
-5. derive the physical singular-branch scale
-   `k_HD = q_HD/h = 1/(h^2 sqrt(|c6 Cbar|))` when the frozen channel normalization is unity;
-6. verify that fixed-band `rho -> 0` and `k_HD -> infinity` as `h -> 0` for nonzero finite `|c6 Cbar|`;
-7. include nonuniform controls `k ~ h^-p`, especially the threshold `p=2`, to demonstrate exactly where compact-band asymptotics cease to be uniform;
-8. preserve the Weyl-flat `Cbar=0` case separately rather than dividing by zero;
-9. do not promote this asymptotic statement to finite-h physical order reduction, a physical cutoff, hyperbolicity, ghost or unitarity claims.
+Then on fixed nonzero finite physical `k` and `Cbar`, derive
 
-A PASS would establish only **asymptotic continuum decoupling on fixed compact physical-frequency/curvature sets**. It would be consistent with the existing Iter007 result that finite-history/Weyl3 corrections vanish if h is purely a removed regulator.
+`rho ~ h^(4-s)`,
 
-Only a separately derived physical-discreteness/microscopic-amplitude/remainder principle could later convert the finite-h conditional domain into a physical treatment selector.
+`k_HD ~ h^(s/2-2)`.
+
+Freeze the following outcomes before outputs:
+
+1. `s < 4`: Weyl3 correction vanishes and the higher-derivative branch decouples to infinite physical frequency;
+2. `s = 4`: Weyl3 correction can remain finite/nonzero, but the higher-derivative branch remains at finite physical frequency;
+3. `s > 4`: Weyl3 correction diverges and the branch moves toward lower physical frequency;
+4. no single pure power-law scaling can simultaneously keep a finite nonzero fixed-band Weyl3 correction and push the singular branch to infinite physical frequency;
+5. `c6(h)` remains unauthorized physically; this is a necessity/compatibility audit only;
+6. preserve `c6` symbolic, `beta=1` unauthorized, theory established 0%, quantum transition closed, and no ghost/hyperbolicity claim.
+
+A PASS may establish only the **power-law continuum-survival trilemma** in the frozen proxy normalization. It must not establish a physical running coupling, renormalization law, microscopic cutoff, UV completion, or correctness of QGR.
