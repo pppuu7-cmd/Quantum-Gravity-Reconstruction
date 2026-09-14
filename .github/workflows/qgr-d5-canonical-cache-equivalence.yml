@@ -1,0 +1,83 @@
+name: qgr-d5-canonical-cache-equivalence
+
+on:
+  push:
+    paths:
+      - 'status/D5_CANONICAL_CACHE_EQUIVALENCE_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  lane:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {stream: A, index: 0, point: 0}
+          - {stream: A, index: 0, point: 1}
+          - {stream: A, index: 1, point: 0}
+          - {stream: A, index: 1, point: 1}
+          - {stream: A, index: 2, point: 0}
+          - {stream: A, index: 2, point: 1}
+          - {stream: A, index: 3, point: 0}
+          - {stream: A, index: 3, point: 1}
+          - {stream: B, index: 0, point: 0}
+          - {stream: B, index: 0, point: 1}
+          - {stream: B, index: 1, point: 0}
+          - {stream: B, index: 1, point: 1}
+          - {stream: C, index: 0, point: 0}
+          - {stream: C, index: 0, point: 1}
+          - {stream: C, index: 1, point: 0}
+          - {stream: C, index: 1, point: 1}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Frozen D5 cache equivalence lane
+        working-directory: code
+        run: >-
+          python qgr_d5_canonical_cache_equivalence.py
+          --mode lane
+          --stream '${{ matrix.stream }}'
+          --index '${{ matrix.index }}'
+          --point '${{ matrix.point }}'
+          --out '../d5-cache/${{ matrix.stream }}${{ matrix.index }}-p${{ matrix.point }}.json'
+      - name: Upload lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: d5-cache-${{ matrix.stream }}${{ matrix.index }}-p${{ matrix.point }}
+          path: d5-cache/${{ matrix.stream }}${{ matrix.index }}-p${{ matrix.point }}.json
+          if-no-files-found: error
+
+  aggregate:
+    if: always()
+    needs: [lane]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: d5-cache-*
+          path: d5-cache-input
+          merge-multiple: false
+      - name: Aggregate frozen cache equivalence
+        working-directory: code
+        run: >-
+          python qgr_d5_canonical_cache_equivalence.py
+          --mode aggregate
+          --input-dir '../d5-cache-input'
+          --out '../d5-cache-summary/summary.json'
+      - name: Upload aggregate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: d5-cache-summary
+          path: d5-cache-summary/summary.json
+          if-no-files-found: error
