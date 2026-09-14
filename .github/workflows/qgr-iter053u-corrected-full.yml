@@ -134,7 +134,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Prepare aggregate input directory
+        run: mkdir -p iter053u-input
       - uses: actions/download-artifact@v4
+        continue-on-error: true
         with:
           pattern: iter053u-lane-*
           path: iter053u-input
