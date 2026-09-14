@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active gate: `Iter054B / Weyl3 principal Hessian and well-posedness obligation`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 PRINCIPAL PART`
+Primary active gate: `Iter054C / Weyl3 local metric principal symbol and gauge degeneracy`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 PRINCIPAL SYMBOL`
 
 ## Canonical claim locks
 
@@ -35,36 +35,51 @@ Interpretation remains finite genuinely-4D compact-support computational certifi
 
 Gate: `ITER054A-WEYL3-DERIVATIVE-ORDER-AND-REGIME-SEPARATION`.
 
-- preregistration `6164dd1bbbdea45c0599334f3df5b5e66ac19121`
-- implementation `077c16cdb7d17e9a7be18572d570b857a51de675`
-- production head `4f207f1e7c24d848de2d3aa240727dbf11a95424`
 - run `34800952154`
 - aggregate job `103843400312`
 - summary artifact `10331268039`
 - digest `sha256:e835300668f9f946277b0c3f613a4602411c9499c536af4eb4fa5fb73b6364a7`
 - classification `PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION`
 
-Frozen evidence: A0 distinguishes fourth-order Euler–Lagrange structure for curvature-cubic `L(q'')` from sixth-order derivative-of-curvature negative control `L(q''')`; A1 gives 12/12 exact-rational cubic curvature constructions with maximum order 4 and nonzero fourth-order coefficient; B0 confirms background activation of the fourth-order coefficient and a zero-background null control; B1 confirms exact versus perturbative branch separation without assigning physical residue/norm/ghost meaning.
+Derivative-order/regime bookkeeping only; no physical mode/ghost/well-posedness claim.
 
-Durable terminal note: `results/ITER054A_TERMINAL_RESULT.md` at commit `48ada53c51cc3b5c621572bb056771f11ae21d93`.
+## Iter054B — TERMINAL SCOPED PASS
 
-Interpretation lock: derivative-order/regime bookkeeping only. Iter054A does not establish a physical extra-mode count, ghost sign, stability, hyperbolicity, well-posedness or a complete global covariant Weyl3 EOM.
+Gate: `ITER054B-WEYL3-PRINCIPAL-HESSIAN-AND-WELLPOSEDNESS-OBLIGATION`.
 
-## Active blocker / Iter054B
+- preregistration `019717fad9ad68cc89b5d5cd7dd20c5b3830c882`
+- implementation `7a34ec94e976897fedb292c6f4b51087e0ba2542`
+- production head `17b1a4e5593e7007e4b822040097e7cbace3b379`
+- run `34804198271`
+- aggregate job `103852848080`
+- summary artifact `10333076134`
+- digest `sha256:cd4f60980c8b96ba9f54ea7ad8375bbe21fbf3966541bcd946f5c0f9b32c6e25`
+- classification `PASS_SCOPED_ITER054B_WEYL3_PRINCIPAL_HESSIAN_ACTIVATION_WELLPOSEDNESS_NOT_AUTHORIZED`
 
-The next obligation is to determine what principal-part information is genuinely supported by the cubic Weyl invariant itself before attempting physical spectrum language.
+Frozen evidence: A0 exact Hessian identity residual zero with nonzero negative control; A1 12/12 exact samples symmetric/scaling/nonzero; B0 12/12 Weyl-active nonzero and 12/12 Weyl-flat exact-zero controls; B1 records the still-missing gauge-fixed covariant metric principal symbol, hyperbolicity estimate, energy estimate, and constraint propagation.
 
-Prospectively required checks:
+Durable terminal note: `results/ITER054B_TERMINAL_RESULT.md` at commit `4d0da32977f2c1cc979e30a2df129e4edbdafbf0`.
 
-1. exact Hessian/directional second derivative of a finite algebraic Weyl-operator realization of the cubic invariant;
-2. Hessian symmetry and cubic scaling controls;
-3. exact null activation at `W=0` and generic nonzero activation on frozen Weyl-active panels;
-4. an explicit fail-closed statement that algebraic Hessian activation is **not** yet a gauge-fixed covariant metric principal symbol and cannot establish hyperbolicity/well-posedness or physical ghost/spectrum content.
+Interpretation lock: finite algebraic Weyl3 Hessian activation only. This does not establish a metric PDE principal symbol or any physical spectrum/stability statement.
+
+## Active blocker / Iter054C
+
+Prospective preregistration: `3bc563b2aa0c691a78b57c4e7c53fd0ad9a51ba3`.
+
+Gate: `ITER054C-WEYL3-LOCAL-METRIC-PRINCIPAL-SYMBOL-AND-GAUGE-DEGENERACY`.
+
+The next obligation is to compose the exact Weyl3 algebraic Hessian with the local metric-to-Weyl high-frequency map and test the actual fourth-order correction symbol on frozen exact panels without hiding diffeomorphism degeneracy.
+
+Required frozen checks:
+
+1. exact linearized Riemann/Weyl principal-map identities and k^2 homogeneity;
+2. exact 10x10 composed Weyl3 metric symbol symmetry, k^4 scaling, Weyl-flat null activation, and Weyl-active nonzero activation;
+3. exact pure-gauge principal nulls with non-gauge nontrivial controls;
+4. fail closed on hyperbolicity/well-posedness until a justified principal-order gauge fixing and characteristic/energy/constraint analysis exist.
 
 ## Locked next sequence
 
-1. Prospectively freeze Iter054B before inspecting new outputs.
-2. Run independent exact-symbolic/rational controls for Hessian identity, background activation, symmetry and scaling.
-3. If Iter054B passes, construct a separate gauge-fixed covariant metric principal-symbol gate; do not infer well-posedness from the algebraic Hessian alone.
-4. Only after a principal-symbol/well-posedness treatment survives may a physically interpreted Weyl-active spectrum/stability gate be opened.
-5. Quantum amplitude/measure remains downstream.
+1. Implement and run Iter054C exactly as preregistered; no post-output witness or threshold changes.
+2. If Iter054C passes, design a separate justified principal-order gauge-fixing + characteristic/hyperbolicity gate.
+3. Only after that survives may a physical Weyl-active spectrum/stability gate be opened.
+4. Quantum amplitude/measure remains downstream.
