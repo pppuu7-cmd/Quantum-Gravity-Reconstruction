@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active gate: `Iter054 / Weyl3 dynamical-treatment authority`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT`
+Primary active gate: `Iter054B / Weyl3 principal Hessian and well-posedness obligation`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 PRINCIPAL PART`
 
 ## Canonical claim locks
 
@@ -12,9 +12,10 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT`
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
-- Weyl3 exact-vs-perturbative/order-reduced/well-posed dynamical treatment: **not established**.
+- Gauge-fixed covariant Weyl3 metric principal symbol: **not established**.
+- Weyl3 well-posedness/hyperbolicity: **not established**.
 - Quantum amplitude/measure transition: **not authorized**.
-- No unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
+- No physical ghost/spectrum, unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID results are immutable.
 
@@ -22,38 +23,48 @@ GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALI
 
 Gate: `ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION`.
 
-- preregistration `dbb306d68e6d1fc332a73eccb88f52df0cc5859a`
-- production head `1d66282f51d0177a6247ddcfcf344e95d59ec807`
 - run `34797463832`
 - aggregate job `103839935046`
 - summary artifact `10331595143`
 - digest `sha256:f8fd204b2f68c2eaed456e002da7d60dd42d8eefdd9ed524d9013f6b02438e5b`
 - classification `PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE`
 
-All `20/20` fresh integration-part jobs, `8/8` fresh A4+B2+C2 lane reducers and the frozen aggregate completed. The aggregate has no missing/extra/duplicate/parse-error lanes, consistent provenance, and `8/8` valid lane PASS under unchanged preregistered thresholds.
+Interpretation remains finite genuinely-4D compact-support computational certificate only, not a global functional-derivative theorem.
 
-Frozen extrema: worst A identity residual `2.120255274318662e-06`; worst A GJ2->GJ3 change `3.718881377423839e-04`; worst A GL7->GL8 change `8.031910208417016e-08`; worst B |GJ3 bulk| `6.415304061273073e-31`; worst B |GL8 direct| `9.672771479621411e-18`; worst C weighted-bulk covariance residual `1.2800506154925688e-09`; worst C direct covariance residual `3.4981673910448e-12`; minimum A wrong-sign residual `1.9194373261788742`.
+## Iter054A — TERMINAL SCOPED PASS
 
-Interpretation is locked: this is a finite genuinely-4D compact-support computational certificate only. It is **not** a global functional-derivative theorem and does not establish the complete covariant Weyl3 metric Euler-Lagrange tensor. `c6` remains symbolic/unfixed and theory established remains `0%`.
+Gate: `ITER054A-WEYL3-DERIVATIVE-ORDER-AND-REGIME-SEPARATION`.
 
-Durable terminal note: `results/ITER053U_TERMINAL_RESULT.md` at commit `ffce61107cabc8993a67ebd6ab8f48cd20d754c2`.
+- preregistration `6164dd1bbbdea45c0599334f3df5b5e66ac19121`
+- implementation `077c16cdb7d17e9a7be18572d570b857a51de675`
+- production head `4f207f1e7c24d848de2d3aa240727dbf11a95424`
+- run `34800952154`
+- aggregate job `103843400312`
+- summary artifact `10331268039`
+- digest `sha256:e835300668f9f946277b0c3f613a4602411c9499c536af4eb4fa5fb73b6364a7`
+- classification `PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION`
 
-Historical Iter053R remains `SCIENTIFIC_FAIL_ITER053R_WEYL3_WEIGHTED_H5_COMPACT_SUPPORT_ACTION_VARIATION` and is not rewritten. Iter053T primary and GJ companion remain their previously recorded terminal scoped PASS classifications.
+Frozen evidence: A0 distinguishes fourth-order Euler–Lagrange structure for curvature-cubic `L(q'')` from sixth-order derivative-of-curvature negative control `L(q''')`; A1 gives 12/12 exact-rational cubic curvature constructions with maximum order 4 and nonzero fourth-order coefficient; B0 confirms background activation of the fourth-order coefficient and a zero-background null control; B1 confirms exact versus perturbative branch separation without assigning physical residue/norm/ghost meaning.
 
-## Active blocker / Iter054
+Durable terminal note: `results/ITER054A_TERMINAL_RESULT.md` at commit `48ada53c51cc3b5c621572bb056771f11ae21d93`.
 
-The compact-support action-variation panel is now closed. The next scientific blocker is dynamical interpretation of the symbolic Weyl3 term itself. Before any physical ghost/spectrum claim, QGR must distinguish:
+Interpretation lock: derivative-order/regime bookkeeping only. Iter054A does not establish a physical extra-mode count, ghost sign, stability, hyperbolicity, well-posedness or a complete global covariant Weyl3 EOM.
 
-1. exact higher-derivative equations treated as fundamental;
-2. perturbative/EFT treatment in symbolic `c6`;
-3. order-reduced equations valid only to a declared order in `c6`;
-4. principal-part / initial-value / well-posedness assumptions for whichever treatment is adopted.
+## Active blocker / Iter054B
 
-No physical mode count or ghost statement may be inferred merely from the existence of higher derivatives or from Iter053U.
+The next obligation is to determine what principal-part information is genuinely supported by the cubic Weyl invariant itself before attempting physical spectrum language.
+
+Prospectively required checks:
+
+1. exact Hessian/directional second derivative of a finite algebraic Weyl-operator realization of the cubic invariant;
+2. Hessian symmetry and cubic scaling controls;
+3. exact null activation at `W=0` and generic nonzero activation on frozen Weyl-active panels;
+4. an explicit fail-closed statement that algebraic Hessian activation is **not** yet a gauge-fixed covariant metric principal symbol and cannot establish hyperbolicity/well-posedness or physical ghost/spectrum content.
 
 ## Locked next sequence
 
-1. Prospectively freeze Iter054 Weyl3 dynamical-treatment authority before inspecting new outputs.
-2. Run independent algebraic/numerical controls for exact-vs-perturbative/order-reduced consistency and principal-part bookkeeping; do not conflate these regimes.
-3. Only after an explicit dynamical-treatment authority survives may a physically interpreted Weyl-active stability/spectrum gate be opened.
-4. Quantum amplitude/measure remains downstream of surviving classical dynamics/stability.
+1. Prospectively freeze Iter054B before inspecting new outputs.
+2. Run independent exact-symbolic/rational controls for Hessian identity, background activation, symmetry and scaling.
+3. If Iter054B passes, construct a separate gauge-fixed covariant metric principal-symbol gate; do not infer well-posedness from the algebraic Hessian alone.
+4. Only after a principal-symbol/well-posedness treatment survives may a physically interpreted Weyl-active spectrum/stability gate be opened.
+5. Quantum amplitude/measure remains downstream.
