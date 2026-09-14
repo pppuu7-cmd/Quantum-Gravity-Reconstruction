@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "54F",
-    "phase": "MODEL_CONSTRUCTION_WEYL3_HYPERBOLICITY_OBJECT_DEFINITION"
+    "iteration": "54G",
+    "phase": "MODEL_CONSTRUCTION_WEYL3_DYNAMICAL_TREATMENT_SELECTION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -32,78 +32,43 @@
     "iter053_fresh_retry": "ITER053_IMPLEMENTATION_OR_CONTROL_INVALID",
     "iter053r": "SCIENTIFIC_FAIL_ITER053R_WEYL3_WEIGHTED_H5_COMPACT_SUPPORT_ACTION_VARIATION",
     "iter054c_initial": "ITER054C_IMPLEMENTATION_OR_CONTROL_INVALID_NULL_COVECTOR_WITNESS",
-    "iter054e_initial": "ITER054E_IMPLEMENTATION_OR_CONTROL_INVALID_A0_STRUCTURAL_EQUALITY"
-  },
-  "iter053r": {
-    "status": "TERMINAL_SCIENTIFIC_FAIL",
-    "run_id": 34782291893,
-    "classification": "SCIENTIFIC_FAIL_ITER053R_WEYL3_WEIGHTED_H5_COMPACT_SUPPORT_ACTION_VARIATION",
-    "rerun_or_reclassify_as_pass_allowed": false
+    "iter054e_initial": "ITER054E_IMPLEMENTATION_OR_CONTROL_INVALID_A0_STRUCTURAL_EQUALITY",
+    "iter054f_initial": "ITER054F_IMPLEMENTATION_OR_CONTROL_INVALID_A1_CHARPOLY_SYMBOL_IDENTITY"
   },
   "iter053u": {
-    "gate": "ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION",
     "status": "TERMINAL_SCOPED_PASS",
     "run_id": 34797463832,
     "classification": "PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE",
     "global_functional_derivative_theorem_established": false
   },
   "iter054a": {
-    "gate": "ITER054A-WEYL3-DERIVATIVE-ORDER-AND-REGIME-SEPARATION",
     "status": "TERMINAL_SCOPED_PASS",
     "run_id": 34800952154,
     "classification": "PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION",
     "well_posedness_established": false
   },
   "iter054b": {
-    "gate": "ITER054B-WEYL3-PRINCIPAL-HESSIAN-AND-WELLPOSEDNESS-OBLIGATION",
     "status": "TERMINAL_SCOPED_PASS",
     "run_id": 34804198271,
     "classification": "PASS_SCOPED_ITER054B_WEYL3_PRINCIPAL_HESSIAN_ACTIVATION_WELLPOSEDNESS_NOT_AUTHORIZED",
-    "gauge_fixed_metric_principal_symbol_established": false,
     "well_posedness_established": false
   },
   "iter054c": {
-    "gate": "ITER054C-WEYL3-LOCAL-METRIC-PRINCIPAL-SYMBOL-AND-GAUGE-DEGENERACY",
     "status": "TERMINAL_SCOPED_PASS",
-    "preregistration_commit": "3bc563b2aa0c691a78b57c4e7c53fd0ad9a51ba3",
-    "authority_record_commit": "e971882d77954749d6f951eacc5b659f73dfb660",
-    "control_only_fix_commit": "ac7cc14e111cf0d81aab4b205b255de41463a99d",
-    "production_head": "f6d64a34fd5413ac199088f7cabd74749b62870d",
     "run_id": 34808147191,
-    "aggregate_job_id": 103864172231,
-    "summary_artifact_id": 10334205656,
-    "summary_digest": "sha256:e595bac7673d1ab2f33c78e054b904bf3cb70c676c5d33bd166a777b75f4aa0f",
     "classification": "PASS_SCOPED_ITER054C_WEYL3_LOCAL_METRIC_PRINCIPAL_SYMBOL_GAUGE_DEGENERACY_CONFIRMED_HYPERBOLICITY_NOT_AUTHORIZED",
-    "durable_result_commit": "5d49cef868514e71de535b298a4ba166ad81d3a6",
-    "local_metric_principal_symbol_panel_established": true,
-    "diffeomorphism_principal_degeneracy_confirmed": true,
-    "justified_principal_order_gauge_fixing_established": false,
     "well_posedness_established": false
   },
   "iter054d": {
-    "gate": "ITER054D-WEYL3-PRINCIPAL-ORDER-GAUGE-FIXING-CHARACTERISTIC-AUDIT",
     "status": "TERMINAL_SCOPED_PASS",
-    "preregistration_commit": "b3d758c25449027d23a5879c3df135c4903c37d4",
-    "implementation_commit": "862b1e6e8f1c1da259819069cb2f553bc6a9bd52",
-    "production_head": "a81bd1a7a4044d8b639fab9fb3641269ae89a779",
     "run_id": 34811376305,
-    "aggregate_job_id": 103873320736,
-    "summary_artifact_id": 10334957634,
-    "summary_digest": "sha256:5b75f82c9eef94af5add54b5577de5ca26432d92eb20f164b91475679f66a869",
     "classification": "PASS_SCOPED_ITER054D_WEYL3_PRINCIPAL_ORDER_GAUGE_COMPLETION_QUOTIENT_INVARIANCE_HYPERBOLICITY_NOT_AUTHORIZED",
-    "durable_result_commit": "fedcb69def11d95fbca186fcae0b05eaa4e737cd",
-    "principal_order_gauge_completion_panel_established": true,
-    "quotient_invariance_panel_established": true,
-    "full_mixed_order_characteristic_system_established": false,
-    "strong_hyperbolicity_established": false,
     "well_posedness_established": false
   },
   "iter054e": {
-    "gate": "ITER054E-MIXED-ORDER-EINSTEIN-WEYL3-CHARACTERISTIC-REGIME-AUDIT",
     "status": "TERMINAL_SCOPED_PASS",
     "preregistration_commit": "ed62acf961cae4a0d200364285d94a56e61a294d",
     "implementation_commit": "0366422137d4e8c665b3e10e6280acb6d338f3b1",
-    "initial_production_head": "59c5a09ac693c79bdc1827efa91e283cf30a36ab",
     "initial_run_id": 34815920355,
     "initial_classification": "ITER054E_IMPLEMENTATION_OR_CONTROL_INVALID_A0_STRUCTURAL_EQUALITY",
     "control_only_fix_commit": "f7d996b401e147d736b91b23b7e3ef97ff546b61",
@@ -112,18 +77,44 @@
     "summary_artifact_id": 10336742062,
     "summary_digest": "sha256:b7e0dce1e44b44ac1b9425427db3d33bdf88271f8ab42762f006a4155eb36bc9",
     "classification": "PASS_SCOPED_ITER054E_EINSTEIN_WEYL3_MIXED_ORDER_REGIME_SEPARATION_STRONG_HYPERBOLICITY_NOT_AUTHORIZED",
-    "durable_result_commit": "4db698fee0fbcc2b4053ae4a78e3328a720c5d88",
     "finite_proxy_gr_branch_separation_established": true,
-    "full_tensor_characteristic_system_established": false,
+    "strong_hyperbolicity_established": false
+  },
+  "iter054f": {
+    "gate": "ITER054F-WEYL3-MIXED-ORDER-STRONG-HYPERBOLICITY-OBJECT-DEFINITION-AUDIT",
+    "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
+    "preregistration_commit": "f4838c50ded00c6d62c9ef822f1f75285eceddf9",
+    "initial_implementation_commit": "823b4a24419f5e616eea256b6ba6359fbba30bd4",
+    "initial_workflow_head": "9b719f0b54030a74a5c166e93db1a2898d90bdfe",
+    "initial_run_id": 34817447178,
+    "initial_classification": "ITER054F_IMPLEMENTATION_OR_CONTROL_INVALID_A1_CHARPOLY_SYMBOL_IDENTITY",
+    "control_only_fix_commit": "04cc0e065c5eb88385437f233e8f8fc22111332b",
+    "authoritative_retry_run_id": 34817585523,
+    "aggregate_job_id": 103892887023,
+    "summary_artifact_id": 10336467977,
+    "summary_digest": "sha256:2ff9d546b8443080fc48c6cf27c2c0b0764b7686b72aff2e53735e7d1bb8a27f",
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER054F_MIXED_ORDER_EVOLUTION_REDUCTION_NOT_FIXED",
+    "durable_result_commit": "557ba6e9dc1ca376a3622aebee787a2c58a35544",
+    "controls_valid": true,
+    "missing_required_fields": [
+      "state_vector_or_reduction_variables",
+      "time_direction_and_spatial_covector_domain",
+      "first_order_in_time_or_equivalent_higher_order_formulation",
+      "principal_evolution_matrix_or_equivalent",
+      "gauge_variables_and_gauge_evolution_equations",
+      "constraint_variables_and_principal_constraint_propagation",
+      "norm_or_symmetrizer_and_open_domain",
+      "map_to_mixed_einstein_weyl3_and_gr_limit"
+    ],
     "strong_hyperbolicity_established": false,
-    "well_posedness_established": false
+    "candidate_inconsistency_established": false
   },
   "active_question": {
-    "id": "QGR-ITER054F-STRONG-HYPERBOLICITY-OBJECT-DEFINITION",
-    "text": "Does existing QGR authority define a complete mixed-order evolution reduction with state variables, gauge/constraint subsystem and principal evolution matrix sufficient for a genuine strong-hyperbolicity/symmetrizer test, or is that object still underdetermined?"
+    "id": "QGR-ITER054G-WEYL3-DYNAMICAL-TREATMENT-SELECTION-AUTHORITY",
+    "text": "Does pre-existing QGR microscopic authority derive a non-post-hoc rule selecting exact finite-c6 higher-derivative dynamics or perturbative/order-reduced analytic effective dynamics, or is the physical treatment still underdetermined?"
   },
-  "active_blocker": "STRONG_HYPERBOLICITY_EVOLUTION_OBJECT_NOT_YET_DEFINED_OR_CERTIFIED",
-  "next_gate_lock": "Prospectively preregister Iter054F as an object-definition/reduction audit before any hyperbolicity computation. Require explicit state vector, time/spatial split, evolution principal matrix or accepted equivalent, gauge and constraint evolution, symmetrizer/norm notion, open domain, symbolic-c6 mapping and GR limit. Include exact same-characteristic-polynomial diagonalizable-vs-Jordan counterexample and a symmetrizable wave-system positive control. If the QGR-specific evolution object is absent, terminalize BLOCKED_OBJECT_DEFINITION and identify the exact missing formulation; do not invent a preferred reduction post hoc.",
+  "active_blocker": "WEYL3_DYNAMICAL_TREATMENT_NOT_YET_SELECTED_BY_MICROSCOPIC_AUTHORITY",
+  "next_gate_lock": "Prospectively preregister Iter054G before any treatment verdict. Freeze pre-existing authority and include exact controls separating the full exact higher-derivative solution space from the branch analytic at c6=0. If no QGR-internal rule selects a treatment and validity domain, terminalize BLOCKED_OBJECT_DEFINITION rather than choosing exact/order-reduced dynamics post hoc. Only after treatment selection may a corresponding evolution-reduction construction and strong-hyperbolicity gate be authorized.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
