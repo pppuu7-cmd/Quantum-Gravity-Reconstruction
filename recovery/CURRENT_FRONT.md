@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055C / PHYSICAL FULL-CONFIGURATION EVENT-UPDATE LAW`
+Primary active front: `POST-ITER055D / CANDIDATE-DEFINING PHYSICAL EVENT UPDATE OR ORTHOGONAL QUANTUM-MEASURE CLOSURE`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -15,41 +15,30 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
 - Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
 - Global interacting measure/regulator removal: **not established**.
-- No physical ghost/spectrum, unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
+- No physical ghost/spectrum, quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results remain immutable.
+## Terminal chain through Iter055D
 
-## Current terminal chain
+- Iter055C preregistration `0adbff561977a37e3b9653ee713d8cf1fd942aaf`; result `2761524c9c457db30fa43f8169f36415b6cb0026`:
+  `PASS_SCOPED_ITER055C_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS`.
+- Iter055D preregistration `dee5130a67d6de8b22712c6a33fbe235451022d2`; result `a6ce1eec885085e0170a8376771ab95780f2e851`:
+  `BLOCKED_OBJECT_DEFINITION_ITER055D_LOWER_ORDER_ACTION_DOES_NOT_YET_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW`.
 
-- Iter054S: scoped Weyl-active G3 geometric fine-to-coarse transport blocking PASS.
-- Iter054T-Y: source/history action underdefinition localized.
-- Iter054Z: branch CP maps/coarse channel are phase invariant; fine history-register phase reference not operationally fixed.
-- Iter055A: G3 4x4 geometric transports are not bridged to G8A configuration-space Koopman/RN unitaries.
-- Iter055B: B4 histories are path/order objects inside a fixed configuration, not full-configuration endomorphisms.
-- Iter055C preregistration `0adbff561977a37e3b9653ee713d8cf1fd942aaf`; terminal result `2761524c9c457db30fa43f8169f36415b6cb0026`.
+## Iter055D scientific result
 
-## Iter055C — gauge/relabeling rescue ruled out
+The lower-order QGR action is real and nontrivial: Iter007 G1 fixes the local metric-only two-derivative action `S_local[G]=a∫sqrt(|det G|)R[G]` in its stated domain. But a variational functional is not itself the G8A map `F_alpha:X_Gamma->X_Gamma`.
 
-Classification:
+No pre-existing source authority audited here fixes the extra structures needed to turn those equations into a unique finite branch update on the complete finite configuration: a physical evolution parameter/relational clock, a canonical phase-space/symplectic/Hamiltonian generator package, a fixed-domain finite invertible flow, boundary/initial-data selection, and a source-faithful identification of the 24 B4 histories with compositions of that flow.
 
-`PASS_SCOPED_ITER055C_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS`.
+No CI was run for Iter055C or Iter055D: both were prospective authority/object-definition gates, and numerical reruns could not manufacture the missing definitions.
 
-The audit separates three objects that must not be conflated:
+## Current highest-information route
 
-1. Relational frame pullbacks are genuine covariance maps, but G8C/G8D place them in the gauge/BRST equivalence structure. Gauge-related representatives agree on physical observables, so invertibility or unitary implementability cannot make these maps physically distinct history branches.
-2. The 24 `S4` seed maps do descend unitarily on the finite two-mode physical quotient and therefore are not simply gauge. However, their own authoritative result classifies the history-forgetting twirl as a symmetry/coarse-label conditional expectation, explicitly **not microscopic time evolution**, and leaves genuine dynamical curved transports open.
-3. Generic curved G3/B4 histories remain path/order objects with geometric fiber transport inside a fixed configuration; there is still no source-faithful map `F_alpha:X_Gamma->X_Gamma` updating the complete finite configuration.
+Do **not** invent a Hamiltonian/clock/update rule merely to unblock G8A. The physical branch endomorphism is now recognized as a candidate-defining missing object.
 
-No new CI was run for Iter055C because the gate was an authority/semantics audit over existing exact results; rerunning their algebra numerically would have been a duplicate/fake load.
+The next useful work should be orthogonal and prospective: either
 
-## Current highest-information question
+1. find an already-existing QGR relational/event-update structure not covered by the Iter055C/D authority census and preregister its exact test before using it; or
+2. return to the independent quantum amplitude/measure/regulator-removal closure route and attack a missing object there without assuming the undefined `F_alpha` branch dynamics.
 
-The missing object is now specifically a **non-gauge physical event-update law on the complete finite configuration**.
-
-Highest-priority next audit:
-
-`DOES THE ALREADY-DERIVED LOWER-ORDER QGR ACTION/EQUATIONS DEFINE A CANONICAL FINITE FULL-CONFIGURATION UPDATE OR FLOW THAT CAN BE COMPOSED ALONG B4 HISTORIES, WITHOUT INTRODUCING A NEW HAMILTONIAN, CLOCK, SYMPLECTIC FORM, DISCRETIZATION OR POST-HOC UPDATE RULE?`
-
-This must be source-first and counterexample-first. An equation of motion, stationary-action condition, fiber parallel transport, or refinement map is not automatically an invertible endomorphism of one fixed configuration space. If the current lower-order action lacks the phase-space/clock/boundary data needed to define such a map, that is a candidate-defining missing object rather than permission to invent it.
-
-If a pre-existing physical update map is found, only then test quasi-invariance/Radon-Nikodym data and its identification with B4 branch compositions. If not, keep the G8A branch dynamics source-realization blocked and move to the next genuinely independent closure route rather than relabeling gauge symmetry as dynamics.
+A third symmetry reduction, gauge relabeling disguised as dynamics, seed-S4 twirl reused as time evolution, or post-hoc canonical structure is forbidden.
