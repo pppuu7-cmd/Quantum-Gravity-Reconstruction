@@ -1,0 +1,31 @@
+name: qgr-iter057c-reduced-pencil-gcd
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057c-reduced-pencil-gcd.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-reduced-pencil-gcd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic dependency
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Run frozen Iter057C audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter057c_reduced_pencil_gcd.py --out out/iter057c_summary.json
+      - name: Show classification
+        run: cat out/iter057c_summary.json
+      - name: Upload exact GCD certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057c-reduced-pencil-gcd-summary
+          path: out/iter057c_summary.json
+          if-no-files-found: error
