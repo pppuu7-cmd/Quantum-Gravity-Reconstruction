@@ -1,0 +1,7 @@
+SHARDED-CANONICAL-REDUCER-EQUIVALENCE
+contract=analysis/SHARDED_CANONICAL_REDUCER_EQUIVALENCE_CONTRACT.md
+implementation=code/qgr_sharded_canonical_reducer_fixture.py
+workflow=.github/workflows/qgr-sharded-canonical-reducer-fixture.yml
+scientific_authority=false
+node_count=4096
+nshards=4
