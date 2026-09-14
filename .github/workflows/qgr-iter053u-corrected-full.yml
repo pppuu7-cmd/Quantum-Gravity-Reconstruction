@@ -64,7 +64,7 @@ jobs:
       - name: Frozen Iter053U integration part
         working-directory: code
         run: >-
-          python qgr_iter053u_parallel_parts.py
+          python qgr_iter053u_parallel_parts_v2.py
           --mode part
           --kind '${{ matrix.kind }}'
           --stream '${{ matrix.stream }}'
@@ -110,7 +110,7 @@ jobs:
       - name: Frozen Iter053U lane reducer
         working-directory: code
         run: >-
-          python qgr_iter053u_parallel_parts.py
+          python qgr_iter053u_parallel_parts_v2.py
           --mode reduce
           --stream '${{ matrix.stream }}'
           --index '${{ matrix.index }}'
