@@ -1,0 +1,67 @@
+name: QGR Iter056S balanced pair tidal cubic validation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'triggers/ITER056S_RUN.txt'
+
+jobs:
+  lanes:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic runtime
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Run frozen held-out lane
+        run: |
+          mkdir -p out
+          python code/qgr_iter056s_balanced_pair_tidal_cubic.py \
+            --lane '${{ matrix.lane }}' \
+            --out 'out/lane_${{ matrix.lane }}.json'
+      - name: Upload lane artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter056s-lane-${{ matrix.lane }}
+          path: out/*.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: lanes
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic runtime
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Download lanes
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter056s-lane-*
+          path: lanes
+          merge-multiple: true
+      - name: Aggregate frozen verdict
+        run: |
+          mkdir -p summary
+          python code/qgr_iter056s_balanced_pair_tidal_cubic.py \
+            --aggregate lanes \
+            --out summary/summary.json
+          cat summary/summary.json
+      - name: Upload summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter056s-summary
+          path: summary/summary.json
+          if-no-files-found: error
