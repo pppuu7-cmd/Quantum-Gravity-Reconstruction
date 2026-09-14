@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-15",
-    "iteration": "ITER057F_G3_ORIGIN_WEYL3_DEGREE2_BLOCK_EXTRACTION",
-    "phase": "FULL_LOCAL_MIXED_ORDER_WEYL3_LINEARIZATION"
+    "iteration": "ITER057F3_G3_ORIGIN_WEYL3_DEGREE2_FULL_TENSOR_NORMALIZATION",
+    "phase": "FULL_LOCAL_MIXED_ORDER_WEYL3_LINEARIZATION_OFFSHELL"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,89 +16,63 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "current_front_sync_commit": "1be098099ca1b2306600e7df4edd5ce46c1447fb",
-    "latest_preregistration_commit": "8df569f7414a9d634b72e54264b529245b356288",
-    "latest_active_gate": "ITER057F-G3-ORIGIN-WEYL3-DEGREE2-BLOCK-EXTRACTION",
-    "active_production_head": "e7c74847184e826ed3331c107b2a9ad54b2dab90",
-    "active_actions_run": 34905773224
+    "current_front_sync_commit": "fe91297d1054a27661af75129a22e4d3ca44091d",
+    "latest_preregistration_commit": "bf64df5b213ca9977d2709c7b7fea8cab96ad688",
+    "latest_active_gate": "ITER057F3-G3-ORIGIN-WEYL3-DEGREE2-BLOCK-FULL-TENSOR-NORMALIZATION",
+    "active_production_head": "9b1a6779d4e2893e59a83a86ef543080afa1db5a",
+    "active_actions_run": 34907701856
   },
   "recent_authority": {
-    "iter056v": {
-      "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
-      "classification": "BLOCKED_OBJECT_DEFINITION_ITER056V_ABSOLUTE_MICRO_TO_TIDAL_AMPLITUDE_MAP_REMAINS_UNFIXED"
-    },
-    "iter056w": {
-      "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
-      "durable_result_commit": "fbb9abe8ec8951c31fa08bc7c0451984ff6e8afa",
-      "classification": "BLOCKED_OBJECT_DEFINITION_ITER056W_BALANCED_PAIR_TENSOR_HAS_NO_SOURCE_OWNED_PARENT_CHILD_REFINEMENT_RULE"
-    },
-    "iter056x": {
-      "status": "TERMINAL_PASS_ANALYTIC",
-      "durable_result_commit": "7162882d6a22ad567b8cee0a02868922bf7b0e85",
-      "classification": "PASS_SCOPED_ITER056X_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_CERTIFIED__C6_SYMBOLIC_UNFIXED"
-    },
-    "iter056y": {
-      "status": "TERMINAL_PASS_EXACT",
-      "durable_result_commit": "8368407bcf7b379fa2040b88f7a8fc3b3b4e3501",
-      "classification": "PASS_SCOPED_ITER056Y_WEYL3_K4_SYMBOL_RANK_BOUND_FORCES_MIXED_ORDER_PHYSICAL_QUOTIENT_ANALYSIS"
-    },
-    "iter056z": {
-      "status": "TERMINAL_PASS_EXACT",
-      "durable_result_commit": "d3d167bb1ba7211ca3009d8dc59f2b771e9e6416",
-      "classification": "PASS_SCOPED_ITER056Z_EINSTEIN_K2_SYMBOL_COMPLEMENTS_WEYL3_K4_QUOTIENT_KERNEL_FOR_NONNULL_COVECTORS"
-    },
-    "iter057a": {
-      "status": "TERMINAL_SCIENTIFIC_FAIL",
-      "durable_result_commit": "024a7e1f99366c8598b7a44ae9393009c1eddeab",
-      "classification": "SCIENTIFIC_FAIL_ITER057A_COMMON_NULL_CONE_KERNEL_HYPOTHESIS_ON_FROZEN_PANEL",
-      "authoritative_run": 34904311442,
-      "aggregate_job": 104177299559,
-      "summary_artifact": 10372565865,
-      "summary_artifact_digest": "sha256:95fd17b39e49bd05b3bba938bd3dda41690a93b3a4f019a09b715c7ab6f2b182"
-    },
-    "iter057b": {
-      "status": "TERMINAL_PARTIAL",
-      "classification": "PARTIAL_SCOPED_ITER057B_GENERIC_NONZERO_MULTIPLIER_RANK5_ALL_NONZERO_NOT_CERTIFIED",
-      "authoritative_run": 34904668488,
-      "aggregate_job": 104178441738,
-      "summary_artifact": 10372107245,
-      "summary_artifact_digest": "sha256:f00f59419c74b71bef88392e6f36401886d7a0f0d13aa49f2fe8f8e80cc86462"
-    },
-    "iter057c": {
-      "status": "TERMINAL_PASS_PRODUCTION_CONSUMED",
-      "durable_result_commit": "15d2f5a4b573b066150bd3609331bf9220c98b83",
-      "classification": "PASS_SCOPED_ITER057C_TWO_BLOCK_NULL_CONE_PENCIL_RANK5_FOR_ALL_NONZERO_SYMBOLIC_MULTIPLIERS_ON_FROZEN_PANEL",
-      "authoritative_run": 34904958249,
-      "aggregate_job": 104179352990,
-      "summary_artifact": 10371802534,
-      "summary_artifact_digest": "sha256:c49d92b05854b03b28ac0c9fd6c989a9a6166eb893b1384f5107cbb79b8c1317"
-    },
-    "iter057d": {
-      "status": "TERMINAL_PASS_ANALYTIC",
-      "durable_result_commit": "e0f305be490a979f9c0dfa626a8e4e4e2f47fb3f",
-      "classification": "PASS_SCOPED_ITER057D_G3_SOURCE_OWNED_WEYL_ACTIVE_BACKGROUND_JET_SUFFICIENT_FOR_FULL_LOCAL_WEYL3_LINEARIZATION"
-    },
-    "iter057e": {
-      "status": "TERMINAL_PASS_ANALYTIC",
-      "durable_result_commit": "02217019d74d40297601a054a272c307893c73ae",
-      "classification": "PASS_SCOPED_ITER057E_G3_ORIGIN_WEYL3_LINEARIZATION_HAS_ONLY_K4_K2_K0_BLOCKS__K2_CONSTRUCTION_REQUIRED"
-    },
+    "iter056x": {"status":"TERMINAL_PASS_ANALYTIC","durable_result_commit":"7162882d6a22ad567b8cee0a02868922bf7b0e85"},
+    "iter056y": {"status":"TERMINAL_PASS_EXACT","durable_result_commit":"8368407bcf7b379fa2040b88f7a8fc3b3b4e3501"},
+    "iter056z": {"status":"TERMINAL_PASS_EXACT","durable_result_commit":"d3d167bb1ba7211ca3009d8dc59f2b771e9e6416"},
+    "iter057a": {"status":"TERMINAL_SCIENTIFIC_FAIL","durable_result_commit":"024a7e1f99366c8598b7a44ae9393009c1eddeab","classification":"SCIENTIFIC_FAIL_ITER057A_COMMON_NULL_CONE_KERNEL_HYPOTHESIS_ON_FROZEN_PANEL"},
+    "iter057b": {"status":"TERMINAL_PARTIAL","classification":"PARTIAL_SCOPED_ITER057B_GENERIC_NONZERO_MULTIPLIER_RANK5_ALL_NONZERO_NOT_CERTIFIED"},
+    "iter057c": {"status":"TERMINAL_PASS_PRODUCTION_CONSUMED","durable_result_commit":"15d2f5a4b573b066150bd3609331bf9220c98b83"},
+    "iter057d": {"status":"TERMINAL_PASS_ANALYTIC","durable_result_commit":"e0f305be490a979f9c0dfa626a8e4e4e2f47fb3f"},
+    "iter057e": {"status":"TERMINAL_PASS_ANALYTIC","durable_result_commit":"02217019d74d40297601a054a272c307893c73ae"},
     "iter057f": {
-      "status": "PRODUCTION_RUNNING",
-      "gate": "ITER057F-G3-ORIGIN-WEYL3-DEGREE2-BLOCK-EXTRACTION",
-      "preregistration_commit": "8df569f7414a9d634b72e54264b529245b356288",
-      "implementation_commit": "15b77a71280aa755601a7c5fd20253ed723650a0",
-      "production_head": "e7c74847184e826ed3331c107b2a9ad54b2dab90",
-      "actions_run": 34905773224,
-      "classification": null
+      "status":"HISTORICAL_RUNNING_BUT_CONTROL_INVALID",
+      "actions_run":34905773224,
+      "preregistration_commit":"8df569f7414a9d634b72e54264b529245b356288",
+      "control_issue":"Frozen L4=Q target is low by exact factor 8; zero Q column relative control is ill-posed. Preserve immutable INVALID outcome."
+    },
+    "iter057f2": {
+      "status":"PREPRODUCTION_CONTROL_INVALID_DIAGNOSTIC_ONLY",
+      "actions_run":34907396101,
+      "preregistration_commit":"a6bbabeb93a83f212892eb2c84cbed17d601ece8",
+      "invalidation_commit":"00462929e746331767bdf3445ad3c6e9e10ee46c",
+      "cache_equivalence":"PASS exact: relative=0, max_abs=0"
+    },
+    "iter057f3": {
+      "status":"PRODUCTION_QUEUED",
+      "preregistration_commit":"bf64df5b213ca9977d2709c7b7fea8cab96ad688",
+      "implementation_commit":"4d5e72b0a50ffe54a85df012de219e840580cbdb",
+      "production_head":"9b1a6779d4e2893e59a83a86ef543080afa1db5a",
+      "actions_run":34907701856,
+      "classification":null
+    },
+    "factor8_bridge": {
+      "status":"ANALYTIC_CERTIFIED",
+      "commit":"725c1e180641e05bc5701ccbb193bd34168e8dd2",
+      "identity":"I3_full = 8 tr(W^3); therefore full-EOM L4 target = 8 Q_Iter054C and full trace-Ward target = 8 T_bivector"
+    },
+    "iter057g_old": {
+      "status":"PREOUTPUT_CONTROL_NORMALIZATION_INVALID",
+      "invalidation_commit":"57f4a2a478b3bf909a4091b089cd84bc04701c15"
+    },
+    "iter057h": {
+      "status":"TERMINAL_PASS_ANALYTIC",
+      "durable_result_commit":"dc8aa5f3f111df1c668e0a25c05313d762305fd8",
+      "classification":"PASS_SCOPED_ITER057H_G3_H0_IS_OFFSHELL_FOR_NONZERO_C6_EINSTEIN_WEYL3_TRUNCATION__ONSHELL_BACKGROUND_REQUIRED_FOR_PHYSICAL_CHARACTERISTICS"
     }
   },
   "active_question": {
-    "id": "ITER057F-G3-ORIGIN-WEYL3-DEGREE2-BLOCK-EXTRACTION",
-    "text": "Can the missing degree-two Weyl3 block at the source-owned G3/H0 origin be extracted from the corrected full covariant Euler evaluator, with amplitude/stencil/held-out-frequency convergence and direct no-fit recovery of the exact Iter054C degree-four block?"
+    "id":"ITER057F3-G3-ORIGIN-WEYL3-DEGREE2-BLOCK-FULL-TENSOR-NORMALIZATION",
+    "text":"Does fresh full-EOM production extract the G3-origin Weyl3 L2 block with convergence, held-out frequency, exact full-tensor L4=8Q, exact-null-column, and full-tensor trace-Ward controls?"
   },
-  "active_blocker": "ITER057F_SOURCE_FAITHFUL_L2_WEYL3_BLOCK_NOT_YET_PRODUCTION_CONSUMED",
-  "next_gate_lock": "Consume the running Iter057F production without empirical sign/scale repair. If and only if its exact L4/convergence/gauge controls pass, prospectively assemble the full local mixed-degree null-cone operator M2_Einstein + c6 L2_Weyl3 + c6 L4_Weyl3. Keep c6 symbolic/unfixed, beta=1 unauthorized, and do not infer hyperbolicity/ghost/treatment claims from partial symbol blocks.",
+  "active_blocker":"ITER057F3_FRESH_FULL_TENSOR_NORMALIZED_L2_PRODUCTION_NOT_YET_CONSUMED",
+  "next_gate_lock":"Consume Iter057F3. If PASS, retain L2 only as an off-shell operator certificate on G3/H0. Do not promote a G3 mixed pencil to physical characteristics: Iter057H proves G3/H0 is off shell for nonzero c6 Einstein+Weyl3. A physical characteristic programme next requires a source-authorized on-shell or perturbatively corrected Weyl-active background.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
