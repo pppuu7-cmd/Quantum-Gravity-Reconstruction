@@ -1,0 +1,62 @@
+name: QGR Iter054I regulator-limit asymptotic separation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-iter054i-regulator-limit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  A0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Symbolic fixed-band asymptotics
+        run: python code/qgr_iter054i_regulator_limit.py --lane A0 --out A0.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054i-A0, path: A0.json}
+  A1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rational convergence panel
+        run: python code/qgr_iter054i_regulator_limit.py --lane A1 --out A1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054i-A1, path: A1.json}
+  B0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Nonuniform inverse-h frequency controls
+        run: python code/qgr_iter054i_regulator_limit.py --lane B0 --out B0.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054i-B0, path: B0.json}
+  B1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Anti-overclaim controls
+        run: python code/qgr_iter054i_regulator_limit.py --lane B1 --out B1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054i-B1, path: B1.json}
+  aggregate:
+    needs: [A0,A1,B0,B1]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: iter054i-A0, path: artifacts/A0}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054i-A1, path: artifacts/A1}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054i-B0, path: artifacts/B0}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054i-B1, path: artifacts/B1}
+      - name: Frozen aggregate classifier
+        run: python code/qgr_iter054i_regulator_limit.py --lane aggregate --out ITER054I_SUMMARY.json artifacts/A0/A0.json artifacts/A1/A1.json artifacts/B0/B0.json artifacts/B1/B1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054i-summary, path: ITER054I_SUMMARY.json}
