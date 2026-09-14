@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55P_CAUSAL_SMEARING_SPLIT__TIMELIKE_ANCHOR_AND_PROFILE_SELECTION_COMPANION_GATES",
-    "phase": "MODEL_CONSTRUCTION_QUANTUM_SECTOR_BRIDGE_CAUSAL_STRATIFICATION"
+    "iteration": "POST_55S_TEST_FUNCTION_FUNCTOR_PASS__FINITE_B3_COARSE_OBSERVABLE_ATTACHMENT_NEXT",
+    "phase": "MODEL_CONSTRUCTION_QUANTUM_SECTOR_COARSE_OBSERVABLE_BRIDGE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,42 +16,33 @@
     "regulator_removal_established": false
   },
   "terminal_chain": {
-    "iter055k": "FAIL_SCOPED_RAW_L2_BOUNDARY_POINT_RESTRICTION_NOT_BOUNDED__SMEARING_OR_REGULARITY_REQUIRED",
-    "iter055l": "PASS_SCOPED_SMEARING_CLASS_MINIMAL_DOMAIN_PRESERVING_BRIDGE__PROFILE_SELECTION_STILL_NEW_INPUT",
-    "iter055m": "BLOCKED_SMEARING_KERNEL_PROFILE_AND_REFINEMENT_FAMILY_NOT_SOURCE_SELECTED",
-    "iter055n": "FAIL_SCOPED_NO_NONZERO_UNIVERSAL_L2_SMEARING_PROFILE__RELATIONAL_PROFILE_DATA_REQUIRED",
-    "iter055o": "PASS_SCOPED_PARTIAL_BOUNDARY_DIRECTION_ANCHOR_EXISTS__PHYSICAL_SMEARING_SCALE_UNFIXED",
-    "iter055p": "PASS_SCOPED_PARTIAL_CELL_RELATIVE_CLASS_EXISTS_FOR_SPACELIKE_B3_TIMELIKE_NORMAL__TIMELIKE_B3_NEEDS_EXTRA_ANCHOR"
+    "iter055p": "PASS_SCOPED_PARTIAL_CELL_RELATIVE_CLASS_EXISTS_FOR_SPACELIKE_B3_TIMELIKE_NORMAL__TIMELIKE_B3_NEEDS_EXTRA_ANCHOR",
+    "iter055q": "BLOCKED_TIMELIKE_B3_TIMELIKE_ANCHOR_NOT_CANDIDATE_OWNED",
+    "iter055r": "PASS_SCOPED_NONUNIQUENESS_RADIAL_PROFILE_REMAINS_INFINITE_DIMENSIONAL_NEW_PROFILE_INPUT_REQUIRED_AS_PREREGISTERED",
+    "iter055s": "PASS_SCOPED_TEST_FUNCTION_FUNCTOR_MAKES_PROFILE_CHOICE_OBSERVABLE_DATA__FINITE_B3_SECTOR_ATTACHMENT_STILL_BLOCKED"
   },
-  "iter055p": {
-    "preregistration_commit": "cab24dfced6e38f77b5034cf5f868a08817eb9c6",
-    "durable_result_commit": "d07f3df0c9c22516d2f2105a7e6f110e40bef0fb",
-    "classification": "PASS_SCOPED_PARTIAL_ITER055P_CELL_RELATIVE_CLASS_EXISTS_FOR_SPACELIKE_B3_TIMELIKE_NORMAL__TIMELIKE_B3_NEEDS_EXTRA_ANCHOR",
-    "spacelike_B3_timelike_normal_radial_class_nonempty": true,
-    "symbolic_h_norm_preserving_refinement_scaling": true,
-    "timelike_B3_spacelike_normal_sufficient_alone": false,
-    "absolute_h_identified": false,
+  "iter055s": {
+    "preregistration_commit": "fefed520adcff06181b359036340390c753531b5",
+    "durable_result_commit": "e46657145411253705946a09d7f849b98470ae5c",
+    "classification": "PASS_SCOPED_ITER055S_TEST_FUNCTION_FUNCTOR_MAKES_PROFILE_CHOICE_OBSERVABLE_DATA__FINITE_B3_SECTOR_ATTACHMENT_STILL_BLOCKED",
+    "one_particle_test_readout_functor_scoped_valid": true,
+    "packet_profile_is_candidate_coupling": false,
+    "finite_B3_attachment_source_defined": false,
     "github_actions_run": null
   },
   "object_identity": {
-    "spacelike_B3_internal_smearing_class": "phi_hn(k)=h*f(h*n.k)_UP_TO_UNFIXED_PHYSICAL_POLARIZATION_TENSOR_STRUCTURE",
-    "timelike_B3_additional_timelike_anchor": "MISSING_OR_EXTERNAL_ONLY_PENDING_AUDIT",
-    "spacelike_B3_radial_profile_shape": "UNFIXED_PENDING_REFINEMENT_LOCALITY_IDENTIFIABILITY_AUDIT",
-    "absolute_smearing_scale": "UNFIXED_G7A",
+    "one_particle_observable_profile_freedom": "EXTERNAL_OR_CONDITIONED_TEST_READOUT_DATA_WITHIN_G6F_SCOPE",
+    "candidate_owned_missing_sector_bridge": "CONTINUUM_TEST_FUNCTION_TO_FINITE_B3_CYLINDRICAL_CONFIGURATION_OBSERVABLE_ATTACHMENT",
+    "raw_point_sampling_bridge": "SCOPED_FAIL_UNBOUNDED",
+    "generic_timelike_B3_candidate_owned_observer": "MISSING",
     "boundary_fiber_quantum_dynamics": "UNSELECTED"
   },
-  "active_questions": [
-    {
-      "id": "QGR-TIMELIKE-B3-TIMELIKE-RELATIONAL-ANCHOR-AUDIT",
-      "text": "Does existing candidate-owned QGR structure supply a timelike tangent/observer datum on timelike B3 boundaries independent of external detector/preparation choices?"
-    },
-    {
-      "id": "QGR-SPACELIKE-B3-RADIAL-PROFILE-IDENTIFIABILITY",
-      "text": "Do covariance/refinement/locality constraints select the dimensionless radial shape f, or do distinct admissible profiles survive?"
-    }
-  ],
-  "active_blocker": "TIMELIKE_B3_EXTRA_RELATIONAL_ANCHOR_UNRESOLVED__SPACELIKE_B3_PROFILE_SHAPE_UNRESOLVED__ABSOLUTE_H_UNFIXED__BOUNDARY_DYNAMICS_RULE_REQUIRED__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED",
-  "next_gate_lock": "Run two independent prospective source/analytic companion audits: candidate-owned timelike boundary anchor, and radial-profile identifiability on the already-valid spacelike-B3 class. Do not mix their evidence and do not select interacting dynamics.",
+  "active_question": {
+    "id": "QGR-CONTINUUM-TEST-FUNCTION-TO-FINITE-B3-COARSE-OBSERVABLE-ATTACHMENT",
+    "text": "Does existing QGR discrete-continuum/refinement authority define a bounded covariant linearized map from continuum/test-function one-particle observables to finite shared-B3 cylindrical configuration observables without raw point sampling?"
+  },
+  "active_blocker": "FINITE_B3_COARSE_OBSERVABLE_ATTACHMENT_MISSING__BOUNDARY_DYNAMICS_RULE_REQUIRED__ABSOLUTE_H_UNFIXED__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED",
+  "next_gate_lock": "Audit existing discrete-continuum reconstruction/coarse observable maps. Power counting, raw point sampling and numerical interpolation conventions do not count. Do not return to selecting one universal packet profile; Iter055S classifies such profile choice as observable/preparation data in the one-particle scope.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "constructor_and_referee_short_orchestrator_mode": true
@@ -61,9 +52,9 @@
     "beta_set_to_one_authorized": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "weyl3_dynamical_treatment_authorized": false,
-    "spacelike_B3_cell_relative_smearing_class_scoped_exists": true,
-    "all_boundary_smearing_bridge_established": false,
-    "concrete_smearing_kernel_family_established": false,
+    "one_particle_trace_class_channel_scoped_established": true,
+    "one_particle_test_readout_functor_scoped_established": true,
+    "finite_B3_coarse_observable_attachment_established": false,
     "boundary_fiber_quantum_channel_established": false,
     "quantum_unitarity_established": false,
     "global_interacting_measure_established": false,
