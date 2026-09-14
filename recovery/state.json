@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55H_BOUNDARY_FIBER_QUANTUM_DYNAMICS_NOT_SOURCE_DEFINED",
-    "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_SOURCE_REALIZATION"
+    "iteration": "POST_55I_BOUNDARY_QUANTUM_LIFT_NONUNIQUENESS__NEW_DYNAMICS_AXIOM_REQUIRED",
+    "phase": "MODEL_CONSTRUCTION_QUANTUM_DYNAMICS_CANDIDATE_DEFINITION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -41,33 +41,19 @@
     "iter055e": "INVALID_REDUNDANT_GATE_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R",
     "iter055f": "PASS_SCOPED_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION",
     "iter055g": "PASS_SCOPED_KINEMATIC_EXTENSION_BOUNDARY_RELATIVE_DIRECT_INTEGRAL_DEFINED__FIBERWISE_CHANNEL_DYNAMICS_MISSING",
-    "iter055h": "BLOCKED_BOUNDARY_FIBER_QUANTUM_OPERATOR_FAMILY_NOT_SOURCE_DEFINED"
+    "iter055h": "BLOCKED_BOUNDARY_FIBER_QUANTUM_OPERATOR_FAMILY_NOT_SOURCE_DEFINED",
+    "iter055i": "PASS_SCOPED_NONUNIQUENESS_EXISTING_QGR_AUTHORITY_LEAVES_NONTRIVIAL_BOUNDARY_QUANTUM_LIFT_FREEDOM__NEW_CANDIDATE_DYNAMICS_RULE_REQUIRED"
   },
-  "iter055f": {
-    "preregistration_commit": "9509036860eb2efd6568758598397f33b491084c",
-    "durable_result_commit": "c11317b0c1326796f8b5187b907122df4ba1ffbf",
-    "classification": "PASS_SCOPED_ITER055F_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION",
-    "one_particle_channel_survives": true,
-    "full_interacting_g8a_instrument_established": false
-  },
-  "iter055g": {
-    "preregistration_commit": "ba288f98bf035b12089b7d2b4a28b7165b5ac1cb",
-    "durable_result_commit": "82a286e408430774e95e896818ddc8f4b884dedf",
-    "classification": "PASS_SCOPED_KINEMATIC_EXTENSION_ITER055G_BOUNDARY_RELATIVE_DIRECT_INTEGRAL_DEFINED__FIBERWISE_CHANNEL_DYNAMICS_MISSING",
-    "boundary_relative_direct_integral_kinematics": true,
-    "regular_positive_measure_disintegration": true,
-    "source_defined_boundary_fiber_branch_channel": false,
-    "independent_of_falpha_at_kinematic_level": true
-  },
-  "iter055h": {
-    "preregistration_commit": "ea47d9c0c7f64bebac4ae03981fa063102f8a581",
-    "durable_result_commit": "a71a10bf5c5e80636b8701700c7a4f48d10565cb",
-    "classification": "BLOCKED_OBJECT_DEFINITION_ITER055H_BOUNDARY_FIBER_QUANTUM_OPERATOR_FAMILY_NOT_SOURCE_DEFINED",
-    "geometric_transport_source_defined": true,
-    "boundary_relative_quantum_kinematics_source_defined": true,
-    "measurable_boundary_fiber_branch_operator_family_source_defined": false,
-    "cp_tp_or_isometric_boundary_channel_source_defined": false,
-    "refinement_composition_for_boundary_quantum_channel_source_defined": false
+  "iter055i": {
+    "preregistration_commit": "23aedd66bae29963f0017bf1e60c6468247775d9",
+    "durable_result_commit": "a448e501883fe30fd89680bd69274ad3d6fa812f",
+    "classification": "PASS_SCOPED_NONUNIQUENESS_ITER055I_EXISTING_QGR_AUTHORITY_LEAVES_NONTRIVIAL_BOUNDARY_QUANTUM_LIFT_FREEDOM__NEW_CANDIDATE_DYNAMICS_RULE_REQUIRED",
+    "boundary_fiber_kinematics_sufficient_to_pose_uniqueness": true,
+    "existing_constraints_uniquely_fix_boundary_quantum_dynamics": false,
+    "operationally_distinct_cptp_controls_exist_under_current_constraints": true,
+    "new_candidate_defining_dynamics_rule_required": true,
+    "preferred_new_rule_selected": false,
+    "github_actions_run": null
   },
   "object_identity": {
     "g7b_configuration_object": "X_Gamma={(G_v,A_e)}",
@@ -75,7 +61,7 @@
     "iter054s_transport_object": "4x4_Lorentz_metric_compatible_geometric_path_transport",
     "iter009g6_unitary_object": "one_particle_characteristic_Lorentz_transport_unitary_on_physical_L2",
     "boundary_relative_quantum_kinematics_object": "regular_shared_boundary_direct_integral_or_relative_tensor_with_positive_measure_disintegration",
-    "boundary_fiber_quantum_dynamics_object": "MISSING_SOURCE_DEFINED_MEASURABLE_BRANCH_OPERATOR_FAMILY",
+    "boundary_fiber_quantum_dynamics_object": "NOT_UNIQUELY_FIXED_BY_EXISTING_QGR_AUTHORITY__NEW_CANDIDATE_DEFINING_RULE_REQUIRED",
     "g8a_unitary_object": "Koopman_Radon_Nikodym_unitary_from_invertible_quasi_invariant_configuration_map",
     "one_particle_g6_equals_g8a_configuration_unitary": false,
     "geometric_transport_equals_boundary_quantum_channel": false,
@@ -87,11 +73,11 @@
     "g3_transport_to_g8a_configuration_map_bridge_established": false
   },
   "active_question": {
-    "id": "QGR-BOUNDARY-FIBER-QUANTIZATION-UNIQUENESS-OR-NEW-AXIOM",
-    "text": "Do existing QGR symmetries/composition/positivity data uniquely determine a quantum lift on the boundary-relative fibers, or is there residual cocycle/unitary freedom proving that a new candidate-defining quantum dynamics rule is required?"
+    "id": "QGR-MINIMAL-NEW-DYNAMICS-AXIOM-CLASS-AND-KILL-TESTS",
+    "text": "What is the minimal independently motivated candidate-defining quantum dynamics axiom class compatible with established locality/refinement/geometric transport and the scoped one-particle channel, and what prospective tests can falsify it before any tuning?"
   },
-  "active_blocker": "BOUNDARY_FIBER_QUANTUM_DYNAMICS_MISSING__PHYSICAL_FULL_CONFIGURATION_EVENT_UPDATE_LAW_MISSING_CANDIDATE_DEFINING_OBJECT__G3_TO_G8A_KOOPMAN_BRIDGE_INCOMPLETE__FULL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED__LOWER_ORDER_SOURCE_HISTORY_PHASE_NOT_REALIZED__WEYL3_ACTION_INCREMENT_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Do not add an arbitrary boundary quantum channel. Before any new candidate axiom, audit whether existing QGR symmetry/composition/positivity authority already removes or leaves nontrivial quantum-lift freedom. Preserve all scoped one-particle, geometric and boundary-kinematic results without promoting them.",
+  "active_blocker": "NEW_CANDIDATE_DEFINING_BOUNDARY_QUANTUM_DYNAMICS_RULE_REQUIRED__PHYSICAL_FULL_CONFIGURATION_EVENT_UPDATE_LAW_MISSING__FULL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED__LOWER_ORDER_SOURCE_HISTORY_PHASE_NOT_REALIZED__WEYL3_ACTION_INCREMENT_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Do not choose identity, depolarizing, Hamiltonian, Koopman, geometric-transport or any other boundary channel post hoc. First preregister a minimal candidate-defining axiom class and independent kill tests. Any added dynamics rule must be explicitly new input, independently motivated, recover the established scoped one-particle channel on overlap, respect boundary/refinement structure, and be tested for continuum/measure consistency before promotion.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "automation_runner_mitigation_document": "recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md",
