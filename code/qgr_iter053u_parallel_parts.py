@@ -2,7 +2,7 @@
 """Guarded parallel-part kernel for conditional Iter053U.
 
 This file prepares a faster execution graph but remains unusable until durable
-recovery records both exact Iter053T PASS classifications.  It preserves the
+recovery records both exact Iter053T PASS classifications. It preserves the
 same eight Iter053U scientific lane identities; direct/weighted and C side
 computations are merely separated into independent execution parts.
 """
@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import hashlib
 import json
 import math
 import os
@@ -25,14 +26,26 @@ import qgr_iter051c_full_eom as c
 GATE=u.GATE
 PRIMARY="ITER053T_LEGACY_DOUBLE_WEIGHT_CONFIRMED_SOURCE_FAITHFUL_PUSHFORWARD_COVARIANT_SCOPED"
 COMPANION="ITER053T_GJ_NODEWISE_PUSHFORWARD_COVARIANCE_CONFIRMED"
+PREREG="dbb306d68e6d1fc332a73eccb88f52df0cc5859a"
 
 
 def authorize(state_path):
-    state=json.loads(Path(state_path).read_text(encoding="utf-8"))
+    raw=Path(state_path).read_bytes()
+    state=json.loads(raw.decode("utf-8"))
     p=state.get("iter053t_primary",{}).get("classification")
     q=state.get("iter053t_nodewise_companion",{}).get("classification")
     if p!=PRIMARY or q!=COMPANION:
         raise SystemExit("ITER053U execution unauthorized by durable terminal recovery state")
+    production_sha=os.environ.get("GITHUB_SHA")
+    if not production_sha:
+        raise SystemExit("ITER053U production parts require GITHUB_SHA provenance")
+    return {
+        "production_sha":production_sha,
+        "authorization_state_sha256":hashlib.sha256(raw).hexdigest(),
+        "preregistration_commit":PREREG,
+        "required_primary_classification":PRIMARY,
+        "required_companion_classification":COMPANION,
+    }
 
 
 def objects(stream,index,side):
@@ -46,7 +59,7 @@ def objects(stream,index,side):
     return mt,pt,L,Linv,mseed,pseed
 
 
-def direct_part(stream,index,side):
+def direct_part(stream,index,side,prov):
     metric,pert,L,Linv,mseed,pseed=objects(stream,index,side)
     mapper=(lambda x:Linv@x) if side=="transformed" else None
     d7=r.support_direct(metric,pert,7,mapper)
@@ -54,11 +67,11 @@ def direct_part(stream,index,side):
     return {
         "gate":GATE,"mode":"part","kind":"direct","stream":stream,"index":index,"side":side,
         "metric_seed":mseed,"perturbation_seed":pseed,"GL7":d7,"GL8":d8,
-        "implementation_split":"DIRECT_PART_ONLY_SAME_FROZEN_OBJECT",
+        "implementation_split":"DIRECT_PART_ONLY_SAME_FROZEN_OBJECT","provenance":prov,
     }
 
 
-def weighted_part(stream,index,side):
+def weighted_part(stream,index,side,prov):
     metric0,pert0,mseed,pseed=r.lane_objects(stream,index)
     if side=="base":
         sample=(stream=="B")
@@ -76,7 +89,7 @@ def weighted_part(stream,index,side):
         "gate":GATE,"mode":"part","kind":"weighted","stream":stream,"index":index,"side":side,
         "metric_seed":mseed,"perturbation_seed":pseed,"GJ2":g2,"GJ3":g3,
         "transformed_source_object_control":source_control,
-        "implementation_split":"WEIGHTED_PART_ONLY_SAME_FROZEN_OBJECT",
+        "implementation_split":"WEIGHTED_PART_ONLY_SAME_FROZEN_OBJECT","provenance":prov,
     }
 
 
@@ -93,6 +106,21 @@ def load_parts(root,stream,index):
         if key in out: raise ValueError(f"duplicate part {key}")
         out[key]=d
     return out
+
+
+def common_provenance(parts):
+    if not parts: raise ValueError("no parts")
+    vals=[d.get("provenance") for d in parts.values()]
+    if any(not isinstance(v,dict) for v in vals): raise ValueError("missing part provenance")
+    ref=vals[0]
+    required=("production_sha","authorization_state_sha256","preregistration_commit",
+              "required_primary_classification","required_companion_classification")
+    if any(not ref.get(k) for k in required): raise ValueError("incomplete reference provenance")
+    if ref.get("preregistration_commit")!=PREREG: raise ValueError("wrong preregistration identity")
+    if ref.get("required_primary_classification")!=PRIMARY or ref.get("required_companion_classification")!=COMPANION:
+        raise ValueError("wrong authorization classification identity")
+    if any(v!=ref for v in vals[1:]): raise ValueError("mixed part provenance")
+    return ref
 
 
 def generic_summary(dpart,wpart,metric,pert,mapper=None):
@@ -129,9 +157,11 @@ def generic_summary(dpart,wpart,metric,pert,mapper=None):
 def reduce_a(index,parts):
     need={("base","direct"),("base","weighted")}
     if set(parts)!=need: raise ValueError(f"A{index} part set mismatch {set(parts)}")
+    prov=common_provenance(parts)
     metric,pert,mseed,pseed=r.lane_objects("A",index)
+    if any(d.get("metric_seed")!=mseed or d.get("perturbation_seed")!=pseed for d in parts.values()): raise ValueError("A seed identity mismatch")
     d=generic_summary(parts[("base","direct")],parts[("base","weighted")],metric,pert)
-    d.update({"gate":GATE,"stream":"A","index":index,"metric_seed":mseed,"perturbation_seed":pseed})
+    d.update({"gate":GATE,"stream":"A","index":index,"metric_seed":mseed,"perturbation_seed":pseed,"provenance":prov})
     d["lane_pass"]=bool(d["control_valid"] and d["generic_pass"])
     d["iter053u_execution_lock"]="DURABLE_TWO_PASS_AUTHORIZATION_REQUIRED"
     return d
@@ -140,7 +170,9 @@ def reduce_a(index,parts):
 def reduce_b(index,parts):
     need={("base","direct"),("base","weighted")}
     if set(parts)!=need: raise ValueError(f"B{index} part set mismatch {set(parts)}")
+    prov=common_provenance(parts)
     metric,pert,mseed,pseed=r.lane_objects("B",index)
+    if any(d.get("metric_seed")!=mseed or d.get("perturbation_seed")!=pseed for d in parts.values()): raise ValueError("B seed identity mismatch")
     dp=parts[("base","direct")]; wp=parts[("base","weighted")]
     d7=dp["GL7"]; d8=dp["GL8"]; g2=wp["GJ2"]; g3=wp["GJ3"]
     collar=r.collar_control_frame(pert)
@@ -156,13 +188,16 @@ def reduce_b(index,parts):
         "gate":GATE,"stream":"B","index":index,"metric_seed":mseed,"perturbation_seed":pseed,
         "direct_GL7":d7,"direct_GL8":d8,"GJ2":g2,"GJ3":g3,"collar_residual":collar,
         "control_valid":valid,"lane_pass":passed,"iter053u_execution_lock":"DURABLE_TWO_PASS_AUTHORIZATION_REQUIRED",
+        "provenance":prov,
     }
 
 
 def reduce_c(index,parts):
     need={("base","direct"),("base","weighted"),("transformed","direct"),("transformed","weighted")}
     if set(parts)!=need: raise ValueError(f"C{index} part set mismatch {set(parts)}")
+    prov=common_provenance(parts)
     metric,pert,mseed,pseed=r.lane_objects("C",index)
+    if any(d.get("metric_seed")!=mseed or d.get("perturbation_seed")!=pseed for d in parts.values()): raise ValueError("C seed identity mismatch")
     L=it.shear(index); Linv=np.linalg.inv(L); mt=c.TransformMetric(metric,L); pt=it.TransformPerturbation(pert,L)
     base=generic_summary(parts[("base","direct")],parts[("base","weighted")],metric,pert)
     transformed=generic_summary(parts[("transformed","direct")],parts[("transformed","weighted")],mt,pt,lambda x:Linv@x)
@@ -187,7 +222,7 @@ def reduce_c(index,parts):
         "direct_covariance_relative_residual":dcov,"bulk_covariance_relative_residual":bcov,
         "control_valid":valid,"lane_pass":passed,
         "scientific_change_scope":"ONLY_TRANSFORMED_WEIGHTED_POLYNOMIAL_SOURCE_EXTRACTION",
-        "iter053u_execution_lock":"DURABLE_TWO_PASS_AUTHORIZATION_REQUIRED",
+        "iter053u_execution_lock":"DURABLE_TWO_PASS_AUTHORIZATION_REQUIRED","provenance":prov,
     }
 
 
@@ -215,13 +250,13 @@ def main():
     ap.add_argument("--state",default="../recovery/state.json")
     ap.add_argument("--out",required=True)
     a=ap.parse_args()
-    authorize(a.state)
+    prov=authorize(a.state)
     lim={"A":4,"B":2,"C":2}[a.stream]
     if not 0<=a.index<lim: raise SystemExit("index out of range")
     if a.mode=="part":
         if a.kind is None or a.side is None: raise SystemExit("part requires --kind and --side")
         if a.stream!="C" and a.side!="base": raise SystemExit("A/B have base side only")
-        o=direct_part(a.stream,a.index,a.side) if a.kind=="direct" else weighted_part(a.stream,a.index,a.side)
+        o=direct_part(a.stream,a.index,a.side,prov) if a.kind=="direct" else weighted_part(a.stream,a.index,a.side,prov)
     else:
         if not a.input_dir: raise SystemExit("reduce requires --input-dir")
         o=reduce_lane(a.stream,a.index,a.input_dir)
