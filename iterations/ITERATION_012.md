@@ -4,126 +4,140 @@ Date: 2026-09-14
 
 ## Status semantics
 
-This iteration log records a manual/parallel research session while two already preregistered Iter053T scientific productions remain non-terminal. It does **not** assign either Iter053T terminal classification and does not consume partial substantive numeric values.
+This iteration records outcome-independent/manual work while two already preregistered Iter053T scientific productions remain non-terminal. It assigns neither Iter053T terminal classification and never consumes their partial substantive numeric values.
 
-Repository main + terminal GitHub Actions aggregates remain authoritative.
+GitHub main + terminal Actions aggregates are authoritative.
 
-## Required recovery indicators
+## Recovery indicators
 
-- QGR iteration log number: **012**.
-- Candidate-program roadmap readiness: **99% internal construction bookkeeping only**, not probability of correctness.
-- Theory established: **0%**.
-- Current primary Iter053T operational completion indicator: structural + 2/4 numeric lanes terminal, two GJ3 lanes still active, aggregate pending. This is an execution indicator only, not scientific progress percentage.
-- Companion Iter053T-GJ operational completion indicator: 1/6 matrix lanes terminal success, five active, aggregate pending. Execution indicator only.
-- Active roadmap stage: `MODEL_CONSTRUCTION / WEYL3 WEIGHTED PUSHFORWARD LOCALIZATION`.
-- Active candidate branch: `QGR_L1_SECOND_MOMENT` with symbolic/unfixed `c6` Weyl-cubed correction direction.
-- Claim-lock changes: **none promoted**; one new blocker explicitly isolated: `MISSING_WEYL3_DYNAMICAL_TREATMENT_AUTHORITY`.
+- iteration log: **012**;
+- candidate-program roadmap readiness: **99% internal construction bookkeeping only**;
+- theory established: **0%**;
+- phase: `MODEL_CONSTRUCTION / WEYL3 WEIGHTED PUSHFORWARD LOCALIZATION`;
+- candidate branch: `QGR_L1_SECOND_MOMENT`;
+- `c6`: symbolic/unfixed;
+- `beta=1`: unauthorized.
 
-## State read
-
-Recovered from:
-
-- `recovery/state.json`;
-- `recovery/CURRENT_FRONT.md`;
-- active Actions run `34788261104` (primary Iter053T);
-- active Actions run `34788222635` (nodewise companion);
-- historical Iter053R/Iter053S result/provenance chain;
-- existing Iter005/009/010/043-052 stability/operator/variation authorities;
-- QGR Theory Constructor and Adversarial Referee automations.
-
-Both QGR automations were found disabled after earlier runs and were explicitly re-enabled without changing their prompts or schedules. Subsequent checks confirmed both enabled.
-
-## Strongest new structural fact
-
-The historical Iter053R transformed weighted covariance failure has an exact object-path explanation: the external Gauss-Jacobi support weight already supplies `B(u)`, while wrapper-depth extraction in the transformed historical path supplies another `B(u)`, producing an effective `B(u)^2` path.
-
-Independent exact Gauss-Jacobi moments predict:
-
-- GJ2 extra-weight suppression `0.21762913579014877...`;
-- GJ3 suppression `0.30638519893528289...`;
-- GJ2->GJ3 relative drift `0.28968782909086243...`.
-
-These quantitatively track the historical transformed C behavior without fitted parameters. Historical Iter053R remains scientific FAIL regardless.
-
-## Parallel scientific productions preserved
+## Active scientific productions preserved
 
 ### Primary Iter053T
 
 `ITER053T-WEIGHTED-SUPPORT-PARAMETER-PUSHFORWARD-COVARIANCE`
 
-Run `34788261104` remains non-terminal. No partial substantive values are used.
+Run `34788261104` remains non-terminal. Latest operational state: structural + C0-GJ2 + C1-GJ2 success; C0-GJ3/C1-GJ3 active; aggregate pending.
+
+No partial substantive values used.
 
 ### Companion Iter053T-GJ
 
 `ITER053T-GJ-NODEWISE-PUSHFORWARD-COVARIANCE-AUDIT`
 
-Run `34788222635` remains non-terminal. No partial substantive values are used.
+Run `34788222635` remains non-terminal. Latest operational state: C0-h1e-3 and C0-h5e-4 success; four other hstep/index lanes active; aggregate pending.
 
-The two frozen gates remain independent; no evidence pooling or favorable-verdict selection is permitted.
+No partial substantive values used.
 
-## Independent non-authoritative controls completed
+The two gates remain independent; no evidence pooling or favorable-verdict selection is allowed.
 
-### Exact-reference orthogonal controls R1
+## Strongest structural localization
 
-Run `34792534325` terminally classified
+Historical Iter053R transformed weighted C path used an effective `B(u)^2` object while the base path used one support factor. Exact GJ moments predict:
 
+- GJ2 suppression `0.21762913579014877...`;
+- GJ3 suppression `0.30638519893528289...`;
+- GJ2->GJ3 drift `0.28968782909086243...`.
+
+These track the historical transformed C suppression/drift without fitted parameters. Iter053R remains immutable scientific FAIL.
+
+## Independent control results
+
+### Orthogonal controls R1
+
+Run `34792534325`:
 `ORTHOGONAL_CONTROLS_R1_PASS`.
 
-This validates frozen stencil/reference/wrapper/tensor controls only.
+Implementation/algebra support only.
 
-### Canonical GitHub Actions sharded reducer
+### Canonical GitHub Actions reducer
 
-Run `34793130860` terminally classified
-
+Run `34793130860`:
 `SHARDED_CANONICAL_REDUCER_EQUIVALENCE_PASS`.
 
-Four independent per-node shards reconstructed exactly the same binary64 canonical `math.fsum` as the one-pass baseline. Missing-node, duplicate-node and mixed-identity controls were rejected.
+Canonical per-node shards reconstructed exactly the same binary64 `math.fsum` as an independent baseline; missing, duplicate and mixed-identity negative controls were rejected.
 
-This establishes infrastructure authority for deterministic node sharding in a future prospectively frozen scientific gate, not any QGR physics.
+This validates deterministic GitHub multi-job reduction as infrastructure, not QGR physics.
 
-## Active non-authoritative implementation-equivalence matrix
+### D5 canonical cache
 
-A 16-lane D5 canonical-lattice cache equivalence matrix was prospectively frozen and launched as run `34793411230`:
+Run `34793411230`, aggregate `103822309604`:
+`D5_CANONICAL_CACHE_EQUIVALENCE_PASS`.
 
-- A4+B2+C2 metric identities × two fixed points;
-- H5 derivative step `5e-4`;
-- all 16 raw lanes have reached terminal success;
-- aggregate remains queued/pending at the time of this log.
+Matrix: all A4+B2+C2 metric identities × two fixed points at `h=5e-4`, 16 independent lanes.
 
-The cache reduces duplicated expensive P/Weyl requests from approximately 290 to exactly 129 unique stencil points per H5 evaluation. Use in scientific Iter053U remains forbidden until the frozen aggregate says `D5_CANONICAL_CACHE_EQUIVALENCE_PASS`.
+Results:
+- 16/16 valid and PASS;
+- worst D residual `3.0138740385466435e-12`;
+- worst H5 residual `3.0062091790262304e-12`;
+- minimum corrupted-cache control effect `7.985885551649203e-4`;
+- summary artifact `10327914830`;
+- digest `sha256:e4fdb3ce144cb5f9621eaa5c4548e2202a3ff8ed081313cc479adc9b80741472`.
 
-Static object-identity audit confirmed that the cache computes the same `geometry -> complex_step_gradient -> project_algebraic_riemann`, same five-point coefficients, same `b0.first_cov`, same center connection terms and same final `A+I-2 sqrt(-g)D` object; only reuse/canonical coordinate assembly changes.
+The cache reduces about 290 repeated P/Weyl requests to 129 unique canonical stencil points per H5 evaluation, ideal expensive-call reduction ~2.248×.
 
-## Conditional Iter053U frozen before Iter053T terminal evidence
+Static audit confirmed the same P object, stencil coefficients, covariant derivative/connection terms and `A+I-2 sqrt(-g)D` formula. Therefore the cache is prospectively authorized as an implementation backend at the tested `h=5e-4` scope, not as scientific evidence.
 
-A conditional successor was prospectively frozen while both Iter053T scientific gates were still non-terminal:
+## Conditional Iter053U — frozen early and still untriggered
 
+Conditional preregistration:
+`dbb306d68e6d1fc332a73eccb88f52df0cc5859a`.
+
+Gate:
 `ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION`.
 
-Execution is allowed only if durable recovery contains both exact PASS strings:
+Execution requires BOTH durable terminal PASS strings:
 
-- `ITER053T_LEGACY_DOUBLE_WEIGHT_CONFIRMED_SOURCE_FAITHFUL_PUSHFORWARD_COVARIANT_SCOPED`;
-- `ITER053T_GJ_NODEWISE_PUSHFORWARD_COVARIANCE_CONFIRMED`.
+1. `ITER053T_LEGACY_DOUBLE_WEIGHT_CONFIRMED_SOURCE_FAITHFUL_PUSHFORWARD_COVARIANT_SCOPED`;
+2. `ITER053T_GJ_NODEWISE_PUSHFORWARD_COVARIANCE_CONFIRMED`.
 
-A fail-closed authorization guard, fresh eight-lane aggregate classifier, reference implementation and prepared workflow exist. **No production trigger file exists**, so Iter053U has not run.
+No trigger file exists; Iter053U has never run.
 
-Iter053U freezes all Iter053R scientific inputs/thresholds and recomputes A4+B2+C2 fresh. The sole scientific correction is transformed C weighted polynomial-source extraction; direct transformed full compact-support action path is unchanged. Historical evidence pooling is forbidden.
+## Final Iter053U implementation freeze
 
-## Higher-derivative stability dependency audit
+Freeze commit:
+`0739f2ede212e5144c771aae5e71f7f1075ea4ed`.
 
-Existing QGR authorities already close the two-derivative weak/flat TT characteristic layer in scoped settings but do not establish the physical characteristic structure of the Weyl-cubed corrected dynamics.
+Frozen implementation:
 
-Analytic curvature-Hessian control shows the raw Weyl-active correction has schematic quartic principal structure
+- validated cache backend `29cc9136c071b4f9900c4da630b80920f62989ab`;
+- monolithic reference `7250362b0120e1b5873fe1f7a45940aff8833643`;
+- provenance-hardened split/reducers `34c7b355467103aec9c9e1c5d599fe0034cb9ace`;
+- cached dispatcher `f1f42d7242426b6e754acf55f9b00cd0047f974d`;
+- authorization guard `6d2e5062f459b9683a6068ca9a65ef7883d2888e`;
+- aggregate `cc92b09fba57bf03ef7382ba9a8d425cdb584657`;
+- prepared workflow `c365d3f02d0d0f93a8c01f34873bfb2f668de37f`.
+
+Execution graph: authorization -> 20 independent integration parts -> 8 A4+B2+C2 lane reducers -> one aggregate.
+
+Direct paths remain historical Iter053R compact-support action objects. Weighted H5 uses validated 129-point cache. Sole scientific correction remains C transformed weighted polynomial-source extraction (`u=x`, `y=L^-1u`, one support factor, `L^T p(u)L`).
+
+Part/lane provenance is fail-closed on production SHA, authorization-state SHA-256, prereg identity and seed identity. Missing lane artifacts become frozen infrastructure classification rather than disappearing before the classifier.
+
+No further Iter053U scientific-code edits are allowed before trigger. Any required change requires a new prospective implementation version/preregistration.
+
+## Higher-derivative stability dependency
+
+Analytic audit gives raw Weyl-active high-frequency structure schematically
 
 `P4(k) ~ c6 Cbar k^4`,
 
-because the Weyl-cubed action is six-derivative in EFT counting but its curvature-only metric EOM is generically fourth differential order.
+because the Weyl-cubic action is six-derivative in EFT counting while its curvature-only metric EOM is generically fourth differential order.
 
-Important control consequence: `W3=0` on type-N does not imply the quadratic/principal correction is zero when `Cbar !=0`; exact conformally-flat `Cbar=0` is the clean high-derivative null.
+`d^2 Tr(C^3)[D,D] = 6 Tr(C D^2)`.
 
-## Strongest surviving conceptual blocker
+Exactly conformally-flat `Cbar=0` is a clean high-derivative null. Type-N `W3=0` is not automatically null when `Cbar !=0`.
 
-Current repository authority treats `c6 Weyl^3` as an unfixed six-derivative Wilson/correction direction with perturbative power counting, but does not derive whether physical evolution is:
+## Strongest conceptual blocker discovered
+
+Current repository authority does not determine whether the `c6 Weyl^3` correction is physically evolved as:
 
 - exact fundamental fourth-order dynamics;
 - perturbative/order-reduced EFT;
@@ -131,44 +145,31 @@ Current repository authority treats `c6 Weyl^3` as an unfixed six-derivative Wil
 - another QGR-specific construction.
 
 Classification:
-
 `MISSING_WEYL3_DYNAMICAL_TREATMENT_AUTHORITY`.
 
-Therefore a raw quartic root cannot automatically be called a physical ghost/new degree of freedom, and cannot automatically be discarded as an EFT artifact.
+A raw quartic root is therefore neither automatically a physical ghost/new degree of freedom nor automatically disposable as an EFT artifact.
 
-An external literature audit was recorded strictly as `BACKGROUND METHODOLOGY ONLY — NOT QGR AUTHORITY` to define controls that a future QGR-specific treatment gate must distinguish.
+External higher-derivative/EFT literature was reviewed only as `BACKGROUND METHODOLOGY — NOT QGR AUTHORITY` to define prospective controls for a future QGR-specific treatment gate.
 
-## Parallelism result
+## Auto-research status
 
-GitHub multi-job parallelism is now validated at the deterministic reduction layer. The recommended future structure is:
-
-- outer parallelism: canonical quadrature-node shards;
-- inner local optimization: D5 129-point canonical lattice cache only if terminal equivalence PASS;
-- canonical fail-closed reducer;
-- unchanged eight scientific lane identities and frozen classifier.
-
-Thus compute architecture can scale without changing the mathematical observable.
-
-## KMQGB/RQIR synchronization
-
-No external KMQGB/RQIR scientific result was imported into this QGR iteration. Cross-project claims remain firewalled; no candidate-selection or physical conclusion was taken from another project.
+QGR Theory Constructor and QGR Adversarial Referee automations were checked. Both had independently become paused after executions at different points in the session; they were re-enabled without changing prompts/schedules. No durable competing QGR verdict commit appeared while the authoritative Iter053T productions remained non-terminal.
 
 ## Claim ceiling
 
 - theory established = 0%;
-- `c6` symbolic/unfixed;
-- `beta=1` unauthorized;
-- Iter053R remains historical scientific FAIL;
-- active Iter053T runs remain non-terminal;
+- historical Iter053R remains FAIL;
+- Iter053T scientific gates remain non-terminal;
 - no full Weyl3 functional-variation theorem;
 - no physical higher-derivative mode count;
 - no ghost/no-ghost or hyperbolicity theorem;
 - no quantum amplitude/measure transition;
 - no unitarity, UV completion, full GR recovery, experimental confirmation or new physics.
 
-## Exact next gate
+## Exact next sequence
 
-1. terminalize primary Iter053T and Iter053T-GJ independently under their frozen aggregates;
-2. terminalize the non-scientific D5-cache aggregate and use it only to choose the final Iter053U implementation before trigger;
-3. if and only if both Iter053T exact PASS strings are durable, finalize/freeze the Iter053U implementation and trigger fresh A4+B2+C2 production;
-4. if Iter053U passes, resolve `MISSING_WEYL3_DYNAMICAL_TREATMENT_AUTHORITY` before any physical corrected-spectrum verdict.
+1. Terminalize run `34788261104` and run `34788222635` independently.
+2. If either does not return its exact frozen PASS string, do not run Iter053U.
+3. If both exact PASS strings become durable, create only the already-defined production trigger; make no code changes.
+4. Run fresh Iter053U through the frozen cached 20-part graph.
+5. If Iter053U passes, resolve `MISSING_WEYL3_DYNAMICAL_TREATMENT_AUTHORITY` before any physical corrected-spectrum claim.
