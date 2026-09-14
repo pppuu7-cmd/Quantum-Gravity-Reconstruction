@@ -1,0 +1,62 @@
+name: QGR Iter054L quantum amplitude-measure closure authority
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-iter054l-quantum-measure-authority.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  A0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Governance/design source audit
+        run: python code/qgr_iter054l_quantum_measure_authority.py --lane A0 --out A0.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054l-A0, path: A0.json}
+  A1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Candidate-development source discovery
+        run: python code/qgr_iter054l_quantum_measure_authority.py --lane A1 --out A1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054l-A1, path: A1.json}
+  B0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Microscopic-to-IR c6 and observable review-path audit
+        run: python code/qgr_iter054l_quantum_measure_authority.py --lane B0 --out B0.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054l-B0, path: B0.json}
+  B1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Authority and anti-overclaim controls
+        run: python code/qgr_iter054l_quantum_measure_authority.py --lane B1 --out B1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054l-B1, path: B1.json}
+  aggregate:
+    needs: [A0,A1,B0,B1]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: iter054l-A0, path: artifacts/A0}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054l-A1, path: artifacts/A1}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054l-B0, path: artifacts/B0}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054l-B1, path: artifacts/B1}
+      - name: Frozen aggregate classifier
+        run: python code/qgr_iter054l_quantum_measure_authority.py --lane aggregate --out ITER054L_SUMMARY.json artifacts/A0/A0.json artifacts/A1/A1.json artifacts/B0/B0.json artifacts/B1/B1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054l-summary, path: ITER054L_SUMMARY.json}
