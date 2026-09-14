@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055F / FIRST POST-G6 QUANTUM EXTENSION WITHOUT ASSUMING F_ALPHA`
+Primary active front: `POST-ITER055G / BOUNDARY-FIBER QUANTUM DYNAMICS WITHOUT ASSUMING F_ALPHA`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -13,76 +13,84 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 - `c6`: symbolic/unfixed.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
-- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**; Iter054G-R already terminally established that no pre-existing selector was found, while Iter054H gave only conditional refinement-band separation.
+- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**; Iter054G-R already terminally established no pre-existing selector, while Iter054H gave only conditional refinement-band separation.
 - Global interacting measure/regulator removal: **not established**.
 - No physical ghost/spectrum, full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## Terminal chain through Iter055F
+## Terminal chain through Iter055G
 
-- Iter055C: `PASS_SCOPED_ITER055C_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS`.
 - Iter055D: `BLOCKED_OBJECT_DEFINITION_ITER055D_LOWER_ORDER_ACTION_DOES_NOT_YET_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW`.
-- Iter055E preregistration `6e349397fccfbbbd936c9a496fcc48476039b394` was closed before substantive computation as `INVALID_REDUNDANT_GATE_ITER055E_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`; it is not a new scientific result.
+- Iter055E: `INVALID_REDUNDANT_GATE_ITER055E_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`; no new science.
 - Iter055F preregistration `9509036860eb2efd6568758598397f33b491084c`; result `c11317b0c1326796f8b5187b907122df4ba1ffbf`:
   `PASS_SCOPED_ITER055F_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION`.
+- Iter055G preregistration `ba288f98bf035b12089b7d2b4a28b7165b5ac1cb`; result `82a286e408430774e95e896818ddc8f4b884dedf`:
+  `PASS_SCOPED_KINEMATIC_EXTENSION_ITER055G_BOUNDARY_RELATIVE_DIRECT_INTEGRAL_DEFINED__FIBERWISE_CHANNEL_DYNAMICS_MISSING`.
 
 ## Physical event-update blocker remains
 
-The lower-order QGR action is real and nontrivial, but a variational functional is not itself the G8A map `F_alpha:X_Gamma->X_Gamma`. No source-authorized package currently fixes the physical evolution parameter/relational clock calibration, canonical phase-space/symplectic/Hamiltonian generator, fixed-domain finite invertible full-configuration flow, boundary/initial-data selection, and source-faithful identification of the 24 B4 histories with compositions of that flow.
+The lower-order action is not itself the G8A map `F_alpha:X_Gamma->X_Gamma`. No source-authorized physical evolution parameter/clock calibration, canonical symplectic/Hamiltonian flow package, fixed-domain finite invertible flow, boundary/initial-data selection and source-faithful B4 history identification currently define that full configuration endomorphism.
 
-The legacy Iter008 G1-G4 clock layer was re-audited. It provides an intrinsic rank/order clock and sequential history bookkeeping, but its own guards leave physical tick duration and autonomous Hamiltonian unfixed; its deparametrization retains a relative clock-gravity normalization and an ordinary dynamical clock backreacts on the established zero-Lambda flat vacuum. Therefore the Iter008 clock does not supply `F_alpha`.
+The legacy Iter008 clock provides ordering/rank bookkeeping but not that missing physical flow. Do not invent one.
 
-Do not invent a Hamiltonian/clock/update rule to rescue G8A.
+## Surviving scoped quantum structures
 
-## Iter055F object-identity split
+### One-particle channel
 
-The existing quantum results must now be kept in two distinct layers.
+Iter009-G6 defines the one-particle characteristic Lorentz/transport representation on the physical characteristic `L2` space. It has strong branch convergence, strong adjoint convergence, and therefore trace-norm convergence of the finite 24-history channel for all normal one-particle states in the stated regular scope. This result does not require the full configuration `F_alpha`.
 
-### Surviving scoped one-particle layer
+### Boundary-relative/direct-integral kinematics
 
-Iter009-G6 concerns the established **one-particle characteristic Lorentz/transport representation** on the physical characteristic `L2` space. Its strong-continuity proof uses the Lorentz action, invariant null-cone measure, finite two-mode polarization fiber, dense `C_c` domain and unitarity. Strong branch convergence plus strong adjoint convergence gives trace-norm convergence of the finite 24-history channel for all normal one-particle states. Under uniform regular per-cell bounds, fixed-macroscopic-interval serial refinement also vanishes in the stated scope.
+Iter055G source-locks a second genuine scoped layer independent of `F_alpha` at the kinematic level:
 
-This result does not require a full-configuration `F_alpha` and therefore survives Iter055D.
+- Iter007-G6C: boundary matching requires relative tensor/direct-integral structure over one shared physical boundary label rather than a naive independent tensor product;
+- Iter007-G6E: the regular positive physical measure admits disintegration over the shared B3 restriction variable; conditional independence is neither required nor derived;
+- Iter007-G6F: the regular characteristic one-particle fibers have a positive covariant direct-integral Hilbert structure and finite-frame isometries.
 
-### Blocked interacting configuration-space layer
+This is a real extension of the state/measure architecture beyond a single isolated Hilbert fiber.
 
-Iter006-G8A is a different object. It defines
+## Missing arrow isolated by Iter055G
 
-`K_alpha = 24^(-1/2) exp(i S_alpha/hbar) U_alpha`
+No audited G6C/G6D/G6E/G6F source defines a measurable family of boundary-fiber branch quantum maps/operators with a CP/TP or unitary/isometric channel law and refinement composition.
 
-with `U_alpha` supplied as the Koopman/Radon-Nikodym lift of an invertible quasi-invariant full configuration map `F_alpha`. The exact finite-level normalization theorem is conditional on that branch transport object. Iter055B-D show that the required physical full-configuration map is not currently source-defined.
+The closest configuration-Hilbert construction, Iter006-G3B, is explicitly conditional on deterministic full configuration maps `F_alpha` and itself lists the finite map, invertibility/isometry, quasi-invariance and physical quotient descent as required missing obligations. Therefore G3B is not an `F_alpha`-independent boundary-fiber channel solution.
 
-Therefore the G6 one-particle unitary/channel cannot be substituted for the G8A configuration-space unitary/history instrument.
+Current open arrow:
+
+`boundary-relative direct-integral kinematics + positive measure disintegration`
+
+`->`
+
+`source-defined measurable boundary-fiber branch quantum dynamics/channel`.
 
 ## Quantum-measure status retained from auto-research
 
-Iter054M already established the five-object semantic split:
+Iter054M remains authoritative:
 
 - microscopic amplitude/measure: explicit, scoped;
 - relative history normalization: explicit, scoped;
-- interacting regulator-removal/distributional extension: missing/incomplete;
+- interacting regulator removal/distributional extension: missing/incomplete;
 - microscopic-to-IR identity reaching `c6`: missing;
 - normalized cross-level observable: missing/incomplete in the required source-realized form.
 
-Iter054P then showed that its synthetic unweighted additive correction law was not cylindrically compatible for the frozen quadratic P1 witness, so category C remains BLOCKED until an actual source-authorized refinement/composition law for the relevant interacting relative observable is available. Subsequent source-realization work localized additional missing history/action/transport objects rather than closing them.
+Iter054P's quadratic synthetic correction was not compatible with its frozen unweighted additive refinement law. Do not repair that result by changing the witness or child weights post hoc.
 
 ## Current highest-information route
 
-The next gate must not repeat Iter054G-R, invent `F_alpha`, or promote the one-particle Lorentz unitary to a configuration-space Koopman unitary.
+Prospectively audit whether already-established local connection/holonomy/refinement transport can define a measurable operator family on the boundary fibers **without** promoting one-particle Lorentz transport or importing G8A `F_alpha`.
 
-Highest-information question:
+Required obligations for any such successor:
 
-**What is the first mathematically source-defined extension beyond the surviving Iter009-G6 one-particle trace-class channel that can be tested without assuming `F_alpha`?**
+1. exact boundary-fiber state domain;
+2. explicit branch operator/map on each fiber;
+3. measurability across the boundary base;
+4. positive-pairing preservation or CP/TP control;
+5. composition/refinement law on adjacent levels;
+6. source-faithful independence from the missing full configuration event-update law.
 
-Candidate successor classes to audit prospectively, in order:
-
-1. an already-existing many-body/Fock or projective normal-state channel extension with an explicit source-defined Hilbert/domain/composition law;
-2. an interacting configuration measure/refinement object that is genuinely defined without the G8A branch endomorphism;
-3. if neither exists, terminally identify the exact missing post-G6 extension object rather than constructing one post hoc.
-
-A new gate must freeze object identity first and explicitly reject the false promotion `one-particle Lorentz U = G8A Koopman U`.
+If the existing sources provide only geometric frame/holonomy transport and no quantum boundary-fiber operator family, terminalize the precise missing object rather than inventing a Hamiltonian, Fock lift or channel.
 
 ## Operational note
 
-Repeated scheduled-task UI failures with `Hmm...something seems to have gone wrong.` show a recurring approximately one-minute task-runner/finalization pattern while GitHub remains usable and some runs still create durable commits. The exact internal platform error code is not exposed, so this is not asserted as a proven timeout code. Both QGR automations are now in short-orchestrator mode: minimal recovery reads, one bounded gate action, heavy work delegated to GitHub Actions, and no waiting for long workflows. See `recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md`.
+Repeated scheduled-task UI failures with `Hmm...something seems to have gone wrong.` have shown a recurring approximately one-minute task-runner/finalization pattern while GitHub remains usable and some affected runs still create durable commits. The exact internal platform error code is not exposed, so this is not asserted as a proven timeout code. Both QGR automations are in short-orchestrator mode: minimal recovery reads, one bounded action, heavy work delegated to GitHub Actions, no waiting for long workflows. See `recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md`.
 
-These UI failures are operational incidents, not scientific QGR classifications.
+These UI failures are operational incidents, not QGR scientific classifications.
