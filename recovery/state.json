@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55J_ONE_PARTICLE_BOUNDARY_OVERLAP_MAP_BLOCKED__LINEARIZED_SECTOR_BRIDGE_NEXT",
-    "phase": "MODEL_CONSTRUCTION_QUANTUM_SECTOR_IDENTIFICATION_BEFORE_DYNAMICS_SELECTION"
+    "iteration": "POST_55K_RAW_L2_BOUNDARY_RESTRICTION_FAIL__MINIMAL_BOUNDED_SECTOR_BRIDGE_CLASS_NEXT",
+    "phase": "MODEL_CONSTRUCTION_QUANTUM_SECTOR_BRIDGE_DEFINITION_BEFORE_DYNAMICS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -26,56 +26,38 @@
     "full_covariant_six_derivative_eom_established": false
   },
   "terminal_chain": {
-    "iter054s": "PASS_SCOPED_WEYL_ACTIVE_G3_FINE_TO_COARSE_GEOMETRIC_TRANSPORT_BLOCKING",
-    "iter054t": "BLOCKED_G3_HISTORY_TO_PHYSICAL_SOURCE_ACTION_MAP",
-    "iter054u": "BLOCKED_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE",
-    "iter054v": "PASS_SCOPED_ORDER_BLIND_EVENT_ATTACHED_ACTION_NO_GO",
-    "iter054w": "BLOCKED_G3_STATE_DEPENDENT_WEYL3_ACTION_INCREMENT",
-    "iter054x": "BLOCKED_FULL_CURRENT_MICROSCOPIC_ACTION_INCOMPLETE_LOWER_ORDER_ACTION_EXISTS",
-    "iter054y": "BLOCKED_LOWER_ORDER_G3_B4_BRANCH_PHASE_NOT_SOURCE_REALIZED",
-    "iter054z": "BLOCKED_G8A_FINE_HISTORY_COHERENCE_SEMANTICS_NOT_OPERATIONALLY_FIXED",
-    "iter055a": "BLOCKED_G3_GEOMETRIC_TRANSPORT_TO_G8A_UNITARY_CHANNEL_BRIDGE_INCOMPLETE",
-    "iter055b": "BLOCKED_B4_HISTORY_DOES_NOT_DEFINE_G8A_CONFIGURATION_ENDOMORPHISM",
-    "iter055c": "PASS_SCOPED_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS",
-    "iter055d": "BLOCKED_LOWER_ORDER_ACTION_DOES_NOT_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW",
-    "iter055e": "INVALID_REDUNDANT_GATE_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R",
     "iter055f": "PASS_SCOPED_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION",
     "iter055g": "PASS_SCOPED_KINEMATIC_EXTENSION_BOUNDARY_RELATIVE_DIRECT_INTEGRAL_DEFINED__FIBERWISE_CHANNEL_DYNAMICS_MISSING",
     "iter055h": "BLOCKED_BOUNDARY_FIBER_QUANTUM_OPERATOR_FAMILY_NOT_SOURCE_DEFINED",
     "iter055i": "PASS_SCOPED_NONUNIQUENESS_EXISTING_QGR_AUTHORITY_LEAVES_NONTRIVIAL_BOUNDARY_QUANTUM_LIFT_FREEDOM__NEW_CANDIDATE_DYNAMICS_RULE_REQUIRED",
-    "iter055j": "BLOCKED_ONE_PARTICLE_TO_BOUNDARY_OVERLAP_MAP_NOT_SOURCE_DEFINED"
+    "iter055j": "BLOCKED_ONE_PARTICLE_TO_BOUNDARY_OVERLAP_MAP_NOT_SOURCE_DEFINED",
+    "iter055k": "FAIL_SCOPED_RAW_L2_BOUNDARY_POINT_RESTRICTION_NOT_BOUNDED__SMEARING_OR_REGULARITY_REQUIRED"
   },
-  "iter055j": {
-    "preregistration_commit": "474d5e6a81474749fd551488e735cecf29901643",
-    "durable_result_commit": "a2eb30b672e218481bd118fd554b4859799abe56",
-    "classification": "BLOCKED_OBJECT_DEFINITION_ITER055J_ONE_PARTICLE_TO_BOUNDARY_OVERLAP_MAP_NOT_SOURCE_DEFINED",
-    "one_particle_characteristic_sector_exists": true,
-    "boundary_relative_configuration_sector_exists": true,
-    "source_defined_overlap_embedding_exists": false,
-    "source_defined_channel_intertwiner_exists": false,
-    "iter009g6_recovery_kill_test_operational": false,
+  "iter055k": {
+    "preregistration_commit": "f49fc045fa0387634638d7eedd67b75c150a9d64",
+    "durable_result_commit": "107f041cd8b9f22f7de6571494cc6dc9bafe4fbd",
+    "classification": "FAIL_SCOPED_ITER055K_RAW_L2_BOUNDARY_POINT_RESTRICTION_NOT_BOUNDED__SMEARING_OR_REGULARITY_REQUIRED",
+    "raw_point_restriction_bounded_on_g6f_L2": false,
+    "raw_derivative_restriction_bounded_on_g6f_L2": false,
+    "all_overlap_maps_ruled_out": false,
+    "additional_smearing_or_regularity_required": true,
     "github_actions_run": null
   },
   "object_identity": {
-    "g7b_configuration_object": "X_Gamma={(G_v,A_e)}",
-    "b4_history_object": "combinatorial_ordering_plus_path_inside_given_configuration",
-    "iter054s_transport_object": "4x4_Lorentz_metric_compatible_geometric_path_transport",
     "iter009g6_unitary_object": "one_particle_characteristic_Lorentz_transport_unitary_on_physical_L2",
     "one_particle_hilbert_base": "future_null_momentum_k_with_invariant_null_cone_measure_and_2D_physical_polarization_quotient",
     "boundary_relative_quantum_kinematics_object": "shared_B3_configuration_label_direct_integral_or_relative_tensor_with_positive_measure_disintegration",
-    "one_particle_to_boundary_overlap_map": "MISSING_SOURCE_DEFINED_OBJECT",
+    "raw_one_particle_to_boundary_point_map": "SCOPED_FAIL_UNBOUNDED_ON_L2_COMPLETION",
+    "bounded_one_particle_to_boundary_sector_bridge": "MISSING_CANDIDATE_DEFINING_OBJECT",
     "boundary_fiber_quantum_dynamics_object": "NOT_UNIQUELY_FIXED_BY_EXISTING_QGR_AUTHORITY__NEW_CANDIDATE_DEFINING_RULE_REQUIRED",
-    "g8a_unitary_object": "Koopman_Radon_Nikodym_unitary_from_invertible_quasi_invariant_configuration_map",
-    "one_particle_g6_equals_g8a_configuration_unitary": false,
-    "geometric_transport_equals_boundary_quantum_channel": false,
     "physical_full_configuration_event_update_object": "MISSING_CANDIDATE_DEFINING_OBJECT"
   },
   "active_question": {
-    "id": "QGR-LINEARIZED-ONE-PARTICLE-TO-BOUNDARY-SECTOR-BRIDGE",
-    "text": "Can the existing linearized characteristic field be restricted to finite shared-B3 boundary data as a well-defined bounded gauge-quotiented map on the actual one-particle L2 Hilbert completion, or is new smearing/regularity structure required?"
+    "id": "QGR-MINIMAL-BOUNDED-SECTOR-BRIDGE-AXIOM-CLASS",
+    "text": "Which minimal bridge class survives prospective kill tests while preserving the established G6F one-particle Hilbert/channel: bounded covariant smearing on the existing Hilbert space, or a stronger regularity/trace domain, and what new data remain unfixed?"
   },
-  "active_blocker": "ONE_PARTICLE_TO_BOUNDARY_SECTOR_IDENTIFICATION_MISSING__NEW_BOUNDARY_DYNAMICS_RULE_REQUIRED__PHYSICAL_FULL_CONFIGURATION_EVENT_UPDATE_LAW_MISSING__FULL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Prospectively test the natural linearized restriction/evaluation bridge. Do not identify L2 equivalence classes with pointwise finite-boundary values. If bounded restriction fails, record the required new smearing/regularity/test-function structure rather than selecting one post hoc. Only after sector overlap is operational may exact Iter009-G6 recovery be used to kill or select a new interacting dynamics axiom class.",
+  "active_blocker": "BOUNDED_ONE_PARTICLE_TO_BOUNDARY_SECTOR_BRIDGE_MISSING__NEW_BOUNDARY_DYNAMICS_RULE_REQUIRED__PHYSICAL_FULL_CONFIGURATION_EVENT_UPDATE_LAW_MISSING__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Compare smearing/test-function and stronger-regularity bridge classes prospectively. Preserve the established G6F Hilbert/channel domain unless a new candidate version explicitly declares otherwise. Do not tune kernel width, cutoff, Sobolev exponent, detector profile or dynamics after results. A viable mathematical bridge class is not yet a QGR physical law until remaining new data are source-motivated and independently tested.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "automation_runner_mitigation_document": "recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md",
@@ -91,7 +73,7 @@
     "strong_hyperbolicity_evolution_object_defined": false,
     "one_particle_trace_class_channel_scoped_established": true,
     "boundary_relative_quantum_kinematics_scoped_established": true,
-    "one_particle_to_boundary_overlap_map_established": false,
+    "bounded_one_particle_to_boundary_sector_bridge_established": false,
     "boundary_fiber_quantum_channel_established": false,
     "quantum_unitarity_established": false,
     "global_interacting_measure_established": false,
