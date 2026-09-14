@@ -79,12 +79,30 @@
     "justified_principal_order_gauge_fixing_established": false,
     "well_posedness_established": false
   },
-  "active_question": {
-    "id": "QGR-ITER054D-WEYL3-PRINCIPAL-ORDER-GAUGE-FIXING-CHARACTERISTIC-AUDIT",
-    "text": "Can a prospectively specified fourth-order principal gauge-fixing completion remove only diffeomorphism principal degeneracy while preserving the physical quotient symbol, and does the resulting frozen characteristic panel satisfy a fail-closed real-characteristic/diagonalizability audit?"
+  "iter054d": {
+    "gate": "ITER054D-WEYL3-PRINCIPAL-ORDER-GAUGE-FIXING-CHARACTERISTIC-AUDIT",
+    "status": "TERMINAL_SCOPED_PASS",
+    "preregistration_commit": "b3d758c25449027d23a5879c3df135c4903c37d4",
+    "implementation_commit": "862b1e6e8f1c1da259819069cb2f553bc6a9bd52",
+    "production_head": "a81bd1a7a4044d8b639fab9fb3641269ae89a779",
+    "run_id": 34811376305,
+    "aggregate_job_id": 103873320736,
+    "summary_artifact_id": 10334957634,
+    "summary_digest": "sha256:5b75f82c9eef94af5add54b5577de5ca26432d92eb20f164b91475679f66a869",
+    "classification": "PASS_SCOPED_ITER054D_WEYL3_PRINCIPAL_ORDER_GAUGE_COMPLETION_QUOTIENT_INVARIANCE_HYPERBOLICITY_NOT_AUTHORIZED",
+    "durable_result_commit": "fedcb69def11d95fbca186fcae0b05eaa4e737cd",
+    "principal_order_gauge_completion_panel_established": true,
+    "quotient_invariance_panel_established": true,
+    "full_mixed_order_characteristic_system_established": false,
+    "strong_hyperbolicity_established": false,
+    "well_posedness_established": false
   },
-  "active_blocker": "JUSTIFIED_PRINCIPAL_ORDER_GAUGE_FIXING_AND_HYPERBOLICITY_NOT_ESTABLISHED",
-  "next_gate_lock": "Prospectively preregister a separate Iter054D principal-order gauge-fixing and characteristic audit. It must distinguish gauge completion from physical quotient content, include gauge-parameter independence controls on quotient observables, exact recovery/removal controls for four gauge nulls, frozen timelike/spacelike/null covector panels, and fail closed on strong hyperbolicity/energy/constraint claims unless explicitly demonstrated. Do not infer physical ghost/stability from Iter054C.",
+  "active_question": {
+    "id": "QGR-ITER054E-MIXED-ORDER-EINSTEIN-WEYL3-CHARACTERISTIC-REGIME-AUDIT",
+    "text": "Can the frozen Einstein second-order plus Weyl3 fourth-order gauge-fixed principal polynomial be assembled with c6 symbolic and audited across GR-connected and singular high-frequency regimes without conflating principal-order quotient certificates with strong hyperbolicity?"
+  },
+  "active_blocker": "FULL_MIXED_ORDER_EINSTEIN_PLUS_WEYL3_CHARACTERISTIC_SYSTEM_AND_STRONG_HYPERBOLICITY_NOT_ESTABLISHED",
+  "next_gate_lock": "Prospectively preregister a separate Iter054E mixed-order Einstein+Weyl3 characteristic/regime audit. Keep c6 symbolic; freeze covectors/backgrounds/regime variables before outputs; distinguish the full mixed-order polynomial from the pure fourth-order correction; require GR-limit recovery and singular-branch separation controls; fail closed on strong hyperbolicity, energy, constraint propagation, physical ghost/residue, and quantum claims unless explicitly proved. Do not infer these from Iter054D.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
