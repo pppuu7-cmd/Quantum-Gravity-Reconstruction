@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055B / CANONICAL FULL-CONFIGURATION DYNAMICS VS GAUGE RELABELING`
+Primary active front: `POST-ITER055C / PHYSICAL FULL-CONFIGURATION EVENT-UPDATE LAW`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -19,86 +19,37 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results remain immutable.
 
-## Recovered auto-research chain
+## Current terminal chain
 
-The substantive auto-research/action chain through Iter055B and the historical G25-G38/G31-G37 programmes has been re-read against preregistrations, implementations, terminal results and Actions rather than commit titles alone.
+- Iter054S: scoped Weyl-active G3 geometric fine-to-coarse transport blocking PASS.
+- Iter054T-Y: source/history action underdefinition localized.
+- Iter054Z: branch CP maps/coarse channel are phase invariant; fine history-register phase reference not operationally fixed.
+- Iter055A: G3 4x4 geometric transports are not bridged to G8A configuration-space Koopman/RN unitaries.
+- Iter055B: B4 histories are path/order objects inside a fixed configuration, not full-configuration endomorphisms.
+- Iter055C preregistration `0adbff561977a37e3b9653ee713d8cf1fd942aaf`; terminal result `2761524c9c457db30fa43f8169f36415b6cb0026`.
 
-Key current facts:
-
-- exact lower-order QGR action exists; full current source-normalized/Weyl3 microscopic branch action does not;
-- G25-G28 narrow the source freedom to `J(n)=beta*n`, with `beta` still unfixed; their beta-free phase ratios are not mapped to the 24 G3/B4 ordering histories;
-- G31-G32 give local/conditional projective action integration but not absolute phase normalization;
-- Iter054S gives scoped Weyl-active G3 geometric fine-to-coarse transport blocking;
-- Iter054T-Y localize source/history action underdefinition;
-- Iter054Z proves all branch CP maps and the history-forgotten coarse channel are exactly invariant under independent branch rephasing, while the fine history-register phase reference remains operationally undefined;
-- Iter055A proves that the G3 4x4 geometric transports are not yet bridged to the G8A configuration-space Koopman/RN unitaries;
-- Iter055B proves that the 24 B4 histories are path/order objects carrying geometric fiber transport inside a fixed configuration, not yet full-configuration dynamics maps `F_alpha:X->X`.
-
-## Iter054Z — phase dependency split
-
-Preregistration `9c78ba250c97e2853c731d26faa07b4f054639a1`.
-Result `e239959034118fe7002120ae988455443166760f`.
+## Iter055C — gauge/relabeling rescue ruled out
 
 Classification:
 
-`BLOCKED_OBJECT_DEFINITION_ITER054Z_G8A_HISTORY_COHERENCE_SEMANTICS_NOT_FIXED`.
+`PASS_SCOPED_ITER055C_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS`.
 
-Exact durable subresult:
+The audit separates three objects that must not be conflated:
 
-`K_alpha -> exp(i theta_alpha) K_alpha`
+1. Relational frame pullbacks are genuine covariance maps, but G8C/G8D place them in the gauge/BRST equivalence structure. Gauge-related representatives agree on physical observables, so invertibility or unitary implementability cannot make these maps physically distinct history branches.
+2. The 24 `S4` seed maps do descend unitarily on the finite two-mode physical quotient and therefore are not simply gauge. However, their own authoritative result classifies the history-forgetting twirl as a symmetry/coarse-label conditional expectation, explicitly **not microscopic time evolution**, and leaves genuine dynamical curved transports open.
+3. Generic curved G3/B4 histories remain path/order objects with geometric fiber transport inside a fixed configuration; there is still no source-faithful map `F_alpha:X_Gamma->X_Gamma` updating the complete finite configuration.
 
-leaves each branch CP map and
-
-`E(rho)=sum_alpha K_alpha rho K_alpha^dagger`
-
-unchanged. Thus unresolved `S_alpha` is not a blocker for the established coarse CPTP channel. The fine isometry changes only by a diagonal unitary on the auxiliary history register; no fixed noncommuting register observable/phase reference has been authorized.
-
-## Iter055A — G3 to G8A channel-object bridge BLOCKED
-
-Preregistration `99af4f18b1151c2da4185bf42799b282be48ba44`.
-Result `cf065c7777fdb7f7dec34965db207c16c56fefd1`.
-
-Classification:
-
-`BLOCKED_OBJECT_DEFINITION_ITER055A_G3_GEOMETRIC_TRANSPORT_TO_G8A_UNITARY_CHANNEL_BRIDGE_INCOMPLETE`.
-
-G7B supplies the finite graph configuration object `X_Gamma={(G_v,A_e)}` and exact path-groupoid blocking. Iter054S supplies concrete Weyl-active 4x4 path transports. G8A supplies the conditional theorem that an **invertible quasi-invariant configuration map** induces a unitary Koopman/Radon-Nikodym operator.
-
-Missing bridge:
-
-`G3 history/path in one configuration -> full configuration map F_alpha -> quasi-invariant measure -> RN derivative -> Hilbert-space U_alpha`.
-
-Metric compatibility of a 4x4 Lorentz transport is not Hilbert-space unitarity.
-
-## Iter055B — B4 history semantics BLOCKED
-
-Preregistration `c014dc24bd296bf0b8ff09131d4e420800b8a34b`.
-Result `28024bae10d658075711743a8b7e3883ba033c61`.
-
-Classification:
-
-`BLOCKED_OBJECT_DEFINITION_ITER055B_B4_HISTORY_DOES_NOT_YET_DEFINE_G8A_CONFIGURATION_ENDOMORPHISM`.
-
-Under current authority a B4 maximal history is:
-
-> a combinatorial ordering/permutation together with a path through an already-given finite configuration, carrying an invertible metric-compatible fiber transport.
-
-The 24 histories are geometrically distinct on curved cells: relative holonomy spread is nonzero. But the path product acts between local frame/tangent fibers and does not update the complete configuration point `(G_v,A_e)`.
-
-G7B/G10B exact path composition and refinement-connected transport therefore do not by themselves define
-
-`F_alpha:X_Gamma->X_Gamma`.
-
-Refinement/coarse maps between different graph levels are also not invertible fixed-domain endomorphisms unless extra reconstruction data are supplied.
+No new CI was run for Iter055C because the gate was an authority/semantics audit over existing exact results; rerunning their algebra numerically would have been a duplicate/fake load.
 
 ## Current highest-information question
 
-The most obvious possible pre-existing rescue is the QGR covariance/gauge/relabeling action on the complete finite configuration object.
+The missing object is now specifically a **non-gauge physical event-update law on the complete finite configuration**.
 
-Prospective next gate:
+Highest-priority next audit:
 
-`CAN THE EXISTING FRAME / GAUGE / RELATIONAL RELABELING ACTION SUPPLY THE MISSING INVERTIBLE FULL-CONFIGURATION MAP F_alpha, AND IF SO IS IT PHYSICAL BRANCH DYNAMICS OR PURE GAUGE ON THE G8C/G8D PHYSICAL QUOTIENT?`
+`DOES THE ALREADY-DERIVED LOWER-ORDER QGR ACTION/EQUATIONS DEFINE A CANONICAL FINITE FULL-CONFIGURATION UPDATE OR FLOW THAT CAN BE COMPOSED ALONG B4 HISTORIES, WITHOUT INTRODUCING A NEW HAMILTONIAN, CLOCK, SYMPLECTIC FORM, DISCRETIZATION OR POST-HOC UPDATE RULE?`
 
-This is counterexample-first. A gauge transformation may be a perfectly good invertible/quasi-invariant map on kinematic configuration space while being physically redundant after constraint descent. Such a map must not be promoted to history dynamics merely because it yields a unitary Koopman operator.
+This must be source-first and counterexample-first. An equation of motion, stationary-action condition, fiber parallel transport, or refinement map is not automatically an invertible endomorphism of one fixed configuration space. If the current lower-order action lacks the phase-space/clock/boundary data needed to define such a map, that is a candidate-defining missing object rather than permission to invent it.
 
-If no non-gauge event-update endomorphism already exists, the G8A branch dynamics remains a candidate-defining missing object and the phase-free channel cannot yet be source-realized.
+If a pre-existing physical update map is found, only then test quasi-invariance/Radon-Nikodym data and its identification with B4 branch compositions. If not, keep the G8A branch dynamics source-realization blocked and move to the next genuinely independent closure route rather than relabeling gauge symmetry as dynamics.
