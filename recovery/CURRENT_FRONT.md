@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `Post-Iter054P / source-faithful coherent-history refinement-composition law`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE REGULATOR BRIDGE`
+Primary active front: `Post-Iter054Q / concrete Weyl-active history-action-transport construction`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
 
@@ -15,89 +15,101 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE REGULATOR BRIDGE`
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
 - Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
 - Quantum amplitude/measure transition: **not authorized**.
+- Global interacting measure/regulator removal: **not established**.
 - No physical ghost/spectrum, unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results are immutable.
 
-## Auto-research chain through Iter054K
+## Durable auto-research chain through Iter054K
 
-The post-Iter053U auto-research classical chain is durable and scoped:
+The post-Iter053U auto-research classical chain remains scoped and durable:
 
-- Iter054A: Weyl3 curvature-cubic equations activate a fourth-order principal part on Weyl-active backgrounds; no physical mode/hyperbolicity claim.
-- Iter054B: finite exact principal Hessian activation certificate; gauge-fixed principal symbol/well-posedness still open.
-- Iter054C: corrected finite local metric principal-symbol panel confirms four diffeomorphism principal null directions; hyperbolicity not authorized.
-- Iter054D: finite principal-order gauge completion lifts four gauge null directions and preserves quotient bilinears on the frozen panel; full mixed-order system still open.
-- Iter054E: exact mixed-order proxy `P=z+eps*lambda*z^2` separates a GR-connected root from a singular branch; strong hyperbolicity not authorized.
-- Iter054F/G/G-R: exact finite-`c6` versus order-reduced/EFT dynamical treatment is not selected by current QGR authority; the strong-hyperbolicity evolution object therefore remains definition-blocked.
-- Iter054H: conditional refinement-band separation only; no physical order-reduction authorization.
-- Iter054I/J/K: fixed-band continuum scaling gives the exact relation `rho=(k/k_HD)^2`; within the frozen proxy normalization a nonzero fixed-band Weyl3 correction cannot survive while the singular branch is simultaneously sent to infinite physical frequency. This does not authorize `c6(h)` running or UV completion.
+- Iter054A: Weyl3 curvature-cubic equations activate a fourth-order principal part on Weyl-active backgrounds.
+- Iter054B: finite exact principal-Hessian activation certificate; well-posedness not authorized.
+- Iter054C: corrected finite local metric principal-symbol panel confirms four diffeomorphism principal null directions; initial control-invalid run remains historical.
+- Iter054D: principal-order gauge completion lifts the four gauge null directions and preserves frozen quotient bilinears; full mixed-order system remains open.
+- Iter054E: exact proxy `P=z+eps*lambda*z^2` separates a GR-connected branch from a singular high-frequency branch; strong hyperbolicity not authorized.
+- Iter054F/G/G-R: current QGR authority does not select exact finite-`c6` versus order-reduced/EFT dynamics, so a physical strong-hyperbolicity evolution object remains definition-blocked.
+- Iter054H: conditional refinement-band separation only.
+- Iter054I/J/K: fixed-band continuum scaling yields `rho=(k/k_HD)^2`; within the frozen proxy a nonzero fixed-band Weyl3 correction cannot remain while the singular branch is simultaneously sent to infinite physical frequency. This does not authorize `c6(h)` running or UV completion.
 
-## Iter054L — terminal source discovery
+## Iter054L–N — quantum/source authority localization
 
-Authoritative run `34840748394`; aggregate job `103964951784`; summary artifact `10345464439`; digest `sha256:a5ba8efcf62006aca58d0a62ffc9b701011bf077668041b1fd59904fc049d827`; classification `SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L`.
+- Iter054L terminal source discovery: run `34840748394`, artifact `10345464439`, classification `SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L`.
+- Iter054M terminal `BLOCKED_OBJECT_DEFINITION_ITER054M_QUANTUM_MEASURE_CLOSURE_INCOMPLETE`.
+- Iter054N terminal `BLOCKED_OBJECT_DEFINITION_ITER054N_NO_CONTROLLED_WEYL3_SENSITIVE_COAREA_DATUM`.
 
-## Iter054M — terminal blocked object definition
+Current semantic closure map:
 
-Preregistration `dc10bc2cb8d9c14d91dc1b6e21294ee4fd55cf2f`; durable result `8794c6b9a49814e661e2c55ce1ca303c1f833cf9`; classification `BLOCKED_OBJECT_DEFINITION_ITER054M_QUANTUM_MEASURE_CLOSURE_INCOMPLETE`.
+- A microscopic amplitude/measure: scoped source authority present.
+- B relative-history normalization: scoped source authority present.
+- C regulator/removal: BLOCKED after Iter054P.
+- D microscopic-to-IR absolute `c6` identity: MISSING.
+- E normalized cross-level observable: algebraic template exists, but same-realization source realization remains open after adversarial review and Iter054Q.
 
-Semantic closure map after Iter054P: A microscopic amplitude/measure scoped-authorized; B relative-history normalization scoped-authorized; C regulator/removal remains incomplete/BLOCKED; D microscopic-to-IR `c6` identity missing; E normalized cross-level observable scoped-defined.
+## Iter054O — scoped PASS, adversarially qualified
 
-## Iter054N — terminal blocked object definition
+Historical terminal classification remains
 
-Preregistration `5af66f89f860873dbdce21fef58f5c5088327717`; durable result `f9492d2bcc99868ab16e478b491af8b6e2e48249`; classification `BLOCKED_OBJECT_DEFINITION_ITER054N_NO_CONTROLLED_WEYL3_SENSITIVE_COAREA_DATUM`.
+`PASS_SCOPED_ITER054O_NORMALIZED_CYLINDRICAL_CROSSLEVEL_OBSERVABLE_DEFINED__C6_IDENTITY_STILL_MISSING`.
 
-Existing controlled curvature-sensitive real-measure data do not supply a prospectively certified cubic/Weyl3 phase datum or canonical positive-measure-to-Lorentzian-phase map, so `c6` remains free.
+Adversarial review `results/ITER054O_ADVERSARIAL_SCOPE_REVIEW.md` gives verdict `QUALIFIED`:
 
-## Iter054O — terminal scoped PASS
+`ITER054O_ALGEBRAIC_OBSERVABLE_TEMPLATE_DEFINED__SAME_REALIZATION_SOURCE_MAP_OPEN`.
 
-Preregistration `ec601000eefe02b4122d3a41719af2a0c03a91a5`; production head `72d49cd7f9302b06ef55476626bc371cb9a02869`; authoritative run `34853254850`; scientific job `104006228913`; artifact `10351595414`; artifact digest `sha256:173720c80cc6cb8ed72bae644f5a823968d52f1bb535859b14d91eee01791e50`; raw summary digest `sha256:1d7a7de49cfdd7984dbaa91b37c3f1d8f60789ec18b33296f309785bea3e0aa1`; durable result commit `2fcee51293170ace1444a18e223db74cc362aa94`.
-
-Classification: `PASS_SCOPED_ITER054O_NORMALIZED_CYLINDRICAL_CROSSLEVEL_OBSERVABLE_DEFINED__C6_IDENTITY_STILL_MISSING`.
-
-Iter054M category E is scoped-defined. This does not fix `c6` and does not authorize a global interacting quantum measure.
+The hard-coded rational microscopic/IR cases and child splits are useful prospective algebraic witnesses, but they are not evaluations of a concrete common QGR history pair with derived `S_alpha`, compared/retained `U_alpha`, and a source-derived refinement map.
 
 ## Iter054P — terminal BLOCKED after implementation-invalid initial run
 
-Gate: `ITER054P-INTERACTING-MEASURE-REGULATOR-REFINEMENT-REMOVAL`.
+Initial green run `34859186155` is permanently implementation-invalid because its cylindrical test replaced the frozen quadratic P1 correction by a linear proxy.
 
-- preregistration `61e77c3576b428ab774e7caf1b6e27436e969364`
-- initial implementation `49445dccd394dba4118f1c6ebe8139668272c337`
-- initial run `34859186155` / artifact `10354880624`: **implementation-invalid**, because the cylindrical predicate tested a substituted linear-in-epsilon object instead of the frozen quadratic P1 correction
-- invalidity record `7c2d0dea72ff512f8f92ead18b28d96cde356da8`
-- control-only implementation repair `bac8075e65c9a266d736463bdc9adeef669e3b39`
-- authoritative exact retry `34861144143`
-- authoritative job `104033365588`
-- summary artifact `10354603982`
-- artifact digest `sha256:7db41c576cee0e1c682255b7298929307fda1d18668538c2cc7b3459c22d6423`
-- raw summary digest `sha256:05b43fc8a764e98d5403d8ce405746d98b56c6260202643075e1095dc9930d7e`
-- durable terminal result `3c96a01a4e152dd6ac7385d6af50fba7b3ad4ba4`
+Control-only repair commit `bac8075e65c9a266d736463bdc9adeef669e3b39`; authoritative exact retry run `34861144143`, job `104033365588`, artifact `10354603982`, raw summary digest `sha256:05b43fc8a764e98d5403d8ce405746d98b56c6260202643075e1095dc9930d7e`.
 
-Terminal classification: **`BLOCKED_OBJECT_DEFINITION_ITER054P_REGULATOR_REMOVAL_INCOMPLETE`**.
+Terminal classification:
 
-Seven of eight frozen requirements pass. `CYLINDRICAL_COMPATIBILITY=false` exactly because the frozen quadratic witness `P1-P1_inf = -(7/6) epsilon^2` is not additive under the preregistered unweighted dyadic split. For `epsilon_child=epsilon/2`, two child corrections sum to one half of the parent correction. P0, IR-GR and IR-W3 linear corrections pass the same exact split.
+`BLOCKED_OBJECT_DEFINITION_ITER054P_REGULATOR_REMOVAL_INCOMPLETE`.
 
-Structural diagnostic: for an unweighted b-child split and nonzero correction `a epsilon^r`, the child sum is `b^(1-r)` times the parent. Exact additivity therefore requires `r=1` unless a separate source-authorized weighting/composition rule changes the map.
+Seven of eight frozen requirements pass; the actual quadratic P1 correction fails the unweighted dyadic additive split exactly. This does not authorize changing the P1 exponent or inserting post-hoc child weights.
 
-## Source-faithful refinement authority already present
+## Existing source-faithful refinement authority
 
-The next gate must not invent another binary split. Existing QGR source authority distinguishes two operations:
+QGR already contains real composition structure:
 
-1. Iter006-G8A normalized interacting history instrument: 24 symmetry-related history branches, branch amplitude magnitude `24^(-1/2)`, branch channel weight `1/24`; across sequential levels amplitudes multiply and action phases add on concatenated histories.
-2. Iter006-G10B regular refinement-connected transport: fine principal transports compose by ordered product and converge to a path-ordered transport on the regular identity-connected branch.
+1. Iter006-G8A: `K_alpha = 24^(-1/2) exp(i S_alpha/hbar) U_alpha`; 24 symmetry-related histories; branch amplitudes multiply across sequential levels; action phases add along concatenated histories.
+2. Iter006-G10B: regular identity-connected transport composes by ordered products.
+3. Iter038/G38: actual scoped smooth-compact principal fine-to-coarse path/loop/groupoid blocking and projective transport convergence.
+4. Iter032/G32: conditional projective-limit local-action/additivity mechanism under its scopes.
 
-These source facts do **not** by themselves establish a regulator-removal theorem for the Iter054O normalized cross-level observable. They define the object-identity obligations for the next prospective gate.
+These facts are genuine, but they are not yet one concrete Weyl-active microscopic history observable.
+
+## Iter054Q — terminal missing-object BLOCKED
+
+Preregistration `9b8fac9a8f2ce7ec932c21286c2ed8b0e774e61c`; durable result `98410ee0a867bd291b54ebb070988207e29b4498`.
+
+Terminal classification:
+
+**`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054Q_SOURCE_REALIZED_RELATIVE_OBSERVABLE_REFINEMENT_MAP`**
+
+Frozen obligations:
+
+- A concrete same-realization microscopic branch/action datum: **missing**.
+- A transport comparison or operator-valued treatment for the same histories: **missing**.
+- A source-defined refinement/composition map: **real ingredients exist, but not assembled for the same object**.
+- An IR symbolic map: **template/partial only for the missing same-realization object**.
+
+The repository authority audit covered G8A/G10B, G19/G20, G25, G27, G28, G29, G30, G31, G32, G38, the G23–G38 phase-bridge qualification, and Iter054L–P. The later records do not override the durable G25/G27/G29/G30 fact that a physical same-realization finite-curved/Weyl-active phase sample remains underived.
 
 ## Highest-information successor
 
-Prospectively freeze a source-faithful refinement/composition audit for the Iter054O relative phase observable. It must distinguish history-branch normalization from sequential action composition and from transport product composition.
+Do not run another synthetic phase/refinement panel. Prospectively attempt to construct one concrete Weyl-active history/action/transport object from the already-authorized scoped G38 principal realization and existing QGR action/source primitives.
 
-The next gate must:
+The next gate must freeze before construction:
 
-1. use the actual 24-history normalization/composition law from Iter006-G8A rather than a post-hoc binary child weight;
-2. use action-phase addition only along source-authorized concatenated histories;
-3. use ordered-product refinement for transport where required by Iter006-G10B;
-4. define the finite-refinement relative observable from actual QGR branch/action data or classify `BLOCKED_MISSING_REQUIRED_OBJECT` if no same-realization map exists;
-5. test Cauchy/refinement consistency and malformed-composition controls without constructing the positive sequence to satisfy the criterion by definition;
-6. keep `c6` symbolic, preserve the missing category-D coefficient identity, reject the Iter009 global oscillatory partition route, and fail closed on global measure, unitarity, UV completion and full-QG claims.
+1. exact G38 path/loop/groupoid history data and refinement relation;
+2. exact existing rule, if any, that maps those geometric data to a QGR source and action `S_alpha`;
+3. exact treatment/comparison of `U_alpha` in the relative observable;
+4. exact concatenation/refinement composition;
+5. Weyl-active positive and Weyl-inactive/mismatched-history negative controls;
+6. no new physical coupling, source normalization, child weighting, phase value or matching parameter.
 
-Do not drop the failed P1 witness, change its exponent, or add child weights to rescue Iter054P. Any physically different weighting/composition law belongs to a new prospectively preregistered gate.
+If the G38 geometric history cannot be mapped to `S_alpha` without introducing a new physical primitive, terminate `BLOCKED_MISSING_REQUIRED_OBJECT` and identify that missing history-to-source/action functional map. Only a source-realized object may feed a new regulator-removal gate.
