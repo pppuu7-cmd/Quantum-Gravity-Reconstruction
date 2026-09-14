@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55D_BLOCKED",
+    "iteration": "POST_55F_SCOPED_CHANNEL_SURVIVES__INTERACTING_FALPHA_BLOCKED",
     "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_SOURCE_REALIZATION"
   },
   "readiness": {
@@ -37,7 +37,9 @@
     "iter055a": "BLOCKED_G3_GEOMETRIC_TRANSPORT_TO_G8A_UNITARY_CHANNEL_BRIDGE_INCOMPLETE",
     "iter055b": "BLOCKED_B4_HISTORY_DOES_NOT_DEFINE_G8A_CONFIGURATION_ENDOMORPHISM",
     "iter055c": "PASS_SCOPED_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS",
-    "iter055d": "BLOCKED_LOWER_ORDER_ACTION_DOES_NOT_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW"
+    "iter055d": "BLOCKED_LOWER_ORDER_ACTION_DOES_NOT_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW",
+    "iter055e": "INVALID_REDUNDANT_GATE_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R",
+    "iter055f": "PASS_SCOPED_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION"
   },
   "iter055c": {
     "preregistration_commit": "0adbff561977a37e3b9653ee713d8cf1fd942aaf",
@@ -55,11 +57,26 @@
     "b4_histories_identified_with_physical_flow_compositions": false,
     "new_ci_required": false
   },
+  "iter055e": {
+    "preregistration_commit": "6e349397fccfbbbd936c9a496fcc48476039b394",
+    "durable_result_commit": "2f97f495d15def38bc3467a03536398b2bfdb2eb",
+    "classification": "INVALID_REDUNDANT_GATE_ITER055E_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R",
+    "new_scientific_result": false
+  },
+  "iter055f": {
+    "preregistration_commit": "9509036860eb2efd6568758598397f33b491084c",
+    "durable_result_commit": "c11317b0c1326796f8b5187b907122df4ba1ffbf",
+    "classification": "PASS_SCOPED_ITER055F_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION",
+    "one_particle_channel_survives": true,
+    "full_interacting_g8a_instrument_established": false
+  },
   "object_identity": {
     "g7b_configuration_object": "X_Gamma={(G_v,A_e)}",
     "b4_history_object": "combinatorial_ordering_plus_path_inside_given_configuration",
     "iter054s_transport_object": "4x4_Lorentz_metric_compatible_geometric_path_transport",
+    "iter009g6_unitary_object": "one_particle_characteristic_Lorentz_transport_unitary_on_physical_L2",
     "g8a_unitary_object": "Koopman_Radon_Nikodym_unitary_from_invertible_quasi_invariant_configuration_map",
+    "one_particle_g6_equals_g8a_configuration_unitary": false,
     "frame_relabeling_object": "gauge_BRST_redundancy_on_physical_observable_algebra",
     "s4_seed_object": "finite_symmetry_transport_not_generic_microscopic_time_evolution",
     "lower_order_action_object": "all_orders_local_metric_only_two_derivative_variational_functional",
@@ -68,11 +85,16 @@
     "g3_transport_to_g8a_configuration_map_bridge_established": false
   },
   "active_question": {
-    "id": "QGR-ORTHOGONAL-NEXT-CLOSURE-AFTER-PHYSICAL-UPDATE-BLOCKER",
-    "text": "Can an already-existing independent QGR quantum amplitude/measure/regulator-removal structure be closed without assuming the undefined physical F_alpha branch map, or is a new physical event-update principle explicitly required as candidate-defining input?"
+    "id": "QGR-FIRST-POST-G6-QUANTUM-EXTENSION-WITHOUT-FALPHA",
+    "text": "What is the first mathematically source-defined extension beyond the surviving Iter009-G6 one-particle trace-class channel that can be tested without assuming the still-undefined physical F_alpha full-configuration branch map?"
   },
-  "active_blocker": "PHYSICAL_FULL_CONFIGURATION_EVENT_UPDATE_LAW_MISSING_CANDIDATE_DEFINING_OBJECT__G3_TO_G8A_KOOPMAN_BRIDGE_INCOMPLETE__LOWER_ORDER_SOURCE_HISTORY_PHASE_NOT_REALIZED__WEYL3_ACTION_INCREMENT_MISSING__REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Do not invent a Hamiltonian, clock, symplectic form, integrator or event-update map post hoc. Prefer an orthogonal prospective quantum amplitude/measure/regulator-removal gate that does not assume F_alpha, unless a previously existing physical event-update authority is found.",
+  "active_blocker": "PHYSICAL_FULL_CONFIGURATION_EVENT_UPDATE_LAW_MISSING_CANDIDATE_DEFINING_OBJECT__G3_TO_G8A_KOOPMAN_BRIDGE_INCOMPLETE__FULL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED__LOWER_ORDER_SOURCE_HISTORY_PHASE_NOT_REALIZED__WEYL3_ACTION_INCREMENT_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Preserve the Iter009-G6 one-particle channel as a scoped surviving sector but never promote it to G8A. Do not invent F_alpha, a Hamiltonian, a clock calibration, a many-body lift, or an interacting measure. The next gate must identify a pre-existing or prospectively defined post-G6 extension object whose construction does not presuppose F_alpha.",
+  "operational": {
+    "scheduled_task_generic_error_is_scientific_fail": false,
+    "automation_runner_mitigation_document": "recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md",
+    "constructor_and_referee_short_orchestrator_mode": true
+  },
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
@@ -81,6 +103,7 @@
     "full_covariant_six_derivative_eom_established": false,
     "weyl3_dynamical_treatment_authorized": false,
     "strong_hyperbolicity_evolution_object_defined": false,
+    "one_particle_trace_class_channel_scoped_established": true,
     "quantum_unitarity_established": false,
     "global_interacting_measure_established": false,
     "regulator_removal_established": false,
