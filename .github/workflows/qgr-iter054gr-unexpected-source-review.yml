@@ -1,0 +1,55 @@
+name: QGR Iter054G-R unexpected source authority review
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054gr_unexpected_source_authority_review.py'
+      - 'prereg/ITER054G-R-UNEXPECTED-DYNAMICAL-TREATMENT-SOURCE-AUTHORITY-REVIEW.md'
+      - '.github/workflows/qgr-iter054gr-unexpected-source-review.yml'
+  workflow_dispatch:
+
+jobs:
+  review:
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3,4,5,6,7]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Frozen source review lane
+        run: python code/qgr_iter054gr_unexpected_source_authority_review.py --index '${{ matrix.index }}' --out 'iter054gr/${{ matrix.index }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054gr-${{ matrix.index }}
+          path: iter054gr/${{ matrix.index }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: review
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054gr-*
+          path: iter054gr-input
+          merge-multiple: false
+      - name: Frozen Iter054G-R aggregate
+        run: python code/qgr_iter054gr_unexpected_source_authority_review.py --aggregate iter054gr-input --out iter054gr-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054gr-summary
+          path: iter054gr-summary/summary.json
+          if-no-files-found: error
