@@ -27,8 +27,62 @@ jobs:
           path: iter053u-guard/guard.json
           if-no-files-found: error
 
-  lane:
+  part:
     needs: [authorization]
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {stream: A, index: 0, side: base, kind: direct}
+          - {stream: A, index: 0, side: base, kind: weighted}
+          - {stream: A, index: 1, side: base, kind: direct}
+          - {stream: A, index: 1, side: base, kind: weighted}
+          - {stream: A, index: 2, side: base, kind: direct}
+          - {stream: A, index: 2, side: base, kind: weighted}
+          - {stream: A, index: 3, side: base, kind: direct}
+          - {stream: A, index: 3, side: base, kind: weighted}
+          - {stream: B, index: 0, side: base, kind: direct}
+          - {stream: B, index: 0, side: base, kind: weighted}
+          - {stream: B, index: 1, side: base, kind: direct}
+          - {stream: B, index: 1, side: base, kind: weighted}
+          - {stream: C, index: 0, side: base, kind: direct}
+          - {stream: C, index: 0, side: base, kind: weighted}
+          - {stream: C, index: 0, side: transformed, kind: direct}
+          - {stream: C, index: 0, side: transformed, kind: weighted}
+          - {stream: C, index: 1, side: base, kind: direct}
+          - {stream: C, index: 1, side: base, kind: weighted}
+          - {stream: C, index: 1, side: transformed, kind: direct}
+          - {stream: C, index: 1, side: transformed, kind: weighted}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Frozen Iter053U integration part
+        working-directory: code
+        run: >-
+          python qgr_iter053u_parallel_parts.py
+          --mode part
+          --kind '${{ matrix.kind }}'
+          --stream '${{ matrix.stream }}'
+          --index '${{ matrix.index }}'
+          --side '${{ matrix.side }}'
+          --state '../recovery/state.json'
+          --out '../iter053u-parts/${{ matrix.stream }}-${{ matrix.index }}-${{ matrix.side }}-${{ matrix.kind }}/part.json'
+      - name: Upload fresh part evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053u-part-${{ matrix.stream }}-${{ matrix.index }}-${{ matrix.side }}-${{ matrix.kind }}
+          path: iter053u-parts/${{ matrix.stream }}-${{ matrix.index }}-${{ matrix.side }}-${{ matrix.kind }}/part.json
+          if-no-files-found: error
+
+  lane:
+    if: always() && needs.authorization.result == 'success'
+    needs: [authorization, part]
     strategy:
       fail-fast: false
       matrix:
@@ -48,12 +102,20 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check numpy scipy sympy
-      - name: Frozen Iter053U scientific lane
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter053u-part-${{ matrix.stream }}-${{ matrix.index }}-*
+          path: iter053u-part-input
+          merge-multiple: false
+      - name: Frozen Iter053U lane reducer
         working-directory: code
         run: >-
-          python qgr_iter053u_corrected_full.py
+          python qgr_iter053u_parallel_parts.py
+          --mode reduce
           --stream '${{ matrix.stream }}'
           --index '${{ matrix.index }}'
+          --state '../recovery/state.json'
+          --input-dir '../iter053u-part-input'
           --out '../iter053u-lanes/${{ matrix.stream }}-${{ matrix.index }}/lane.json'
       - name: Upload fresh lane evidence
         if: always()
