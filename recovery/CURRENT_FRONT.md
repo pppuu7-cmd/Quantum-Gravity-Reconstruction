@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER056I / CONDITIONAL LOCAL EXISTENCE FOR FINITE ORDER-REDUCED TRUNCATIONS`
-Project phase: `MODEL_CONSTRUCTION / PROSPECTIVE ORDER-REDUCED CANDIDATE MATHEMATICS`
+Primary active front: `POST-ITER056J / PHYSICAL TREATMENT SELECTOR FOR WEYL3 DYNAMICS`
+Project phase: `MODEL_CONSTRUCTION / DYNAMICAL-TREATMENT AUTHORITY`
 
 ## Canonical claim locks
 
@@ -12,31 +12,38 @@ Project phase: `MODEL_CONSTRUCTION / PROSPECTIVE ORDER-REDUCED CANDIDATE MATHEMA
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; running not authorized.
 - Historical QGR physical Weyl3 treatment selector remains absent.
-- Strong hyperbolicity of the full higher-derivative theory is not established.
+- Strong hyperbolicity of the exact full higher-derivative theory is not established.
 - Micro-to-continuum reconstruction and global interacting measure/regulator removal remain blocked.
 
-## Latest chain
+## Terminal formal-mathematics chain
 
 Iter056G:
 `PASS_SCOPED_ITER056G_EINSTEIN_SHELL_REMOVES_WEYL3_FOURTH_METRIC_DERIVATIVES`.
-The covariant Einstein-shell source can be reduced to `(nabla C)^2` plus algebraic curvature terms, removing second derivatives of Weyl and bounding the known-source metric differential order by 3.
 
-Iter056H prereg `efd833bdd346a2a0f3aaa00aa69843a54b721a2f`; result `96d53cd442ad5bac1fb4e890973b247130f0d7c1`:
+Iter056H:
 `PASS_SCOPED_ITER056H_FINITE_ORDER_TRUNCATION_HAS_EXPLICIT_HS_PLUS_2N_REGULARITY_BUDGET`.
-For any fixed truncation order N, a conservative budget `g_0 in H^{s+2N}` with `g_n in H^{s+2(N-n)}` closes the derivative bookkeeping under the conditional lower-order hyperbolic estimate. This is not uniform in N and does not imply convergence.
+For fixed N, a conservative sufficient budget is `g_0 in H^{s+2N}` and `g_n in H^{s+2(N-n)}`.
 
-Iter056I prereg `1047050115a5b0ba05c625499a7cd543a1d57200`; result `ff49d6805b521a9edbd89881597cb9bb8189caf9`:
+Iter056I:
 `PASS_SCOPED_ITER056I_ALL_FORMAL_COEFFICIENT_SOURCES_ARE_RECURSIVELY_BIANCHI_COMPATIBLE`.
-The exact diffeomorphism Noether identity implies inductively that every formal source `S_n` satisfies the background linearized Bianchi/constraint compatibility condition once all lower coefficient equations hold.
+
+Iter056J prereg `988a39962ead180f00b42a600fd4b7b60a8c6d37`; result `82a1adba8fcd66e245970448ff6fbb47380d34a1`:
+`PASS_SCOPED_CONDITIONAL_ITER056J_EVERY_FIXED_FINITE_ORDER_TRUNCATION_HAS_SEQUENTIAL_LOCAL_SOLUTION`.
+
+Under an independently supplied strongly hyperbolic lower-order gauge formulation, compatible initial data, the Iter056G source reduction and Iter056H regularity budget, every fixed finite formal order-reduced truncation can be solved sequentially on a sufficiently short common local interval.
+
+## Scientific consequence
+
+The prospective order-reduced **finite-N mathematical candidate** is not presently blocked by an internal finite-order PDE inconsistency in the audited scope. The surviving blocker is upstream and physical: QGR has no established principle that selects this treatment over the exact higher-derivative equations or another admissible treatment.
+
+Do not confuse mathematical viability of a prospective candidate version with historical QGR authority.
 
 ## Current highest-information gate
 
-Combine Iter056B/D/G/H/I into one prospectively frozen **conditional finite-N local-existence theorem** for the formal order-reduced coefficient hierarchy.
+Audit the complete repository authority for a physical treatment selector. A valid selector must independently justify why the Weyl3 correction is to be interpreted perturbatively/order-reduced (or instead exactly), using a QGR-owned physical principle rather than continuity alone, mathematical convenience, desire to remove fast modes, or post-hoc ghost avoidance.
 
-The theorem may assume an independently supplied strongly hyperbolic lower-order gauge formulation and constraint-compatible initial data. It must state the explicit regularity budget and solve coefficients sequentially with the same lower-order principal operator. It must not be promoted to all-order convergence or historical QGR physical treatment authority.
-
-If this gate passes, the main remaining obstruction in this branch is no longer internal formal mathematical consistency of finite-N truncations; it is the missing physical principle selecting this prospective treatment as QGR dynamics.
+If no such candidate-owned selector exists, record a terminal missing-authority result rather than inventing one. If one exists, prospectively freeze its exact physical content and falsification test before using it downstream.
 
 ## Operational status
 
-No GitHub Actions production is needed for this analytic theorem unless a genuinely independent control is introduced. Scheduled automation remains in short-orchestrator mode.
+No active authoritative GitHub Actions production is required at this moment. Scheduled automation remains in short-orchestrator mode.
