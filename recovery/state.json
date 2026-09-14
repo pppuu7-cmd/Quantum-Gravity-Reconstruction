@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-15",
-    "iteration": "ITER056W_BALANCED_PAIR_SCALEFREE_SHAPE_REFINEMENT_AUTHORITY_AUDIT",
-    "phase": "MODEL_CONSTRUCTION_SELECTOR_ENABLING_CROSS_LEVEL_OBJECTS"
+    "iteration": "ITER056X_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_CERTIFICATE",
+    "phase": "COVARIANT_WEYL3_VARIATIONAL_CERTIFICATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,21 +16,22 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "previous_front_was_stale": true,
-    "previous_front_named": "ITER056S_PRODUCTION_PENDING",
     "iter056s_production_finalized": true,
-    "iter056s_finalization_commit": "85a3c5d29efeda571e9a991decb6ba2d2b220f38",
-    "latest_preregistration_commit": "ff7820c7c13de134e950a6a9b08088102364f350",
-    "latest_active_gate": "ITER056W-BALANCED-PAIR-SCALEFREE-SHAPE-INVARIANT-REFINEMENT-AUTHORITY",
+    "iter056s_finalization_commit": "ec2e9c9ff75364b16226eb1d12814d6acd32154c",
+    "iter056s_state_sync_commit": "0e33d65eb5e8522680d206dbcfc264a49461e207",
+    "iter056s_front_sync_commit": "aa77841c0500900ac16921e1a04a289e6aa4415f",
+    "iter056w_preregistration_commit": "ff7820c7c13de134e950a6a9b08088102364f350",
     "iter056w_frozen_authority_cutoff": "49e1fcff6bbcedd1ef2625a1c0cf25dfa2363133",
-    "iter056w_verdict_recorded": false
+    "iter056w_durable_result_commit": "fbb9abe8ec8951c31fa08bc7c0451984ff6e8afa",
+    "latest_preregistration_commit": "ed37dea540cb8afdc395486c93a8a92fefb02a0c",
+    "latest_active_gate": "ITER056X-COVARIANT-WEYL3-DIRECTIONAL-VARIATION-CERTIFICATE"
   },
   "recent_authority": {
     "iter056s": {
       "status": "TERMINAL_PASS_PRODUCTION_CONSUMED",
       "classification": "PASS_SCOPED_CONDITIONAL_ITER056S_BALANCED_PAIR_SECTOR_HAS_EXACT_TIDAL_CUBIC_SHAPE_BRIDGE",
       "durable_result_path": "results/ITER056S_BALANCED_PAIR_TIDAL_CUBIC_SHAPE_TERMINAL.md",
-      "finalization_commit": "85a3c5d29efeda571e9a991decb6ba2d2b220f38",
+      "finalization_commit": "ec2e9c9ff75364b16226eb1d12814d6acd32154c",
       "authoritative_run": 34896461228,
       "aggregate_job": 104156268611,
       "summary_artifact": 10369815451,
@@ -44,20 +45,28 @@
       "classification": "BLOCKED_OBJECT_DEFINITION_ITER056V_ABSOLUTE_MICRO_TO_TIDAL_AMPLITUDE_MAP_REMAINS_UNFIXED"
     },
     "iter056w": {
-      "status": "PREREGISTERED_SOURCE_AUTHORITY_AUDIT_NOT_YET_EXECUTED",
+      "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
       "gate": "ITER056W-BALANCED-PAIR-SCALEFREE-SHAPE-INVARIANT-REFINEMENT-AUTHORITY",
       "preregistration_commit": "ff7820c7c13de134e950a6a9b08088102364f350",
       "frozen_authority_cutoff": "49e1fcff6bbcedd1ef2625a1c0cf25dfa2363133",
+      "durable_result_commit": "fbb9abe8ec8951c31fa08bc7c0451984ff6e8afa",
+      "actions_run": null,
+      "classification": "BLOCKED_OBJECT_DEFINITION_ITER056W_BALANCED_PAIR_TENSOR_HAS_NO_SOURCE_OWNED_PARENT_CHILD_REFINEMENT_RULE"
+    },
+    "iter056x": {
+      "status": "PREREGISTERED_NOT_YET_IMPLEMENTED",
+      "gate": "ITER056X-COVARIANT-WEYL3-DIRECTIONAL-VARIATION-CERTIFICATE",
+      "preregistration_commit": "ed37dea540cb8afdc395486c93a8a92fefb02a0c",
       "actions_run": null,
       "classification": null
     }
   },
   "active_question": {
-    "id": "ITER056W-BALANCED-PAIR-SCALEFREE-SHAPE-INVARIANT-REFINEMENT-AUTHORITY",
-    "text": "Does frozen QGR authority already define a source-owned parent-to-child/refinement operation on the same G2 balanced pair tensor object that transports or compares chi2_B4 across refinement levels without new interpolation, averaging, amplitude conversion or event-unit normalization?"
+    "id": "ITER056X-COVARIANT-WEYL3-DIRECTIONAL-VARIATION-CERTIFICATE",
+    "text": "Can QGR construct and certify a genuinely four-dimensional covariant directional variation/full functional-derivative kernel for sqrt(-g) Weyl^3 with c6 symbolic, including determinant variation, Weyl variation, covariant integration by parts, highest-derivative accounting, diffeomorphism-identity control, and independent exact controls, without using a third symmetry reduction as the derivation?"
   },
-  "active_blocker": "ITER056W_SOURCE_AUTHORITY_AUDIT_PENDING__BALANCED_PAIR_PARENT_CHILD_REFINEMENT_RULE_NOT_YET_CLASSIFIED",
-  "next_gate_lock": "Execute only the prospectively frozen Iter056W source/authority audit. Do not borrow geometric/path refinement by analogy, invent child averaging or balanced-sector projection, or use beta, kappa, c6, branch phase, treatment choice, or synthetic child panels. Record exactly one frozen PASS/BLOCKED/FAIL/INVALID result before opening a successor gate.",
+  "active_blocker": "ITER056X_EXACT_COVARIANT_VARIATION_IMPLEMENTATION_AND_CONTROL_CERTIFICATE_NOT_YET_BUILT",
+  "next_gate_lock": "Implement only the prospectively frozen Iter056X covariant directional-variation certificate. No third repetitive symmetry reduction; symmetry-reduced sectors may be used only after the covariant derivation as controls. Keep c6 symbolic/unfixed and beta=1 unauthorized. Launch Actions only after exact implementation plus frozen controls exist; green CI alone is not scientific PASS.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
