@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `Iter054M / semantic quantum amplitude-measure source-authority review`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE TRANSITION`
+Primary active front: `Iter054N / torsion-coarea Jacobian Weyl3 datum audit`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE C6 BRIDGE`
 
 ## Canonical claim locks
 
@@ -13,47 +13,44 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE TRANSITION`
 - `c6`: symbolic/unfixed; no regulator-dependent scaling is authorized.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
-- Complete mixed-order evolution reduction: **not established**.
 - Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
 - Quantum amplitude/measure transition: **not authorized**.
 - No physical ghost/spectrum, unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results are immutable.
 
-## Iter054L — TERMINAL / SOURCE AUTHORITY PRESENT FOR REVIEW
+## Iter054L — TERMINAL SOURCE DISCOVERY
 
-Gate: `ITER054L-QUANTUM-AMPLITUDE-MEASURE-CLOSURE-AUTHORITY`.
+Authoritative run `34840748394`; aggregate job `103964951784`; summary artifact `10345464439`; digest `sha256:a5ba8efcf62006aca58d0a62ffc9b701011bf077668041b1fd59904fc049d827`; classification `SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L`.
 
-- preregistration `a7660a073d19a39d9c8a36bc86e35c41aa226899`
-- implementation `6806fbf81f2a60d0e608b59c03e8bceabcedd9ac`
-- production head `5a172e302d34c8429debc1b98bf247f9a05f4fda`
-- authoritative run `34840748394`
-- aggregate job `103964951784`
-- summary artifact `10345464439`
-- digest `sha256:a5ba8efcf62006aca58d0a62ffc9b701011bf077668041b1fd59904fc049d827`
-- classification **`SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L`**
+Iter054L found candidate paths in all five discovery categories, but explicitly left the physical quantum measure unauthorized and left the `c6` identity and cross-level observable unauthorized. Durable note: `results/ITER054L_TERMINAL_RESULT.md`.
 
-Raw lane provenance:
+## Iter054M — TERMINAL BLOCKED OBJECT DEFINITION
 
-- A0 `103964899359` / artifact `10345389634` / `sha256:bb8add2160abda16de4752d47cf9d31689c650566f8af5f1d6099902b5a33ea9`
-- A1 `103964899304` / artifact `10346215781` / `sha256:b63a5c30e7d3fbd3addedf6109cbe5b238c74b8c27f34773c9725ada1c144c64`
-- B0 `103964899418` / artifact `10345852004` / `sha256:9e6a07bf1fe3f2b4c711e332036bf913f6733596bdde1d379253f7d4126e4b2d`
-- B1 `103964899197` / artifact `10346101153` / `sha256:8db9c64ad94c5ca7431923a1ac60d2bf0ab0319f2d65892146320c270e874a4c`
+Gate: `ITER054M-SEMANTIC-QUANTUM-MEASURE-SOURCE-AUTHORITY-REVIEW`.
+Preregistration: `dc10bc2cb8d9c14d91dc1b6e21294ee4fd55cf2f`.
+Classification: **`BLOCKED_OBJECT_DEFINITION_ITER054M_QUANTUM_MEASURE_CLOSURE_INCOMPLETE`**.
+Durable result commit: `8794c6b9a49814e661e2c55ce1ca303c1f833cf9`.
 
-All five discovery categories have candidate source paths, but the frozen aggregate explicitly leaves `physical_quantum_measure_authorized=false`. B0 also leaves `explicit_c6_identity_authorized=false` and `cross_level_observable_authorized=false`. Keyword and governance hits therefore do not close the quantum transition.
+Frozen semantic category map:
 
-Durable note: `results/ITER054L_TERMINAL_RESULT.md`.
+- A microscopic amplitude/measure: `AUTHORIZED_IN_SOURCE_SCOPED` via Iter006 regular-Lorentzian `dmu` and coherent history operator.
+- B normalization: `AUTHORIZED_IN_SOURCE_SCOPED_RELATIVE_HISTORY_NORMALIZATION` via the 24-history `1/sqrt(24)` normalization and isometric/CPTP composition; this does not fix `beta` or `c6`.
+- C interacting measure regulator removal: `MISSING_OR_INCOMPLETE`; Iter009 blocks the naive globally normalized interacting vacuum weight and only closes finite operator/one-particle/channel limits.
+- D microscopic-to-IR identity reaching `c6`: `MISSING`; Iter009/010 explicitly leave `c6` unidentifiable and isolate a missing nonhomogeneous absolute microscopic target.
+- E normalized microscopic/IR cross-level comparator: `MISSING_OR_INCOMPLETE`; scoped channel comparators exist, but the required absolute Weyl3-sensitive bridge remains future work.
 
-## Iter054M — next highest-information gate
+Quantum amplitude/measure closure is therefore not authorized. This is not a no-go theorem against all possible quantum measures.
 
-Prospectively perform a semantic raw-source review of the Iter054L candidate paths. The gate must distinguish explicit mathematical authority from roadmap language, keyword hits, external-methodology notes, proxies, and statements that an object remains missing.
+## Iter054N — next highest-information gate
 
-Five objects are reviewed separately:
+Do not repeat broad source discovery. The strongest already-internal candidate for the missing nonhomogeneous microscopic datum is the regular-stratum torsion coarea/Jacobian factor identified in Iter006/Iter011.
 
-1. microscopic amplitude or measure;
-2. normalization fixing relative/absolute weights without `beta=1` convention;
-3. regulator-removal or distributional-extension rule for that amplitude/measure;
-4. microscopic-to-IR parameter identity that actually reaches `c6` without assumed regulator running;
-5. at least one normalized observable defined on both microscopic and IR sides.
+Prospectively determine:
 
-A category is `AUTHORIZED_IN_SOURCE` only if an explicit definition/derivation is present. Otherwise it is `MISSING_OR_OBLIGATION_ONLY`. Partial authority does not authorize the quantum amplitude/measure transition. No post-hoc construction is allowed inside the audit.
+1. whether the same-field-content Weyl-active finite-cell torsion Jacobian has a controlled curvature-dependent asymptotic contribution;
+2. whether a cubic/Weyl3-sensitive component survives the refinement scaling in a nonhomogeneous, canonically normalized way;
+3. whether the factor is strictly a positive real measure weight or current QGR authority derives a canonical map to the coherent Lorentzian phase;
+4. whether that map, if any, actually lifts the free `c6` phase direction.
+
+A curvature-dependent positive Jacobian weight alone does not fix `c6`. `-log|det J|` cannot be silently identified with a Lorentzian phase. No arbitrary torsion penalty or external loop coefficient may be introduced.
