@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055O / CELL-RELATIVE SCALE-COVARIANT SMEARING FAMILY AND BOUNDARY CAUSAL TYPE`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE INTERNAL REFINEMENT SCALE`
+Primary active front: `POST-ITER055P / TWO INDEPENDENT BRIDGE BLOCKERS: TIMELIKE-B3 ANCHOR + SPACELIKE-B3 PROFILE SELECTION`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE CAUSAL STRATIFICATION`
 
 ## Canonical claim locks
 
@@ -15,35 +15,36 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE INTERNAL REFINEMENT S
 - Physical Weyl3 treatment selector / strong hyperbolicity theorem: **absent**.
 - No full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## Relevant bridge chain
+## Relevant terminal bridge chain
 
-- Iter055K: raw one-particle `L2 ->` pointwise B3 restriction is unbounded.
+- Iter055K: raw `L2 ->` pointwise B3 restriction is unbounded.
 - Iter055L: bounded physical Hilbert-dual smearing is the minimal full-domain-preserving bridge class.
-- Iter055M: no concrete smearing/refinement kernel is source-selected.
+- Iter055M: no concrete source-selected smearing/refinement kernel exists.
 - Iter055N: no nonzero universal fixed scalar `L2` kernel exists without relational data.
-- Iter055O prereg `d85444875d4dc9f93d8cdcb6e08144318d4c86f6`, result `4d8563b9cbb4db844bc18a223e0f0b6a52031c34`:
-  `PASS_SCOPED_PARTIAL_ITER055O_BOUNDARY_DIRECTION_ANCHOR_EXISTS__PHYSICAL_SMEARING_SCALE_UNFIXED`.
+- Iter055O: regular embedded non-null B3 supplies a covariant normal line, but absolute physical smearing scale is unfixed.
+- Iter055P prereg `cab24dfced6e38f77b5034cf5f868a08817eb9c6`, result `d07f3df0c9c22516d2f2105a7e6f110e40bef0fb`:
+  `PASS_SCOPED_PARTIAL_ITER055P_CELL_RELATIVE_CLASS_EXISTS_FOR_SPACELIKE_B3_TIMELIKE_NORMAL__TIMELIKE_B3_NEEDS_EXTRA_ANCHOR`.
 
-## Iter055O scientific result
+## Iter055P scientific result
 
-The shared B3 is an embedded incidence subcomplex with an exact restriction map. Its three-dimensional tangent subspace determines a one-dimensional conormal line. The physical metric maps this to a covariant normal line, and on a regular non-null face a unit normal can be formed up to ordinary coorientation/sign. Thus no new observer direction is needed for the boundary anchor.
+For a spacelike B3 with future-timelike unit normal `n`, the symbolic microscopic scale `h` is sufficient at class level:
 
-The physical radial scale is not fixed. G7A proves the exact normalization degeneracy `a_cont = c_geom*kappa/h^2`, with `h -> lambda h`, `kappa -> lambda^2 kappa`. Existing authority does not identify `h` absolutely or set it to a Planck length.
+`phi_(h,n)(k)=h f(h n.k)`
 
-## Current highest-information gate
+has an `h`-independent norm for every `f` with `integral s|f(s)|^2 ds < infinity`, and refinement `h -> h/r` is implemented by the unitary massless-cone dilation `D_(1/r)`. This internal refinement class exists even though G7A leaves the absolute physical value of `h` unidentified.
 
-Test whether absolute calibration is actually required for the **internal sector bridge**. A microscopic cell scale parameter `h` already exists in the refinement construction even though its physical value is unidentified. Prospectively ask whether one can define a covariant normalized family `phi_(h,n)` whose profile depends only on dimensionless combinations such as `h (n.k)` and whose refinement law is induced by `h -> h/r`, so that channel/intertwining tests can be formulated dimensionlessly before external scale calibration.
+For a timelike B3 with spacelike normal, a profile depending only on `h(n.k)` cannot be nonzero and square-integrable over the full future cone: high-energy null rays tangent to the boundary keep `n.k` bounded/near zero. An extra relational timelike/frame datum is required.
 
-The gate must separate boundary causal type:
+## Two independent next gates
 
-- for a spacelike B3 with future-timelike unit normal `n`, `n.k>0` on the future null cone and can serve as a covariant energy variable;
-- for a timelike B3 with spacelike normal, `n.k` has angular zero sets and may not by itself control ultraviolet momentum in all null directions;
-- null B3 remains outside the normalized Iter055O scope.
+### Lane Q — timelike-B3 relational timelike anchor
+Audit whether existing candidate-owned QGR boundary geometry/readout structure supplies a timelike tangent/observer datum independent of external preparation/detector choices. A physical metric plus a spacelike normal alone must not be mistaken for a preferred timelike tangent vector. External detector four-velocity may define an observable but is not automatically candidate-owned bridge authority.
 
-Do not choose a concrete radial shape after seeing results. First determine whether the source data `(h,n)` are mathematically sufficient to define a nonempty square-integrable covariant **class** with norm-preserving refinement scaling, and whether this works for all allowed non-null boundary causal types or only the spacelike-B3 subdomain.
+### Lane R — spacelike-B3 radial-profile selection
+On the scope where `(h,n)` already yields a normalized class, test whether existing refinement/locality/covariance constraints actually select the dimensionless shape `f`. An explicit pair of distinct admissible profiles satisfying the same frozen constraints is a decisive nonuniqueness witness. G6H `m0/m1` may be relevant controls but must not be promoted beyond their source scope.
 
-Absolute phenomenological calibration of `h` remains a separate G7A blocker even if an internal dimensionless bridge class exists.
+The lanes are independent: Lane Q concerns missing relational data on timelike boundaries; Lane R concerns profile identifiability on spacelike boundaries. Neither may choose interacting dynamics.
 
 ## Operational note
 
-Scheduled-task UI/finalization failures are operational incidents only. Keep short-orchestrator mode; exact analytic gates need no fake CI load.
+Short-orchestrator mode remains active. Source/analytic companion gates need no fake CI load.
