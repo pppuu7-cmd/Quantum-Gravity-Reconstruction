@@ -61,6 +61,7 @@
     "workflow_head": "df76ae7e59c92a30958572d963e6c4204f9c163b",
     "run_id": 34788261104,
     "architecture": "1_STRUCTURAL_PLUS_4_PARALLEL_C_GJ_LANES_THEN_AGGREGATE",
+    "latest_operational_status": "STRUCTURAL_SUCCESS_C0_GJ2_SUCCESS_C1_GJ2_SUCCESS_C0_GJ3_IN_PROGRESS_C1_GJ3_IN_PROGRESS_AGGREGATE_PENDING",
     "legacy_defect": "TRANSFORMPERTURBATION_BASE_POINTS_TO_COMPACTPERTURBATION_SO_LEGACY_WEIGHTED_REDUCER_EXTRACTS_B_TIMES_P_WHILE_GAUSS_JACOBI_ALREADY_SUPPLIES_B",
     "legacy_effective_support_weight": "B(u)^2",
     "corrected_source_faithful_path": "u=x; y=L^-1 u; single_GJ_weight_B(u); polynomial_factor=L^T p(u) L",
@@ -83,6 +84,7 @@
     "trigger_head": "75a30221c9a61d4a2484a9d0181cb3330d2104c0",
     "run_id": 34788222635,
     "architecture": "C0_C1_X_HSTEP_1E-3_5E-4_2.5E-4_GJ3_81_NODES_6_PARALLEL_LANES_THEN_AGGREGATE",
+    "latest_operational_status": "C0_H5E-4_SUCCESS_OTHER_FIVE_LANES_IN_PROGRESS_AGGREGATE_PENDING",
     "scored_unique_obligations": [
       "ALL_81_GJ3_NODE_COVARIANCE",
       "HSTEP_ROBUSTNESS",
@@ -92,12 +94,45 @@
     "select_favorable_verdict_allowed": false,
     "partial_results_scientific_authority": false
   },
+  "iter053t_orthogonal_controls": {
+    "scientific_authority": false,
+    "evidence_pooling_allowed": false,
+    "original_run": {
+      "run_id": 34792340429,
+      "classification": "ORTHOGONAL_CONTROLS_INVALID",
+      "reason": "FROZEN_WEIGHT_REFERENCE_DIGITS_INSUFFICIENT_FOR_5E-13_REFERENCE_TOLERANCE",
+      "history_rewrite_allowed": false
+    },
+    "r1": {
+      "status": "TERMINAL_NONAUTHORITATIVE_PASS",
+      "run_id": 34792534325,
+      "aggregate_job_id": 103819407020,
+      "classification": "ORTHOGONAL_CONTROLS_R1_PASS",
+      "summary_artifact_id": 10327693945,
+      "summary_digest": "sha256:12ea26f978112f9219105743000a1f9b3e40a513bfeaacb3f4d4f553d1cdb5b3",
+      "result_note": "results/ITER053T_ORTHOGONAL_CONTROLS_R1_RESULT.md"
+    }
+  },
+  "post_iter053_dependency": {
+    "full_corrected_replacement_authorized": false,
+    "full_replacement_parallel_architecture": "analysis/POST_ITER053_PARALLEL_FULL_REPLACEMENT_ARCHITECTURE.md",
+    "principal_symbol_gap_audit": "analysis/POST_ITER053_WEYL3_PRINCIPAL_SYMBOL_GAP_AUDIT.md",
+    "principal_symbol_hessian_lemma": "analysis/WEYL3_PRINCIPAL_SYMBOL_HESSIAN_LEMMA.md",
+    "raw_high_frequency_structure": "GENERIC_FOURTH_ORDER_PDE_CORRECTION_SCHEMATICALLY_C6_CBAR_K4_NOT_SIXTH_ORDER_PDE",
+    "clean_high_derivative_null_background": "CONFORMALLY_FLAT_CBAR_ZERO",
+    "type_N_ppwave_null_from_W3_zero_authorized": false,
+    "dynamical_treatment_authority": "MISSING_WEYL3_DYNAMICAL_TREATMENT_AUTHORITY",
+    "dynamical_treatment_gap_note": "analysis/WEYL3_DYNAMICAL_TREATMENT_AUTHORITY_GAP.md",
+    "exact_vs_eft_semantics_note": "analysis/WEYL3_EXACT_VS_ORDER_REDUCED_STABILITY_SEMANTICS.md",
+    "physical_principal_symbol_or_ghost_verdict_authorized": false,
+    "required_order": "TERMINAL_ITER053T_DIAGNOSTICS_IF_COMPATIBLE_THEN_DISTINCT_FULL_CORRECTED_FUNCTIONAL_VARIATION_AUTHORITY_THEN_DYNAMICAL_TREATMENT_AUTHORITY_THEN_PHYSICAL_STABILITY_SPECTRUM_GATE"
+  },
   "active_question": {
     "id": "QGR-ITER053T-WEIGHTED-SUPPORT-PUSHFORWARD",
     "text": "Do the independently preregistered primary and nodewise companion gates consistently establish a source-faithful single-weight corrected C pushforward, including GJ2-GJ3 convergence, legacy B^2 negative control and H5-step robustness?"
   },
   "active_blocker": "TWO_INDEPENDENTLY_PREREGISTERED_ITER053T_COMPANION_RUNS_ACTIVE_NO_PARTIAL_EVIDENCE_NO_THIRD_PRODUCTION",
-  "next_gate_lock": "Terminalize run 34788261104 and run 34788222635 independently under their own frozen classifiers. Do not pool raw lanes, modify criteria, or select the more favorable verdict. Only mutually compatible terminal scoped results can authorize preregistration of a distinct full A4+B2+C2 corrected replacement gate.",
+  "next_gate_lock": "Terminalize run 34788261104 and run 34788222635 independently under their own frozen classifiers. Do not pool raw lanes, modify criteria, or select the more favorable verdict. Only mutually compatible terminal scoped results can authorize preregistration of a distinct full A4+B2+C2 corrected replacement gate. Even after a future full functional-variation authority, physical higher-derivative spectrum/ghost interpretation remains blocked until QGR derives exact-vs-perturbative/order-reduced dynamical treatment.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
@@ -112,6 +147,8 @@
     "quantum_unitarity_established": false,
     "generic_nonlinear_radiative_stability_established": false,
     "full_covariant_six_derivative_eom_established": false,
+    "weyl3_dynamical_treatment_authorized": false,
+    "physical_higher_derivative_mode_count_established": false,
     "quantum_amplitude_measure_transition_authorized": false,
     "full_gr_recovery_established": false,
     "uv_complete": false,
