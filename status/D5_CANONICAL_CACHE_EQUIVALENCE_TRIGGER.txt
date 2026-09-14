@@ -1,0 +1,8 @@
+D5-CANONICAL-CACHE-EQUIVALENCE
+contract=analysis/D5_CANONICAL_CACHE_EQUIVALENCE_CONTRACT.md
+implementation=code/qgr_d5_canonical_cache_equivalence.py
+workflow=.github/workflows/qgr-d5-canonical-cache-equivalence.yml
+scientific_authority=false
+h=5e-4
+lanes=16
+active_scientific_runs_modified=false
