@@ -1,0 +1,57 @@
+name: qgr-iter053t-orthogonal-controls-r1
+
+on:
+  push:
+    paths:
+      - 'status/ITER053T_ORTHOGONAL_CONTROLS_R1_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  control:
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [stencil, weight, wrapper, tensor]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Frozen exact-reference non-authoritative control R1
+        working-directory: code
+        run: python qgr_iter053t_orthogonal_controls_r1.py --mode '${{ matrix.mode }}' --out '../orth-r1/${{ matrix.mode }}.json'
+      - name: Upload R1 control evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053t-orth-r1-${{ matrix.mode }}
+          path: orth-r1/${{ matrix.mode }}.json
+          if-no-files-found: error
+
+  aggregate:
+    if: always()
+    needs: [control]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter053t-orth-r1-*
+          path: orth-r1-input
+          merge-multiple: false
+      - name: Aggregate frozen R1 controls
+        working-directory: code
+        run: python qgr_iter053t_orthogonal_controls_r1.py --mode aggregate --input-dir '../orth-r1-input' --out '../orth-r1-summary/summary.json'
+      - name: Upload R1 aggregate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053t-orth-r1-summary
+          path: orth-r1-summary/summary.json
+          if-no-files-found: error
