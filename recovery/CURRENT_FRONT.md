@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER054U / HISTORY-RESOLVED WEYL3 ACTION ACCUMULATION AUTHORITY`
+Primary active front: `POST-ITER054W / PRIMITIVE FINITE-CELL LORENTZIAN ACTION AUTHORITY`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -22,26 +22,33 @@ GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALI
 
 ## Full auto-research chain recovered
 
-The substantive automatic-research chain from Iter053U through the G33–G38 refinement/torsion sequence and Iter054A–U has been re-read against preregistrations, implementations, terminal results and Actions, not merely commit titles.
+The substantive automatic-research chain from Iter053U through the G33-G38 refinement/torsion sequence and Iter054A-U has been re-read against preregistrations, implementations, terminal results and Actions, not merely commit titles.
 
 Key durable facts:
 
 - Iter053U: corrected source-faithful compact-support Weyl3 variation scoped PASS.
-- Iter054A–E: finite/scoped derivative-order, principal-Hessian, local-symbol, gauge-completion and mixed-order proxy facts; no strong-hyperbolicity theorem.
+- Iter054A-E: finite/scoped derivative-order, principal-Hessian, local-symbol, gauge-completion and mixed-order proxy facts; no strong-hyperbolicity theorem.
 - Iter054F/G/G-R: exact finite-`c6` versus order-reduced/EFT treatment remains object-definition BLOCKED.
-- Iter054H–K: conditional/fixed-band scaling chain, including exact proxy `rho=(k/k_HD)^2`; no `c6(h)` running authority.
-- Iter054L–N: source authority localized; quantum-measure closure and controlled Weyl3-sensitive coarea/phase datum remain blocked.
+- Iter054H-K: conditional/fixed-band scaling chain, including exact proxy `rho=(k/k_HD)^2`; no `c6(h)` running authority.
+- Iter054L-N: source authority localized; quantum-measure closure and controlled Weyl3-sensitive coarea/phase datum remain blocked.
 - Iter054O: historical scoped PASS retained, adversarially `QUALIFIED` to an algebraic normalized-observable template; same-realization source map remains open.
 - Iter054P: initial green run implementation-invalid; exact retry terminal `BLOCKED_OBJECT_DEFINITION_ITER054P_REGULATOR_REMOVAL_INCOMPLETE`.
 - Iter054Q: terminal missing-object BLOCKED for a source-realized relative observable/refinement map.
-- G33–G37: uniform regularity, nonlinear torsion branch stress/counterexample, branch persistence and deeper-refinement support; no hidden source-normalization or branch-action authority was found there.
+- G33-G37: uniform regularity, nonlinear torsion branch stress/counterexample, branch persistence and deeper-refinement support; no hidden source-normalization or branch-action authority was found there.
 - G38/G10B: genuine scoped ordered path/loop/groupoid blocking, but on the conformal continuum-Weyl-zero family.
+- Iter054R: terminal BLOCKED for Weyl-active refinement/history bridge.
+- Iter054S: scoped PASS for Weyl-active G3 fine-to-coarse transport blocking.
+- Iter054T/U: history identity is available, but physical source/boundary insertion and branch-resolved Weyl3 action response remain missing.
+- Iter054V: exact scoped no-go for order-blind event-attached additive history action.
+- Iter054W: terminal object-definition BLOCKED for a pre-existing state-dependent G3 Weyl3 action increment.
 
 ## Historical Weyl/refinement firewall
 
 Iter010-G2 proves the conformal G9/G38 family is continuum Weyl-zero and cannot serve as a Weyl-active `c6` matching background. Finite-h holonomy is not continuum Weyl activity.
 
 Iter010-G3 and G40/G41/G42 supply a genuine same-field weak-tidal Weyl-active family. Iter010-G4 gives nonzero `dPhi/dc6` sensitivity but explicitly does not supply an absolute microscopic phase target.
+
+The Iter010 microscopic-UV-action front explicitly recorded that no exact higher-derivative finite-cell UV action or equivalent microscopic rule had yet been frozen. The existing exact Iter005 connection-density action is all-field-order but structurally two-derivative and cannot by itself generate the six-derivative Weyl-cubic direction.
 
 ## Iter054R — terminal bridge BLOCKED
 
@@ -57,7 +64,7 @@ It localized two missing arrows:
 1. `WEYL_ACTIVE_TIDAL_BACKGROUND -> SOURCE_FAITHFUL_FINE_TO_COARSE_TRANSPORT_BLOCKING`
 2. `WEYL_ACTIVE_TIDAL_HISTORY -> CONCRETE_SOURCE_DERIVED_S_ALPHA`
 
-## Iter054S — TERMINAL SCOPED PASS
+## Iter054S — terminal scoped PASS
 
 Gate: `ITER054S-WEYL-ACTIVE-TIDAL-FINE-TO-COARSE-TRANSPORT-BLOCKING`.
 
@@ -72,64 +79,81 @@ Gate: `ITER054S-WEYL-ACTIVE-TIDAL-FINE-TO-COARSE-TRANSPORT-BLOCKING`.
 
 Classification:
 
-**`PASS_SCOPED_ITER054S_WEYL_ACTIVE_TIDAL_FINE_TO_COARSE_TRANSPORT_BLOCKING`**
+`PASS_SCOPED_ITER054S_WEYL_ACTIVE_TIDAL_FINE_TO_COARSE_TRANSPORT_BLOCKING`.
 
-All required lanes passed: C0 1/1, paths 8/8, loops 12/12, no parse errors, implementation valid.
+All required lanes passed: C0 1/1, paths 8/8, loops 12/12, no parse errors, implementation valid. This closes Iter054R missing arrow 1 in finite-panel scope only; it is not an analytic continuum theorem and supplies no `S_alpha`.
 
-Control remained Weyl-active: `W3=0.04913107696806521`; torsion residual `2.08e-14`; minimum local Jacobian singular value `0.4013`.
+## Iter054T/U — terminal source/action BLOCKED results
 
-Representative post-terminal checks: P0 contraction ratio `0.499995...` with malformed-child distance `8.65e-05`; L0 contraction ratio `0.580063...`, final metric error `9.07e-16`, reverse-orientation inverse control PASS.
+Iter054T classification:
 
-Scientific effect: Iter054R missing arrow 1 is closed in finite-panel scope. The Weyl-active G3 tidal realization now has source-ordered fine-to-coarse transport/refinement blocking.
+`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054T_G3_HISTORY_TO_SOURCE_ACTION_MAP`.
 
-This is not an analytic continuum theorem and does not provide `S_alpha`, `c6`, regulator removal, a global measure or unitarity.
+The 24 G3 permutation paths share the B4 ordering-history labels, but the nonhomogeneous physical source/boundary insertion is absent. G23 order cumulants have zero action-coefficient authority; G25 can evaluate a specified source but does not define the physical event/source map; G26 does not generate the absolute scale; G27 gives `J(n)=beta*n` with `beta` unfixed.
 
-## Iter054T — TERMINAL MISSING-OBJECT BLOCKED
+Iter054U classification:
 
-Preregistration `6a4e6c11f1b26469591878cc11ba4f72555c590f`.
-Durable result `6b09db1a8a9e95c090f988097e3ee9aefdf2685d`.
+`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054U_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE`.
 
-Classification:
-
-**`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054T_G3_HISTORY_TO_SOURCE_ACTION_MAP`**
-
-New localization:
-
-- The G3 24 permutation paths do share the B4 ordering-history labels used by the history programme; history identity itself is not the blocker.
-- G23 proves 24-history order cumulants/order statistics have zero authority rank on action-phase coefficients: order cumulants are not action cumulants.
-- G25 shows the QGR action can evaluate a specified source into a phase, but the physical event/source map is not supplied.
-- G26 shows incidence, pair action, connection/holonomy, history normalization and coarea measure do not fix the nonzero absolute source scale.
-- G27 derives `J(n)=beta*n` and relative count ratios, but `beta` remains an unfixed physical source scale; 1/24 history normalization has zero authority on it.
-- G4 nonzero `dPhi/dc6` is sensitivity, not a phase target.
-
-Thus Iter054R missing arrow 2 is sharply identified as:
-
-`B4/G3 HISTORY -> NONHOMOGENEOUS PHYSICAL SOURCE/BOUNDARY INSERTION -> S_alpha`.
-
-## Iter054U — TERMINAL MISSING-OBJECT BLOCKED
-
-Preregistration `e9486d6187c30436b278dc6f70d62d077eb4328d`.
-Durable result `259d68fc3a37baaf81291728ba7428255f33ede4`.
-
-Classification:
-
-**`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054U_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE`**
-
-Iter054U tested the allowed normalized-observable escape route rather than repeating the source-rank census. It confirmed that explicit G3 permutation histories and their transport matrices `U_alpha` exist, and that G4 supplies a nonzero background Weyl3 response. However no authoritative rule maps the Weyl3 action density into distinct source-faithful `dS_alpha/dc6` values for the explicit histories.
-
-The missing object is now localized more sharply as:
+The missing object was sharpened to:
 
 `G3 HISTORY + U_alpha + WEYL3 DENSITY -> AUTHORIZED HISTORY-RESOLVED WEYL3 ACTION ACCUMULATION -> dS_alpha/dc6`.
 
-A common G4 scalar copied onto every history is explicitly insufficient. No new path quadrature, vertex weighting, cell assignment, source profile, branch phase or measure convention was introduced. No Actions run was launched because the missing object makes a numerical workload fake load.
+A common G4 scalar copied onto all histories is insufficient.
+
+## Iter054V — terminal exact scoped PASS
+
+Preregistration `ef5408c9409a4555991e89c99388756205b25f60`.
+Durable result `6c6f73d8ccc59b38b0a16a55eb1da5feb2c1b1a6`.
+
+Classification:
+
+`PASS_SCOPED_ITER054V_ORDER_BLIND_EVENT_ATTACHED_ADDITIVE_ACTION_CANNOT_RESOLVE_G3_HISTORIES`.
+
+For the frozen class
+
+`D_p = sum_r a_{p_r}`
+
+with `a_d` attached only to event/direction identity, every `p in S4` contains the same four events exactly once, so
+
+`D_p = a0+a1+a2+a3`
+
+for all 24 histories. Branch variance is exactly zero. A prospectively frozen state-dependent sequential counterexample distinguishes `(0,1,2,3)` from `(1,0,2,3)`, so the no-go is correctly limited to order-blind event-attached accumulation and does not extend to all local/state-dependent rules.
+
+Scientific effect: any branch-resolving action rule must contain prospectively justified intermediate-state/path/order/nonlocal/source dependence.
+
+## Iter054W — terminal missing-object BLOCKED
+
+Preregistration `0fb611bfafc54a9a35829fdfc36951d4ba7f36c9`.
+Durable result `fdd9016cdfa6d9e0c7a8cd566b3d2818a0510b86`.
+
+Classification:
+
+`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054W_NO_AUTHORIZED_G3_STATE_DEPENDENT_WEYL3_ACTION_INCREMENT`.
+
+Frozen obligations A-F were audited against all pre-existing equivalent objects, including Iter005/008/010 action normalization, G3 state-dependent transport, G2/G3 Weyl proxies, G8A phase composition, Iter054N torsion/coarea, and T/U/V.
+
+Durable localization:
+
+- G3 provides intermediate state/path dependence in `sols[x][d]`, but no action increment on `(x,d)`.
+- finite-cell Weyl/Weyl3 diagnostics and `h^4 Weyl^3` sensitivity exist, but are explicitly matching diagnostics rather than a microscopic step action.
+- the two-derivative convention uses a coordinate four-cell `h^4`, but no source-faithful mapping assigns a Weyl3 cell contribution to G3 steps/histories.
+- G8A tells how action phases compose once the increments exist, not how to derive them.
+- torsion/coarea is a real measure datum and has no authorized map to the Lorentzian phase.
+- source/boundary normalization and branch-resolving `dS_alpha/dc6` remain open.
+
+The missing physical object is now:
+
+`(x,d; source/boundary data) -> Delta S_W3(x,d) -> sum along history -> dS_alpha/dc6`.
 
 ## Current frontier
 
-Do **not** rerun G23–G27, do not set `beta=1`, and do not manufacture a path-wise Weyl3 action by choosing a new quadrature convention after seeing outputs.
+Do **not** rerun G23-G27, set `beta=1`, copy a common G4 sensitivity onto every branch, convert the torsion/coarea measure into a phase, or invent a path quadrature/cell assignment after seeing outputs.
 
-The next substantive source/action step requires one of two things:
+The highest-information source/action successor is now the candidate-defining question:
 
-1. genuinely new physical/source authority supplying a history-resolved accumulation rule for the Weyl3 action on the source-faithful G3/B4 histories; or
-2. an independent operator observable with branch-resolved `c6` response derived without such a history-action assignment.
+`EXISTING_QGR MICROSCOPIC VARIABLES + CONSTRAINT/CONNECTION STRUCTURE -> CANONICAL FINITE-CELL LORENTZIAN ACTION FUNCTIONAL ON THE G3 STATE GRAPH?`
 
-Parallel work remains admissible on the orthogonal exact-vs-order-reduced Weyl3 treatment selector, but no downstream regulator/global-measure promotion is authorized from Iter054S/U alone.
+This must distinguish a genuinely derived microscopic action from a semantic placeholder in `exp(iS_alpha/hbar)`. A two-derivative connection-density action may be an authoritative lower-order component, but it cannot be relabeled as the missing six-derivative finite-cell UV action.
+
+Parallel work remains admissible on the orthogonal exact-vs-order-reduced Weyl3 treatment selector, but no downstream quantum-measure/regulator/global-theory promotion is authorized.
