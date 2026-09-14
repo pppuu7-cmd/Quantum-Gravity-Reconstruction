@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_54Z_BLOCKED",
+    "iteration": "POST_55B_BLOCKED",
     "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_SOURCE_REALIZATION"
   },
   "readiness": {
@@ -33,36 +33,56 @@
     "iter054w": "BLOCKED_G3_STATE_DEPENDENT_WEYL3_ACTION_INCREMENT",
     "iter054x": "BLOCKED_FULL_CURRENT_MICROSCOPIC_ACTION_INCOMPLETE_LOWER_ORDER_ACTION_EXISTS",
     "iter054y": "BLOCKED_LOWER_ORDER_G3_B4_BRANCH_PHASE_NOT_SOURCE_REALIZED",
-    "iter054z": "BLOCKED_G8A_FINE_HISTORY_COHERENCE_SEMANTICS_NOT_OPERATIONALLY_FIXED"
+    "iter054z": "BLOCKED_G8A_FINE_HISTORY_COHERENCE_SEMANTICS_NOT_OPERATIONALLY_FIXED",
+    "iter055a": "BLOCKED_G3_GEOMETRIC_TRANSPORT_TO_G8A_UNITARY_CHANNEL_BRIDGE_INCOMPLETE",
+    "iter055b": "BLOCKED_B4_HISTORY_DOES_NOT_DEFINE_G8A_CONFIGURATION_ENDOMORPHISM"
   },
   "iter054z": {
-    "gate": "ITER054Z-G8A-HISTORY-PHASE-OPERATIONAL-AUTHORITY",
-    "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
     "preregistration_commit": "9c78ba250c97e2853c731d26faa07b4f054639a1",
     "durable_result_commit": "e239959034118fe7002120ae988455443166760f",
     "classification": "BLOCKED_OBJECT_DEFINITION_ITER054Z_G8A_HISTORY_COHERENCE_SEMANTICS_NOT_FIXED",
     "branch_cp_maps_phase_invariant": true,
     "coarse_cptp_channel_phase_invariant": true,
-    "complete_history_cp_maps_phase_invariant": true,
     "fine_history_register_isometry_defined": true,
-    "independent_branch_rephasing_equals_history_register_diagonal_unitary": true,
     "canonical_history_register_phase_reference_defined": false,
-    "fixed_cross_history_mixer_defined": false,
-    "unresolved_S_alpha_blocks_coarse_channel": false,
-    "unresolved_S_alpha_blocks_authorized_phase_sensitive_fine_observable": "UNRESOLVED_BECAUSE_FINE_OBSERVABLE_NOT_FIXED"
+    "unresolved_S_alpha_blocks_coarse_channel": false
+  },
+  "iter055a": {
+    "preregistration_commit": "99af4f18b1151c2da4185bf42799b282be48ba44",
+    "durable_result_commit": "cf065c7777fdb7f7dec34965db207c16c56fefd1",
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER055A_G3_GEOMETRIC_TRANSPORT_TO_G8A_UNITARY_CHANNEL_BRIDGE_INCOMPLETE",
+    "g7b_finite_configuration_object_defined": true,
+    "g3_geometric_history_transport_defined": true,
+    "g8a_koopman_rn_lift_defined_conditionally": true,
+    "same_realization_full_configuration_map_defined": false,
+    "same_realization_quasi_invariance_defined": false,
+    "same_realization_rn_derivative_defined": false,
+    "direct_4x4_transport_as_kraus_unitary_authorized": false
+  },
+  "iter055b": {
+    "preregistration_commit": "c014dc24bd296bf0b8ff09131d4e420800b8a34b",
+    "durable_result_commit": "28024bae10d658075711743a8b7e3883ba033c61",
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER055B_B4_HISTORY_DOES_NOT_YET_DEFINE_G8A_CONFIGURATION_ENDOMORPHISM",
+    "b4_history_is_ordering_path_object": true,
+    "curved_history_holonomy_distinction_exists": true,
+    "fiber_path_transport_invertible": true,
+    "full_configuration_endomorphism_defined": false,
+    "refinement_map_is_fixed_domain_invertible_history_map": false
   },
   "object_identity": {
+    "g7b_configuration_object": "X_Gamma={(G_v,A_e)}",
+    "b4_history_object": "combinatorial_ordering_plus_path_inside_given_configuration",
     "iter054s_transport_object": "4x4_Lorentz_metric_compatible_geometric_path_transport",
     "g8a_unitary_object": "Koopman_Radon_Nikodym_unitary_from_invertible_quasi_invariant_configuration_map",
-    "g3_transport_to_g8a_configuration_map_bridge_established": false,
-    "direct_use_of_iter054s_4x4_matrices_as_kraus_unitaries_authorized": false
+    "b4_history_to_full_configuration_map_bridge_established": false,
+    "g3_transport_to_g8a_configuration_map_bridge_established": false
   },
   "active_question": {
-    "id": "QGR-G3-TO-G8A-PHASE-FREE-CHANNEL-OBJECT-BRIDGE",
-    "text": "Does pre-existing QGR authority in the same Weyl-active G3/B4 realization derive the complete invertible configuration map and quasi-invariant measure needed to lift the geometric/history transport data to the G8A unitary Koopman/Radon-Nikodym operators, so that a phase-free coarse CPTP channel can be tested without a wrong-object substitution?"
+    "id": "QGR-FULL-CONFIGURATION-GAUGE-RELABELING-VS-PHYSICAL-BRANCH-DYNAMICS",
+    "text": "Can an already-defined frame/gauge/relational relabeling action provide the missing invertible full-configuration map F_alpha, and if so does it represent genuine branch dynamics or pure gauge redundancy after G8C/G8D physical constraint descent?"
   },
-  "active_blocker": "G3_GEOMETRIC_TRANSPORT_TO_G8A_HILBERT_UNITARY_OBJECT_BRIDGE_NOT_ESTABLISHED__FINE_HISTORY_PHASE_REFERENCE_NOT_FIXED__LOWER_ORDER_SOURCE_HISTORY_PHASE_NOT_REALIZED__WEYL3_ACTION_INCREMENT_MISSING__REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Audit the same-realization bridge from G3 geometric/history transport to the full G8A configuration map, quasi-invariant measure and Hilbert-space unitary before any phase-free CPTP channel computation. Do not use 4x4 classical transports directly as Kraus unitaries.",
+  "active_blocker": "PHYSICAL_FULL_CONFIGURATION_BRANCH_DYNAMICS_MAP_NOT_ESTABLISHED__G3_TO_G8A_KOOPMAN_BRIDGE_INCOMPLETE__LOWER_ORDER_SOURCE_HISTORY_PHASE_NOT_REALIZED__WEYL3_ACTION_INCREMENT_MISSING__REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Audit existing gauge/frame/relational full-configuration actions before introducing a new dynamics map. Do not identify B4 histories with gauge transformations by notation alone. If a candidate map is pure gauge on the physical quotient, it cannot supply physical branch dynamics merely because it is invertible/unitarily implementable.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
