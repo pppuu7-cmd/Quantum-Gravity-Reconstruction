@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `Iter054G / Weyl3 dynamical-treatment selection authority`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT SELECTION`
+Primary active front: `Iter054H / refinement-domain conditional order-reduction derivation`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT CONSTRUCTION`
 
 ## Canonical claim locks
 
@@ -14,81 +14,81 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT SELECTION`
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
 - Complete mixed-order evolution reduction: **not established**.
-- Physical exact-vs-order-reduced Weyl3 dynamical treatment: **not selected by current authority**.
+- Pre-existing authority selecting exact vs order-reduced Weyl3 dynamics: **absent after fail-closed source review**.
 - Quantum amplitude/measure transition: **not authorized**.
 - No physical ghost/spectrum, unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID results are immutable.
+GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results are immutable.
 
-## Iter054E — TERMINAL SCOPED PASS
+## Iter054F — TERMINAL BLOCKED
 
-Classification: **`PASS_SCOPED_ITER054E_EINSTEIN_WEYL3_MIXED_ORDER_REGIME_SEPARATION_STRONG_HYPERBOLICITY_NOT_AUTHORIZED`**.
+Classification: **`BLOCKED_OBJECT_DEFINITION_ITER054F_MIXED_ORDER_EVOLUTION_REDUCTION_NOT_FIXED`**.
 
-Authoritative retry run `34817023061`; aggregate job `103889834227`; summary artifact `10336742062`; digest `sha256:b7e0dce1e44b44ac1b9425427db3d33bdf88271f8ab42762f006a4155eb36bc9`.
+Authoritative retry run `34817585523`; aggregate `103892887023`; summary artifact `10336467977`; digest `sha256:2ff9d546b8443080fc48c6cf27c2c0b0764b7686b72aff2e53735e7d1bb8a27f`.
 
-Within the frozen exact proxy `P=z+eps*lambda*z^2`, the GR-connected root `z=0` and singular root `z=-1/(eps*lambda)` are exact. This does not assign physical branch weights or establish strong hyperbolicity/spectrum.
+All eight ingredients needed for a QGR-specific strong-hyperbolicity evolution object remained unresolved: state/reduction variables, time/spatial split, evolution formulation, principal evolution matrix, gauge evolution, constraint propagation, symmetrizer/norm/open region, and map back to mixed Einstein+Weyl3 with GR limit.
 
-## Iter054F — TERMINAL BLOCKED after control-only exact retry
+## Iter054G parent — TERMINAL SOURCE REVIEW REQUIRED
 
-Gate: `ITER054F-WEYL3-MIXED-ORDER-STRONG-HYPERBOLICITY-OBJECT-DEFINITION-AUDIT`.
+Gate: `ITER054G-WEYL3-DYNAMICAL-TREATMENT-SELECTION-AUTHORITY`.
 
-Provenance:
+- preregistration `b4730d02f66b9378c41313bb833e2fdedd62daae`
+- frozen source snapshot `3398cd5a195d3d6b05fad01715ab5b79a880c4f1`
+- run `34818484127`
+- aggregate `103894668345`
+- summary artifact `10337630463`
+- digest `sha256:9e7cee1882ec13faddb8734a7c203f4eeb228381a3f56381c09c6a2c971e34f7`
+- parent classification **`REQUIRES_SOURCE_AUTHORITY_REVIEW_ITER054G`**
 
-- preregistration `f4838c50ded00c6d62c9ef822f1f75285eceddf9`
-- initial implementation `823b4a24419f5e616eea256b6ba6359fbba30bd4`
-- initial workflow head `9b719f0b54030a74a5c166e93db1a2898d90bdfe`
-- initial run `34817447178`: **`ITER054F_IMPLEMENTATION_OR_CONTROL_INVALID_A1_CHARPOLY_SYMBOL_IDENTITY`**; permanently historical
-- control-only repair `04cc0e065c5eb88385437f233e8f8fc22111332b`
-- authoritative exact-retry run `34817585523`
-- aggregate job `103892887023`
-- summary artifact `10336467977`
-- digest `sha256:2ff9d546b8443080fc48c6cf27c2c0b0764b7686b72aff2e53735e7d1bb8a27f`
-- terminal classification **`BLOCKED_OBJECT_DEFINITION_ITER054F_MIXED_ORDER_EVOLUTION_REDUCTION_NOT_FIXED`**
+The explicitly mapped core sources returned `EXACT_NOT_SELECTED` and `ORDER_REDUCED_NOT_SELECTED`. The parent stopped fail-closed because a repo-wide census found eight additional treatment-keyword paths.
 
-All four frozen retry streams A0/A1/B0/B1 were valid. The authority census found all eight required evolution-object fields unresolved/unfixed:
+Durable note: `results/ITER054G_PARENT_SOURCE_REVIEW_REQUIRED.md`.
 
-1. state/reduction variables;
-2. time direction and spatial covector domain;
-3. first-order-in-time or rigorously specified equivalent higher-order formulation;
-4. principal evolution matrix/symbol;
-5. gauge variables and gauge evolution;
-6. constraints and principal constraint propagation;
-7. norm/symmetrizer notion and open domain;
-8. map to mixed Einstein + symbolic-`c6` Weyl3 equations and GR limit.
+## Iter054G-R — TERMINAL BLOCKED after 8-source review
 
-A1 also proves exactly that identical real characteristic polynomials can coexist with diagonalizable and defective/Jordan matrices, so a root-only certificate cannot imply strong hyperbolicity.
+Gate: `ITER054G-R-UNEXPECTED-DYNAMICAL-TREATMENT-SOURCE-AUTHORITY-REVIEW`.
 
-Durable notes:
+- preregistration `f9973884ce8e994c347f0ee5412fdc25206875ee`
+- implementation `41ca0a8ef7c7c7b1e8bf55a858f5bf2797fed685`
+- workflow head `9195320ca9060cb7e2874ae1fd5923e4afbecc9d`
+- run `34818909992`
+- aggregate `103895733649`
+- summary artifact `10336563789`
+- summary digest `sha256:0880ebc3d1a817bddfbaca358f017aeca3dc040367f70710f27c97395f4108c5`
+- classification **`BLOCKED_OBJECT_DEFINITION_ITER054G_WEYL3_DYNAMICAL_TREATMENT_NOT_SELECTED_AFTER_SOURCE_REVIEW`**
 
-- `results/ITER054F_INITIAL_IMPLEMENTATION_INVALID.md`
-- `results/ITER054F_TERMINAL_RESULT.md`
+All eight unexpected frozen sources were independently reviewed and classified `NON_SELECTOR`; there were no missing, ambiguous, invalid or selector-positive lanes.
 
-This BLOCKED result does **not** show QGR is non-hyperbolic or inconsistent. It shows that the mathematical evolution object is not yet defined sufficiently to make that claim.
+Durable note: `results/ITER054G_R_TERMINAL_RESULT.md`.
 
-## Exact current blocker / Iter054G
+Scientific consequence: the missing treatment rule is now a genuine model-definition/construction blocker, not an incomplete repository search. Existing QGR authority does not already select exact finite-`c6` higher-derivative dynamics or perturbative/order-reduced dynamics.
 
-Before inventing a preferred evolution reduction, QGR must decide what the later `c6 Weyl^3` term means dynamically.
+## New constructive route / Iter054H
 
-Two inequivalent admissible-history prescriptions are currently possible:
+The next highest-information step is to ask whether the already-established QGR refinement hierarchy itself can derive a **conditional low-resolution/order-reduction domain**, without pretending that such a domain was pre-existing authority.
 
-- exact finite-`c6` higher-derivative dynamics, retaining the complete higher-order solution space and additional initial-data structure;
-- perturbative/order-reduced effective dynamics, retaining the branch analytic in the correction within a declared validity domain.
+Relevant established structure:
 
-The frozen QGR constitution forbids selecting a hidden branch after observing stability/spectrum outcomes. Existing inspected authority supplies coherent action/composition and a symbolic Weyl3 coefficient but has not yet been shown to derive one of these two dynamical treatments.
+- Iter009 operator census identifies the first nonredundant Ricci-flat parity-even local correction as
+  `S6 = a_cont * c6 * h^4 * integral(Weyl^3)`;
+- this correction is formally `O(h^4)` / `O(Gamma^2)`;
+- no exact higher-derivative finite-cell UV action has been frozen;
+- the regular weak-curvature microscopic branch and one-particle refinement limit are controlled locally;
+- a regular per-cell `c6 O(h^4)` contribution accumulates as `O(c6 T h^3) -> 0` at fixed macroscopic interval;
+- Iter054A proves that exact singular characteristic branches are non-analytic in the small higher-derivative coefficient and lie outside a finite Taylor branch unless separately justified.
 
-Outcome-independent preparation already exists:
+For an Einstein `k^2` principal term plus a Weyl-active correction scaling schematically as `c6 h^4 Cbar k^4`, define the dimensionless control parameter
 
-- `analysis/POST_ITER054F_EXACT_VS_ORDER_REDUCED_DYNAMICAL_TREATMENT_FORK.md`
-- `analysis/WEYL3_DYNAMICAL_TREATMENT_SELECTION_AUTHORITY_AUDIT_PREP.md`
-- `analysis/EXACT_VS_PERTURBATIVE_SOLUTION_SPACE_FACTOR_CONTROL.md`
-- `analysis/STRONG_HYPERBOLICITY_CONSTRAINT_EXTENSION_NONUNIQUENESS_WITNESS.md`
+`chi = |c6| h^2 |Cbar|`.
 
-## Locked next sequence
+On a resolved band `q=|k|h <= q_max`, the correction/Einstein principal ratio scales as `rho <= chi q_max^2`, while the singular proxy branch obeys `q_HD ~ chi^(-1/2)` up to the frozen eigenchannel normalization/sign convention.
 
-1. Prospectively preregister `ITER054G-WEYL3-DYNAMICAL-TREATMENT-SELECTION-AUTHORITY` before any terminal treatment verdict.
-2. Freeze the pre-existing authority sources; later files may not retroactively provide the selector.
-3. Ask whether an already-derived QGR microscopic principle selects exact finite-`c6` dynamics, perturbative/order-reduced dynamics with a derived validity domain, or neither.
-4. Include exact controls showing the exact and perturbative solution spaces agree on the GR-connected analytic branch but differ by the non-analytic singular branch.
-5. If no selector exists, terminalize a dynamical-treatment `BLOCKED_OBJECT_DEFINITION`; do not choose a treatment post hoc.
-6. Only after a treatment is independently fixed may QGR construct its corresponding evolution reduction and then test open-region strong hyperbolicity/symmetrizers.
-7. Physical mode/ghost/stability and quantum amplitude/measure remain downstream.
+The prospectively frozen Iter054H gate must determine exactly what follows from this scaling and what still does not:
+
+1. derive/check the dimensionless ratio and branch/band separation algebraically;
+2. include positive controls with `chi << 1` and negative controls with `chi >= 1`;
+3. audit whether existing QGR refinement authority supplies a physical bound/domain on `chi`, an all-orders/remainder control, and a derived resolved-band definition sufficient to promote the conditional statement to a treatment selector;
+4. if only the conditional inequality is derivable, classify it as a scoped conditional bridge while retaining treatment selection BLOCKED;
+5. do not infer an order-reduced physical theory merely because the singular branch is outside a chosen toy band.
+
+Only a later separately authorized evolution construction can reopen strong-hyperbolicity testing.
