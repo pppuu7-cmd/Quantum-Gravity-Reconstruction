@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055M / UNIVERSAL SMEARING KERNEL NO-GO VS RELATIONAL PROFILE DATA`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE PROFILE PRINCIPLE`
+Primary active front: `POST-ITER055N / RELATIONAL SMEARING ANCHOR: BOUNDARY NORMAL VS PHYSICAL SCALE`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE RELATIONAL ANCHOR`
 
 ## Canonical claim locks
 
@@ -11,40 +11,35 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE PROFILE PRINCIPLE`
 - Theory established: **0%**.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed.
-- Full covariant Weyl3 metric EOM as a global theorem: **not established**.
-- Physical Weyl3 treatment selector / strong hyperbolicity theorem: **absent**.
 - Global interacting measure/regulator removal: **not established**.
+- Physical Weyl3 treatment selector / strong hyperbolicity theorem: **absent**.
 - No full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## Relevant terminal chain
+## Relevant bridge chain
 
-- Iter055K `107f041cd8b9f22f7de6571494cc6dc9bafe4fbd`:
-  `FAIL_SCOPED_ITER055K_RAW_L2_BOUNDARY_POINT_RESTRICTION_NOT_BOUNDED__SMEARING_OR_REGULARITY_REQUIRED`.
-- Iter055L `b74f69a4fb5808ab1ae039003791ea0dee7d7d57`:
-  `PASS_SCOPED_ITER055L_SMEARING_CLASS_MINIMAL_DOMAIN_PRESERVING_BRIDGE__PROFILE_SELECTION_STILL_NEW_INPUT`.
-- Iter055M prereg `29c13b57d5a9a44f974a5405d3a9dcdbfa2299c3`, result `f843a7f74f695f374f4f5c1527c3fb9a599e7d9c`:
-  `BLOCKED_OBJECT_DEFINITION_ITER055M_SMEARING_KERNEL_PROFILE_AND_REFINEMENT_FAMILY_NOT_SOURCE_SELECTED`.
+- Iter055K: raw `L2 -> pointwise B3` restriction is unbounded.
+- Iter055L: bounded physical Hilbert-dual smearing is the minimal domain-preserving bridge class; concrete profile remains new input.
+- Iter055M: current QGR sources do not select a concrete kernel/profile/refinement family.
+- Iter055N prereg `53953bd57851d3f5c5f8238d0d85b74481e0e4ed`, result `5fa0422829f4bb0c54a6497400927953f3f3d566`:
+  `FAIL_SCOPED_ITER055N_NO_NONZERO_UNIVERSAL_L2_SMEARING_PROFILE__RELATIONAL_PROFILE_DATA_REQUIRED`.
 
-## Iter055M scientific result
+## Iter055N scientific result
 
-Existing QGR sources do not select a concrete Hilbert-dual bridge kernel.
+The proper orthochronous Lorentz group acts transitively on the nonzero future null cone, including radial energy rescaling by boosts along a null direction. Therefore a fully frame-invariant measurable scalar envelope is constant almost everywhere. Since the invariant future-null-cone measure has infinite total volume, every nonzero constant has infinite `L2` norm. The only universal invariant scalar Hilbert-dual kernel is zero.
 
-- G6C/G6E fix B3 matching support and measure disintegration, not a null-cone smearing profile.
-- G6G explicitly labels its exponential packet as a specified preparation/readout comparator, not a universal QGR number.
-- G6H validates multiple radial profiles (`m0`, `m1`) rather than selecting one.
-- Iter053 uses `SUPPORT=0.24` and a `q^4` compact bump as a prospectively frozen action-variation test perturbation, not a universal quantum bridge law.
-- No source-defined fine-to-coarse kernel family with fixed profile/normalization/scale is present.
-
-Thus the missing object is now exact: `candidate-owned covariant smearing profile + physical scale/support + B3 attachment + refinement law`.
+A nontrivial bridge kernel must therefore be a **covariant family attached to extra physical data**, not a universal fixed scalar profile.
 
 ## Current highest-information gate
 
-Before adding a profile, decide analytically whether a nonzero universal square-integrable kernel can be fixed without extra relational data.
+Audit existing QGR geometry for the relational anchor required by the kernel family. Separate two obligations:
 
-Test a scalar envelope `phi(k)` on the nonzero future null cone under the full finite-frame/Lorentz action. The Lorentz group acts transitively on that cone, including energy rescalings along a fixed null direction. Therefore a fully frame-invariant scalar profile must be constant almost everywhere. Because the null-cone measure is infinite, a nonzero constant cannot belong to the G6F Hilbert dual.
+1. **direction/frame anchor:** does the shared B3 face plus the physical metric/connection already define a covariant boundary normal/frame datum that can transform with the smearing kernel?
+2. **physical radial/UV scale:** does current authority fix a dimensionful or otherwise physical smearing scale tied to that boundary/cell, rather than only a coordinate cell size, arbitrary preparation width or unfixed microscopic parameter?
 
-If this exact no-go holds, then a physical kernel cannot be a universal fixed scalar profile. It must transform covariantly **with additional physical data** such as boundary geometry/normal, source preparation, detector/readout, cell scale, or another explicitly declared relational object. The next gate after that should ask which already-existing QGR boundary data can supply that relational anchor without introducing a tunable hidden scale.
+A partial result is allowed and important: existing geometry may determine the boundary direction while leaving the scale free. Do not convert a coordinate axis, unit lattice step, G6G packet width, Iter053 support value, beta, c6 or an unfixed microscopic `h` into a physical scale post hoc.
+
+Only after both anchor direction and scale/refinement law are source-defined can a concrete covariant `phi_q(k)` family be tested for one-particle/boundary intertwining.
 
 ## Operational note
 
-Scheduled-task UI/finalization failures are operational incidents only. Keep short-orchestrator mode; do not launch GitHub Actions for exact source/representation-theory gates.
+Keep short-orchestrator mode. Source/representation-theory gates do not need fake CI load.
