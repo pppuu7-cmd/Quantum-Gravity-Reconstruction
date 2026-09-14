@@ -18,12 +18,24 @@
   "recovery_sync": {
     "previous_front_was_stale": true,
     "previous_front_named": "ITER056S_PRODUCTION_PENDING",
+    "iter056s_production_finalized": true,
+    "iter056s_finalization_commit": "85a3c5d29efeda571e9a991decb6ba2d2b220f38",
     "latest_preregistration_commit": "ff7820c7c13de134e950a6a9b08088102364f350",
     "latest_active_gate": "ITER056W-BALANCED-PAIR-SCALEFREE-SHAPE-INVARIANT-REFINEMENT-AUTHORITY",
     "iter056w_frozen_authority_cutoff": "49e1fcff6bbcedd1ef2625a1c0cf25dfa2363133",
     "iter056w_verdict_recorded": false
   },
   "recent_authority": {
+    "iter056s": {
+      "status": "TERMINAL_PASS_PRODUCTION_CONSUMED",
+      "classification": "PASS_SCOPED_CONDITIONAL_ITER056S_BALANCED_PAIR_SECTOR_HAS_EXACT_TIDAL_CUBIC_SHAPE_BRIDGE",
+      "durable_result_path": "results/ITER056S_BALANCED_PAIR_TIDAL_CUBIC_SHAPE_TERMINAL.md",
+      "finalization_commit": "85a3c5d29efeda571e9a991decb6ba2d2b220f38",
+      "authoritative_run": 34896461228,
+      "aggregate_job": 104156268611,
+      "summary_artifact": 10369815451,
+      "summary_artifact_digest": "sha256:155403a5097a311d462d56bd942d79496e3ea799e62f730b7e086fcc9fce10f0"
+    },
     "iter056t": "TERMINAL_PASS_EXACT_SPECTRAL_INVARIANT_BRIDGE",
     "iter056u": "TERMINAL_PASS_ANALYTIC_WEAK_STATIC_WEYL_INVARIANT_BRIDGE",
     "iter056v": {
