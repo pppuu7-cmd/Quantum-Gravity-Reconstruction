@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_56J_PHYSICAL_WEYL3_TREATMENT_SELECTOR_NEXT",
-    "phase": "MODEL_CONSTRUCTION_DYNAMICAL_TREATMENT_AUTHORITY"
+    "iteration": "POST_56K_PROSPECTIVE_WEYL3_TREATMENT_SELECTOR_CANDIDATE_NEXT",
+    "phase": "MODEL_CONSTRUCTION_NEW_DYNAMICAL_TREATMENT_PRINCIPLE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -26,7 +26,8 @@
     "iter056g": "PASS_SCOPED_ITER056G_EINSTEIN_SHELL_REMOVES_WEYL3_FOURTH_METRIC_DERIVATIVES",
     "iter056h": "PASS_SCOPED_ITER056H_FINITE_ORDER_TRUNCATION_HAS_EXPLICIT_HS_PLUS_2N_REGULARITY_BUDGET",
     "iter056i": "PASS_SCOPED_ITER056I_ALL_FORMAL_COEFFICIENT_SOURCES_ARE_RECURSIVELY_BIANCHI_COMPATIBLE",
-    "iter056j": "PASS_SCOPED_CONDITIONAL_ITER056J_EVERY_FIXED_FINITE_ORDER_TRUNCATION_HAS_SEQUENTIAL_LOCAL_SOLUTION"
+    "iter056j": "PASS_SCOPED_CONDITIONAL_ITER056J_EVERY_FIXED_FINITE_ORDER_TRUNCATION_HAS_SEQUENTIAL_LOCAL_SOLUTION",
+    "iter056k": "QGR_EXISTING_PRINCIPLES_DO_NOT_SELECT_WEYL3_DYNAMICAL_TREATMENT_SCOPED"
   },
   "iter056g": {
     "preregistration_commit": "018fde277b8cd2031131f27ec3191208cd9c3e10",
@@ -53,8 +54,17 @@
     "finite_N_internal_pde_consistency_blocker": false,
     "physical_treatment_authority_established": false
   },
+  "iter056k": {
+    "preregistration_commit": "fe8fae039f9a96b6392cd29559e395ddc0d39922",
+    "durable_result_commit": "7be155adf804bc9bede9fb14c8ccad33e466636f",
+    "classification": "QGR_EXISTING_PRINCIPLES_DO_NOT_SELECT_WEYL3_DYNAMICAL_TREATMENT_SCOPED",
+    "authority_cutoff": "65a9b52229014eb2b171e4b6c0c3fdc6e56aedb4",
+    "type_III_selector_found": false,
+    "new_ci_launched": false,
+    "new_ci_absence_reason": "Frozen source-authority audit; computational load cannot create missing historical physical authority."
+  },
   "object_identity": {
-    "physical_weyl3_treatment_selector": "MISSING_AUTHORITATIVE",
+    "physical_weyl3_treatment_selector": "ABSENT_IN_EXISTING_QGR_AUTHORITY_THROUGH_ITER056K",
     "formal_order_reduced_finite_N_mathematics": "SCOPED_CONDITIONALLY_VIABLE_THROUGH_ITER056J",
     "full_exact_higher_derivative_strong_hyperbolicity": "NOT_ESTABLISHED",
     "all_order_convergence": "NOT_ESTABLISHED",
@@ -62,11 +72,11 @@
     "global_interacting_measure_regulator_removal": "MISSING"
   },
   "active_question": {
-    "id": "POST-ITER056J-PHYSICAL-TREATMENT-SELECTOR",
-    "text": "Does QGR contain an independently motivated physical principle selecting the mathematically viable finite-order order-reduced Weyl3 sector as the dynamics rather than the exact higher-derivative equations or another treatment?"
+    "id": "POST-ITER056K-PROSPECTIVE-PHYSICAL-TREATMENT-SELECTOR",
+    "text": "Can QGR prospectively define an independently motivated, treatment-blind and falsifiable physical selector that distinguishes exact, finite-order order-reduced, other, or no admissible Weyl3 dynamics without choosing by downstream success?"
   },
-  "active_blocker": "QGR_PHYSICAL_WEYL3_TREATMENT_SELECTOR_MISSING__QGR_SPECIFIC_GAUGE_OBJECT_MISSING__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__GLOBAL_INTERACTING_MEASURE_BLOCKED",
-  "next_gate_lock": "Audit candidate-owned physical treatment authority. Do not use mathematical convenience, continuity alone, fast-mode removal, or post-hoc ghost avoidance as a selector. Missing authority is a valid terminal result.",
+  "active_blocker": "NEW_QGR_PHYSICAL_WEYL3_TREATMENT_PRINCIPLE_REQUIRED__QGR_SPECIFIC_GAUGE_OBJECT_MISSING__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__GLOBAL_INTERACTING_MEASURE_BLOCKED",
+  "next_gate_lock": "Any new selector must be prospectively frozen before treatment-dependent testing; independently motivated; applicable to at least exact and order-reduced candidates; allowed to select either, another treatment, or none; explicitly falsifiable; no outcome-fitted free prescription; no beta=1; c6 remains symbolic/unfixed. Do not choose order reduction because it is mathematically convenient or suppresses fast/ghost branches.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "constructor_and_referee_short_orchestrator_mode": true
