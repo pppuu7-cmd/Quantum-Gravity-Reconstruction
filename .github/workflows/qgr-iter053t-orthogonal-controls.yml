@@ -1,0 +1,57 @@
+name: qgr-iter053t-orthogonal-controls
+
+on:
+  push:
+    paths:
+      - 'status/ITER053T_ORTHOGONAL_CONTROLS_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  control:
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [stencil, weight, wrapper, tensor]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Frozen non-authoritative orthogonal control
+        working-directory: code
+        run: python qgr_iter053t_orthogonal_controls.py --mode '${{ matrix.mode }}' --out '../orth/${{ matrix.mode }}.json'
+      - name: Upload control evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053t-orth-${{ matrix.mode }}
+          path: orth/${{ matrix.mode }}.json
+          if-no-files-found: error
+
+  aggregate:
+    if: always()
+    needs: [control]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter053t-orth-*
+          path: orth-input
+          merge-multiple: false
+      - name: Aggregate frozen controls
+        working-directory: code
+        run: python qgr_iter053t_orthogonal_controls.py --mode aggregate --input-dir '../orth-input' --out '../orth-summary/summary.json'
+      - name: Upload aggregate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053t-orth-summary
+          path: orth-summary/summary.json
+          if-no-files-found: error
