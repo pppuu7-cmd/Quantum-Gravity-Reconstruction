@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55N_UNIVERSAL_PROFILE_NOGO__RELATIONAL_ANCHOR_AUDIT_NEXT",
-    "phase": "MODEL_CONSTRUCTION_QUANTUM_SECTOR_BRIDGE_RELATIONAL_ANCHOR"
+    "iteration": "POST_55O_BOUNDARY_DIRECTION_ANCHOR_PASS_SCALE_UNFIXED__CELL_RELATIVE_KERNEL_CLASS_NEXT",
+    "phase": "MODEL_CONSTRUCTION_QUANTUM_SECTOR_BRIDGE_INTERNAL_REFINEMENT_SCALE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -19,29 +19,31 @@
     "iter055k": "FAIL_SCOPED_RAW_L2_BOUNDARY_POINT_RESTRICTION_NOT_BOUNDED__SMEARING_OR_REGULARITY_REQUIRED",
     "iter055l": "PASS_SCOPED_SMEARING_CLASS_MINIMAL_DOMAIN_PRESERVING_BRIDGE__PROFILE_SELECTION_STILL_NEW_INPUT",
     "iter055m": "BLOCKED_SMEARING_KERNEL_PROFILE_AND_REFINEMENT_FAMILY_NOT_SOURCE_SELECTED",
-    "iter055n": "FAIL_SCOPED_NO_NONZERO_UNIVERSAL_L2_SMEARING_PROFILE__RELATIONAL_PROFILE_DATA_REQUIRED"
+    "iter055n": "FAIL_SCOPED_NO_NONZERO_UNIVERSAL_L2_SMEARING_PROFILE__RELATIONAL_PROFILE_DATA_REQUIRED",
+    "iter055o": "PASS_SCOPED_PARTIAL_BOUNDARY_DIRECTION_ANCHOR_EXISTS__PHYSICAL_SMEARING_SCALE_UNFIXED"
   },
-  "iter055n": {
-    "preregistration_commit": "53953bd57851d3f5c5f8238d0d85b74481e0e4ed",
-    "durable_result_commit": "5fa0422829f4bb0c54a6497400927953f3f3d566",
-    "classification": "FAIL_SCOPED_ITER055N_NO_NONZERO_UNIVERSAL_L2_SMEARING_PROFILE__RELATIONAL_PROFILE_DATA_REQUIRED",
-    "lorentz_action_transitive_on_nonzero_future_null_cone": true,
-    "nonzero_invariant_scalar_L2_kernel_exists": false,
-    "relational_anchor_required": true,
+  "iter055o": {
+    "preregistration_commit": "d85444875d4dc9f93d8cdcb6e08144318d4c86f6",
+    "durable_result_commit": "4d8563b9cbb4db844bc18a223e0f0b6a52031c34",
+    "classification": "PASS_SCOPED_PARTIAL_ITER055O_BOUNDARY_DIRECTION_ANCHOR_EXISTS__PHYSICAL_SMEARING_SCALE_UNFIXED",
+    "regular_non_null_boundary_normal_line_source_defined": true,
+    "absolute_physical_smearing_scale_source_fixed": false,
+    "microscopic_h_absolutely_identified": false,
     "github_actions_run": null
   },
   "object_identity": {
     "minimal_domain_preserving_bridge_class": "FINITE_FAMILY_OF_BOUNDED_PHYSICAL_HILBERT_DUAL_SMEARING_KERNELS",
     "universal_fixed_scalar_smearing_profile": "SCOPED_NO_GO",
-    "required_concrete_bridge_data": "RELATIONAL_ANCHOR_PLUS_PROFILE_PLUS_PHYSICAL_SCALE_SUPPORT_PLUS_B3_ATTACHMENT_PLUS_REFINEMENT_LAW",
-    "boundary_fiber_quantum_dynamics_object": "NOT_UNIQUELY_FIXED_BY_EXISTING_QGR_AUTHORITY"
+    "relational_direction_anchor": "SHARED_B3_CONORMAL_LINE_DUALIZED_BY_PHYSICAL_METRIC_ON_REGULAR_NON_NULL_FACE",
+    "physical_smearing_scale": "UNFIXED_G7A_KAPPA_OVER_H2_DEGENERACY",
+    "concrete_smearing_kernel_family": "MISSING_PROFILE_AND_REFINEMENT_LAW"
   },
   "active_question": {
-    "id": "QGR-BOUNDARY-RELATIONAL-SMEARING-ANCHOR-DIRECTION-AND-SCALE",
-    "text": "Does the existing shared-B3 geometry source-define a covariant boundary normal/frame anchor and a physical smearing scale, or is only direction fixed while scale remains free?"
+    "id": "QGR-CELL-RELATIVE-SCALE-COVARIANT-SMEARING-CLASS",
+    "text": "Can the existing microscopic refinement parameter h and boundary normal n define a nonempty normalized covariant smearing class with a dimensionless h(n.k) profile and norm-preserving refinement law before absolute h calibration, and for which boundary causal types?"
   },
-  "active_blocker": "RELATIONAL_SMEARING_ANCHOR_AND_SCALE_INCOMPLETE__BOUNDARY_DYNAMICS_RULE_REQUIRED__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Audit boundary direction/frame and physical scale separately. Do not treat coordinate axes, unit lattice steps, preparation widths, test-bump support, beta, c6 or unfixed microscopic h as physical smearing scale without source authority.",
+  "active_blocker": "CELL_RELATIVE_KERNEL_PROFILE_SHAPE_AND_CAUSAL_SCOPE_UNRESOLVED__ABSOLUTE_H_UNFIXED__BOUNDARY_DYNAMICS_RULE_REQUIRED__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED",
+  "next_gate_lock": "Test existence and refinement scaling of the phi_(h,n) class without selecting a radial profile. Separate spacelike-B3/timelike-normal from timelike-B3/spacelike-normal cases. Absolute h calibration remains independent even if the internal dimensionless class exists.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "constructor_and_referee_short_orchestrator_mode": true
@@ -54,12 +56,13 @@
     "weyl3_dynamical_treatment_authorized": false,
     "one_particle_trace_class_channel_scoped_established": true,
     "minimal_smearing_bridge_class_scoped_selected": true,
+    "boundary_direction_anchor_scoped_established": true,
+    "absolute_smearing_scale_established": false,
     "concrete_smearing_kernel_family_established": false,
     "boundary_fiber_quantum_channel_established": false,
     "quantum_unitarity_established": false,
     "global_interacting_measure_established": false,
     "regulator_removal_established": false,
-    "full_gr_recovery_established": false,
     "uv_complete": false,
     "new_physics_found": false
   }
