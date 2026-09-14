@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_54S_PASS_54T_BLOCKED",
+    "iteration": "POST_54S_PASS_54T_54U_BLOCKED",
     "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_SOURCE_REALIZATION"
   },
   "readiness": {
@@ -36,6 +36,10 @@
     "iter054o": "PASS_SCOPED_QUALIFIED_TO_ALGEBRAIC_TEMPLATE",
     "iter054p": "TERMINAL_BLOCKED_REGULATOR_REMOVAL_AFTER_INITIAL_IMPLEMENTATION_INVALIDITY",
     "iter054q": "TERMINAL_BLOCKED_SOURCE_REALIZED_RELATIVE_OBSERVABLE_MAP",
+    "iter054r": "TERMINAL_BLOCKED_NO_EXISTING_WEYL_ACTIVE_REFINEMENT_HISTORY_BRIDGE",
+    "iter054s": "TERMINAL_SCOPED_PASS_WEYL_ACTIVE_TIDAL_FINE_TO_COARSE_TRANSPORT_BLOCKING",
+    "iter054t": "TERMINAL_BLOCKED_G3_HISTORY_TO_SOURCE_ACTION_MAP",
+    "iter054u": "TERMINAL_BLOCKED_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE",
     "g33_to_g37": "UNIFORM_REGULARITY_TORSION_BRANCH_STRESS_PERSISTENCE_AND_DEEPER_REFINEMENT_NO_SOURCE_SCALE_AUTHORITY",
     "g38": "SCOPED_ORDERED_FINE_TO_COARSE_TRANSPORT_ON_CONFORMAL_WEYL_ZERO_REALIZATION"
   },
@@ -110,6 +114,19 @@
     "normalized_relative_g3_phase_with_explicit_transport_established": false,
     "missing_arrow_2_localization": "B4_G3_HISTORY_TO_NONHOMOGENEOUS_PHYSICAL_SOURCE_BOUNDARY_INSERTION_TO_S_ALPHA"
   },
+  "iter054u": {
+    "gate": "ITER054U-G3-BRANCH-RESOLVED-WEYL3-DIFFERENTIAL-OPERATOR",
+    "status": "TERMINAL_BLOCKED_MISSING_REQUIRED_OBJECT",
+    "preregistration_commit": "e9486d6187c30436b278dc6f70d62d077eb4328d",
+    "durable_result_commit": "259d68fc3a37baaf81291728ba7428255f33ede4",
+    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054U_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE",
+    "explicit_g3_histories_and_transport_established": true,
+    "background_weyl3_c6_sensitivity_established": true,
+    "branch_resolved_dS_dc6_established": false,
+    "synthetic_path_quadrature_introduced": false,
+    "actions_run_launched": false,
+    "missing_object": "AUTHORIZED_HISTORY_RESOLVED_WEYL3_ACTION_ACCUMULATION_RULE_ON_SOURCE_FAITHFUL_G3_REALIZATION"
+  },
   "source_authority": {
     "g8a_history_branch_count": 24,
     "g8a_branch_amplitude": "24^(-1/2)",
@@ -120,17 +137,19 @@
     "g38_continuum_weyl_active": false,
     "g3_weyl_active_tidal_family": true,
     "g3_fine_to_coarse_transport_blocking_after_iter054s": true,
+    "g4_background_weyl3_c6_sensitivity_nonzero": true,
+    "g4_history_resolved_weyl3_action_response": false,
     "g23_history_order_cumulants_fix_action_coefficients": false,
     "g25_action_evaluates_specified_source": true,
     "g27_source_law_shape": "J(n)=beta*n",
     "g27_beta_fixed": false
   },
   "active_question": {
-    "id": "QGR-PHYSICAL-SOURCE-BOUNDARY-NORMALIZATION-AUTHORITY",
-    "text": "What genuinely new nonhomogeneous physical source/boundary principle, or what nontrivial Weyl-active normalized observable with exact scale cancellation, can map the identified G3/B4 history into S_alpha without setting beta by convention?"
+    "id": "QGR-HISTORY-RESOLVED-WEYL3-ACTION-AUTHORITY",
+    "text": "What genuinely new physical/source principle can assign the Weyl3 action density to explicit source-faithful G3/B4 histories, producing branch-resolved dS_alpha/dc6 without setting beta or inventing a post-hoc path quadrature?"
   },
-  "active_blocker": "NONHOMOGENEOUS_PHYSICAL_SOURCE_BOUNDARY_INSERTION_MISSING__CONCRETE_S_ALPHA_MISSING__REGULATOR_REMOVAL_BLOCKED__MICRO_TO_IR_C6_IDENTITY_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Do not rerun G23-G27 rank/census work or set beta=1. A successor must either introduce genuinely new prospectively motivated source/boundary authority, or prospectively prove a nontrivial Weyl-active normalized observable cancels the unresolved source scale while retaining c6 sensitivity and treating U_alpha explicitly. Orthogonal work on the exact-vs-order-reduced Weyl3 treatment selector remains admissible.",
+  "active_blocker": "HISTORY_RESOLVED_WEYL3_ACTION_ACCUMULATION_RULE_MISSING__NONHOMOGENEOUS_PHYSICAL_SOURCE_BOUNDARY_INSERTION_MISSING__CONCRETE_S_ALPHA_MISSING__REGULATOR_REMOVAL_BLOCKED__MICRO_TO_IR_C6_IDENTITY_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Do not rerun G23-G27 rank/census work, set beta=1, copy the common G4 scalar sensitivity onto every branch, or invent a path quadrature after seeing outputs. A successor must introduce genuinely new prospectively motivated history-resolved source/action authority, derive an independent branch-resolved c6-sensitive operator observable without that assignment, or work orthogonally on the exact-vs-order-reduced Weyl3 selector.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
