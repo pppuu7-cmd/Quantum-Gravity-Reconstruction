@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_56G_FINITE_ORDER_REGULARITY_BUDGET_NEXT",
-    "phase": "MODEL_CONSTRUCTION_PROSPECTIVE_ORDER_REDUCED_CANDIDATE_MATHEMATICS"
+    "iteration": "POST_56J_PHYSICAL_WEYL3_TREATMENT_SELECTOR_NEXT",
+    "phase": "MODEL_CONSTRUCTION_DYNAMICAL_TREATMENT_AUTHORITY"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -23,35 +23,50 @@
     "iter056d": "PASS_SCOPED_CONDITIONAL_ITER056D_FORMAL_ORDER_REDUCED_COEFFICIENT_EQUATIONS_INHERIT_LOWER_ORDER_STRONG_HYPERBOLICITY__QGR_GAUGE_OBJECT_STILL_MISSING",
     "iter056e": "PASS_SCOPED_ITER056E_NAIVE_FIXED_SOBOLEV_ALL_ORDER_RECURSION_HAS_DERIVATIVE_LOSS__NO_CONVERGENCE_OR_PHYSICAL_FAILURE_CLAIM",
     "iter056f": "BLOCKED_OBJECT_DEFINITION_ITER056F_NO_AUTHORITATIVE_COVARIANT_WEYL3_SOURCE_REDUCTION_OR_TAME_IDENTITY",
-    "iter056g": "PASS_SCOPED_ITER056G_EINSTEIN_SHELL_REMOVES_WEYL3_FOURTH_METRIC_DERIVATIVES"
+    "iter056g": "PASS_SCOPED_ITER056G_EINSTEIN_SHELL_REMOVES_WEYL3_FOURTH_METRIC_DERIVATIVES",
+    "iter056h": "PASS_SCOPED_ITER056H_FINITE_ORDER_TRUNCATION_HAS_EXPLICIT_HS_PLUS_2N_REGULARITY_BUDGET",
+    "iter056i": "PASS_SCOPED_ITER056I_ALL_FORMAL_COEFFICIENT_SOURCES_ARE_RECURSIVELY_BIANCHI_COMPATIBLE",
+    "iter056j": "PASS_SCOPED_CONDITIONAL_ITER056J_EVERY_FIXED_FINITE_ORDER_TRUNCATION_HAS_SEQUENTIAL_LOCAL_SOLUTION"
   },
   "iter056g": {
     "preregistration_commit": "018fde277b8cd2031131f27ec3191208cd9c3e10",
     "durable_result_commit": "d117f05239115830b0719e14f116c4e092b4e6db",
     "classification": "PASS_SCOPED_ITER056G_EINSTEIN_SHELL_REMOVES_WEYL3_FOURTH_METRIC_DERIVATIVES",
-    "einstein_shell_second_weyl_derivatives_removed": true,
-    "reduced_source_metric_derivative_order_upper_bound": 3,
-    "tame_estimate_established": false,
-    "all_order_convergence_established": false,
-    "github_actions_run": null
+    "reduced_source_metric_derivative_order_upper_bound": 3
+  },
+  "iter056h": {
+    "preregistration_commit": "efd833bdd346a2a0f3aaa00aa69843a54b721a2f",
+    "durable_result_commit": "96d53cd442ad5bac1fb4e890973b247130f0d7c1",
+    "classification": "PASS_SCOPED_ITER056H_FINITE_ORDER_TRUNCATION_HAS_EXPLICIT_HS_PLUS_2N_REGULARITY_BUDGET",
+    "background_budget": "H^(s+2N)",
+    "coefficient_budget": "g_n in H^(s+2(N-n))"
+  },
+  "iter056i": {
+    "preregistration_commit": "1047050115a5b0ba05c625499a7cd543a1d57200",
+    "durable_result_commit": "ff49d6805b521a9edbd89881597cb9bb8189caf9",
+    "classification": "PASS_SCOPED_ITER056I_ALL_FORMAL_COEFFICIENT_SOURCES_ARE_RECURSIVELY_BIANCHI_COMPATIBLE"
+  },
+  "iter056j": {
+    "preregistration_commit": "988a39962ead180f00b42a600fd4b7b60a8c6d37",
+    "durable_result_commit": "82a1adba8fcd66e245970448ff6fbb47380d34a1",
+    "classification": "PASS_SCOPED_CONDITIONAL_ITER056J_EVERY_FIXED_FINITE_ORDER_TRUNCATION_HAS_SEQUENTIAL_LOCAL_SOLUTION",
+    "finite_N_internal_pde_consistency_blocker": false,
+    "physical_treatment_authority_established": false
   },
   "object_identity": {
-    "physical_weyl3_treatment_selector": "MISSING_AUTHORITATIVE_ITER054G_R",
-    "mixed_order_evolution_object": "MISSING_AUTHORITATIVE_ITER054F",
-    "formal_perturbative_sector_principle": "MATHEMATICALLY_VIABLE_CANDIDATE_ARCHITECTURE_NOT_QGR_AUTHORIZED",
-    "generic_order_reduction_hierarchy": "SCOPED_ESTABLISHED_ITER056B",
-    "weyl3_noether_bianchi_compatibility": "SCOPED_ESTABLISHED_ITER056C",
-    "conditional_hyperbolicity_inheritance": "SCOPED_ESTABLISHED_ITER056D",
-    "fixed_sobolev_all_order_source_closure": "FAILED_NAIVE_CLOSURE_ITER056E",
-    "weyl3_covariant_source_reduction_identity": "SCOPED_EINSTEIN_SHELL_ESTABLISHED_ITER056G",
-    "finite_order_regular_truncation_budget": "NEXT_PRIORITY_OBJECT"
+    "physical_weyl3_treatment_selector": "MISSING_AUTHORITATIVE",
+    "formal_order_reduced_finite_N_mathematics": "SCOPED_CONDITIONALLY_VIABLE_THROUGH_ITER056J",
+    "full_exact_higher_derivative_strong_hyperbolicity": "NOT_ESTABLISHED",
+    "all_order_convergence": "NOT_ESTABLISHED",
+    "micro_to_continuum_reconstruction": "MISSING",
+    "global_interacting_measure_regulator_removal": "MISSING"
   },
   "active_question": {
-    "id": "ITER056H-FINITE-ORDER-SOBOLEV-BUDGET",
-    "text": "Given the Iter056G third-order Einstein-shell Weyl3 source bound and the conditional Iter056D lower-order hyperbolic estimate, what explicit Sobolev regularity budget suffices for a finite order-N formal truncation?"
+    "id": "POST-ITER056J-PHYSICAL-TREATMENT-SELECTOR",
+    "text": "Does QGR contain an independently motivated physical principle selecting the mathematically viable finite-order order-reduced Weyl3 sector as the dynamics rather than the exact higher-derivative equations or another treatment?"
   },
-  "active_blocker": "QGR_PHYSICAL_TREATMENT_NOT_AUTHORIZED__FINITE_ORDER_REGULARITY_BUDGET_NOT_YET_FROZEN__QGR_SPECIFIC_GAUGE_OBJECT_MISSING__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__GLOBAL_INTERACTING_MEASURE_BLOCKED",
-  "next_gate_lock": "Prospectively derive a finite-order truncation regularity theorem with an explicit derivative budget. Do not promote it to all-order convergence or historical QGR treatment authority. No third symmetry reduction.",
+  "active_blocker": "QGR_PHYSICAL_WEYL3_TREATMENT_SELECTOR_MISSING__QGR_SPECIFIC_GAUGE_OBJECT_MISSING__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__GLOBAL_INTERACTING_MEASURE_BLOCKED",
+  "next_gate_lock": "Audit candidate-owned physical treatment authority. Do not use mathematical convenience, continuity alone, fast-mode removal, or post-hoc ghost avoidance as a selector. Missing authority is a valid terminal result.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "constructor_and_referee_short_orchestrator_mode": true
