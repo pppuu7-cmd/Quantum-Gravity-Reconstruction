@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "54K",
-    "phase": "MODEL_CONSTRUCTION_WEYL3_DYNAMICAL_TREATMENT_CONSTRUCTION"
+    "iteration": "54L",
+    "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_TRANSITION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -45,92 +45,53 @@
     "candidate_inconsistency_established": false
   },
   "iter054g_parent": {
-    "gate": "ITER054G-WEYL3-DYNAMICAL-TREATMENT-SELECTION-AUTHORITY",
     "status": "TERMINAL_REQUIRES_SOURCE_AUTHORITY_REVIEW",
-    "preregistration_commit": "b4730d02f66b9378c41313bb833e2fdedd62daae",
-    "source_lock": "3398cd5a195d3d6b05fad01715ab5b79a880c4f1",
     "run_id": 34818484127,
-    "aggregate_job_id": 103894668345,
-    "summary_artifact_id": 10337630463,
-    "summary_digest": "sha256:9e7cee1882ec13faddb8734a7c203f4eeb228381a3f56381c09c6a2c971e34f7",
-    "classification": "REQUIRES_SOURCE_AUTHORITY_REVIEW_ITER054G",
-    "exact_outcome": "EXACT_NOT_SELECTED",
-    "order_reduced_outcome": "ORDER_REDUCED_NOT_SELECTED"
+    "classification": "REQUIRES_SOURCE_AUTHORITY_REVIEW_ITER054G"
   },
   "iter054g_review": {
-    "gate": "ITER054G-R-UNEXPECTED-DYNAMICAL-TREATMENT-SOURCE-AUTHORITY-REVIEW",
     "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
-    "preregistration_commit": "f9973884ce8e994c347f0ee5412fdc25206875ee",
-    "implementation_commit": "41ca0a8ef7c7c7b1e8bf55a858f5bf2797fed685",
-    "workflow_head": "9195320ca9060cb7e2874ae1fd5923e4afbecc9d",
     "run_id": 34818909992,
-    "aggregate_job_id": 103895733649,
-    "summary_artifact_id": 10336563789,
-    "summary_digest": "sha256:0880ebc3d1a817bddfbaca358f017aeca3dc040367f70710f27c97395f4108c5",
     "classification": "BLOCKED_OBJECT_DEFINITION_ITER054G_WEYL3_DYNAMICAL_TREATMENT_NOT_SELECTED_AFTER_SOURCE_REVIEW",
-    "reviewed_source_count": 8,
-    "non_selector_count": 8,
-    "ambiguous_source_count": 0,
     "exact_selector_found": false,
-    "order_reduced_selector_found": false,
-    "preexisting_treatment_selector_established": false
+    "order_reduced_selector_found": false
   },
   "iter054h": {
-    "gate": "ITER054H-WEYL3-REFINEMENT-DOMAIN-CONDITIONAL-ORDER-REDUCTION",
     "status": "TERMINAL_SCOPED_PASS_PHYSICAL_TREATMENT_NOT_AUTHORIZED",
-    "preregistration_commit": "3d10369e862b4bb559e6eecfadfb6d0377ddc183",
-    "implementation_commit": "0295f245cb07d5ad25c5982a4e6b26b8a1aab8d4",
-    "workflow_head": "8b39156c3a26d1effae5c726cc536554bdf1c43d",
     "run_id": 34820024699,
-    "aggregate_job_id": 103899290026,
-    "summary_artifact_id": 10337404013,
-    "summary_digest": "sha256:71bf6a33820187368a1f074d5c2f74c21cd86c42bfa377d513f889898c1c83c4",
-    "classification": "PASS_SCOPED_ITER054H_CONDITIONAL_REFINEMENT_BAND_SEPARATION__PHYSICAL_ORDER_REDUCED_TREATMENT_NOT_AUTHORIZED",
-    "conditional_order_reduction_domain_derived": true,
-    "physical_order_reduced_treatment_authorized": false,
-    "h4_hierarchy_authority": true,
-    "chi_bound_authority": false,
-    "physical_resolved_band_authority": false,
-    "microscopic_state_mapping": false,
-    "remainder_operator_tower_control": false
+    "classification": "PASS_SCOPED_ITER054H_CONDITIONAL_REFINEMENT_BAND_SEPARATION__PHYSICAL_ORDER_REDUCED_TREATMENT_NOT_AUTHORIZED"
   },
   "iter054i": {
-    "gate": "ITER054I-WEYL3-REGULATOR-LIMIT-ASYMPTOTIC-SEPARATION",
     "status": "TERMINAL_SCOPED_PASS_FINITE_H_PHYSICAL_TREATMENT_NOT_AUTHORIZED",
-    "preregistration_commit": "691d35e4250393593a2d99eac6c4b78b51ce833d",
-    "implementation_commit": "d8949b44229bf18c43ab62750253a96f4993ad3f",
-    "workflow_head": "c4c89a8dc5dc14acb337eb49aad3af3aad5fff64",
     "run_id": 34825507474,
-    "aggregate_job_id": 103916655515,
-    "summary_artifact_id": 10339582352,
-    "summary_digest": "sha256:5a357796951d3ab001a4fde2d2728ed64badedaa807585f6e8623aacb12f0da7",
-    "classification": "PASS_SCOPED_ITER054I_FIXED_BAND_REGULATOR_LIMIT_WEYL3_ASYMPTOTIC_DECOUPLING__FINITE_H_PHYSICAL_TREATMENT_NOT_AUTHORIZED",
-    "fixed_band_asymptotic_decoupling_established": true,
-    "nonuniform_threshold_p": 2,
-    "finite_h_physical_treatment_authorized": false,
-    "physical_cutoff_derived": false,
-    "regulator_dependent_c6_authorized": false
+    "classification": "PASS_SCOPED_ITER054I_FIXED_BAND_REGULATOR_LIMIT_WEYL3_ASYMPTOTIC_DECOUPLING__FINITE_H_PHYSICAL_TREATMENT_NOT_AUTHORIZED"
   },
   "iter054j": {
-    "gate": "ITER054J-WEYL3-CONTINUUM-SURVIVAL-SCALING-TRILEMMA",
     "status": "TERMINAL_SCOPED_PASS_C6_RUNNING_NOT_AUTHORIZED",
-    "preregistration_commit": "4f1dd6d3cdbf39c795d65c097daf6805a9e9d41a",
-    "implementation_commit": "b03d3f6353047ac288d7a7284ff9f24a4dc9e564",
-    "workflow_head": "911dd5ff97a603baec067e741f6ad3adb94ab23e",
     "run_id": 34830453709,
-    "aggregate_job_id": 103932441006,
-    "summary_artifact_id": 10341724457,
-    "summary_digest": "sha256:9ca9cd86e6e4a55cf1e1106a63a0dba0846bb653b68f9ae47b1db4c545d12d93",
-    "classification": "PASS_SCOPED_ITER054J_POWERLAW_CONTINUUM_SURVIVAL_TRILEMMA__C6_RUNNING_NOT_AUTHORIZED",
-    "pure_powerlaw_nonzero_survival_and_branch_decoupling_compatible": false,
-    "regulator_dependent_c6_authorized": false
+    "classification": "PASS_SCOPED_ITER054J_POWERLAW_CONTINUUM_SURVIVAL_TRILEMMA__C6_RUNNING_NOT_AUTHORIZED"
+  },
+  "iter054k": {
+    "gate": "ITER054K-WEYL3-GENERAL-SCALING-FIXED-BAND-NOGO",
+    "status": "TERMINAL_SCOPED_PASS_C6_RUNNING_NOT_AUTHORIZED",
+    "preregistration_commit": "75d8c4e86e4e28a7c2f355ef8860603f0a535430",
+    "implementation_commit": "2ca93215aded2e1e0cfbda17b824399588dc1922",
+    "workflow_head": "fa5749f0b6c227598d146767914c9738d5bd5599",
+    "run_id": 34835540454,
+    "aggregate_job_id": 103948432390,
+    "summary_artifact_id": 10343213946,
+    "summary_digest": "sha256:ad5f65c85e794ec43a399e56d47e86255f5bf5e323b49cacc09086e52421825c",
+    "classification": "PASS_SCOPED_ITER054K_GENERAL_FIXED_BAND_CONTINUUM_SURVIVAL_NOGO__C6_RUNNING_NOT_AUTHORIZED",
+    "exact_identity": "rho=(k/k_HD)^2",
+    "general_simultaneous_fixed_band_survival_and_branch_decoupling_possible": false,
+    "c6_running_authorized": false
   },
   "active_question": {
-    "id": "QGR-ITER054K-GENERAL-SCALING-NOGO",
-    "text": "Does the frozen normalization imply an exact identity rho=(k/k_HD)^2, and therefore a general no-go beyond power laws: on a fixed nonzero physical frequency, can any regulator dependence of c6 preserve a finite nonzero Weyl3 correction while also sending the singular branch to infinite physical frequency?"
+    "id": "QGR-ITER054L-QUANTUM-AMPLITUDE-MEASURE-CLOSURE-AUTHORITY",
+    "text": "Does the current QGR source actually define the minimum quantum amplitude/measure closure tuple: microscopic amplitude or measure, normalization, regulator-removal rule, microscopic-to-IR identity reaching c6, and at least one normalized cross-level observable?"
   },
-  "active_blocker": "PHYSICAL_TREATMENT_SELECTOR_ABSENT__CONTINUUM_SURVIVAL_VS_BRANCH_DECOUPLING_COMPATIBILITY",
-  "next_gate_lock": "Prospectively preregister Iter054K before evaluating general c6(h) families. Freeze the algebraic identity rho=(k/k_HD)^2 from rho=|c6*Cbar|h^4k^2 and k_HD=1/(h^2 sqrt(|c6*Cbar|)). Test arbitrary positive sequences/functions rather than another power-law panel. A PASS may establish only a general fixed-band compatibility no-go in the frozen proxy normalization; it must not authorize c6 running, a physical cutoff, UV completion, ghost claims, strong hyperbolicity, or the quantum amplitude/measure transition.",
+  "active_blocker": "QUANTUM_AMPLITUDE_MEASURE_TRANSITION_NOT_AUTHORIZED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Prospectively preregister Iter054L as a fail-closed source-authority audit before evaluating the source set. Missing objects are BLOCKED/REQUIRES_SOURCE_AUTHORITY, not scientific disproof. Do not infer beta=1, c6 running, a physical cutoff, unitarity, UV completion, experimental confirmation, or KMQGB NEW_REQUIRED.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
