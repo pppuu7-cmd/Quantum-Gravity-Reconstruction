@@ -1,0 +1,6 @@
+ITER053T-ORTHOGONAL-CONTROLS-NONAUTHORITATIVE
+contract=analysis/ITER053T_ORTHOGONAL_CONTROLS_CONTRACT.md
+implementation=code/qgr_iter053t_orthogonal_controls.py
+workflow=.github/workflows/qgr-iter053t-orthogonal-controls.yml
+scientific_authority=false
+evidence_pooling=false
