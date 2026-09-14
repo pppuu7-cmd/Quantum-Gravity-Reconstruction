@@ -1,0 +1,90 @@
+name: qgr-iter057f2-g3-k2-corrected
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057f2-g3-k2-corrected.yml'
+  workflow_dispatch:
+
+jobs:
+  cache-equivalence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Verify cached five-point evaluator exactly reproduces original evaluator
+        run: |
+          mkdir -p out
+          python code/qgr_iter057f2_g3_origin_weyl3_k2_corrected.py --cache-control --out out/cache_equivalence.json
+      - name: Upload cache-equivalence control
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057f2-cache-equivalence
+          path: out/cache_equivalence.json
+          if-no-files-found: warn
+
+  lanes:
+    needs: cache-equivalence
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Run frozen corrected basis lane
+        run: |
+          mkdir -p out
+          python code/qgr_iter057f2_g3_origin_weyl3_k2_corrected.py --index ${{ matrix.index }} --out out/lane_${{ matrix.index }}.json
+      - name: Upload lane artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057f2-lane-${{ matrix.index }}
+          path: out/lane_${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: lanes
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Download corrected lane artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057f2-lane-*
+          path: lane_artifacts
+          merge-multiple: true
+      - name: Aggregate corrected frozen result
+        run: |
+          mkdir -p out
+          python code/qgr_iter057f2_g3_origin_weyl3_k2_corrected.py --aggregate lane_artifacts --out out/iter057f2_summary.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057f2_summary.json || true
+      - name: Upload aggregate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057f2-summary
+          path: out/iter057f2_summary.json
+          if-no-files-found: warn
