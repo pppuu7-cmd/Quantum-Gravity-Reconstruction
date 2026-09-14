@@ -1,0 +1,90 @@
+name: qgr-iter057f3-g3-k2-fullnorm
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057f3-g3-k2-fullnorm.yml'
+  workflow_dispatch:
+
+jobs:
+  cache-equivalence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Verify cached five-point evaluator equals original evaluator
+        run: |
+          mkdir -p out
+          python code/qgr_iter057f3_g3_origin_weyl3_k2_fullnorm.py --cache-control --out out/cache_equivalence.json
+      - name: Upload cache-equivalence control
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057f3-cache-equivalence
+          path: out/cache_equivalence.json
+          if-no-files-found: warn
+
+  lanes:
+    needs: cache-equivalence
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Run frozen full-tensor-normalized basis lane
+        run: |
+          mkdir -p out
+          python code/qgr_iter057f3_g3_origin_weyl3_k2_fullnorm.py --index ${{ matrix.index }} --out out/lane_${{ matrix.index }}.json
+      - name: Upload lane artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057f3-lane-${{ matrix.index }}
+          path: out/lane_${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: lanes
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Download lane artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057f3-lane-*
+          path: lane_artifacts
+          merge-multiple: true
+      - name: Aggregate frozen full-tensor result
+        run: |
+          mkdir -p out
+          python code/qgr_iter057f3_g3_origin_weyl3_k2_fullnorm.py --aggregate lane_artifacts --out out/iter057f3_summary.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057f3_summary.json || true
+      - name: Upload aggregate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057f3-summary
+          path: out/iter057f3_summary.json
+          if-no-files-found: warn
