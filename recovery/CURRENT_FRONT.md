@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055Y / TEST SUFFICIENCY OF GR-LIMIT CONTINUITY AS A FUTURE TREATMENT SELECTOR`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 TREATMENT-PRINCIPLE FALSIFICATION`
+Primary active front: `POST-ITER055Z / FORMAL-ANALYTIC PERTURBATIVE-SECTOR SELECTOR SUFFICIENCY`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 TREATMENT-PRINCIPLE FALSIFICATION AND CONSTRUCTION`
 
 ## Canonical claim locks
 
@@ -11,52 +11,42 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 TREATMENT-PRINCIPLE FALSIFICATION`
 - Theory established: **0%**.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; regulator running is not authorized.
-- Physical Weyl3 treatment selector: **not source-defined** by authoritative Iter054G-R.
-- Mixed-order strong-hyperbolicity evolution object: **not fixed** by Iter054F.
-- Global interacting measure/regulator removal and micro-to-continuum reconstruction: **not established**.
+- Physical Weyl3 treatment selector: not source-defined (Iter054G-R).
+- Mixed-order strong-hyperbolicity evolution object: not fixed (Iter054F).
+- Micro-to-continuum reconstruction and global interacting measure/regulator removal: not established.
 
-## Iter055X redundancy correction
+## Relevant terminal results
 
-Iter055X preregistration `b16965b549b6f3248380325345c0911f9b01c623` was discovered, before a new substantive verdict, to duplicate the already-authoritative Iter054G-R treatment-selection source review. It was therefore closed at `c9f33c6740767043f160d0312faff7503e373cf9` as
+Iter055W: exact formal reciprocal identity `rho k_HD^2=k^2`; nonzero fixed-band survival and formal-root decoupling are incompatible independent of running ansatz.
 
-`INVALID_REDUNDANT_GATE_ITER055X_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`.
+Iter055Y: if fixed-band `rho -> rho_*>0`, then `q_HD=h k_HD ->0`; an exact-HD nonzero-survival version cannot hide the formal root above every fixed refinement-resolved q-band by coefficient scaling alone.
 
-Iter054G-R (`a02af9daf5573db14ab16c640f08899dd6f54a66`) remains authoritative: exact-HD and order-reduced physical treatments are not source-selected. Iter054H separately proves only conditional band separation and explicitly withholds physical order-reduction authority.
+Iter055X was closed `INVALID_REDUNDANT_GATE_ITER055X_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`; Iter054G-R remains the treatment-authority decision.
 
-## Terminal Iter055W
+Iter055Z prereg `0e88f1bcb6dd42fcc1149fd6475e1e2f7eb38757`; result `38e8746989ed8ef13cd0066af7eb592a15208330`:
 
-Prereg `752a92f8ec7990579c859fd755e21aef28115f63`; result `8573681d9bddf2e6561950c7afd4439d512fffdb`:
+`FAIL_SCOPED_ITER055Z_GR_LIMIT_CONTINUITY_ALONE_DOES_NOT_EXCLUDE_SINGULAR_BRANCH__STRONGER_ASYMPTOTIC_SELECTION_REQUIRED`.
 
-`PASS_SCOPED_ITER055W_ANSATZ_INDEPENDENT_SURVIVAL_DECOUPLING_INCOMPATIBILITY__C6_RUNNING_NOT_AUTHORIZED`.
+For the exact control `u''+eps u''''=0`, families such as
 
-Exact identity inside the formal Iter054I/J object:
+`u_eps=u_GR+exp(-1/eps) sin(t/sqrt(eps))`
 
-`rho k_HD^2 = k^2`.
-
-Thus fixed-band nonzero Weyl3 survival and `k_HD -> infinity` are incompatible for arbitrary diagnostic coefficient running, not only pure powers.
-
-## Terminal Iter055Y
-
-Prereg `7a164dafb0e9cfb83fb5eb424d113c312eb229e4`; result `02c864fe3faba8c614b3e2103b29f5ddfbbdf1c3`:
-
-`PASS_SCOPED_ITER055Y_NONZERO_FIXED_BAND_WEYL3_SURVIVAL_FORCES_FORMAL_HD_SCALE_INTO_ANY_FIXED_Q_BAND__PHYSICAL_MODE_NOT_AUTHORIZED`.
-
-If `rho -> rho_*` finite nonzero, then `k_HD -> |k|/sqrt(rho_*)` while `q_HD=h k_HD ->0`. Conversely, keeping `q_HD>=q0>0` forces `rho<=k^2 h^2/q0^2 ->0`. So a future exact-HD nonzero-survival version cannot hide the formal root above every fixed refinement-resolved q-band by coefficient scaling alone.
+retain a nonzero fast branch for every `eps>0` while converging to `u_GR` in every finite `C^n` seminorm on compact intervals; hence even smooth compact GR-limit continuity does not select the regular sector.
 
 ## Current highest-information gate
 
-Because the treatment selector and QGR-specific evolution reduction are missing, test a **candidate selection principle** before adopting it: is the statement “physical solutions are those that approach GR solutions as the higher-derivative parameter goes to zero” mathematically sufficient to remove the singular branch?
+Test the stronger **formal/analytic perturbative-sector principle** on the same exact control, without asserting QGR physical authority:
 
-Use a prospectively frozen mixed-order scalar control with the same GR-connected plus singular-scale structure as Iter054E, e.g.
+Assume a solution admits a regular formal power series
 
-`u'' + eps u'''' = 0`.
+`u(eps,t)=sum_{n>=0} eps^n u_n(t)`
 
-The lower-order limit is `u''=0`, while exact solutions contain fast oscillatory modes with frequency `eps^-1/2`. Construct families whose fast-mode amplitude tends to zero so the fields converge to a GR solution in chosen finite regularity norms while the singular branch is still present for every `eps>0`. Also test whether even smooth (`C^infinity` on compact time intervals) convergence can leave an exponentially small fast component.
+(or a convergent analytic version in an appropriate smooth topology) near `eps=0`. Substitute into `u''+eps u''''=0` and determine recursively whether any fast singular branch survives.
 
-If such witnesses exist, vague GR-limit continuity is not enough. Any future order-reduced/analytic treatment rule must state a stronger topology/asymptotic-analyticity/remainder or initial-data condition prospectively.
+If every coefficient is forced to satisfy the lower-order equation, this principle is mathematically sufficient to exclude the fast sector in the control. That would identify a viable **candidate treatment principle**, not a source-derived QGR law. Source authority remains separately BLOCKED by Iter054G-R.
 
-This is a selector-sufficiency diagnostic only, not a new QGR treatment rule.
+A later gate may then ask whether the same formal perturbative structure generically turns `E_GR[g]+lambda E_W3[g]=0` into a hierarchy where each new correction is solved with the linearized GR operator and higher-derivative terms appear only as sources built from lower orders.
 
 ## Operational note
 
-Short-orchestrator mode remains active. Exact analytic selector controls require no GitHub Actions load.
+Short-orchestrator mode remains active. Exact formal-series gates require no GitHub Actions workload.
