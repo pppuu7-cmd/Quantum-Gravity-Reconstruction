@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_54X_BLOCKED",
+    "iteration": "POST_54Y_BLOCKED",
     "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_SOURCE_REALIZATION"
   },
   "readiness": {
@@ -43,6 +43,8 @@
     "iter054v": "TERMINAL_SCOPED_PASS_ORDER_BLIND_EVENT_ATTACHED_ACTION_CANNOT_RESOLVE_G3_HISTORIES",
     "iter054w": "TERMINAL_BLOCKED_NO_AUTHORIZED_G3_STATE_DEPENDENT_WEYL3_ACTION_INCREMENT",
     "iter054x": "TERMINAL_BLOCKED_MICROSCOPIC_ACTION_INCOMPLETE_FOR_CURRENT_QGR_L1",
+    "iter054y": "TERMINAL_BLOCKED_LOWER_ORDER_G3_B4_BRANCH_PHASE_NOT_SOURCE_REALIZED",
+    "g25_g28": "LOWER_ORDER_ACTION_EVALUATES_SUPPLIED_SOURCE__J_N_BETA_N_SHAPE__COUNT_SECTOR_BETA_QUOTIENT_ONLY",
     "g31_g32": "LOCAL_CURVATURE_LIFT_AND_CONDITIONAL_PROJECTIVE_ACTION_INTEGRAL_NO_ABSOLUTE_PHASE_NORMALIZATION",
     "g33_to_g37": "LOCAL_REGULARITY_PLUS_ROBUST_FINITE_ALGEBRAIC_BRANCH_MULTIPLICITY_NO_TOWER_WIDE_UNIFORM_GAP",
     "g37c": "DISTANT_FINITE_ROOTS_FAIL_FROZEN_G10B_PHYSICAL_SAME_REALIZATION_ADMISSIBILITY",
@@ -82,9 +84,7 @@
     "status": "TERMINAL_BLOCKED_MISSING_REQUIRED_OBJECT",
     "preregistration_commit": "70d375f0af98ba20cac76271b849c6b044cad404",
     "durable_result_commit": "64a3f6c6147f9f02a9b293c39e3a2e7d1a285409",
-    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054R_NO_EXISTING_WEYL_ACTIVE_REFINEMENT_HISTORY_BRIDGE",
-    "missing_arrow_1": "WEYL_ACTIVE_TIDAL_BACKGROUND_TO_SOURCE_FAITHFUL_FINE_TO_COARSE_TRANSPORT_BLOCKING",
-    "missing_arrow_2": "WEYL_ACTIVE_TIDAL_HISTORY_TO_CONCRETE_SOURCE_DERIVED_S_ALPHA"
+    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054R_NO_EXISTING_WEYL_ACTIVE_REFINEMENT_HISTORY_BRIDGE"
   },
   "iter054s": {
     "gate": "ITER054S-WEYL-ACTIVE-TIDAL-FINE-TO-COARSE-TRANSPORT-BLOCKING",
@@ -97,80 +97,54 @@
     "summary_artifact_id": 10355162999,
     "summary_artifact_digest": "sha256:71460c1167ae6e29dfd5e49135ba96636c33e14ebc742592f423ad54f1e57da0",
     "durable_result_commit": "0103d653964b706352772931628cfb6de1a69a78",
-    "classification": "PASS_SCOPED_ITER054S_WEYL_ACTIVE_TIDAL_FINE_TO_COARSE_TRANSPORT_BLOCKING",
-    "control_pass": true,
-    "path_pass_count": 8,
-    "path_count": 8,
-    "loop_pass_count": 12,
-    "loop_count": 12,
-    "implementation_valid": true,
-    "missing_arrow_1_closed_scoped": true,
-    "analytic_continuum_theorem": false
+    "classification": "PASS_SCOPED_ITER054S_WEYL_ACTIVE_TIDAL_FINE_TO_COARSE_TRANSPORT_BLOCKING"
   },
   "iter054t": {
-    "gate": "ITER054T-G3-WEYL-ACTIVE-HISTORY-TO-SOURCE-ACTION-MAP",
     "status": "TERMINAL_BLOCKED_MISSING_REQUIRED_OBJECT",
     "preregistration_commit": "6a4e6c11f1b26469591878cc11ba4f72555c590f",
     "durable_result_commit": "6b09db1a8a9e95c090f988097e3ee9aefdf2685d",
-    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054T_G3_HISTORY_TO_SOURCE_ACTION_MAP",
-    "g3_b4_history_identity_established": true,
-    "physical_source_boundary_strength_map_established": false,
-    "concrete_source_derived_s_alpha_established": false,
-    "normalized_relative_g3_phase_with_explicit_transport_established": false,
-    "missing_arrow_2_localization": "B4_G3_HISTORY_TO_NONHOMOGENEOUS_PHYSICAL_SOURCE_BOUNDARY_INSERTION_TO_S_ALPHA"
+    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054T_G3_HISTORY_TO_SOURCE_ACTION_MAP"
   },
   "iter054u": {
-    "gate": "ITER054U-G3-BRANCH-RESOLVED-WEYL3-DIFFERENTIAL-OPERATOR",
     "status": "TERMINAL_BLOCKED_MISSING_REQUIRED_OBJECT",
     "preregistration_commit": "e9486d6187c30436b278dc6f70d62d077eb4328d",
     "durable_result_commit": "259d68fc3a37baaf81291728ba7428255f33ede4",
-    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054U_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE",
-    "explicit_g3_histories_and_transport_established": true,
-    "background_weyl3_c6_sensitivity_established": true,
-    "branch_resolved_dS_dc6_established": false,
-    "synthetic_path_quadrature_introduced": false,
-    "actions_run_launched": false,
-    "missing_object": "AUTHORIZED_HISTORY_RESOLVED_WEYL3_ACTION_ACCUMULATION_RULE_ON_SOURCE_FAITHFUL_G3_REALIZATION"
+    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054U_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE"
   },
   "iter054v": {
-    "gate": "ITER054V-ORDER-BLIND-HISTORY-ACTION-NOGO",
     "status": "TERMINAL_PASS_SCOPED",
     "preregistration_commit": "ef5408c9409a4555991e89c99388756205b25f60",
     "durable_result_commit": "6c6f73d8ccc59b38b0a16a55eb1da5feb2c1b1a6",
-    "classification": "PASS_SCOPED_ITER054V_ORDER_BLIND_EVENT_ATTACHED_ADDITIVE_ACTION_CANNOT_RESOLVE_G3_HISTORIES",
-    "exact_permutation_invariance": true,
-    "state_dependent_scope_control_distinguishes_histories": true,
-    "claim_scope": "ORDER_BLIND_EVENT_ATTACHED_ADDITIVE_CLASS_ONLY"
+    "classification": "PASS_SCOPED_ITER054V_ORDER_BLIND_EVENT_ATTACHED_ADDITIVE_ACTION_CANNOT_RESOLVE_G3_HISTORIES"
   },
   "iter054w": {
-    "gate": "ITER054W-G3-STATE-DEPENDENT-WEYL3-ACTION-INCREMENT-AUTHORITY",
     "status": "TERMINAL_BLOCKED_MISSING_REQUIRED_OBJECT",
     "preregistration_commit": "0fb611bfafc54a9a35829fdfc36951d4ba7f36c9",
     "durable_result_commit": "fdd9016cdfa6d9e0c7a8cd566b3d2818a0510b86",
-    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054W_NO_AUTHORIZED_G3_STATE_DEPENDENT_WEYL3_ACTION_INCREMENT",
-    "intermediate_state_domain_defined": true,
-    "weyl3_sensitivity_proxy_defined": true,
-    "authorized_step_action_increment_defined": false,
-    "authorized_weyl3_cell_assignment_on_g3_defined": false,
-    "abstract_phase_composition_defined": true,
-    "source_boundary_normalization_defined": false,
-    "branch_resolved_weyl3_action_defined": false,
-    "missing_object": "G3_STATE_PATH_PLUS_SOURCE_BOUNDARY_DATA_TO_DELTA_S_WEYL3_TO_HISTORY_ACTION_RESPONSE"
+    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054W_NO_AUTHORIZED_G3_STATE_DEPENDENT_WEYL3_ACTION_INCREMENT"
   },
   "iter054x": {
-    "gate": "ITER054X-PRIMITIVE-FINITE-CELL-LORENTZIAN-ACTION-AUTHORITY",
     "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
     "preregistration_commit": "2198ec6d522fb5e4a23ff16344d58a699082b7b9",
     "durable_result_commit": "40035d92576d3c4c81606f39a836caa1fecb9419",
     "classification": "BLOCKED_OBJECT_DEFINITION_ITER054X_MICROSCOPIC_ACTION_INCOMPLETE_FOR_CURRENT_QGR_L1",
-    "microscopic_domain_defined": true,
     "lower_order_exact_action_defined": true,
-    "lower_order_noether_consistency_defined": true,
-    "semantic_branch_phase_composition_defined": true,
     "canonical_full_source_normalized_branch_action_defined": false,
-    "canonical_finite_cell_weyl3_action_defined": false,
-    "absolute_quantum_phase_normalization_defined": false,
-    "lower_order_vs_weyl3_separation_required": true
+    "canonical_finite_cell_weyl3_action_defined": false
+  },
+  "iter054y": {
+    "status": "TERMINAL_BLOCKED_MISSING_REQUIRED_OBJECT",
+    "preregistration_commit": "1f6f26142f1f770ae71aacc5657909e1794331b0",
+    "durable_result_commit": "50b0c1cd32644cd51fd34230d3553289e37efea6",
+    "classification": "BLOCKED_MISSING_REQUIRED_OBJECT_ITER054Y_LOWER_ORDER_G3_B4_BRANCH_PHASE_NOT_SOURCE_REALIZED",
+    "lower_order_action_defined": true,
+    "specified_source_to_on_shell_phase_defined": true,
+    "event_to_source_absolute_map_defined": false,
+    "source_law_shape": "J(n)=beta*n",
+    "beta_fixed": false,
+    "g28_beta_independent_relative_phase_ratios_exist_in_common_conformal_count_sector": true,
+    "g28_relative_phase_map_to_g3_b4_permutation_histories_defined": false,
+    "g3_b4_lower_order_branch_phase_resolution_defined": false
   },
   "source_authority": {
     "g8a_history_branch_count": 24,
@@ -178,33 +152,28 @@
     "g8a_multilevel_amplitudes_multiply": true,
     "g8a_action_phases_add_on_concatenated_histories": true,
     "g10b_ordered_transport_refinement": true,
-    "g38_conformal_transport_blocking": true,
-    "g38_continuum_weyl_active": false,
     "g3_weyl_active_tidal_family": true,
-    "g3_fine_to_coarse_transport_blocking_after_iter054s": true,
     "g3_intermediate_state_dependent_transport": true,
-    "g4_background_weyl3_c6_sensitivity_nonzero": true,
-    "g4_history_resolved_weyl3_action_response": false,
     "iter005_lower_order_connection_density_action_defined": true,
     "iter005_connection_density_action_derivative_order": 2,
-    "g31_exact_finite_cell_action_phase_defined": false,
-    "g32_projective_limit_action_integral_conditional": true,
-    "g32_absolute_phase_normalization_fixed": false,
-    "g33_tower_wide_uniform_gap_defined": false,
-    "g37c_distant_roots_physical_same_realization_admissible": false,
-    "exact_higher_derivative_finite_cell_uv_action_frozen": false,
-    "torsion_coarea_real_measure_to_lorentzian_phase_map": false,
-    "g23_history_order_cumulants_fix_action_coefficients": false,
-    "g25_action_evaluates_specified_source": true,
+    "g25_specified_source_to_exact_on_shell_phase": true,
+    "g25_physical_event_to_source_map": false,
+    "g26_event_response_direction_fixed": true,
+    "g26_absolute_event_source_strength_fixed": false,
     "g27_source_law_shape": "J(n)=beta*n",
-    "g27_beta_fixed": false
+    "g27_beta_fixed": false,
+    "g28_beta_independent_phase_ratios": true,
+    "g28_sector": "COMMON_CONFORMAL_DIRICHLET_COUNT_SECTOR",
+    "g28_g3_b4_history_map": false,
+    "exact_higher_derivative_finite_cell_uv_action_frozen": false,
+    "torsion_coarea_real_measure_to_lorentzian_phase_map": false
   },
   "active_question": {
-    "id": "QGR-LOWER-ORDER-G3-B4-BRANCH-PHASE-REALIZATION",
-    "text": "Does the already-authorized exact two-derivative microscopic connection-density action, together with existing G3/B4 history and source authority, determine concrete relative or absolute S_alpha^(2) for the source-faithful histories without using c6/Weyl3, beta=1, invented quadrature, or coarea-as-phase?"
+    "id": "QGR-G8A-HISTORY-PHASE-OPERATIONAL-AUTHORITY",
+    "text": "In the quantum object actually defined by current QGR authority, are per-history phases S_alpha operationally irrelevant Kraus rephasing gauge, or does the realization contain coherent cross-history interference/observables for which relative phases are physical?"
   },
-  "active_blocker": "BASE_TWO_DERIVATIVE_HISTORY_PHASE_REALIZATION_NOT_YET_SEPARATED_FROM_WEYL3_EXTENSION__FULL_MICROSCOPIC_ACTION_INCOMPLETE__STATE_DEPENDENT_WEYL3_ACTION_INCREMENT_MISSING__NONHOMOGENEOUS_PHYSICAL_SOURCE_BOUNDARY_INSERTION_MISSING__REGULATOR_REMOVAL_BLOCKED__MICRO_TO_IR_C6_IDENTITY_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Do not add a new higher-derivative candidate principle yet. First determine whether the existing two-derivative exact microscopic action plus current source/history authority already yields concrete G3/B4 branch phases. Do not use c6, Weyl3, beta=1, torsion/coarea-as-phase, synthetic phase values, or invented path quadrature/cell assignment.",
+  "active_blocker": "OPERATIONAL_ROLE_OF_UNRESOLVED_HISTORY_PHASE_NOT_CLASSIFIED__LOWER_ORDER_G3_B4_SOURCE_PHASE_NOT_REALIZED__FULL_MICROSCOPIC_ACTION_INCOMPLETE__WEYL3_ACTION_INCREMENT_MISSING__REGULATOR_REMOVAL_BLOCKED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Audit exact G8A and downstream quantum-object semantics before inventing a new source/action phase law. If QGR only defines an incoherent Kraus channel, per-Kraus phases may be gauge at that layer; if coherent history interference is defined, relative phases remain mandatory. Do not import a future coherent-sum interpretation.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
