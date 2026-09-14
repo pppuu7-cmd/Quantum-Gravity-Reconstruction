@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055J / LINEARIZED ONE-PARTICLE TO BOUNDARY SECTOR BRIDGE OR SMEARING REQUIREMENT`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR IDENTIFICATION BEFORE DYNAMICS SELECTION`
+Primary active front: `POST-ITER055K / MINIMAL BOUNDED SECTOR-BRIDGE AXIOM CLASS`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE DEFINITION BEFORE DYNAMICS`
 
 ## Canonical claim locks
 
@@ -18,37 +18,48 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR IDENTIFICATION BEFORE DYNAMI
 
 ## Terminal Iter055I
 
-Preregistration `23aedd66bae29963f0017bf1e60c6468247775d9`; result `a448e501883fe30fd89680bd69274ad3d6fa812f`.
-
 `PASS_SCOPED_NONUNIQUENESS_ITER055I_EXISTING_QGR_AUTHORITY_LEAVES_NONTRIVIAL_BOUNDARY_QUANTUM_LIFT_FREEDOM__NEW_CANDIDATE_DYNAMICS_RULE_REQUIRED`.
 
-Existing boundary kinematics/positivity/composition do not uniquely determine an interacting boundary-fiber quantum channel. Identity and unitary-covariant depolarizing controls provide an operationally distinct CPTP nonuniqueness witness; they are controls only, not proposed QGR dynamics.
+Existing kinematics/positivity/composition do not uniquely determine the boundary quantum dynamics.
 
-## New terminal Iter055J
+## Terminal Iter055J
 
-Preregistration `474d5e6a81474749fd551488e735cecf29901643`; durable result `a2eb30b672e218481bd118fd554b4859799abe56`.
+Preregistration `474d5e6a81474749fd551488e735cecf29901643`; result `a2eb30b672e218481bd118fd554b4859799abe56`.
 
 `BLOCKED_OBJECT_DEFINITION_ITER055J_ONE_PARTICLE_TO_BOUNDARY_OVERLAP_MAP_NOT_SOURCE_DEFINED`.
 
-The one-particle and boundary-relative objects use different base structures:
+The one-particle characteristic Hilbert uses future-null momentum plus a 2D physical polarization quotient, whereas boundary-relative gluing uses shared B3 configuration data and its pushforward/disintegrated configuration measure. No source-defined embedding/restriction/intertwiner presently relates the two.
 
-- G6F / Iter009-G6: regular one-particle characteristic Hilbert `H_char(G)=direct_integral_{N_G^+} dmu_G(k) P_(G,k)`, with null momentum `k` and positive 2D physical polarization quotient fibers;
-- G6C/G6E / Iter055G: shared finite B3 configuration label `b` consisting of metric/connection restriction variables, with the boundary measure obtained by disintegration/pushforward of the physical configuration measure.
+## New terminal Iter055K
 
-Current authority supplies no explicit embedding/restriction/intertwiner between these sectors, no relation between their base measures, and no theorem that Iter009-G6 is the restriction of a boundary-relative channel. G6D is conditional on branch vectors already living in one common positive Hilbert and does not provide this bridge. Conditional G3B/G8A constructions depend on the missing full-configuration `F_alpha` and cannot be used to manufacture the map.
+Preregistration `f49fc045fa0387634638d7eedd67b75c150a9d64`; result `107f041cd8b9f22f7de6571494cc6dc9bafe4fbd`.
 
-Therefore the post-Iter055I requirement “recover Iter009-G6 on the overlap” is scientifically desirable but is not yet operational until an overlap/sector-identification map is derived.
+`FAIL_SCOPED_ITER055K_RAW_L2_BOUNDARY_POINT_RESTRICTION_NOT_BOUNDED__SMEARING_OR_REGULARITY_REQUIRED`.
+
+The natural raw reconstruction/evaluation bridge fails on the actual G6F `L2` completion. On the future null cone, `dmu ~ (1/2) r dr dOmega`, so the evaluation kernel `e^{ik.x}` is not square-integrable. Unit-norm shell wavepackets have point value growing like `sqrt(mu(shell)) ~ R`; derivative/connection evaluation is even more ultraviolet-singular because of the extra momentum factor. Finite many B3 points do not repair the unboundedness.
+
+This rejects only the naive `L2 -> raw point values` map. It does not rule out a bounded smeared bridge or a stronger regularity domain.
 
 ## Current highest-information gate
 
-Test the most natural existing linearized bridge before adding a dynamics axiom:
+Before selecting a dynamics axiom, prospectively compare the two minimal mathematical bridge classes forced by Iter055K:
 
-`one-particle characteristic wavepacket -> linearized field restriction on the finite shared B3 boundary`.
+A. **Bounded covariant smearing/test-function bridge**: retain the established G6F Hilbert completion and map to finite coarse boundary observables through square-integrable kernels/test functions.
 
-The gate must determine whether this restriction is a well-defined bounded/norm-controlled map on the actual G6F `L2` Hilbert completion and whether it descends through the physical quotient. In particular, do not silently identify an `L2` equivalence class with pointwise vertex values. If point evaluation is not well-defined/bounded, record the exact missing extra structure (smearing/test-function class, Sobolev regularity, bandlimit, detector profile, or other prospectively defined map) rather than choosing one post hoc.
+B. **Stronger regularity/trace domain**: shrink or strengthen the one-particle state domain so raw point/derivative traces become continuous.
 
-Only after a source-faithful sector bridge exists may “exact recovery of Iter009-G6” be used as a kill test for a new interacting dynamics axiom class.
+Freeze kill tests before choosing either. At minimum check:
+
+1. preservation of the already-authoritative G6F Hilbert/channel domain versus replacement/shrinkage of that domain;
+2. covariance and physical-polarization quotient descent;
+3. boundedness of metric and connection observables;
+4. boundary/refinement compatibility;
+5. whether the class itself is source-selected or still leaves profile/regularity freedom.
+
+Do not tune a kernel width, cutoff, Sobolev exponent, detector profile or boundary dynamics after results. A mathematically viable class is not yet a QGR law unless its remaining new data are explicitly declared and prospectively tested.
+
+Only after a bounded sector bridge exists may exact Iter009-G6 recovery become an operational kill test for new interacting dynamics.
 
 ## Operational note
 
-Scheduled-task UI/finalization failures are operational incidents only. Keep short-orchestrator mode and delegate heavy computation to GitHub Actions only when a genuine computable object exists.
+Scheduled-task UI/finalization failures are operational incidents only. Keep short-orchestrator mode; use GitHub Actions only for genuine computable discriminators.
