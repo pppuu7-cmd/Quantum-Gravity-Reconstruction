@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055Z / FORMAL-ANALYTIC PERTURBATIVE-SECTOR SELECTOR SUFFICIENCY`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 TREATMENT-PRINCIPLE FALSIFICATION AND CONSTRUCTION`
+Primary active front: `POST-ITER056A / GENERIC FORMAL ORDER-REDUCTION HIERARCHY`
+Project phase: `MODEL_CONSTRUCTION / PROSPECTIVE ORDER-REDUCED CANDIDATE MATHEMATICS`
 
 ## Canonical claim locks
 
@@ -11,42 +11,51 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 TREATMENT-PRINCIPLE FALSIFICATION AND
 - Theory established: **0%**.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; regulator running is not authorized.
-- Physical Weyl3 treatment selector: not source-defined (Iter054G-R).
-- Mixed-order strong-hyperbolicity evolution object: not fixed (Iter054F).
-- Micro-to-continuum reconstruction and global interacting measure/regulator removal: not established.
+- Historical QGR physical Weyl3 treatment selector remains absent (Iter054G-R).
+- Mixed-order QGR evolution reduction remains undefined (Iter054F).
+- Micro-to-continuum reconstruction and global interacting measure/regulator removal remain blocked.
 
-## Relevant terminal results
+## Treatment-principle chain
 
-Iter055W: exact formal reciprocal identity `rho k_HD^2=k^2`; nonzero fixed-band survival and formal-root decoupling are incompatible independent of running ansatz.
-
-Iter055Y: if fixed-band `rho -> rho_*>0`, then `q_HD=h k_HD ->0`; an exact-HD nonzero-survival version cannot hide the formal root above every fixed refinement-resolved q-band by coefficient scaling alone.
-
-Iter055X was closed `INVALID_REDUNDANT_GATE_ITER055X_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`; Iter054G-R remains the treatment-authority decision.
-
-Iter055Z prereg `0e88f1bcb6dd42fcc1149fd6475e1e2f7eb38757`; result `38e8746989ed8ef13cd0066af7eb592a15208330`:
-
+Iter055Z:
 `FAIL_SCOPED_ITER055Z_GR_LIMIT_CONTINUITY_ALONE_DOES_NOT_EXCLUDE_SINGULAR_BRANCH__STRONGER_ASYMPTOTIC_SELECTION_REQUIRED`.
 
-For the exact control `u''+eps u''''=0`, families such as
+Even `C^infinity` compact convergence to GR can retain an exponentially small fast exact branch.
 
-`u_eps=u_GR+exp(-1/eps) sin(t/sqrt(eps))`
+Iter056A prereg `d4eeda3241c853406d5105ae2dbbec04768542b1`; result `2742fc625b848dbbc54f35158949ad9c27481c76`:
 
-retain a nonzero fast branch for every `eps>0` while converging to `u_GR` in every finite `C^n` seminorm on compact intervals; hence even smooth compact GR-limit continuity does not select the regular sector.
+`PASS_SCOPED_ITER056A_FORMAL_POWER_SERIES_SECTOR_EXCLUDES_SINGULAR_FAST_BRANCH_IN_CONTROL__QGR_AUTHORITY_STILL_MISSING`.
+
+For `u''+eps u''''=0` and `u=sum eps^n u_n`, the recurrence is
+
+`u_0''=0`,
+
+`u_n''+u_(n-1)''''=0`.
+
+Induction forces every `u_n` to be affine, so the regular formal sector contains only the lower-order branch. The Iter055Z exponentially small fast branch is beyond all algebraic orders and is not represented by the regular series.
+
+This establishes mathematical sufficiency of a **candidate perturbative-sector principle** in the control, not QGR source authority.
 
 ## Current highest-information gate
 
-Test the stronger **formal/analytic perturbative-sector principle** on the same exact control, without asserting QGR physical authority:
+Generalize the construction prospectively to a nonlinear/covariant functional equation
 
-Assume a solution admits a regular formal power series
+`E0[g] + lambda E1[g] = 0`,
 
-`u(eps,t)=sum_{n>=0} eps^n u_n(t)`
+where `E0` is the lower-order dynamical functional and `E1` is the higher-derivative correction. Freeze regular formal expansion
 
-(or a convergent analytic version in an appropriate smooth topology) near `eps=0`. Substitute into `u''+eps u''''=0` and determine recursively whether any fast singular branch survives.
+`g(lambda)=g0+lambda g1+lambda^2 g2+...`.
 
-If every coefficient is forced to satisfy the lower-order equation, this principle is mathematically sufficient to exclude the fast sector in the control. That would identify a viable **candidate treatment principle**, not a source-derived QGR law. Source authority remains separately BLOCKED by Iter054G-R.
+Derive the coefficient hierarchy using Frechet/Taylor expansions and test whether, at every order `n>=1`, the only operator acting on the new unknown `g_n` is the lower-order linearization `D E0[g0]`, while all `E1` contributions depend only on already-known `g_0,...,g_(n-1)` because of the explicit prefactor `lambda`.
 
-A later gate may then ask whether the same formal perturbative structure generically turns `E_GR[g]+lambda E_W3[g]=0` into a hierarchy where each new correction is solved with the linearized GR operator and higher-derivative terms appear only as sources built from lower orders.
+If exact, this is a formal mathematical architecture for an order-reduced candidate version. It still does not supply gauge fixing, invertibility, global Weyl3 EOM, convergence/remainder control or physical treatment authority.
+
+## Orthogonal fixed blockers
+
+- Iter055V: micro-to-continuum reconstruction `R_h` missing.
+- Iter054G-R: exact vs order-reduced physical treatment not source-selected.
+- Iter054F: strong-hyperbolicity evolution object not defined.
 
 ## Operational note
 
-Short-orchestrator mode remains active. Exact formal-series gates require no GitHub Actions workload.
+Short-orchestrator mode remains active. Exact formal-functional gates require no GitHub Actions load.
