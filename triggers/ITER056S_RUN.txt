@@ -1,0 +1,5 @@
+ITER056S production trigger
+preregistration=f3e0daf1f164953c382753867ccba80852ec8283
+hypothesis_note=e89913217b12ff37cadcf7510d77e954fac55ecb
+implementation=6c50b61684f3bdb418bb7f1c1a31fb4ae74df8bd
+workflow=55ecc1699c9bf4a4660df9cdd54b4298afeb976e
