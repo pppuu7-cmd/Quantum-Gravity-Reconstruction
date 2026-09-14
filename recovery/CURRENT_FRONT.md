@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER054S/T / PHYSICAL SOURCE-BOUNDARY NORMALIZATION AUTHORITY`
+Primary active front: `POST-ITER054U / HISTORY-RESOLVED WEYL3 ACTION ACCUMULATION AUTHORITY`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -22,7 +22,7 @@ GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALI
 
 ## Full auto-research chain recovered
 
-The substantive automatic-research chain from Iter053U through the G33–G38 refinement/torsion sequence and Iter054A–T has been re-read against preregistrations, implementations, terminal results and Actions, not merely commit titles.
+The substantive automatic-research chain from Iter053U through the G33–G38 refinement/torsion sequence and Iter054A–U has been re-read against preregistrations, implementations, terminal results and Actions, not merely commit titles.
 
 Key durable facts:
 
@@ -102,19 +102,34 @@ New localization:
 - G27 derives `J(n)=beta*n` and relative count ratios, but `beta` remains an unfixed physical source scale; 1/24 history normalization has zero authority on it.
 - G4 nonzero `dPhi/dc6` is sensitivity, not a phase target.
 
-Thus Iter054R missing arrow 2 is now sharply identified as:
+Thus Iter054R missing arrow 2 is sharply identified as:
 
 `B4/G3 HISTORY -> NONHOMOGENEOUS PHYSICAL SOURCE/BOUNDARY INSERTION -> S_alpha`.
 
+## Iter054U — TERMINAL MISSING-OBJECT BLOCKED
+
+Preregistration `e9486d6187c30436b278dc6f70d62d077eb4328d`.
+Durable result `259d68fc3a37baaf81291728ba7428255f33ede4`.
+
+Classification:
+
+**`BLOCKED_MISSING_REQUIRED_OBJECT_ITER054U_NO_BRANCH_RESOLVED_WEYL3_ACTION_RESPONSE`**
+
+Iter054U tested the allowed normalized-observable escape route rather than repeating the source-rank census. It confirmed that explicit G3 permutation histories and their transport matrices `U_alpha` exist, and that G4 supplies a nonzero background Weyl3 response. However no authoritative rule maps the Weyl3 action density into distinct source-faithful `dS_alpha/dc6` values for the explicit histories.
+
+The missing object is now localized more sharply as:
+
+`G3 HISTORY + U_alpha + WEYL3 DENSITY -> AUTHORIZED HISTORY-RESOLVED WEYL3 ACTION ACCUMULATION -> dS_alpha/dc6`.
+
+A common G4 scalar copied onto every history is explicitly insufficient. No new path quadrature, vertex weighting, cell assignment, source profile, branch phase or measure convention was introduced. No Actions run was launched because the missing object makes a numerical workload fake load.
+
 ## Current frontier
 
-Do **not** rerun G23–G27 as another rank/census gate and do not set `beta=1` by convention. Existing QGR internal authority has already exhausted normalized order history, incidence, pair action, connection/holonomy, coarea measure and primitive additive composition as sources of the missing absolute scale.
+Do **not** rerun G23–G27, do not set `beta=1`, and do not manufacture a path-wise Weyl3 action by choosing a new quadrature convention after seeing outputs.
 
 The next substantive source/action step requires one of two things:
 
-1. genuinely new repository/external physical authority supplying a nonhomogeneous source/boundary normalization principle for the G3/B4 history; or
-2. a separately prospectively frozen proof that a physically useful Weyl-active normalized observable cancels the unresolved source scale while retaining nontrivial `c6` sensitivity and treating `U_alpha` explicitly.
+1. genuinely new physical/source authority supplying a history-resolved accumulation rule for the Weyl3 action on the source-faithful G3/B4 histories; or
+2. an independent operator observable with branch-resolved `c6` response derived without such a history-action assignment.
 
-Any such gate must be motivated before computation and cannot use synthetic phase values or post-hoc normalization.
-
-Parallel work is still admissible on orthogonal blocked fronts (e.g. the exact-vs-order-reduced Weyl3 treatment selector), but no downstream regulator/global-measure promotion is authorized from Iter054S alone.
+Parallel work remains admissible on the orthogonal exact-vs-order-reduced Weyl3 treatment selector, but no downstream regulator/global-measure promotion is authorized from Iter054S/U alone.
