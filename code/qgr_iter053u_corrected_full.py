@@ -18,7 +18,6 @@ import os
 import numpy as np
 
 import qgr_iter053r_weighted_h5_compact_support as r
-import qgr_iter053_compact_support_action as g53
 import qgr_iter052_4d_directional_variation as it
 import qgr_iter051c_d2n_near_null as d2n
 import qgr_iter051c_full_eom as c
@@ -36,8 +35,8 @@ def retag(d):
 def corrected_weighted_bulk_transformed(mt, source_pert, L, Linv, order, sample=False):
     """Weighted transformed side using exactly one external support factor.
 
-    `source_pert` is the original CompactPerturbation.  Its `.base` member is
-    the unfactored polynomial tensor p(u).  The transformed polynomial is
+    `source_pert` is the original CompactPerturbation. Its `.base` member is
+    the unfactored polynomial tensor p(u). The transformed polynomial is
     L^T p(u) L while geometry is evaluated at y=L^-1 u.
     """
     bulk=0.0; wrong=0.0; sig=True; inv=0.0; max_h=0.0; max_p=0.0; max_w3=0.0
@@ -52,9 +51,6 @@ def corrected_weighted_bulk_transformed(mt, source_pert, L, Linv, order, sample=
         bulk+=wt*float(np.einsum('ab,ab->',H,py))
         wrong+=wt*float(np.einsum('ab,ab->',Hwrong,py))
         if sample:
-            # Keep sample fields schema-compatible with Iter053R.  C lanes do
-            # not use them scientifically, but deterministic zero defaults are
-            # avoided by recording the same available H/P norms.
             max_h=max(max_h,float(np.linalg.norm(H)))
             max_p=max(max_p,float(np.linalg.norm(z['P'])))
     return {
@@ -63,6 +59,36 @@ def corrected_weighted_bulk_transformed(mt, source_pert, L, Linv, order, sample=
         'sample_max_H_norm':float(max_h),'sample_max_P_norm':float(max_p),
         'sample_max_abs_W3':float(max_w3),
         'source_extraction':'UNFACTORED_SOURCE_POLYNOMIAL_THEN_LTpL',
+    }
+
+
+def transformed_source_object_control(source_pert, transformed_pert, L):
+    """Fail closed if the corrected and historical wrapper objects are identical.
+
+    No magnitude threshold is introduced.  We inspect every frozen GJ3 source
+    node and require only that the historical wrapper path is not object-identical
+    to the corrected unfactored-polynomial path.
+    """
+    all_equal=True
+    finite=True
+    node_count=0
+    differing_nodes=0
+    for u,_ in r.gj_tasks(3):
+        corrected=np.asarray(L.T@source_pert.base.jets(u)[0]@L,float)
+        legacy=np.asarray(L.T@transformed_pert.base.jets(u)[0]@L,float)
+        finite=finite and bool(np.isfinite(corrected).all() and np.isfinite(legacy).all())
+        same=bool(np.array_equal(corrected,legacy))
+        all_equal=all_equal and same
+        differing_nodes+=int(not same)
+        node_count+=1
+    passed=bool(finite and node_count==81 and not all_equal)
+    return {
+        'node_count':node_count,
+        'finite':finite,
+        'historical_wrapper_object_identical_to_corrected':all_equal,
+        'exactly_differing_node_count':differing_nodes,
+        'control_pass':passed,
+        'criterion':'REJECT_ONLY_IF_ALL_FROZEN_GJ3_SOURCE_NODES_ARE_OBJECT_IDENTICAL_OR_NONFINITE',
     }
 
 
@@ -141,6 +167,7 @@ def lane_c(i):
             float(np.max(np.abs(ht-L.T@h@L)))
         ])
     tres=max(vals); detres=abs(float(np.linalg.det(L))-1.0)
+    source_object=transformed_source_object_control(pert,pt,L)
 
     # Base side is the exact historical Iter053R mathematical path.
     base=r.analyze_generic(metric,pert)
@@ -149,13 +176,17 @@ def lane_c(i):
 
     dcov=r.rel(base['direct_GL8']['direct'][-1],transformed['direct_GL8']['direct'][-1])
     bcov=r.rel(base['GJ3']['bulk'],transformed['GJ3']['bulk'])
-    valid=bool(base['control_valid'] and transformed['control_valid'] and detres<=2e-12 and tres<=3e-11)
+    valid=bool(
+        base['control_valid'] and transformed['control_valid'] and
+        detres<=2e-12 and tres<=3e-11 and source_object['control_pass']
+    )
     passed=bool(valid and base['generic_pass'] and transformed['generic_pass'] and dcov<=2e-3 and bcov<=2e-3)
 
     return {
         'gate':GATE,'stream':'C','index':i,
         'metric_seed':mseed,'perturbation_seed':pseed,
         'det_L':float(np.linalg.det(L)),'transform_algebra_residual':tres,
+        'transformed_source_object_control':source_object,
         'base':base,'transformed':transformed,
         'direct_covariance_relative_residual':dcov,
         'bulk_covariance_relative_residual':bcov,
