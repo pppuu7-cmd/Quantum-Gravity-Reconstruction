@@ -1,0 +1,54 @@
+name: QGR Iter054C local metric principal symbol corrected retry
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054c_local_metric_principal_symbol.py'
+      - 'code/qgr_iter054c_local_metric_principal_symbol_retry.py'
+      - 'prereg/ITER054C-WEYL3-LOCAL-METRIC-PRINCIPAL-SYMBOL-AND-GAUGE-DEGENERACY.md'
+      - '.github/workflows/qgr-iter054c-local-metric-principal-symbol-retry.yml'
+  workflow_dispatch:
+
+jobs:
+  stream:
+    strategy:
+      fail-fast: false
+      matrix:
+        stream: [A0, A1, B0, B1]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Frozen Iter054C corrected stream
+        run: python code/qgr_iter054c_local_metric_principal_symbol_retry.py --stream '${{ matrix.stream }}' --out 'iter054c/${{ matrix.stream }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054c-${{ matrix.stream }}
+          path: iter054c/${{ matrix.stream }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: stream
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054c-*
+          path: iter054c-input
+          merge-multiple: false
+      - name: Frozen Iter054C corrected aggregate
+        run: python code/qgr_iter054c_local_metric_principal_symbol_retry.py --aggregate iter054c-input --out iter054c-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054c-summary
+          path: iter054c-summary/summary.json
+          if-no-files-found: error
