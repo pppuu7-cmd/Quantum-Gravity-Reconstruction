@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER056K / PROSPECTIVE PHYSICAL TREATMENT SELECTOR FOR WEYL3 DYNAMICS`
-Project phase: `MODEL_CONSTRUCTION / NEW DYNAMICAL-TREATMENT PRINCIPLE`
+Primary active front: `POST-ITER056L / MICROSCOPIC-TO-CONTINUUM DYNAMICAL RECONSTRUCTION MAP`
+Project phase: `MODEL_CONSTRUCTION / SELECTOR-ENABLING OBJECTS`
 
 ## Canonical claim locks
 
@@ -11,52 +11,51 @@ Project phase: `MODEL_CONSTRUCTION / NEW DYNAMICAL-TREATMENT PRINCIPLE`
 - Theory established: **0%**.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; running not authorized.
-- Existing QGR authority through Iter056K contains **no qualifying Type III physical Weyl3 treatment selector**.
+- Existing QGR authority contains no Type III physical Weyl3 treatment selector.
+- New prospective `S_micro` candidate exists only as a frozen rule; it is **not yet executable or physically authorized**.
 - Strong hyperbolicity of the exact full higher-derivative theory is not established.
-- Micro-to-continuum reconstruction and global interacting measure/regulator removal remain blocked.
+- Global interacting measure/regulator removal remains blocked.
 
-## Latest terminal result — Iter056K
+## Iter056K terminal
 
-Preregistration commit: `fe8fae039f9a96b6392cd29559e395ddc0d39922`.
-Durable result commit: `7be155adf804bc9bede9fb14c8ccad33e466636f`.
-Classification:
-`QGR_EXISTING_PRINCIPLES_DO_NOT_SELECT_WEYL3_DYNAMICAL_TREATMENT_SCOPED`.
+Preregistration `fe8fae039f9a96b6392cd29559e395ddc0d39922`; durable result `7be155adf804bc9bede9fb14c8ccad33e466636f`.
 
-The A–H authority audit found no pre-gate QGR-owned physical principle that uniquely selects finite-order order-reduced dynamics, exact higher-derivative dynamics, or another explicitly defined treatment. Mathematical viability of the finite-N order-reduced construction is not physical authorization; lack of a strong-hyperbolicity theorem for exact dynamics is not physical exclusion.
+`QGR_EXISTING_PRINCIPLES_DO_NOT_SELECT_WEYL3_DYNAMICAL_TREATMENT_SCOPED`
 
-No new GitHub Actions workload was launched for Iter056K because a source-authority audit cannot manufacture missing historical authority; doing so would be fake load.
+Complete frozen A–H authority audit found no qualifying pre-existing Type III selector. This does not select order reduction or exact dynamics.
 
-## Surviving mathematical structure
+## Iter056L terminal
 
-Iter056G:
-`PASS_SCOPED_ITER056G_EINSTEIN_SHELL_REMOVES_WEYL3_FOURTH_METRIC_DERIVATIVES`.
+Prospective candidate-principle preregistration `58b2e0730f2b469353f697e34052db73824f0ccc`; durable result `99fefa8dec5ebcb17104ae6be379c0372587b11f`.
 
-Iter056H:
-`PASS_SCOPED_ITER056H_FINITE_ORDER_TRUNCATION_HAS_EXPLICIT_HS_PLUS_2N_REGULARITY_BUDGET`.
+`BLOCKED_OBJECT_DEFINITION_ITER056L_MICROSCOPIC_DERIVATION_SELECTOR_NOT_YET_EXECUTABLE`
 
-Iter056I:
-`PASS_SCOPED_ITER056I_ALL_FORMAL_COEFFICIENT_SOURCES_ARE_RECURSIVELY_BIANCHI_COMPATIBLE`.
+The frozen `S_micro` rule is treatment-blind: physical treatment would have to be selected by a source-faithful regulator-controlled microscopic→continuum observable map, not by downstream PDE convenience. It is presently blocked by four missing objects:
 
-Iter056J:
-`PASS_SCOPED_CONDITIONAL_ITER056J_EVERY_FIXED_FINITE_ORDER_TRUNCATION_HAS_SEQUENTIAL_LOCAL_SOLUTION`.
+1. authoritative microscopic→continuum dynamical reconstruction map;
+2. global interacting-measure regulator removal;
+3. treatment-independent Weyl3-sensitive cross-level matching rule;
+4. microscopic→IR identity for symbolic `c6`.
 
-These establish a scoped-conditionally viable prospective finite-N mathematical candidate. They do **not** select it as QGR physical dynamics.
+No numerical CI was launched for Iter056K/L because computation cannot manufacture these missing source-definition objects.
 
 ## Current highest-information front
 
-The next admissible move is not another treatment-dependent calculation. It is to prospectively define a **new QGR-owned treatment-blind physical selector candidate** before seeing treatment-dependent outcomes.
+Construct a source-faithful **microscopic→continuum dynamical reconstruction map on one normalized Weyl3-sensitive overlap observable**.
 
-Any admissible selector candidate must:
-1. have an independently stated physical motivation rather than mathematical convenience or ghost/fast-mode avoidance;
-2. apply to at least exact higher-derivative and finite-order order-reduced treatments;
-3. define an explicit physical condition/map/limit/measure/state/initial-data/spectral criterion and domain;
-4. include a prospective falsifier;
-5. introduce no outcome-fitted prescription or hidden fitted free parameter;
-6. preserve symbolic/unfixed `c6` and the prohibition on `beta=1`;
-7. be allowed to select exact dynamics, order-reduced dynamics, another treatment, or no admissible treatment at all.
+The next gate must remain treatment-blind and must not compare exact versus order-reduced predictions until the common microscopic object is independently fixed. It should reuse already-authorized microscopic history/amplitude/measure and normalized cylindrical/cross-level structures where possible, but must not promote scoped finite/refinement results into a global measure theorem.
 
-Candidate classes worth **prospective comparison only** include microscopic derivation, quantum-state/measure selection, causal/spectral selection, EFT-domain selection, and resummation/analyticity. None is authorized merely by being listed.
+The desired object should specify, prospectively:
+- microscopic input and normalization;
+- regulator/refinement parameter;
+- continuum observable target;
+- source-faithful map between them;
+- symbolic `c6` handling;
+- convergence/equivalence criterion;
+- null/negative control showing the map is discriminating rather than tautological.
+
+If the existing source objects are insufficient, terminate with the exact missing object rather than inventing weights, contours, phases, `beta=1`, or a post-hoc treatment-specific prescription.
 
 ## Operational status
 
-No active authoritative GitHub Actions production is presently required. GitHub should remain idle until a prospective selector object is frozen strongly enough that a computation can actually falsify or discriminate it.
+No active authoritative GitHub Actions production is required until a computable microscopic→continuum map is prospectively frozen. GitHub should remain idle rather than run duplicate/fake load.
