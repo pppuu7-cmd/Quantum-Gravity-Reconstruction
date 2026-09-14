@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `ITER056S / G2 BALANCED PAIR TENSOR CUBIC-SHAPE BRIDGE`
+Primary active front: `ITER056S / G2 BALANCED PAIR TENSOR CUBIC-SHAPE PRODUCTION VALIDATION`
 Project phase: `MODEL_CONSTRUCTION / SELECTOR-ENABLING CROSS-LEVEL OBJECTS`
 
 ## Canonical claim locks
@@ -20,65 +20,57 @@ Project phase: `MODEL_CONSTRUCTION / SELECTOR-ENABLING CROSS-LEVEL OBJECTS`
 - G35-G37 distant roots do not authorize physical weights.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Iter056O terminal production PASS
+## Iter056O authoritative production PASS
 
-Gate: `ITER056O-G3-WEYL3-PARENT-CHILD-LOCAL-ACTION-KERNEL-REFINEMENT`.
-Preregistration: `8c20980c41f575909609c059708822ab903ce203`.
-Production head: `0566075b76bf43c82e1f31e23763a3cc0f4b3314`.
-Authoritative run: `34895085566`.
-Aggregate job: `104147593426`.
-Aggregate artifact: `10368054894`.
-Aggregate artifact digest: `sha256:a92c783514e8cb757eae65519f7289f9aba2323a87d1bf7bd5538297c9a251cb`.
-Durable result: `21464a0561b59e356116cbc4d7585be2f24d4ae3`.
+Run `34895085566`; aggregate job `104147593426`; summary artifact `10368054894`; digest `sha256:a92c783514e8cb757eae65519f7289f9aba2323a87d1bf7bd5538297c9a251cb`.
 
-Terminal classification:
-`PASS_SCOPED_ITER056O_G3_WEYL3_PARENT_CHILD_ACTION_KERNEL_REFINEMENT`.
+Classification: `PASS_SCOPED_ITER056O_G3_WEYL3_PARENT_CHILD_ACTION_KERNEL_REFINEMENT`.
 
-Raw four-lane aggregate was consumed; all lanes were valid with no missing/duplicate/parse errors. The parent→children residual contracts from about `9.86e-4` at `H=0.10` to about `2.44e-4` at `H=0.05` on both frozen bases. This is only a finite-panel local geometric Weyl3 action-kernel refinement certificate.
+This remains a finite-panel local geometric Weyl3 action-kernel refinement certificate only.
 
-## Iter056P terminal
+## Iter056P/Q/R terminal authority gates
 
-Preregistration: `c97ef745470e0b611f6fb4980888bc9dd08fde05`.
-Analysis: `7d1ad5b01f63f5c002b01f2dc7514c0f49420370`.
-Durable result: `886f23c8ad239f6d727e27e528d3be7d713f5573`.
+- Iter056P durable result `886f23c8ad239f6d727e27e528d3be7d713f5573`: no authorized nontrivial history attachment for the G3/Weyl3 cell action.
+- Iter056Q durable result `442f2a40efcf1ebd7b8b60448eeb740ccb6ab991`: microscopic cubic and Weyl3 target lack a source-faithful same-realization variable map.
+- Iter056R durable result `274efa69d113c3d8bae8e208e97ac602e6e3ca6b`: the G15 event-to-frame-rescale bridge remains conditional; covariance alone does not select it.
 
-`BLOCKED_OBJECT_DEFINITION_ITER056P_G3_WEYL3_CELL_ACTION_HAS_NO_AUTHORIZED_NONTRIVIAL_HISTORY_ATTACHMENT`
+Iter056R exposed a stronger source-owned object from early G2: the balanced six-pair tensor sector.
 
-Iter056O strengthens the geometric/refinement side, but frozen authority contains no source rule `(Weyl3 cell action, history alpha) -> S_alpha^W3`. Assigning the same scalar to all 24 histories creates only a common phase and no relative-history information. Do not invent path weights, parity factors, holonomy multipliers, branch phases or `F_alpha`.
+## Iter056S frozen gate
 
-## Iter056Q terminal
+Gate: `ITER056S-BALANCED-B4-PAIR-TENSOR-TO-TIDAL-CUBIC-SHAPE-HELDOUT-VALIDATION`.
 
-Preregistration: `fff1c8f13d2321c61868d2f1c2146c5b11f62fd0`.
-Analysis: `f89cb5b64c767b7f35ead32d6976c0a848cbd656`.
-Durable result: `442f2a40efcf1ebd7b8b60448eeb740ccb6ab991`.
+Hypothesis-generation commit: `e89913217b12ff37cadcf7510d77e954fac55ecb`.
+Prospective preregistration: `f3e0daf1f164953c382753867ccba80852ec8283`.
+Implementation: `6c50b61684f3bdb418bb7f1c1a31fb4ae74df8bd`.
+Workflow: `55ecc1699c9bf4a4660df9cdd54b4298afeb976e`.
+Frozen production head: `9e81cf94bdbe69e38a58b1242077ba3c11e61033`.
+Authoritative production run: `34896461228`.
+Exact generic proof: `6aaf230e310da1c7305a85e164e258d34c9061cf`.
+Provisional exact-proof result record: `44fea262eb1b29f05b5f07cceb7ed9b6724b0b84`.
 
-`BLOCKED_OBJECT_DEFINITION_ITER056Q_MICRO_CUBIC_AND_WEYL3_TARGET_LACK_SOURCE_FAITHFUL_VARIABLE_MAP`
+The generic proof establishes, conditionally on the Iter003-G2 null-link/Lorentzian seed hypothesis,
 
-A microscopic S4-symmetric cubic local-action sector and a treatment-blind G3/H0 Weyl3 target both exist, but no source-faithful same-realization variable map connects microscopic `q_i` to the tidal/Weyl variables. G15 provides only a conditional bridge `delta G_ij=q_i+q_j` if event coordinates are identified with generator-local frame rescalings.
+`spec(H_sp)={2a,2b,-2(a+b)}`,
 
-## Iter056R terminal
+`Tr(H_sp^3)=-24ab(a+b)=3det(H_sp)`,
 
-Preregistration: `41724a341f9abadc9e6b21423af191da74f9be8c`.
-Analysis: `b8af39c65dbf146d71adc30611d8e1ecc9d49804`.
-Durable result: `274efa69d113c3d8bae8e208e97ac602e6e3ca6b`.
+and the H0 direction `a=b` has eigenvalue shape `1:1:-2`.
 
-`BLOCKED_OBJECT_DEFINITION_ITER056R_EVENT_TO_FRAME_RESCALE_INTERPRETATION_REMAINS_CONDITIONAL`
+The proof also gives exact S4 conjugation invariance, a nonzero cubic-null control at `a=-b`, and rejection of the preregistered unbalanced perturbation.
 
-G15 is structurally clean but not source-derived as the physical interpretation of the microscopic event variables. G14's four-dimensional S4-equivariant map space shows that covariance alone does not uniquely select G15. G21 still retains scalar `beta`, and `beta=1` remains forbidden.
+## Production authority lock
 
-The audit exposed a stronger source-owned alternative already present in early G2: six pair perturbations `x_ij`, exact `6=1+3+2` S4 decomposition, a 2D balanced sector, and embedding into symmetric zero-diagonal `4x4` tensor `H` with `H(1,1,1,1)^T=0` and `Tr(g0^{-1}H)=0` on the balanced sector.
+The commit `44fea262...` records the exact mathematical proof, but **must not be treated as the final authoritative production classification yet**. The user-required production protocol requires consumption of raw held-out lane logs/artifacts and the frozen aggregate whenever such a production gate was prospectively launched.
 
-## Active successor: Iter056S
+At the latest check, run `34896461228` had eight queued lane jobs and zero in-progress jobs. No lane artifacts, aggregate job, summary artifact or digest existed yet.
 
-Before any computation, prospectively freeze an audit of the actual source-owned G2 balanced pair tensor:
+Therefore current scientific status is:
 
-1. use only the frozen B4 seed to decompose the generator space into the symmetric time direction and sum-zero spatial subspace;
-2. restrict the G2 balanced tensor `H` to that 3D spatial subspace;
-3. derive its exact cubic invariant `Tr(H_sp^3)` and its S4 transformation law;
-4. compare only normalized **shape algebra** with the trace-free G3/H0 weak-tidal Hessian/Weyl3 shape;
-5. include null/degenerate and permutation controls;
-6. do not identify amplitudes, `beta`, `kappa`, `c6`, branch weights or physical Weyl3 treatment.
+`EXACT_PROOF_COMPLETE__AUTHORITATIVE_PRODUCTION_VALIDATION_PENDING`.
 
-A positive shape correspondence would be a source-owned kinematic cubic-shape bridge only. It would not establish coefficient matching, microscopic→continuum dynamics, quantum measure closure, or QGR correctness.
+Do not open Iter056T until the run is terminal and all raw lanes plus aggregate have been consumed. If all frozen predicates validate, the preregistered maximum classification is:
 
-No new Actions workload should be launched until the Iter056S object, controls and terminal classifications are frozen prospectively. If the audit is exact algebra and requires no numerical evidence, do not create fake CI load.
+`PASS_SCOPED_CONDITIONAL_ITER056S_BALANCED_PAIR_SECTOR_HAS_EXACT_TIDAL_CUBIC_SHAPE_BRIDGE`.
+
+Even that PASS is only a conditional kinematic representation/invariant bridge. It does not identify amplitudes, `beta`, `kappa`, `c6`, history weights, branch phases, curvature normalization, microscopic dynamics, a global micro→continuum map, a Weyl3 treatment, quantum measure closure, UV completion, experiment or QGR correctness.
