@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "54G",
-    "phase": "MODEL_CONSTRUCTION_WEYL3_DYNAMICAL_TREATMENT_SELECTION"
+    "iteration": "54H",
+    "phase": "MODEL_CONSTRUCTION_WEYL3_DYNAMICAL_TREATMENT_CONSTRUCTION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -35,86 +35,52 @@
     "iter054e_initial": "ITER054E_IMPLEMENTATION_OR_CONTROL_INVALID_A0_STRUCTURAL_EQUALITY",
     "iter054f_initial": "ITER054F_IMPLEMENTATION_OR_CONTROL_INVALID_A1_CHARPOLY_SYMBOL_IDENTITY"
   },
-  "iter053u": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34797463832,
-    "classification": "PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE",
-    "global_functional_derivative_theorem_established": false
-  },
-  "iter054a": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34800952154,
-    "classification": "PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION",
-    "well_posedness_established": false
-  },
-  "iter054b": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34804198271,
-    "classification": "PASS_SCOPED_ITER054B_WEYL3_PRINCIPAL_HESSIAN_ACTIVATION_WELLPOSEDNESS_NOT_AUTHORIZED",
-    "well_posedness_established": false
-  },
-  "iter054c": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34808147191,
-    "classification": "PASS_SCOPED_ITER054C_WEYL3_LOCAL_METRIC_PRINCIPAL_SYMBOL_GAUGE_DEGENERACY_CONFIRMED_HYPERBOLICITY_NOT_AUTHORIZED",
-    "well_posedness_established": false
-  },
-  "iter054d": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34811376305,
-    "classification": "PASS_SCOPED_ITER054D_WEYL3_PRINCIPAL_ORDER_GAUGE_COMPLETION_QUOTIENT_INVARIANCE_HYPERBOLICITY_NOT_AUTHORIZED",
-    "well_posedness_established": false
-  },
-  "iter054e": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "preregistration_commit": "ed62acf961cae4a0d200364285d94a56e61a294d",
-    "implementation_commit": "0366422137d4e8c665b3e10e6280acb6d338f3b1",
-    "initial_run_id": 34815920355,
-    "initial_classification": "ITER054E_IMPLEMENTATION_OR_CONTROL_INVALID_A0_STRUCTURAL_EQUALITY",
-    "control_only_fix_commit": "f7d996b401e147d736b91b23b7e3ef97ff546b61",
-    "authoritative_retry_run_id": 34817023061,
-    "aggregate_job_id": 103889834227,
-    "summary_artifact_id": 10336742062,
-    "summary_digest": "sha256:b7e0dce1e44b44ac1b9425427db3d33bdf88271f8ab42762f006a4155eb36bc9",
-    "classification": "PASS_SCOPED_ITER054E_EINSTEIN_WEYL3_MIXED_ORDER_REGIME_SEPARATION_STRONG_HYPERBOLICITY_NOT_AUTHORIZED",
-    "finite_proxy_gr_branch_separation_established": true,
-    "strong_hyperbolicity_established": false
-  },
   "iter054f": {
-    "gate": "ITER054F-WEYL3-MIXED-ORDER-STRONG-HYPERBOLICITY-OBJECT-DEFINITION-AUDIT",
     "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
-    "preregistration_commit": "f4838c50ded00c6d62c9ef822f1f75285eceddf9",
-    "initial_implementation_commit": "823b4a24419f5e616eea256b6ba6359fbba30bd4",
-    "initial_workflow_head": "9b719f0b54030a74a5c166e93db1a2898d90bdfe",
-    "initial_run_id": 34817447178,
-    "initial_classification": "ITER054F_IMPLEMENTATION_OR_CONTROL_INVALID_A1_CHARPOLY_SYMBOL_IDENTITY",
-    "control_only_fix_commit": "04cc0e065c5eb88385437f233e8f8fc22111332b",
     "authoritative_retry_run_id": 34817585523,
-    "aggregate_job_id": 103892887023,
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER054F_MIXED_ORDER_EVOLUTION_REDUCTION_NOT_FIXED",
     "summary_artifact_id": 10336467977,
     "summary_digest": "sha256:2ff9d546b8443080fc48c6cf27c2c0b0764b7686b72aff2e53735e7d1bb8a27f",
-    "classification": "BLOCKED_OBJECT_DEFINITION_ITER054F_MIXED_ORDER_EVOLUTION_REDUCTION_NOT_FIXED",
-    "durable_result_commit": "557ba6e9dc1ca376a3622aebee787a2c58a35544",
-    "controls_valid": true,
-    "missing_required_fields": [
-      "state_vector_or_reduction_variables",
-      "time_direction_and_spatial_covector_domain",
-      "first_order_in_time_or_equivalent_higher_order_formulation",
-      "principal_evolution_matrix_or_equivalent",
-      "gauge_variables_and_gauge_evolution_equations",
-      "constraint_variables_and_principal_constraint_propagation",
-      "norm_or_symmetrizer_and_open_domain",
-      "map_to_mixed_einstein_weyl3_and_gr_limit"
-    ],
     "strong_hyperbolicity_established": false,
     "candidate_inconsistency_established": false
   },
-  "active_question": {
-    "id": "QGR-ITER054G-WEYL3-DYNAMICAL-TREATMENT-SELECTION-AUTHORITY",
-    "text": "Does pre-existing QGR microscopic authority derive a non-post-hoc rule selecting exact finite-c6 higher-derivative dynamics or perturbative/order-reduced analytic effective dynamics, or is the physical treatment still underdetermined?"
+  "iter054g_parent": {
+    "gate": "ITER054G-WEYL3-DYNAMICAL-TREATMENT-SELECTION-AUTHORITY",
+    "status": "TERMINAL_REQUIRES_SOURCE_AUTHORITY_REVIEW",
+    "preregistration_commit": "b4730d02f66b9378c41313bb833e2fdedd62daae",
+    "source_lock": "3398cd5a195d3d6b05fad01715ab5b79a880c4f1",
+    "run_id": 34818484127,
+    "aggregate_job_id": 103894668345,
+    "summary_artifact_id": 10337630463,
+    "summary_digest": "sha256:9e7cee1882ec13faddb8734a7c203f4eeb228381a3f56381c09c6a2c971e34f7",
+    "classification": "REQUIRES_SOURCE_AUTHORITY_REVIEW_ITER054G",
+    "exact_outcome": "EXACT_NOT_SELECTED",
+    "order_reduced_outcome": "ORDER_REDUCED_NOT_SELECTED"
   },
-  "active_blocker": "WEYL3_DYNAMICAL_TREATMENT_NOT_YET_SELECTED_BY_MICROSCOPIC_AUTHORITY",
-  "next_gate_lock": "Prospectively preregister Iter054G before any treatment verdict. Freeze pre-existing authority and include exact controls separating the full exact higher-derivative solution space from the branch analytic at c6=0. If no QGR-internal rule selects a treatment and validity domain, terminalize BLOCKED_OBJECT_DEFINITION rather than choosing exact/order-reduced dynamics post hoc. Only after treatment selection may a corresponding evolution-reduction construction and strong-hyperbolicity gate be authorized.",
+  "iter054g_review": {
+    "gate": "ITER054G-R-UNEXPECTED-DYNAMICAL-TREATMENT-SOURCE-AUTHORITY-REVIEW",
+    "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
+    "preregistration_commit": "f9973884ce8e994c347f0ee5412fdc25206875ee",
+    "implementation_commit": "41ca0a8ef7c7c7b1e8bf55a858f5bf2797fed685",
+    "workflow_head": "9195320ca9060cb7e2874ae1fd5923e4afbecc9d",
+    "run_id": 34818909992,
+    "aggregate_job_id": 103895733649,
+    "summary_artifact_id": 10336563789,
+    "summary_digest": "sha256:0880ebc3d1a817bddfbaca358f017aeca3dc040367f70710f27c97395f4108c5",
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER054G_WEYL3_DYNAMICAL_TREATMENT_NOT_SELECTED_AFTER_SOURCE_REVIEW",
+    "reviewed_source_count": 8,
+    "non_selector_count": 8,
+    "ambiguous_source_count": 0,
+    "exact_selector_found": false,
+    "order_reduced_selector_found": false,
+    "preexisting_treatment_selector_established": false
+  },
+  "active_question": {
+    "id": "QGR-ITER054H-REFINEMENT-DOMAIN-CONDITIONAL-ORDER-REDUCTION",
+    "text": "Can the established QGR refinement scaling and Weyl3 O(h^4) correction derive a prospectively controlled conditional domain in which the singular exact higher-derivative branch lies above the resolved refinement band, and does existing QGR authority supply enough physical/remainder control to promote that conditional separation to an order-reduced treatment selector?"
+  },
+  "active_blocker": "PREEXISTING_TREATMENT_SELECTOR_ABSENT__CONDITIONAL_REFINEMENT_DOMAIN_NOT_YET_DERIVED_OR_AUTHORIZED",
+  "next_gate_lock": "Prospectively preregister Iter054H before computing its branch/band inequalities. Freeze the QGR refinement/operator authority. Derive the dimensionless principal ratio and singular-branch location in terms of chi=|c6| h^2 |Cbar| and q=|k|h, include chi<<1 and chi>=1 controls, and audit whether QGR supplies a physical chi bound, resolved-band definition, and omitted-operator/remainder control. Conditional algebra is not itself a physical treatment selector. Only if the source and remainder obligations are independently satisfied may order-reduced evolution construction be authorized.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
@@ -130,6 +96,7 @@
     "generic_nonlinear_radiative_stability_established": false,
     "full_covariant_six_derivative_eom_established": false,
     "weyl3_dynamical_treatment_authorized": false,
+    "conditional_order_reduction_domain_derived": false,
     "physical_higher_derivative_mode_count_established": false,
     "gauge_fixed_weyl3_principal_symbol_established": false,
     "weyl3_well_posedness_established": false,
