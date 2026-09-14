@@ -1,0 +1,62 @@
+name: QGR Iter054J continuum-survival scaling trilemma
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-iter054j-continuum-survival.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  A0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Symbolic exponent census
+        run: python code/qgr_iter054j_continuum_survival.py --lane A0 --out A0.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054j-A0, path: A0.json}
+  A1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rational scaling witness panel
+        run: python code/qgr_iter054j_continuum_survival.py --lane A1 --out A1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054j-A1, path: A1.json}
+  B0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compatibility trilemma proof
+        run: python code/qgr_iter054j_continuum_survival.py --lane B0 --out B0.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054j-B0, path: B0.json}
+  B1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Authority and anti-overclaim controls
+        run: python code/qgr_iter054j_continuum_survival.py --lane B1 --out B1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054j-B1, path: B1.json}
+  aggregate:
+    needs: [A0,A1,B0,B1]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: iter054j-A0, path: artifacts/A0}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054j-A1, path: artifacts/A1}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054j-B0, path: artifacts/B0}
+      - uses: actions/download-artifact@v4
+        with: {name: iter054j-B1, path: artifacts/B1}
+      - name: Frozen aggregate classifier
+        run: python code/qgr_iter054j_continuum_survival.py --lane aggregate --out ITER054J_SUMMARY.json artifacts/A0/A0.json artifacts/A1/A1.json artifacts/B0/B0.json artifacts/B1/B1.json
+      - uses: actions/upload-artifact@v4
+        with: {name: iter054j-summary, path: ITER054J_SUMMARY.json}
