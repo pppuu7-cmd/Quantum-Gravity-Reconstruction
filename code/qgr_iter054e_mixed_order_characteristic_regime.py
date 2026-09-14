@@ -17,7 +17,7 @@ def stream_a0():
     rows=[]; ok=True; bad=False
     for lv in LAMBDAS:
         expr=P(z,e,lv); gr=sp.Integer(0); hd=-1/(e*lv)
-        fac=sp.factor(expr)==z*(1+e*lv*z)
+        fac=sp.simplify(sp.factor(expr)-z*(1+e*lv*z))==0
         lim=sp.expand(expr.subs(e,0))==z
         grroot=sp.simplify(expr.subs(z,gr))==0
         hdroot=sp.simplify(expr.subs(z,hd))==0
