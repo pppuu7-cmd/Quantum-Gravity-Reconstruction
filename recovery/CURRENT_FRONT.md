@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055D / CANDIDATE-DEFINING PHYSICAL EVENT UPDATE OR ORTHOGONAL QUANTUM-MEASURE CLOSURE`
+Primary active front: `POST-ITER055F / FIRST POST-G6 QUANTUM EXTENSION WITHOUT ASSUMING F_ALPHA`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -13,49 +13,76 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 - `c6`: symbolic/unfixed.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
-- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
+- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**; Iter054G-R already terminally established that no pre-existing selector was found, while Iter054H gave only conditional refinement-band separation.
 - Global interacting measure/regulator removal: **not established**.
-- No physical ghost/spectrum, quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
+- No physical ghost/spectrum, full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## Terminal chain through Iter055D
+## Terminal chain through Iter055F
 
-- Iter055C preregistration `0adbff561977a37e3b9653ee713d8cf1fd942aaf`; result `2761524c9c457db30fa43f8169f36415b6cb0026`:
-  `PASS_SCOPED_ITER055C_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS`.
-- Iter055D preregistration `dee5130a67d6de8b22712c6a33fbe235451022d2`; result `a6ce1eec885085e0170a8376771ab95780f2e851`:
-  `BLOCKED_OBJECT_DEFINITION_ITER055D_LOWER_ORDER_ACTION_DOES_NOT_YET_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW`.
+- Iter055C: `PASS_SCOPED_ITER055C_GAUGE_RELABELING_MAPS_CANNOT_REALIZE_PHYSICAL_B4_BRANCH_DYNAMICS`.
+- Iter055D: `BLOCKED_OBJECT_DEFINITION_ITER055D_LOWER_ORDER_ACTION_DOES_NOT_YET_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW`.
+- Iter055E preregistration `6e349397fccfbbbd936c9a496fcc48476039b394` was closed before substantive computation as `INVALID_REDUNDANT_GATE_ITER055E_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`; it is not a new scientific result.
+- Iter055F preregistration `9509036860eb2efd6568758598397f33b491084c`; result `c11317b0c1326796f8b5187b907122df4ba1ffbf`:
+  `PASS_SCOPED_ITER055F_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION`.
 
-## Iter055D scientific result
+## Physical event-update blocker remains
 
-The lower-order QGR action is real and nontrivial: Iter007 G1 fixes the local metric-only two-derivative action `S_local[G]=a∫sqrt(|det G|)R[G]` in its stated domain. But a variational functional is not itself the G8A map `F_alpha:X_Gamma->X_Gamma`.
+The lower-order QGR action is real and nontrivial, but a variational functional is not itself the G8A map `F_alpha:X_Gamma->X_Gamma`. No source-authorized package currently fixes the physical evolution parameter/relational clock calibration, canonical phase-space/symplectic/Hamiltonian generator, fixed-domain finite invertible full-configuration flow, boundary/initial-data selection, and source-faithful identification of the 24 B4 histories with compositions of that flow.
 
-No pre-existing source authority audited in Iter055D fixed the extra structures needed to turn those equations into a unique finite branch update on the complete finite configuration: a physical evolution parameter/relational clock, a canonical phase-space/symplectic/Hamiltonian generator package, a fixed-domain finite invertible flow, boundary/initial-data selection, and a source-faithful identification of the 24 B4 histories with compositions of that flow.
+The legacy Iter008 G1-G4 clock layer was re-audited. It provides an intrinsic rank/order clock and sequential history bookkeeping, but its own guards leave physical tick duration and autonomous Hamiltonian unfixed; its deparametrization retains a relative clock-gravity normalization and an ordinary dynamical clock backreacts on the established zero-Lambda flat vacuum. Therefore the Iter008 clock does not supply `F_alpha`.
 
-No CI was run for Iter055C or Iter055D: both were prospective authority/object-definition gates, and numerical reruns could not manufacture the missing definitions.
+Do not invent a Hamiltonian/clock/update rule to rescue G8A.
 
-## Recovery/source-authority re-audit: legacy Iter008 clock
+## Iter055F object-identity split
 
-This is a recovery qualification of already-existing terminal evidence, **not a new Iter055 scientific gate**.
+The existing quantum results must now be kept in two distinct layers.
 
-The legacy Iter008 clock layer was re-read because the post-Iter055D front explicitly asked whether an older relational/event-update structure had been missed.
+### Surviving scoped one-particle layer
 
-- Iter008 G1 derives `tau(S)=|S|` as the unique unit-increment `S4`-invariant disjoint-additive scalar clock on `B4` within that stated class. Its own guard says this does not make one rank tick a physical second or prove universal physical use of the clock.
-- Iter008 G2 derives the exact branch-symmetric rank-conditioned prefix law and an exact sequential factorization of the existing `1/sqrt(24)` history modulus. Its own guard says this does not fix branch phases, physical tick duration, or an autonomous Hamiltonian.
-- Iter008 G2 also proves that an `S4` rank-only edge phase has zero gauge-invariant physical phase dimension; the intrinsic rank clock alone cannot generate the missing physical history phase.
-- Iter008 G2 transport compatibility used compact unit-modulus edge factors as a composition-theoretic stand-in and explicitly did not define the detailed physical curved QGR branch map.
-- Iter008 G4 deparametrization shows that linear or quadratic clock-gravity constraints retain an unfixed relative normalization (`B/A` or `sqrt(Z_tau)`) unless a new same-realization relation is supplied.
-- Iter008 G4 ordinary dynamical-clock backreaction shows that a nonzero scalar-clock kinetic normalization changes the established zero-Lambda flat vacuum rather than furnishing a free physical time variable.
+Iter009-G6 concerns the established **one-particle characteristic Lorentz/transport representation** on the physical characteristic `L2` space. Its strong-continuity proof uses the Lorentz action, invariant null-cone measure, finite two-mode polarization fiber, dense `C_c` domain and unitarity. Strong branch convergence plus strong adjoint convergence gives trace-norm convergence of the finite 24-history channel for all normal one-particle states. Under uniform regular per-cell bounds, fixed-macroscopic-interval serial refinement also vanishes in the stated scope.
 
-Therefore the known Iter008 G1-G4 clock construction does **not** close the Iter055D missing object. It provides an intrinsic ordering/rank clock and sequential history bookkeeping, but not the candidate-defining full-configuration physical endomorphism `F_alpha`, canonical Hamiltonian/symplectic flow package, physical tick calibration, or source-faithful branch dynamics.
+This result does not require a full-configuration `F_alpha` and therefore survives Iter055D.
+
+### Blocked interacting configuration-space layer
+
+Iter006-G8A is a different object. It defines
+
+`K_alpha = 24^(-1/2) exp(i S_alpha/hbar) U_alpha`
+
+with `U_alpha` supplied as the Koopman/Radon-Nikodym lift of an invertible quasi-invariant full configuration map `F_alpha`. The exact finite-level normalization theorem is conditional on that branch transport object. Iter055B-D show that the required physical full-configuration map is not currently source-defined.
+
+Therefore the G6 one-particle unitary/channel cannot be substituted for the G8A configuration-space unitary/history instrument.
+
+## Quantum-measure status retained from auto-research
+
+Iter054M already established the five-object semantic split:
+
+- microscopic amplitude/measure: explicit, scoped;
+- relative history normalization: explicit, scoped;
+- interacting regulator-removal/distributional extension: missing/incomplete;
+- microscopic-to-IR identity reaching `c6`: missing;
+- normalized cross-level observable: missing/incomplete in the required source-realized form.
+
+Iter054P then showed that its synthetic unweighted additive correction law was not cylindrically compatible for the frozen quadratic P1 witness, so category C remains BLOCKED until an actual source-authorized refinement/composition law for the relevant interacting relative observable is available. Subsequent source-realization work localized additional missing history/action/transport objects rather than closing them.
 
 ## Current highest-information route
 
-Do **not** invent a Hamiltonian/clock/update rule merely to unblock G8A. The physical branch endomorphism is now recognized as a candidate-defining missing object.
+The next gate must not repeat Iter054G-R, invent `F_alpha`, or promote the one-particle Lorentz unitary to a configuration-space Koopman unitary.
 
-The already-known Iter008 rank-clock route has been re-audited and does not supply the missing physical flow. The next useful work should therefore be one of:
+Highest-information question:
 
-1. find a genuinely different pre-existing QGR event-update/relational-flow authority outside the already-audited Iter008 G1-G4 clock layer; or
-2. return to the independent quantum amplitude/measure/regulator-removal closure route and attack a missing object there without assuming the undefined `F_alpha` branch dynamics.
+**What is the first mathematically source-defined extension beyond the surviving Iter009-G6 one-particle trace-class channel that can be tested without assuming `F_alpha`?**
 
-A third symmetry reduction, gauge relabeling disguised as dynamics, seed-S4 twirl reused as time evolution, rank-clock bookkeeping promoted to a Hamiltonian, or post-hoc canonical structure is forbidden.
+Candidate successor classes to audit prospectively, in order:
 
-Operational note: scheduled automation failures displaying the generic ChatGPT error are tracked separately in `recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md` and are not scientific classifications.
+1. an already-existing many-body/Fock or projective normal-state channel extension with an explicit source-defined Hilbert/domain/composition law;
+2. an interacting configuration measure/refinement object that is genuinely defined without the G8A branch endomorphism;
+3. if neither exists, terminally identify the exact missing post-G6 extension object rather than constructing one post hoc.
+
+A new gate must freeze object identity first and explicitly reject the false promotion `one-particle Lorentz U = G8A Koopman U`.
+
+## Operational note
+
+Repeated scheduled-task UI failures with `Hmm...something seems to have gone wrong.` show a recurring approximately one-minute task-runner/finalization pattern while GitHub remains usable and some runs still create durable commits. The exact internal platform error code is not exposed, so this is not asserted as a proven timeout code. Both QGR automations are now in short-orchestrator mode: minimal recovery reads, one bounded gate action, heavy work delegated to GitHub Actions, and no waiting for long workflows. See `recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md`.
+
+These UI failures are operational incidents, not scientific QGR classifications.
