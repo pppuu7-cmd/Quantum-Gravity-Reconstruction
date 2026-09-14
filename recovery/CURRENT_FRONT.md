@@ -20,7 +20,23 @@ Project phase: `MODEL_CONSTRUCTION / SELECTOR-ENABLING CROSS-LEVEL OBJECTS`
 
 ## Recovery synchronization
 
-The previous recovery front lagged at Iter056S production-pending status. The latest main history supersedes that snapshot: subsequent terminal Iter056T and Iter056U PASS records exist, Iter056V has a terminal amplitude-normalization BLOCKED result, and the latest main commit prospectively preregisters Iter056W. No older `ITER056S ... PENDING` recovery entry is authoritative against these later commits.
+The previous recovery front lagged at Iter056S production-pending status. That gap is now closed without rolling back the later T/U/V/W chain.
+
+Iter056S is fully production-consumed and terminal:
+
+`PASS_SCOPED_CONDITIONAL_ITER056S_BALANCED_PAIR_SECTOR_HAS_EXACT_TIDAL_CUBIC_SHAPE_BRIDGE`.
+
+Authoritative Iter056S production provenance:
+
+- run: `34896461228`;
+- aggregate job: `104156268611`;
+- summary artifact: `10369815451`;
+- summary artifact digest: `sha256:155403a5097a311d462d56bd942d79496e3ea799e62f730b7e086fcc9fce10f0`;
+- final durable-result commit: `85a3c5d29efeda571e9a991decb6ba2d2b220f38`.
+
+All eight raw lane logs/artifacts were consumed before terminal classification; the frozen aggregate had `complete=true`, `implementation_valid=true`, all eight lane flags true, and empty missing/duplicate/parse-error sets. Green CI alone was not used as scientific authority.
+
+Subsequent terminal Iter056T and Iter056U PASS records remain later scoped shape-level authority; Iter056V remains terminal blocked on absolute microscopic-to-tidal amplitude normalization. None is overwritten by the Iter056S recovery repair.
 
 Latest active preregistration commit: `ff7820c7c13de134e950a6a9b08088102364f350`.
 Frozen authority cutoff for Iter056W: `49e1fcff6bbcedd1ef2625a1c0cf25dfa2363133`.
@@ -73,6 +89,6 @@ INVALID classification:
 
 ## Orchestration lock
 
-This run only repaired stale recovery/provenance. It did **not** execute the Iter056W source audit and did not create a verdict. The next bounded run must begin from this front, inspect only the prospectively named pre-cutoff Iter056W authority set, and either record the frozen PASS/BLOCKED/FAIL/INVALID classification or, if the exact source set cannot be completed within a defensible audit, leave the gate active rather than infer a result by analogy.
+Execute only the prospectively frozen Iter056W source/authority audit. Do not borrow geometric/path refinement by analogy, invent child averaging or balanced-sector projection, or use beta, kappa, c6, branch phase, treatment choice, or synthetic child panels. Record exactly one frozen PASS/BLOCKED/FAIL/INVALID result before opening a successor gate.
 
 No GitHub Actions workload is currently required for Iter056W because the frozen object is a source/authority-definition audit, not a numerical computation.
