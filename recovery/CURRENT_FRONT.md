@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
-Updated: 2026-09-14
-Primary active front: `ITER056S / G2 BALANCED PAIR TENSOR CUBIC-SHAPE PRODUCTION VALIDATION`
+Updated: 2026-09-15
+Primary active front: `ITER056W / BALANCED-PAIR SCALE-FREE SHAPE REFINEMENT AUTHORITY AUDIT`
 Project phase: `MODEL_CONSTRUCTION / SELECTOR-ENABLING CROSS-LEVEL OBJECTS`
 
 ## Canonical claim locks
@@ -12,65 +12,67 @@ Project phase: `MODEL_CONSTRUCTION / SELECTOR-ENABLING CROSS-LEVEL OBJECTS`
 - No experimental confirmation.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; running/fitting not authorized.
-- Existing QGR authority contains no Type III physical Weyl3 treatment selector.
+- Existing QGR authority contains no physical Weyl3 treatment selector.
 - Strong hyperbolicity of the exact full higher-derivative theory is not established.
 - Global interacting measure/regulator removal remains blocked.
 - Finite/refinement and symmetry-reduced certificates are not global theorems.
-- G45 does not prove absolute energy positivity or quantum unitarity.
-- G35-G37 distant roots do not authorize physical weights.
-- KMQGB `NEW_REQUIRED` is not authorized.
+- Classical consistency is not quantum consistency/unitarity.
 
-## Iter056O authoritative production PASS
+## Recovery synchronization
 
-Run `34895085566`; aggregate job `104147593426`; summary artifact `10368054894`; digest `sha256:a92c783514e8cb757eae65519f7289f9aba2323a87d1bf7bd5538297c9a251cb`.
+The previous recovery front lagged at Iter056S production-pending status. The latest main history supersedes that snapshot: subsequent terminal Iter056T and Iter056U PASS records exist, Iter056V has a terminal amplitude-normalization BLOCKED result, and the latest main commit prospectively preregisters Iter056W. No older `ITER056S ... PENDING` recovery entry is authoritative against these later commits.
 
-Classification: `PASS_SCOPED_ITER056O_G3_WEYL3_PARENT_CHILD_ACTION_KERNEL_REFINEMENT`.
+Latest active preregistration commit: `ff7820c7c13de134e950a6a9b08088102364f350`.
+Frozen authority cutoff for Iter056W: `49e1fcff6bbcedd1ef2625a1c0cf25dfa2363133`.
 
-This remains a finite-panel local geometric Weyl3 action-kernel refinement certificate only.
+## Iter056V terminal result
 
-## Iter056P/Q/R terminal authority gates
+Durable result commit: `49e1fcff6bbcedd1ef2625a1c0cf25dfa2363133`.
 
-- Iter056P durable result `886f23c8ad239f6d727e27e528d3be7d713f5573`: no authorized nontrivial history attachment for the G3/Weyl3 cell action.
-- Iter056Q durable result `442f2a40efcf1ebd7b8b60448eeb740ccb6ab991`: microscopic cubic and Weyl3 target lack a source-faithful same-realization variable map.
-- Iter056R durable result `274efa69d113c3d8bae8e208e97ac602e6e3ca6b`: the G15 event-to-frame-rescale bridge remains conditional; covariance alone does not select it.
+Classification:
 
-Iter056R exposed a stronger source-owned object from early G2: the balanced six-pair tensor sector.
+`BLOCKED_OBJECT_DEFINITION_ITER056V_ABSOLUTE_MICRO_TO_TIDAL_AMPLITUDE_MAP_REMAINS_UNFIXED`.
 
-## Iter056S frozen gate
+Iter056T/U remove the spectral-shape ambiguity but not the absolute response-unit ambiguity. The surviving beta-free chain is scale-free only:
 
-Gate: `ITER056S-BALANCED-B4-PAIR-TENSOR-TO-TIDAL-CUBIC-SHAPE-HELDOUT-VALIDATION`.
+`chi2_B4 = I3^2/I2^3`
 
-Hypothesis-generation commit: `e89913217b12ff37cadcf7510d77e954fac55ecb`.
-Prospective preregistration: `f3e0daf1f164953c382753867ccba80852ec8283`.
-Implementation: `6c50b61684f3bdb418bb7f1c1a31fb4ae74df8bd`.
-Workflow: `55ecc1699c9bf4a4660df9cdd54b4298afeb976e`.
-Frozen production head: `9e81cf94bdbe69e38a58b1242077ba3c11e61033`.
-Authoritative production run: `34896461228`.
-Exact generic proof: `6aaf230e310da1c7305a85e164e258d34c9061cf`.
-Provisional exact-proof result record: `44fea262eb1b29f05b5f07cceb7ed9b6724b0b84`.
+is identified with the trace-free tidal shape invariant, and at leading weak-static Weyl order
 
-The generic proof establishes, conditionally on the Iter003-G2 null-link/Lorentzian seed hypothesis,
+`J3^2/J2^3 = chi2_B4/2`.
 
-`spec(H_sp)={2a,2b,-2(a+b)}`,
+No same-realization absolute balanced-pair-to-tidal amplitude conversion is authorized; `beta=1` remains forbidden.
 
-`Tr(H_sp^3)=-24ab(a+b)=3det(H_sp)`,
+## Active gate — Iter056W
 
-and the H0 direction `a=b` has eigenvalue shape `1:1:-2`.
+Gate: `ITER056W-BALANCED-PAIR-SCALEFREE-SHAPE-INVARIANT-REFINEMENT-AUTHORITY`.
 
-The proof also gives exact S4 conjugation invariance, a nonzero cubic-null control at `a=-b`, and rejection of the preregistered unbalanced perturbation.
+The frozen question is whether pre-cutoff QGR authority already owns a parent-to-child/refinement rule on the **same G2 balanced pair tensor object** that transports or compares
 
-## Production authority lock
+`chi2_B4 = Tr(H_sp^3)^2 / Tr(H_sp^2)^3`
 
-The commit `44fea262...` records the exact mathematical proof, but **must not be treated as the final authoritative production classification yet**. The user-required production protocol requires consumption of raw held-out lane logs/artifacts and the frozen aggregate whenever such a production gate was prospectively launched.
+across refinement levels without adding interpolation, averaging, amplitude conversion, event-unit normalization, `beta`, `kappa`, `c6`, or arbitrary child weights.
 
-At the latest check, run `34896461228` had eight queued lane jobs and zero in-progress jobs. No lane artifacts, aggregate job, summary artifact or digest existed yet.
+Frozen obligations are: microscopic object identity; source-owned parent-to-child rule; refinement composition; balanced-sector preservation or already-authorized projection; source-derived shape-observable transport; and no amplitude rescue.
 
-Therefore current scientific status is:
+Maximum PASS:
 
-`EXACT_PROOF_COMPLETE__AUTHORITATIVE_PRODUCTION_VALIDATION_PENDING`.
+`PASS_SCOPED_ITER056W_EXISTING_QGR_DEFINES_BALANCED_PAIR_SHAPE_REFINEMENT_OBSERVABLE`.
 
-Do not open Iter056T until the run is terminal and all raw lanes plus aggregate have been consumed. If all frozen predicates validate, the preregistered maximum classification is:
+BLOCKED classification:
 
-`PASS_SCOPED_CONDITIONAL_ITER056S_BALANCED_PAIR_SECTOR_HAS_EXACT_TIDAL_CUBIC_SHAPE_BRIDGE`.
+`BLOCKED_OBJECT_DEFINITION_ITER056W_BALANCED_PAIR_TENSOR_HAS_NO_SOURCE_OWNED_PARENT_CHILD_REFINEMENT_RULE`.
 
-Even that PASS is only a conditional kinematic representation/invariant bridge. It does not identify amplitudes, `beta`, `kappa`, `c6`, history weights, branch phases, curvature normalization, microscopic dynamics, a global micro→continuum map, a Weyl3 treatment, quantum measure closure, UV completion, experiment or QGR correctness.
+FAIL classification:
+
+`SCIENTIFIC_FAIL_ITER056W_EXISTING_BALANCED_PAIR_REFINEMENT_DESTROYS_PROPOSED_SHAPE_OBSERVABLE`.
+
+INVALID classification:
+
+`INVALID_AUDIT_ITER056W_SOURCE_OR_PROVENANCE_INCOMPLETE`.
+
+## Orchestration lock
+
+This run only repaired stale recovery/provenance. It did **not** execute the Iter056W source audit and did not create a verdict. The next bounded run must begin from this front, inspect only the prospectively named pre-cutoff Iter056W authority set, and either record the frozen PASS/BLOCKED/FAIL/INVALID classification or, if the exact source set cannot be completed within a defensible audit, leave the gate active rather than infer a result by analogy.
+
+No GitHub Actions workload is currently required for Iter056W because the frozen object is a source/authority-definition audit, not a numerical computation.
