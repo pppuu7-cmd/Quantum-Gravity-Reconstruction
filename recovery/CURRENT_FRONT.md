@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055U / MICROSCOPIC-TO-CONTINUUM RECONSTRUCTION AUTHORITY`
-Project phase: `MODEL_CONSTRUCTION / MICRO-CONTINUUM EMERGENCE MAP`
+Primary active front: `POST-ITER055V / WEYL3 GENERAL SURVIVAL-DECOUPLING RECIPROCAL IDENTITY`
+Project phase: `MODEL_CONSTRUCTION / ORTHOGONAL FATAL CONSISTENCY WHILE MICRO-CONTINUUM MAP IS BLOCKED`
 
 ## Canonical claim locks
 
@@ -10,41 +10,57 @@ Project phase: `MODEL_CONSTRUCTION / MICRO-CONTINUUM EMERGENCE MAP`
 - Candidate-program roadmap readiness: **99% internal bookkeeping only**, not probability of correctness.
 - Theory established: **0%**.
 - `beta=1`: not authorized.
-- `c6`: symbolic/unfixed.
+- `c6`: symbolic/unfixed; regulator running is not authorized.
+- Full covariant Weyl3 metric EOM as a global theorem: **not established**.
+- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
+- Strong hyperbolicity / physical ghost / quantum unitarity claims: **not established**.
 - Global interacting measure/regulator removal: **not established**.
-- Physical Weyl3 treatment selector / strong hyperbolicity theorem: **absent**.
-- No full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
+- No UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## Current bridge facts
+## Terminal quantum-bridge line through Iter055V
 
-Iter055S: external physical test/readout functions on `H_char` are legitimate observable/preparation data; QGR need not select one universal packet.
+Iter055T: `BLOCKED_OBJECT_DEFINITION_ITER055T_CONTINUUM_TO_B3_COARSE_OBSERVABLE_ATTACHMENT_NOT_SOURCE_DEFINED`.
 
-Iter055T: no source-defined bounded continuum/test-function -> finite B3 coarse-observable attachment exists.
+Iter055U: `PASS_SCOPED_ITER055U_ATTACHMENT_IS_CANDIDATE_OWNED_UP_TO_B3_REPARAMETERIZATION__ARBITRARY_READOUT_MAPS_ARE_INEQUIVALENT`.
 
-Iter055U prereg `c4eed2450f6e07e157e1a3f31c8e0c783514f372`, result `33423e94baee40f8ec02c2d72db6d253d85ea7e9`:
+Iter055V preregistration `89a2bfe5b03979f249c3376908d7ae4316fad87a`; result `630ff0fd7f91933603bb91006c7cc1872e7e1887`:
 
-`PASS_SCOPED_ITER055U_ATTACHMENT_IS_CANDIDATE_OWNED_UP_TO_B3_REPARAMETERIZATION__ARBITRARY_READOUT_MAPS_ARE_INEQUIVALENT`.
+`BLOCKED_OBJECT_DEFINITION_ITER055V_MICRO_TO_CONTINUUM_RECONSTRUCTION_MAP_NOT_SOURCE_DEFINED`.
 
-For finite-target maps `C2=M C1` with invertible `M`, the kernel/nullspace is invariant. Distinct bounded physical readouts in the infinite-dimensional G6F Hilbert yield maps with different kernels, so arbitrary detector/test choices are not all finite-coordinate reparameterizations of one microscopic state identification.
+The audited source chain contains real discrete structures but no generic topology-controlled emergence map:
 
-Because B3 `G_v,A_e` are internal candidate configuration/coarse-algebra variables used in gluing and blocking, continuum recovery requires either a candidate-owned attachment map or a genuine source theorem proving scheme-independence under attachment changes. Neither exists yet.
+- G5 reconstructs discrete torsion-free connection from discrete frame data;
+- weak-curvature G7A identifies the 20 Levi-Civita curvature components and small-loop expansion;
+- strong-curvature G7B gives exact fine-discrete -> coarse-discrete path-groupoid blocking;
+- Iter007-G7A explicitly gives only the scaling theorem `Dq ~ h partial q` and `a_cont ~ c_geom*kappa/h^2`, with the detailed cell-to-continuum convention still uncomputed;
+- later analytic metric backgrounds are continuum benchmarks sampled by tests, not an inverse reconstruction theorem.
 
-## Current highest-information gate
+Therefore the missing object is upstream:
 
-Audit the **opposite direction** before inventing a new discretization:
+`X_Gamma=(G_v,A_e) -> [MISSING R_h / convergence topology] -> continuum response/characteristic field`.
 
-`finite microscopic response/connection data -> continuum response field / characteristic sector`.
+Do not insert a finite-element/interpolation rescue post hoc. Further progress on that line requires a genuinely new candidate-defining emergence map or a new independent principle.
 
-Search the original micro-to-continuum derivation for an explicit linearized reconstruction/Jacobian `R_h`, not merely scaling. Candidate sources include:
+## Orthogonal current highest-information gate
 
-1. the definition of continuum response `q` from discrete response variables;
-2. weak-curvature `G + Riemann(20)` matching;
-3. discrete-difference formulas such as `Dq ~ h partial q`;
-4. torsion-free connection reconstruction and any interpolation of `G_v,A_e` to a smooth metric/connection;
-5. any theorem specifying convergence in a topology strong enough to pair with the G6F characteristic test sector.
+Use the already-authoritative Iter054I/J formal Weyl3 scaling model to test an ansatz-independent necessity statement before proposing any physical treatment rule.
 
-If such an `R_h` exists, test prospectively whether its adjoint/dual or a controlled right-inverse induces the missing coarse-observable attachment on its range. If the source only inserts smooth benchmark fields into discrete samples or uses asymptotic power counting, do not promote that to an emergence map.
+Iter054I fixed-background formulas are
+
+`rho(h,k) = A(h) h^4 k^2`,
+
+`k_HD(h) = 1 / (h^2 sqrt(A(h)))`,
+
+where in the original gate `A=|c6*Cbar|` was finite nonzero and regulator-independent. Iter054J diagnostically allowed pure-power `c6(h)` but did not authorize running.
+
+The next prospective gate may treat an arbitrary positive function/sequence `A(h)` only as a mathematical diagnostic control, while keeping a fixed nonzero physical frequency `k` and a fixed Weyl-active background coefficient `Cbar`. It must test whether
+
+`rho * k_HD^2 = k^2`
+
+is an exact reciprocal identity and therefore whether **any** such running ansatz inside the same formal scaling object can simultaneously yield finite nonzero fixed-band correction and `k_HD -> infinity`.
+
+This gate is not permission to run `c6`, not permission to call the formal extra root a physical ghost, and not a physical exact-vs-order-reduced selector.
 
 ## Operational note
 
-Short-orchestrator mode remains active. Source/emergence audits need no fake Actions workload.
+Scheduled-task UI/finalization failures remain operational only. Short-orchestrator mode is active. This exact algebraic gate needs no GitHub Actions workload.
