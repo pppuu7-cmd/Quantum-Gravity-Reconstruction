@@ -1,0 +1,28 @@
+name: QGR Iter054P interacting-measure regulator-removal audit
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'code/qgr_iter054p_regulator_removal.py'
+      - 'status/ITER054P_INTERACTING_MEASURE_REGULATOR_REMOVAL_PREREG.md'
+      - '.github/workflows/qgr-iter054p-regulator-removal.yml'
+  workflow_dispatch:
+
+jobs:
+  iter054p-audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run frozen Iter054P audit
+        run: |
+          mkdir -p artifacts/iter054p
+          python code/qgr_iter054p_regulator_removal.py | tee artifacts/iter054p/summary.json
+      - name: Record SHA256
+        run: sha256sum artifacts/iter054p/summary.json | tee artifacts/iter054p/summary.sha256
+      - name: Upload scientific artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter054p-summary
+          path: artifacts/iter054p/
+          if-no-files-found: error
