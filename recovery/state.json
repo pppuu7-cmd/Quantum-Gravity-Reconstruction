@@ -5,7 +5,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
     "iteration": "54",
-    "phase": "MODEL_CONSTRUCTION_WEYL3_DYNAMICAL_TREATMENT"
+    "phase": "MODEL_CONSTRUCTION_WEYL3_PRINCIPAL_PART"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -38,28 +38,6 @@
     "classification": "SCIENTIFIC_FAIL_ITER053R_WEYL3_WEIGHTED_H5_COMPACT_SUPPORT_ACTION_VARIATION",
     "rerun_or_reclassify_as_pass_allowed": false
   },
-  "iter053s": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "classification": "ITER053S_POINTWISE_H5_TENSOR_DENSITY_COVARIANCE_CONFIRMED",
-    "summary_artifact_id": 10326344492,
-    "summary_digest": "sha256:ded3e5fa26af5754033103790384ad12a275ebaeaf0e47c1de1d544950119ddd"
-  },
-  "iter053t_primary": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34788261104,
-    "aggregate_job_id": 103828912630,
-    "summary_artifact_id": 10329638555,
-    "summary_digest": "sha256:312079d2cc1a07b7af12763aedb0f980879117bfda3185be34ca096321bf7faa",
-    "classification": "ITER053T_LEGACY_DOUBLE_WEIGHT_CONFIRMED_SOURCE_FAITHFUL_PUSHFORWARD_COVARIANT_SCOPED"
-  },
-  "iter053t_nodewise_companion": {
-    "status": "TERMINAL_SCOPED_PASS",
-    "run_id": 34788222635,
-    "aggregate_job_id": 103828894352,
-    "summary_artifact_id": 10329224173,
-    "summary_digest": "sha256:1c330cf704500654659a653bce9fac397b9b7b00495172935702cac3f626b9a0",
-    "classification": "ITER053T_GJ_NODEWISE_PUSHFORWARD_COVARIANCE_CONFIRMED"
-  },
   "iter053u": {
     "gate": "ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION",
     "status": "TERMINAL_SCOPED_PASS",
@@ -70,43 +48,29 @@
     "summary_artifact_id": 10331595143,
     "summary_digest": "sha256:f8fd204b2f68c2eaed456e002da7d60dd42d8eefdd9ed524d9013f6b02438e5b",
     "classification": "PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE",
-    "parts_expected": 20,
-    "lanes_expected": 8,
-    "lanes_valid": 8,
-    "lanes_pass": 8,
-    "worst_A_identity_relative_residual": 2.120255274318662e-06,
-    "worst_A_weighted_bulk_GJ2_to_GJ3_change": 0.0003718881377423839,
-    "worst_A_GL7_to_GL8_change": 8.031910208417016e-08,
-    "worst_A_direct_step_change": 1.4726269850162446e-10,
-    "min_A_wrong_sign_relative_residual": 1.9194373261788742,
-    "worst_B_abs_bulk_GJ3": 6.415304061273073e-31,
-    "worst_B_abs_direct_GL8": 9.672771479621411e-18,
-    "worst_C_bulk_covariance_relative_residual": 1.2800506154925688e-09,
-    "worst_C_direct_covariance_relative_residual": 3.4981673910448e-12,
-    "historical_iter053r_reclassification_allowed": false,
     "global_functional_derivative_theorem_established": false
   },
-  "parallel_infrastructure": {
-    "canonical_sharded_reducer": {
-      "status": "TERMINAL_INFRASTRUCTURE_PASS",
-      "run_id": 34793130860,
-      "classification": "SHARDED_CANONICAL_REDUCER_EQUIVALENCE_PASS",
-      "scientific_authority": false
-    },
-    "d5_canonical_cache": {
-      "status": "TERMINAL_INFRASTRUCTURE_PASS",
-      "run_id": 34793411230,
-      "aggregate_job_id": 103822309604,
-      "classification": "D5_CANONICAL_CACHE_EQUIVALENCE_PASS",
-      "scientific_authority": false
-    }
+  "iter054a": {
+    "gate": "ITER054A-WEYL3-DERIVATIVE-ORDER-AND-REGIME-SEPARATION",
+    "status": "TERMINAL_SCOPED_PASS",
+    "preregistration_commit": "6164dd1bbbdea45c0599334f3df5b5e66ac19121",
+    "implementation_commit": "077c16cdb7d17e9a7be18572d570b857a51de675",
+    "production_head": "4f207f1e7c24d848de2d3aa240727dbf11a95424",
+    "run_id": 34800952154,
+    "aggregate_job_id": 103843400312,
+    "summary_artifact_id": 10331268039,
+    "summary_digest": "sha256:e835300668f9f946277b0c3f613a4602411c9499c536af4eb4fa5fb73b6364a7",
+    "classification": "PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION",
+    "durable_result_commit": "48ada53c51cc3b5c621572bb056771f11ae21d93",
+    "physical_mode_or_ghost_claim_authorized": false,
+    "well_posedness_established": false
   },
   "active_question": {
-    "id": "QGR-ITER054-WEYL3-DYNAMICAL-TREATMENT-AUTHORITY",
-    "text": "Which QGR-specific Weyl3 dynamical treatment is mathematically authorized: exact higher-derivative, perturbative/EFT, order-reduced, or none under current evidence, and what principal-part/well-posedness obligations follow?"
+    "id": "QGR-ITER054B-WEYL3-PRINCIPAL-HESSIAN-AND-WELLPOSEDNESS-OBLIGATION",
+    "text": "Does the cubic Weyl invariant have the prospectively expected background-dependent Hessian/principal activation, and what remains mathematically missing before any well-posed exact higher-derivative dynamics or physical spectrum claim can be authorized?"
   },
-  "active_blocker": "WEYL3_DYNAMICAL_TREATMENT_NOT_ESTABLISHED",
-  "next_gate_lock": "Prospectively freeze Iter054 before new outputs. Separate exact, perturbative/EFT and order-reduced regimes. Audit derivative order, truncation consistency and principal-part/well-posedness assumptions. No physical ghost/spectrum claim until an explicit dynamical treatment survives. Quantum amplitude/measure remains downstream.",
+  "active_blocker": "WEYL3_GAUGE_FIXED_PRINCIPAL_SYMBOL_AND_WELL_POSEDNESS_NOT_ESTABLISHED",
+  "next_gate_lock": "Prospectively freeze Iter054B before new outputs. Audit the Hessian of the cubic Weyl invariant on finite algebraic Weyl-operator panels, null activation at W=0, generic activation on Weyl-active backgrounds, symmetry/scaling controls, and explicitly fail closed on physical hyperbolicity/well-posedness authorization until a gauge-fixed covariant metric principal symbol is constructed. No ghost/spectrum claim from Hessian activation alone.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
@@ -123,6 +87,8 @@
     "full_covariant_six_derivative_eom_established": false,
     "weyl3_dynamical_treatment_authorized": false,
     "physical_higher_derivative_mode_count_established": false,
+    "gauge_fixed_weyl3_principal_symbol_established": false,
+    "weyl3_well_posedness_established": false,
     "quantum_amplitude_measure_transition_authorized": false,
     "full_gr_recovery_established": false,
     "uv_complete": false,
