@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055I / MINIMAL NEW CANDIDATE-DEFINING QUANTUM DYNAMICS AXIOM CLASS + KILL TESTS`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM DYNAMICS CANDIDATE DEFINITION`
+Primary active front: `POST-ITER055J / LINEARIZED ONE-PARTICLE TO BOUNDARY SECTOR BRIDGE OR SMEARING REQUIREMENT`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR IDENTIFICATION BEFORE DYNAMICS SELECTION`
 
 ## Canonical claim locks
 
@@ -12,53 +12,43 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM DYNAMICS CANDIDATE DEFINITION`
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
-- Strong hyperbolicity / Weyl3 well-posedness: **not established**.
-- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
+- Strong hyperbolicity / physical Weyl3 treatment selector: **absent**.
 - Global interacting measure/regulator removal: **not established**.
 - No full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## New terminal result — Iter055I
+## Terminal Iter055I
 
-Preregistration: `23aedd66bae29963f0017bf1e60c6468247775d9`.
-Durable result: `a448e501883fe30fd89680bd69274ad3d6fa812f`.
-
-Classification:
+Preregistration `23aedd66bae29963f0017bf1e60c6468247775d9`; result `a448e501883fe30fd89680bd69274ad3d6fa812f`.
 
 `PASS_SCOPED_NONUNIQUENESS_ITER055I_EXISTING_QGR_AUTHORITY_LEAVES_NONTRIVIAL_BOUNDARY_QUANTUM_LIFT_FREEDOM__NEW_CANDIDATE_DYNAMICS_RULE_REQUIRED`.
 
-The uniqueness question is well posed because Iter055G already supplies regular boundary-relative/direct-integral Hilbert kinematics, positive measure disintegration and positive two-mode quotient fibers. Iter055H shows that no source-defined measurable branch operator/channel family is presently supplied.
+Existing boundary kinematics/positivity/composition do not uniquely determine an interacting boundary-fiber quantum channel. Identity and unitary-covariant depolarizing controls provide an operationally distinct CPTP nonuniqueness witness; they are controls only, not proposed QGR dynamics.
 
-Iter054Z's exact independent branch rephasing is only Kraus-representation gauge for the coarse channel, so it is not sufficient by itself. The stronger nonuniqueness witness is at the CPTP level: on the same positive two-mode fiber, identity and the unitary-covariant depolarizing family
+## New terminal Iter055J
 
-`D_lambda(rho)=lambda rho+(1-lambda)Tr(rho)I/2`, `0<=lambda<=1`,
+Preregistration `474d5e6a81474749fd551488e735cecf29901643`; durable result `a2eb30b672e218481bd118fd554b4859799abe56`.
 
-are operationally distinct for `lambda<1`, preserve the same positivity/support, are CPTP, are covariant under unitary basis changes, and obey `D_lambda o D_mu = D_(lambda mu)`. Current QGR authority contains no dynamics selector fixing `lambda` or choosing another family. This family is only a uniqueness negative control and is **not** proposed as QGR dynamics.
+`BLOCKED_OBJECT_DEFINITION_ITER055J_ONE_PARTICLE_TO_BOUNDARY_OVERLAP_MAP_NOT_SOURCE_DEFINED`.
 
-Existing geometric/refinement transport does not remove this freedom because the bridge from geometric transport plus boundary kinematics to a source-defined boundary quantum channel is exactly what Iter055H found missing. Adding that bridge now would itself be a new candidate-defining dynamics rule.
+The one-particle and boundary-relative objects use different base structures:
 
-Therefore current QGR symmetry/composition/positivity data do not uniquely imply boundary-fiber quantum dynamics. A new dynamics principle is required as explicit new input.
+- G6F / Iter009-G6: regular one-particle characteristic Hilbert `H_char(G)=direct_integral_{N_G^+} dmu_G(k) P_(G,k)`, with null momentum `k` and positive 2D physical polarization quotient fibers;
+- G6C/G6E / Iter055G: shared finite B3 configuration label `b` consisting of metric/connection restriction variables, with the boundary measure obtained by disintegration/pushforward of the physical configuration measure.
 
-## Next gate lock
+Current authority supplies no explicit embedding/restriction/intertwiner between these sectors, no relation between their base measures, and no theorem that Iter009-G6 is the restriction of a boundary-relative channel. G6D is conditional on branch vectors already living in one common positive Hilbert and does not provide this bridge. Conditional G3B/G8A constructions depend on the missing full-configuration `F_alpha` and cannot be used to manufacture the map.
 
-Do **not** choose identity, depolarizing, Hamiltonian, Koopman, geometric-transport or any other channel post hoc.
+Therefore the post-Iter055I requirement “recover Iter009-G6 on the overlap” is scientifically desirable but is not yet operational until an overlap/sector-identification map is derived.
 
-The next gate must first define a **minimal independently motivated axiom class** and freeze kill tests before evaluating any member. At minimum a viable new rule must:
+## Current highest-information gate
 
-1. respect the established boundary-relative/direct-integral support and positive pairing;
-2. obey measurable composition/refinement compatibility;
-3. reduce to the already-established scoped Iter009-G6 one-particle channel on an overlapping domain rather than merely resemble it;
-4. preserve the distinction between geometric transport, one-particle unitary transport and full interacting boundary dynamics;
-5. not assume `beta=1`, fixed `c6`, a physical Weyl3 treatment selector or an undefined full-configuration `F_alpha`;
-6. face prospective falsification tests for positivity/CP-TP or isometry, locality, refinement/continuum stability, measure compatibility and nontrivial predictive restriction.
+Test the most natural existing linearized bridge before adding a dynamics axiom:
 
-A new candidate version is allowed only if the dynamics axiom is explicitly labeled new input and survives those prospective tests. It must not be described as derived from the present QGR candidate.
+`one-particle characteristic wavepacket -> linearized field restriction on the finite shared B3 boundary`.
 
-## GitHub workload policy
+The gate must determine whether this restriction is a well-defined bounded/norm-controlled map on the actual G6F `L2` Hilbert completion and whether it descends through the physical quotient. In particular, do not silently identify an `L2` equivalence class with pointwise vertex values. If point evaluation is not well-defined/bounded, record the exact missing extra structure (smearing/test-function class, Sobolev regularity, bandlimit, detector profile, or other prospectively defined map) rather than choosing one post hoc.
 
-No new Actions run was launched for Iter055I because the terminal result is a source-level uniqueness theorem: once two operationally distinct admissible CPTP controls survive all currently source-defined kinematic/positivity/composition constraints and no source selector exists, more numerical load cannot restore uniqueness. Running CI would be fake load.
-
-The latest genuine production computation therefore remains Iter054S until a successor gate defines a genuinely new computable discriminator.
+Only after a source-faithful sector bridge exists may “exact recovery of Iter009-G6” be used as a kill test for a new interacting dynamics axiom class.
 
 ## Operational note
 
-Scheduled-task UI/finalization failures remain operational incidents only and are not scientific classifications. Continue short-orchestrator mode: read recovery/front/commits/live Actions first, take one bounded prospective action, and delegate heavy computation to GitHub Actions only when a real computable object exists.
+Scheduled-task UI/finalization failures are operational incidents only. Keep short-orchestrator mode and delegate heavy computation to GitHub Actions only when a genuine computable object exists.
