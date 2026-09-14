@@ -1,0 +1,89 @@
+name: QGR Iter054S Weyl-active transport blocking
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054s_weyl_active_transport_blocking.py'
+      - 'prereg/ITER054S-WEYL-ACTIVE-TIDAL-TRANSPORT-BLOCKING.md'
+      - '.github/workflows/qgr-iter054s-weyl-active-transport-blocking.yml'
+  workflow_dispatch:
+
+jobs:
+  control:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Frozen Weyl-active identity control
+        run: python code/qgr_iter054s_weyl_active_transport_blocking.py --stream control --index 0 --out iter054s/control/result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054s-control
+          path: iter054s/control/result.json
+          if-no-files-found: error
+
+  path:
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3,4,5,6,7]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Frozen path blocking lane
+        run: python code/qgr_iter054s_weyl_active_transport_blocking.py --stream path --index '${{ matrix.index }}' --out 'iter054s/path-${{ matrix.index }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054s-path-${{ matrix.index }}
+          path: iter054s/path-${{ matrix.index }}/result.json
+          if-no-files-found: error
+
+  loop:
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Frozen loop blocking lane
+        run: python code/qgr_iter054s_weyl_active_transport_blocking.py --stream loop --index '${{ matrix.index }}' --out 'iter054s/loop-${{ matrix.index }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054s-loop-${{ matrix.index }}
+          path: iter054s/loop-${{ matrix.index }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: [control,path,loop]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054s-*
+          path: iter054s-input
+          merge-multiple: false
+      - name: Frozen Iter054S aggregate
+        run: python code/qgr_iter054s_weyl_active_transport_blocking.py --aggregate iter054s-input --out iter054s-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054s-summary
+          path: iter054s-summary/summary.json
+          if-no-files-found: error
