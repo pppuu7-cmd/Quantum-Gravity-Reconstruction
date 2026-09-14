@@ -1,0 +1,53 @@
+name: QGR Iter054B Weyl3 principal Hessian audit
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054b_principal_hessian_audit.py'
+      - 'preregistration/ITER054B_WEYL3_PRINCIPAL_HESSIAN_AND_WELLPOSEDNESS_OBLIGATION.md'
+      - '.github/workflows/qgr-iter054b-principal-hessian-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  stream:
+    strategy:
+      fail-fast: false
+      matrix:
+        stream: [A0, A1, B0, B1]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Frozen Iter054B stream
+        run: python code/qgr_iter054b_principal_hessian_audit.py --stream '${{ matrix.stream }}' --out 'iter054b/${{ matrix.stream }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054b-${{ matrix.stream }}
+          path: iter054b/${{ matrix.stream }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: stream
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054b-*
+          path: iter054b-input
+          merge-multiple: false
+      - name: Frozen Iter054B aggregate
+        run: python code/qgr_iter054b_principal_hessian_audit.py --aggregate iter054b-input --out iter054b-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054b-summary
+          path: iter054b-summary/summary.json
+          if-no-files-found: error
