@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "54O_TERMINAL",
+    "iteration": "54P_TERMINAL_BLOCKED",
     "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_REGULATOR_BRIDGE"
   },
   "readiness": {
@@ -40,7 +40,7 @@
     "classification": "BLOCKED_OBJECT_DEFINITION_ITER054M_QUANTUM_MEASURE_CLOSURE_INCOMPLETE",
     "category_A_microscopic_amplitude_measure": "AUTHORIZED_IN_SOURCE_SCOPED",
     "category_B_normalization": "AUTHORIZED_IN_SOURCE_SCOPED_RELATIVE_HISTORY_NORMALIZATION",
-    "category_C_regulator_removal": "MISSING_OR_INCOMPLETE",
+    "category_C_regulator_removal": "BLOCKED_INCOMPLETE_AFTER_ITER054P",
     "category_D_micro_to_IR_c6_identity": "MISSING",
     "category_E_normalized_cross_level_observable": "SCOPED_DEFINED_BY_ITER054O"
   },
@@ -76,12 +76,56 @@
     "physical_weight_imported": false,
     "absolute_c6_identity_derived": false
   },
-  "active_question": {
-    "id": "QGR-POST-ITER054O-INTERACTING-MEASURE-REGULATOR-REMOVAL",
-    "text": "Can the already-authorized normalized coherent-history amplitudes define a prospectively controlled regulator/refinement-removal object with explicit Cauchy/cylindrical convergence and negative controls, without using the blocked global oscillatory partition route or fixing beta/c6 by convention?"
+  "iter054p": {
+    "gate": "ITER054P-INTERACTING-MEASURE-REGULATOR-REFINEMENT-REMOVAL",
+    "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
+    "preregistration_commit": "61e77c3576b428ab774e7caf1b6e27436e969364",
+    "initial_run_id": 34859186155,
+    "initial_job_id": 104026586110,
+    "initial_summary_artifact_id": 10354880624,
+    "initial_raw_summary_digest": "sha256:33ab2316f8db05c49862fe21f5b38efd5924d192c6a4eb31837e2a882e2beaa3",
+    "initial_classification_status": "INVALID_IMPLEMENTATION_CYLINDRICAL_COMPATIBILITY_WRONG_POWER_OBJECT",
+    "invalidity_record_commit": "7c2d0dea72ff512f8f92ead18b28d96cde356da8",
+    "control_only_repair_commit": "bac8075e65c9a266d736463bdc9adeef669e3b39",
+    "authoritative_run_id": 34861144143,
+    "authoritative_job_id": 104033365588,
+    "summary_artifact_id": 10354603982,
+    "artifact_digest": "sha256:7db41c576cee0e1c682255b7298929307fda1d18668538c2cc7b3459c22d6423",
+    "raw_summary_digest": "sha256:05b43fc8a764e98d5403d8ce405746d98b56c6260202643075e1095dc9930d7e",
+    "durable_result_commit": "3c96a01a4e152dd6ac7385d6af50fba7b3ad4ba4",
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER054P_REGULATOR_REMOVAL_INCOMPLETE",
+    "finite_object_defined": true,
+    "common_scale_cancelled": true,
+    "cauchy_positive_panel": true,
+    "limit_identified": true,
+    "cylindrical_compatibility": false,
+    "negative_controls_rejected": true,
+    "blocked_global_route_rejected": true,
+    "parameter_fixing_used": false,
+    "failed_frozen_witness": "P1_QUADRATIC_EPSILON_CORRECTION",
+    "category_C_regulator_removal_closed": false
   },
-  "active_blocker": "MICRO_TO_IR_C6_IDENTITY_MISSING__INTERACTING_MEASURE_REGULATOR_REMOVAL_INCOMPLETE__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Prospectively freeze the interacting-measure regulator-removal audit before construction/evaluation. Require an explicit finite-regulator normalized object, frozen convergence/Cauchy criterion, common-scale cancellation, refinement-positive and nonconvergent negative controls, rejection of the Iter009 global oscillatory partition route, and c6 kept symbolic. Do not reopen Iter011 torsion-Jacobian parity or a third spherical Weyl3 reduction.",
+  "source_faithful_refinement_authority": {
+    "iter006_g8a": {
+      "history_branch_count": 24,
+      "branch_amplitude_magnitude": "24^(-1/2)",
+      "branch_channel_weight": "1/24",
+      "multilevel_amplitudes_multiply": true,
+      "action_phases_add_on_concatenated_histories": true
+    },
+    "iter006_g10b": {
+      "regular_identity_connected_branch": true,
+      "fine_transport_composition": "ORDERED_PRODUCT",
+      "projective_product_limit_scoped": true
+    },
+    "binary_unweighted_child_correction_rule_authorized": false
+  },
+  "active_question": {
+    "id": "QGR-POST-ITER054P-SOURCE-FAITHFUL-REFINEMENT-COMPOSITION",
+    "text": "What exact parent-to-refined-history composition law does current QGR authority impose on the Iter054O normalized relative phase observable, when branch normalization, sequential action-phase addition and ordered transport products are kept distinct?"
+  },
+  "active_blocker": "MICRO_TO_IR_C6_IDENTITY_MISSING__INTERACTING_MEASURE_REGULATOR_REMOVAL_BLOCKED__SOURCE_FAITHFUL_RELATIVE_OBSERVABLE_REFINEMENT_MAP_NOT_YET_DERIVED__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Prospectively freeze a source-faithful refinement/composition audit for the Iter054O normalized relative phase observable. Use the actual 24-history normalization law from Iter006-G8A, phase addition only along concatenated histories, and ordered-product transport from Iter006-G10B where required. Do not invent binary child weights, drop P1, or alter Iter054P. Require an actual same-realization finite-refinement object or classify BLOCKED_MISSING_REQUIRED_OBJECT; keep c6 symbolic and the category-D identity missing.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
