@@ -1,0 +1,53 @@
+name: QGR Iter054E mixed-order characteristic regime audit
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054e_mixed_order_characteristic_regime.py'
+      - 'prereg/ITER054E-MIXED-ORDER-EINSTEIN-WEYL3-CHARACTERISTIC-REGIME-AUDIT.md'
+      - '.github/workflows/qgr-iter054e-mixed-order-characteristic.yml'
+  workflow_dispatch:
+
+jobs:
+  stream:
+    strategy:
+      fail-fast: false
+      matrix:
+        stream: [A0, A1, B0, B1]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Frozen Iter054E stream
+        run: python code/qgr_iter054e_mixed_order_characteristic_regime.py --stream '${{ matrix.stream }}' --out 'iter054e/${{ matrix.stream }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054e-${{ matrix.stream }}
+          path: iter054e/${{ matrix.stream }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: stream
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054e-*
+          path: iter054e-input
+          merge-multiple: false
+      - name: Frozen Iter054E aggregate
+        run: python code/qgr_iter054e_mixed_order_characteristic_regime.py --aggregate iter054e-input --out iter054e-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054e-summary
+          path: iter054e-summary/summary.json
+          if-no-files-found: error
