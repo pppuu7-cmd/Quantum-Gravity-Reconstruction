@@ -1,0 +1,111 @@
+name: QGR Iter056O G3 Weyl3 parent-child action kernel
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'triggers/ITER056O_RUN.txt'
+
+jobs:
+  cells:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 32
+      matrix:
+        base: [0, 1]
+        parent_h: ['0.10', '0.05']
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install scientific runtime
+        run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Compute frozen finite cell
+        run: |
+          mkdir -p out
+          python code/qgr_iter056o_g3_weyl3_parent_child_action.py \
+            --cell \
+            --base-index '${{ matrix.base }}' \
+            --parent-h '${{ matrix.parent_h }}' \
+            --part '${{ matrix.part }}' \
+            --out 'out/cell_b${{ matrix.base }}_h${{ matrix.parent_h }}_p${{ matrix.part }}.json'
+      - name: Upload finite-cell artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter056o-cell-b${{ matrix.base }}-h${{ matrix.parent_h }}-p${{ matrix.part }}
+          path: out/*.json
+          if-no-files-found: error
+
+  lanes:
+    needs: cells
+    if: always()
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        base: [0, 1]
+        parent_h: ['0.10', '0.05']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install scientific runtime
+        run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Download all cell artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter056o-cell-*
+          path: cells
+          merge-multiple: true
+      - name: Reduce frozen parent-child lane
+        run: |
+          mkdir -p lane
+          python code/qgr_iter056o_g3_weyl3_parent_child_action.py \
+            --reduce cells \
+            --base-index '${{ matrix.base }}' \
+            --parent-h '${{ matrix.parent_h }}' \
+            --out 'lane/lane_b${{ matrix.base }}_h${{ matrix.parent_h }}.json'
+      - name: Upload lane artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter056o-lane-b${{ matrix.base }}-h${{ matrix.parent_h }}
+          path: lane/*.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: lanes
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install scientific runtime
+        run: python -m pip install --disable-pip-version-check numpy scipy
+      - name: Download lane artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter056o-lane-*
+          path: lanes
+          merge-multiple: true
+      - name: Classify frozen aggregate
+        run: |
+          mkdir -p summary
+          python code/qgr_iter056o_g3_weyl3_parent_child_action.py \
+            --aggregate lanes \
+            --out summary/summary.json
+          cat summary/summary.json
+      - name: Upload aggregate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter056o-summary
+          path: summary/summary.json
+          if-no-files-found: error
