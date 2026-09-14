@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055N / RELATIONAL SMEARING ANCHOR: BOUNDARY NORMAL VS PHYSICAL SCALE`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE RELATIONAL ANCHOR`
+Primary active front: `POST-ITER055O / CELL-RELATIVE SCALE-COVARIANT SMEARING FAMILY AND BOUNDARY CAUSAL TYPE`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE INTERNAL REFINEMENT SCALE`
 
 ## Canonical claim locks
 
@@ -17,29 +17,33 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM SECTOR BRIDGE RELATIONAL ANCHOR`
 
 ## Relevant bridge chain
 
-- Iter055K: raw `L2 -> pointwise B3` restriction is unbounded.
-- Iter055L: bounded physical Hilbert-dual smearing is the minimal domain-preserving bridge class; concrete profile remains new input.
-- Iter055M: current QGR sources do not select a concrete kernel/profile/refinement family.
-- Iter055N prereg `53953bd57851d3f5c5f8238d0d85b74481e0e4ed`, result `5fa0422829f4bb0c54a6497400927953f3f3d566`:
-  `FAIL_SCOPED_ITER055N_NO_NONZERO_UNIVERSAL_L2_SMEARING_PROFILE__RELATIONAL_PROFILE_DATA_REQUIRED`.
+- Iter055K: raw one-particle `L2 ->` pointwise B3 restriction is unbounded.
+- Iter055L: bounded physical Hilbert-dual smearing is the minimal full-domain-preserving bridge class.
+- Iter055M: no concrete smearing/refinement kernel is source-selected.
+- Iter055N: no nonzero universal fixed scalar `L2` kernel exists without relational data.
+- Iter055O prereg `d85444875d4dc9f93d8cdcb6e08144318d4c86f6`, result `4d8563b9cbb4db844bc18a223e0f0b6a52031c34`:
+  `PASS_SCOPED_PARTIAL_ITER055O_BOUNDARY_DIRECTION_ANCHOR_EXISTS__PHYSICAL_SMEARING_SCALE_UNFIXED`.
 
-## Iter055N scientific result
+## Iter055O scientific result
 
-The proper orthochronous Lorentz group acts transitively on the nonzero future null cone, including radial energy rescaling by boosts along a null direction. Therefore a fully frame-invariant measurable scalar envelope is constant almost everywhere. Since the invariant future-null-cone measure has infinite total volume, every nonzero constant has infinite `L2` norm. The only universal invariant scalar Hilbert-dual kernel is zero.
+The shared B3 is an embedded incidence subcomplex with an exact restriction map. Its three-dimensional tangent subspace determines a one-dimensional conormal line. The physical metric maps this to a covariant normal line, and on a regular non-null face a unit normal can be formed up to ordinary coorientation/sign. Thus no new observer direction is needed for the boundary anchor.
 
-A nontrivial bridge kernel must therefore be a **covariant family attached to extra physical data**, not a universal fixed scalar profile.
+The physical radial scale is not fixed. G7A proves the exact normalization degeneracy `a_cont = c_geom*kappa/h^2`, with `h -> lambda h`, `kappa -> lambda^2 kappa`. Existing authority does not identify `h` absolutely or set it to a Planck length.
 
 ## Current highest-information gate
 
-Audit existing QGR geometry for the relational anchor required by the kernel family. Separate two obligations:
+Test whether absolute calibration is actually required for the **internal sector bridge**. A microscopic cell scale parameter `h` already exists in the refinement construction even though its physical value is unidentified. Prospectively ask whether one can define a covariant normalized family `phi_(h,n)` whose profile depends only on dimensionless combinations such as `h (n.k)` and whose refinement law is induced by `h -> h/r`, so that channel/intertwining tests can be formulated dimensionlessly before external scale calibration.
 
-1. **direction/frame anchor:** does the shared B3 face plus the physical metric/connection already define a covariant boundary normal/frame datum that can transform with the smearing kernel?
-2. **physical radial/UV scale:** does current authority fix a dimensionful or otherwise physical smearing scale tied to that boundary/cell, rather than only a coordinate cell size, arbitrary preparation width or unfixed microscopic parameter?
+The gate must separate boundary causal type:
 
-A partial result is allowed and important: existing geometry may determine the boundary direction while leaving the scale free. Do not convert a coordinate axis, unit lattice step, G6G packet width, Iter053 support value, beta, c6 or an unfixed microscopic `h` into a physical scale post hoc.
+- for a spacelike B3 with future-timelike unit normal `n`, `n.k>0` on the future null cone and can serve as a covariant energy variable;
+- for a timelike B3 with spacelike normal, `n.k` has angular zero sets and may not by itself control ultraviolet momentum in all null directions;
+- null B3 remains outside the normalized Iter055O scope.
 
-Only after both anchor direction and scale/refinement law are source-defined can a concrete covariant `phi_q(k)` family be tested for one-particle/boundary intertwining.
+Do not choose a concrete radial shape after seeing results. First determine whether the source data `(h,n)` are mathematically sufficient to define a nonempty square-integrable covariant **class** with norm-preserving refinement scaling, and whether this works for all allowed non-null boundary causal types or only the spacelike-B3 subdomain.
+
+Absolute phenomenological calibration of `h` remains a separate G7A blocker even if an internal dimensionless bridge class exists.
 
 ## Operational note
 
-Keep short-orchestrator mode. Source/representation-theory gates do not need fake CI load.
+Scheduled-task UI/finalization failures are operational incidents only. Keep short-orchestrator mode; exact analytic gates need no fake CI load.
