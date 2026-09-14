@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `Iter054J / continuum-survival scaling trilemma`
+Primary active front: `Iter054K / general-scaling continuum-survival no-go`
 Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT CONSTRUCTION`
 
 ## Canonical claim locks
@@ -20,65 +20,62 @@ Project phase: `MODEL_CONSTRUCTION / WEYL3 DYNAMICAL TREATMENT CONSTRUCTION`
 
 GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALID/BLOCKED results are immutable.
 
-## Iter054I — TERMINAL SCOPED PASS / FINITE-H PHYSICAL TREATMENT NOT AUTHORIZED
+## Iter054J — TERMINAL SCOPED PASS / C6 RUNNING NOT AUTHORIZED
 
-Gate: `ITER054I-WEYL3-REGULATOR-LIMIT-ASYMPTOTIC-SEPARATION`.
+Gate: `ITER054J-WEYL3-CONTINUUM-SURVIVAL-SCALING-TRILEMMA`.
 
-- preregistration `691d35e4250393593a2d99eac6c4b78b51ce833d`
-- implementation `d8949b44229bf18c43ab62750253a96f4993ad3f`
-- production head `c4c89a8dc5dc14acb337eb49aad3af3aad5fff64`
-- authoritative run `34825507474`
-- aggregate job `103916655515`
-- summary artifact `10339582352`
-- digest `sha256:5a357796951d3ab001a4fde2d2728ed64badedaa807585f6e8623aacb12f0da7`
-- classification **`PASS_SCOPED_ITER054I_FIXED_BAND_REGULATOR_LIMIT_WEYL3_ASYMPTOTIC_DECOUPLING__FINITE_H_PHYSICAL_TREATMENT_NOT_AUTHORIZED`**
+- preregistration `4f1dd6d3cdbf39c795d65c097daf6805a9e9d41a`
+- implementation `b03d3f6353047ac288d7a7284ff9f24a4dc9e564`
+- production head `911dd5ff97a603baec067e741f6ad3adb94ab23e`
+- authoritative run `34830453709`
+- aggregate job `103932441006`
+- summary artifact `10341724457`
+- digest `sha256:9ca9cd86e6e4a55cf1e1106a63a0dba0846bb653b68f9ae47b1db4c545d12d93`
+- classification **`PASS_SCOPED_ITER054J_POWERLAW_CONTINUUM_SURVIVAL_TRILEMMA__C6_RUNNING_NOT_AUTHORIZED`**
 
 Raw lane provenance:
 
-- A0 `103916603388` / artifact `10340356605` / `sha256:e5ebe6556b9a63a26cdf142bb8eb53766215eab599d58c4f7ed3b1efb8851e50`
-- A1 `103916603310` / artifact `10340630363` / `sha256:b77e6a9a5833a3fbabe2717605f2cdc5a9f40e0b187851eb21e07d325421e68e`
-- B0 `103916603456` / artifact `10339762671` / `sha256:fbf20eab3a6ac7f0dc65b7f2f9e71504e8a34ff54876867504e878bde6b8f369`
-- B1 `103916603452` / artifact `10340156993` / `sha256:52397f198ceee8e7036adf8bd8da8edf6867ac6a61355b2c7d204d91e4fd958e`
+- A0 `103932315646` / artifact `10341687873` / `sha256:5e8eab3b87782b5a0f8e1b464ea50d7ffc6b1563f78cf65db8b8f7ae353c2edb`
+- A1 `103932315212` / artifact `10342425509` / `sha256:6db9e0ad2592996fac7796bd84a5f91d783ebf1bc5a5ef53eb0bc65a6daf418d`
+- B0 `103932315398` / artifact `10341178674` / `sha256:7ff2ea4284c12cfb336163ba8736a36281fc6f29821b7f28dfa087ab70e31a01`
+- B1 `103932315417` / artifact `10341493127` / `sha256:18ef4950512e50067129ea5dc7f1c5f24f479e43813e89631b861f9e62a9b99c`
 
-Frozen result:
+Frozen result for the diagnostic family `c6(h)=cbar6 h^(-s)`:
 
-`rho = |c6*Cbar| h^4 k^2`,
+- `rho ~ h^(4-s)`;
+- `k_HD ~ h^(s/2-2)`;
+- `s<4`: correction vanishes and branch decouples to infinity;
+- `s=4`: correction can remain finite/nonzero but branch remains finite;
+- `s>4`: correction diverges and branch moves to zero;
+- no single pure power law simultaneously preserves a finite nonzero fixed-band correction and sends the singular branch to infinite physical frequency.
 
-`k_HD = 1/(h^2 sqrt(|c6*Cbar|))` for nonzero finite `|c6*Cbar|`.
+This does not authorize regulator running of `c6` or any physical dynamical treatment.
 
-For every fixed compact physical-frequency/curvature set with `c6` held h-independent,
+Durable note: `results/ITER054J_TERMINAL_RESULT.md`.
 
-`sup rho -> 0`, while `k_HD -> infinity` as `h -> 0`.
+## Iter054K — next highest-information gate
 
-For nonuniform `k ~ h^-p`, `rho ~ h^(4-2p)`: it vanishes for `p<2`, is finite nonzero at `p=2`, and diverges for `p>2`.
+Iter054J used a pure-power diagnostic family. The frozen definitions themselves suggest a stronger statement that should be tested prospectively without assuming any power law.
 
-This is an asymptotic regulator-limit statement only. It does not authorize finite-h physical order reduction, a physical cutoff, a refinement-stop scale, or a regulator-dependent `c6`.
+Freeze
 
-Durable note: `results/ITER054I_TERMINAL_RESULT.md`.
+`rho(h,k) = |c6(h) Cbar| h^4 k^2`,
 
-## Iter054J — next highest-information gate
+`k_HD(h) = 1/(h^2 sqrt(|c6(h) Cbar|))`,
 
-Iter054I exposes a sharp continuum-survival question. Do not choose a regulator-dependent coefficient post hoc. Prospectively test the algebraic necessity first.
+for positive nonzero `|c6(h) Cbar|` and fixed nonzero physical `k`.
 
-Use the frozen one-parameter power-law control family
+Algebraically these imply the exact identity
 
-`c6(h) = cbar6 * h^(-s)`
+`rho(h,k) = (k / k_HD(h))^2`.
 
-only as a **diagnostic scaling family**, not as a physical assignment.
+Prospectively test:
 
-Then on fixed nonzero finite physical `k` and `Cbar`, derive
+1. exact symbolic identity with no power-law assumption;
+2. arbitrary positive sequence/function controls for `|c6(h) Cbar|`;
+3. if `k_HD -> infinity` at fixed nonzero `k`, then `rho -> 0`;
+4. if `rho -> rho0` with `0 < rho0 < infinity`, then `k_HD -> |k|/sqrt(rho0)`, finite;
+5. if `rho -> infinity`, then `k_HD -> 0`;
+6. therefore no arbitrary regulator dependence in this frozen proxy normalization can simultaneously preserve a finite nonzero fixed-band Weyl3 correction and send the singular branch to infinite physical frequency.
 
-`rho ~ h^(4-s)`,
-
-`k_HD ~ h^(s/2-2)`.
-
-Freeze the following outcomes before outputs:
-
-1. `s < 4`: Weyl3 correction vanishes and the higher-derivative branch decouples to infinite physical frequency;
-2. `s = 4`: Weyl3 correction can remain finite/nonzero, but the higher-derivative branch remains at finite physical frequency;
-3. `s > 4`: Weyl3 correction diverges and the branch moves toward lower physical frequency;
-4. no single pure power-law scaling can simultaneously keep a finite nonzero fixed-band Weyl3 correction and push the singular branch to infinite physical frequency;
-5. `c6(h)` remains unauthorized physically; this is a necessity/compatibility audit only;
-6. preserve `c6` symbolic, `beta=1` unauthorized, theory established 0%, quantum transition closed, and no ghost/hyperbolicity claim.
-
-A PASS may establish only the **power-law continuum-survival trilemma** in the frozen proxy normalization. It must not establish a physical running coupling, renormalization law, microscopic cutoff, UV completion, or correctness of QGR.
+A PASS may establish only this **general fixed-band compatibility no-go**. It must not establish a physical running law for `c6`, renormalization, a cutoff, UV completion, ghost/unitarity, strong hyperbolicity, or correctness of QGR.
