@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active gate: `Iter054C / Weyl3 local metric principal symbol and gauge degeneracy`
-Project phase: `MODEL_CONSTRUCTION / WEYL3 PRINCIPAL SYMBOL`
+Primary active gate: `Iter054D / Weyl3 principal-order gauge fixing and characteristic audit`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 HYPERBOLICITY`
 
 ## Canonical claim locks
 
@@ -21,65 +21,60 @@ GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALI
 
 ## Iter053U — TERMINAL SCOPED PASS
 
-Gate: `ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION`.
+Run `34797463832`; classification `PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE`.
 
-- run `34797463832`
-- aggregate job `103839935046`
-- summary artifact `10331595143`
-- digest `sha256:f8fd204b2f68c2eaed456e002da7d60dd42d8eefdd9ed524d9013f6b02438e5b`
-- classification `PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE`
-
-Interpretation remains finite genuinely-4D compact-support computational certificate only, not a global functional-derivative theorem.
+Finite genuinely-4D compact-support computational certificate only; not a global functional-derivative theorem.
 
 ## Iter054A — TERMINAL SCOPED PASS
 
-Gate: `ITER054A-WEYL3-DERIVATIVE-ORDER-AND-REGIME-SEPARATION`.
-
-- run `34800952154`
-- aggregate job `103843400312`
-- summary artifact `10331268039`
-- digest `sha256:e835300668f9f946277b0c3f613a4602411c9499c536af4eb4fa5fb73b6364a7`
-- classification `PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION`
+Run `34800952154`; classification `PASS_SCOPED_ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION`.
 
 Derivative-order/regime bookkeeping only; no physical mode/ghost/well-posedness claim.
 
 ## Iter054B — TERMINAL SCOPED PASS
 
-Gate: `ITER054B-WEYL3-PRINCIPAL-HESSIAN-AND-WELLPOSEDNESS-OBLIGATION`.
+Run `34804198271`; classification `PASS_SCOPED_ITER054B_WEYL3_PRINCIPAL_HESSIAN_ACTIVATION_WELLPOSEDNESS_NOT_AUTHORIZED`.
 
-- preregistration `019717fad9ad68cc89b5d5cd7dd20c5b3830c882`
-- implementation `7a34ec94e976897fedb292c6f4b51087e0ba2542`
-- production head `17b1a4e5593e7007e4b822040097e7cbace3b379`
-- run `34804198271`
-- aggregate job `103852848080`
-- summary artifact `10333076134`
-- digest `sha256:cd4f60980c8b96ba9f54ea7ad8375bbe21fbf3966541bcd946f5c0f9b32c6e25`
-- classification `PASS_SCOPED_ITER054B_WEYL3_PRINCIPAL_HESSIAN_ACTIVATION_WELLPOSEDNESS_NOT_AUTHORIZED`
+Finite algebraic Weyl3 Hessian activation only; not a metric PDE hyperbolicity result.
 
-Frozen evidence: A0 exact Hessian identity residual zero with nonzero negative control; A1 12/12 exact samples symmetric/scaling/nonzero; B0 12/12 Weyl-active nonzero and 12/12 Weyl-flat exact-zero controls; B1 records the still-missing gauge-fixed covariant metric principal symbol, hyperbolicity estimate, energy estimate, and constraint propagation.
-
-Durable terminal note: `results/ITER054B_TERMINAL_RESULT.md` at commit `4d0da32977f2c1cc979e30a2df129e4edbdafbf0`.
-
-Interpretation lock: finite algebraic Weyl3 Hessian activation only. This does not establish a metric PDE principal symbol or any physical spectrum/stability statement.
-
-## Active blocker / Iter054C
-
-Prospective preregistration: `3bc563b2aa0c691a78b57c4e7c53fd0ad9a51ba3`.
+## Iter054C — TERMINAL SCOPED PASS
 
 Gate: `ITER054C-WEYL3-LOCAL-METRIC-PRINCIPAL-SYMBOL-AND-GAUGE-DEGENERACY`.
 
-The next obligation is to compose the exact Weyl3 algebraic Hessian with the local metric-to-Weyl high-frequency map and test the actual fourth-order correction symbol on frozen exact panels without hiding diffeomorphism degeneracy.
+Initial run `34808083077` is implementation/control invalid and diagnostic-only because frozen witness `[3,2,1,2]` is exactly null in Minkowski signature despite the preregistered non-null requirement. Authority record `e971882d77954749d6f951eacc5b659f73dfb660`; control-only fix `ac7cc14e111cf0d81aab4b205b255de41463a99d` changed that witness to `[3,2,1,3]` without changing formulas, backgrounds, thresholds, or scientific interpretation.
 
-Required frozen checks:
+Authoritative corrected production:
 
-1. exact linearized Riemann/Weyl principal-map identities and k^2 homogeneity;
-2. exact 10x10 composed Weyl3 metric symbol symmetry, k^4 scaling, Weyl-flat null activation, and Weyl-active nonzero activation;
-3. exact pure-gauge principal nulls with non-gauge nontrivial controls;
-4. fail closed on hyperbolicity/well-posedness until a justified principal-order gauge fixing and characteristic/energy/constraint analysis exist.
+- preregistration `3bc563b2aa0c691a78b57c4e7c53fd0ad9a51ba3`
+- production head `f6d64a34fd5413ac199088f7cabd74749b62870d`
+- run `34808147191`
+- aggregate job `103864172231`
+- summary artifact `10334205656`
+- digest `sha256:e595bac7673d1ab2f33c78e054b904bf3cb70c676c5d33bd166a777b75f4aa0f`
+- classification `PASS_SCOPED_ITER054C_WEYL3_LOCAL_METRIC_PRINCIPAL_SYMBOL_GAUGE_DEGENERACY_CONFIRMED_HYPERBOLICITY_NOT_AUTHORIZED`
+
+Raw frozen evidence: A0 passes 4/4 exact curvature/Weyl principal-map and k^2-homogeneity probes with negative controls; A1 passes 48/48 exact symmetry, k^4-scaling, Weyl-flat zero, Weyl-active nonzero, held-out reconstruction cases; B0 passes 12/12 exact four-pure-gauge-null tests with non-gauge nontrivial controls; B1 explicitly leaves principal-order gauge fixing, characteristic real-root audit, strong hyperbolicity/equivalent estimate, constraint/gauge propagation, and energy/physical-mode interpretation unresolved.
+
+Durable terminal note: `results/ITER054C_TERMINAL_RESULT.md` at commit `5d49cef868514e71de535b298a4ba166ad81d3a6`.
+
+Interpretation lock: finite exact local fourth-order Weyl3 metric principal-symbol certificate only, with diffeomorphism principal degeneracy retained. This does not establish a justified gauge-fixed principal symbol, hyperbolicity, well-posedness, or physical ghost/spectrum content.
+
+## Active blocker / Iter054D
+
+Next gate must be prospectively frozen before outputs: `ITER054D-WEYL3-PRINCIPAL-ORDER-GAUGE-FIXING-CHARACTERISTIC-AUDIT`.
+
+Required design obligations:
+
+1. specify a genuine fourth-order principal gauge-fixing completion, not ordinary second-order de Donder pasted onto a fourth-order symbol;
+2. prove on a frozen exact panel that the gauge completion removes the four diffeomorphism principal null directions while leaving quotient/physical symbol observables invariant across at least two nonzero gauge parameters;
+3. include exact negative controls showing a deliberately wrong gauge-completion tensor fails the invariance/removal predicates;
+4. freeze timelike, spacelike and null covector panels before execution and audit characteristic polynomial/root structure without post-output witness selection;
+5. fail closed on strong hyperbolicity, energy estimate, constraint propagation, ghost sign, and physical spectrum unless the gate explicitly proves the corresponding obligation.
 
 ## Locked next sequence
 
-1. Implement and run Iter054C exactly as preregistered; no post-output witness or threshold changes.
-2. If Iter054C passes, design a separate justified principal-order gauge-fixing + characteristic/hyperbolicity gate.
-3. Only after that survives may a physical Weyl-active spectrum/stability gate be opened.
-4. Quantum amplitude/measure remains downstream.
+1. Prospectively preregister Iter054D with frozen gauge completion, covectors, backgrounds, quotient observables, exact controls, and classifier.
+2. Implement and run it exactly as frozen; no post-output witness or threshold changes.
+3. If it passes only algebraic characteristic predicates, open a separate strong-hyperbolicity/energy/constraint gate rather than overclaiming.
+4. Only after those survive may a physical Weyl-active spectrum/stability gate be opened.
+5. Quantum amplitude/measure remains downstream.
