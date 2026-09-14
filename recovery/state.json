@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "53U",
-    "phase": "MODEL_CONSTRUCTION_WEYL3_CORRECTED_COMPACT_SUPPORT_FUNCTIONAL_VARIATION"
+    "iteration": "54",
+    "phase": "MODEL_CONSTRUCTION_WEYL3_DYNAMICAL_TREATMENT"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -36,8 +36,6 @@
     "status": "TERMINAL_SCIENTIFIC_FAIL",
     "run_id": 34782291893,
     "classification": "SCIENTIFIC_FAIL_ITER053R_WEYL3_WEIGHTED_H5_COMPACT_SUPPORT_ACTION_VARIATION",
-    "worst_C_direct_covariance_relative_residual": 3.2076700199377417e-12,
-    "worst_C_weighted_bulk_covariance_relative_residual": 0.6925581291599372,
     "rerun_or_reclassify_as_pass_allowed": false
   },
   "iter053s": {
@@ -47,45 +45,52 @@
     "summary_digest": "sha256:ded3e5fa26af5754033103790384ad12a275ebaeaf0e47c1de1d544950119ddd"
   },
   "iter053t_primary": {
-    "gate": "ITER053T-WEIGHTED-SUPPORT-PARAMETER-PUSHFORWARD-COVARIANCE",
     "status": "TERMINAL_SCOPED_PASS",
-    "preregistration_commit": "4a8e523753996c1b6c3756f5e19eac301c73f1c5",
-    "implementation_commit": "d996463e53aaa3a7a736488bd393f01beb56f162",
-    "workflow_head": "df76ae7e59c92a30958572d963e6c4204f9c163b",
     "run_id": 34788261104,
     "aggregate_job_id": 103828912630,
     "summary_artifact_id": 10329638555,
     "summary_digest": "sha256:312079d2cc1a07b7af12763aedb0f980879117bfda3185be34ca096321bf7faa",
-    "classification": "ITER053T_LEGACY_DOUBLE_WEIGHT_CONFIRMED_SOURCE_FAITHFUL_PUSHFORWARD_COVARIANT_SCOPED",
-    "worst_corrected_integrated_covariance_residual": 2.0590650746290315e-09,
-    "worst_corrected_nodewise_covariance_residual": 3.4581493704057676e-08,
-    "worst_structural_factorization_residual": 2.152344524141186e-16,
-    "iter053r_history_rewrite_allowed": false
+    "classification": "ITER053T_LEGACY_DOUBLE_WEIGHT_CONFIRMED_SOURCE_FAITHFUL_PUSHFORWARD_COVARIANT_SCOPED"
   },
   "iter053t_nodewise_companion": {
-    "gate": "ITER053T-GJ-NODEWISE-PUSHFORWARD-COVARIANCE-AUDIT",
     "status": "TERMINAL_SCOPED_PASS",
-    "preregistration_commit": "74d033551f0eb4060f9621cd9e9e10b00e57700a",
-    "implementation_commit": "bfa059335b44eb6ac730e8b98d04a08fcb243bb0",
-    "trigger_head": "75a30221c9a61d4a2484a9d0181cb3330d2104c0",
     "run_id": 34788222635,
     "aggregate_job_id": 103828894352,
     "summary_artifact_id": 10329224173,
     "summary_digest": "sha256:1c330cf704500654659a653bce9fac397b9b7b00495172935702cac3f626b9a0",
-    "classification": "ITER053T_GJ_NODEWISE_PUSHFORWARD_COVARIANCE_CONFIRMED",
-    "lane_count": 6,
-    "passes": 6,
-    "worst_nodewise_contraction_relative_residual": 8.409160670944214e-08,
-    "worst_weighted_GJ3_sum_covariance_relative_residual": 6.140021540682663e-09,
-    "minimum_wrong_congruence_relative_residual": 0.13608019032461305
+    "classification": "ITER053T_GJ_NODEWISE_PUSHFORWARD_COVARIANCE_CONFIRMED"
+  },
+  "iter053u": {
+    "gate": "ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION",
+    "status": "TERMINAL_SCOPED_PASS",
+    "preregistration_commit": "dbb306d68e6d1fc332a73eccb88f52df0cc5859a",
+    "production_head": "1d66282f51d0177a6247ddcfcf344e95d59ec807",
+    "run_id": 34797463832,
+    "aggregate_job_id": 103839935046,
+    "summary_artifact_id": 10331595143,
+    "summary_digest": "sha256:f8fd204b2f68c2eaed456e002da7d60dd42d8eefdd9ed524d9013f6b02438e5b",
+    "classification": "PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE",
+    "parts_expected": 20,
+    "lanes_expected": 8,
+    "lanes_valid": 8,
+    "lanes_pass": 8,
+    "worst_A_identity_relative_residual": 2.120255274318662e-06,
+    "worst_A_weighted_bulk_GJ2_to_GJ3_change": 0.0003718881377423839,
+    "worst_A_GL7_to_GL8_change": 8.031910208417016e-08,
+    "worst_A_direct_step_change": 1.4726269850162446e-10,
+    "min_A_wrong_sign_relative_residual": 1.9194373261788742,
+    "worst_B_abs_bulk_GJ3": 6.415304061273073e-31,
+    "worst_B_abs_direct_GL8": 9.672771479621411e-18,
+    "worst_C_bulk_covariance_relative_residual": 1.2800506154925688e-09,
+    "worst_C_direct_covariance_relative_residual": 3.4981673910448e-12,
+    "historical_iter053r_reclassification_allowed": false,
+    "global_functional_derivative_theorem_established": false
   },
   "parallel_infrastructure": {
     "canonical_sharded_reducer": {
       "status": "TERMINAL_INFRASTRUCTURE_PASS",
       "run_id": 34793130860,
       "classification": "SHARDED_CANONICAL_REDUCER_EQUIVALENCE_PASS",
-      "summary_artifact_id": 10328758601,
-      "summary_digest": "sha256:fb2e25c42ffbfcf5395a88d67925a5be26f65891123760d1c3e2f514ec3d298f",
       "scientific_authority": false
     },
     "d5_canonical_cache": {
@@ -93,37 +98,15 @@
       "run_id": 34793411230,
       "aggregate_job_id": 103822309604,
       "classification": "D5_CANONICAL_CACHE_EQUIVALENCE_PASS",
-      "summary_artifact_id": 10327914830,
-      "summary_digest": "sha256:e4fdb3ce144cb5f9621eaa5c4548e2202a3ff8ed081313cc479adc9b80741472",
-      "iter053u_cache_use_authorized": true,
       "scientific_authority": false
     }
   },
-  "iter053u_conditional": {
-    "gate": "ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION",
-    "status": "AUTHORIZED_FOR_FROZEN_PRODUCTION_TRIGGER",
-    "preregistration_commit": "dbb306d68e6d1fc332a73eccb88f52df0cc5859a",
-    "cache_backend_commit": "29cc9136c071b4f9900c4da630b80920f62989ab",
-    "reference_implementation_commit": "7250362b0120e1b5873fe1f7a45940aff8833643",
-    "authorization_guard_commit": "6d2e5062f459b9683a6068ca9a65ef7883d2888e",
-    "provenance_hardened_parallel_v1_commit": "34c7b355467103aec9c9e1c5d599fe0034cb9ace",
-    "cached_parallel_dispatcher_v2_commit": "f1f42d7242426b6e754acf55f9b00cd0047f974d",
-    "aggregate_classifier_commit": "cc92b09fba57bf03ef7382ba9a8d425cdb584657",
-    "prepared_workflow_commit": "c365d3f02d0d0f93a8c01f34873bfb2f668de37f",
-    "final_implementation_freeze_commit": "0739f2ede212e5144c771aae5e71f7f1075ea4ed",
-    "prepared_execution_graph": "AUTHORIZATION_THEN_20_INDEPENDENT_INTEGRATION_PARTS_THEN_8_LANE_REDUCERS_THEN_ONE_AGGREGATE",
-    "production_trigger_exists": false,
-    "execution_authorized": true,
-    "fresh_lanes_required": 8,
-    "historical_evidence_pooling_allowed": false,
-    "no_more_scientific_implementation_edits_before_trigger": true
-  },
   "active_question": {
-    "id": "QGR-ITER053U-CORRECTED-FULL-REPLACEMENT",
-    "text": "Does the prospectively frozen corrected single-weight H5 compact-support functional-variation gate pass all fresh A4+B2+C2 lanes under unchanged scientific thresholds?"
+    "id": "QGR-ITER054-WEYL3-DYNAMICAL-TREATMENT-AUTHORITY",
+    "text": "Which QGR-specific Weyl3 dynamical treatment is mathematically authorized: exact higher-derivative, perturbative/EFT, order-reduced, or none under current evidence, and what principal-part/well-posedness obligations follow?"
   },
-  "active_blocker": "ITER053T_PREREQUISITES_CLOSED_ITER053U_FROZEN_PRODUCTION_TRIGGER_AUTHORIZED",
-  "next_gate_lock": "Trigger the already frozen Iter053U workflow with no scientific-code changes. Consume all 20 part artifacts, 8 lane artifacts and frozen aggregate. Green CI alone is not scientific PASS. If Iter053U PASS, derive QGR-specific exact-vs-perturbative/order-reduced/well-posed higher-derivative dynamical treatment before any physical ghost/spectrum claim. Quantum amplitude/measure remains downstream.",
+  "active_blocker": "WEYL3_DYNAMICAL_TREATMENT_NOT_ESTABLISHED",
+  "next_gate_lock": "Prospectively freeze Iter054 before new outputs. Separate exact, perturbative/EFT and order-reduced regimes. Audit derivative order, truncation consistency and principal-part/well-posedness assumptions. No physical ghost/spectrum claim until an explicit dynamical treatment survives. Quantum amplitude/measure remains downstream.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
