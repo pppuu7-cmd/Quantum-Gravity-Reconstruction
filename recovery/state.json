@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55Z_GR_LIMIT_CONTINUITY_SELECTOR_FAIL__FORMAL_ANALYTIC_SELECTOR_NEXT",
-    "phase": "MODEL_CONSTRUCTION_WEYL3_TREATMENT_PRINCIPLE_FALSIFICATION_AND_CONSTRUCTION"
+    "iteration": "POST_56A_FORMAL_SELECTOR_PASS__GENERIC_ORDER_REDUCTION_HIERARCHY_NEXT",
+    "phase": "MODEL_CONSTRUCTION_PROSPECTIVE_ORDER_REDUCED_CANDIDATE_MATHEMATICS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,32 +16,29 @@
     "regulator_removal_established": false
   },
   "terminal_chain": {
-    "iter055w": "PASS_SCOPED_ANSATZ_INDEPENDENT_SURVIVAL_DECOUPLING_INCOMPATIBILITY__C6_RUNNING_NOT_AUTHORIZED",
-    "iter055x": "INVALID_REDUNDANT_GATE_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R",
-    "iter055y": "PASS_SCOPED_NONZERO_FIXED_BAND_WEYL3_SURVIVAL_FORCES_FORMAL_HD_SCALE_INTO_ANY_FIXED_Q_BAND__PHYSICAL_MODE_NOT_AUTHORIZED",
-    "iter055z": "FAIL_SCOPED_GR_LIMIT_CONTINUITY_ALONE_DOES_NOT_EXCLUDE_SINGULAR_BRANCH__STRONGER_ASYMPTOTIC_SELECTION_REQUIRED"
+    "iter055z": "FAIL_SCOPED_GR_LIMIT_CONTINUITY_ALONE_DOES_NOT_EXCLUDE_SINGULAR_BRANCH__STRONGER_ASYMPTOTIC_SELECTION_REQUIRED",
+    "iter056a": "PASS_SCOPED_FORMAL_POWER_SERIES_SECTOR_EXCLUDES_SINGULAR_FAST_BRANCH_IN_CONTROL__QGR_AUTHORITY_STILL_MISSING"
   },
-  "iter055z": {
-    "preregistration_commit": "0e88f1bcb6dd42fcc1149fd6475e1e2f7eb38757",
-    "durable_result_commit": "38e8746989ed8ef13cd0066af7eb592a15208330",
-    "classification": "FAIL_SCOPED_ITER055Z_GR_LIMIT_CONTINUITY_ALONE_DOES_NOT_EXCLUDE_SINGULAR_BRANCH__STRONGER_ASYMPTOTIC_SELECTION_REQUIRED",
-    "C_infinity_GR_limit_excludes_fast_branch": false,
-    "beyond_all_orders_fast_branch_witness_exists": true,
+  "iter056a": {
+    "preregistration_commit": "d4eeda3241c853406d5105ae2dbbec04768542b1",
+    "durable_result_commit": "2742fc625b848dbbc54f35158949ad9c27481c76",
+    "classification": "PASS_SCOPED_ITER056A_FORMAL_POWER_SERIES_SECTOR_EXCLUDES_SINGULAR_FAST_BRANCH_IN_CONTROL__QGR_AUTHORITY_STILL_MISSING",
+    "formal_sector_excludes_fast_branch_in_control": true,
     "qgr_treatment_authorized": false,
     "github_actions_run": null
   },
   "object_identity": {
     "physical_weyl3_treatment_selector": "MISSING_AUTHORITATIVE_ITER054G_R",
     "mixed_order_evolution_object": "MISSING_AUTHORITATIVE_ITER054F",
-    "smooth_GR_limit_as_selector": "SCOPED_FAIL_IN_EXACT_MIXED_ORDER_CONTROL",
-    "formal_analytic_perturbative_sector_selector": "UNRESOLVED_PENDING_ITER056A"
+    "formal_perturbative_sector_principle": "MATHEMATICALLY_VIABLE_IN_SCALAR_CONTROL_NOT_QGR_AUTHORIZED",
+    "generic_order_reduction_hierarchy": "UNRESOLVED_PENDING_ITER056B"
   },
   "active_question": {
-    "id": "ITER056A-FORMAL-ANALYTIC-PERTURBATIVE-SECTOR-SUFFICIENCY",
-    "text": "Does requiring a regular formal/analytic power series in the higher-derivative parameter exclude the singular fast branch in the exact mixed-order control, even though smooth GR-limit continuity does not?"
+    "id": "ITER056B-GENERIC-FORMAL-ORDER-REDUCTION-HIERARCHY",
+    "text": "For E0[g]+lambda E1[g]=0 with a regular formal solution, is each new coefficient g_n governed only by the lower-order linearized operator D E0[g0], with higher-derivative E1 entering as known sources built from lower orders?"
   },
-  "active_blocker": "PHYSICAL_TREATMENT_PRINCIPLE_NOT_SOURCE_AUTHORIZED__MIXED_ORDER_EVOLUTION_OBJECT_MISSING__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__GLOBAL_INTERACTING_MEASURE_BLOCKED",
-  "next_gate_lock": "Test mathematical sufficiency of the formal/analytic perturbative sector on the scalar mixed-order control. Do not convert success into QGR source authority; Iter054G-R remains authoritative on that distinct question.",
+  "active_blocker": "QGR_PHYSICAL_TREATMENT_NOT_AUTHORIZED__QGR_SPECIFIC_EVOLUTION_OBJECT_MISSING__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__GLOBAL_INTERACTING_MEASURE_BLOCKED",
+  "next_gate_lock": "Derive the generic formal hierarchy prospectively. Mathematical success may define architecture of a future versioned order-reduced candidate but must not be promoted to historical QGR treatment authority.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "constructor_and_referee_short_orchestrator_mode": true
