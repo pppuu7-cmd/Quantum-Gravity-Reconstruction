@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "POST_55V_MICRO_TO_CONTINUUM_BLOCKED__ITER055W_WEYL3_RECIPROCAL_NECESSITY_NEXT",
-    "phase": "MODEL_CONSTRUCTION_ORTHOGONAL_FATAL_CONSISTENCY_WHILE_MICRO_CONTINUUM_BLOCKED"
+    "iteration": "POST_55W_ANSATZ_INDEPENDENT_RECIPROCAL_PASS__WEYL3_PHYSICAL_TREATMENT_SELECTOR_AUDIT_NEXT",
+    "phase": "MODEL_CONSTRUCTION_WEYL3_PHYSICAL_DYNAMICS_DEFINITION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,33 +16,31 @@
     "regulator_removal_established": false
   },
   "terminal_chain": {
-    "iter055t": "BLOCKED_CONTINUUM_TO_B3_COARSE_OBSERVABLE_ATTACHMENT_NOT_SOURCE_DEFINED",
-    "iter055u": "PASS_SCOPED_ATTACHMENT_IS_CANDIDATE_OWNED_UP_TO_B3_REPARAMETERIZATION__ARBITRARY_READOUT_MAPS_ARE_INEQUIVALENT",
-    "iter055v": "BLOCKED_MICRO_TO_CONTINUUM_RECONSTRUCTION_MAP_NOT_SOURCE_DEFINED"
+    "iter055v": "BLOCKED_MICRO_TO_CONTINUUM_RECONSTRUCTION_MAP_NOT_SOURCE_DEFINED",
+    "iter055w": "PASS_SCOPED_ANSATZ_INDEPENDENT_SURVIVAL_DECOUPLING_INCOMPATIBILITY__C6_RUNNING_NOT_AUTHORIZED"
   },
-  "iter055v": {
-    "preregistration_commit": "89a2bfe5b03979f249c3376908d7ae4316fad87a",
-    "durable_result_commit": "630ff0fd7f91933603bb91006c7cc1872e7e1887",
-    "classification": "BLOCKED_OBJECT_DEFINITION_ITER055V_MICRO_TO_CONTINUUM_RECONSTRUCTION_MAP_NOT_SOURCE_DEFINED",
-    "discrete_connection_reconstruction_exists": true,
-    "discrete_blocking_exists": true,
-    "continuum_power_count_exists": true,
-    "generic_topology_controlled_micro_to_continuum_map_exists": false,
+  "iter055w": {
+    "preregistration_commit": "752a92f8ec7990579c859fd755e21aef28115f63",
+    "durable_result_commit": "8573681d9bddf2e6561950c7afd4439d512fffdb",
+    "classification": "PASS_SCOPED_ITER055W_ANSATZ_INDEPENDENT_SURVIVAL_DECOUPLING_INCOMPATIBILITY__C6_RUNNING_NOT_AUTHORIZED",
+    "reciprocal_identity": "rho*k_HD^2=k^2",
+    "pure_power_assumption_required": false,
+    "c6_running_authorized": false,
+    "physical_hd_mode_interpretation_authorized": false,
     "github_actions_run": null
   },
   "object_identity": {
     "micro_to_continuum_reconstruction": "MISSING_CANDIDATE_DEFINING_OBJECT",
-    "continuum_to_B3_attachment": "MISSING_CANDIDATE_OWNED_OBJECT_OR_SCHEME_INDEPENDENCE_THEOREM",
-    "iter054i_formal_correction": "rho=A*h^4*k^2_WITH_A=ABS_C6_CBAR_IN_FROZEN_MODEL",
-    "iter054i_formal_hd_scale": "k_HD=1/(h^2*sqrt(A))_FOR_A_POSITIVE_NONZERO",
-    "physical_weyl3_treatment_selector": "MISSING"
+    "iter054i_j_formal_weyl3_scaling_object": "RHO_AND_FORMAL_HD_ROOT_SCALE_WITH_EXACT_RECIPROCAL_IDENTITY",
+    "physical_weyl3_treatment_selector": "UNRESOLVED_PENDING_ITER055X_SOURCE_AUDIT",
+    "formal_hd_root_is_physical_mode": false
   },
   "active_question": {
-    "id": "ITER055W-WEYL3-GENERAL-RECIPROCAL-SURVIVAL-DECOUPLING",
-    "text": "Within the same formal fixed-background scaling object, does rho*k_HD^2=k^2 identically for arbitrary positive diagnostic A(h), proving ansatz-independent incompatibility between finite nonzero fixed-band Weyl3 survival and k_HD -> infinity?"
+    "id": "ITER055X-WEYL3-PHYSICAL-DYNAMICAL-TREATMENT-SELECTOR",
+    "text": "Does existing QGR authority choose exact higher-derivative dynamics, controlled perturbative/order-reduced EFT, or a finite physical refinement/cutoff treatment for c6*Weyl^3, with an explicit regime and interpretation of formal extra roots?"
   },
-  "active_blocker": "MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__PHYSICAL_WEYL3_TREATMENT_SELECTOR_MISSING__BOUNDARY_DYNAMICS_RULE_REQUIRED__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED",
-  "next_gate_lock": "Preregister the exact reciprocal-identity gate before deriving the terminal result. Arbitrary A(h) is diagnostic only and does not authorize c6 running. Do not call k_HD a physical ghost branch absent a treatment selector.",
+  "active_blocker": "PHYSICAL_WEYL3_TREATMENT_SELECTOR_MISSING_OR_UNRESOLVED__MICRO_CONTINUUM_EMERGENCE_MAP_MISSING__BOUNDARY_DYNAMICS_RULE_REQUIRED__GLOBAL_INTERACTING_MEASURE_AND_REGULATOR_REMOVAL_BLOCKED",
+  "next_gate_lock": "Prospectively freeze exact-HD, order-reduced-EFT and finite-physical-refinement treatment classes. Audit source authority only. Diagnostics that explicitly withhold physical treatment do not count. Do not choose a rescue treatment post hoc after Iter055W.",
   "operational": {
     "scheduled_task_generic_error_is_scientific_fail": false,
     "constructor_and_referee_short_orchestrator_mode": true
@@ -56,7 +54,6 @@
     "strong_hyperbolicity_established": false,
     "physical_ghost_claim_authorized": false,
     "micro_to_continuum_reconstruction_established": false,
-    "boundary_fiber_quantum_channel_established": false,
     "quantum_unitarity_established": false,
     "global_interacting_measure_established": false,
     "regulator_removal_established": false,
