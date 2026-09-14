@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER054Z / G3-TO-G8A PHASE-FREE CHANNEL OBJECT BRIDGE`
+Primary active front: `POST-ITER055B / CANONICAL FULL-CONFIGURATION DYNAMICS VS GAUGE RELABELING`
 Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
 
 ## Canonical claim locks
@@ -21,66 +21,84 @@ GitHub main + terminal Actions/results are authoritative. Historical FAIL/INVALI
 
 ## Recovered auto-research chain
 
-The substantive auto-research/action chain through Iter054Z and the historical G25-G38/G31-G37 programmes has been re-read against preregistrations, implementations, terminal results and Actions rather than commit titles alone.
+The substantive auto-research/action chain through Iter055B and the historical G25-G38/G31-G37 programmes has been re-read against preregistrations, implementations, terminal results and Actions rather than commit titles alone.
 
-Important durable facts:
+Key current facts:
 
-- exact lower-order/two-derivative QGR action exists and has scoped Noether closure;
-- exact higher-derivative finite-cell Weyl3 microscopic action is not defined by current authority;
-- G25-G28: specified sources can be converted to lower-order on-shell phases; primitive composition fixes `J(n)=beta*n`, but `beta` is not fixed; exact beta-free phase ratios exist only in their common-conformal count sector and are not mapped to the 24 G3/B4 ordering histories;
-- G31-G32: local curvature lift and conditional projective-limit action integration exist, but absolute phase normalization remains open;
-- G33-G37/G37C: finite algebraic branch structure is nontrivial, but no physical extra same-realization branch was authorized from the strongest distant roots;
-- Iter054S: source-ordered fine-to-coarse transport blocking on the Weyl-active G3 realization is a scoped finite-panel PASS;
-- Iter054T/U/W/X/Y: source/history action realization is missing at both lower-order and Weyl3 levels, while the lower-order action itself is genuine;
-- Iter054V: order-blind event-attached additive action cannot distinguish the 24 permutations;
-- Iter054Z: the operational role of unresolved branch phases has now been split exactly between the coarse CP channel and the fine history-register dilation.
+- exact lower-order QGR action exists; full current source-normalized/Weyl3 microscopic branch action does not;
+- G25-G28 narrow the source freedom to `J(n)=beta*n`, with `beta` still unfixed; their beta-free phase ratios are not mapped to the 24 G3/B4 ordering histories;
+- G31-G32 give local/conditional projective action integration but not absolute phase normalization;
+- Iter054S gives scoped Weyl-active G3 geometric fine-to-coarse transport blocking;
+- Iter054T-Y localize source/history action underdefinition;
+- Iter054Z proves all branch CP maps and the history-forgotten coarse channel are exactly invariant under independent branch rephasing, while the fine history-register phase reference remains operationally undefined;
+- Iter055A proves that the G3 4x4 geometric transports are not yet bridged to the G8A configuration-space Koopman/RN unitaries;
+- Iter055B proves that the 24 B4 histories are path/order objects carrying geometric fiber transport inside a fixed configuration, not yet full-configuration dynamics maps `F_alpha:X->X`.
 
-## Iter054Z — terminal operational phase-semantics BLOCKED
+## Iter054Z — phase dependency split
 
 Preregistration `9c78ba250c97e2853c731d26faa07b4f054639a1`.
-Durable result `e239959034118fe7002120ae988455443166760f`.
+Result `e239959034118fe7002120ae988455443166760f`.
 
 Classification:
 
 `BLOCKED_OBJECT_DEFINITION_ITER054Z_G8A_HISTORY_COHERENCE_SEMANTICS_NOT_FIXED`.
 
-Exact subresults:
+Exact durable subresult:
 
-1. For arbitrary independent branch phases `theta_alpha`,
-   `K'_alpha=e^{i theta_alpha}K_alpha` gives exactly
-   `K'_alpha rho K'_alpha^dagger=K_alpha rho K_alpha^dagger`.
-   Therefore all branch CP maps and the history-forgotten CPTP channel
-   `E(rho)=sum_alpha K_alpha rho K_alpha^dagger`
-   are phase insensitive.
-2. The fine isometry transforms as
-   `V'=(D_theta tensor I)V`, where `D_theta` is diagonal on the history register. Thus mere presence of coherent amplitudes in an auxiliary history basis does not by itself fix a physical relative-phase reference.
-3. G8A states that coherent interference is available before the history label is discarded, but the audited G8A-G8D/G5A/G6C/G6D chain does not define a fixed noncommuting history-register mixer/readout/decoherence functional whose convention is independent of the Kraus representation.
-4. G8D identifies the operational physical coarse evolution after history discard as the CPTP channel. G5A channel/purity and G6D branch-overlap purity are invariant under independent branch rephasings.
+`K_alpha -> exp(i theta_alpha) K_alpha`
 
-Durable interpretation:
+leaves each branch CP map and
 
-- unresolved `S_alpha` is **not an upstream blocker for the already-defined coarse CPTP channel**;
-- unresolved `S_alpha` remains open for a future/current fine coherent-history observable only if QGR supplies a canonical phase reference/mixer;
-- do not rewrite G25-G32 or Iter054T-Y; they remain valid source/action results, but their operational necessity is now scope-dependent.
+`E(rho)=sum_alpha K_alpha rho K_alpha^dagger`
 
-## Object-identity warning for the next gate
+unchanged. Thus unresolved `S_alpha` is not a blocker for the established coarse CPTP channel. The fine isometry changes only by a diagonal unitary on the auxiliary history register; no fixed noncommuting register observable/phase reference has been authorized.
 
-Do not feed Iter054S 4x4 geometric/path transport matrices directly into the G8A Kraus formula as if they were already Hilbert-space unitary operators.
+## Iter055A — G3 to G8A channel-object bridge BLOCKED
 
-Iter054S computes ordered products of Lorentz/metric-compatible 4x4 finite transports on the G3 Weyl-active tidal realization. G8A, by contrast, assumes a branch **finite configuration map** whose Koopman/Radon-Nikodym implementation is unitary on the kinematic configuration Hilbert space.
+Preregistration `99af4f18b1151c2da4185bf42799b282be48ba44`.
+Result `cf065c7777fdb7f7dec34965db207c16c56fefd1`.
 
-A source-faithful phase-free coarse-channel test therefore requires a bridge:
+Classification:
 
-`G3 geometric/history transport data -> complete invertible configuration map F_alpha -> quasi-invariant configuration measure -> unitary U_alpha -> G8A CP map`.
+`BLOCKED_OBJECT_DEFINITION_ITER055A_G3_GEOMETRIC_TRANSPORT_TO_G8A_UNITARY_CHANNEL_BRIDGE_INCOMPLETE`.
 
-Until this bridge is established, a channel computation using the 4x4 classical matrices themselves would be a wrong-object surrogate.
+G7B supplies the finite graph configuration object `X_Gamma={(G_v,A_e)}` and exact path-groupoid blocking. Iter054S supplies concrete Weyl-active 4x4 path transports. G8A supplies the conditional theorem that an **invertible quasi-invariant configuration map** induces a unitary Koopman/Radon-Nikodym operator.
+
+Missing bridge:
+
+`G3 history/path in one configuration -> full configuration map F_alpha -> quasi-invariant measure -> RN derivative -> Hilbert-space U_alpha`.
+
+Metric compatibility of a 4x4 Lorentz transport is not Hilbert-space unitarity.
+
+## Iter055B — B4 history semantics BLOCKED
+
+Preregistration `c014dc24bd296bf0b8ff09131d4e420800b8a34b`.
+Result `28024bae10d658075711743a8b7e3883ba033c61`.
+
+Classification:
+
+`BLOCKED_OBJECT_DEFINITION_ITER055B_B4_HISTORY_DOES_NOT_YET_DEFINE_G8A_CONFIGURATION_ENDOMORPHISM`.
+
+Under current authority a B4 maximal history is:
+
+> a combinatorial ordering/permutation together with a path through an already-given finite configuration, carrying an invertible metric-compatible fiber transport.
+
+The 24 histories are geometrically distinct on curved cells: relative holonomy spread is nonzero. But the path product acts between local frame/tangent fibers and does not update the complete configuration point `(G_v,A_e)`.
+
+G7B/G10B exact path composition and refinement-connected transport therefore do not by themselves define
+
+`F_alpha:X_Gamma->X_Gamma`.
+
+Refinement/coarse maps between different graph levels are also not invertible fixed-domain endomorphisms unless extra reconstruction data are supplied.
 
 ## Current highest-information question
 
-Prospectively audit whether pre-existing QGR authority already closes the object bridge above in the **same Weyl-active G3/B4 realization**.
+The most obvious possible pre-existing rescue is the QGR covariance/gauge/relabeling action on the complete finite configuration object.
 
-If the bridge exists, the next admissible scientific gate is direct phase-free cylindrical/refinement consistency of the coarse CPTP channel using Iter054S blocking.
+Prospective next gate:
 
-If the bridge is absent, terminalize the exact missing object and do not manufacture a finite-dimensional Kraus channel from classical transport matrices.
+`CAN THE EXISTING FRAME / GAUGE / RELATIONAL RELABELING ACTION SUPPLY THE MISSING INVERTIBLE FULL-CONFIGURATION MAP F_alpha, AND IF SO IS IT PHYSICAL BRANCH DYNAMICS OR PURE GAUGE ON THE G8C/G8D PHYSICAL QUOTIENT?`
 
-This channel-object bridge is now higher priority than further action-phase normalization work for the coarse operational layer.
+This is counterexample-first. A gauge transformation may be a perfectly good invertible/quasi-invariant map on kinematic configuration space while being physically redundant after constraint descent. Such a map must not be promoted to history dynamics merely because it yields a unitary Koopman operator.
+
+If no non-gauge event-update endomorphism already exists, the G8A branch dynamics remains a candidate-defining missing object and the phase-free channel cannot yet be source-realized.
