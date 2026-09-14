@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055V / WEYL3 GENERAL SURVIVAL-DECOUPLING RECIPROCAL IDENTITY`
-Project phase: `MODEL_CONSTRUCTION / ORTHOGONAL FATAL CONSISTENCY WHILE MICRO-CONTINUUM MAP IS BLOCKED`
+Primary active front: `POST-ITER055W / PHYSICAL WEYL3 DYNAMICAL-TREATMENT SELECTOR AUTHORITY`
+Project phase: `MODEL_CONSTRUCTION / WEYL3 PHYSICAL DYNAMICS DEFINITION`
 
 ## Canonical claim locks
 
@@ -12,55 +12,57 @@ Project phase: `MODEL_CONSTRUCTION / ORTHOGONAL FATAL CONSISTENCY WHILE MICRO-CO
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; regulator running is not authorized.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
-- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
+- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent pending current audit**.
 - Strong hyperbolicity / physical ghost / quantum unitarity claims: **not established**.
 - Global interacting measure/regulator removal: **not established**.
-- No UV completion, full GR recovery, experimental confirmation or new-physics claim.
+- Micro-to-continuum reconstruction `R_h`: **not source-defined** by Iter055V.
 
-## Terminal quantum-bridge line through Iter055V
+## Terminal Iter055W
 
-Iter055T: `BLOCKED_OBJECT_DEFINITION_ITER055T_CONTINUUM_TO_B3_COARSE_OBSERVABLE_ATTACHMENT_NOT_SOURCE_DEFINED`.
+Preregistration `752a92f8ec7990579c859fd755e21aef28115f63`; result `8573681d9bddf2e6561950c7afd4439d512fffdb`.
 
-Iter055U: `PASS_SCOPED_ITER055U_ATTACHMENT_IS_CANDIDATE_OWNED_UP_TO_B3_REPARAMETERIZATION__ARBITRARY_READOUT_MAPS_ARE_INEQUIVALENT`.
+`PASS_SCOPED_ITER055W_ANSATZ_INDEPENDENT_SURVIVAL_DECOUPLING_INCOMPATIBILITY__C6_RUNNING_NOT_AUTHORIZED`.
 
-Iter055V preregistration `89a2bfe5b03979f249c3376908d7ae4316fad87a`; result `630ff0fd7f91933603bb91006c7cc1872e7e1887`:
+Inside the same formal Iter054I/J fixed-background scaling object,
 
-`BLOCKED_OBJECT_DEFINITION_ITER055V_MICRO_TO_CONTINUUM_RECONSTRUCTION_MAP_NOT_SOURCE_DEFINED`.
+`rho(h,k)=A(h) h^4 k^2`,
 
-The audited source chain contains real discrete structures but no generic topology-controlled emergence map:
+`k_HD(h)=1/[h^2 sqrt(A(h))]`
 
-- G5 reconstructs discrete torsion-free connection from discrete frame data;
-- weak-curvature G7A identifies the 20 Levi-Civita curvature components and small-loop expansion;
-- strong-curvature G7B gives exact fine-discrete -> coarse-discrete path-groupoid blocking;
-- Iter007-G7A explicitly gives only the scaling theorem `Dq ~ h partial q` and `a_cont ~ c_geom*kappa/h^2`, with the detailed cell-to-continuum convention still uncomputed;
-- later analytic metric backgrounds are continuum benchmarks sampled by tests, not an inverse reconstruction theorem.
+imply the exact identity
 
-Therefore the missing object is upstream:
+`rho(h,k) k_HD(h)^2 = k^2`
 
-`X_Gamma=(G_v,A_e) -> [MISSING R_h / convergence topology] -> continuum response/characteristic field`.
+for every positive diagnostic `A(h)` and fixed nonzero physical `k`.
 
-Do not insert a finite-element/interpolation rescue post hoc. Further progress on that line requires a genuinely new candidate-defining emergence map or a new independent principle.
+Therefore, without any power-law ansatz:
 
-## Orthogonal current highest-information gate
+- `k_HD -> infinity` forces `rho -> 0`;
+- `rho -> rho_*` finite nonzero forces `k_HD -> |k|/sqrt(rho_*)`, finite nonzero;
+- `rho -> infinity` forces `k_HD -> 0`.
 
-Use the already-authoritative Iter054I/J formal Weyl3 scaling model to test an ansatz-independent necessity statement before proposing any physical treatment rule.
+This closes the pure-power loophole of Iter054J. It does **not** authorize running `c6` or identify `k_HD` as a physical ghost/mode.
 
-Iter054I fixed-background formulas are
+## Current highest-information gate
 
-`rho(h,k) = A(h) h^4 k^2`,
+Audit whether existing QGR authority already selects the physical treatment of the Weyl3 higher-derivative term. Freeze three mutually distinct treatment classes before reading decisive sources:
 
-`k_HD(h) = 1 / (h^2 sqrt(A(h)))`,
+1. **EXACT_HD** — vary/use the full six-derivative action as exact finite-h/continuum equations, retaining the full formal principal polynomial and any additional roots;
+2. **ORDER_REDUCED_EFT** — treat Weyl3 perturbatively in a controlled small parameter, use lower-order equations to remove higher time derivatives/order-reduce, and interpret only the EFT-valid branch with a specified error/regime;
+3. **FINITE_PHYSICAL_REFINEMENT** — retain a nonzero physical refinement/UV stop scale so the finite-h correction is part of the physical theory rather than a removable regulator.
 
-where in the original gate `A=|c6*Cbar|` was finite nonzero and regulator-independent. Iter054J diagnostically allowed pure-power `c6(h)` but did not authorize running.
+A valid source selector must specify more than a diagnostic computation. It must state which treatment is physical, the domain/regime and what happens to formal extra roots. A numerical principal-symbol audit or continuum scaling theorem that explicitly withholds physical interpretation does not count as a selector.
 
-The next prospective gate may treat an arbitrary positive function/sequence `A(h)` only as a mathematical diagnostic control, while keeping a fixed nonzero physical frequency `k` and a fixed Weyl-active background coefficient `Cbar`. It must test whether
+If no selector exists, record it as a candidate-defining missing object. Do not choose the branch that best rescues Weyl3 after seeing Iter055W.
 
-`rho * k_HD^2 = k^2`
+## Parallel orthogonal blocker retained
 
-is an exact reciprocal identity and therefore whether **any** such running ansatz inside the same formal scaling object can simultaneously yield finite nonzero fixed-band correction and `k_HD -> infinity`.
+The quantum/emergence line remains blocked at Iter055V:
 
-This gate is not permission to run `c6`, not permission to call the formal extra root a physical ghost, and not a physical exact-vs-order-reduced selector.
+`X_Gamma -> [MISSING micro-to-continuum R_h] -> continuum characteristic sector`.
+
+No finite-element/interpolation rescue is authorized.
 
 ## Operational note
 
-Scheduled-task UI/finalization failures remain operational only. Short-orchestrator mode is active. This exact algebraic gate needs no GitHub Actions workload.
+Short-orchestrator mode remains active. This source-authority audit requires no fake GitHub Actions load.
