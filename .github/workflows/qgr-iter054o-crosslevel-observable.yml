@@ -1,0 +1,27 @@
+name: QGR Iter054O normalized cylindrical cross-level observable
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'code/qgr_iter054o_crosslevel_observable.py'
+      - '.github/workflows/qgr-iter054o-crosslevel-observable.yml'
+  workflow_dispatch:
+
+jobs:
+  iter054o-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run frozen Iter054O audit
+        run: |
+          mkdir -p artifacts/iter054o
+          python code/qgr_iter054o_crosslevel_observable.py | tee artifacts/iter054o/summary.json
+      - name: Record SHA256
+        run: sha256sum artifacts/iter054o/summary.json | tee artifacts/iter054o/summary.sha256
+      - name: Upload scientific artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-iter054o-summary
+          path: artifacts/iter054o/
+          if-no-files-found: error
