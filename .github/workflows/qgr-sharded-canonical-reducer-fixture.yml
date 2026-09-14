@@ -1,0 +1,52 @@
+name: qgr-sharded-canonical-reducer-fixture
+
+on:
+  push:
+    paths:
+      - 'status/SHARDED_CANONICAL_REDUCER_FIXTURE_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate frozen synthetic shard
+        working-directory: code
+        run: python qgr_sharded_canonical_reducer_fixture.py --mode shard --shard '${{ matrix.shard }}' --out '../fixture/shard-${{ matrix.shard }}.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: canonical-reducer-shard-${{ matrix.shard }}
+          path: fixture/shard-${{ matrix.shard }}.json
+          if-no-files-found: error
+
+  aggregate:
+    if: always()
+    needs: [shard]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: canonical-reducer-shard-*
+          path: fixture-input
+          merge-multiple: false
+      - name: Verify canonical exact reduction and negative controls
+        working-directory: code
+        run: python qgr_sharded_canonical_reducer_fixture.py --mode aggregate --input-dir '../fixture-input' --out '../fixture-summary/summary.json'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: canonical-reducer-summary
+          path: fixture-summary/summary.json
+          if-no-files-found: error
