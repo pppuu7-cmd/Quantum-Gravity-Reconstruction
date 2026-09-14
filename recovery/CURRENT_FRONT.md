@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-14
-Primary active front: `POST-ITER055H / QUANTUM-LIFT UNIQUENESS OR NEW CANDIDATE-DEFINING DYNAMICS`
-Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATION`
+Primary active front: `POST-ITER055I / MINIMAL NEW CANDIDATE-DEFINING QUANTUM DYNAMICS AXIOM CLASS + KILL TESTS`
+Project phase: `MODEL_CONSTRUCTION / QUANTUM DYNAMICS CANDIDATE DEFINITION`
 
 ## Canonical claim locks
 
@@ -13,68 +13,52 @@ Project phase: `MODEL_CONSTRUCTION / QUANTUM AMPLITUDE-MEASURE SOURCE REALIZATIO
 - `c6`: symbolic/unfixed.
 - Full covariant Weyl3 metric EOM as a global theorem: **not established**.
 - Strong hyperbolicity / Weyl3 well-posedness: **not established**.
-- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**; Iter054G-R already terminally established no pre-existing selector, while Iter054H gave only conditional refinement-band separation.
+- Physical exact-vs-order-reduced Weyl3 treatment selector: **absent**.
 - Global interacting measure/regulator removal: **not established**.
-- No physical ghost/spectrum, full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
+- No full quantum unitarity, UV completion, full GR recovery, experimental confirmation or new-physics claim.
 
-## Terminal chain through Iter055H
+## New terminal result — Iter055I
 
-- Iter055D: `BLOCKED_OBJECT_DEFINITION_ITER055D_LOWER_ORDER_ACTION_DOES_NOT_YET_DEFINE_CANONICAL_FULL_CONFIGURATION_FLOW`.
-- Iter055E: `INVALID_REDUNDANT_GATE_ITER055E_OBJECT_ALREADY_TERMINALIZED_BY_ITER054G_R`; no new science.
-- Iter055F: `PASS_SCOPED_ITER055F_ONE_PARTICLE_CHANNEL_LIMIT_INDEPENDENT_OF_G8A_FALPHA__NO_FULL_INTERACTING_PROMOTION`.
-- Iter055G: `PASS_SCOPED_KINEMATIC_EXTENSION_ITER055G_BOUNDARY_RELATIVE_DIRECT_INTEGRAL_DEFINED__FIBERWISE_CHANNEL_DYNAMICS_MISSING`.
-- Iter055H preregistration `ea47d9c0c7f64bebac4ae03981fa063102f8a581`; result `a71a10bf5c5e80636b8701700c7a4f48d10565cb`:
-  `BLOCKED_OBJECT_DEFINITION_ITER055H_BOUNDARY_FIBER_QUANTUM_OPERATOR_FAMILY_NOT_SOURCE_DEFINED`.
+Preregistration: `23aedd66bae29963f0017bf1e60c6468247775d9`.
+Durable result: `a448e501883fe30fd89680bd69274ad3d6fa812f`.
 
-## What is established before the blocker
+Classification:
 
-QGR now has three distinct scoped structures that must not be conflated:
+`PASS_SCOPED_NONUNIQUENESS_ITER055I_EXISTING_QGR_AUTHORITY_LEAVES_NONTRIVIAL_BOUNDARY_QUANTUM_LIFT_FREEDOM__NEW_CANDIDATE_DYNAMICS_RULE_REQUIRED`.
 
-1. **Geometric/refinement transport** — G3A/G4/G7B/G10B and Iter054S define connection/path-groupoid transport and its composition/refinement behavior in their stated regular or finite-panel scopes.
-2. **One-particle quantum channel** — Iter009-G6 gives the characteristic Lorentz/transport representation with strong branch convergence and trace-norm convergence of the finite 24-history channel for normal one-particle states in the regular scope.
-3. **Boundary-relative quantum kinematics** — G6C/G6E/G6F plus Iter055G establish relative-tensor/direct-integral boundary matching, regular positive-measure disintegration over the shared boundary, and positive one-particle characteristic fibers.
+The uniqueness question is well posed because Iter055G already supplies regular boundary-relative/direct-integral Hilbert kinematics, positive measure disintegration and positive two-mode quotient fibers. Iter055H shows that no source-defined measurable branch operator/channel family is presently supplied.
 
-None of these is the full interacting G8A configuration-space history instrument.
+Iter054Z's exact independent branch rephasing is only Kraus-representation gauge for the coarse channel, so it is not sufficient by itself. The stronger nonuniqueness witness is at the CPTP level: on the same positive two-mode fiber, identity and the unitary-covariant depolarizing family
 
-## Iter055H source audit
+`D_lambda(rho)=lambda rho+(1-lambda)Tr(rho)I/2`, `0<=lambda<=1`,
 
-The most plausible pre-existing transport sources were checked under a frozen object definition requiring:
+are operationally distinct for `lambda<1`, preserve the same positivity/support, are CPTP, are covariant under unitary basis changes, and obey `D_lambda o D_mu = D_(lambda mu)`. Current QGR authority contains no dynamics selector fixing `lambda` or choosing another family. This family is only a uniqueness negative control and is **not** proposed as QGR dynamics.
 
-- a boundary base/fiber state domain;
-- an explicit branch operator or CP map on each fiber;
-- measurability over the base;
-- positive-pairing preservation or CP/TP/isometric control;
-- refinement/composition of the same quantum family;
-- no hidden dependence on the undefined full-configuration `F_alpha`.
+Existing geometric/refinement transport does not remove this freedom because the bridge from geometric transport plus boundary kinematics to a source-defined boundary quantum channel is exactly what Iter055H found missing. Adding that bridge now would itself be a new candidate-defining dynamics rule.
 
-The result is BLOCKED:
+Therefore current QGR symmetry/composition/positivity data do not uniquely imply boundary-fiber quantum dynamics. A new dynamics principle is required as explicit new input.
 
-- G3A derives frozen/semiclassical geometric history transport and explicitly says full quantum controlled transport remains open when the transport becomes configuration-dependent.
-- G4 gives exact finite frame/holonomy transport and composition, but its quantum lift is conditional on feeding a configuration map into the G3B Koopman/Radon-Nikodym architecture.
-- G7B closes the strong-curvature path-groupoid observable algebra and explicitly leaves physical Hilbert/rigging, interacting measure and quantum instrument open.
-- G10B selects the refinement-connected principal geometric connection branch and proves product convergence, not a boundary-fiber quantum channel.
-- Iter054S strengthens fine-to-coarse geometric transport on a Weyl-active tidal realization, but its interpretation ceiling leaves source/action realization, interacting measure and quantum unitarity open.
-- G6C/G6E/G6F provide the target boundary-relative/direct-integral kinematics, not a measurable branch operator family on those fibers.
-- G3B/G8A provide a CPTP/configuration-Hilbert architecture only conditionally on a deterministic full configuration map `F_alpha`, the object Iter055B-D show is not physically source-defined.
+## Next gate lock
 
-Therefore the missing bridge is exact:
+Do **not** choose identity, depolarizing, Hamiltonian, Koopman, geometric-transport or any other channel post hoc.
 
-`source-defined geometric transport + source-defined boundary-relative quantum kinematics`
+The next gate must first define a **minimal independently motivated axiom class** and freeze kill tests before evaluating any member. At minimum a viable new rule must:
 
-`->`
+1. respect the established boundary-relative/direct-integral support and positive pairing;
+2. obey measurable composition/refinement compatibility;
+3. reduce to the already-established scoped Iter009-G6 one-particle channel on an overlapping domain rather than merely resemble it;
+4. preserve the distinction between geometric transport, one-particle unitary transport and full interacting boundary dynamics;
+5. not assume `beta=1`, fixed `c6`, a physical Weyl3 treatment selector or an undefined full-configuration `F_alpha`;
+6. face prospective falsification tests for positivity/CP-TP or isometry, locality, refinement/continuum stability, measure compatibility and nontrivial predictive restriction.
 
-`source-defined measurable boundary-fiber quantum dynamics/channel`.
+A new candidate version is allowed only if the dynamics axiom is explicitly labeled new input and survives those prospective tests. It must not be described as derived from the present QGR candidate.
 
-## Candidate-defining decision point
+## GitHub workload policy
 
-Do not run another geometric transport robustness calculation as the primary front. The next highest-information question is whether the already-authoritative QGR symmetry, composition and positivity data **uniquely determine** a quantum lift on the boundary-relative fibers, or whether there is residual unitary/cocycle freedom.
+No new Actions run was launched for Iter055I because the terminal result is a source-level uniqueness theorem: once two operationally distinct admissible CPTP controls survive all currently source-defined kinematic/positivity/composition constraints and no source selector exists, more numerical load cannot restore uniqueness. Running CI would be fake load.
 
-A successor uniqueness gate must be prospective and must check existing phase/cocycle/rephasing results first to avoid repeating earlier no-go work. If nontrivial quantum-lift freedom survives all existing constraints, record that a new candidate-defining quantum dynamics principle is required; do not choose a preferred lift post hoc.
-
-A new candidate version is allowed only if its added dynamics rule is independently motivated, explicitly stated as new input, and subjected to falsifiable consistency/continuum/measure tests. It must not be described as already derived from the present QGR candidate.
+The latest genuine production computation therefore remains Iter054S until a successor gate defines a genuinely new computable discriminator.
 
 ## Operational note
 
-Repeated scheduled-task UI failures with `Hmm...something seems to have gone wrong.` exhibit a recurring approximately one-minute task-runner/finalization pattern while GitHub remains usable and some affected runs still write durable commits. The exact internal platform error code is not exposed, so this is not asserted as a proven timeout code. Both QGR automations are in short-orchestrator mode: minimal recovery reads, one bounded action, heavy work delegated to GitHub Actions, no waiting for long workflows. See `recovery/AUTOMATION_RUNNER_TIMEOUT_MITIGATION.md`.
-
-These UI failures are operational incidents, not scientific QGR classifications.
+Scheduled-task UI/finalization failures remain operational incidents only and are not scientific classifications. Continue short-orchestrator mode: read recovery/front/commits/live Actions first, take one bounded prospective action, and delegate heavy computation to GitHub Actions only when a real computable object exists.
