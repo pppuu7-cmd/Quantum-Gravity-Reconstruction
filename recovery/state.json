@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-14",
-    "iteration": "54N",
-    "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_C6_BRIDGE"
+    "iteration": "54O",
+    "phase": "MODEL_CONSTRUCTION_QUANTUM_AMPLITUDE_MEASURE_OBSERVABLE_BRIDGE"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -31,13 +31,9 @@
     "aggregate_job_id": 103964951784,
     "summary_artifact_id": 10345464439,
     "summary_digest": "sha256:a5ba8efcf62006aca58d0a62ffc9b701011bf077668041b1fd59904fc049d827",
-    "classification": "SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L",
-    "physical_quantum_measure_authorized": false,
-    "explicit_c6_identity_authorized": false,
-    "cross_level_observable_authorized": false
+    "classification": "SOURCE_AUTHORITY_PRESENT_FOR_REVIEW_ITER054L"
   },
   "iter054m": {
-    "gate": "ITER054M-SEMANTIC-QUANTUM-MEASURE-SOURCE-AUTHORITY-REVIEW",
     "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
     "preregistration_commit": "dc10bc2cb8d9c14d91dc1b6e21294ee4fd55cf2f",
     "durable_result_commit": "8794c6b9a49814e661e2c55ce1ca303c1f833cf9",
@@ -46,15 +42,28 @@
     "category_B_normalization": "AUTHORIZED_IN_SOURCE_SCOPED_RELATIVE_HISTORY_NORMALIZATION",
     "category_C_regulator_removal": "MISSING_OR_INCOMPLETE",
     "category_D_micro_to_IR_c6_identity": "MISSING",
-    "category_E_normalized_cross_level_observable": "MISSING_OR_INCOMPLETE",
-    "quantum_amplitude_measure_transition_authorized": false
+    "category_E_normalized_cross_level_observable": "MISSING_OR_INCOMPLETE"
+  },
+  "iter054n": {
+    "gate": "ITER054N-TORSION-COAREA-JACOBIAN-WEYL3-DATUM-AUDIT",
+    "status": "TERMINAL_BLOCKED_OBJECT_DEFINITION",
+    "preregistration_commit": "5af66f89f860873dbdce21fef58f5c5088327717",
+    "durable_result_commit": "f9492d2bcc99868ab16e478b491af8b6e2e48249",
+    "classification": "BLOCKED_OBJECT_DEFINITION_ITER054N_NO_CONTROLLED_WEYL3_SENSITIVE_COAREA_DATUM",
+    "new_actions_run_launched": false,
+    "duplicate_reason": "Existing prospective Iter011 torsion-Jacobian/refinement/parity program already addresses the same scientific question.",
+    "prior_durable_evidence_commit": "5033e11cb7ce76a45fa80e7ea8bb10d70230550d",
+    "controlled_curvature_sensitive_real_measure_datum": true,
+    "controlled_cubic_weyl3_measure_datum": false,
+    "canonical_measure_to_lorentzian_phase_map": false,
+    "c6_phase_direction_lifted": false
   },
   "active_question": {
-    "id": "QGR-ITER054N-TORSION-COAREA-JACOBIAN-WEYL3-DATUM-AUDIT",
-    "text": "Does the already-derived regular-stratum torsion coarea/Jacobian factor supply a controlled nonhomogeneous Weyl3-sensitive microscopic datum, and does current QGR authority derive any canonical map from that positive real measure factor to the coherent Lorentzian c6 phase direction?"
+    "id": "QGR-ITER054O-NORMALIZED-CYLINDRICAL-CROSSLEVEL-OBSERVABLE",
+    "text": "Can an already-authorized normalized coherent-history/channel observable be made cylindrical/refinement-consistent on both the microscopic and symbolic-c6 IR sides, with common normalization/source-scale directions cancelled rather than fixed by convention?"
   },
-  "active_blocker": "MICRO_TO_IR_C6_IDENTITY_MISSING__INTERACTING_MEASURE_REGULATOR_REMOVAL_INCOMPLETE__CROSS_LEVEL_OBSERVABLE_INCOMPLETE__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
-  "next_gate_lock": "Prospectively freeze Iter054N before evaluating the torsion-Jacobian candidate. Curvature dependence alone is insufficient. A positive real coarea weight must not be identified with a Lorentzian phase without a derived same-realization map. Do not introduce an arbitrary penalty, external continuum coefficient, beta=1, c6 running, or post-hoc normalization.",
+  "active_blocker": "MICRO_TO_IR_C6_IDENTITY_MISSING__INTERACTING_MEASURE_REGULATOR_REMOVAL_INCOMPLETE__NORMALIZED_CROSS_LEVEL_OBSERVABLE_INCOMPLETE__PHYSICAL_WEYL3_TREATMENT_SELECTOR_ABSENT",
+  "next_gate_lock": "Prospectively freeze Iter054O before construction or evaluation. Target a normalized cylindrical phase ratio or channel observable using already-authorized ingredients. Keep c6 symbolic; do not set beta=1; do not use the globally normalized oscillatory partition function blocked by Iter009; require explicit definitions on microscopic and IR sides and frozen refinement/Weyl3-sensitivity controls.",
   "claim_locks": {
     "qgr_experimentally_confirmed": false,
     "qgr_theory_established": false,
