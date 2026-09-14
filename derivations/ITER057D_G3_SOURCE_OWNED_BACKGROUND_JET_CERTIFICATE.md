@@ -114,9 +114,9 @@ with eigenvalues
 
 Hence the background is Weyl-active for every `kappa != 0`.
 
-For a purely electric 4D Weyl tensor in this convention,
+In the `ETA=diag(1,-1,-1,-1)` principal-curvature/index-raising convention used by the Iter054C/057A symbol chain, direct exact contraction gives
 
-`I3 = C_ab{}^{cd} C_cd{}^{ef} C_ef{}^{ab} = 16 tr(E^3)`.
+`I3 = C_ab{}^{cd} C_cd{}^{ef} C_ef{}^{ab} = -16 tr(E^3)`.
 
 Here
 
@@ -124,9 +124,9 @@ Here
 
 so
 
-**`I3(0)=96 kappa^3 != 0` for `kappa != 0`.**
+**`I3(0)=-96 kappa^3 != 0` for `kappa != 0`.**
 
-This exact continuum identity is consistent with the existing G3/Iter040 finite-cell Weyl3 response, whose frozen `kappa=0.08` control approaches the corresponding nonzero cubic value. The finite-cell evidence is only a downstream consistency control; the local source metric itself supplies the analytic curvature statement.
+The overall sign of a curvature-cubic scalar flips if the opposite Riemann-sign convention is used. Some finite-holonomy proxy code in the older G3 numerical line carries the opposite orientation/sign convention for the reconstructed curvature two-form; those finite controls were used only to establish nonzero Weyl activity and scaling. The present sign is locked to the principal-curvature convention used by the current mixed-symbol chain. This convention distinction does not affect the source-jet adequacy or the nonzero-Weyl conclusion.
 
 ## 4. First curvature derivative
 
