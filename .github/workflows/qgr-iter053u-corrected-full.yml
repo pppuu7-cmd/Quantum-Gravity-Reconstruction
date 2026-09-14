@@ -1,0 +1,91 @@
+name: qgr-iter053u-corrected-full
+
+on:
+  push:
+    paths:
+      - 'status/ITER053U_PRODUCTION_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  authorization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail-closed durable authorization guard
+        run: >-
+          python code/qgr_iter053u_authorization_guard.py
+          --state recovery/state.json
+          --out iter053u-guard/guard.json
+      - name: Upload guard evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053u-authorization-guard
+          path: iter053u-guard/guard.json
+          if-no-files-found: error
+
+  lane:
+    needs: [authorization]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {stream: A, index: 0}
+          - {stream: A, index: 1}
+          - {stream: A, index: 2}
+          - {stream: A, index: 3}
+          - {stream: B, index: 0}
+          - {stream: B, index: 1}
+          - {stream: C, index: 0}
+          - {stream: C, index: 1}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy scipy sympy
+      - name: Frozen Iter053U scientific lane
+        working-directory: code
+        run: >-
+          python qgr_iter053u_corrected_full.py
+          --stream '${{ matrix.stream }}'
+          --index '${{ matrix.index }}'
+          --out '../iter053u-lanes/${{ matrix.stream }}-${{ matrix.index }}/lane.json'
+      - name: Upload fresh lane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053u-lane-${{ matrix.stream }}-${{ matrix.index }}
+          path: iter053u-lanes/${{ matrix.stream }}-${{ matrix.index }}/lane.json
+          if-no-files-found: error
+
+  aggregate:
+    if: always() && needs.authorization.result == 'success'
+    needs: [authorization, lane]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter053u-lane-*
+          path: iter053u-input
+          merge-multiple: false
+      - name: Frozen Iter053U aggregate classifier
+        run: >-
+          python code/qgr_iter053u_aggregate.py
+          --input-dir iter053u-input
+          --out iter053u-summary/summary.json
+      - name: Upload frozen Iter053U summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter053u-summary
+          path: iter053u-summary/summary.json
+          if-no-files-found: error
