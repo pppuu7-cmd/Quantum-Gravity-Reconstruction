@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 GATE="ITER053U-CORRECTED-SOURCE-FAITHFUL-WEIGHTED-H5-COMPACT-SUPPORT-ACTION-VARIATION"
+PREREG="dbb306d68e6d1fc332a73eccb88f52df0cc5859a"
 EXPECTED={("A",i) for i in range(4)}|{("B",i) for i in range(2)}|{("C",i) for i in range(2)}
 PASS="PASS_SCOPED_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION_CERTIFICATE"
 FAIL="SCIENTIFIC_FAIL_ITER053U_CORRECTED_SOURCE_FAITHFUL_WEYL3_COMPACT_SUPPORT_ACTION_VARIATION"
@@ -57,9 +58,22 @@ def aggregate(root):
     ))
 
     complete=bool(not errors and not missing and not extra and not duplicate_keys and len(rows)==8)
+
+    provenance_values=[d.get("provenance") for d in rows]
+    provenance_ref=provenance_values[0] if provenance_values else None
+    expected_sha=os.environ.get("GITHUB_SHA")
+    provenance_ok=bool(
+        len(rows)==8 and isinstance(provenance_ref,dict) and
+        all(isinstance(v,dict) and v==provenance_ref for v in provenance_values) and
+        provenance_ref.get("production_sha") and
+        provenance_ref.get("authorization_state_sha256") and
+        provenance_ref.get("preregistration_commit")==PREREG and
+        (expected_sha is None or provenance_ref.get("production_sha")==expected_sha)
+    )
+
     if not complete:
         cls=INFRA
-    elif len(valid)!=8 or not c_source_ok:
+    elif len(valid)!=8 or not c_source_ok or not provenance_ok:
         cls=INVALID
     elif len(passes)==8 and wrong_all and wrong_strong:
         cls=PASS
@@ -73,6 +87,8 @@ def aggregate(root):
         "wrong_sign_control_all_weaker_than_correct":wrong_all,
         "wrong_sign_control_at_least_one_ge_1e-2":wrong_strong,
         "corrected_C_source_object_controls_pass":c_source_ok,
+        "provenance_consistent":provenance_ok,
+        "common_provenance":provenance_ref if provenance_ok else None,
         "stream_counts":{s:sum(1 for d in rows if d.get("stream")==s) for s in ("A","B","C")},
         "historical_iter053r_reclassification_allowed":False,
         "evidence_pooling_from_iter053r_t_tgj_allowed":False,
