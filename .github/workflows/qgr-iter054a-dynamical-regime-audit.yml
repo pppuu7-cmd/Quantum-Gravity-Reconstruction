@@ -1,0 +1,53 @@
+name: QGR Iter054A Weyl3 dynamical regime audit
+
+on:
+  push:
+    paths:
+      - 'code/qgr_iter054a_dynamical_regime_audit.py'
+      - 'preregistration/ITER054A_WEYL3_DERIVATIVE_ORDER_AND_REGIME_SEPARATION.md'
+      - '.github/workflows/qgr-iter054a-dynamical-regime-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  stream:
+    strategy:
+      fail-fast: false
+      matrix:
+        stream: [A0, A1, B0, B1]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Frozen Iter054A stream
+        run: python code/qgr_iter054a_dynamical_regime_audit.py --stream '${{ matrix.stream }}' --out 'iter054a/${{ matrix.stream }}/result.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054a-${{ matrix.stream }}
+          path: iter054a/${{ matrix.stream }}/result.json
+          if-no-files-found: error
+
+  aggregate:
+    needs: stream
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter054a-*
+          path: iter054a-input
+          merge-multiple: false
+      - name: Frozen Iter054A aggregate
+        run: python code/qgr_iter054a_dynamical_regime_audit.py --aggregate iter054a-input --out iter054a-summary/summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter054a-summary
+          path: iter054a-summary/summary.json
+          if-no-files-found: error
