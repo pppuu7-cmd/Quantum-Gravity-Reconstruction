@@ -1,0 +1,31 @@
+name: qgr-iter057a-null-cone
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057a-null-cone.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-null-cone-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic dependency
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Run frozen Iter057A audit
+        run: |
+          mkdir -p out
+          python code/qgr_iter057a_null_cone_kernel_intersection.py --out out/iter057a_summary.json
+      - name: Show classification
+        run: cat out/iter057a_summary.json
+      - name: Upload exact audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057a-null-cone-summary
+          path: out/iter057a_summary.json
+          if-no-files-found: error
