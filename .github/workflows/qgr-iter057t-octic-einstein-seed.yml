@@ -1,0 +1,32 @@
+name: qgr-iter057t-octic-einstein-seed
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057t-octic-einstein-seed.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-octic-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Solve and independently verify octic seed completion
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057t_octic_einstein_seed_completion.py --out out/iter057t.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057t.json || true
+      - name: Upload exact octic seed evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057t-octic-einstein-seed
+          path: out/iter057t.json
+          if-no-files-found: warn
