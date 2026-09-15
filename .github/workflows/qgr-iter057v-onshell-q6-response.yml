@@ -1,0 +1,32 @@
+name: qgr-iter057v-onshell-q6-response
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057v-onshell-q6-response.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-q6-response:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Solve and independently replay unrestricted Q6 response
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057v_onshell_q2_q4_q6_response.py --out out/iter057v.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057v.json || true
+      - name: Upload exact Q6 response evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057v-onshell-q6-response
+          path: out/iter057v.json
+          if-no-files-found: warn
