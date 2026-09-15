@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-15",
-    "iteration": "ITER057K_TERMINAL_BLOCKED_EXACT_SOURCE_EXPOSURE",
+    "iteration": "ITER057L_GENERAL_NONCONFORMAL_FIRST_ORDER_BACKGROUND_JET",
     "phase": "FULL_LOCAL_MIXED_ORDER_WEYL3_LINEARIZATION_ONSHELL_BACKGROUND_PROGRAMME"
   },
   "readiness": {
@@ -16,39 +16,66 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "e6b894f95979d85e270cef99a48c639258057ea6",
-    "latest_derivation_commit": "5e1775dd83da8b952ea0463bfef946eb7692f632",
-    "latest_terminal_result_commit": "c5b537c70836892e9149bbe6666b8c07cc4c8f99",
-    "latest_active_gate": null,
-    "active_gate_status": "NONE__ITER057K_TERMINAL_BLOCKED",
+    "latest_preregistration_commit": "dc4084c0ba62049403dd7260214eb39ca23f9116",
+    "latest_derivation_commit": "02b842b784023307fd64616f3594afae9824ed35",
+    "latest_terminal_result_commit": "3b70ce21c9406f13c07631b763ad908f65f4499c",
+    "latest_active_gate": "ITER057L-GENERAL-NONCONFORMAL-FIRST-ORDER-BACKGROUND-JET",
+    "active_gate_status": "PROSPECTIVELY_PREREGISTERED_NOT_YET_EXECUTED",
+    "active_production_head": null,
     "active_actions_run": null,
     "last_terminal_actions_run": 34936697782,
     "last_terminal_aggregate_artifact": 10384539748,
     "last_terminal_aggregate_digest": "sha256:05ce3b597e636a477a92571abb3018aba3ab6718eb9e392d54b191fbae7458ff"
   },
   "recent_authority": {
-    "iter057f3": {"status":"TERMINAL_PASS_PRODUCTION_CONSUMED","actions_run":34907701856,"durable_result_commit":"0d8640c399d5cc6a81a6abb6207cd1a295e695d9","classification":"PASS_SCOPED_ITER057F3_G3_ORIGIN_WEYL3_K2_BLOCK_EXTRACTED_WITH_EXACT_FULL_TENSOR_NORMALIZATION"},
-    "iter057j": {"status":"TERMINAL_BLOCKED_SOURCE_REPRESENTATION","preregistration_commit":"0f4d3cf9e1482029382dd158aa8feef89a8d736a","derivation_commit":"5e1775dd83da8b952ea0463bfef946eb7692f632","durable_result_commit":"70f2da96887f376f8f827d435894755bb0dc9f67","terminal_classification":"BLOCKED_ITER057J_EXACT_K_ECAB_SOURCE_REPRESENTATION_NOT_EXPOSED_IN_CURRENT_AUTHORIZED_IMPLEMENTATION_LINEAGE"},
+    "iter057f3": {
+      "status": "TERMINAL_PASS_PRODUCTION_CONSUMED",
+      "actions_run": 34907701856,
+      "durable_result_commit": "0d8640c399d5cc6a81a6abb6207cd1a295e695d9",
+      "classification": "PASS_SCOPED_ITER057F3_G3_ORIGIN_WEYL3_K2_BLOCK_EXTRACTED_WITH_EXACT_FULL_TENSOR_NORMALIZATION"
+    },
+    "iter057j": {
+      "status": "TERMINAL_SCIENTIFIC_FAIL_ANALYTIC_AFTER_EARLIER_SOURCE_BLOCKER",
+      "preregistration_commit": "0f4d3cf9e1482029382dd158aa8feef89a8d736a",
+      "reduction_commit": "5e1775dd83da8b952ea0463bfef946eb7692f632",
+      "historical_blocker_commit": "70f2da96887f376f8f827d435894755bb0dc9f67",
+      "exact_derivation_commit": "02b842b784023307fd64616f3594afae9824ed35",
+      "durable_result_commit": "3b70ce21c9406f13c07631b763ad908f65f4499c",
+      "exact_counterexample": "A_E*K_0011=16*kappa^4; at kappa=2/25 equals 256/390625",
+      "terminal_classification": "SCIENTIFIC_FAIL_ITER057J_CONFORMAL_OPEN_NEIGHBORHOOD_CONTINUATION_FIRST_PROLONGATION_OBSTRUCTED",
+      "scope": "CONFORMAL_CONTINUATION_ONLY__GENERAL_SYMMETRIC_QAB_REMAINS_OPEN"
+    },
     "iter057k": {
-      "status":"TERMINAL_BLOCKED_TECHNICAL_INCOMPLETE_PRODUCTION",
-      "preregistration_commit":"e6b894f95979d85e270cef99a48c639258057ea6",
-      "geometry_commit":"bf01d61939371053af120567408172084d4ee4f8",
-      "lineage_commit":"90bde0d5c89e92f6b3436c2ba3e22f5af55ab1f0",
-      "derivative_oracle_commit":"605846b1fce5568f968a9cba7c3b721322c6a63d",
-      "workflow_commit":"8a9feed7512732b8e4389060c9d305d5dddf9fb7",
-      "workflow_file":".github/workflows/qgr-iter057k-exact-controls.yml",
-      "actions_run":34936697782,
-      "terminal_aggregate_artifact":10384539748,
-      "terminal_aggregate_digest":"sha256:05ce3b597e636a477a92571abb3018aba3ab6718eb9e392d54b191fbae7458ff",
-      "durable_result_commit":"c5b537c70836892e9149bbe6666b8c07cc4c8f99",
-      "terminal_classification":"BLOCKED_ITER057K_EXACT_SOURCE_EXPOSURE_NOT_TECHNICALLY_REALIZED",
-      "scientific_fail_inferred":false,
-      "k_ecab_verdict":null
+      "status": "TERMINAL_BLOCKED_TECHNICAL_INCOMPLETE_PRODUCTION_HISTORICAL",
+      "preregistration_commit": "e6b894f95979d85e270cef99a48c639258057ea6",
+      "geometry_commit": "bf01d61939371053af120567408172084d4ee4f8",
+      "lineage_commit": "90bde0d5c89e92f6b3436c2ba3e22f5af55ab1f0",
+      "derivative_oracle_commit": "605846b1fce5568f968a9cba7c3b721322c6a63d",
+      "workflow_commit": "8a9feed7512732b8e4389060c9d305d5dddf9fb7",
+      "workflow_file": ".github/workflows/qgr-iter057k-exact-controls.yml",
+      "actions_run": 34936697782,
+      "terminal_aggregate_artifact": 10384539748,
+      "terminal_aggregate_digest": "sha256:05ce3b597e636a477a92571abb3018aba3ab6718eb9e392d54b191fbae7458ff",
+      "durable_result_commit": "c5b537c70836892e9149bbe6666b8c07cc4c8f99",
+      "terminal_classification": "BLOCKED_ITER057K_EXACT_SOURCE_EXPOSURE_NOT_TECHNICALLY_REALIZED",
+      "scientific_fail_inferred": false,
+      "note": "Historical bounded CI attempt remains BLOCKED and is not retroactively reclassified; later exact analytic Iter057J evidence independently supplies a scientific conformal obstruction."
+    },
+    "iter057l": {
+      "status": "PROSPECTIVELY_PREREGISTERED",
+      "preregistration_commit": "dc4084c0ba62049403dd7260214eb39ca23f9116",
+      "gate": "ITER057L-GENERAL-NONCONFORMAL-FIRST-ORDER-BACKGROUND-JET",
+      "question": "Does the unrestricted symmetric first-order correction equation DG_ab[q]= -E_W3_ab[g0]/A_E admit an exact source-compatible local jet after gauge and constraint control?",
+      "actions_run": null,
+      "terminal_classification": null
     }
   },
-  "active_question": null,
-  "active_blocker":"ITER057K TERMINAL BLOCKED: REQUIRED NOETHER AND DERIVATIVE-ORACLE EXACT CONTROL RECORDS DID NOT COMPLETE; FULL EXACT K_ECAB SOURCE EXPOSURE IS NOT YET AUTHORIZED.",
-  "next_gate_lock":"No gate is active. The next constructor run may prospectively preregister only a minimal technical unblocking gate for the missing exact Noether/derivative-oracle evaluations, preserving the Iter057K and Iter057J scientific criteria unchanged. It must not treat completed partial lanes as PASS, use numerical tolerances as exact-zero evidence, fit c6, add a third symmetry reduction, or infer physical characteristics.",
+  "active_question": {
+    "id": "ITER057L-GENERAL-NONCONFORMAL-FIRST-ORDER-BACKGROUND-JET",
+    "text": "Does a general symmetric nonconformal O(c6) metric correction have an exact local source-compatible jet on the frozen G3/H0 background once the linearized Einstein identity, de Donder gauge, Noether source conservation and first derivative compatibility are controlled?"
+  },
+  "active_blocker": "ITER057L_EXACT_GENERAL_QAB_LOCAL_CONSTRUCTOR_AND_UNREDUCED_VS_REDUCED_CONTROL_NOT_YET_IMPLEMENTED",
+  "next_gate_lock": "Iter057L criteria are frozen at preregistration commit dc4084c0ba62049403dd7260214eb39ca23f9116. Next work must first derive/map the general covariant linearized Einstein operator and independently verify the trace-reversed de Donder reduction under repository conventions; then construct the smallest exact unrestricted symmetric-q_ab local jet and exact source-conservation/gauge compatibility controls. Do not reuse the rejected conformal ansatz as the general solution, fit c6, add a third symmetry reduction, use numerical tolerance as exact-zero evidence, or infer physical characteristics from a local jet.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
