@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-15",
-    "iteration": "ITER057Q_SEXTIC_EINSTEIN_SEED_COMPLETION",
+    "iteration": "ITER057R_CORRECTED_SEED_WEYL3_SECOND_SOURCE_JET",
     "phase": "ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_RESET_PROGRAMME"
   },
   "readiness": {
@@ -16,95 +16,95 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "afc9098e6de828e8647aad5b1d8316b29f0b61a0",
-    "latest_terminal_result_commit": "3c8e8d54cf7c4685945f3d30284544bbba75c338",
-    "latest_active_gate": "ITER057Q-SEXTIC-EINSTEIN-SEED-COMPLETION",
-    "active_gate_status": "PROSPECTIVELY_PREREGISTERED__EXACT_SEXTIC_SEED_RUN_ACTIVE",
-    "active_production_head": "052fb130f81ea52fe9af840e42a4050415b46956",
-    "active_actions_run": 34956377793,
-    "last_terminal_actions_run": 34955879708,
-    "last_terminal_artifact": 10391063819,
-    "last_terminal_artifact_digest": "sha256:cb25ac2c9bfd0512cb9f6acb1d808c6c38c340636960068291dd0c96b402dc2a"
+    "latest_preregistration_commit": "582ff376a59458270b7074d5470dedfba85896af",
+    "latest_terminal_result_commit": "c4f1c5c01205a6991e7215e3824111e1f36d1436",
+    "latest_active_gate": "ITER057R-CORRECTED-SEED-WEYL3-SECOND-SOURCE-JET",
+    "active_gate_status": "PROSPECTIVELY_PREREGISTERED__EXACT_SIX_JET_WEYL3_SOURCE_RUN_ACTIVE",
+    "active_production_head": "cc41b51e6ae0601140bdc699e9c7b41e5fd1560d",
+    "active_actions_run": 34956884376,
+    "last_terminal_actions_run": 34956377793,
+    "last_terminal_artifact": 10391933651,
+    "last_terminal_artifact_digest": "sha256:8b1a0afe28bbb71de0b6413c24193f8dfc3dcadbb26b78d3f008f11b2508155d"
   },
   "recent_authority": {
     "iter057j": {
-      "status":"TERMINAL_SCIENTIFIC_FAIL_CONFORMAL_ONLY__COMPONENT_COEFFICIENT_CORRECTED",
-      "superseding_coefficient_correction_commit":"dd3d2ec07b3dbb3828331afd2502667a5e3ffbc8",
-      "corrected_exact_witness":"A_E*K_0011=-8*kappa^4; at kappa=2/25 equals -128/390625",
-      "classification":"SCIENTIFIC_FAIL_ITER057J_CONFORMAL_OPEN_NEIGHBORHOOD_CONTINUATION_FIRST_PROLONGATION_OBSTRUCTED"
-    },
-    "iter057l": {
-      "status":"TERMINAL_PASS_ANALYTIC_CONFIRMED_SCOPED",
-      "durable_result_commit":"24de1e6d28cfd78327b79568ac2398337c309ac4",
-      "classification":"PASS_SCOPED_ITER057L_GENERAL_QAB_FIRST_ORDER_LOCAL_JET_SOURCE_COMPATIBLE__OPEN_NEIGHBORHOOD_SOLUTION_NOT_ESTABLISHED"
+      "status": "TERMINAL_SCIENTIFIC_FAIL_CONFORMAL_ONLY__COMPONENT_COEFFICIENT_CORRECTED",
+      "correction_commit": "dd3d2ec07b3dbb3828331afd2502667a5e3ffbc8",
+      "corrected_exact_witness": "A_E*K_0011=-8*kappa^4; at kappa=2/25 equals -128/390625",
+      "classification": "SCIENTIFIC_FAIL_ITER057J_CONFORMAL_OPEN_NEIGHBORHOOD_CONTINUATION_FIRST_PROLONGATION_OBSTRUCTED"
     },
     "iter057m": {
-      "status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
-      "durable_result_commit":"f947efac35e5093ec536ee9da52e86de23325d72",
-      "actions_run":34954412091,
-      "classification":"PASS_SCOPED_ITER057M_GENERAL_QAB_QUARTIC_JET_EXTENDS_THROUGH_SECOND_EVEN_SOURCE_ORDER__OPEN_NEIGHBORHOOD_NOT_ESTABLISHED"
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "f947efac35e5093ec536ee9da52e86de23325d72",
+      "classification": "PASS_SCOPED_ITER057M_GENERAL_QAB_QUARTIC_JET_EXTENDS_THROUGH_SECOND_EVEN_SOURCE_ORDER__OPEN_NEIGHBORHOOD_NOT_ESTABLISHED"
     },
     "iter057n": {
-      "status":"TERMINAL_SCIENTIFIC_FAIL_FIXED_SEED_ONLY",
-      "preregistration_commit":"ebaead95ba38dc4521b57477c54bf7d4f1b11c83",
-      "implementation_commit":"842d50cc3e5b471d4a2565321b0c86d570b7ad52",
-      "durable_result_commit":"32c6f1b077d72a616f52dc41bbef8a39ba0cf1af",
-      "actions_run":34954958651,
-      "artifact":10390394884,
-      "classification":"SCIENTIFIC_FAIL_SCOPED_ITER057N_FIXED_G3_SEED_HAS_NONZERO_C6_ZERO_ORDER_EINSTEIN_RESIDUAL__SEED_CORRECTION_REQUIRED_BEFORE_OPEN_NEIGHBORHOOD_C6_SERIES",
-      "simple_witness":"partial_x^2 G_00(0)/kappa^2=6"
+      "status": "TERMINAL_SCIENTIFIC_FAIL_FIXED_SEED_ONLY",
+      "durable_result_commit": "32c6f1b077d72a616f52dc41bbef8a39ba0cf1af",
+      "actions_run": 34954958651,
+      "classification": "SCIENTIFIC_FAIL_SCOPED_ITER057N_FIXED_G3_SEED_HAS_NONZERO_C6_ZERO_ORDER_EINSTEIN_RESIDUAL__SEED_CORRECTION_REQUIRED_BEFORE_OPEN_NEIGHBORHOOD_C6_SERIES",
+      "simple_witness": "partial_x^2 G_00(0)/kappa^2=6"
     },
     "iter057o": {
-      "status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
-      "preregistration_commit":"f4d06a6b97cb063bca8887731d7999d010863e93",
-      "implementation_commit":"d72c71f0296120d1d8a720b2d85886007dcb9c95",
-      "durable_result_commit":"679a3d73d589fc9161bdf2209f25bb4b7c785fd6",
-      "actions_run":34955436259,
-      "artifact":10391082054,
-      "classification":"PASS_SCOPED_ITER057O_QUARTIC_EINSTEIN_SEED_COMPLETES_G3_THROUGH_QUADRATIC_ORDER__WEYL3_SOURCE_MUST_BE_RECOMPUTED",
-      "matrix_rank":164,
-      "nullity":186,
-      "particular_nonzero_count":21
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "679a3d73d589fc9161bdf2209f25bb4b7c785fd6",
+      "actions_run": 34955436259,
+      "classification": "PASS_SCOPED_ITER057O_QUARTIC_EINSTEIN_SEED_COMPLETES_G3_THROUGH_QUADRATIC_ORDER__WEYL3_SOURCE_MUST_BE_RECOMPUTED",
+      "rank": 164,
+      "nullity": 186,
+      "particular_nonzero_count": 21
     },
     "iter057p": {
-      "status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
-      "preregistration_commit":"4c79629d38d2de28385fa059365b1b50e8c165cf",
-      "implementation_commit":"85ab7559e08dd7806db803c8d98fcebe303212c5",
-      "durable_result_commit":"3c8e8d54cf7c4685945f3d30284544bbba75c338",
-      "actions_run":34955879708,
-      "artifact":10391063819,
-      "classification":"PASS_SCOPED_ITER057P_CORRECTED_EINSTEIN_SEED_WEYL3_POINT_SOURCE_EXACTLY_RESET__SECOND_SOURCE_JET_REQUIRES_SEXTIC_SEED",
-      "I3_origin_over_kappa3":96,
-      "old_E_down_over_kappa3":[48,-208,-208,368],
-      "corrected_E_down_over_kappa3":[-240,-384,-384,432]
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "3c8e8d54cf7c4685945f3d30284544bbba75c338",
+      "actions_run": 34955879708,
+      "classification": "PASS_SCOPED_ITER057P_CORRECTED_EINSTEIN_SEED_WEYL3_POINT_SOURCE_EXACTLY_RESET__SECOND_SOURCE_JET_REQUIRES_SEXTIC_SEED",
+      "I3_origin_over_kappa3": 96,
+      "corrected_E_down_over_kappa3": [-240,-384,-384,432]
     },
     "iter057q": {
-      "status":"ACTIVE_PROSPECTIVELY_PREREGISTERED",
-      "preregistration_commit":"afc9098e6de828e8647aad5b1d8316b29f0b61a0",
-      "implementation_commit":"d70dc4e53e1e3ae5db95162978c9e89c618f38ba",
-      "workflow_head":"052fb130f81ea52fe9af840e42a4050415b46956",
-      "actions_run":34956377793,
-      "terminal_classification":null
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "preregistration_commit": "afc9098e6de828e8647aad5b1d8316b29f0b61a0",
+      "implementation_commit": "d70dc4e53e1e3ae5db95162978c9e89c618f38ba",
+      "durable_result_commit": "c4f1c5c01205a6991e7215e3824111e1f36d1436",
+      "workflow_head": "052fb130f81ea52fe9af840e42a4050415b46956",
+      "actions_run": 34956377793,
+      "artifact": 10391933651,
+      "artifact_digest": "sha256:8b1a0afe28bbb71de0b6413c24193f8dfc3dcadbb26b78d3f008f11b2508155d",
+      "classification": "PASS_SCOPED_ITER057Q_SEXTIC_EINSTEIN_SEED_COMPLETES_THROUGH_QUARTIC_EINSTEIN_ORDER__WEYL3_SECOND_SOURCE_JET_CAN_NOW_BE_RECOMPUTED",
+      "matrix_shape": [574,840],
+      "rank": 494,
+      "nullity": 346,
+      "left_nullity": 80,
+      "particular_nonzero_count": 69
+    },
+    "iter057r": {
+      "status": "ACTIVE_PROSPECTIVELY_PREREGISTERED",
+      "preregistration_commit": "582ff376a59458270b7074d5470dedfba85896af",
+      "implementation_commit": "3db68ebc21b5bac124c3a7206d7a74d87645c142",
+      "workflow_head": "cc41b51e6ae0601140bdc699e9c7b41e5fd1560d",
+      "actions_run": 34956884376,
+      "terminal_classification": null
     }
   },
   "active_question": {
-    "id":"ITER057Q-SEXTIC-EINSTEIN-SEED-COMPLETION",
-    "text":"Can the Iter057O curvature-preserving Einstein seed be extended by an unrestricted sextic c6^0 jet so the full vacuum Einstein tensor vanishes through coordinate degree four while preserving the four-jet that fixes Iter057P?"
+    "id": "ITER057R-CORRECTED-SEED-WEYL3-SECOND-SOURCE-JET",
+    "text": "What is the exact Weyl3 Euler source through coordinate degree two on the canonical quartic+sextic Einstein-completed seed, and what corrected Shat^(0),Shat^(2) must feed the on-shell O(c6) Q2/Q4 reconstruction?"
   },
-  "active_blocker":"ITER057Q EXACT SEXTIC SEED RUN 34956377793 IS ACTIVE. AFTER A PASS, THE CORRECTED-SEED WEYL3 SECOND COORDINATE JET MAY BE RECOMPUTED FROM THE AUTHORITATIVE SIX-JET.",
-  "next_gate_lock":"Consume run 34956377793 strictly under preregistration afc9098e6de828e8647aad5b1d8316b29f0b61a0. A PASS must verify the complete 574x840 unrestricted system, 80 Bianchi compatibilities, exact particular R6, origin-through-fifth-derivative preservation and direct nonlinear Einstein substitution through degree four. Only then open the corrected-seed Weyl3 second-source-jet gate. Do not reuse the old G3 source second jet.",
+  "active_blocker": "ITER057R ACTIONS RUN 34956884376 IS ACTIVE. OLD ITER057M OFF-SHELL G3 SOURCE COEFFICIENTS MUST NOT BE REUSED FOR THE CORRECTED EINSTEIN SEED.",
+  "next_gate_lock": "Consume run 34956884376 only if the exact seed replay, P.R=3I3, trace Ward, Noether, symmetry, parity and Iter057P point-source replay all pass. Export the complete corrected Shat order-zero and degree-two coefficients. Only then may the O(c6) quadratic/quartic correction be reconstructed on the Einstein-completed seed, using corrected background operator coefficients rather than the historical G3 ones.",
   "claim_locks": {
-    "qgr_theory_established":false,
-    "experimental_confirmation":false,
-    "beta_set_to_one_authorized":false,
-    "qgr_six_derivative_coefficient_fixed":false,
-    "c6_running_authorized":false,
-    "weyl3_dynamical_treatment_authorized":false,
-    "strong_hyperbolicity_established":false,
-    "physical_ghost_claim_authorized":false,
-    "quantum_unitarity_established":false,
-    "global_interacting_measure_established":false,
-    "uv_complete":false,
-    "new_physics_found":false
+    "qgr_theory_established": false,
+    "experimental_confirmation": false,
+    "beta_set_to_one_authorized": false,
+    "qgr_six_derivative_coefficient_fixed": false,
+    "c6_running_authorized": false,
+    "weyl3_dynamical_treatment_authorized": false,
+    "strong_hyperbolicity_established": false,
+    "physical_ghost_claim_authorized": false,
+    "quantum_unitarity_established": false,
+    "global_interacting_measure_established": false,
+    "uv_complete": false,
+    "new_physics_found": false
   }
 }
