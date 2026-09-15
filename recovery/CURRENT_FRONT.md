@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-15
-Primary front: `ITER057T / OCTIC EINSTEIN SEED COMPLETION — TERMINAL SCOPED PASS`
+Primary front: `ITER057U / CORRECTED-SEED WEYL3 FOURTH SOURCE JET — TERMINAL SCOPED PASS`
 Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
 
 ## Canonical claim locks
@@ -16,45 +16,46 @@ Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRA
 - Finite local Taylor/symbol certificates are not open-neighborhood/global theorems.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Iter057S — consumed authority
+## Iter057T — consumed authority
 
-Iter057S terminal scoped PASS established an unrestricted first-order Q4 correction matching the corrected-seed Weyl3 source through coordinate degree two, with exact rank/compatibility controls and independent unreduced replay. It remains a finite local certificate.
+Iter057T terminal scoped PASS established the canonical unrestricted octic Einstein-seed completion through coordinate degree six. Authoritative provenance: run `34995145254`, job `104469389856`, artifact `10408050133`, digest `sha256:20134b10e4cf32ecd8b3e417921545714f12b29f4d72f812f6d5121e6b461dba`, durable result `e4d8b960b8694ee166d05aa3ff089999b843e32a`.
 
-## Iter057T — terminal scoped PASS
+## Iter057U — terminal scoped PASS
 
-Preregistration: `0f01308e81e54f77ccb91f8a76f0c129684740ff`.
-Implementation: `e3b8adde009a1f4e47767534c84cfe11ea491575`.
-Structural audit: `dee3c457c3c90c1f195d45a3a78aaa23c857a51e`.
-Production head: `e1ae75e71e07c646b11057b1be6101c8da331aed`.
-Actions run: `34995145254`.
-Job: `104469389856`.
-Artifact: `10408050133`.
-Digest: `sha256:20134b10e4cf32ecd8b3e417921545714f12b29f4d72f812f6d5121e6b461dba`.
-Durable result commit: `e4d8b960b8694ee166d05aa3ff089999b843e32a`.
+Preregistration: `72eb0c6ffdcff789d7929a766e8f237475f89aaf`.
+Implementation: `23370d11ded62570fd4f73356a5dd7cc48465ed9`.
+Production head: `2159f89bc62ea636d3584fccc84d2737b02311a1`.
+Actions run: `35016313244`.
+Job: `104540513451`.
+Artifact: `10415573459`.
+Digest: `sha256:fbdd20048f8f4e77618c5829e262538c4320a572c28e7bf6b36adb116e187dad`.
+Durable result commit: `20256a1779a3f76c46fcabe9f95cd0dd8c082305`.
 
 Classification:
 
-`PASS_SCOPED_ITER057T_OCTIC_EINSTEIN_SEED_COMPLETES_VACUUM_THROUGH_COORDINATE_DEGREE_SIX__HIGHER_SEED_ORDERS_REMAIN_OPEN`.
+`PASS_SCOPED_ITER057U_CORRECTED_EINSTEIN_SEED_WEYL3_SOURCE_EXACT_THROUGH_FOURTH_EVEN_ORDER__O_C6_RESPONSE_GATE_CAN_NOW_BE_PREREGISTERED`.
 
 Consumed raw exact evidence:
 
-- unrestricted pure degree-eight metric-jet space: 1650 coefficients;
-- exact matrix `1320 x 1650`;
-- rank `1096`, augmented rank `1096`;
-- nullity `554`, left-nullity `224`;
-- all 224 canonical Bianchi compatibility contractions exactly zero;
-- exact particular R8 has 153 nonzero normalized coefficients;
-- lower Einstein orders 0/2/4 replay exactly zero;
-- independent full corrected-metric Ricci, scalar and Einstein tensors vanish through coordinate degree six;
-- combined linear de Donder control exactly zero;
-- inverse-identity controls pass through degree six;
+- canonical Iter057T R8 provenance and corrected Einstein seed replay exactly pass;
+- inverse identity through degree 6 passes;
+- corrected-seed Ricci, scalar and Einstein tensors vanish through degree 6;
+- `P.R = 3 I3` through degree 4 passes exactly;
+- Weyl3 Euler symmetry through degree 4 passes exactly;
+- trace Ward through degree 4 passes exactly;
+- Noether divergence through degree 3 is exactly zero;
+- odd source coefficients through degree 3 are exactly zero;
+- complete Iter057R degree-0/2 replay has no mismatches;
+- deterministic source basis count is 700 through degree 4;
+- source nonzero counts are degree 0: 4, degree 1: 0, degree 2: 22, degree 3: 0, degree 4: 64;
+- degree-4 slice contains 64 nonzero coefficients, 24 off-diagonal and 31 time-containing;
 - exact-zero decisions use no numerical tolerance;
-- `c6` is not used in this zeroth-order seed-completion gate.
-
-The uncorrected degree-six Einstein residual is nonzero in all ten independent components, so the R8 correction is substantive.
+- `c6` remains symbolic/unfixed and factored out.
 
 ## Next bounded scientific step
 
-Do **not** repeat Iter057T and do not start another symmetry reduction. The preferred local-series continuation is to prospectively freeze the corrected-seed Weyl3 source at the next even coordinate order and then test the unrestricted `O(c6)` response at the corresponding higher jet order, with exact Noether/Bianchi compatibility and independent unreduced substitution. If that exact source extraction is technically unready, pivot to the quantum amplitude/measure closure front rather than manufacturing a repetitive finite-sector test.
+Do not repeat Iter057U and do not start another symmetry reduction. The preferred continuation is a prospectively frozen unrestricted `O(c6)` response at the next required metric-jet order, using the frozen corrected-seed Weyl3 source through coordinate degree four, exact gauge/field compatibility, exact rank versus augmented-rank classification, canonical contradiction witnesses if inconsistent, and an independent unreduced substitution replay if consistent.
 
-No next production run is authorized until its preregistration freezes the target order, source authority, unrestricted coefficient space, exact compatibility witnesses, rank criterion, and independent replay. This roadmap dependency is not evidence that an all-orders series exists or converges.
+Before production, preregistration must freeze the coefficient space, source authority, gauge convention, exact compatibility witnesses, rank criterion, replay criterion and scope locks. If the unrestricted exact response construction is technically unready, pivot to the quantum amplitude/measure closure front rather than manufacture a repetitive finite-sector test.
+
+This roadmap dependency is not evidence that an all-orders series exists or converges.
