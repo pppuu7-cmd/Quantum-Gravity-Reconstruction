@@ -1,0 +1,62 @@
+name: qgr-iter057m-q4-diagnostic-controls
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057m-q4-diagnostic-controls.yml'
+  workflow_dispatch:
+
+jobs:
+  q4-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Exact source-jet candidate controls
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057m_exact_g3_weyl3_source_jet.py --out out/source.json
+      - name: Exact unrestricted Q4 constructor
+        run: |
+          PYTHONPATH=code python code/qgr_iter057m_q4_exact_constructor.py --out out/q4.json
+      - name: Independent unreduced substitution
+        run: |
+          PYTHONPATH=code python code/qgr_iter057m_q4_unreduced_control.py --out out/unreduced.json
+      - name: Build diagnostic aggregate
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          s=json.loads(pathlib.Path('out/source.json').read_text())
+          q=json.loads(pathlib.Path('out/q4.json').read_text())
+          u=json.loads(pathlib.Path('out/unreduced.json').read_text())
+          checks={
+            'source_controls':s.get('pass_controls') is True,
+            'rank_augmented_equals_rank':q.get('rank_M')==164 and q.get('rank_augmented')==164,
+            'compatibility_16_zero':q.get('all_16_compatibility_zero') is True,
+            'particular_residual_zero':q.get('particular_solution_residual_zero') is True,
+            'unreduced_controls':u.get('pass_unreduced_controls') is True,
+          }
+          out={
+            'gate':'ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION',
+            'status':'DIAGNOSTIC_ONLY_PENDING_SOURCE_EQUIVALENCE_AUDIT',
+            'checks':checks,
+            'pass_diagnostic_controls':all(checks.values()),
+            'q4_nonzero_count':q.get('particular_nonzero_count'),
+            'scientific_classification':None,
+          }
+          pathlib.Path('out/summary.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(out,sort_keys=True))
+          if not out['pass_diagnostic_controls']:
+            sys.exit(2)
+          PY
+      - name: Upload diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057m-q4-diagnostic-controls
+          path: out/*.json
+          if-no-files-found: warn
