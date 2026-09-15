@@ -6,6 +6,7 @@ on:
       - '.github/workflows/qgr-iter057v-onshell-q6-response.yml'
   workflow_dispatch:
 
+# Authoritative production consumes frozen terminal S/U artifact coefficients.
 jobs:
   exact-q6-response:
     runs-on: ubuntu-latest
