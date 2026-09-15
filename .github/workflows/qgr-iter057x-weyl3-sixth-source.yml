@@ -1,0 +1,32 @@
+name: qgr-iter057x-weyl3-sixth-source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057x-weyl3-sixth-source.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-sixth-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Compute and verify corrected-decic Weyl3 source through degree six
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057x_corrected_decic_seed_weyl3_sixth_source_jet.py --out out/iter057x.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057x.json || true
+      - name: Upload exact sixth-source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057x-weyl3-sixth-source
+          path: out/iter057x.json
+          if-no-files-found: warn
