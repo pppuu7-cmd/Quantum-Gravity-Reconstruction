@@ -37,14 +37,19 @@ This gate may encode only existing authorized geometry/conventions. It may not c
 
 Required exact controls: metric inverse/symmetry; Riemann/Weyl algebraic symmetries; Weyl tracelessness; E_W3 symmetry; Noether/diffeomorphism divergence consistency to the exposed order.
 
-### Bounded implementation checkpoint
+### Bounded implementation checkpoints
 
-Commit `bf01d61939371053af120567408172084d4ee4f8` adds `code/qgr_iter057k_exact_g3_geometry.py`.
+Commit `bf01d61939371053af120567408172084d4ee4f8` adds `code/qgr_iter057k_exact_g3_geometry.py` and exposes the source-owned G3/H0 potential and metric with exact SymPy rationals, exact metric inverse, Christoffel, Riemann, Ricci, scalar-curvature and four-dimensional Weyl tensors, plus exact geometry controls.
 
-The checkpoint transliterates the source-owned G3/H0 potential and metric into exact SymPy rationals and exposes exact metric inverse, Christoffel, Riemann, Ricci, scalar-curvature and four-dimensional Weyl tensors, together with exact metric/inverse, Riemann-symmetry and Weyl-trace controls. It intentionally does **not** invent or rederive a replacement Weyl3 Euler tensor.
+Commit `8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81` adds `code/qgr_iter057k_exact_weyl3_lineage.py`. This is a direct exact-source transliteration of the already-used Weyl3 lineage pieces from `qgr_iter051b1_weyl3_p_insertion.py`, `qgr_iter051b0_double_divergence_operator.py`, `qgr_iter051c_full_eom.py` and `qgr_iter051c_d2n_near_null.py`. It exposes, without coefficient fitting or a new physics primitive:
 
-The remaining Iter057K dependency is therefore narrower: exact transliteration/exposure of the already-authorized Iter056X Weyl3 scalar / `P^{abcd}` / `E_W3_ab` construction and an exact derivative oracle sufficient for the Iter057J `K_ecab` object. The currently consumed Iter057F implementation reaches that response through `d2n.assemble_minus5(...)`, whose exposed path uses complex-step/algebraic projection plus five-point coordinate finite differences; those numerical paths remain diagnostic only.
+- exact `I3 = C_ab^{ cd} C_cd^{ ef} C_ef^{ ab}`;
+- exact projected `P^{abcd}` via symbolic directional differentiation and the same algebraic-Riemann projection;
+- exact first and double covariant divergence operators for `P`;
+- exact metric-density variation term `A_ab`;
+- exact lowering-insertion term `I_ab`;
+- the historical minus-sign assembled density `H_ab = A_ab + I_ab - 2 sqrt(-g) D_ab` used by the current numerical lineage.
 
-Iter057K has **no terminal classification yet**. This checkpoint is neither PASS nor BLOCKED and says nothing about whether `K_ecab` vanishes.
+The checkpoint deliberately does **not** invent a normalization converting that historical assembled density into the authorized covariant Iter056X `E_W3_ab`. That mapping is now the single narrow remaining authority dependency before the exact `E_W3` derivative oracle and frozen E-symmetry/Noether controls can be completed.
 
-CI remains intentionally idle until the exact symbolic evaluator exists in source form. Green CI alone is never scientific PASS.
+Iter057K has **no terminal classification yet**. The new source checkpoint is neither PASS nor BLOCKED and says nothing about whether `K_ecab` vanishes. No Actions run is active. CI remains intentionally idle until the covariant `E_W3` normalization is source-authorized in the exact evaluator. Green CI alone is never scientific PASS.
