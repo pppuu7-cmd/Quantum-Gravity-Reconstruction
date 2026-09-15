@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-15",
-    "iteration": "ITER057M_GENERAL_QAB_SECOND_EVEN_JET_QUARTIC_EXTENSION",
-    "phase": "FULL_LOCAL_MIXED_ORDER_WEYL3_LINEARIZATION_ONSHELL_BACKGROUND_PROGRAMME"
+    "iteration": "ITER057N_G3_ZERO_ORDER_EINSTEIN_SEED_NEIGHBORHOOD_AUDIT",
+    "phase": "ONSHELL_BACKGROUND_SEED_CONSISTENCY_PROGRAMME"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,38 +16,26 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "9760ca0324dce13cf141a9f93b6ff69ea4c75605",
-    "latest_derivation_commit": "8a6a5a56f646b4c96fec4ac50ab392203d26475a",
-    "latest_terminal_result_commit": "24de1e6d28cfd78327b79568ac2398337c309ac4",
-    "latest_active_gate": "ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION",
-    "active_gate_status": "ACTIVE__UNIVERSAL_Q4_MATRIX_AND_CANONICAL_BIANCHI_MAP_EXACT__SOURCE_COMPONENT_AUDIT_RUNNING",
-    "active_production_head": null,
-    "active_actions_run": 34952811799,
-    "active_actions_role": "EXACT_SOURCE_COMPONENT_AUDIT_ONLY__NOT_TERMINAL_PRODUCTION",
-    "active_actions_head": "5daa9511ec59a4ef28f49a13172bdf019999f0fd",
-    "last_terminal_actions_run": 34936697782,
-    "last_terminal_aggregate_artifact": 10384539748,
-    "last_terminal_aggregate_digest": "sha256:05ce3b597e636a477a92571abb3018aba3ab6718eb9e392d54b191fbae7458ff"
+    "latest_preregistration_commit": "ebaead95ba38dc4521b57477c54bf7d4f1b11c83",
+    "latest_derivation_commit": "443d52b759232addf580cb70d7f6b5fedcce9519",
+    "latest_terminal_result_commit": "f947efac35e5093ec536ee9da52e86de23325d72",
+    "latest_active_gate": "ITER057N-G3-ZERO-ORDER-EINSTEIN-SEED-NEIGHBORHOOD-AUDIT",
+    "active_gate_status": "PROSPECTIVELY_PREREGISTERED__EXACT_AUDIT_RUNNING",
+    "active_production_head": "c38a7c3c8f88cfcdef8cfe9ab38340acf37992cc",
+    "active_actions_run": 34954958651,
+    "last_terminal_actions_run": 34954412091,
+    "last_terminal_aggregate_artifact": 10390657547,
+    "last_terminal_aggregate_digest": "sha256:78aca057d3fd2ef4db1d7e746e188c625a02eda14c41c902fcee642bf886208c"
   },
   "recent_authority": {
-    "iter057f3": {
-      "status": "TERMINAL_PASS_PRODUCTION_CONSUMED",
-      "actions_run": 34907701856,
-      "durable_result_commit": "0d8640c399d5cc6a81a6abb6207cd1a295e695d9",
-      "classification": "PASS_SCOPED_ITER057F3_G3_ORIGIN_WEYL3_K2_BLOCK_EXTRACTED_WITH_EXACT_FULL_TENSOR_NORMALIZATION"
-    },
     "iter057j": {
-      "status": "TERMINAL_SCIENTIFIC_FAIL_ANALYTIC_AFTER_EARLIER_SOURCE_BLOCKER__COMPONENT_COEFFICIENT_AUDIT_ACTIVE",
+      "status": "TERMINAL_SCIENTIFIC_FAIL_CONFORMAL_ONLY__COMPONENT_COEFFICIENT_CORRECTED",
       "preregistration_commit": "0f4d3cf9e1482029382dd158aa8feef89a8d736a",
-      "historical_blocker_commit": "70f2da96887f376f8f827d435894755bb0dc9f67",
-      "exact_derivation_commit": "02b842b784023307fd64616f3594afae9824ed35",
-      "durable_result_commit": "3b70ce21c9406f13c07631b763ad908f65f4499c",
+      "historical_terminal_commit": "3b70ce21c9406f13c07631b763ad908f65f4499c",
+      "superseding_coefficient_correction_commit": "dd3d2ec07b3dbb3828331afd2502667a5e3ffbc8",
+      "corrected_exact_witness": "A_E*K_0011=-8*kappa^4; at kappa=2/25 equals -128/390625",
       "terminal_classification": "SCIENTIFIC_FAIL_ITER057J_CONFORMAL_OPEN_NEIGHBORHOOD_CONTINUATION_FIRST_PROLONGATION_OBSTRUCTED",
-      "scope": "CONFORMAL_CONTINUATION_ONLY",
-      "recorded_component_coefficient": "A_E*K_0011=16*kappa^4",
-      "recorded_component_coefficient_status": "UNDER_EXACT_COMPONENT_AUDIT__NONZERO_VERDICT_STABLE_UNLESS_AUDITED_VALUE_IS_ZERO",
-      "component_audit_plan_commit": "f087b579e0c13714178bfc43e9a8e2f7fa907312",
-      "component_audit_actions_run": 34952811799
+      "scope": "CONFORMAL_CONTINUATION_ONLY"
     },
     "iter057k": {
       "status": "TERMINAL_BLOCKED_TECHNICAL_INCOMPLETE_PRODUCTION_HISTORICAL",
@@ -63,36 +51,46 @@
       "derivation_commit": "93a850eb3adb78dba7a905632faca649a72db6dd",
       "durable_result_commit": "24de1e6d28cfd78327b79568ac2398337c309ac4",
       "review_commit": "ac8894eee25867c309d750da128a1860525fce99",
-      "classification": "PASS_SCOPED_ITER057L_GENERAL_QAB_FIRST_ORDER_LOCAL_JET_SOURCE_COMPATIBLE__OPEN_NEIGHBORHOOD_SOLUTION_NOT_ESTABLISHED",
-      "constructor": "unrestricted trace-reversed quadratic Q_ab,cd exact right inverse for arbitrary symmetric S_ab"
+      "classification": "PASS_SCOPED_ITER057L_GENERAL_QAB_FIRST_ORDER_LOCAL_JET_SOURCE_COMPATIBLE__OPEN_NEIGHBORHOOD_SOLUTION_NOT_ESTABLISHED"
     },
     "iter057m": {
-      "status": "ACTIVE_EXACT_UNIVERSAL_SYSTEM_COMPLETE__AUTHORIZED_SOURCE_COMPONENT_AUDIT_RUNNING",
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
       "preregistration_commit": "9760ca0324dce13cf141a9f93b6ff69ea4c75605",
       "architecture_commit": "19e76eb481d1cfd6c77b168ebe6320822510624b",
-      "universal_rank_checkpoint_commit": "8a6a5a56f646b4c96fec4ac50ab392203d26475a",
-      "universal_matrix_implementation_commit": "d6533f3da3347cc6a8f76028040296c32cc50128",
-      "matrix_shape": [180, 350],
-      "matrix_nnz": 720,
+      "rank_bianchi_derivation_commit": "8a6a5a56f646b4c96fec4ac50ab392203d26475a",
+      "fast_source_evaluator_commit": "f9181c7dda617ce4061fa90e73164e6cdbecd714",
+      "source_equivalence_result_commit": "688994108d3b28d9cdf7d7926236bece78222a94",
+      "source_equivalence_actions_run": 34954206549,
+      "source_equivalence_artifact": 10390318470,
+      "source_equivalence_digest": "sha256:ab331b2093e7d26e1d5f609f08e81c70739bb79d88a9a210a73ffc5b8155cd92",
+      "q4_constructor_commit": "40613aeca24383fc143e3e653e2aaee53dd30286",
+      "unreduced_control_commit": "1235e6a1909a7163733c8b76cb18200ece094cd0",
+      "exact_derivation_commit": "443d52b759232addf580cb70d7f6b5fedcce9519",
+      "durable_result_commit": "f947efac35e5093ec536ee9da52e86de23325d72",
+      "actions_run": 34954412091,
+      "artifact": 10390657547,
+      "artifact_digest": "sha256:78aca057d3fd2ef4db1d7e746e188c625a02eda14c41c902fcee642bf886208c",
+      "matrix_shape": [180,350],
       "matrix_rank_exact": 164,
       "q4_nullity_exact": 186,
-      "left_nullity_exact": 16,
-      "canonical_bianchi_basis_rank": 16,
-      "generic_affine_identity": "Y_(b,j)^T r = normalized degree-one coefficient of nabla^a S_ab for all 16 (b,j), exactly for arbitrary S0/S2",
-      "source_component_audit_plan_commit": "f087b579e0c13714178bfc43e9a8e2f7fa907312",
-      "source_component_audit_implementation_commit": "64a4e08274f950d1ce5513de35a097f3b376da34",
-      "source_component_audit_workflow_commit": "5daa9511ec59a4ef28f49a13172bdf019999f0fd",
-      "source_component_audit_actions_run": 34952811799,
-      "actions_run": null,
+      "particular_q4_nonzero_count": 32,
+      "classification": "PASS_SCOPED_ITER057M_GENERAL_QAB_QUARTIC_JET_EXTENDS_THROUGH_SECOND_EVEN_SOURCE_ORDER__OPEN_NEIGHBORHOOD_NOT_ESTABLISHED"
+    },
+    "iter057n": {
+      "status": "ACTIVE_PROSPECTIVELY_PREREGISTERED",
+      "preregistration_commit": "ebaead95ba38dc4521b57477c54bf7d4f1b11c83",
+      "implementation_commit": "842d50cc3e5b471d4a2565321b0c86d570b7ad52",
+      "workflow_head": "c38a7c3c8f88cfcdef8cfe9ab38340acf37992cc",
+      "actions_run": 34954958651,
       "terminal_classification": null
     }
   },
   "active_question": {
-    "id": "ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION",
-    "text": "Can the unrestricted Iter057L first-order correction be extended by an exact quartic trace-reversed jet so the de Donder gauge and linearized Einstein equation match the frozen G3/H0 Weyl3 source through quadratic coordinate order?"
+    "id": "ITER057N-G3-ZERO-ORDER-EINSTEIN-SEED-NEIGHBORHOOD-AUDIT",
+    "text": "Does the fixed exact G3/H0 seed satisfy the c6^0 Einstein equation through quadratic coordinate order, as required before interpreting the O(c6) correction series as an open-neighborhood background solution?"
   },
-  "active_blocker": "ITER057M UNIVERSAL Q4 MATRIX AND ALL 16 BIANCHI/NOETHER COMPATIBILITY FUNCTIONALS ARE EXACTLY RESOLVED. THE REMAINING AUTHORITY BLOCKER IS THE FOUR-LANE ITER057K-LINEAGE SOURCE COMPONENT AUDIT (RUN 34952811799), AFTER WHICH THE AUTHORIZED S2 RHS, ONE EXACT Q4, AND UNREDUCED SUBSTITUTION MUST BE DURABLY RECORDED.",
-  "next_gate_lock": "Stay inside preregistration 9760ca0324dce13cf141a9f93b6ff69ea4c75605. Consume source-component audit run 34952811799 only if all four exact diagonal lane artifacts and the aggregate are complete. Do not consume accelerated source-second-jet values before that convention audit. After a clean audit, freeze the authorized exact S2, verify all 16 canonical Noether contractions, construct one exact unrestricted Q4 using the rank-164 system, and independently substitute into the unreduced covariant linearized Einstein operator. No numerical tolerance, fitted c6, restricted Q4 ansatz, or physical-characteristic inference is allowed.",
+  "active_blocker": "ITER057N EXACT G3/H0 EINSTEIN SECOND-JET AUDIT RUN 34954958651 IS ACTIVE. A NONZERO C6-ZERO-ORDER EINSTEIN COEFFICIENT WOULD REQUIRE A SEPARATE ZEROTH-ORDER EINSTEIN-SEED COMPLETION BEFORE ANY OPEN-NEIGHBORHOOD C6 SERIES CLAIM.",
+  "next_gate_lock": "Consume run 34954958651 under preregistration ebaead95ba38dc4521b57477c54bf7d4f1b11c83. If any exact quadratic G_ab[g0] coefficient is nonzero after Bianchi/trace/full-rational controls, terminalize the fixed-seed neighborhood programme as the preregistered scoped scientific FAIL. The successor must construct/audit a c6^0 Einstein-seed completion; do not try to absorb a zero-order residual into the O(c6) correction, fit c6, or carry the old Weyl3 source jet unchanged after a quartic seed modification without recomputation.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
