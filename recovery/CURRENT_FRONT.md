@@ -44,27 +44,20 @@ Required exact controls: metric inverse/symmetry; Riemann/Weyl algebraic symmetr
 - `90bde0d5c89e92f6b3436c2ba3e22f5af55ab1f0`: source-authorized normalization lookup from terminal Iter056X authority `5b2acf5a47f4ba66fb126bdeab28505dd0dfb852`, establishing `H5^{ab}=sqrt(-g) E_W3^{ab}` in the same covariant-metric convention.
 - `605846b1fce5568f968a9cba7c3b721322c6a63d`: exact first/second covariant derivative oracle for the authorized lowered `E_W3_ab`, plus exact E-symmetry and Noether-divergence evaluators. It carries no numerical tolerance and keeps `c6` factored out/symbolic.
 
-## Active exact-control production
+## Terminal exact-control production status
 
-Workflow commit: `8a9feed7512732b8e4389060c9d305d5dddf9fb7`.
+Workflow commit / production head: `8a9feed7512732b8e4389060c9d305d5dddf9fb7`.
 Workflow: `.github/workflows/qgr-iter057k-exact-controls.yml` (`qgr-iter057k-exact-controls`).
-Production head: `8a9feed7512732b8e4389060c9d305d5dddf9fb7`.
+Actions run: `34936697782`.
 
-The workflow is push-triggered by its creation commit and uses a `fail-fast: false` matrix with independent lanes:
+Run provenance is exact: event `push`, head SHA equals the frozen production head. The run completed on 2026-09-15 with overall conclusion `cancelled` after the two expensive exact lanes reached the workflow's 55-minute job limit. Geometry, lineage and E_W3-symmetry jobs completed successfully; the Noether and derivative-oracle evaluation steps were cancelled. Their upload steps ran but produced no corresponding lane artifacts, so no partial scientific values are consumed.
 
-`geometry`, `lineage`, `ew3-symmetry`, `noether`, `derivative-oracle`.
+The `aggregate` job ran under `if: always()`, downloaded the available lane artifacts, wrote and uploaded `iter057k-terminal-aggregate`, then failed its frozen completeness condition. Artifact id: `10384539748`; digest: `sha256:05ce3b597e636a477a92571abb3018aba3ab6718eb9e392d54b191fbae7458ff`; run head SHA matches `8a9feed7512732b8e4389060c9d305d5dddf9fb7`.
 
-Each lane writes a JSON artifact. An `aggregate` job, running with `if: always()`, produces only the frozen terminal artifact `iter057k-terminal-aggregate`. The aggregate deliberately carries `scientific_classification: null`; classification is reserved for the next bounded constructor run under the frozen preregistration.
-
-The Actions run id was not recorded in this launch step. **No lane result or partial science has been consumed and Iter057K has no terminal classification.**
+By the frozen workflow construction, the missing Noether and derivative-oracle lane records force `complete=false` and `all_frozen_exact_controls_pass=false`; `scientific_classification` remains null. This is a terminal **incomplete production**, not a scientific FAIL and not a PASS. Green completed lanes do not establish the gate.
 
 ## Next bounded step
 
-Identify only the Actions run created from workflow commit `8a9feed7512732b8e4389060c9d305d5dddf9fb7` for `qgr-iter057k-exact-controls`.
+Constructor must consume only preregistration `e6b894f95979d85e270cef99a48c639258057ea6` and this terminal incomplete production record. It must not infer scientific values from cancelled lanes or from green partial CI. Any terminalization must follow the frozen Iter057K PASS/BLOCKED/INVALID rules; the present production cannot support PASS because the required exact control set is incomplete.
 
-- If nonterminal: check status/head provenance only; do not consume lane outputs, do not duplicate the run, and finish.
-- If terminal: validate only preregistration `e6b894f95979d85e270cef99a48c639258057ea6` plus the terminal aggregate artifact `iter057k-terminal-aggregate`, classify strictly by the frozen Iter057K PASS/BLOCKED/INVALID rules, update recovery, and finish.
-
-Do not alter Iter057J criteria, fit `c6`, use numerical tolerances as exact-zero evidence, add a third symmetry reduction, infer physical characteristics, or assign PASS from green CI alone.
-
-Green CI alone is never scientific PASS.
+Do not alter Iter057J criteria, fit `c6`, use numerical tolerances as exact-zero evidence, add a third symmetry reduction, infer physical characteristics, or treat green CI alone as scientific PASS.
