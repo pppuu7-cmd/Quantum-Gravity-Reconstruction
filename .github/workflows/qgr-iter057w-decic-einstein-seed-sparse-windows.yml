@@ -1,0 +1,35 @@
+name: qgr-iter057w-decic-einstein-seed-sparse-windows
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057w-decic-einstein-seed-sparse-windows.yml'
+  workflow_dispatch:
+
+jobs:
+  sparse-fraction-windows-reproduction:
+    runs-on: windows-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reproduce Iter057W with sparse Fraction geometry on Windows
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force out | Out-Null
+          $env:PYTHONPATH = 'code'
+          python code/qgr_iter057w_decic_einstein_seed_sparse.py --out out/iter057w_sparse_windows.json
+      - name: Show classification
+        if: always()
+        shell: pwsh
+        run: if (Test-Path out/iter057w_sparse_windows.json) { Get-Content out/iter057w_sparse_windows.json }
+      - name: Upload sparse Windows reproduction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057w-decic-einstein-seed-sparse-windows
+          path: out/iter057w_sparse_windows.json
+          if-no-files-found: warn
