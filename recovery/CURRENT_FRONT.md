@@ -37,4 +37,14 @@ This gate may encode only existing authorized geometry/conventions. It may not c
 
 Required exact controls: metric inverse/symmetry; Riemann/Weyl algebraic symmetries; Weyl tracelessness; E_W3 symmetry; Noether/diffeomorphism divergence consistency to the exposed order.
 
-CI remains intentionally idle until an exact symbolic evaluator exists. Green CI alone is never scientific PASS.
+### Bounded implementation checkpoint
+
+Commit `bf01d61939371053af120567408172084d4ee4f8` adds `code/qgr_iter057k_exact_g3_geometry.py`.
+
+The checkpoint transliterates the source-owned G3/H0 potential and metric into exact SymPy rationals and exposes exact metric inverse, Christoffel, Riemann, Ricci, scalar-curvature and four-dimensional Weyl tensors, together with exact metric/inverse, Riemann-symmetry and Weyl-trace controls. It intentionally does **not** invent or rederive a replacement Weyl3 Euler tensor.
+
+The remaining Iter057K dependency is therefore narrower: exact transliteration/exposure of the already-authorized Iter056X Weyl3 scalar / `P^{abcd}` / `E_W3_ab` construction and an exact derivative oracle sufficient for the Iter057J `K_ecab` object. The currently consumed Iter057F implementation reaches that response through `d2n.assemble_minus5(...)`, whose exposed path uses complex-step/algebraic projection plus five-point coordinate finite differences; those numerical paths remain diagnostic only.
+
+Iter057K has **no terminal classification yet**. This checkpoint is neither PASS nor BLOCKED and says nothing about whether `K_ecab` vanishes.
+
+CI remains intentionally idle until the exact symbolic evaluator exists in source form. Green CI alone is never scientific PASS.
