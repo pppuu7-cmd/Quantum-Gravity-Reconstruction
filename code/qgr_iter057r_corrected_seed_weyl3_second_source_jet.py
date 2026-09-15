@@ -2,10 +2,9 @@
 """Iter057R exact Weyl3 Euler source through coordinate degree two on the
 canonical Iter057O+Iter057Q Einstein-completed seed.
 
-The implementation uses exact Fraction polynomial arithmetic in all four
-coordinates.  The seed metric is retained through degree six, curvature/Weyl
-through degree four, P=3 Pi_W Pi_R[C^2] through degree four, and E_W3 through
-degree two.  No numerical tolerance or symmetry projection is used.
+All algebra is exact Fraction polynomial arithmetic in all four coordinates.
+The seed metric is retained through degree six, curvature/Weyl through degree
+four, P=3 Pi_W Pi_R[C^2] through degree four, and E_W3 through degree two.
 """
 import argparse
 import json
@@ -26,8 +25,6 @@ GATE="ITER057R-CORRECTED-SEED-WEYL3-SECOND-SOURCE-JET"
 PREREG="582ff376a59458270b7074d5470dedfba85896af"
 ITER057P="3c8e8d54cf7c4685945f3d30284544bbba75c338"
 ITER057Q="c4f1c5c01205a6991e7215e3824111e1f36d1436"
-
-OLD_SHAT0_OVER_K3={(0,0):F(-48),(1,1):F(208),(2,2):F(208),(3,3):F(-368)}
 ITER057P_E_DOWN_OVER_K3={(0,0):F(-240),(1,1):F(-384),(2,2):F(-384),(3,3):F(432)}
 
 
@@ -67,52 +64,49 @@ def psign(p):
     inv=sum(p[i]>p[j] for i in range(4) for j in range(i+1,4))
     return -1 if inv%2 else 1
 def pmat(): return [[{} for _ in range(N)] for _ in range(N)]
-def factorial_multi(alpha): return math.prod(math.factorial(n) for n in alpha)
+def fact(alpha): return math.prod(math.factorial(n) for n in alpha)
 
 
 def seed_metric():
-    # G3 quadratic seed.
+    # Exact G3 quadratic seed.
     q=add(add(mono((0,2,0,0),K),mono((0,0,2,0),K)),mono((0,0,0,2),-2*K))
     g=pmat()
     for a in range(N): g[a][a]=add(const(ETA[a]),scale(q,-1))
 
-    # Canonical Iter057O trace-reversed quartic coefficients are frozen in pseed.R4.
+    # Canonical Iter057O quartic pivot jet.
     rbar4=pmat()
     for (pair,alpha),coef in pseed.R4.items():
-        a,b=pair; term=mono(alpha,K*K*coef/F(factorial_multi(alpha)))
+        a,b=pair; term=mono(alpha,K*K*coef/F(fact(alpha)))
         rbar4[a][b]=add(rbar4[a][b],term)
         if a!=b: rbar4[b][a]=add(rbar4[b][a],term)
     tr4={}
     for a in range(N): tr4=add(tr4,scale(rbar4[a][a],ETA[a]))
-    r4=pmat()
     for a,b in product(range(N),repeat=2):
-        r4[a][b]=dict(rbar4[a][b])
-        if a==b: r4[a][b]=add(r4[a][b],scale(tr4,-F(ETA[a],2)))
-        g[a][b]=add(g[a][b],r4[a][b])
+        r=dict(rbar4[a][b])
+        if a==b: r=add(r,scale(tr4,-F(ETA[a],2)))
+        g[a][b]=add(g[a][b],r)
 
-    # Replay the exact Iter057Q canonical sextic pivot solution.
+    # Canonical Iter057Q sextic pivot jet; replay must itself pass exactly.
     qdata=qseed.compute()
     if qdata.get("pass") is not True:
         raise RuntimeError("Iter057Q replay did not pass")
     rbar6=pmat()
     for item in qdata["particular_R6_normalized"]:
         a,b=item["pair"]; alpha=tuple(item["alpha"]); coef=F(item["R6_over_kappa3"])
-        term=mono(alpha,K**3*coef/F(factorial_multi(alpha)))
+        term=mono(alpha,K**3*coef/F(fact(alpha)))
         rbar6[a][b]=add(rbar6[a][b],term)
         if a!=b: rbar6[b][a]=add(rbar6[b][a],term)
     tr6={}
     for a in range(N): tr6=add(tr6,scale(rbar6[a][a],ETA[a]))
-    r6=pmat()
     for a,b in product(range(N),repeat=2):
-        r6[a][b]=dict(rbar6[a][b])
-        if a==b: r6[a][b]=add(r6[a][b],scale(tr6,-F(ETA[a],2)))
-        g[a][b]=add(g[a][b],r6[a][b])
-    return g,r4,r6,qdata
+        r=dict(rbar6[a][b])
+        if a==b: r=add(r,scale(tr6,-F(ETA[a],2)))
+        g[a][b]=add(g[a][b],r)
+    return g,qdata
 
 
-def inverse_through4(g):
-    # g=eta+h with h starting at degree two:
-    # g^{-1}=eta-eta h eta+eta h eta h eta + O(x^6).
+def inverse4(g):
+    # g=eta+h, h=O(x^2): eta-eta h eta+eta h eta h eta is exact through x^4.
     h=pmat()
     for a,b in product(range(N),repeat=2):
         h[a][b]=dict(g[a][b])
@@ -128,17 +122,14 @@ def inverse_through4(g):
 
 
 def compute():
-    g,r4,r6,qdata=seed_metric()
-    gi=inverse_through4(g)
+    g,qdata=seed_metric(); gi=inverse4(g)
 
-    inverse4=True
+    inverse_ok=True
     for a,b in product(range(N),repeat=2):
         s={}
         for c in range(N): s=add(s,mul(g[a][c],gi[c][b],4))
-        s=sub(s,const(1 if a==b else 0))
-        if trunc(s,4): inverse4=False
+        if trunc(sub(s,const(1 if a==b else 0)),4): inverse_ok=False
 
-    # Christoffel through degree five and curvature through degree four.
     Gamma=[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)]
     for a,b,c in product(range(N),repeat=3):
         val={}
@@ -167,27 +158,14 @@ def compute():
     Scal={}
     for a,b in product(range(N),repeat=2): Scal=add(Scal,mul(gi[a][b],Ric[a][b],4))
     Scal=trunc(Scal,4)
-    seed_ricci4_zero=all(not Ric[a][b] for a,b in product(range(N),repeat=2))
-    seed_scalar4_zero=not Scal
+    ricci_zero=all(not Ric[a][b] for a,b in product(range(N),repeat=2))
+    scalar_zero=not Scal
 
-    C=[[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)] for _ in range(N)]
-    for a,b,c,d in product(range(N),repeat=4):
-        rp={}
-        for i,j,sgn in ((a,c,1),(a,d,-1),(b,c,-1),(b,d,1)):
-            # terms g_{i,j} R_{other}; explicit cases avoid an extra four-index object.
-            if (i,j)==(a,c):
-                for e in range(N): rp=add(rp,scale(mul(g[a][c],Ric[d][b],4),1))
-            elif (i,j)==(a,d):
-                rp=sub(rp,mul(g[a][d],Ric[c][b],4))
-            elif (i,j)==(b,c):
-                rp=sub(rp,mul(g[b][c],Ric[d][a],4))
-            else:
-                rp=add(rp,mul(g[b][d],Ric[c][a],4))
-        rp=scale(rp,F(1,2))
-        gg=sub(mul(g[a][c],g[d][b],4),mul(g[a][d],g[c][b],4))
-        C[a][b][c][d]=trunc(add(sub(Rlow[a][b][c][d],rp),scale(mul(Scal,gg,4),F(1,6))),4)
+    # The canonical seed is Ricci-flat through x^4.  Once that exact control passes,
+    # Weyl equals all-lowered Riemann through precisely the order required here.
+    C=Rlow
 
-    # C_ab{}^{rs}.
+    # C_ab{}^{rs} through degree four.
     Cup=[[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)] for _ in range(N)]
     for a,b,r,s in product(range(N),repeat=4):
         val={}
@@ -206,7 +184,8 @@ def compute():
     Qr=[[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)] for _ in range(N)]
     for a,b,c,d in product(range(N),repeat=4):
         inds=(a,b,c,d); alt={}
-        for pp in perms: alt=add(alt,scale(Q[inds[pp[0]]][inds[pp[1]]][inds[pp[2]]][inds[pp[3]]],F(psign(pp),24)))
+        for pp in perms:
+            alt=add(alt,scale(Q[inds[pp[0]]][inds[pp[1]]][inds[pp[2]]][inds[pp[3]]],F(psign(pp),24)))
         Qr[a][b][c][d]=sub(Q[a][b][c][d],alt)
 
     QRic=pmat()
@@ -220,36 +199,31 @@ def compute():
 
     Plow=[[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)] for _ in range(N)]
     for a,b,c,d in product(range(N),repeat=4):
-        t=add(sub(mul(g[a][c],QRic[d][b],4),mul(g[a][d],QRic[c][b],4)),
-              add(neg(mul(g[b][c],QRic[d][a],4)),mul(g[b][d],QRic[c][a],4)))
-        t=scale(t,F(1,2))
+        rt=add(sub(mul(g[a][c],QRic[d][b],4),mul(g[a][d],QRic[c][b],4)),
+               add(neg(mul(g[b][c],QRic[d][a],4)),mul(g[b][d],QRic[c][a],4)))
+        rt=scale(rt,F(1,2))
         gg=scale(sub(mul(g[a][c],g[d][b],4),mul(g[a][d],g[c][b],4)),F(1,2))
-        Plow[a][b][c][d]=scale(trunc(add(sub(Qr[a][b][c][d],t),scale(mul(QSc,gg,4),F(1,3))),4),3)
+        Plow[a][b][c][d]=scale(trunc(add(sub(Qr[a][b][c][d],rt),scale(mul(QSc,gg,4),F(1,3))),4),3)
 
     P=[[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)] for _ in range(N)]
     for a,b,c,d in product(range(N),repeat=4):
         val={}
         for i,j,m,n in product(range(N),repeat=4):
-            term=mul(mul(gi[a][i],gi[b][j],4),mul(gi[c][m],gi[d][n],4),4)
-            val=add(val,mul(term,Plow[i][j][m][n],4))
+            raiser=mul(mul(gi[a][i],gi[b][j],4),mul(gi[c][m],gi[d][n],4),4)
+            val=add(val,mul(raiser,Plow[i][j][m][n],4))
         P[a][b][c][d]=trunc(val,4)
 
-    # I3=Q_abcd C^{cdab} through degree four.
+    # Independent cubic scalar from the three mixed Weyl operators.
     I3={}
-    for a,b,c,d in product(range(N),repeat=4):
-        call={}
-        for i,j,m,n in product(range(N),repeat=4):
-            term=mul(mul(gi[c][i],gi[d][j],4),mul(gi[a][m],gi[b][n],4),4)
-            call=add(call,mul(term,C[i][j][m][n],4))
-        I3=add(I3,mul(Q[a][b][c][d],call,4))
+    for a,b,c,d,e,f in product(range(N),repeat=6):
+        I3=add(I3,mul(mul(Cup[a][b][c][d],Cup[c][d][e][f],4),Cup[e][f][a][b],4))
     I3=trunc(I3,4)
-
     PR={}
     for a,b,c,d in product(range(N),repeat=4): PR=add(PR,mul(P[a][b][c][d],Rlow[a][b][c][d],4))
     PR=trunc(PR,4)
     homogeneity=not trunc(sub(PR,scale(I3,3)),4)
 
-    # First divergence through degree three; second divergence through degree two.
+    # Double covariant divergence of fully contravariant P.
     FD=[[[{} for _ in range(N)] for _ in range(N)] for _ in range(N)]
     for m,b,n in product(range(N),repeat=3):
         val={}
@@ -274,7 +248,7 @@ def compute():
             val=add(val,term)
         D[m][n]=trunc(val,2)
 
-    # Algebraic insertion B^{ab}=P^{(a|cde|} R^{b)}_cde through degree two.
+    # Algebraic insertion B^{ab}=P^{(a|cde|}R^{b)}_cde.
     def bone(a,b):
         val={}
         for c,d,e,f in product(range(N),repeat=4):
@@ -297,8 +271,7 @@ def compute():
     sym=all(not trunc(sub(Edown[a][b],Edown[b][a]),2) for a,b in product(range(N),repeat=2))
     trace={}
     for a,b in product(range(N),repeat=2): trace=add(trace,mul(gi[a][b],Edown[a][b],2))
-    trace=trunc(trace,2)
-    trace_ward=not trunc(add(trace,trunc(I3,2)),2)
+    trace_ward=not trunc(add(trunc(trace,2),trunc(I3,2)),2)
 
     noether=[]
     for b in range(N):
@@ -313,33 +286,27 @@ def compute():
 
     even_seed=all(all(sum(alpha)%2==0 for alpha in g[a][b]) for a,b in product(range(N),repeat=2))
     first_zero=all(not trunc(deriv(Edown[a][b],c),0) for a,b,c in product(range(N),repeat=3))
+    point_match=all(v0(Edown[a][b])==ITER057P_E_DOWN_OVER_K3.get((a,b),F(0))*K**3 for a,b in PAIRS)
 
-    point_match=True
-    for a,b in PAIRS:
-        expected=ITER057P_E_DOWN_OVER_K3.get((a,b),F(0))*K**3
-        if v0(Edown[a][b])!=expected: point_match=False
-
-    # Export Shat=-E_down normalized order-0 and degree-2 coefficients.
-    source={}
-    corrected_s2_nonzero=0
+    source={}; n2=0; time_n2=0
     for a,b in PAIRS:
         S=neg(Edown[a][b]); rec={"order0":None,"order2":[]}
         s0=v0(S)
-        if s0:
-            rec["order0"]={"value":fstr(s0),"over_kappa3":fstr(s0/(K**3))}
+        if s0: rec["order0"]={"value":fstr(s0),"over_kappa3":fstr(s0/(K**3))}
         for alpha,raw in sorted(S.items()):
             if sum(alpha)!=2: continue
-            norm=raw*F(factorial_multi(alpha))
+            norm=raw*F(fact(alpha))
             if norm:
-                corrected_s2_nonzero+=1
+                n2+=1
+                if alpha[0]: time_n2+=1
                 rec["order2"].append({"alpha":list(alpha),"value":fstr(norm),"over_kappa4":fstr(norm/(K**4))})
         source[f"{a}{b}"]=rec
 
     controls={
         "iter057Q_replay_pass":qdata.get("pass") is True,
-        "inverse_identity_through_degree4":inverse4,
-        "seed_Ricci_through_degree4_zero":seed_ricci4_zero,
-        "seed_scalar_through_degree4_zero":seed_scalar4_zero,
+        "inverse_identity_through_degree4":inverse_ok,
+        "seed_Ricci_through_degree4_zero":ricci_zero,
+        "seed_scalar_through_degree4_zero":scalar_zero,
         "P_dot_R_equals_3I3_through_degree4":homogeneity,
         "E_W3_down_symmetric_through_degree2":sym,
         "trace_Ward_through_degree2":trace_ward,
@@ -354,7 +321,8 @@ def compute():
         "kappa":fstr(K),"controls":controls,"pass":passed,
         "I3_origin":fstr(v0(I3)),"I3_origin_over_kappa3":fstr(v0(I3)/(K**3)),
         "E_W3_down_origin_over_kappa3":{f"{a}{b}":fstr(v0(Edown[a][b])/(K**3)) for a,b in PAIRS},
-        "Shat_normalized":source,"corrected_source_degree2_nonzero_count":corrected_s2_nonzero,
+        "Shat_normalized":source,"corrected_source_degree2_nonzero_count":n2,
+        "corrected_source_degree2_time_containing_nonzero_count":time_n2,
         "classification":("PASS_SCOPED_ITER057R_CORRECTED_EINSTEIN_SEED_WEYL3_SECOND_SOURCE_JET_EXACTLY_EXPOSED__ONSHELL_O_C6_Q2_Q4_RECONSTRUCTION_CAN_RESTART" if passed else "INVALID_OR_UNRESOLVED_ITER057R"),
         "exact_zero_uses_tolerance":False,"c6_status":"SYMBOLIC_UNFIXED_FACTORED_OUT",
     }
