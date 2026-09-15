@@ -30,3 +30,4 @@ jobs:
           name: iter057t-octic-einstein-seed
           path: out/iter057t.json
           if-no-files-found: warn
+      # Production head intentionally relaunched after augmented-RREF solver optimization.
