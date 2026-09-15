@@ -1,0 +1,64 @@
+name: qgr-iter057m-fast-source-equivalence
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057m-fast-source-equivalence.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-equivalence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Run fast exact candidate
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057m_exact_g3_weyl3_source_jet.py --out out/candidate.json
+      - name: Run independent symbolic reference
+        run: |
+          PYTHONPATH=code python code/qgr_iter057m_independent_origin_component_reference.py --out out/reference.json
+      - name: Compare exact component convention
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          c=json.loads(pathlib.Path('out/candidate.json').read_text())
+          r=json.loads(pathlib.Path('out/reference.json').read_text())
+          checks={
+            'candidate_controls': c.get('pass_controls') is True,
+            'reference_control': r.get('pass') is True,
+            'I3_exact_match': c.get('I3_origin_over_kappa3') == r.get('I3_origin_over_kappa3'),
+            'D_exact_match': c.get('D_up_diagonal_origin_over_kappa3') == r.get('D_up_diagonal_origin_over_kappa3'),
+            'B_exact_match': c.get('B_up_diagonal_origin_over_kappa3') == r.get('B_up_diagonal_origin_over_kappa3'),
+            'E_exact_match': c.get('E_down_diagonal_origin_over_kappa3') == r.get('E_up_diagonal_origin_over_kappa3'),
+          }
+          out={
+            'gate':'ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION',
+            'audit_preregistration_commit':'253fc53238ac58bbe4395e154e188e3d865217c2',
+            'candidate_commit':'f9181c7dda617ce4061fa90e73164e6cdbecd714',
+            'reference_commit':'9c92a854fea23228162db591b7e62e7794594040',
+            'checks':checks,
+            'pass':all(checks.values()),
+            'candidate_D':c.get('D_up_diagonal_origin_over_kappa3'),
+            'reference_D':r.get('D_up_diagonal_origin_over_kappa3'),
+            'candidate_E':c.get('E_down_diagonal_origin_over_kappa3'),
+            'reference_E':r.get('E_up_diagonal_origin_over_kappa3'),
+            'scientific_classification':None,
+          }
+          pathlib.Path('out/equivalence.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(out,sort_keys=True))
+          if not out['pass']:
+            sys.exit(2)
+          PY
+      - name: Upload exact equivalence evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057m-fast-source-equivalence
+          path: out/*.json
+          if-no-files-found: warn
