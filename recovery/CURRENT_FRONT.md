@@ -12,57 +12,80 @@ Project phase: `FULL LOCAL MIXED-ORDER WEYL3 LINEARIZATION / ONSHELL BACKGROUND 
 - No experimental confirmation.
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; running/fitting not authorized.
-- No physical Weyl3 treatment selector is established.
-- Strong hyperbolicity of the exact full higher-derivative theory is not established.
-- Global interacting measure/regulator removal remains blocked.
-- Finite/refinement, local-symbol and symmetry-reduced certificates are not global theorems.
-- Classical consistency is not quantum consistency/unitarity.
-- KMQGB `NEW_REQUIRED` is not authorized.
+- No physical Weyl3 treatment selector, strong hyperbolicity, ghost/stability, quantum unitarity, regulator removal or UV completion is established.
+- Finite local Taylor/symbol certificates are not open-neighborhood/global theorems.
 
 ## Consumed authority
 
-Iter057F3 durable result `0d8640c399d5cc6a81a6abb6207cd1a295e695d9` remains a scoped off-shell local operator certificate only.
+Iter057F3 remains the scoped off-shell local Weyl3 operator certificate (`0d8640c399d5cc6a81a6abb6207cd1a295e695d9`).
 
-Iter057J is terminal scientific FAIL for the **conformal continuation candidate only**: preregistration `0f4d3cf9e1482029382dd158aa8feef89a8d736a`, exact derivation `02b842b784023307fd64616f3594afae9824ed35`, durable result `3b70ce21c9406f13c07631b763ad908f65f4499c`, classification `SCIENTIFIC_FAIL_ITER057J_CONFORMAL_OPEN_NEIGHBORHOOD_CONTINUATION_FIRST_PROLONGATION_OBSTRUCTED`. The general symmetric-tensor correction remains open beyond that conformal failure.
+Iter057J remains terminal scientific FAIL for the **conformal continuation candidate only** (`3b70ce21c9406f13c07631b763ad908f65f4499c`). Its recorded nonzero component coefficient is under an exact component-normalization audit; the scientific classification remains unchanged unless the audited component were exactly zero.
 
-Iter057K remains historically terminal BLOCKED: preregistration `e6b894f95979d85e270cef99a48c639258057ea6`, Actions run `34936697782`, durable result `c5b537c70836892e9149bbe6666b8c07cc4c8f99`, classification `BLOCKED_ITER057K_EXACT_SOURCE_EXPOSURE_NOT_TECHNICALLY_REALIZED`.
+Iter057K remains historically terminal technical BLOCKED (`c5b537c70836892e9149bbe6666b8c07cc4c8f99`, Actions run `34936697782`).
 
-Iter057L is terminal analytic PASS: preregistration `dc4084c0ba62049403dd7260214eb39ca23f9116`, derivation `93a850eb3adb78dba7a905632faca649a72db6dd`, durable result `24de1e6d28cfd78327b79568ac2398337c309ac4`, classification `PASS_SCOPED_ITER057L_GENERAL_QAB_FIRST_ORDER_LOCAL_JET_SOURCE_COMPATIBLE__OPEN_NEIGHBORHOOD_SOLUTION_NOT_ESTABLISHED`. This is a finite local-jet certificate only.
+Iter057L remains terminal analytic PASS, adversarially confirmed scoped (`24de1e6d28cfd78327b79568ac2398337c309ac4`, review `ac8894eee25867c309d750da128a1860525fce99`).
 
 ## Active Iter057M gate
 
-Prospective preregistration: `9760ca0324dce13cf141a9f93b6ff69ea4c75605`.
+Preregistration: `9760ca0324dce13cf141a9f93b6ff69ea4c75605`.
 Gate: `ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION`.
-Status: `PROSPECTIVELY_PREREGISTERED_NOT_YET_EXECUTED`.
-Actions run: none.
 Terminal classification: none.
 
-Question: can the unrestricted Iter057L first-order correction be extended by an exact quartic trace-reversed jet so that the de Donder gauge and linearized Einstein equation match the frozen G3/H0 Weyl3 source through quadratic coordinate order?
+The common basis/system architecture is frozen by `19e76eb481d1cfd6c77b168ebe6320822510624b`.
 
-The frozen obligations remain A-G from the preregistration: exact source second jet; exact degree-two operator coefficient jet; unrestricted 350-component `Q4` basis; de Donder through degree three; exact field equation through degree two; independent unreduced substitution control; and exact Noether/source compatibility. PASS/FAIL/BLOCKED/INVALID criteria are frozen and may not be changed after evidence.
+### Exact universal Q4 system now established
 
-## Common exact architecture checkpoint
+The corrected rank/Bianchi checkpoint is `8a6a5a56f646b4c96fec4ac50ab392203d26475a`; reproducible implementation is `d6533f3da3347cc6a8f76028040296c32cc50128`.
 
-Commit `19e76eb481d1cfd6c77b168ebe6320822510624b` freezes the common normalized Taylor basis and system architecture before parallel computation:
+Exact results:
 
-- symmetric `(ab)` basis has 10 entries;
-- degree-four derivative multi-index basis has 35 entries;
-- unrestricted `Q4` therefore has 350 exact entries;
-- normalized Taylor coefficients are mandatory;
-- exact system is `M * vec(Q4) = r` with exact ranks/consistency/nullity or contradiction witness;
-- reduced-only self-consistency is insufficient; unreduced covariant substitution is mandatory;
-- source Noether identities are controls, not assumptions used to delete rows.
+- `M` shape: `180 x 350`;
+- nonzero entries: `720`;
+- `rank(M)=164`;
+- unrestricted homogeneous Q4 nullity: `186`;
+- left-nullity: `16`;
+- a canonical 16-vector Bianchi basis has rank `16`, each vector containing four cubic-gauge and four quadratic-field rows;
+- these sixteen vectors span the complete left nullspace.
 
-This checkpoint does **not** classify Iter057M and explicitly does **not** authorize a production run yet. The immediate blocker is exact source/operator coefficient extraction and assembly in the frozen basis.
+For arbitrary algebraically independent source coefficients `S^(0)` and `S^(2)`, exact symbolic expansion in the frozen G3 geometry gives the stronger affine identity
+
+`Y_(b,j)^T r = [nabla^a S_ab]_(degree-one,j)`
+
+for all sixteen `(b,j)`.
+
+Thus the only possible affine consistency obstructions are exactly the source Noether coefficients; there is no additional algebraic Q4 compatibility condition.
+
+## Active exact source-component audit
+
+A component sign discrepancy was detected between an accelerated exact finite-jet Weyl3 evaluator and the component table later recorded in the Iter057J derivation. Scalar homogeneity/trace controls alone cannot decide this sign, so no accelerated `S^(2)` coefficients are yet consumed as authority.
+
+Prospective audit plan: `f087b579e0c13714178bfc43e9a8e2f7fa907312`.
+Audit implementation: `64a4e08274f950d1ce5513de35a097f3b376da34`.
+Workflow head: `5daa9511ec59a4ef28f49a13172bdf019999f0fd`.
+Actions run: `34952811799`.
+
+The run uses four independent exact lanes for diagonal origin components `i=0,1,2,3`, directly through the already-authorized Iter057K exact lineage. It records `I3`, `D^{ii}`, density `A/I/H5`, and raised/lowered `E_W3` exactly. No tolerance or downstream target is used.
+
+A separate independent symbolic replay of the analytic Iter056X formula has already reproduced `P.R=3 I3` and the accelerated double-divergence sign, but this diagnostic is not consumed until the four-lane authorized audit is complete.
+
+## Diagnostic constructor status (not yet authority)
+
+Using the controlled accelerated source candidate only as a diagnostic, the exact rank-164 system has already produced a particular unrestricted quartic jet with 32 nonzero coefficients. All sixteen canonical compatibility contractions vanish exactly; direct de Donder substitution vanishes through cubic order; and an independent unreduced covariant linearized-Einstein substitution gives all ten `DG_ab-S_ab` components identically zero through quadratic order.
+
+These diagnostic values are intentionally **not** terminal evidence until the active source-component audit resolves the lineage sign and authorizes the source second jet.
 
 ## Next bounded step
 
-No authoritative Actions workflow is active.
+Consume Actions run `34952811799` only if all four lane artifacts and the aggregate are complete and exact controls pass.
 
-The next constructor run must continue only Iter057M and may inspect only exact source/operator files explicitly identified by the active gate lineage. The highest-information admissible step is to realize a common exact coefficient constructor reproducing the frozen basis/normalization contract and exposing the degree-two source/operator coefficients needed by obligations A-B. Do not launch the parallel production matrix until that common exact representation is durably implemented and controlled.
+If the audit confirms the accelerated component convention:
 
-After the common constructor exists, independent lanes may be launched for source-second-jet/Noether extraction, gauge assembly, reduced field assembly, and independent unreduced substitution, with `fail-fast:false`.
+1. freeze the exact authorized G3/H0 `S^(2)` source jet;
+2. evaluate all sixteen canonical Noether contractions in that representation;
+3. durably record one exact unrestricted Q4 particular solution and its 186-dimensional homogeneous freedom;
+4. independently substitute it into the unreduced covariant linearized Einstein operator through quadratic order;
+5. classify Iter057M strictly by preregistration `9760ca...`.
 
-No numerical finite differences or tolerance-based exact-zero decisions; no fitted coefficients; no restricted ansatz to infer general solvability; no fixing `c6`; no new background primitive; no third repetitive symmetry reduction; no post-hoc treatment selector.
+If the audit disagrees, reject the accelerated source candidate and keep Iter057M open/BLOCKED rather than fitting or changing conventions.
 
-Green partial CI is never scientific PASS. `c6` remains symbolic/unfixed; `beta=1` remains unauthorized; finite local jets are not open-neighborhood/global theorems; classical consistency is not quantum consistency; theory established remains `0%`.
+No numerical exact-zero tests, fitted coefficients, restricted Q4 ansatz, fixed `c6`, new background primitive, or physical-characteristic inference is allowed. Green partial CI is never scientific PASS.
