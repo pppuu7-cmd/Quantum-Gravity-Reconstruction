@@ -1,0 +1,32 @@
+name: qgr-iter057w-decic-einstein-seed-sparse
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057w-decic-einstein-seed-sparse.yml'
+  workflow_dispatch:
+
+jobs:
+  sparse-fraction-reproduction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reproduce Iter057W with sparse Fraction geometry
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057w_decic_einstein_seed_sparse.py --out out/iter057w_sparse.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057w_sparse.json || true
+      - name: Upload sparse reproduction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057w-decic-einstein-seed-sparse
+          path: out/iter057w_sparse.json
+          if-no-files-found: warn
