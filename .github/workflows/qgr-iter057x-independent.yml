@@ -1,0 +1,49 @@
+name: qgr-iter057x-independent
+
+on:
+  push:
+    branches:
+      - research/iter057x-independent-20260916
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compute exact Iter057X source and terminal-U replay
+        run: |
+          python code/qgr_iter057x_independent_corrected_decic_weyl3_sixth_source.py \
+            --out iter057x_independent_result.json
+      - name: Print compact evidence
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path('iter057x_independent_result.json')
+          if not p.exists():
+              print('NO_RESULT_JSON')
+              raise SystemExit(0)
+          d=json.loads(p.read_text())
+          keep={k:d.get(k) for k in [
+              'gate','pass','classification','R10_nonzero_normalized_count',
+              'source_nonzero_count_by_degree','degree6_nonzero_count',
+              'degree6_time_containing_nonzero_count','degree6_offdiagonal_nonzero_count',
+              'Shat_sparse_sha256','iter057U_replay_expected_count',
+              'iter057U_replay_actual_count','iter057U_replay_missing',
+              'iter057U_replay_extra','iter057U_replay_value_mismatches',
+              'exact_zero_uses_tolerance','c6_status','theory_established_percent']}
+          keep['controls']=d.get('controls')
+          print(json.dumps(keep,indent=2,sort_keys=True))
+          PY
+      - name: Upload exact evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057x-independent-exact-evidence
+          path: iter057x_independent_result.json
+          if-no-files-found: warn
