@@ -1,0 +1,145 @@
+name: qgr-iter057k-exact-controls
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-iter057k-exact-controls.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONPATH: code
+
+jobs:
+  exact-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [geometry, lineage, ew3-symmetry, noether, derivative-oracle]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install sympy
+      - name: Evaluate frozen exact lane
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import sympy as sp
+          import os
+          lane = os.environ['LANE']
+          out = {'lane': lane, 'status': 'ERROR', 'exact_zero_uses_tolerance': False}
+          try:
+              if lane == 'geometry':
+                  from qgr_iter057k_exact_g3_geometry import exact_g3_geometry, exact_controls
+                  r = exact_controls(exact_g3_geometry())
+                  keys = ['metric_symmetric','inverse_identity','riemann_first_pair_antisymmetry','riemann_pair_exchange','weyl_first_pair_antisymmetry','weyl_traceless']
+                  out['details'] = {k: bool(r[k]) for k in keys}
+                  out['status'] = 'PASS' if all(out['details'].values()) else 'FAIL'
+              elif lane == 'lineage':
+                  from qgr_iter057k_exact_weyl3_lineage import exact_lineage_controls_at_source_level
+                  r = exact_lineage_controls_at_source_level()
+                  keys = ['p_first_pair_antisymmetry','p_second_pair_antisymmetry','p_pair_exchange','assembled_minus5_density_symmetric','covariant_iter056x_E_W3_normalization_resolved','E_W3_symmetric']
+                  out['details'] = {k: bool(r[k]) for k in keys}
+                  out['normalization_authority_commit'] = r['normalization_authority_commit']
+                  out['normalization_identity'] = r['normalization_identity']
+                  out['status'] = 'PASS' if all(out['details'].values()) else 'FAIL'
+              elif lane == 'ew3-symmetry':
+                  from itertools import product
+                  from qgr_iter057k_exact_g3_geometry import N
+                  from qgr_iter057k_exact_weyl3_lineage import e_w3_down_component
+                  ok = all(sp.simplify(e_w3_down_component(a,b)-e_w3_down_component(b,a)) == 0 for a,b in product(range(N), repeat=2))
+                  out['details'] = {'E_W3_down_symmetric_exact': bool(ok)}
+                  out['status'] = 'PASS' if ok else 'FAIL'
+              elif lane == 'noether':
+                  from qgr_iter057k_exact_g3_geometry import N
+                  from qgr_iter057k_exact_ew3_derivative_oracle import divergence_e_up_component
+                  vals = [sp.simplify(divergence_e_up_component(b)) for b in range(N)]
+                  ok = all(v == 0 for v in vals)
+                  out['details'] = {'noether_divergence_zero_exact': bool(ok), 'components': [str(v) for v in vals]}
+                  out['status'] = 'PASS' if ok else 'FAIL'
+              elif lane == 'derivative-oracle':
+                  from itertools import product
+                  from qgr_iter057k_exact_g3_geometry import N
+                  from qgr_iter057k_exact_ew3_derivative_oracle import first_cov_e_down_component, second_cov_e_down_component
+                  d1 = all(sp.simplify(first_cov_e_down_component(c,a,b)-first_cov_e_down_component(c,b,a)) == 0 for c,a,b in product(range(N), repeat=3))
+                  d2 = all(sp.simplify(second_cov_e_down_component(e,c,a,b)-second_cov_e_down_component(e,c,b,a)) == 0 for e,c,a,b in product(range(N), repeat=4))
+                  out['details'] = {'first_covariant_oracle_full_index_set_exposed': True, 'second_covariant_oracle_full_index_set_exposed': True, 'nabla_E_ab_symmetry_exact': bool(d1), 'nabla2_E_ab_symmetry_exact': bool(d2)}
+                  out['status'] = 'PASS' if d1 and d2 else 'FAIL'
+              else:
+                  raise RuntimeError('unknown lane')
+          except Exception as exc:
+              out['error'] = repr(exc)
+          with open(f'lane-{lane}.json','w',encoding='utf-8') as f:
+              json.dump(out,f,sort_keys=True,indent=2)
+          print(json.dumps(out,sort_keys=True))
+          if out['status'] != 'PASS':
+              raise SystemExit(1)
+          PY
+        env:
+          LANE: ${{ matrix.lane }}
+      - name: Upload lane artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057k-${{ matrix.lane }}
+          path: lane-${{ matrix.lane }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    if: always()
+    needs: [exact-controls]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057k-*
+          path: lanes
+          merge-multiple: true
+      - name: Build frozen terminal aggregate
+        shell: bash
+        run: |
+          python - <<'PY'
+          import glob, json
+          expected = {'geometry','lineage','ew3-symmetry','noether','derivative-oracle'}
+          records = []
+          for p in sorted(glob.glob('lanes/lane-*.json')):
+              with open(p,encoding='utf-8') as f:
+                  records.append(json.load(f))
+          seen = {r.get('lane') for r in records}
+          complete = seen == expected
+          all_pass = complete and all(r.get('status') == 'PASS' for r in records)
+          aggregate = {
+              'gate': 'ITER057K-EXACT-WEYL3-SOURCE-EXPOSURE-FOR-K-ECAB',
+              'preregistration_commit': 'e6b894f95979d85e270cef99a48c639258057ea6',
+              'derivative_oracle_commit': '605846b1fce5568f968a9cba7c3b721322c6a63d',
+              'normalization_authority_commit': '5b2acf5a47f4ba66fb126bdeab28505dd0dfb852',
+              'complete': complete,
+              'all_frozen_exact_controls_pass': all_pass,
+              'lanes': records,
+              'scientific_classification': None,
+              'interpretation_ceiling': 'source exposure only; no K_ecab verdict, no Iter057J verdict, no physical characteristics',
+              'c6_status': 'symbolic_unfixed',
+              'beta_1_authorized': False,
+              'theory_established_pct': 0
+          }
+          with open('iter057k-terminal-aggregate.json','w',encoding='utf-8') as f:
+              json.dump(aggregate,f,sort_keys=True,indent=2)
+          print(json.dumps(aggregate,sort_keys=True))
+          if not all_pass:
+              raise SystemExit(1)
+          PY
+      - name: Upload terminal aggregate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057k-terminal-aggregate
+          path: iter057k-terminal-aggregate.json
+          if-no-files-found: error
