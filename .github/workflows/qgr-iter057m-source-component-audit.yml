@@ -1,0 +1,70 @@
+name: qgr-iter057m-source-component-audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057m-source-component-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  diagonal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        index: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Evaluate exact authorized diagonal component
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057m_source_component_audit.py --index ${{ matrix.index }} --out out/lane_${{ matrix.index }}.json
+      - name: Upload exact component
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057m-source-component-${{ matrix.index }}
+          path: out/lane_${{ matrix.index }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: diagonal
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057m-source-component-*
+          path: lanes
+          merge-multiple: true
+      - name: Aggregate exact component records
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          files=sorted(pathlib.Path('lanes').glob('lane_*.json'))
+          rows=[json.loads(p.read_text()) for p in files]
+          out={
+            'gate':'ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION',
+            'audit_plan_commit':'f087b579e0c13714178bfc43e9a8e2f7fa907312',
+            'complete':len(rows)==4 and {r.get('diagonal_index') for r in rows}==set(range(4)),
+            'all_identity_controls_pass':len(rows)==4 and all(r.get('pass') is True for r in rows),
+            'lanes':rows,
+            'scientific_classification':None,
+          }
+          pathlib.Path('summary.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(out,sort_keys=True))
+          if not out['complete'] or not out['all_identity_controls_pass']:
+              sys.exit(2)
+          PY
+      - name: Upload aggregate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057m-source-component-summary
+          path: summary.json
+          if-no-files-found: warn
