@@ -23,7 +23,7 @@ Project phase: `FULL LOCAL MIXED-ORDER WEYL3 LINEARIZATION / ONSHELL BACKGROUND 
 
 Iter057F3 durable result `0d8640c399d5cc6a81a6abb6207cd1a295e695d9` is a scoped off-shell local operator certificate only. Iter057H establishes uncorrected Ricci-flat G3/H0 is off shell for nonzero symbolic c6. Iter057I establishes only a pointwise first-order conformal cancellation jet.
 
-Iter057J preregistration `0f4d3cf9e1482029382dd158aa8feef89a8d736a`, derivation `5e1775dd83da8b952ea0463bfef946eb7692f632`, durable result `70f2da96887f376f8f827d435894755bb0dc9f67` terminalized as `BLOCKED_ITER057J_EXACT_K_ECAB_SOURCE_REPRESENTATION_NOT_EXPOSED_IN_CURRENT_AUTHORIZED_IMPLEMENTATION_LINEAGE`. No Actions run was used and no scientific FAIL/PASS of the conformal ansatz was inferred.
+Iter057J preregistration `0f4d3cf9e1482029382dd158aa8feef89a8d736a`, derivation `5e1775dd83da8b952ea0463bfef946eb7692f632`, durable result `70f2da96887f376f8f827d435894755bb0dc9f67` terminalized as `BLOCKED_ITER057J_EXACT_K_ECAB_SOURCE_REPRESENTATION_NOT_EXPOSED_IN_CURRENT_AUTHORIZED_IMPLEMENTATION_LINEAGE`. No scientific FAIL/PASS of the conformal ansatz was inferred.
 
 ## Active Iter057K
 
@@ -41,15 +41,22 @@ Required exact controls: metric inverse/symmetry; Riemann/Weyl algebraic symmetr
 
 Commit `bf01d61939371053af120567408172084d4ee4f8` adds `code/qgr_iter057k_exact_g3_geometry.py` and exposes the source-owned G3/H0 potential and metric with exact SymPy rationals, exact metric inverse, Christoffel, Riemann, Ricci, scalar-curvature and four-dimensional Weyl tensors, plus exact geometry controls.
 
-Commit `8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81` adds `code/qgr_iter057k_exact_weyl3_lineage.py`. This is a direct exact-source transliteration of the already-used Weyl3 lineage pieces from `qgr_iter051b1_weyl3_p_insertion.py`, `qgr_iter051b0_double_divergence_operator.py`, `qgr_iter051c_full_eom.py` and `qgr_iter051c_d2n_near_null.py`. It exposes, without coefficient fitting or a new physics primitive:
+Commit `8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81` adds `code/qgr_iter057k_exact_weyl3_lineage.py`, exposing exact `I3`, projected `P^{abcd}`, exact covariant double divergence, metric-density variation `A_ab`, lowering insertion `I_ab`, and the historical minus-sign assembled density `H5=A+I-2 sqrt(-g) D5`.
 
-- exact `I3 = C_ab^{ cd} C_cd^{ ef} C_ef^{ ab}`;
-- exact projected `P^{abcd}` via symbolic directional differentiation and the same algebraic-Riemann projection;
-- exact first and double covariant divergence operators for `P`;
-- exact metric-density variation term `A_ab`;
-- exact lowering-insertion term `I_ab`;
-- the historical minus-sign assembled density `H_ab = A_ab + I_ab - 2 sqrt(-g) D_ab` used by the current numerical lineage.
+Commit `90bde0d5c89e92f6b3436c2ba3e22f5af55ab1f0` resolves the previously narrow normalization dependency by direct lookup of terminal Iter056X authority `5b2acf5a47f4ba66fb126bdeab28505dd0dfb852`, section D. That authority establishes in the same covariant-metric variation convention
 
-The checkpoint deliberately does **not** invent a normalization converting that historical assembled density into the authorized covariant Iter056X `E_W3_ab`. That mapping is now the single narrow remaining authority dependency before the exact `E_W3` derivative oracle and frozen E-symmetry/Noether controls can be completed.
+`H5^{ab} = sqrt(-g) E_W3^{ab}`,
 
-Iter057K has **no terminal classification yet**. The new source checkpoint is neither PASS nor BLOCKED and says nothing about whether `K_ecab` vanishes. No Actions run is active. CI remains intentionally idle until the covariant `E_W3` normalization is source-authorized in the exact evaluator. Green CI alone is never scientific PASS.
+so the exact evaluator may expose
+
+`E_W3^{ab} = H5^{ab}/sqrt(-g)`
+
+and its lowered form without coefficient fitting or a new physics primitive. This is an authority/transliteration checkpoint, not a terminal Iter057K classification.
+
+The single remaining implementation dependency is the exact `E_W3` derivative oracle to sufficient order for the full independent `K_ecab` component set, together with the frozen exact E-symmetry and Noether/divergence controls. Iter057K has **no terminal classification yet** and no Actions run is active.
+
+## Next bounded step
+
+Continue only frozen Iter057K. Expose exact first/second covariant derivatives of the already-authorized `E_W3_ab` sufficient for `H_ab` and the complete independent `K_ecab` set, and evaluate the frozen exact E-symmetry/Noether controls. Do not alter Iter057J criteria, fit `c6`, use numerical tolerances as exact-zero evidence, add a third symmetry reduction, infer physical characteristics, or assign PASS before every frozen required object/control is satisfied.
+
+Green CI alone is never scientific PASS.
