@@ -1,0 +1,32 @@
+name: qgr-iter057q-sextic-einstein-seed
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057q-sextic-einstein-seed.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-sextic-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Solve and independently verify sextic seed completion
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057q_sextic_einstein_seed_completion.py --out out/iter057q.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057q.json || true
+      - name: Upload exact sextic seed evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057q-sextic-einstein-seed
+          path: out/iter057q.json
+          if-no-files-found: warn
