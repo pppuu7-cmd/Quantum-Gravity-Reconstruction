@@ -1,0 +1,31 @@
+name: qgr-iter057p-corrected-seed-weyl3-point-source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057p-corrected-seed-weyl3-point-source.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-point-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Evaluate exact corrected-seed Weyl3 source
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057p_corrected_seed_weyl3_point_source.py --out out/iter057p.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057p.json || true
+      - name: Upload exact point source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057p-corrected-seed-weyl3-point-source
+          path: out/iter057p.json
+          if-no-files-found: warn
