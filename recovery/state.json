@@ -20,20 +20,34 @@
     "latest_derivation_commit": "5e1775dd83da8b952ea0463bfef946eb7692f632",
     "latest_terminal_result_commit": "70f2da96887f376f8f827d435894755bb0dc9f67",
     "latest_active_gate": "ITER057K-EXACT-WEYL3-SOURCE-EXPOSURE-FOR-K-ECAB",
-    "active_gate_status": "IMPLEMENTATION_CHECKPOINT_EXACT_G3_GEOMETRY_EXPOSED_EW3_PENDING",
-    "active_implementation_commit": "bf01d61939371053af120567408172084d4ee4f8",
-    "active_implementation_file": "code/qgr_iter057k_exact_g3_geometry.py",
+    "active_gate_status": "IMPLEMENTATION_CHECKPOINT_EXACT_LINEAGE_I3_P_D_A_I_DENSITY_EXPOSED_EW3_NORMALIZATION_PENDING",
+    "active_geometry_commit": "bf01d61939371053af120567408172084d4ee4f8",
+    "active_geometry_file": "code/qgr_iter057k_exact_g3_geometry.py",
+    "active_implementation_commit": "8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81",
+    "active_implementation_file": "code/qgr_iter057k_exact_weyl3_lineage.py",
     "active_production_head": null,
     "active_actions_run": null
   },
   "recent_authority": {
     "iter057f3": {"status":"TERMINAL_PASS_PRODUCTION_CONSUMED","actions_run":34907701856,"durable_result_commit":"0d8640c399d5cc6a81a6abb6207cd1a295e695d9","classification":"PASS_SCOPED_ITER057F3_G3_ORIGIN_WEYL3_K2_BLOCK_EXTRACTED_WITH_EXACT_FULL_TENSOR_NORMALIZATION"},
     "iter057j": {"status":"TERMINAL_BLOCKED_SOURCE_REPRESENTATION","preregistration_commit":"0f4d3cf9e1482029382dd158aa8feef89a8d736a","derivation_commit":"5e1775dd83da8b952ea0463bfef946eb7692f632","durable_result_commit":"70f2da96887f376f8f827d435894755bb0dc9f67","terminal_classification":"BLOCKED_ITER057J_EXACT_K_ECAB_SOURCE_REPRESENTATION_NOT_EXPOSED_IN_CURRENT_AUTHORIZED_IMPLEMENTATION_LINEAGE"},
-    "iter057k": {"status":"ACTIVE_IMPLEMENTATION_CHECKPOINT","preregistration_commit":"e6b894f95979d85e270cef99a48c639258057ea6","implementation_commit":"bf01d61939371053af120567408172084d4ee4f8","implementation_file":"code/qgr_iter057k_exact_g3_geometry.py","gate":"ITER057K-EXACT-WEYL3-SOURCE-EXPOSURE-FOR-K-ECAB","actions_run":null,"terminal_classification":null}
+    "iter057k": {
+      "status":"ACTIVE_IMPLEMENTATION_CHECKPOINT",
+      "preregistration_commit":"e6b894f95979d85e270cef99a48c639258057ea6",
+      "geometry_commit":"bf01d61939371053af120567408172084d4ee4f8",
+      "geometry_file":"code/qgr_iter057k_exact_g3_geometry.py",
+      "implementation_commit":"8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81",
+      "implementation_file":"code/qgr_iter057k_exact_weyl3_lineage.py",
+      "exposed_objects":["exact_I3","exact_projected_P","exact_covariant_double_divergence_D","exact_metric_density_variation_A","exact_lowering_insertion_I","historical_minus5_assembled_density"],
+      "remaining_dependency":"AUTHORITATIVE_MAPPING_OF_HISTORICAL_ASSEMBLED_DENSITY_TO_ITER056X_COVARIANT_E_W3_WITHOUT_INVENTING_SOURCE_NORMALIZATION_AND_THEN_EXACT_DERIVATIVE_ORACLE_CONTROLS",
+      "gate":"ITER057K-EXACT-WEYL3-SOURCE-EXPOSURE-FOR-K-ECAB",
+      "actions_run":null,
+      "terminal_classification":null
+    }
   },
   "active_question": {"id":"ITER057K-EXACT-SOURCE-EXPOSURE","text":"Can the already-authorized Iter056X covariant Weyl3 Euler tensor on exact analytic G3/H0 be exposed symbolically to sufficient derivative order for exact K_ecab evaluation?"},
-  "active_blocker":"EXACT_G3_GEOMETRY_CHECKPOINT_EXISTS_BUT_AUTHORIZED_ITER056X_E_W3_AND_DERIVATIVE_ORACLE_NOT_YET_EXPOSED_EXACTLY",
-  "next_gate_lock":"Continue only the prospectively frozen Iter057K implementation from code/qgr_iter057k_exact_g3_geometry.py. Exact G3/H0 metric/inverse/Christoffel/Riemann/Ricci/scalar/Weyl infrastructure is now source-exposed; the remaining admissible work is exact transliteration/exposure of the already-authorized Iter056X Weyl3 scalar/P/E_W3 formula and derivative oracle with frozen controls. Do not alter Iter057J criteria, use numerical tolerances as exact-zero evidence, fit c6, add a third symmetry reduction, infer physical characteristics, or launch CI before the exact evaluator is complete.",
+  "active_blocker":"EXACT_LINEAGE_I3_P_D_A_I_AND_HISTORICAL_ASSEMBLED_DENSITY_ARE_NOW_SOURCE_EXPOSED_BUT_AUTHORIZED_COVARIANT_E_W3_NORMALIZATION_MAPPING_AND_FULL_FROZEN_CONTROLS_REMAIN_UNRESOLVED",
+  "next_gate_lock":"Continue only prospectively frozen Iter057K. The exact G3 geometry checkpoint and exact Weyl3 lineage checkpoint now exist in source form. Next bounded step must resolve from existing repository authority, not invention, how the historical minus-sign assembled density maps to the authorized Iter056X covariant E_W3 object; then expose the derivative oracle and frozen exact E_W3 symmetry/Noether controls. Do not alter Iter057J criteria, use numerical tolerances as exact-zero evidence, fit c6, add a third symmetry reduction, infer physical characteristics, or launch CI before the exact covariant E_W3 normalization is source-authorized.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
