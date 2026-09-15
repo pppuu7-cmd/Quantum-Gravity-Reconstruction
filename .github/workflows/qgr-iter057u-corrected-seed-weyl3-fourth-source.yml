@@ -1,0 +1,32 @@
+name: qgr-iter057u-corrected-seed-weyl3-fourth-source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057u-corrected-seed-weyl3-fourth-source.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-fourth-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Extract exact corrected-seed Weyl3 source through degree four
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057u_corrected_seed_weyl3_fourth_source_jet.py --out out/iter057u.json
+      - name: Show classification
+        if: always()
+        run: cat out/iter057u.json || true
+      - name: Upload exact source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057u-corrected-seed-weyl3-fourth-source
+          path: out/iter057u.json
+          if-no-files-found: warn
