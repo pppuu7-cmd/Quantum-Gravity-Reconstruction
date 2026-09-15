@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-15
-Primary front: `ITER057S / ONSHELL FIRST-ORDER Q2/Q4 CORRECTION — TERMINAL SCOPED PASS`
+Primary front: `ITER057T / OCTIC EINSTEIN SEED COMPLETION — TERMINAL SCOPED PASS`
 Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
 
 ## Canonical claim locks
@@ -16,42 +16,45 @@ Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRA
 - Finite local Taylor/symbol certificates are not open-neighborhood/global theorems.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Consumed authority through Iter057R
+## Iter057S — consumed authority
 
-Iter057N rejected only the unchanged G3/H0 seed as a neighborhood zeroth-order seed. Iter057O supplied the unrestricted quartic Einstein completion through quadratic coordinate order. Iter057P reset the corrected-seed Weyl3 point source. Iter057Q supplied the unrestricted sextic Einstein completion through quartic coordinate order. Iter057R recomputed the exact corrected-seed Weyl3 source through coordinate degree two. Historical off-shell G3 source coefficients remain forbidden for the corrected seed.
+Iter057S terminal scoped PASS established an unrestricted first-order Q4 correction matching the corrected-seed Weyl3 source through coordinate degree two, with exact rank/compatibility controls and independent unreduced replay. It remains a finite local certificate.
 
-## Iter057S — terminal scoped PASS
+## Iter057T — terminal scoped PASS
 
-Preregistration: `a59858ce6dbc08493325d8ba406229da18013d40`.
-Implementation: `0159a788e7568de45610c93295f86b1e2f981d6a`.
-Production head: `a54efe452119aa698a82afc7f84cef05a0d5656f`.
-Actions run: `34957251270`.
-Job: `104342161583`.
-Artifact: `10392255734`.
-Digest: `sha256:b22aff7c02ef056aaed1df7ed06c06b181d4be601e3b05eac7b361856f7143f5`.
-Durable result: `639b0bb33dcb5ea46d54f36b54a8d7dc733421b1`.
+Preregistration: `0f01308e81e54f77ccb91f8a76f0c129684740ff`.
+Implementation: `e3b8adde009a1f4e47767534c84cfe11ea491575`.
+Structural audit: `dee3c457c3c90c1f195d45a3a78aaa23c857a51e`.
+Production head: `e1ae75e71e07c646b11057b1be6101c8da331aed`.
+Actions run: `34995145254`.
+Job: `104469389856`.
+Artifact: `10408050133`.
+Digest: `sha256:20134b10e4cf32ecd8b3e417921545714f12b29f4d72f812f6d5121e6b461dba`.
+Durable result commit: `e4d8b960b8694ee166d05aa3ff089999b843e32a`.
 
 Classification:
 
-`PASS_SCOPED_ITER057S_ONSHELL_FIRST_ORDER_Q2_Q4_CORRECTION_MATCHES_CORRECTED_WEYL3_SOURCE_THROUGH_SECOND_EVEN_ORDER__HIGHER_ORDERS_REMAIN_OPEN`.
+`PASS_SCOPED_ITER057T_OCTIC_EINSTEIN_SEED_COMPLETES_VACUUM_THROUGH_COORDINATE_DEGREE_SIX__HIGHER_SEED_ORDERS_REMAIN_OPEN`.
 
 Consumed raw exact evidence:
 
-- unrestricted Q4 space: 350 coefficients;
-- exact matrix `180 x 350`;
-- rank `164`, augmented rank `164`;
-- nullity `186`, left-nullity `16`;
-- all 16 canonical Bianchi compatibility contractions exactly zero;
-- exact particular Q4 has 34 nonzero normalized coefficients;
-- corrected Iter057R source replay and Iter057Q seed replay pass;
-- source Noether identity through degree one passes;
-- direct unreduced full-seed `DG_ab[qhat]-Shat_ab` vanishes exactly through coordinate degree two for all ten independent components;
-- de Donder vanishes exactly through degree three;
-- no numerical tolerance is used for exact-zero decisions;
-- `c6` remains symbolic/unfixed and factored out.
+- unrestricted pure degree-eight metric-jet space: 1650 coefficients;
+- exact matrix `1320 x 1650`;
+- rank `1096`, augmented rank `1096`;
+- nullity `554`, left-nullity `224`;
+- all 224 canonical Bianchi compatibility contractions exactly zero;
+- exact particular R8 has 153 nonzero normalized coefficients;
+- lower Einstein orders 0/2/4 replay exactly zero;
+- independent full corrected-metric Ricci, scalar and Einstein tensors vanish through coordinate degree six;
+- combined linear de Donder control exactly zero;
+- inverse-identity controls pass through degree six;
+- exact-zero decisions use no numerical tolerance;
+- `c6` is not used in this zeroth-order seed-completion gate.
+
+The uncorrected degree-six Einstein residual is nonzero in all ten independent components, so the R8 correction is substantive.
 
 ## Next bounded scientific step
 
-Do **not** start another symmetry reduction and do not simply repeat Iter057S. The next local-series extension must first increase the zeroth-order Einstein seed jet before requesting the next Weyl3 source order. A prospective next gate should therefore test an unrestricted octic Einstein-seed completion through coordinate degree six, with exact Bianchi compatibility and direct nonlinear Einstein replay. Only after sufficient higher seed jets are fixed may the Weyl3 source be extended to the next even coordinate order and the `O(c6)` response continued.
+Do **not** repeat Iter057T and do not start another symmetry reduction. The preferred local-series continuation is to prospectively freeze the corrected-seed Weyl3 source at the next even coordinate order and then test the unrestricted `O(c6)` response at the corresponding higher jet order, with exact Noether/Bianchi compatibility and independent unreduced substitution. If that exact source extraction is technically unready, pivot to the quantum amplitude/measure closure front rather than manufacturing a repetitive finite-sector test.
 
-This is a roadmap dependency, not evidence that the all-orders series exists or converges. A quantum amplitude/measure closure front remains the preferred alternative if the higher exact covariant/local-series gate becomes technically unready.
+No next production run is authorized until its preregistration freezes the target order, source authority, unrestricted coefficient space, exact compatibility witnesses, rank criterion, and independent replay. This roadmap dependency is not evidence that an all-orders series exists or converges.
