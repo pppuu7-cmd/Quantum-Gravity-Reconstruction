@@ -9,7 +9,7 @@ import sympy as sp
 
 GATE = "ITER057M-GENERAL-QAB-SECOND-EVEN-JET-QUARTIC-EXTENSION"
 ARCH = "19e76eb481d1cfd6c77b168ebe6320822510624b"
-RANK_DERIVATION = "5a00b06241c3bc034c02bb8d8abe9a1bd63c599a"
+RANK_DERIVATION = "8a6a5a56f646b4c96fec4ac50ab392203d26475a"
 PAIRS = [(0,0),(0,1),(0,2),(0,3),(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)]
 ETA = (-1,1,1,1)
 
@@ -62,17 +62,42 @@ def encode_meta(x):
     return {"kind":"F", "pair":list(idx), "alpha":list(al)}
 
 
+def canonical_bianchi_basis(meta):
+    lookup = {m:i for i,m in enumerate(meta)}
+    vecs = []
+    labels = []
+    for b in range(4):
+        for j in range(4):
+            v = sp.zeros(180,1)
+            for m in range(4):
+                al = [0,0,0,0]; al[m] += 2; al[j] += 1
+                v[lookup[("G",b,tuple(al))]] += sp.Rational(ETA[m],2)
+            for a in range(4):
+                al = [0,0,0,0]; al[a] += 1; al[j] += 1
+                pair = (a,b) if a <= b else (b,a)
+                v[lookup[("F",pair,tuple(al))]] += ETA[a]
+            vecs.append(v)
+            labels.append((b,j))
+    return vecs, labels
+
+
+def support(v,meta):
+    return [
+        {"row":i,"meta":encode_meta(meta[i]),"coefficient":str(v[i])}
+        for i in range(len(meta)) if v[i] != 0
+    ]
+
+
 def summary():
     M, meta, a4 = assemble()
     rank = M.rank()
-    left = M.T.nullspace()
-    relations = []
-    for v in left:
-        support = []
-        for i in range(M.rows):
-            if v[i] != 0:
-                support.append({"row":i, "meta":encode_meta(meta[i]), "coefficient":str(v[i])})
-        relations.append(support)
+    raw_left = M.T.nullspace()
+    canonical, labels = canonical_bianchi_basis(meta)
+    Y = sp.Matrix.hstack(*canonical).T
+    canonical_zero = all(v.T*M == sp.zeros(1,M.cols) for v in canonical)
+    canonical_support = []
+    for label,v in zip(labels,canonical):
+        canonical_support.append({"b":label[0],"j":label[1],"support":support(v,meta)})
     return {
         "gate":GATE,
         "architecture_commit":ARCH,
@@ -81,9 +106,13 @@ def summary():
         "nnz":len(M.todok()),
         "rank":rank,
         "nullity":M.cols-rank,
-        "left_nullity":len(left),
-        "left_null_relations":relations,
-        "all_left_relations_have_eight_rows":all(len(s)==8 for s in relations),
+        "left_nullity":len(raw_left),
+        "raw_cas_left_null_support_sizes":[len(support(v,meta)) for v in raw_left],
+        "canonical_bianchi_count":len(canonical),
+        "canonical_bianchi_rank":Y.rank(),
+        "canonical_bianchi_all_annihilate_M":canonical_zero,
+        "canonical_bianchi_all_have_eight_rows":all(len(x["support"])==8 for x in canonical_support),
+        "canonical_bianchi_relations":canonical_support,
         "exact_rank_uses_tolerance":False,
     }
 
@@ -98,7 +127,10 @@ def main():
         Path(args.out).parent.mkdir(parents=True,exist_ok=True)
         Path(args.out).write_text(text)
     print(text,end="")
-    if out["shape"] != [180,350] or out["rank"] != 164 or out["left_nullity"] != 16:
+    required=(out["shape"]==[180,350] and out["rank"]==164 and out["left_nullity"]==16
+              and out["canonical_bianchi_count"]==16 and out["canonical_bianchi_rank"]==16
+              and out["canonical_bianchi_all_annihilate_M"] and out["canonical_bianchi_all_have_eight_rows"])
+    if not required:
         raise SystemExit(2)
 
 
