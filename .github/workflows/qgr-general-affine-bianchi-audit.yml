@@ -1,0 +1,29 @@
+name: qgr-general-affine-bianchi-audit
+
+on:
+  push:
+    branches:
+      - research/general-einstein-seed-rank-law-20260916
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact algebra dependency
+        run: python -m pip install 'sympy==1.14.0'
+      - name: Run all-degree affine Bianchi audit
+        run: |
+          python code/qgr_general_affine_bianchi_compatibility_audit.py \
+            --min-n 2 --max-n 12 \
+            --primes 1000003,1000033 \
+            --out general_affine_bianchi_compatibility_audit.json
+      - name: Upload audit payload
+        uses: actions/upload-artifact@v4
+        with:
+          name: qgr-general-affine-bianchi-audit
+          path: general_affine_bianchi_compatibility_audit.json
