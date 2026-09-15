@@ -1,0 +1,32 @@
+name: qgr-iter057r-corrected-seed-weyl3-second-source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057r-corrected-seed-weyl3-second-source.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-source-jet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reconstruct exact corrected-seed Weyl3 source through degree two
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057r_corrected_seed_weyl3_second_source_jet.py --out out/iter057r.json
+      - name: Show exact classification
+        if: always()
+        run: cat out/iter057r.json || true
+      - name: Upload exact corrected source jet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057r-corrected-seed-weyl3-second-source
+          path: out/iter057r.json
+          if-no-files-found: warn
