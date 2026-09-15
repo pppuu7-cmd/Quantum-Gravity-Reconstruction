@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-15
-Primary active front: `ITER057N / G3 ZERO-ORDER EINSTEIN SEED NEIGHBORHOOD AUDIT`
-Project phase: `ONSHELL BACKGROUND SEED CONSISTENCY PROGRAMME`
+Primary active front: `ITER057R / CORRECTED EINSTEIN-SEED WEYL3 SECOND SOURCE JET`
+Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 RESET PROGRAMME`
 
 ## Canonical claim locks
 
@@ -15,80 +15,92 @@ Project phase: `ONSHELL BACKGROUND SEED CONSISTENCY PROGRAMME`
 - No physical Weyl3 treatment selector, strong hyperbolicity, ghost/stability, quantum unitarity, regulator removal or UV completion is established.
 - Finite local Taylor/symbol certificates are not open-neighborhood/global theorems.
 
-## Newly consumed authority
+## Consumed seed/background authority
 
-### Iter057J coefficient correction
+### Iter057N — fixed G3 seed FAIL
 
-Iter057J remains terminal scientific FAIL for the **conformal continuation candidate only**. The historical result commit is preserved, but its witness coefficient has been superseded by exact audit `dd3d2ec07b3dbb3828331afd2502667a5e3ffbc8`:
+Terminal result `32c6f1b077d72a616f52dc41bbef8a39ba0cf1af` proves the unchanged exact G3/H0 seed has a nonzero `c6^0` Einstein residual at coordinate degree two. A simple exact witness is
 
-`A_E K_0011 = -8 kappa^4`,
+`partial_x^2 G_00(0)/kappa^2 = 6`.
 
-and at `kappa=2/25`,
+This rejects only the unchanged G3 metric as a neighborhood zeroth-order seed.
 
-`A_E K_0011 = -128/390625 != 0`.
+### Iter057O — quartic Einstein-seed completion PASS
 
-The scoped scientific FAIL is unchanged.
+Terminal `679a3d73d589fc9161bdf2209f25bb4b7c785fd6`, Actions run `34955436259`.
 
-### Iter057M terminal PASS
+An unrestricted quartic correction with 21 nonzero canonical-pivot coefficients cancels the full quadratic Einstein residual while preserving the origin metric, connection and curvature. Exact matrix rank `164`, nullity `186`, all 16 Bianchi compatibilities zero, and direct nonlinear `G_ab=0` through coordinate degree two.
 
-Preregistration: `9760ca0324dce13cf141a9f93b6ff69ea4c75605`.
-Exact derivation: `443d52b759232addf580cb70d7f6b5fedcce9519`.
-Terminal result: `f947efac35e5093ec536ee9da52e86de23325d72`.
+### Iter057P — corrected-seed Weyl3 point-source reset PASS
+
+Terminal `3c8e8d54cf7c4685945f3d30284544bbba75c338`, Actions run `34955879708`.
+
+The quartic seed preserves `I3(0)/kappa^3=96` but changes the derivative sector and hence the Weyl3 Euler point source to
+
+`E_W3,ab(0)/kappa^3 = diag(-240,-384,-384,432)`.
+
+The old uncompleted-G3 point source must not be reused.
+
+### Iter057Q — sextic Einstein-seed completion PASS
+
+Preregistration `afc9098e6de828e8647aad5b1d8316b29f0b61a0`.
+Implementation `d70dc4e53e1e3ae5db95162978c9e89c618f38ba`.
+Terminal result `c4f1c5c01205a6991e7215e3824111e1f36d1436`.
+Actions run `34956377793`, job `104339311005`.
+Artifact `10391933651`, digest `sha256:8b1a0afe28bbb71de0b6413c24193f8dfc3dcadbb26b78d3f008f11b2508155d`.
+
 Classification:
 
-`PASS_SCOPED_ITER057M_GENERAL_QAB_QUARTIC_JET_EXTENDS_THROUGH_SECOND_EVEN_SOURCE_ORDER__OPEN_NEIGHBORHOOD_NOT_ESTABLISHED`.
+`PASS_SCOPED_ITER057Q_SEXTIC_EINSTEIN_SEED_COMPLETES_THROUGH_QUARTIC_EINSTEIN_ORDER__WEYL3_SECOND_SOURCE_JET_CAN_NOW_BE_RECOMPUTED`.
 
-Consumed exact production evidence includes:
+Exact results:
 
-- source-component equivalence Actions run `34954206549`, artifact `10390318470`, digest `sha256:ab331b2093e7d26e1d5f609f08e81c70739bb79d88a9a210a73ffc5b8155cd92`;
-- Q4/unreduced-control Actions run `34954412091`, artifact `10390657547`, digest `sha256:78aca057d3fd2ef4db1d7e746e188c625a02eda14c41c902fcee642bf886208c`;
-- exact matrix `180 x 350`, rank `164`, homogeneous Q4 nullity `186`;
-- all 16 canonical Noether compatibility contractions exactly zero;
-- one exact particular Q4 with 32 nonzero normalized coefficients;
-- de Donder vector identically zero through cubic coordinate order;
-- all ten unreduced `DG_ab-S_ab` components identically zero through quadratic coordinate order.
+- full unrestricted sextic space: 840 coefficients;
+- exact matrix `574 x 840`, nnz `2296`;
+- rank `494`, augmented rank `494`;
+- nullity `346`, left-nullity `80`;
+- all 80 canonical Bianchi compatibility contractions exactly zero;
+- one canonical particular sextic correction with 69 nonzero normalized coefficients;
+- correction is pure degree six and preserves all seed derivatives through order five;
+- direct nonlinear Ricci/scalar/Einstein tensors vanish through coordinate degree four.
 
-Iter057M remains a finite local Taylor certificate only.
+Therefore the canonical seed six-jet is now fixed and is sufficient to define the corrected-seed Weyl3 source through coordinate degree two.
 
-Historical Iter057K remains terminal technical BLOCKED; its old exact-lineage replay is still useful only as an additional independent cross-check. Two of its four diagonal replay lanes have already independently confirmed the corrected source-component sign.
+## Active Iter057R gate
 
-## Active Iter057N gate
-
-Preregistration: `ebaead95ba38dc4521b57477c54bf7d4f1b11c83`.
-Gate: `ITER057N-G3-ZERO-ORDER-EINSTEIN-SEED-NEIGHBORHOOD-AUDIT`.
-Implementation: `842d50cc3e5b471d4a2565321b0c86d570b7ad52`.
-Workflow head: `c38a7c3c8f88cfcdef8cfe9ab38340acf37992cc`.
-Actions run: `34954958651`.
+Preregistration: `582ff376a59458270b7074d5470dedfba85896af`.
+Gate: `ITER057R-CORRECTED-SEED-WEYL3-SECOND-SOURCE-JET`.
+Corrected implementation: `3db68ebc21b5bac124c3a7206d7a74d87645c142`.
+Workflow head: `cc41b51e6ae0601140bdc699e9c7b41e5fd1560d`.
+Actions run: `34956884376`.
 Terminal classification: none yet.
 
-## Why this gate precedes Q6
+The evaluator replays the exact Iter057Q canonical sextic seed and performs full four-dimensional exact Fraction polynomial algebra:
 
-The first-order expansion
+`metric degree 6 -> curvature/Weyl degree 4 -> P degree 4 -> D,E_W3 degree 2`.
 
-`g = g0 + c6 q + O(c6^2)`
+Frozen controls include:
 
-can describe an open-neighborhood solution only if the fixed seed `g0` already satisfies its own `c6^0` Einstein equation to the same local order. Iter057L/M solve the `O(c6)` coefficient equation; they cannot cancel an `O(c6^0)` seed residual without introducing forbidden inverse powers of `c6`.
+- Iter057Q seed replay;
+- inverse identity through the needed degree;
+- seed Ricci/scalar zero through coordinate degree four;
+- `P.R=3 I3` through degree four;
+- Euler-tensor symmetry;
+- trace Ward through degree two;
+- Noether divergence through degree one;
+- even-parity/first-derivative control;
+- exact replay of the Iter057P point source.
 
-The G3/H0 source is exactly Ricci-flat at the frozen origin, but its exact metric is only a weak-static tidal construction. Nonlinear inverse/connection terms may generate an Einstein residual at quadratic coordinate order.
+The output must expose the complete normalized
 
-Iter057N therefore computes exact `R_ab`, `R` and `G_ab` through degree two, preserves the origin controls, checks contracted Bianchi/trace identities, and includes a direct full-rational component factorization as an independent exact cross-check.
+`Shat_ab=A_E S_ab=-E_W3_ab`
 
-## Consequence boundary
-
-If all exact quadratic Einstein coefficients vanish, the fixed seed survives this finite-order check and higher seed orders remain open.
-
-If any exact coefficient is nonzero, the preregistered outcome is a scoped scientific FAIL of the **fixed G3 seed as the c6^0 neighborhood background**. This does not invalidate G3 as a local operator probe or invalidate Iter057L/M finite-jet algebra.
-
-The correct successor in that case is a separate `c6^0` Einstein-seed completion. A quartic seed correction can preserve the origin metric/connection/curvature while modifying the degree-two Einstein residual. Because such a quartic correction also changes fourth metric derivatives, the Weyl3 Euler source must then be recomputed on the corrected seed; the old G3 `E_W3` jet may not be carried over automatically.
+at order zero and coordinate degree two, including any time-containing/off-diagonal coefficients.
 
 ## Next bounded step
 
-Consume Actions run `34954958651` strictly under preregistration `ebaead95...`.
+Consume Actions run `34956884376` only after all exact controls pass.
 
-Do not:
+If Iter057R passes, the next constructor must **restart** the `O(c6)` quadratic/quartic correction on the Einstein-completed seed. It may reuse the universal polynomial-complex machinery of Iter057L/M, but not the old off-shell G3 source coefficients or background degree-two operator RHS.
 
-- absorb a `c6^0` Einstein residual into the `O(c6)` correction;
-- fit or fix `c6`;
-- add matter/cosmological/additional operators to rescue the frozen gate;
-- infer an open-neighborhood solution from the existing finite local Q2/Q4 certificates;
-- reuse the old Weyl3 source unchanged after any future quartic Einstein-seed completion without recomputing its fourth-derivative-dependent Euler tensor.
+No fixed/fitted `c6`, old-source substitution, restricted symmetry ansatz, numerical exact-zero decision, physical characteristic inference, or all-orders neighborhood claim is allowed.
