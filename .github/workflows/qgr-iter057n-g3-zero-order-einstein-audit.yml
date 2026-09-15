@@ -1,0 +1,32 @@
+name: qgr-iter057n-g3-zero-order-einstein-audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057n-g3-zero-order-einstein-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Evaluate exact G3 Einstein seed residual
+        run: |
+          mkdir -p out
+          PYTHONPATH=code python code/qgr_iter057n_g3_zero_order_einstein_audit.py --out out/iter057n.json
+      - name: Show exact classification
+        if: always()
+        run: cat out/iter057n.json || true
+      - name: Upload exact audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057n-g3-zero-order-einstein-audit
+          path: out/iter057n.json
+          if-no-files-found: warn
