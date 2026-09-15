@@ -37,26 +37,34 @@ This gate may encode only existing authorized geometry/conventions. It may not c
 
 Required exact controls: metric inverse/symmetry; Riemann/Weyl algebraic symmetries; Weyl tracelessness; E_W3 symmetry; Noether/diffeomorphism divergence consistency to the exposed order.
 
-### Bounded implementation checkpoints
+### Exact-source implementation authority
 
-Commit `bf01d61939371053af120567408172084d4ee4f8` adds `code/qgr_iter057k_exact_g3_geometry.py` and exposes the source-owned G3/H0 potential and metric with exact SymPy rationals, exact metric inverse, Christoffel, Riemann, Ricci, scalar-curvature and four-dimensional Weyl tensors, plus exact geometry controls.
+- `bf01d61939371053af120567408172084d4ee4f8`: exact source-owned G3/H0 geometry and geometry controls in `code/qgr_iter057k_exact_g3_geometry.py`.
+- `8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81`: exact Weyl3 lineage transliteration.
+- `90bde0d5c89e92f6b3436c2ba3e22f5af55ab1f0`: source-authorized normalization lookup from terminal Iter056X authority `5b2acf5a47f4ba66fb126bdeab28505dd0dfb852`, establishing `H5^{ab}=sqrt(-g) E_W3^{ab}` in the same covariant-metric convention.
+- `605846b1fce5568f968a9cba7c3b721322c6a63d`: exact first/second covariant derivative oracle for the authorized lowered `E_W3_ab`, plus exact E-symmetry and Noether-divergence evaluators. It carries no numerical tolerance and keeps `c6` factored out/symbolic.
 
-Commit `8b7f90e6c7cb6a7d71d202f1ea70ec9081d4af81` adds `code/qgr_iter057k_exact_weyl3_lineage.py`, exposing exact `I3`, projected `P^{abcd}`, exact covariant double divergence, metric-density variation `A_ab`, lowering insertion `I_ab`, and the historical minus-sign assembled density `H5=A+I-2 sqrt(-g) D5`.
+## Active exact-control production
 
-Commit `90bde0d5c89e92f6b3436c2ba3e22f5af55ab1f0` resolves the previously narrow normalization dependency by direct lookup of terminal Iter056X authority `5b2acf5a47f4ba66fb126bdeab28505dd0dfb852`, section D. That authority establishes in the same covariant-metric variation convention
+Workflow commit: `8a9feed7512732b8e4389060c9d305d5dddf9fb7`.
+Workflow: `.github/workflows/qgr-iter057k-exact-controls.yml` (`qgr-iter057k-exact-controls`).
+Production head: `8a9feed7512732b8e4389060c9d305d5dddf9fb7`.
 
-`H5^{ab} = sqrt(-g) E_W3^{ab}`,
+The workflow is push-triggered by its creation commit and uses a `fail-fast: false` matrix with independent lanes:
 
-so the exact evaluator may expose
+`geometry`, `lineage`, `ew3-symmetry`, `noether`, `derivative-oracle`.
 
-`E_W3^{ab} = H5^{ab}/sqrt(-g)`
+Each lane writes a JSON artifact. An `aggregate` job, running with `if: always()`, produces only the frozen terminal artifact `iter057k-terminal-aggregate`. The aggregate deliberately carries `scientific_classification: null`; classification is reserved for the next bounded constructor run under the frozen preregistration.
 
-and its lowered form without coefficient fitting or a new physics primitive. This is an authority/transliteration checkpoint, not a terminal Iter057K classification.
-
-The single remaining implementation dependency is the exact `E_W3` derivative oracle to sufficient order for the full independent `K_ecab` component set, together with the frozen exact E-symmetry and Noether/divergence controls. Iter057K has **no terminal classification yet** and no Actions run is active.
+The Actions run id was not recorded in this launch step. **No lane result or partial science has been consumed and Iter057K has no terminal classification.**
 
 ## Next bounded step
 
-Continue only frozen Iter057K. Expose exact first/second covariant derivatives of the already-authorized `E_W3_ab` sufficient for `H_ab` and the complete independent `K_ecab` set, and evaluate the frozen exact E-symmetry/Noether controls. Do not alter Iter057J criteria, fit `c6`, use numerical tolerances as exact-zero evidence, add a third symmetry reduction, infer physical characteristics, or assign PASS before every frozen required object/control is satisfied.
+Identify only the Actions run created from workflow commit `8a9feed7512732b8e4389060c9d305d5dddf9fb7` for `qgr-iter057k-exact-controls`.
+
+- If nonterminal: check status/head provenance only; do not consume lane outputs, do not duplicate the run, and finish.
+- If terminal: validate only preregistration `e6b894f95979d85e270cef99a48c639258057ea6` plus the terminal aggregate artifact `iter057k-terminal-aggregate`, classify strictly by the frozen Iter057K PASS/BLOCKED/INVALID rules, update recovery, and finish.
+
+Do not alter Iter057J criteria, fit `c6`, use numerical tolerances as exact-zero evidence, add a third symmetry reduction, infer physical characteristics, or assign PASS from green CI alone.
 
 Green CI alone is never scientific PASS.
