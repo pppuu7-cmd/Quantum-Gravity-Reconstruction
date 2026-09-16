@@ -1,0 +1,132 @@
+name: QGR Iter057AF complete exact obstruction aggregate
+
+on:
+  workflow_run:
+    workflows: ["QGR Iter057AF lane7 exact payload completion"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: qgr-iter057af-complete-aggregate
+  cancel-in-progress: false
+
+env:
+  AF_SOURCE_HEAD: '57b8e0f61e1d77c19eca09a2bd34f48921ffc020'
+  AD_SOURCE_RUN: '35070896151'
+  AD_SOURCE_HEAD: '041fb0046d92e5a9800dd99b0ce4e8b841242df5'
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      GH_TOKEN: ${{ github.token }}
+      AF_RUN: ${{ github.event.workflow_run.id }}
+      AF_HEAD: ${{ github.event.workflow_run.head_sha }}
+      AF_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install exact algebra backends
+        run: python -m pip install --disable-pip-version-check sympy python-flint
+
+      - name: Freeze source manifests and download exact artifacts
+        if: env.AF_CONCLUSION == 'success' && env.AF_HEAD == env.AF_SOURCE_HEAD
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057af-input/old iter057af-input/af iter057af-input/original7 iter057af-output
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${AF_RUN}" > iter057af-output/af_run.json
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${AF_RUN}/artifacts?per_page=100" > iter057af-output/af_artifacts.json
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${AD_SOURCE_RUN}" > iter057af-output/ad_run.json
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${AD_SOURCE_RUN}/artifacts?per_page=100" > iter057af-output/ad_artifacts.json
+          python - <<'PY'
+          import json, os, pathlib
+          af=json.load(open('iter057af-output/af_artifacts.json'))['artifacts']
+          ad=json.load(open('iter057af-output/ad_artifacts.json'))['artifacts']
+          by_af={a['name']:a for a in af}
+          by_ad={a['id']:a for a in ad}
+          old=[
+            (0,10444152126,'sha256:3ae8b96a020557be9d539691358f473cb93d358c98bdce1972d062c2449f654b'),
+            (1,10442437521,'sha256:ffeb8e9dfff5cf708d860896635cc89e795eef9b79fc4dc6fda4880f70b37ba9'),
+            (2,10442003071,'sha256:16c21d16f2bbb41927ebee42c8612148f65ee1d39587b4031d4c229e6e15b586'),
+            (3,10444770687,'sha256:7ee93a2aca2358ce6ac087b8f65dcf8cd37e0c1406a589e4c63c8fa23506084e'),
+            (4,10443729361,'sha256:2afac5b53465d6a16972279a16e2f4db2edcc004d856bb655c96a024b2b53e9e'),
+            (5,10443653309,'sha256:0f4c82a2b761b5f8d8f8078b9f9ee7840f6a485f139c702f3d582fc1541b88cb'),
+            (6,10443899697,'sha256:edc8624b110273c210cea9468b5fb963fb75da7fdde2fd573baf97854443570f'),
+          ]
+          for slot,aid,dig in old:
+            a=by_ad.get(aid)
+            if not a or a.get('digest')!=dig or a.get('expired'):
+              raise SystemExit(f'old artifact provenance mismatch slot={slot} id={aid}')
+          original7=by_ad.get(10440479824)
+          if not original7 or original7.get('digest')!='sha256:627deac71dab731547a14b8ee0dec1d79e7b63d94947702a8cd277bb63bcc585' or original7.get('expired'):
+            raise SystemExit('original lane7 diagnostic provenance mismatch')
+          afrows=[]
+          for slot in range(4):
+            name=f'iter057af-lane7-{slot}'
+            a=by_af.get(name)
+            if not a or a.get('expired'):
+              raise SystemExit(f'missing AF artifact {name}')
+            afrows.append((slot,int(a['id']),a.get('digest')))
+          manifest={'af_run':int(os.environ['AF_RUN']),'af_head':os.environ['AF_HEAD'],'af_conclusion':os.environ['AF_CONCLUSION'],'ad_run':int(os.environ['AD_SOURCE_RUN']),'ad_head':os.environ['AD_SOURCE_HEAD'],'old_artifacts':[{'slot':s,'id':i,'digest':d} for s,i,d in old],'af_artifacts':[{'slot':s,'id':i,'digest':d} for s,i,d in afrows],'original_lane7':{'id':int(original7['id']),'digest':original7.get('digest')}}
+          pathlib.Path('iter057af-output/source_manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+          pathlib.Path('iter057af-output/af_ids.txt').write_text('\n'.join(f'{s} {i}' for s,i,_ in afrows)+'\n')
+          PY
+          download_extract() {
+            id="$1"; dest="$2"; zip="${dest}.zip"; mkdir -p "$dest"
+            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${id}/zip" -o "$zip"
+            python -m zipfile -e "$zip" "$dest"
+          }
+          download_extract 10444152126 iter057af-input/old/0
+          download_extract 10442437521 iter057af-input/old/1
+          download_extract 10442003071 iter057af-input/old/2
+          download_extract 10444770687 iter057af-input/old/3
+          download_extract 10443729361 iter057af-input/old/4
+          download_extract 10443653309 iter057af-input/old/5
+          download_extract 10443899697 iter057af-input/old/6
+          download_extract 10440479824 iter057af-input/original7
+          while read -r slot id; do download_extract "$id" "iter057af-input/af/${slot}"; done < iter057af-output/af_ids.txt
+
+      - name: Produce exact complete aggregate
+        if: env.AF_CONCLUSION == 'success' && env.AF_HEAD == env.AF_SOURCE_HEAD
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=code python scripts/qgr_iter057af_complete_aggregate.py \
+            --old-root iter057af-input/old \
+            --af-root iter057af-input/af \
+            --original-lane7-root iter057af-input/original7 \
+            --source-run "${AF_RUN}" \
+            --source-head "${AF_HEAD}" \
+            --output iter057af-output/terminal_aggregate.json
+          code=$?
+          echo "$code" > iter057af-output/evaluator_exit_code.txt
+          cat iter057af-output/terminal_aggregate.json
+          exit 0
+
+      - name: Record source-run BLOCKED when shards did not complete cleanly
+        if: env.AF_CONCLUSION != 'success' || env.AF_HEAD != env.AF_SOURCE_HEAD
+        shell: bash
+        run: |
+          mkdir -p iter057af-output
+          python - <<'PY'
+          import json,os,pathlib
+          out={'gate':'ITER057AF-LANE7-EXACT-PAYLOAD-COMPLETION-AND-FULL-OBSTRUCTION-AGGREGATE','preregistration':'564b3c18b3cf3391a72287138007aa23ebdc37b0','source_run':int(os.environ['AF_RUN']),'source_head':os.environ['AF_HEAD'],'source_conclusion':os.environ['AF_CONCLUSION'],'classification':'BLOCKED_ITER057AF_COMPLETE_EXACT_AGGREGATE_OR_WITNESS_REPLAY_NOT_REALIZED','reason':'frozen AF shard run did not complete successfully at the preregistered source head'}
+          pathlib.Path('iter057af-output/terminal_aggregate.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          PY
+
+      - name: Upload terminal aggregate authority candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057af-complete-obstruction-aggregate
+          path: iter057af-output/
+          if-no-files-found: error
+          retention-days: 30
