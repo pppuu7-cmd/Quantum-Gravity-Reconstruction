@@ -1,0 +1,90 @@
+{
+  "gate": "ITER057AM-HELDOUT-NO-REFIT-R14-OBSTRUCTION-TRANSPORT",
+  "preregistration": "d555671e69d2be898c7cfdd470f072bbb810a0be",
+  "classification": "PASS_SCOPED_ITER057AM_HELDOUT_NO_REFIT_R14_OBSTRUCTION_CLASS_PERSISTS_ON_INDEPENDENT_ONSHELL_BACKGROUND",
+  "heldout_background": {
+    "candidate_id": "AL-R1-4",
+    "iter057al_terminal": "84d26921f6dd77ef1437c0f854a1543d76bc8360",
+    "iter057al_authority": "983b6be90004077a76b3476c9854f5eba4542399",
+    "source_run": 35150321723,
+    "source_job": 104976691209,
+    "source_artifact": 10468978252,
+    "source_artifact_digest": "sha256:93009fefb07e858cd50f335a96210d8b3405ff4cfc94dce6d50b6d7ebc809cdf",
+    "source_scientific_payload_sha256": "5484179f3d86414918d0aed05e4c5a63dca802f4f8f1631c8259e8bf576c9fc5",
+    "J_shape_invariant": "392/20577"
+  },
+  "baseline": {
+    "run": 35151519104,
+    "job": 104980720810,
+    "artifact": 10468429521,
+    "artifact_digest": "sha256:8f4d6c83aa69ac64d89f8f8940b50db705cfd1360d072280cd336b7e42f71c48",
+    "scientific_payload_sha256": "d96d062012c2c3e4470bfba92f71bf801ecf9e27477ba5286178013089c9f403",
+    "O0_nonzero_count": 223
+  },
+  "validated_directional_operator": {
+    "implementation": "e1b279676860f08a8cdea569a6a6fdfad54b126f",
+    "validation_run": 35151762958,
+    "validation_job": 104981530196,
+    "validation_artifact": 10468799851,
+    "validation_artifact_digest": "sha256:bd0940f2e7dbb10c36f3a28bd1cee72c3d512505dc830989b8012fcf1d6aa8f5",
+    "validation_scientific_payload_sha256": "0ae32c1cdc7d003afcc516e7bf99108cf8a768b42a83806479cc837583488203",
+    "fixed_full_nonlinear_control_indices": [0, 557, 1113],
+    "fixed_controls_exact": true
+  },
+  "complete_map": {
+    "workflow_head": "8cc46e7c349745d2bf646fb4ac3fc8c9c7944451",
+    "run": 35152048647,
+    "shape": [1456, 1114],
+    "nnz": 81096,
+    "coverage": [0, 1114],
+    "column_count": 1114,
+    "local_independent_column_mismatch_count": 0,
+    "shards": [
+      {"id":0,"range":[0,139],"artifact":10469353962,"digest":"sha256:8b516f5a8018caf3dc7cbc32a35dcf86bb71f5c39aa68b6ace1196eed75c546a","payload_sha256":"0b108428337996c65bdd7fe1fb99bc467642627f7917e86aa5ee930ef81b9fd1"},
+      {"id":1,"range":[139,278],"artifact":10469034827,"digest":"sha256:5a43b7b76567043f878c41587f2d72574cb72ee6edada5ec350cbe56d68aee65","payload_sha256":"a72e13bc795bbb55be0a2fa24b51cf00ca0c529e3382eb0b7c43d03a0d2c8dd4"},
+      {"id":2,"range":[278,417],"artifact":10469468423,"digest":"sha256:daf8efcc4b0366149cb2d06f7a2ae052caf5fb065648ef8c8fcb39c00af3f03a","payload_sha256":"99ef2765b3f26796a56e1bb29b8c0b7e59f2c6507ecb77b159d7b94ee572fc93"},
+      {"id":3,"range":[417,556],"artifact":10469596885,"digest":"sha256:3ccd37bd8d43b1a65af441266a8d15c08a923ab32c3bf4010af5d0a386f8b542","payload_sha256":"a283577d6f75c3b1a2507eb256d5261a12a00c6f6e6f800b293aa1fc14ecb237"},
+      {"id":4,"range":[556,695],"artifact":10469328100,"digest":"sha256:9e5992b3f61e5bd186fe114a115f0f83cab62c3aa5c0998f8c709b8424ec6657","payload_sha256":"86a76b3f116195afc825c4499927b6d174022b444a68be5b1479771dcc04f811"},
+      {"id":5,"range":[695,834],"artifact":10470120501,"digest":"sha256:485c50b807ea3fabd822e19675c7ba29706c877d62cb60e9675893a5cda9be85","payload_sha256":"a8940d54bdc01dde3b6ee49ca421c11d4e0a2d86183545b5170220487e50d066"},
+      {"id":6,"range":[834,973],"artifact":10469785715,"digest":"sha256:852c8557693698f9c33eec55ef932891a016b2d2bac152aa0f14d8bc366f1b9b","payload_sha256":"52f0b7af36579a240ce6ecfc9f5416ddc081ab1474b52b3e94492c3dc22aeb0d"},
+      {"id":7,"range":[973,1114],"artifact":10469218826,"digest":"sha256:ae77399bc40ba749165620308a872a57e38efdbd099cd12cba8f93753ed0d466","payload_sha256":"67a087a081806e17e6c6a15421479767468141f7913a2251448c9616387b5075"}
+    ]
+  },
+  "primary_exact_flint_aggregate": {
+    "run": 35152805152,
+    "job": 104984995635,
+    "artifact": 10469608520,
+    "artifact_digest": "sha256:276396bf9c86acd3b09912e1a839b2c81c8a0f7f93064b51848daa21bb22f23d",
+    "scientific_payload_sha256": "d6e9bf4860c171323aff0c6d46f4e02d33489256ad51fdcafaca02d09e3186c2"
+  },
+  "exact_modular_certificate": {
+    "implementation": "e36fa99a1413b7db96b1997bfc8fc19fc43f3bf0",
+    "workflow_head": "f4e4519b1ce1f1a67b3329af34edecf511c68961",
+    "run": 35153301125,
+    "scientific_payload_sha256": "081dc4341346d3abb47395a6024abe524680e3d5ffec90803a055510cd9c82e1",
+    "linux_job": 104986643962,
+    "linux_artifact": 10469936936,
+    "linux_artifact_digest": "sha256:d4da174010f4a5bfaec6640781ad4ec08a3fc0cf97973d43753c6cc5e0ddddac",
+    "windows_job": 104986643449,
+    "windows_artifact": 10469791911,
+    "windows_artifact_digest": "sha256:3017efee293ef514fee83445b21bf9189c951ea3799544e554ca64b91c5209ed",
+    "local_linux_windows_payloads_identical": true,
+    "certificate_prime": 1000003,
+    "rank_proof": "full column rank modulo a prime with all rational denominators invertible certifies the corresponding maximal rational minors are nonzero"
+  },
+  "exact_result": {
+    "rank_B": 1114,
+    "rank_augmented_B_minus_O0": 1115,
+    "kernel_dimension": 342,
+    "kernel_O0_perp_dimension": 341,
+    "obstruction_quotient_dimension": 1,
+    "normalized_dual_witness_nonzero_count": 56,
+    "BT_y_nonzero_count": 0,
+    "O0T_y": "1",
+    "fresh_witness_pre_normalization_pairing": "-2326092237439/20302734375000000",
+    "preexisting_AG_witness_transport_pairing": "2326092237439/1482087190528",
+    "fresh_normalized_witness_matches_normalized_AG": true
+  },
+  "scientific_interpretation": "The finite-order obstruction class persists on a genuinely independent prospectively held-out on-shell R12 background without refit. The obstruction quotient remains one-dimensional, while the complete obstruction-map rank changes from AF rank 1110 to held-out rank 1114; therefore detailed rank structure is background-dependent even though obstruction existence persists.",
+  "claim_ceiling": "Single held-out finite local replication only; not a global/all-orders no-go theorem. c6 symbolic/unfixed; beta=1 unauthorized; no stability, unitarity, UV, regulator-removal or experimental claim; theory established 0%."
+}
