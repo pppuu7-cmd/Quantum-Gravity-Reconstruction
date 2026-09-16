@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-16
-Primary front: `ITER057AF / LANE-7 EXACT PAYLOAD COMPLETION + FULL R12 BRANCH OBSTRUCTION AGGREGATE — ACTIVE`
+Primary front: `ITER057AG / EXACT DUAL OBSTRUCTION WITNESS — PRODUCTION RUNNING`
 Project phase: `ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRAMME`
 
 ## Canonical claim locks
@@ -13,45 +13,45 @@ Project phase: `ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRA
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; running/fitting/sign selection not authorized.
 - Finite local Taylor/symbol certificates are not open-neighborhood/global/all-orders theorems.
-- G45 does not establish absolute energy positivity or quantum unitarity; G35-G37 distant roots do not authorize physical weights.
+- No physical strong-hyperbolicity, ghost/stability, quantum-unitarity, regulator-removal, global-measure or UV-completion claim is established.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Preserved authority
+## Iter057AF — terminal exact scientific FAIL
 
-Iter057Z remains terminal scoped PASS with unrestricted degree-twelve system `shape=(4316,4550)`, rank `3436`, nullity `1114`, left-nullity `880`, and 469 nonzero coefficients in the canonical R12 particular. Iter057AB remains terminal scoped PASS. Iter057AC remains immutable terminal scientific FAIL on the canonical `h=0` path: `shape(M14)=(6790,6800)`, `rank(M14)=5334`, `rank([M14|r])=5335`, left-nullity `1456`, nullity `1466`, with 223 exact nonzero Bianchi/Noether compatibility contractions.
+Preregistration: `564b3c18b3cf3391a72287138007aa23ebdc37b0`.  
+Terminal result: `230690a56e5055471054d9751985f7604ec7130d`.  
+Frozen rank authority: `cb9120f7228a6083e62f2bb51c447f97a81870c2`.  
+Authoritative rank run: `35134013268`, job `104921723340`, artifact `10462271546`, digest `sha256:afb1fc3fd3c5f2d664e59b855f3ba3d5fd7155af8b9670bf3724d3bcf2a76074`.  
+Scientific payload SHA256: `70c7129b578489890e234e34ff6dbc483a6d13839379b03e94f2ae1ae717667a`.
 
-Iter057AD and Iter057AE remain preserved terminal BLOCKED results. Their classifications are not rewritten by the continuation.
+The complete frozen obstruction map uses all homogeneous R12 branch coordinates `0..1113`, has `B_shape=(1456,1114)`, `B_nnz=80982`, and replays canonical `O0` with 223 nonzero compatibility contractions. All four Iter057AF lane-7 subshards completed successfully and independently reproduce all 141 historical lane-7 sparse rational columns with zero mismatches.
 
-## Active gate — Iter057AF
+Exact rational result:
 
-Preregistration: `564b3c18b3cf3391a72287138007aa23ebdc37b0`.
-Frozen lane-7 shard workflow head: `57b8e0f61e1d77c19eca09a2bd34f48921ffc020`.
-Actions run: `35118287075`.
+- `rank(B)=1110`;
+- `rank([B|-O0])=1111`.
 
-Deterministic lane-7 subshards:
+Therefore no exact `h*` exists in the complete frozen 1114-dimensional R12 homogeneous branch family that removes the R14 Bianchi/Noether obstruction.
 
-- `[973,1009)` — success, job `104869224210`, artifact `10459975843`, digest `sha256:ba390a87e432dd2a14e1390198e8f79e15170961bcf69942b8992b77f09d488c`.
-- `[1009,1044)` — still in progress, job `104869223437`.
-- `[1044,1079)` — success, job `104869223327`, artifact `10460706453`, digest `sha256:0f3ffd14506d47dedd79b535962f5ef2e53e8b2e15da125660a794d24b7a51b5`.
-- `[1079,1114)` — success, job `104869222812`, artifact `10461754625`, digest `sha256:2119642c2a7cdfe0b0aa023fae06e4792a1aae5d0a9dde32398c6e1b3db30840`.
+Terminal classification:
 
-All three consumed successful subshards reproduce the corresponding historical Iter057AD lane-7 sparse rational columns with **zero mismatches** and retain the frozen controls: kernel dimension `1114`, exact M12 annihilation, `L14*M14=0`, canonical obstruction count `223`, lower-authority provenance true, and inverse control true.
+`SCIENTIFIC_FAIL_ITER057AF_COMPLETE_EXACT_R12_HOMOGENEOUS_FREEDOM_CANNOT_REMOVE_R14_BIANCHI_NOETHER_OBSTRUCTION`.
 
-A new scientific fact discovered while auditing the blocker is that historical artifact `10440479824` actually contains all 141 exact sparse lane-7 columns (`973..1113`). The Iter057AE blocker arose because the complete affine object was not serialized/parsed in a form exposing canonical `O0` together with the sparse column block. This observation does **not** alter the historical AE BLOCKED classification; AF is independently reproducing the lane under its prospective preregistration.
+This is a finite local jet obstruction only, not an all-orders/global no-go theorem.
 
-## Complete aggregate already armed
+Historical Iter057AD and Iter057AE BLOCKED classifications remain preserved. Their earlier missing-aggregate limitation is superseded only for the new prospectively defined AF continuation, not rewritten retroactively.
 
-Aggregate implementation: `ba801e38070733c2366d833fdfc8ea102c2b86dd`.
-Post-shard `workflow_run` launcher: `d2ec898d6d9430fd2e5e516caeb4e1a902c9bcd8`.
+## Active gate — Iter057AG compact dual certificate
 
-After all four AF subshards exist, the aggregate must:
+Preregistration: `11dfc1e4db79ff691fe121ab38281f3532f931bf`.  
+Implementation: `b5061677948d88f26756ef73834877ea19f3c1a8`.  
+Production head: `37541d1d79563a36041d608cfc348c83c6c481c2`.  
+Actions run: `35134514563`, job `104923416472`.
 
-1. Use immutable Iter057AD lanes 0–6 plus exactly the four AF lane-7 subshards for the `1456 x 1114` map `B`.
-2. Recompute the frozen canonical obstruction exactly as `O0=L*r0` with the unchanged Iter057AD evaluator semantics.
-3. Verify complete unique coverage of homogeneous columns `0..1113` and all provenance/exactness controls.
-4. Compute exact `rank(B)` and `rank([B|-O0])`.
-5. If inconsistent, only then authorize the preregistered scientific FAIL. If consistent, construct an exact `h*`, solve the unrestricted R14 affine system and independently replay the nonlinear gauge/Einstein residual controls before PASS.
+Question: can the terminal AF inconsistency be converted into one deterministic exact rational witness `y` satisfying `B^T y=0` and prospectively frozen normalization `O0^T y=1`, with induced original-system row witness `w^T=y^T L` satisfying `w^T M14=0` and `w^T r0=1`?
 
-No new scientific gate is authorized before this complete aggregate is terminally consumed. Technical implementation failures may be repaired without changing the frozen AF criteria.
+The canonical witness is frozen as the free-variables-zero solution of exact rational RREF of `[B^T;O0^T] y=(0,...,0,1)^T` in the natural compatibility-coordinate order. No numerical rank/pivot decisions or post-hoc sign/scale choice are allowed.
 
-`c6` remains symbolic/unfixed; `beta=1` remains unauthorized; finite certificate != theorem; classical != quantum; diagnostic != closure; theory established remains `0%`.
+No further scientific gate is authorized until Iter057AG is terminally consumed.
+
+`c6` remains symbolic/unfixed; `beta=1` remains unauthorized; finite certificate != theorem; classical != quantum; theory established remains `0%`.
