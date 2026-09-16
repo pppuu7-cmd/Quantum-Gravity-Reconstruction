@@ -1,0 +1,26 @@
+name: qgr-iter057y-q8-response
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057y-q8-response.yml'
+permissions:
+  contents: read
+jobs:
+  exact-q8-response:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reproduce Iter057Y exact unrestricted Q8 response
+        run: python code/qgr_iter057y_onshell_q2_q4_q6_q8_response.py --out artifacts/iter057y.json
+      - name: Show classification
+        run: python -c "import json; d=json.load(open('artifacts/iter057y.json')); print(d['classification']); print(d['rank_M'],d['rank_augmented'],d['compatibility_nonzero_count'],d['Q8_particular_nonzero_count'])"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057y-q8-response
+          path: artifacts/iter057y.json
+          if-no-files-found: error
