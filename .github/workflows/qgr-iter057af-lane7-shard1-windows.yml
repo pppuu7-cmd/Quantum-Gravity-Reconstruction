@@ -1,0 +1,38 @@
+name: QGR Iter057AF lane7 shard1 Windows reproduction
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057af-lane7-shard1-windows.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shard1-windows:
+    runs-on: windows-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 57b8e0f61e1d77c19eca09a2bd34f48921ffc020
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact algebra backend
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Exact frozen lane-7 shard 1
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force artifacts | Out-Null
+          $env:PYTHONPATH='code'
+          python code/qgr_iter057ad_branch_obstruction.py --start 1009 --stop 1044 --out artifacts/iter057af-lane7-1-windows.json
+      - name: Upload exact payload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057af-lane7-1-windows
+          path: artifacts/iter057af-lane7-1-windows.json
+          if-no-files-found: warn
+          retention-days: 30
