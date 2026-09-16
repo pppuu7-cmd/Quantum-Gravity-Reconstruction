@@ -317,7 +317,8 @@ def compute():
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--out');a=ap.parse_args();o=compute();txt=json.dumps(o,indent=2,sort_keys=True)+'\n'
-    if a.out:Path(a.out).write_text(txt)
+    if a.out:
+        p=Path(a.out);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(txt)
     print(json.dumps({k:o[k] for k in ['pass','classification','matrix_shape','matrix_nnz','rank_M','rank_augmented','left_nullity','nullity','bianchi_rank','compatibility_nonzero_count','degree10_Einstein_residual_nonzero_component_count','particular_nonzero_count','combined_linear_deDonder_nonzero_component_count','full_metric_Ricci_nonzero_component_count','full_metric_Einstein_nonzero_component_count']},indent=2))
     if not o['pass']: raise SystemExit(2)
 if __name__=='__main__':main()
