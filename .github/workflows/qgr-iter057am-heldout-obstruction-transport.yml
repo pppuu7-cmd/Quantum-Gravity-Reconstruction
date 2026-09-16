@@ -12,6 +12,7 @@ permissions:
 
 env:
   HELDOUT_ARTIFACT_ID: '10468978252'
+  EXECUTION_ONLY_RREF_KERNEL_REPAIR: 'cc868af9554e29d252ffeb76134f5598155d7cf1'
 
 jobs:
   baseline:
