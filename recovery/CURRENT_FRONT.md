@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-16
-Primary front: `ITER057AD / R12 HOMOGENEOUS BRANCH TEST OF THE R14 OBSTRUCTION — PROSPECTIVELY FROZEN`
+Primary front: `ITER057AD / R12 HOMOGENEOUS BRANCH TEST OF THE R14 OBSTRUCTION — TERMINAL BLOCKED`
 Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
 
 ## Canonical claim locks
@@ -33,38 +33,31 @@ Classification:
 
 Frozen exact evidence: unrestricted pure degree-14 space 6800; `shape(M14)=(6790,6800)`; `rank(M14)=5334`; `rank([M14|r])=5335`; left-nullity `1456`; nullity `1466`; complete Bianchi/Noether rank `1456`; 223 exact nonzero compatibility contractions. No exact R14 particular exists on the canonical `h=0` path.
 
-This result is not revised or rescued by the new branch gate.
+This result is not revised or rescued by the branch test.
 
-## Active Iter057AD gate
+## Iter057AD — terminal BLOCKED
 
 Preregistration: `8f53a0679692f9655e162aa1a19e45124a8dc775`.
-Gate: `ITER057AD-R12-HOMOGENEOUS-BRANCH-R14-OBSTRUCTION-LIFT`.
-Status: `PROSPECTIVELY_FROZEN__IMPLEMENTATION_NOT_STARTED`.
-Actions run: none.
+Implementation: `d3131c777bde21a527c55763f767920e69c99193`.
+Production head: `041fb0046d92e5a9800dd99b0ce4e8b841242df5`.
+Actions run: `35070896151`.
+Durable result: `db5dd960e56d601536647c78586429cf1e617b0a`.
 
-Scientific question: does the Iter057AC R14 compatibility obstruction persist across the **complete 1114-dimensional exact homogeneous R12 family** left unfixed by Iter057Z, while every lower layer through R10 remains unchanged?
+Classification:
 
-Frozen branch:
+`BLOCKED_ITER057AD_COMPLETE_R12_HOMOGENEOUS_BRANCH_OR_R14_OBSTRUCTION_MAP_NOT_TECHNICALLY_REALIZED`.
 
-`R12(h)=R12* + sum_i h_i H_i`,
+The Actions run completed successfully and produced all eight exact obstruction-map lane artifacts, but the frozen workflow contains no aggregation/reduction job and no terminal aggregate artifact. The workflow itself declares the lane outputs partial evidence that cannot terminal-classify Iter057AD independently.
 
-where `{H_i}` is a deterministic exact basis of the full right nullspace of the frozen Iter057Z `M12`. The historical canonical branch is exactly `h=0` and remains terminal FAIL.
+Therefore the frozen gate-level objects required for PASS/FAIL — complete exact `O(h)=O0+B h`, exact `rank(B)` and `rank([B|-O0])`, and any conditional branch/R14 nonlinear replay — are not durably exposed as a terminal aggregate. No partial lane science is promoted to authority.
 
-Frozen obstruction map:
+The canonical `h=0` Iter057AC FAIL remains preserved. Iter057AD BLOCKED does not establish whether the R14 obstruction persists or can be lifted across the full 1114-dimensional R12 homogeneous family.
 
-`O(h)=L14 r14(h)=O0+B h`,
+## Next bounded scientific step
 
-with complete rank-1456 Iter057AC left/Bianchi-Noether space and all 1114 branch variables. Exact affine dependence must itself be verified. The canonical point must replay the Iter057AC obstruction before any branch decision.
+No active production gate is authorized.
 
-PASS requires exact consistency of `B h=-O0`, construction of one exact branch `h*`, an unrestricted exact R14 particular on that branch, and independent full nonlinear replay through Einstein coordinate degree twelve / de Donder degree thirteen.
-
-FAIL requires exact proof `rank([B|-O0])>rank(B)` after complete 1114-direction treatment.
-
-BLOCKED applies if the complete kernel/obstruction map cannot be technically realized without changing the frozen problem. INVALID applies to canonical-history mutation, incomplete/restricted branch spaces, lower-layer refits, canonical-obstruction replay failure, numerical rank/zero, or weakened controls.
-
-## Next bounded step
-
-Implement only frozen Iter057AD. Because complete exact nullspace reconstruction, a `1456 x 1114` obstruction map and possible unrestricted `6790 x 6800` R14 solve are nontrivial, production should be placed in GitHub Actions with independent lanes and `fail-fast:false`; then stop without waiting.
+The next constructor may prospectively freeze one aggregation-only continuation that consumes exactly the eight existing Iter057AD lane artifacts and reduces them to the complete exact obstruction map and rank decision without changing any scientific criterion, branch dimension, lower-layer lock, normalization or exactness requirement. If such durable aggregation cannot be realized, preserve the BLOCKED result rather than infer a PASS/FAIL from partial lanes.
 
 Do not compute corrected Weyl3 source degree ten from the failed canonical Iter057AC seed. Do not refit R10 or earlier layers. Do not reclassify Iter057AC.
 
