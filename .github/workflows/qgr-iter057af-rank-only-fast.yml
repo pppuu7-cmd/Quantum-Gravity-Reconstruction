@@ -1,0 +1,73 @@
+name: QGR Iter057AF exact obstruction rank fast path
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057af-rank-only-fast.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  AF_SOURCE_RUN: '35118287075'
+  AF_SOURCE_HEAD: '57b8e0f61e1d77c19eca09a2bd34f48921ffc020'
+  AD_SOURCE_RUN: '35070896151'
+
+jobs:
+  rank-fast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact algebra backends
+        run: python -m pip install --disable-pip-version-check sympy python-flint
+      - name: Download frozen exact column artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057af-input/old iter057af-input/af iter057af-fast
+          download_extract() {
+            id="$1"; dest="$2"; zip="${dest}.zip"; mkdir -p "$dest"
+            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${id}/zip" -o "$zip"
+            python -m zipfile -e "$zip" "$dest"
+          }
+          download_extract 10444152126 iter057af-input/old/0
+          download_extract 10442437521 iter057af-input/old/1
+          download_extract 10442003071 iter057af-input/old/2
+          download_extract 10444770687 iter057af-input/old/3
+          download_extract 10443729361 iter057af-input/old/4
+          download_extract 10443653309 iter057af-input/old/5
+          download_extract 10443899697 iter057af-input/old/6
+          download_extract 10459975843 iter057af-input/af/0
+          download_extract 10462775594 iter057af-input/af/1
+          download_extract 10460706453 iter057af-input/af/2
+          download_extract 10461754625 iter057af-input/af/3
+      - name: Exact complete obstruction rank decision
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=code python scripts/qgr_iter057af_rank_only_aggregate.py \
+            --old-root iter057af-input/old \
+            --af-root iter057af-input/af \
+            --source-run "${AF_SOURCE_RUN}" \
+            --source-head "${AF_SOURCE_HEAD}" \
+            --output iter057af-fast/rank_decision.json
+          code=$?
+          echo "$code" > iter057af-fast/evaluator_exit_code.txt
+          cat iter057af-fast/rank_decision.json
+          exit 0
+      - name: Upload exact rank authority candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057af-exact-obstruction-rank-fast
+          path: iter057af-fast/
+          if-no-files-found: error
+          retention-days: 30
