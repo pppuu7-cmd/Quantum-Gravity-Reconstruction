@@ -1,0 +1,75 @@
+name: QGR Iter057AN second-background baseline and controls
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057an-baseline-controls.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  SOURCE_ARTIFACT_ID: '10468837671'
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Download immutable AL-R1-3 authority
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p source out
+          curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${SOURCE_ARTIFACT_ID}/zip" -o source.zip
+          python -m zipfile -e source.zip source
+      - name: Fresh second-background baseline O0
+        shell: bash
+        run: |
+          AUTH="$(find source -name '*.json' -type f | head -n1)"
+          PYTHONPATH=code python code/qgr_iter057an_second_background_worker.py --authority "$AUTH" --mode baseline --output out/baseline.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057an-baseline
+          path: out/baseline.json
+          if-no-files-found: error
+          retention-days: 30
+
+  controls:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Download immutable AL-R1-3 authority
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          New-Item -ItemType Directory -Force source,out | Out-Null
+          $h=@{Authorization="Bearer $env:GH_TOKEN";"X-GitHub-Api-Version"="2022-11-28"}
+          Invoke-WebRequest -Headers $h -Uri "https://api.github.com/repos/$env:GITHUB_REPOSITORY/actions/artifacts/$env:SOURCE_ARTIFACT_ID/zip" -OutFile source.zip
+          Expand-Archive source.zip source -Force
+      - name: Exact direct-vs-full controls 0 557 1113
+        shell: pwsh
+        run: |
+          $auth=(Get-ChildItem source -Recurse -Filter *.json | Select-Object -First 1).FullName
+          $env:PYTHONPATH='code'
+          python code/qgr_iter057an_second_background_worker.py --authority $auth --mode controls --output out/controls.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057an-direct-controls
+          path: out/controls.json
+          if-no-files-found: error
+          retention-days: 30
