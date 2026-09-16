@@ -27,3 +27,4 @@ jobs:
           name: iter057ac-tetradecic-seed-raw
           path: artifacts/iter057ac.json
           if-no-files-found: warn
+# prospective criteria unchanged; trigger-only workflow revision
