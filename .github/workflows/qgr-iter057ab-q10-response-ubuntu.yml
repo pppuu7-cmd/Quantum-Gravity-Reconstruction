@@ -1,0 +1,35 @@
+name: qgr-iter057ab-q10-response-ubuntu
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ab-q10-response-ubuntu.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-q10-response-ubuntu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Independent unreduced lower-response replay
+        run: python code/qgr_iter057ab_unreduced_lower_replay.py --out artifacts/iter057ab_unreduced_lower.json
+      - name: Exact unrestricted Q10 solve and combined replay
+        run: python code/qgr_iter057ab_onshell_q2_q4_q6_q8_q10_response.py --unreduced-lower artifacts/iter057ab_unreduced_lower.json --out artifacts/iter057ab.json
+      - name: Show classification
+        if: always()
+        shell: bash
+        run: python -c "import json; o=json.load(open('artifacts/iter057ab.json')); print(o['classification']); print(o['matrix_shape'],o['rank_M'],o['rank_augmented'],o['compatibility_nonzero_count'],o['Q10_particular_nonzero_count']); print(o['fresh_lower_degree9_gauge_residual_nonzero_count'],o['fresh_lower_degree8_field_residual_nonzero_count'],o['reduced_DG_minus_source_nonzero_component_count'],o['unreduced_DG_minus_source_nonzero_component_count'])" || true
+      - name: Upload raw exact evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ab-q10-response-ubuntu
+          path: |
+            artifacts/iter057ab_unreduced_lower.json
+            artifacts/iter057ab.json
+          if-no-files-found: error
