@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-16
-Primary front: `ITER057AD / R12 HOMOGENEOUS BRANCH TEST OF THE R14 OBSTRUCTION — TERMINAL BLOCKED`
+Primary front: `ITER057AE / FULL R12 BRANCH OBSTRUCTION AGGREGATE — TERMINAL BLOCKED`
 Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
 
 ## Canonical claim locks
@@ -13,52 +13,36 @@ Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRA
 - `beta=1`: not authorized.
 - `c6`: symbolic/unfixed; running/fitting/sign selection not authorized.
 - Finite local Taylor/symbol certificates are not open-neighborhood/global/all-orders theorems.
-- No physical Weyl3 treatment selector, strong hyperbolicity, physical ghost/stability claim, quantum unitarity, regulator removal, global interacting measure or UV completion is established.
+- G45 does not establish absolute energy positivity or quantum unitarity; G35-G37 distant roots do not authorize physical weights.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Preserved canonical authority
+## Preserved authority
 
-Iter057Z is terminal scoped PASS with durable result `bb4fa6ccbf21e2a063467a1b0839223744866995`. Its unrestricted degree-twelve complex has `shape=(4316,4550)`, rank `3436`, nullity `1114`, and left-nullity `880`. The deterministic canonical R12 particular has 469 nonzero coefficients; all 1114 homogeneous directions remained mathematically unfixed.
+Iter057Z remains terminal scoped PASS with unrestricted degree-twelve complex `shape=(4316,4550)`, rank `3436`, nullity `1114`, left-nullity `880`, and 469 nonzero coefficients in the canonical R12 particular. Iter057AB remains terminal scoped PASS. Iter057AC remains immutable terminal scientific FAIL: `shape(M14)=(6790,6800)`, `rank(M14)=5334`, `rank([M14|r])=5335`, left-nullity `1456`, nullity `1466`, with 223 exact nonzero Bianchi/Noether compatibility contractions on the canonical `h=0` path.
 
-Iter057AB remains terminal scoped PASS with durable result `08b508387d27ea0a2e4d6fe216a10d18826cfffe`. Historical FAIL/BLOCKED results remain preserved.
+## Iter057AD — preserved terminal BLOCKED
 
-## Iter057AC — terminal scientific FAIL, immutable canonical path
+Preregistration `8f53a0679692f9655e162aa1a19e45124a8dc775`; production run `35070896151`, head `041fb0046d92e5a9800dd99b0ce4e8b841242df5`; durable result `db5dd960e56d601536647c78586429cf1e617b0a`. Eight terminal lane artifacts exist, but no complete exact obstruction-map aggregate was exposed by that gate.
 
-Preregistration: `0794406a04945b6b9999361c63d9f0964519ec30`.
-Durable result: `905fc6f4fdfd06da73802c4442c746db5e6d87e6`.
+## Iter057AE — terminal BLOCKED, raw aggregate consumed
 
-Classification:
-
-`SCIENTIFIC_FAIL_ITER057AC_AFFINE_INCOMPATIBILITY`.
-
-Frozen exact evidence: unrestricted pure degree-14 space 6800; `shape(M14)=(6790,6800)`; `rank(M14)=5334`; `rank([M14|r])=5335`; left-nullity `1456`; nullity `1466`; complete Bianchi/Noether rank `1456`; 223 exact nonzero compatibility contractions. No exact R14 particular exists on the canonical `h=0` path.
-
-This result is not revised or rescued by the branch test.
-
-## Iter057AD — terminal BLOCKED
-
-Preregistration: `8f53a0679692f9655e162aa1a19e45124a8dc775`.
-Implementation: `d3131c777bde21a527c55763f767920e69c99193`.
-Production head: `041fb0046d92e5a9800dd99b0ce4e8b841242df5`.
-Actions run: `35070896151`.
-Durable result: `db5dd960e56d601536647c78586429cf1e617b0a`.
+Preregistration: `60f50bcf9002631e44e16e758a75b9bdb14b0ed3`.
+Implementation: `0ec7aa3be3e49b44790f5d0e61ed4d72e8597e11`.
+Production head: `ba262c2ee84e070167f40db9f0864803e8158473`.
+Actions run: `35101200528`.
+Aggregate job: `104810852789`.
+Terminal artifact: `10448411793`.
+Artifact digest: `sha256:9a39ec181653668e993482dc26f14964d4de90774a78191cb11fb49dbbd73eb3`.
+Durable result: `325743e5e3751d39f0260e105d348330592304df`.
 
 Classification:
 
-`BLOCKED_ITER057AD_COMPLETE_R12_HOMOGENEOUS_BRANCH_OR_R14_OBSTRUCTION_MAP_NOT_TECHNICALLY_REALIZED`.
+`BLOCKED_ITER057AE_EIGHT_LANE_TERMINAL_ARTIFACTS_DO_NOT_REALIZE_COMPLETE_EXACT_OBSTRUCTION_MAP`.
 
-The Actions run completed successfully and produced all eight exact obstruction-map lane artifacts, but the frozen workflow contains no aggregation/reduction job and no terminal aggregate artifact. The workflow itself declares the lane outputs partial evidence that cannot terminal-classify Iter057AD independently.
-
-Therefore the frozen gate-level objects required for PASS/FAIL — complete exact `O(h)=O0+B h`, exact `rank(B)` and `rank([B|-O0])`, and any conditional branch/R14 nonlinear replay — are not durably exposed as a terminal aggregate. No partial lane science is promoted to authority.
-
-The canonical `h=0` Iter057AC FAIL remains preserved. Iter057AD BLOCKED does not establish whether the R14 obstruction persists or can be lifted across the full 1114-dimensional R12 homogeneous family.
+Raw aggregate evidence identifies the exact blocker: source artifact `10440479824` (`iter057ad-obstruction-7`, digest `sha256:627deac71dab731547a14b8ee0dec1d79e7b63d94947702a8cd277bb63bcc585`) does not expose exact canonical `O0` plus its obstruction-column block. Hence the complete frozen `1456 x 1114` object `O(h)=O0+B h` cannot be reconstructed from the eight frozen artifacts; exact `rank(B)`, `rank([B|-O0])`, and any branch witness remain unknown. No partial-lane PASS/FAIL is promoted to authority.
 
 ## Next bounded scientific step
 
-No active production gate is authorized.
-
-The next constructor may prospectively freeze one aggregation-only continuation that consumes exactly the eight existing Iter057AD lane artifacts and reduces them to the complete exact obstruction map and rank decision without changing any scientific criterion, branch dimension, lower-layer lock, normalization or exactness requirement. If such durable aggregation cannot be realized, preserve the BLOCKED result rather than infer a PASS/FAIL from partial lanes.
-
-Do not compute corrected Weyl3 source degree ten from the failed canonical Iter057AC seed. Do not refit R10 or earlier layers. Do not reclassify Iter057AC.
+No active production gate is authorized. Iter057AE explicitly forbids rerunning or repairing an Iter057AD lane inside that gate. A continuation may only be opened by a new prospective preregistration that preserves the original Iter057AD basis/order, lane-7 range, canonical `O0`, exact arithmetic and scientific criteria, computes only the missing exact lane-7 payload, freezes the seven already usable artifacts as immutable inputs, and then aggregates the complete map. No third repetitive symmetry reduction and no corrected Weyl3 source degree ten from the failed canonical Iter057AC seed.
 
 `c6` remains symbolic/unfixed; `beta=1` remains unauthorized; finite certificate != theorem; classical != quantum; diagnostic != closure; theory established remains `0%`.
