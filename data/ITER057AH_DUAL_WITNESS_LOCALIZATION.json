@@ -1,0 +1,47 @@
+{
+  "gate": "ITER057AH-EXACT-DUAL-WITNESS-LOCALIZATION-AND-FACTORIZATION",
+  "preregistration_commit": "9b55fb87f89456bb04d325c534cde025fcb9ad2e",
+  "implementation_commit": "d93b3d3d19309b38c88ff4cd6e24af3ffb51ef4e",
+  "production_head": "0945a9d6b5a1ae07cb60e11c20fc28b34d4e46c0",
+  "actions_run": 35135590952,
+  "job": 104927026773,
+  "artifact": 10462769190,
+  "artifact_digest": "sha256:ef06b9673ebf0de3d78c8dea8a773194811e7624e857ba34c97b4cf7ae57b5ea",
+  "scientific_payload_sha256": "8e7c74aa9d5c154f5be7fb8bcc8f0db8937e5a605d983ea20bf9fad067b9d661",
+  "classification": "PASS_SCOPED_ITER057AH_EXACT_DUAL_WITNESS_LOCALIZED_AND_FACTORIZED_WITH_ORIGINAL_SYSTEM_ACCOUNTING",
+  "ag_scientific_payload_sha256": "5ecb962af9a1265a8846a6d8de4cd0885c2b53bea630a5729a8c069aae9fd9da",
+  "y_b_support": [0],
+  "y_nonzero_count": 56,
+  "y_parity_support": [[1,0,0,0]],
+  "Y_nonzero_term_counts": [56,0,0,0],
+  "Y0_primitive_scale": "457763671875/46315224704",
+  "Y0_factorized": "457763671875*t*(-1386*t**10 + 315*t**8*x**2 + 315*t**8*y**2 + 315*t**8*z**2 - 140*t**6*x**4 - 84*t**6*x**2*y**2 - 84*t**6*x**2*z**2 - 140*t**6*y**4 - 84*t**6*y**2*z**2 - 140*t**6*z**4 + 105*t**4*x**6 + 45*t**4*x**4*y**2 + 45*t**4*x**4*z**2 + 45*t**4*x**2*y**4 + 27*t**4*x**2*y**2*z**2 + 45*t**4*x**2*z**4 + 105*t**4*y**6 + 45*t**4*y**4*z**2 + 45*t**4*y**2*z**4 + 105*t**4*z**6 - 126*t**2*x**8 - 42*t**2*x**6*y**2 - 42*t**2*x**6*z**2 - 30*t**2*x**4*y**4 - 18*t**2*x**4*y**2*z**2 - 30*t**2*x**4*z**4 - 42*t**2*x**2*y**6 - 18*t**2*x**4*y**2*z**2 - 18*t**2*x**2*y**2*z**4 - 42*t**2*x**2*z**6 - 126*t**2*y**8 - 42*t**2*y**6*z**2 - 30*t**2*y**4*z**4 - 42*t**2*y**2*z**6 - 126*t**2*z**8 + 231*x**10 + 63*x**8*y**2 + 63*x**8*z**2 + 35*x**6*y**4 + 21*x**6*y**2*z**2 + 35*x**6*z**4 + 35*x**4*y**6 + 15*x**4*y**4*z**2 + 15*x**4*y**2*z**4 + 35*x**4*z**6 + 63*x**2*y**8 + 21*x**2*y**6*z**2 + 15*x**2*y**4*z**4 + 21*x**2*y**2*z**6 + 63*x**2*z**8 + 231*y**10 + 63*y**8*z**2 + 35*y**6*z**4 + 35*y**4*z**6 + 63*y**2*z**8 + 231*z**10)/46315224704",
+  "spatial_permutation_stabilizer": [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]],
+  "spatial_stabilizer_order": 6,
+  "w_nonzero_count": 308,
+  "w_group_by_type": {
+    "G": {"support_count": 84, "contribution": "0"},
+    "F": {"support_count": 224, "contribution": "1"}
+  },
+  "w_group_by_component": {
+    "G:0": {"support_count": 84, "contribution": "0"},
+    "F:00": {"support_count": 56, "contribution": "-565221982/3256539237"},
+    "F:01": {"support_count": 56, "contribution": "1765158751/6513078474"},
+    "F:02": {"support_count": 56, "contribution": "1765158751/6513078474"},
+    "F:03": {"support_count": 56, "contribution": "685534156/1085513079"}
+  },
+  "w_group_by_parity": {
+    "G:1000": {"support_count": 84, "contribution": "0"},
+    "F:0000": {"support_count": 56, "contribution": "-565221982/3256539237"},
+    "F:1100": {"support_count": 56, "contribution": "1765158751/6513078474"},
+    "F:1010": {"support_count": 56, "contribution": "1765158751/6513078474"},
+    "F:1001": {"support_count": 56, "contribution": "685534156/1085513079"}
+  },
+  "BT_y_nonzero_count": 0,
+  "O0T_y": "1",
+  "wT_M14_nonzero_count": 0,
+  "wT_r0": "1",
+  "w_contribution_total": "1",
+  "all_controls": true,
+  "scope": "exact localization/factorization of the frozen finite local Iter057AG certificate only; no new branch or global/all-orders/quantum claim"
+}
