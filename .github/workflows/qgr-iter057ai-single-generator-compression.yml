@@ -1,0 +1,33 @@
+name: QGR Iter057AI single-generator exact compression
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ai-single-generator-compression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact algebra backends
+        run: python -m pip install --disable-pip-version-check sympy python-flint
+      - name: Reconstruct and verify single-generator certificate
+        run: |
+          PYTHONPATH=code:scripts python scripts/qgr_iter057ai_single_generator_compression.py --output artifacts/iter057ai.json
+      - name: Upload exact compression authority candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ai-single-generator-compression
+          path: artifacts/iter057ai.json
+          if-no-files-found: error
+          retention-days: 30
