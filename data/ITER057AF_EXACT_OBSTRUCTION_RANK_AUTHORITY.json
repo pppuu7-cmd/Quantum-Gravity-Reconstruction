@@ -1,0 +1,30 @@
+{
+  "gate": "ITER057AF-LANE7-EXACT-PAYLOAD-COMPLETION-AND-FULL-OBSTRUCTION-RANK-DECISION",
+  "preregistration_commit": "564b3c18b3cf3391a72287138007aa23ebdc37b0",
+  "frozen_evaluator_head": "57b8e0f61e1d77c19eca09a2bd34f48921ffc020",
+  "shard_run": 35118287075,
+  "shards": [
+    {"slot":0,"range":[973,1009],"job":104869224210,"artifact":10459975843,"artifact_digest":"sha256:ba390a87e432dd2a14e1390198e8f79e15170961bcf69942b8992b77f09d488c","scientific_payload_sha256":"2d74fc40e4bec4ea79d9123c08158c76ec9c4f62cfb330ccfddde2f41a55d4ae","historical_lane7_mismatch_count":0},
+    {"slot":1,"range":[1009,1044],"job":104869223437,"artifact":10462775594,"artifact_digest":"sha256:fe9502483e3badd569c386ac05c47dd81a0da58d1ba9b07296189660b0355112","scientific_payload_sha256":"13053e8b962855952a616e803267b8708454fd73f260139ad06c8bde75f4bff9","historical_lane7_mismatch_count":0},
+    {"slot":2,"range":[1044,1079],"job":104869223327,"artifact":10460706453,"artifact_digest":"sha256:0f3ffd14506d47dedd79b535962f5ef2e53e8b2e15da125660a794d24b7a51b5","scientific_payload_sha256":"36bffa55dce2d616e8269c7a703e3b2fb9251168dd607692b47cd2711af1ed2b","historical_lane7_mismatch_count":0},
+    {"slot":3,"range":[1079,1114],"job":104869222812,"artifact":10461754625,"artifact_digest":"sha256:2119642c2a7cdfe0b0aa023fae06e4792a1aae5d0a9dde32398c6e1b3db30840","scientific_payload_sha256":"2e4944392f0f4ed03d2cd812549e3c63c35fa79b1902277370fe6214a0951942","historical_lane7_mismatch_count":0}
+  ],
+  "rank_evaluator_implementation_commit": "f11c3a8460a0d21307af1c56a1e2fdb3ef54d329",
+  "rank_evaluator_workflow_head": "f56832558452631d2dd3b677c8c0149f33902ab9",
+  "rank_evaluator_run": 35134013268,
+  "rank_evaluator_artifact": 10462271546,
+  "rank_evaluator_artifact_digest": "sha256:afb1fc3fd3c5f2d664e59b855f3ba3d5fd7155af8b9670bf3724d3bcf2a76074",
+  "scientific_payload_sha256": "70c7129b578489890e234e34ff6dbc483a6d13839379b03e94f2ae1ae717667a",
+  "B_shape": [1456,1114],
+  "B_nnz": 80982,
+  "rank_B": 1110,
+  "rank_augmented_B_minus_O0": 1111,
+  "canonical_obstruction_nonzero_count": 223,
+  "complete_unique_coverage": true,
+  "lane_payload_controls_ok": true,
+  "L14_annihilates_M14": true,
+  "canonical_lower_authority_ok": true,
+  "canonical_inverse_ok": true,
+  "classification": "SCIENTIFIC_FAIL_ITER057AF_COMPLETE_EXACT_R12_HOMOGENEOUS_FREEDOM_CANNOT_REMOVE_R14_BIANCHI_NOETHER_OBSTRUCTION",
+  "scope": "finite local exact branch-obstruction certificate at the frozen Iter057AD/AF jet orders only; no all-orders/global/quantum conclusion"
+}
