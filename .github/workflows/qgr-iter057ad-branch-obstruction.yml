@@ -1,0 +1,44 @@
+name: qgr-iter057ad-branch-obstruction
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ad-branch-obstruction.yml'
+  workflow_dispatch:
+jobs:
+  obstruction-lanes:
+    strategy:
+      fail-fast: false
+      matrix:
+        lane:
+          - '0:139'
+          - '139:278'
+          - '278:417'
+          - '417:556'
+          - '556:695'
+          - '695:834'
+          - '834:973'
+          - '973:1114'
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'sympy==1.14.0'
+      - name: Exact Iter057AD obstruction-map lane
+        shell: bash
+        run: |
+          IFS=: read START STOP <<< '${{ matrix.lane }}'
+          PYTHONPATH=code python code/qgr_iter057ad_branch_obstruction.py --start "$START" --stop "$STOP" --out "artifacts/iter057ad-${START}-${STOP}.json"
+      - name: Show raw lane payload
+        if: always()
+        run: cat artifacts/iter057ad-*.json || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ad-obstruction-${{ strategy.job-index }}
+          path: artifacts/iter057ad-*.json
+          if-no-files-found: warn
+# Frozen scientific criteria remain preregistration 8f53a0679692f9655e162aa1a19e45124a8dc775.
+# Lane outputs are partial evidence only and cannot terminal-classify Iter057AD independently.
