@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-16
-Primary front: `ITER057AC / TETRADECIC EINSTEIN-SEED COMPLETION — PROSPECTIVELY PREREGISTERED`
+Primary front: `POST-ITER057AC / NEXT-GATE SELECTION AFTER EXACT AFFINE INCOMPATIBILITY`
 Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
 
 ## Canonical claim locks
@@ -30,35 +30,45 @@ Classification:
 
 Historical FAIL/BLOCKED results remain preserved. Supplemental Windows run `35049902680` failed and is not scientific evidence for or against Iter057AB; successful cross-platform reproduction is not claimed.
 
-## Active Iter057AC gate
+## Iter057AC — terminal scientific FAIL
 
 Preregistration: `0794406a04945b6b9999361c63d9f0964519ec30`.
-Gate: `ITER057AC-TETRADECIC-EINSTEIN-SEED-COMPLETION`.
-Implementation: none yet.
-Actions run: none yet.
-Terminal classification: none.
+Implementation: `347e7d192474920d8b8175f398cc9f96950e8141`.
+Production head: `a8099947ad820bf2d73ffceb51002f7404014adb`.
+Actions run: `35061341576` (`failure`).
+Artifact: `10432886109`.
+Artifact digest: `sha256:e098328d29047ac59d0b9c5b844ead4843b89c67b957c598a2f508616dd8e718`.
+Scientific payload digest: `sha256:b4efb19479e0ef427e9fec332a98b4679a2cc75c9a7bdcd0c6343eb2dd80f4cc`.
+Durable result: `905fc6f4fdfd06da73802c4442c746db5e6d87e6`.
+Recovery state update: `daa73d8d6b0da31654e3349234a5783445d23c28`.
 
-Frozen problem:
+Classification:
 
-- immutable lower canonical layers through terminal Iter057AB;
-- completely unrestricted pure degree-14 symmetric metric jet `R14`;
-- `C(17,3)=680` monomials x 10 symmetric components = `6800` exact rational unknowns;
-- frozen affine system `6790 x 6800` from 2240 degree-13 gauge rows plus 4550 degree-12 Einstein rows;
-- frozen structural targets: rank `5334`, left-nullity `1456`, nullity `1466`;
-- fresh exact nonlinear degree-12 Einstein residual and degree-13 gauge residual must be computed directly from the canonical lower seed;
-- complete canonical Bianchi/Noether left-null family must have exact rank `1456`, and all `1456` affine compatibility contractions must vanish for PASS;
-- PASS additionally requires `rank([M|r])=rank(M)=5334`, one deterministic normalized exact rational R14 particular solution, persisted complete coefficient map/digest, and independent unreduced nonlinear replay with gauge zero through degree 13 and all ten Einstein components zero through degree 12;
-- no restricted ansatz, numerical rank/zero decision, post-hoc threshold change, lower-layer refit, fixed/fitted `c6`, or `beta=1` is authorized.
+`SCIENTIFIC_FAIL_ITER057AC_AFFINE_INCOMPATIBILITY`.
 
-Frozen classifications:
+Frozen exact evidence:
 
-- PASS: `PASS_SCOPED_ITER057AC_TETRADECIC_EINSTEIN_SEED_COMPLETION_EXACT_THROUGH_DEGREE12` only if every structural, compatibility, solve, provenance and independent-replay control passes exactly.
-- FAIL: exact affine incompatibility or nonzero independent replay, with contradiction witness preserved.
-- BLOCKED: resource/implementation inability without weakening the frozen problem.
-- INVALID: authority mutation, post-hoc threshold changes, restricted ansatz, numerical classification, or fitting lower layers.
+- unrestricted pure degree-14 symmetric metric jet: 6800 rational unknowns;
+- exact affine matrix: `6790 x 6800`;
+- `rank(M)=5334`;
+- `rank([M|r])=5335`;
+- left-nullity `1456`, nullity `1466`;
+- complete canonical Bianchi/Noether family rank `1456`;
+- `223` affine compatibility contractions are exactly nonzero;
+- no exact R14 particular solution exists in the frozen system;
+- lower authority and inverse controls pass;
+- full de Donder nonzero count is `0` but all ten Einstein components remain nonzero in the terminal replay.
+
+This is the prospectively frozen scientific-FAIL condition. It is not BLOCKED and not INVALID. No lower canonical layer, threshold, ansatz or normalization is changed to rescue it.
+
+## Consequence
+
+The canonical lower seed cannot be extended by the frozen unrestricted single pure degree-14 jet while holding all lower canonical layers fixed. Corrected Weyl3 source degree ten is therefore **not authorized** from this failed seed-extension path.
+
+This finite local failure is not a theorem excluding other explicitly branched seed constructions, nonlocal/global constructions, or quantum completion.
 
 ## Next bounded step
 
-Implement the frozen Iter057AC exact construction without changing criteria. Because the `6790 x 6800` exact nonlinear/affine computation is nontrivial, production should run in GitHub Actions with independent lanes and `fail-fast:false`; once launched, stop without waiting. Do not compute corrected Weyl3 source degree ten before a durable Iter057AC PASS.
+There is no active production gate. The next constructor may choose exactly one highest-information non-rescue gate and must preregister it before substantive evidence. Admissible directions are an explicitly branched alternative seed construction that does not mutate the failed canonical history, or the quantum amplitude/measure closure front if it is technically mature. Do not rerun Iter057AC unchanged, refit lower layers, weaken exact controls, or compute Weyl3 source degree ten from the failed seed.
 
-A future finite-order PASS remains only another local Taylor certificate. It does not establish convergence/all-orders existence, an open-neighborhood/global solution, quantum gravity, new physics or experimental confirmation.
+`c6` remains symbolic/unfixed; `beta=1` remains unauthorized; finite certificate != theorem; classical != quantum; diagnostic != closure; theory established remains `0%`.
