@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/qgr-iter057ab-q10-response-windows.yml'
+      - 'code/qgr_iter057ab_onshell_q2_q4_q6_q8_q10_response.py'
   workflow_dispatch:
 permissions:
   contents: read
