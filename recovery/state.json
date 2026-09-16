@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-16",
-    "iteration": "ITER057AC_TETRADECIC_EINSTEIN_SEED_COMPLETION",
+    "iteration": "ITER057AD_R12_HOMOGENEOUS_BRANCH_R14_OBSTRUCTION_LIFT",
     "phase": "ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRAMME"
   },
   "readiness": {
@@ -16,12 +16,12 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "0794406a04945b6b9999361c63d9f0964519ec30",
+    "latest_preregistration_commit": "8f53a0679692f9655e162aa1a19e45124a8dc775",
     "latest_terminal_result_commit": "905fc6f4fdfd06da73802c4442c746db5e6d87e6",
-    "latest_active_gate": null,
-    "active_gate_status": "NONE__ITER057AC_TERMINAL_SCIENTIFIC_FAIL_CONSUMED",
-    "active_implementation_commit": "347e7d192474920d8b8175f398cc9f96950e8141",
-    "active_production_head": "a8099947ad820bf2d73ffceb51002f7404014adb",
+    "latest_active_gate": "ITER057AD-R12-HOMOGENEOUS-BRANCH-R14-OBSTRUCTION-LIFT",
+    "active_gate_status": "PROSPECTIVELY_FROZEN__IMPLEMENTATION_NOT_STARTED",
+    "active_implementation_commit": null,
+    "active_production_head": null,
     "active_actions_run": null,
     "active_job": null,
     "last_terminal_production_actions_run": 35061341576,
@@ -46,7 +46,16 @@
     "iter057w": {"status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"90b4a8d0512bffa70c488111a71e78690368c009","canonical_R10_data_commit":"e8982c84cc3b4baa0ca40ed8ff7876164b728880"},
     "iter057x": {"status":"TERMINAL_PASS_EXACT_DOUBLE_REPRODUCED","durable_result_commit":"4ab5592cfc6ef5fb69d3a96fa4433ef22d51af8b","canonical_degree6_source_commit":"a1c5a3ef9a87b16653f36617dd501cb72096e357"},
     "iter057y": {"status":"TERMINAL_PASS_EXACT_TRIPLE_REPRODUCED","durable_result_commit":"cb2758238daba9ecf9c86e01e171f6c6d31c72b9","canonical_Q8_data_commit":"adae8b521958573e74bcbe02678cbfd3a9599687"},
-    "iter057z": {"status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"bb4fa6ccbf21e2a063467a1b0839223744866995"},
+    "iter057z": {
+      "status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit":"bb4fa6ccbf21e2a063467a1b0839223744866995",
+      "canonical_R12_data_commit":"5bfe62e887dd627c76c41080187eadc3d95e0c45",
+      "matrix_shape":[4316,4550],
+      "rank":3436,
+      "left_nullity":880,
+      "nullity":1114,
+      "particular_nonzero_count":469
+    },
     "iter057aa": {"status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"2c84ddcb5dd22cfe06cd3a1a273b4a0e141b605e","canonical_degree8_source_commit":"1c9235cd89deafab5c2d6c2daea794e0a1d2f5dd"},
     "iter057ab": {
       "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
@@ -97,14 +106,25 @@
       "inverse_after_ok": true,
       "final_full_deDonder_nonzero_count": 0,
       "final_einstein_nonzero_count": 10
+    },
+    "iter057ad": {
+      "status": "ACTIVE_PROSPECTIVELY_PREREGISTERED",
+      "preregistration_commit": "8f53a0679692f9655e162aa1a19e45124a8dc775",
+      "branch_parent": "ITER057Z_COMPLETE_R12_HOMOGENEOUS_FAMILY",
+      "canonical_fail_preserved": "SCIENTIFIC_FAIL_ITER057AC_AFFINE_INCOMPATIBILITY",
+      "R12_homogeneous_dimension": 1114,
+      "R14_matrix_shape": [6790,6800],
+      "R14_left_nullity": 1456,
+      "active_actions_run": null,
+      "terminal_classification": null
     }
   },
   "active_question": {
-    "id": "POST-ITER057AC-NEXT-GATE-SELECTION",
-    "text": "After the exact terminal Iter057AC affine incompatibility, select a prospectively frozen non-rescue next gate without mutating the canonical lower layers or treating a finite local failure as a global theorem."
+    "id": "ITER057AD-R12-HOMOGENEOUS-BRANCH-R14-OBSTRUCTION-LIFT",
+    "text": "Does the Iter057AC R14 compatibility obstruction persist across the complete exact 1114-dimensional homogeneous R12 family left unfixed by Iter057Z, with all lower layers through R10 unchanged?"
   },
-  "active_blocker": "Iter057AC is terminal SCIENTIFIC_FAIL: rank([M|r])=5335 exceeds rank(M)=5334 and 223 exact Bianchi/Noether compatibility contractions are nonzero. The canonical lower seed cannot be extended by the frozen unrestricted pure degree-14 jet while lower layers remain fixed.",
-  "next_gate_lock": "Do not compute corrected Weyl3 source degree ten from the failed Iter057AC seed. Do not refit lower canonical layers or alter frozen thresholds to rescue the failure. A next gate must be prospectively preregistered and scientifically independent/non-rescue; an explicitly branched alternative seed construction or the quantum amplitude/measure closure front may be considered, while preserving all historical FAIL/BLOCKED results and claim locks.",
+  "active_blocker": "Iter057AD is prospectively frozen but not implemented. The complete exact R12 right-nullspace, branch obstruction map O(h)=O0+B h, canonical Iter057AC obstruction replay, and any branch R14 solve must be realized before classification.",
+  "next_gate_lock": "Implement only frozen Iter057AD. Treat all 1114 R12 homogeneous directions, preserve the canonical h=0 Iter057AC FAIL, keep lower layers through R10 fixed, use exact arithmetic only, and require independent nonlinear replay for any PASS. Put the nontrivial computation into GitHub Actions with fail-fast:false and stop without waiting after launch.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
