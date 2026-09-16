@@ -1,7 +1,7 @@
 # QGR Current Research Front
 
 Updated: 2026-09-16
-Primary front: `ITER057Z / DODECIC EINSTEIN SEED COMPLETION — PROSPECTIVELY PREREGISTERED`
+Primary front: `ITER057AB / UNRESTRICTED O(c6) Q10 RESPONSE — TERMINAL SCOPED PASS`
 Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
 
 ## Canonical claim locks
@@ -16,38 +16,52 @@ Project phase: `ONSHELL BACKGROUND SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRA
 - No physical Weyl3 treatment selector, strong hyperbolicity, physical ghost/stability claim, quantum unitarity, regulator removal, global interacting measure or UV completion is established.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Latest consumed authority — Iter057Y terminal scoped PASS
+## Consumed background/source authority
 
-Preregistration: `e372123b622bd1bb94e641b82097687a29416f65`.
-Implementation: `98c82292885cec9a38fa400a5e08b1272104f8b8`.
-Durable result: `cb2758238daba9ecf9c86e01e171f6c6d31c72b9`.
-Canonical Q8 data: `adae8b521958573e74bcbe02678cbfd3a9599687`.
-Scientific payload SHA256: `2454262caad6a1c298b5de445f7dc4e103ab6a1b3d34d6db881b40cbd32a6062`.
-Full repository-native JSON SHA256: `de39ea547cbf92c530f30be29e2ec5b904f6d19fe64a12f2ebd3a6b9aed6120f`.
+Iter057Z is terminal scoped PASS with durable result `bb4fa6ccbf21e2a063467a1b0839223744866995`, fixing the canonical dodecic zeroth-order Einstein seed used by the next source/response gates.
 
-Classification: `PASS_SCOPED_ITER057Y_UNRESTRICTED_ONSHELL_O_C6_Q2_Q4_Q6_Q8_RESPONSE_MATCHES_CORRECTED_WEYL3_SOURCE_THROUGH_SIXTH_EVEN_ORDER__HIGHER_ORDERS_REMAIN_OPEN`.
+Iter057AA is terminal scoped PASS with durable result `2c84ddcb5dd22cfe06cd3a1a273b4a0e141b605e`; canonical corrected Weyl3 source through coordinate degree eight is `1c9235cd89deafab5c2d6c2daea794e0a1d2f5dd`.
 
-Exact unrestricted system: `1320 x 1650`, matrix nnz `5280`, rank = augmented rank = `1096`, left-nullity `224`, nullity `554`, canonical Bianchi rank `224`, actual compatibility nonzero count `0`. Fresh pre-Q8 residual counts were degree-7 gauge `79` and degree-6 field/source `140`. Canonical Q8 particular has `180` nonzero normalized coefficients. Independent full-response replay gives exact de Donder zero through degree 7 and exact reduced/unreduced `DG_g[qhat]-Shat` zero through degree 6 in all ten independent tensor components.
+Historical FAIL/BLOCKED results remain preserved.
 
-The terminal result records three exact local/repository-native evaluations agreeing on the ordered Q8 solution and controls. Supplemental GitHub Actions launched before terminalization later became terminal technical failures: Ubuntu run `35039234603`, job `104615135161`; Windows run `35039244062`, job `104615163693`. Both failed in the reproduction step before classification/artifact upload, so they produced no artifact/digest and are **not** scientific contradiction witnesses. They also cannot be counted as successful cross-platform reproductions. Their technical failure should be diagnosed separately before any future claim of Actions-level reproduction.
+## Iter057AB — terminal scoped PASS
 
-## Active gate — Iter057Z
+Preregistration: `f78b028c345faa80f1e482f6a00fb9133cb9b955`.
+Implementation: `cfdc2a96177182466eb0213720ebc182af126cb2`.
+Control-only compatibility-count fix: `342579bd071f471d55f235d19823842d38304a7d`.
+Authoritative Ubuntu production head: `8ef69240515459daad37e7e1e30aea20d38426c5`.
+Actions run: `35049895455` — terminal `success`.
+Artifact: `10429480826`.
+Digest: `sha256:f950587cb198e888938d57af8d4fc20d5a1ef0af86e2294dd8a8ed56c3a779f7`.
+Durable result: `08b508387d27ea0a2e4d6fe216a10d18826cfffe`.
 
-Preregistration: `f1c04bbfdb7848ab79708beb902ccdb315fbd5ed`.
-Status: `PROSPECTIVELY_PREREGISTERED__IMPLEMENTATION_NOT_YET_LAUNCHED`.
+Classification:
 
-Question: can the canonical Iter057W zeroth-order Einstein seed `eta+G2+R4+R6+R8+R10` be extended by a completely unrestricted pure degree-twelve trace-reversed metric jet so that exact vacuum Einstein equations vanish through coordinate degree ten while all lower seed jets remain fixed?
+`PASS_SCOPED_ITER057AB_UNRESTRICTED_ONSHELL_O_C6_Q2_Q4_Q6_Q8_Q10_RESPONSE_MATCHES_CORRECTED_WEYL3_SOURCE_THROUGH_EIGHTH_EVEN_ORDER__HIGHER_ORDERS_REMAIN_OPEN`.
 
-Frozen R12 space: all 10 symmetric components times all 455 degree-twelve four-variable multi-indices = **4550 unknowns**. Frozen principal system: de Donder degree 11 gives `1456` rows and Einstein degree 10 gives `2860` rows, total **4316 x 4550**. Complete canonical Bianchi family has **880** relations. Prospectively frozen structural targets are rank `3436`, left-nullity `880`, nullity `1114`; these do **not** imply affine consistency.
+Consumed exact evidence:
 
-PASS requires direct nonlinear degree-ten Einstein residual of the fixed canonical seed, exact `rank([M|r])=rank(M)=3436`, all 880 actual Bianchi compatibility contractions equal exact zero, an exact unrestricted R12 particular solution, preservation of every lower seed jet, and independent nonlinear inverse/connection/Ricci/scalar/Einstein replay through coordinate degree ten. Numerical rank/zero tolerance and restricted ansatzes are forbidden.
+- unrestricted affine system: `2530 x 2860`, nnz `10120`;
+- exact rank = augmented rank = `2050`;
+- left-nullity `480`, nullity `810`;
+- complete canonical Bianchi rank `480`;
+- all `480/480` actual compatibility contractions exactly zero;
+- fresh pre-Q10 residuals: degree-nine gauge `139`, degree-eight field/source `260` nonzero coefficients;
+- exact unrestricted Q10 particular: `320` nonzero normalized coefficients;
+- final full covariant de Donder residual through degree nine: zero;
+- final reduced and independent unreduced `DG_g[qhat]-Shat` through degree eight: zero in all ten independent components;
+- all frozen authority/replay controls pass exactly;
+- no numerical tolerance is used for exact-zero decisions;
+- `c6` remains `SYMBOLIC_UNFIXED_FACTORED_OUT`.
 
-No production run/job/artifact/digest exists for Iter057Z yet. Do not manufacture CI load before the exact evaluator implements all frozen obligations.
+Supplemental Windows rerun `35049902680` is terminal `failure`. It is not consumed as scientific evidence for or against Iter057AB, and no successful cross-platform reproduction claim is made.
 
-## Next execution lock
+## Next bounded scientific step
 
-Implement the exact degree-ten nonlinear residual and complete sparse `4316 x 4550` affine evaluator without changing the preregistered problem. Reuse the canonical Iter057W seed authorities exactly; do not refit R10 or lower layers. Keep sparse exact arithmetic through assembly/elimination, verify the complete rank-880 Bianchi family independently, construct an exact particular R12 only if affine compatibility passes, and then perform a separate nonlinear replay through degree ten.
+No active gate or Actions run remains authorized after terminal consumption of Iter057AB.
 
-Do not compute or trust the corrected-seed Weyl3 source coordinate-degree-eight layer before Iter057Z fixes the metric twelve-jet. Do not mutate lower canonical seed layers, restrict the R12 ansatz, or use numerical rank/zero decisions. `c6` remains symbolic/unfixed.
+The next local-series dependency is another zeroth-order Einstein seed extension: prospectively preregister the next completely unrestricted higher even metric jet needed to fix the background before any corrected Weyl3 source coordinate-degree-ten layer is computed. Freeze the exact coefficient space, nonlinear target order, complete Bianchi family, PASS/FAIL/BLOCKED/INVALID rules and independent nonlinear replay before implementation or production.
 
-A PASS would remain only one additional finite local zeroth-order Einstein seed jet. It would not establish the Weyl3 source degree eight by itself, the next `O(c6)` response, convergence/all-orders existence, an open-neighborhood/global solution, quantum gravity, new physics or experimental confirmation.
+Do **not** extrapolate source degree ten from the current dodecic seed, refit any lower canonical seed/response layer, introduce a restricted symmetry ansatz, use numerical rank/zero decisions, fix/fit `c6`, or authorize `beta=1`.
+
+A future finite-order PASS would remain only another local Taylor certificate. It would not establish convergence/all-orders existence, an open-neighborhood/global solution, quantum gravity, new physics or experimental confirmation.
