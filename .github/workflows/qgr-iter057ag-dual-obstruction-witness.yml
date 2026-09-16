@@ -1,0 +1,72 @@
+name: QGR Iter057AG exact dual obstruction witness
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ag-dual-obstruction-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  AF_SOURCE_RUN: '35118287075'
+  AF_SOURCE_HEAD: '57b8e0f61e1d77c19eca09a2bd34f48921ffc020'
+
+jobs:
+  dual-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact algebra backends
+        run: python -m pip install --disable-pip-version-check sympy python-flint
+      - name: Download frozen AF exact column authorities
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057ag-input/old iter057ag-input/af iter057ag-output
+          download_extract() {
+            id="$1"; dest="$2"; zip="${dest}.zip"; mkdir -p "$dest"
+            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${id}/zip" -o "$zip"
+            python -m zipfile -e "$zip" "$dest"
+          }
+          download_extract 10444152126 iter057ag-input/old/0
+          download_extract 10442437521 iter057ag-input/old/1
+          download_extract 10442003071 iter057ag-input/old/2
+          download_extract 10444770687 iter057ag-input/old/3
+          download_extract 10443729361 iter057ag-input/old/4
+          download_extract 10443653309 iter057ag-input/old/5
+          download_extract 10443899697 iter057ag-input/old/6
+          download_extract 10459975843 iter057ag-input/af/0
+          download_extract 10462775594 iter057ag-input/af/1
+          download_extract 10460706453 iter057ag-input/af/2
+          download_extract 10461754625 iter057ag-input/af/3
+      - name: Construct and independently verify exact dual witness
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=code:scripts python scripts/qgr_iter057ag_dual_obstruction_witness.py \
+            --old-root iter057ag-input/old \
+            --af-root iter057ag-input/af \
+            --source-run "${AF_SOURCE_RUN}" \
+            --source-head "${AF_SOURCE_HEAD}" \
+            --output iter057ag-output/dual_witness.json
+          code=$?
+          echo "$code" > iter057ag-output/evaluator_exit_code.txt
+          cat iter057ag-output/dual_witness.json
+          exit "$code"
+      - name: Upload exact dual witness authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ag-exact-dual-obstruction-witness
+          path: iter057ag-output/
+          if-no-files-found: error
+          retention-days: 30
