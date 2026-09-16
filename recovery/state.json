@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-16",
-    "iteration": "ITER057AG_EXACT_DUAL_OBSTRUCTION_WITNESS",
+    "iteration": "ITER057AJ_SYMMETRY_SECTOR_UNIQUENESS",
     "phase": "ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRAMME"
   },
   "readiness": {
@@ -16,18 +16,18 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "11dfc1e4db79ff691fe121ab38281f3532f931bf",
-    "latest_terminal_result_commit": "230690a56e5055471054d9751985f7604ec7130d",
-    "latest_active_gate": "ITER057AG-EXACT-DUAL-OBSTRUCTION-WITNESS",
-    "active_gate_status": "PROSPECTIVELY_PREREGISTERED__IMPLEMENTATION_NOT_YET_LAUNCHED",
-    "active_implementation_commit": null,
-    "active_production_head": null,
-    "active_actions_run": null,
-    "active_job": null,
-    "last_terminal_production_actions_run": 35134013268,
-    "last_terminal_production_job": 104921723340,
-    "last_terminal_production_artifact": 10462271546,
-    "last_terminal_production_artifact_digest": "sha256:afb1fc3fd3c5f2d664e59b855f3ba3d5fd7155af8b9670bf3724d3bcf2a76074"
+    "latest_preregistration_commit": "1ba092655a159dfa8dea5d9d0832346ff451dda0",
+    "latest_terminal_result_commit": "554e69fef439bd012a5a225320dfb195b78029de",
+    "latest_active_gate": "ITER057AJ-SYMMETRY-SECTOR-UNIQUENESS",
+    "active_gate_status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
+    "active_implementation_commit": "444e26abb153f4d5912ac196b45758565d4a3110",
+    "active_production_head": "698321a7dab2ce0e118466bbd20e5ff0424c008a",
+    "active_actions_run": 35140088767,
+    "active_job": 104942150184,
+    "last_terminal_production_actions_run": 35140088767,
+    "last_terminal_production_job": 104942150184,
+    "last_terminal_production_artifact": 10465106571,
+    "last_terminal_production_artifact_digest": "sha256:98ae15cf1dd9e2bc8a9180d5816a5b4896f28961a536fc2bf9bf2d9b8c440bb2"
   },
   "preserved_authority": {
     "iter049": {
@@ -40,11 +40,53 @@
       "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
       "canonical_trig_control_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
     },
-    "iter057z": {"status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"bb4fa6ccbf21e2a063467a1b0839223744866995","matrix_shape":[4316,4550],"rank":3436,"left_nullity":880,"nullity":1114,"particular_nonzero_count":469},
-    "iter057ab": {"status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"08b508387d27ea0a2e4d6fe216a10d18826cfffe","actions_run":35049895455,"artifact":10429480826,"artifact_digest":"sha256:f950587cb198e888938d57af8d4fc20d5a1ef0af86e2294dd8a8ed56c3a779f7"},
-    "iter057ac": {"status":"TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"905fc6f4fdfd06da73802c4442c746db5e6d87e6","actions_run":35061341576,"artifact":10432886109,"artifact_digest":"sha256:e098328d29047ac59d0b9c5b844ead4843b89c67b957c598a2f508616dd8e718","rank":5334,"augmented_rank":5335,"compatibility_nonzero_count":223},
-    "iter057ad": {"status":"TERMINAL_BLOCKED_EXACT_PRODUCTION_AGGREGATE_MISSING","preregistration_commit":"8f53a0679692f9655e162aa1a19e45124a8dc775","durable_result_commit":"db5dd960e56d601536647c78586429cf1e617b0a","actions_run":35070896151,"R12_homogeneous_dimension":1114,"R14_left_nullity":1456,"historical_lane7_artifact":10440479824},
-    "iter057ae": {"status":"TERMINAL_BLOCKED_EXACT_AGGREGATE_CONSUMED","preregistration_commit":"60f50bcf9002631e44e16e758a75b9bdb14b0ed3","implementation_commit":"0ec7aa3be3e49b44790f5d0e61ed4d72e8597e11","production_head":"ba262c2ee84e070167f40db9f0864803e8158473","durable_result_commit":"325743e5e3751d39f0260e105d348330592304df","actions_run":35101200528,"job":104810852789,"artifact":10448411793,"artifact_digest":"sha256:9a39ec181653668e993482dc26f14964d4de90774a78191cb11fb49dbbd73eb3","classification":"BLOCKED_ITER057AE_EIGHT_LANE_TERMINAL_ARTIFACTS_DO_NOT_REALIZE_COMPLETE_EXACT_OBSTRUCTION_MAP"},
+    "iter057z": {
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "bb4fa6ccbf21e2a063467a1b0839223744866995",
+      "matrix_shape": [4316,4550],
+      "rank": 3436,
+      "left_nullity": 880,
+      "nullity": 1114,
+      "particular_nonzero_count": 469
+    },
+    "iter057ab": {
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "08b508387d27ea0a2e4d6fe216a10d18826cfffe",
+      "actions_run": 35049895455,
+      "artifact": 10429480826,
+      "artifact_digest": "sha256:f950587cb198e888938d57af8d4fc20d5a1ef0af86e2294dd8a8ed56c3a779f7"
+    },
+    "iter057ac": {
+      "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "905fc6f4fdfd06da73802c4442c746db5e6d87e6",
+      "actions_run": 35061341576,
+      "artifact": 10432886109,
+      "artifact_digest": "sha256:e098328d29047ac59d0b9c5b844ead4843b89c67b957c598a2f508616dd8e718",
+      "rank": 5334,
+      "augmented_rank": 5335,
+      "compatibility_nonzero_count": 223
+    },
+    "iter057ad": {
+      "status": "TERMINAL_BLOCKED_EXACT_PRODUCTION_AGGREGATE_MISSING",
+      "preregistration_commit": "8f53a0679692f9655e162aa1a19e45124a8dc775",
+      "durable_result_commit": "db5dd960e56d601536647c78586429cf1e617b0a",
+      "actions_run": 35070896151,
+      "R12_homogeneous_dimension": 1114,
+      "R14_left_nullity": 1456,
+      "historical_lane7_artifact": 10440479824
+    },
+    "iter057ae": {
+      "status": "TERMINAL_BLOCKED_EXACT_AGGREGATE_CONSUMED",
+      "preregistration_commit": "60f50bcf9002631e44e16e758a75b9bdb14b0ed3",
+      "implementation_commit": "0ec7aa3be3e49b44790f5d0e61ed4d72e8597e11",
+      "production_head": "ba262c2ee84e070167f40db9f0864803e8158473",
+      "durable_result_commit": "325743e5e3751d39f0260e105d348330592304df",
+      "actions_run": 35101200528,
+      "job": 104810852789,
+      "artifact": 10448411793,
+      "artifact_digest": "sha256:9a39ec181653668e993482dc26f14964d4de90774a78191cb11fb49dbbd73eb3",
+      "classification": "BLOCKED_ITER057AE_EIGHT_LANE_TERMINAL_ARTIFACTS_DO_NOT_REALIZE_COMPLETE_EXACT_OBSTRUCTION_MAP"
+    },
     "iter057af": {
       "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED",
       "preregistration_commit": "564b3c18b3cf3391a72287138007aa23ebdc37b0",
@@ -67,14 +109,90 @@
       "lane7_reproduced_columns": 141,
       "historical_lane7_mismatch_count": 0,
       "classification": "SCIENTIFIC_FAIL_ITER057AF_COMPLETE_EXACT_R12_HOMOGENEOUS_FREEDOM_CANNOT_REMOVE_R14_BIANCHI_NOETHER_OBSTRUCTION"
+    },
+    "iter057ag": {
+      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_REPRODUCED",
+      "preregistration_commit": "11dfc1e4db79ff691fe121ab38281f3532f931bf",
+      "durable_data_commit": "79f447491834eaa67c2516d50433be619f098dd2",
+      "durable_result_commit": "057f6c9699c1e81cfe3042a711715bc65850f6e3",
+      "primary_run": 35134514563,
+      "primary_job": 104923416472,
+      "primary_artifact": 10462603134,
+      "primary_artifact_digest": "sha256:0bbb9a73aad28186c56d321802de588d803b217d644bf96c68709d2611b72425",
+      "independent_run": 35134804154,
+      "independent_job": 104924391091,
+      "independent_artifact": 10462823185,
+      "independent_artifact_digest": "sha256:5585d48124fb1525946452e9134ac4d7659ec34c98ab418d63b08e5c29f9354c",
+      "scientific_payload_sha256": "5ecb962af9a1265a8846a6d8de4cd0885c2b53bea630a5729a8c069aae9fd9da",
+      "y_nonzero_count": 56,
+      "w_nonzero_count": 308,
+      "BT_y_nonzero_count": 0,
+      "O0T_y": "1",
+      "wT_M14_nonzero_count": 0,
+      "wT_r0": "1"
+    },
+    "iter057ah": {
+      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
+      "preregistration_commit": "9b55fb87f89456bb04d325c534cde025fcb9ad2e",
+      "durable_data_commit": "e4c82732af6a0a150c5f2aa245e58a63b2d09c13",
+      "durable_result_commit": "15f95a32fe45a8602cb2fdf38a42804211277a81",
+      "actions_run": 35135590952,
+      "job": 104927026773,
+      "artifact": 10462769190,
+      "artifact_digest": "sha256:ef06b9673ebf0de3d78c8dea8a773194811e7624e857ba34c97b4cf7ae57b5ea",
+      "scientific_payload_sha256": "8e7c74aa9d5c154f5be7fb8bcc8f0db8937e5a605d983ea20bf9fad067b9d661",
+      "y_b_support": [0],
+      "y_parity_support": [[1,0,0,0]],
+      "spatial_stabilizer_order": 6
+    },
+    "iter057ai": {
+      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
+      "preregistration_commit": "0a5e142aa18ca39fabb1817bf24d0909b0b75ba5",
+      "implementation_commit": "6d7057f07446b2417cee4f05d4ae7d723c6d542c",
+      "production_head": "b9ec270fc79516872d45043943c5836e52a23020",
+      "durable_data_commit": "ae566abe0115a0616bfe20f328b0865b84110cfd",
+      "durable_result_commit": "67b3e3bb95c3d29681249d8ca469e0ee035c0a95",
+      "actions_run": 35136138670,
+      "job": 104928872735,
+      "artifact": 10462869942,
+      "artifact_digest": "sha256:cb1cea4bcebc2b116b225bf943cba6e3b2dcf985f57a18c42d9674092c179b55",
+      "scientific_payload_sha256": "7ffe4d285b366959568a1e4c6503b209710ee15044a8dd363db896c396e2fa24",
+      "Y0_nonzero_term_count": 56,
+      "w_nonzero_count": 308,
+      "wT_M14_nonzero_count": 0,
+      "wT_r0": "1",
+      "classification": "PASS_SCOPED_ITER057AI_DUAL_CERTIFICATE_COMPRESSES_TO_SINGLE_S3_SCALAR_BIANCHI_GENERATOR"
+    },
+    "iter057aj": {
+      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
+      "preregistration_commit": "1ba092655a159dfa8dea5d9d0832346ff451dda0",
+      "implementation_commit": "444e26abb153f4d5912ac196b45758565d4a3110",
+      "production_head": "698321a7dab2ce0e118466bbd20e5ff0424c008a",
+      "durable_data_commit": "bc09581da51fc9ad0e04a4cc8b1eb6a66def60dd",
+      "durable_result_commit": "554e69fef439bd012a5a225320dfb195b78029de",
+      "actions_run": 35140088767,
+      "job": 104942150184,
+      "artifact": 10465106571,
+      "artifact_digest": "sha256:98ae15cf1dd9e2bc8a9180d5816a5b4896f28961a536fc2bf9bf2d9b8c440bb2",
+      "scientific_payload_sha256": "aa628c5b328ccc4b21e69864c9de080a50814725158e0d645545c8329aa71e98",
+      "S_parity_coordinate_count": 56,
+      "rank_C_parity": 55,
+      "nullity_C_parity": 1,
+      "S3_orbit_basis_dimension": 16,
+      "rank_C_S3": 15,
+      "nullity_C_S3": 1,
+      "normalized_generator_matches_AG": true,
+      "BT_y_nonzero_count": 0,
+      "O0T_y": "1",
+      "classification": "PASS_SCOPED_ITER057AJ_S3_PARITY_SECTOR_DUAL_CERTIFICATE_UNIQUE_UP_TO_SCALE"
     }
   },
   "active_question": {
-    "id": "ITER057AG-EXACT-DUAL-OBSTRUCTION-WITNESS",
-    "text": "Can the terminal Iter057AF rank inconsistency be certified by a compact exact rational dual witness y with B^T y=0 and O0^T y=1, and by the induced original-system witness w^T=y^T L satisfying w^T M14=0 and w^T r0=1?"
+    "id": "POST-ITER057AJ-NO-ACTIVE-GATE",
+    "text": "No production gate is currently authorized. Any continuation must prospectively preregister a new scientific or structural question after terminal Iter057AJ without weakening or reinterpreting the finite-order Iter057AF obstruction certificate."
   },
-  "active_blocker": "None scientific: Iter057AF is terminal exact FAIL. Iter057AG is a prospective compact-certificate gate; implementation and production evidence do not yet exist.",
-  "next_gate_lock": "Implement only the prospectively frozen Iter057AG dual witness. Preserve the complete Iter057AF B/O0 object and ordering. No new branch, source, higher-order seed, c6 choice or basis mutation is authorized before Iter057AG is terminally consumed.",
+  "active_blocker": "None technical for Iter057AJ. The canonical finite-order Iter057AF obstruction remains a terminal scientific FAIL, compactly certified by AG and structurally localized/compressed/unique in the frozen AH/AI/AJ sector.",
+  "next_gate_lock": "NO_ACTIVE_PRODUCTION_GATE__NEXT_CONTINUATION_MUST_BE_PROSPECTIVELY_PREREGISTERED. Preserve the complete Iter057AF B/O0 authority and AG/AH/AI/AJ exact certificates. Do not promote the finite local obstruction to an all-orders/global no-go theorem, do not mutate the basis/source/background post hoc, and do not authorize c6 fixing, beta=1, new physical branch, higher-order source, or quantum/global claims without a separately preregistered gate.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
