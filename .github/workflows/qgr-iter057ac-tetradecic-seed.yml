@@ -1,0 +1,29 @@
+name: qgr-iter057ac-tetradecic-seed
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ac-tetradecic-seed.yml'
+  workflow_dispatch:
+jobs:
+  exact-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact algebra dependency
+        run: python -m pip install 'sympy==1.14.0'
+      - name: Exact unrestricted Iter057AC computation
+        run: PYTHONPATH=code python code/qgr_iter057ac_tetradecic_einstein_seed_completion.py --output artifacts/iter057ac.json
+      - name: Show raw scientific payload
+        if: always()
+        run: |
+          test -f artifacts/iter057ac.json && cat artifacts/iter057ac.json || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ac-tetradecic-seed-raw
+          path: artifacts/iter057ac.json
+          if-no-files-found: warn
