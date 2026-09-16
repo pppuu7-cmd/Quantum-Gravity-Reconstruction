@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-16",
-    "iteration": "ITER057AF_LANE7_EXACT_PAYLOAD_COMPLETION",
+    "iteration": "ITER057AG_EXACT_DUAL_OBSTRUCTION_WITNESS",
     "phase": "ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRAMME"
   },
   "readiness": {
@@ -16,19 +16,18 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "564b3c18b3cf3391a72287138007aa23ebdc37b0",
-    "latest_terminal_result_commit": "325743e5e3751d39f0260e105d348330592304df",
-    "latest_active_gate": "ITER057AF-LANE7-EXACT-PAYLOAD-COMPLETION",
-    "active_gate_status": "PRODUCTION_IN_PROGRESS_3_OF_4_SUBSHARDS_SUCCESS__COMPLETE_AGGREGATE_ARMED",
-    "active_implementation_commit": "ba801e38070733c2366d833fdfc8ea102c2b86dd",
-    "active_production_head": "57b8e0f61e1d77c19eca09a2bd34f48921ffc020",
-    "active_actions_run": 35118287075,
-    "active_job": 104869223437,
-    "active_aggregate_workflow_commit": "d2ec898d6d9430fd2e5e516caeb4e1a902c9bcd8",
-    "last_terminal_production_actions_run": 35101200528,
-    "last_terminal_production_job": 104810852789,
-    "last_terminal_production_artifact": 10448411793,
-    "last_terminal_production_artifact_digest": "sha256:9a39ec181653668e993482dc26f14964d4de90774a78191cb11fb49dbbd73eb3"
+    "latest_preregistration_commit": "11dfc1e4db79ff691fe121ab38281f3532f931bf",
+    "latest_terminal_result_commit": "230690a56e5055471054d9751985f7604ec7130d",
+    "latest_active_gate": "ITER057AG-EXACT-DUAL-OBSTRUCTION-WITNESS",
+    "active_gate_status": "PROSPECTIVELY_PREREGISTERED__IMPLEMENTATION_NOT_YET_LAUNCHED",
+    "active_implementation_commit": null,
+    "active_production_head": null,
+    "active_actions_run": null,
+    "active_job": null,
+    "last_terminal_production_actions_run": 35134013268,
+    "last_terminal_production_job": 104921723340,
+    "last_terminal_production_artifact": 10462271546,
+    "last_terminal_production_artifact_digest": "sha256:afb1fc3fd3c5f2d664e59b855f3ba3d5fd7155af8b9670bf3724d3bcf2a76074"
   },
   "preserved_authority": {
     "iter049": {
@@ -45,29 +44,37 @@
     "iter057ab": {"status":"TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"08b508387d27ea0a2e4d6fe216a10d18826cfffe","actions_run":35049895455,"artifact":10429480826,"artifact_digest":"sha256:f950587cb198e888938d57af8d4fc20d5a1ef0af86e2294dd8a8ed56c3a779f7"},
     "iter057ac": {"status":"TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED","durable_result_commit":"905fc6f4fdfd06da73802c4442c746db5e6d87e6","actions_run":35061341576,"artifact":10432886109,"artifact_digest":"sha256:e098328d29047ac59d0b9c5b844ead4843b89c67b957c598a2f508616dd8e718","rank":5334,"augmented_rank":5335,"compatibility_nonzero_count":223},
     "iter057ad": {"status":"TERMINAL_BLOCKED_EXACT_PRODUCTION_AGGREGATE_MISSING","preregistration_commit":"8f53a0679692f9655e162aa1a19e45124a8dc775","durable_result_commit":"db5dd960e56d601536647c78586429cf1e617b0a","actions_run":35070896151,"R12_homogeneous_dimension":1114,"R14_left_nullity":1456,"historical_lane7_artifact":10440479824},
-    "iter057ae": {"status":"TERMINAL_BLOCKED_EXACT_AGGREGATE_CONSUMED","preregistration_commit":"60f50bcf9002631e44e16e758a75b9bdb14b0ed3","implementation_commit":"0ec7aa3be3e49b44790f5d0e61ed4d72e8597e11","production_head":"ba262c2ee84e070167f40db9f0864803e8158473","durable_result_commit":"325743e5e3751d39f0260e105d348330592304df","actions_run":35101200528,"job":104810852789,"artifact":10448411793,"artifact_digest":"sha256:9a39ec181653668e993482dc26f14964d4de90774a78191cb11fb49dbbd73eb3","classification":"BLOCKED_ITER057AE_EIGHT_LANE_TERMINAL_ARTIFACTS_DO_NOT_REALIZE_COMPLETE_EXACT_OBSTRUCTION_MAP","nrows":1456,"ncols":1114,"blocking_source_artifact":10440479824,"blocking_source_artifact_digest":"sha256:627deac71dab731547a14b8ee0dec1d79e7b63d94947702a8cd277bb63bcc585"},
+    "iter057ae": {"status":"TERMINAL_BLOCKED_EXACT_AGGREGATE_CONSUMED","preregistration_commit":"60f50bcf9002631e44e16e758a75b9bdb14b0ed3","implementation_commit":"0ec7aa3be3e49b44790f5d0e61ed4d72e8597e11","production_head":"ba262c2ee84e070167f40db9f0864803e8158473","durable_result_commit":"325743e5e3751d39f0260e105d348330592304df","actions_run":35101200528,"job":104810852789,"artifact":10448411793,"artifact_digest":"sha256:9a39ec181653668e993482dc26f14964d4de90774a78191cb11fb49dbbd73eb3","classification":"BLOCKED_ITER057AE_EIGHT_LANE_TERMINAL_ARTIFACTS_DO_NOT_REALIZE_COMPLETE_EXACT_OBSTRUCTION_MAP"},
     "iter057af": {
-      "status": "ACTIVE_PRODUCTION_3_OF_4_SUBSHARDS_SUCCESS__AGGREGATE_ARMED",
+      "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED",
       "preregistration_commit": "564b3c18b3cf3391a72287138007aa23ebdc37b0",
       "shard_workflow_head": "57b8e0f61e1d77c19eca09a2bd34f48921ffc020",
-      "actions_run": 35118287075,
-      "completed_shards": [
-        {"slot":0,"range":[973,1009],"job":104869224210,"artifact":10459975843,"artifact_digest":"sha256:ba390a87e432dd2a14e1390198e8f79e15170961bcf69942b8992b77f09d488c","historical_lane7_mismatch_count":0},
-        {"slot":2,"range":[1044,1079],"job":104869223327,"artifact":10460706453,"artifact_digest":"sha256:0f3ffd14506d47dedd79b535962f5ef2e53e8b2e15da125660a794d24b7a51b5","historical_lane7_mismatch_count":0},
-        {"slot":3,"range":[1079,1114],"job":104869222812,"artifact":10461754625,"artifact_digest":"sha256:2119642c2a7cdfe0b0aa023fae06e4792a1aae5d0a9dde32398c6e1b3db30840","historical_lane7_mismatch_count":0}
-      ],
-      "remaining_shard": {"slot":1,"range":[1009,1044],"job":104869223437,"status":"IN_PROGRESS"},
-      "aggregate_implementation_commit": "ba801e38070733c2366d833fdfc8ea102c2b86dd",
-      "aggregate_workflow_commit": "d2ec898d6d9430fd2e5e516caeb4e1a902c9bcd8",
-      "aggregate_decision_object": "exact O(h)=O0+B h, shape 1456 x 1114; rank(B) vs rank([B|-O0]); if consistent construct h* and independently replay unrestricted R14"
+      "shard_actions_run": 35118287075,
+      "rank_implementation_commit": "f11c3a8460a0d21307af1c56a1e2fdb3ef54d329",
+      "rank_workflow_head": "f56832558452631d2dd3b677c8c0149f33902ab9",
+      "rank_actions_run": 35134013268,
+      "rank_job": 104921723340,
+      "rank_artifact": 10462271546,
+      "rank_artifact_digest": "sha256:afb1fc3fd3c5f2d664e59b855f3ba3d5fd7155af8b9670bf3724d3bcf2a76074",
+      "scientific_payload_sha256": "70c7129b578489890e234e34ff6dbc483a6d13839379b03e94f2ae1ae717667a",
+      "durable_rank_authority_commit": "cb9120f7228a6083e62f2bb51c447f97a81870c2",
+      "durable_result_commit": "230690a56e5055471054d9751985f7604ec7130d",
+      "B_shape": [1456,1114],
+      "B_nnz": 80982,
+      "rank_B": 1110,
+      "rank_augmented_B_minus_O0": 1111,
+      "canonical_obstruction_nonzero_count": 223,
+      "lane7_reproduced_columns": 141,
+      "historical_lane7_mismatch_count": 0,
+      "classification": "SCIENTIFIC_FAIL_ITER057AF_COMPLETE_EXACT_R12_HOMOGENEOUS_FREEDOM_CANNOT_REMOVE_R14_BIANCHI_NOETHER_OBSTRUCTION"
     }
   },
   "active_question": {
-    "id": "ITER057AF-COMPLETE-R12-BRANCH-OBSTRUCTION-DECISION",
-    "text": "After exact reproduction of the missing lane-7 payload, does the complete frozen 1456 x 1114 obstruction map admit an R12 homogeneous branch h* that removes the R14 compatibility obstruction, with exact unrestricted R14 replay if consistent?"
+    "id": "ITER057AG-EXACT-DUAL-OBSTRUCTION-WITNESS",
+    "text": "Can the terminal Iter057AF rank inconsistency be certified by a compact exact rational dual witness y with B^T y=0 and O0^T y=1, and by the induced original-system witness w^T=y^T L satisfying w^T M14=0 and w^T r0=1?"
   },
-  "active_blocker": "Only Iter057AF subshard 1 [1009,1044) remains in progress. Shards 0,2,3 are exact successes and match the corresponding historical lane-7 sparse columns with zero mismatches. Terminal branch classification remains locked until all four AF shards and the complete exact aggregate are consumed.",
-  "next_gate_lock": "Do not open any new scientific gate before Iter057AF complete aggregate terminalization. The aggregate must use immutable Iter057AD lanes 0..6 plus all four frozen Iter057AF subshards, recompute canonical O0 with unchanged Iter057AD semantics, verify unique coverage 0..1113, compute exact rank(B) and rank([B|-O0]), and if consistent construct h* plus unrestricted exact R14/nonlinear replay. Technical implementation failures may be fixed without changing these frozen criteria.",
+  "active_blocker": "None scientific: Iter057AF is terminal exact FAIL. Iter057AG is a prospective compact-certificate gate; implementation and production evidence do not yet exist.",
+  "next_gate_lock": "Implement only the prospectively frozen Iter057AG dual witness. Preserve the complete Iter057AF B/O0 object and ordering. No new branch, source, higher-order seed, c6 choice or basis mutation is authorized before Iter057AG is terminally consumed.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
