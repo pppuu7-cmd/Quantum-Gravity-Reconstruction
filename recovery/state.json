@@ -4,7 +4,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-16",
-    "iteration": "ITER057Z_DODECIC_EINSTEIN_SEED_COMPLETION",
+    "iteration": "ITER057AB_ONSHELL_FIRST_ORDER_Q2_Q4_Q6_Q8_Q10_RESPONSE",
     "phase": "ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRAMME"
   },
   "readiness": {
@@ -16,19 +16,19 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "f1c04bbfdb7848ab79708beb902ccdb315fbd5ed",
-    "latest_derivation_commit": "98c82292885cec9a38fa400a5e08b1272104f8b8",
-    "latest_terminal_result_commit": "cb2758238daba9ecf9c86e01e171f6c6d31c72b9",
-    "latest_active_gate": "ITER057Z-DODECIC-EINSTEIN-SEED-COMPLETION",
-    "active_gate_status": "PROSPECTIVELY_PREREGISTERED__IMPLEMENTATION_NOT_YET_LAUNCHED",
-    "active_implementation_commit": null,
-    "active_production_head": null,
+    "latest_preregistration_commit": "f78b028c345faa80f1e482f6a00fb9133cb9b955",
+    "latest_terminal_result_commit": "08b508387d27ea0a2e4d6fe216a10d18826cfffe",
+    "latest_active_gate": "ITER057AB-ONSHELL-FIRST-ORDER-Q2-Q4-Q6-Q8-Q10-RESPONSE",
+    "active_gate_status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+    "active_implementation_commit": "cfdc2a96177182466eb0213720ebc182af126cb2",
+    "active_production_head": "8ef69240515459daad37e7e1e30aea20d38426c5",
     "active_actions_run": null,
     "active_job": null,
-    "last_terminal_production_actions_run": 35034524501,
-    "last_terminal_production_job": 104600467919,
-    "last_terminal_production_artifact": 10423176041,
-    "last_terminal_production_artifact_digest": "sha256:7ac4dc88f8e6d25954e2efe34adee271e9cb1958f2d4e875d41e1974d1a49c29"
+    "last_terminal_production_actions_run": 35049895455,
+    "last_terminal_production_artifact": 10429480826,
+    "last_terminal_production_artifact_digest": "sha256:f950587cb198e888938d57af8d4fc20d5a1ef0af86e2294dd8a8ed56c3a779f7",
+    "supplemental_windows_run": 35049902680,
+    "supplemental_windows_status": "TERMINAL_FAILURE_NOT_CONSUMED_AS_SCIENTIFIC_EVIDENCE"
   },
   "recent_authority": {
     "iter057j": {
@@ -62,89 +62,71 @@
     "iter057u": {
       "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
       "durable_result_commit": "20256a1779a3f76c46fcabe9f95cd0dd8c082305",
-      "canonical_source_0_2_4_commit": "5c14dead0adcc8d85d33a96384c086953a5047c8",
-      "source_nonzero_count_by_degree": {"0": 4, "1": 0, "2": 22, "3": 0, "4": 64}
+      "canonical_source_0_2_4_commit": "5c14dead0adcc8d85d33a96384c086953a5047c8"
     },
     "iter057v": {
       "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
       "durable_result_commit": "0d98273f8a1ec6071692571518f4faec1af8fa7b",
-      "canonical_Q6_data_commit": "85b53cb708deec75f3d745ffdcebc80020761481",
-      "matrix_shape": [574, 840],
-      "rank": 494,
-      "augmented_rank": 494,
-      "left_nullity": 80,
-      "nullity": 346,
-      "Q6_particular_nonzero_count": 88
+      "canonical_Q6_data_commit": "85b53cb708deec75f3d745ffdcebc80020761481"
     },
     "iter057w": {
       "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
-      "preregistration_commit": "7e6336d195985b2059966eda64859da86c9e9d15",
-      "sparse_implementation_commit": "ad14ccd72a1a3ca75ab95acb0e294c6707b14627",
       "durable_result_commit": "90b4a8d0512bffa70c488111a71e78690368c009",
-      "canonical_R10_data_commit": "e8982c84cc3b4baa0ca40ed8ff7876164b728880",
-      "scientific_payload_sha256": "359b27d478b5b4927bc7df0c98a361f0177bba57e5550433662cd21138f75571",
+      "canonical_R10_data_commit": "e8982c84cc3b4baa0ca40ed8ff7876164b728880"
+    },
+    "iter057x": {
+      "status": "TERMINAL_PASS_EXACT_DOUBLE_REPRODUCED",
+      "durable_result_commit": "4ab5592cfc6ef5fb69d3a96fa4433ef22d51af8b",
+      "canonical_degree6_source_commit": "a1c5a3ef9a87b16653f36617dd501cb72096e357"
+    },
+    "iter057y": {
+      "status": "TERMINAL_PASS_EXACT_TRIPLE_REPRODUCED",
+      "durable_result_commit": "cb2758238daba9ecf9c86e01e171f6c6d31c72b9",
+      "canonical_Q8_data_commit": "adae8b521958573e74bcbe02678cbfd3a9599687"
+    },
+    "iter057z": {
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "bb4fa6ccbf21e2a063467a1b0839223744866995"
+    },
+    "iter057aa": {
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "durable_result_commit": "2c84ddcb5dd22cfe06cd3a1a273b4a0e141b605e",
+      "canonical_degree8_source_commit": "1c9235cd89deafab5c2d6c2daea794e0a1d2f5dd"
+    },
+    "iter057ab": {
+      "status": "TERMINAL_PASS_EXACT_PRODUCTION_CONSUMED",
+      "preregistration_commit": "f78b028c345faa80f1e482f6a00fb9133cb9b955",
+      "implementation_commit": "cfdc2a96177182466eb0213720ebc182af126cb2",
+      "control_fix_commit": "342579bd071f471d55f235d19823842d38304a7d",
+      "production_head": "8ef69240515459daad37e7e1e30aea20d38426c5",
+      "durable_result_commit": "08b508387d27ea0a2e4d6fe216a10d18826cfffe",
+      "actions_run": 35049895455,
+      "artifact": 10429480826,
+      "artifact_digest": "sha256:f950587cb198e888938d57af8d4fc20d5a1ef0af86e2294dd8a8ed56c3a779f7",
+      "classification": "PASS_SCOPED_ITER057AB_UNRESTRICTED_ONSHELL_O_C6_Q2_Q4_Q6_Q8_Q10_RESPONSE_MATCHES_CORRECTED_WEYL3_SOURCE_THROUGH_EIGHTH_EVEN_ORDER__HIGHER_ORDERS_REMAIN_OPEN",
       "matrix_shape": [2530, 2860],
+      "matrix_nnz": 10120,
       "rank": 2050,
       "augmented_rank": 2050,
       "left_nullity": 480,
       "nullity": 810,
-      "R10_particular_nonzero_count": 283
-    },
-    "iter057x": {
-      "status": "TERMINAL_PASS_EXACT_DOUBLE_REPRODUCED",
-      "preregistration_commit": "b5f88ced655c4fa409c4ccb9c27eb84054ecfad7",
-      "implementation_commit": "920b73f8430983255081b9bcd3ec6d222b737b08",
-      "payload_digest_commit": "7a8fdc92ad9bfa2a5033ef981105f7b72ca4421b",
-      "scientific_payload_sha256": "7a85a8b78e6876810ecefc6e1b37efea956caa41f26d54f4f8b9dcf16ca45249",
-      "canonical_degree6_source_commit": "a1c5a3ef9a87b16653f36617dd501cb72096e357",
-      "durable_result_commit": "4ab5592cfc6ef5fb69d3a96fa4433ef22d51af8b",
-      "source_nonzero_count_by_degree": {"0": 4, "1": 0, "2": 22, "3": 0, "4": 64, "5": 0, "6": 140},
-      "degree6_time_containing_nonzero_count": 82,
-      "degree6_offdiagonal_nonzero_count": 60
-    },
-    "iter057y": {
-      "status": "TERMINAL_PASS_EXACT_TRIPLE_REPRODUCED",
-      "preregistration_commit": "e372123b622bd1bb94e641b82097687a29416f65",
-      "implementation_commit": "98c82292885cec9a38fa400a5e08b1272104f8b8",
-      "payload_digest_commit": "55dda1ea44f912389bec6e3619b7b7c458853da8",
-      "scientific_payload_sha256": "2454262caad6a1c298b5de445f7dc4e103ab6a1b3d34d6db881b40cbd32a6062",
-      "full_json_sha256": "de39ea547cbf92c530f30be29e2ec5b904f6d19fe64a12f2ebd3a6b9aed6120f",
-      "canonical_Q8_data_commit": "adae8b521958573e74bcbe02678cbfd3a9599687",
-      "durable_result_commit": "cb2758238daba9ecf9c86e01e171f6c6d31c72b9",
-      "classification": "PASS_SCOPED_ITER057Y_UNRESTRICTED_ONSHELL_O_C6_Q2_Q4_Q6_Q8_RESPONSE_MATCHES_CORRECTED_WEYL3_SOURCE_THROUGH_SIXTH_EVEN_ORDER__HIGHER_ORDERS_REMAIN_OPEN",
-      "matrix_shape": [1320, 1650],
-      "matrix_nnz": 5280,
-      "rank": 1096,
-      "augmented_rank": 1096,
-      "left_nullity": 224,
-      "nullity": 554,
-      "bianchi_rank": 224,
+      "bianchi_rank": 480,
       "compatibility_nonzero_count": 0,
-      "fresh_degree7_gauge_residual_nonzero_count": 79,
-      "fresh_degree6_field_residual_nonzero_count": 140,
-      "Q8_particular_nonzero_count": 180,
-      "supplemental_ubuntu_actions_run": 35039234603,
-      "supplemental_ubuntu_job": 104615135161,
-      "supplemental_windows_actions_run": 35039244062,
-      "supplemental_windows_job": 104615163693,
-      "supplemental_actions_status": "QUEUED_AT_TERMINALIZATION"
-    },
-    "iter057z": {
-      "status": "ACTIVE_PROSPECTIVELY_PREREGISTERED",
-      "preregistration_commit": "f1c04bbfdb7848ab79708beb902ccdb315fbd5ed",
-      "expected_matrix_shape": [4316, 4550],
-      "expected_rank": 3436,
-      "expected_left_nullity": 880,
-      "expected_nullity": 1114,
-      "terminal_classification": null
+      "fresh_degree9_gauge_residual_nonzero_count": 139,
+      "fresh_degree8_field_residual_nonzero_count": 260,
+      "Q10_particular_nonzero_count": 320,
+      "final_full_deDonder_nonzero_count": 0,
+      "final_reduced_field_nonzero_count": 0,
+      "final_unreduced_field_nonzero_count": 0,
+      "c6_status": "SYMBOLIC_UNFIXED_FACTORED_OUT"
     }
   },
   "active_question": {
-    "id": "ITER057Z-DODECIC-EINSTEIN-SEED-COMPLETION",
-    "text": "Can the canonical Iter057W zeroth-order Einstein seed be extended by a completely unrestricted pure degree-twelve trace-reversed metric jet so that the exact vacuum Einstein tensor vanishes through coordinate degree ten while preserving all lower seed jets?"
+    "id": "POST-ITER057AB-NEXT-GATE-SELECTION",
+    "text": "After the terminal Iter057AB Q10 response PASS, prospectively freeze the next non-repetitive finite local gate. The local-series dependency requires the next zeroth-order Einstein seed jet before any corrected Weyl3 source degree-ten layer can be trusted."
   },
-  "active_blocker": "Iter057Z is prospectively frozen but not implemented. The direct nonlinear degree-ten Einstein residual, complete exact 4316x4550 unrestricted affine system, rank-880 Bianchi compatibility, exact R12 particular solution if consistent, and independent nonlinear replay through degree ten remain to be computed.",
-  "next_gate_lock": "Do not compute or trust the corrected-seed Weyl3 source coordinate-degree-eight layer before Iter057Z fixes the metric twelve-jet. Do not mutate lower canonical seed layers, restrict the R12 ansatz, or use numerical rank/zero decisions. c6 remains symbolic/unfixed.",
+  "active_blocker": "No scientific blocker at Iter057AB: the authoritative Ubuntu terminal artifact passes the frozen A-K controls. No next gate is yet preregistered.",
+  "next_gate_lock": "Do not extrapolate the corrected Weyl3 source to coordinate degree ten from the dodecic seed. Before any next production run, prospectively preregister the next unrestricted zeroth-order Einstein seed completion needed to fix the higher background jet, with exact Bianchi compatibility and independent nonlinear replay. Do not mutate lower canonical seed/response layers, use restricted ansatzes, numerical rank/zero decisions, beta=1, or fixed/fitted c6.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
