@@ -17,16 +17,16 @@
   },
   "recovery_sync": {
     "latest_preregistration_commit": "8f53a0679692f9655e162aa1a19e45124a8dc775",
-    "latest_terminal_result_commit": "905fc6f4fdfd06da73802c4442c746db5e6d87e6",
+    "latest_terminal_result_commit": "db5dd960e56d601536647c78586429cf1e617b0a",
     "latest_active_gate": "ITER057AD-R12-HOMOGENEOUS-BRANCH-R14-OBSTRUCTION-LIFT",
-    "active_gate_status": "PROSPECTIVELY_FROZEN__IMPLEMENTATION_NOT_STARTED",
-    "active_implementation_commit": null,
-    "active_production_head": null,
+    "active_gate_status": "TERMINAL_BLOCKED_AGGREGATE_NOT_REALIZED",
+    "active_implementation_commit": "d3131c777bde21a527c55763f767920e69c99193",
+    "active_production_head": "041fb0046d92e5a9800dd99b0ce4e8b841242df5",
     "active_actions_run": null,
     "active_job": null,
-    "last_terminal_production_actions_run": 35061341576,
-    "last_terminal_production_artifact": 10432886109,
-    "last_terminal_production_artifact_digest": "sha256:e098328d29047ac59d0b9c5b844ead4843b89c67b957c598a2f508616dd8e718",
+    "last_terminal_production_actions_run": 35070896151,
+    "last_terminal_production_artifact": null,
+    "last_terminal_production_artifact_digest": null,
     "supplemental_windows_run": 35049902680,
     "supplemental_windows_status": "TERMINAL_FAILURE_NOT_CONSUMED_AS_SCIENTIFIC_EVIDENCE"
   },
@@ -108,23 +108,30 @@
       "final_einstein_nonzero_count": 10
     },
     "iter057ad": {
-      "status": "ACTIVE_PROSPECTIVELY_PREREGISTERED",
+      "status": "TERMINAL_BLOCKED_EXACT_PRODUCTION_AGGREGATE_MISSING",
       "preregistration_commit": "8f53a0679692f9655e162aa1a19e45124a8dc775",
+      "implementation_commit": "d3131c777bde21a527c55763f767920e69c99193",
+      "production_head": "041fb0046d92e5a9800dd99b0ce4e8b841242df5",
+      "durable_result_commit": "db5dd960e56d601536647c78586429cf1e617b0a",
+      "actions_run": 35070896151,
+      "workflow_conclusion": "success",
       "branch_parent": "ITER057Z_COMPLETE_R12_HOMOGENEOUS_FAMILY",
       "canonical_fail_preserved": "SCIENTIFIC_FAIL_ITER057AC_AFFINE_INCOMPATIBILITY",
       "R12_homogeneous_dimension": 1114,
       "R14_matrix_shape": [6790,6800],
       "R14_left_nullity": 1456,
-      "active_actions_run": null,
-      "terminal_classification": null
+      "lane_artifacts": [10444152126,10442437521,10442003071,10444770687,10443729361,10443653309,10443899697,10440479824],
+      "terminal_aggregate_artifact": null,
+      "classification": "BLOCKED_ITER057AD_COMPLETE_R12_HOMOGENEOUS_BRANCH_OR_R14_OBSTRUCTION_MAP_NOT_TECHNICALLY_REALIZED",
+      "terminal_reason": "All eight lane artifacts exist, but the frozen workflow has no aggregation/reduction job and explicitly marks lane payloads as partial evidence; complete O(h)=O0+B h, rank(B), augmented rank, and conditional branch/R14 replay are not durably exposed."
     }
   },
   "active_question": {
-    "id": "ITER057AD-R12-HOMOGENEOUS-BRANCH-R14-OBSTRUCTION-LIFT",
-    "text": "Does the Iter057AC R14 compatibility obstruction persist across the complete exact 1114-dimensional homogeneous R12 family left unfixed by Iter057Z, with all lower layers through R10 unchanged?"
+    "id": "POST-ITER057AD-AGGREGATION-CONTINUATION",
+    "text": "Can the eight frozen Iter057AD lane artifacts be prospectively aggregated into the complete exact obstruction map and rank decision without changing the frozen scientific object or criteria?"
   },
-  "active_blocker": "Iter057AD is prospectively frozen but not implemented. The complete exact R12 right-nullspace, branch obstruction map O(h)=O0+B h, canonical Iter057AC obstruction replay, and any branch R14 solve must be realized before classification.",
-  "next_gate_lock": "Implement only frozen Iter057AD. Treat all 1114 R12 homogeneous directions, preserve the canonical h=0 Iter057AC FAIL, keep lower layers through R10 fixed, use exact arithmetic only, and require independent nonlinear replay for any PASS. Put the nontrivial computation into GitHub Actions with fail-fast:false and stop without waiting after launch.",
+  "active_blocker": "Iter057AD is terminal BLOCKED because run 35070896151 produced only partial lane artifacts and no terminal aggregate artifact; no PASS/FAIL may be inferred from partial lanes.",
+  "next_gate_lock": "No active production gate is authorized. Any continuation must be prospectively frozen as aggregation-only, consume exactly the eight existing Iter057AD lane artifacts, preserve all 1114 R12 directions, the canonical Iter057AC replay, lower-layer locks and exact arithmetic, and expose a durable aggregate before scientific classification. Do not compute corrected Weyl3 source degree ten on the failed canonical path.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
