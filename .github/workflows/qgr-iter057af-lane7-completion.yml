@@ -1,0 +1,39 @@
+name: QGR Iter057AF lane7 exact payload completion
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057af-lane7-completion.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lane7:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {start: 973, stop: 1009, shard: 0}
+          - {start: 1009, stop: 1044, shard: 1}
+          - {start: 1044, stop: 1079, shard: 2}
+          - {start: 1079, stop: 1114, shard: 3}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact algebra backend
+        run: pip install sympy
+      - name: Exact frozen lane-7 subshard
+        run: |
+          mkdir -p artifacts
+          PYTHONPATH=code python code/qgr_iter057ad_branch_obstruction.py --start ${{ matrix.start }} --stop ${{ matrix.stop }} --out artifacts/iter057af-lane7-${{ matrix.shard }}.json
+      - name: Upload exact payload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057af-lane7-${{ matrix.shard }}
+          path: artifacts/iter057af-lane7-${{ matrix.shard }}.json
+          if-no-files-found: warn
+          retention-days: 30
