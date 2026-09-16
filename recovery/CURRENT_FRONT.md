@@ -1,8 +1,8 @@
 # QGR Current Research Front
 
 Updated: 2026-09-16
-Primary front: `ITER057AJ / SYMMETRY-SECTOR UNIQUENESS — TERMINAL SCOPED PASS`
-Project phase: `ONSHELL_BACKGROUND_SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRAMME`
+Primary front: `ITER057AK / FULL DUAL-KERNEL OBSTRUCTION DECOMPOSITION — TERMINAL SCOPED PASS`
+Project phase: `ONSHELL_BACKGROUND_SEED_COMPLETION_AND_WEYL3_LOCAL_SERIES_PROGRAMME`
 
 ## Canonical claim locks
 
@@ -16,72 +16,69 @@ Project phase: `ONSHELL_BACKGROUND_SEED COMPLETION AND WEYL3 LOCAL SERIES PROGRA
 - No physical strong-hyperbolicity, ghost/stability, quantum-unitarity, regulator-removal, global-measure or UV-completion claim is established.
 - KMQGB `NEW_REQUIRED` is not authorized.
 
-## Iter057AF — preserved terminal exact scientific FAIL
+## Preserved Iter057AF obstruction authority
 
-Preregistration: `564b3c18b3cf3391a72287138007aa23ebdc37b0`.  
-Terminal result: `230690a56e5055471054d9751985f7604ec7130d`.  
-Frozen rank authority: `cb9120f7228a6083e62f2bb51c447f97a81870c2`.  
-Authoritative rank artifact: `10462271546`, digest `sha256:afb1fc3fd3c5f2d664e59b855f3ba3d5fd7155af8b9670bf3724d3bcf2a76074`.
+Preregistration `564b3c18b3cf3391a72287138007aa23ebdc37b0`; terminal result `230690a56e5055471054d9751985f7604ec7130d`; frozen rank authority `cb9120f7228a6083e62f2bb51c447f97a81870c2`.
 
-The complete frozen obstruction map has `B_shape=(1456,1114)`, `B_nnz=80982`, `rank(B)=1110`, `rank([B|-O0])=1111`, with canonical `O0` containing 223 nonzero compatibility contractions. Therefore the complete frozen 1114-dimensional R12 homogeneous family cannot remove the R14 obstruction.
+The complete frozen obstruction map has `B_shape=(1456,1114)`, `B_nnz=80982`, `rank(B)=1110`, `rank([B|-O0])=1111`, and canonical `O0` has 223 nonzero compatibility contractions. Therefore the complete frozen 1114-dimensional R12 homogeneous family cannot remove the R14 obstruction.
 
-Classification:
+Classification remains:
 
 `SCIENTIFIC_FAIL_ITER057AF_COMPLETE_EXACT_R12_HOMOGENEOUS_FREEDOM_CANNOT_REMOVE_R14_BIANCHI_NOETHER_OBSTRUCTION`.
 
-This remains a finite local jet obstruction only. Historical Iter057AD/AE BLOCKED states remain historical and are not rewritten.
+## AG → AJ structural compression lineage
 
-## Iter057AG — terminal compact exact dual certificate
+- **AG**: exact dual witness with 56 nonzero rational coordinates, `B^T y=0`, `O0^T y=1`.
+- **AH**: all witness support localized to `b=0`, parity `(1,0,0,0)`; witness polynomial is spatial-`S3` invariant.
+- **AI**: exact compression to one scalar Bianchi generator.
+- **AJ**: full 56-dimensional AH parity sector has `rank=55`, `nullity=1`; the 16-dimensional `S3` orbit-sum sector has `rank=15`, `nullity=1`; the normalized generator matches AG coefficient-by-coefficient.
 
-Terminal result: `057f6c9699c1e81cfe3042a711715bc65850f6e3`. Two independent exact production lineages agree with scientific payload SHA256 `5ecb962af9a1265a8846a6d8de4cd0885c2b53bea630a5729a8c069aae9fd9da`.
+These remain finite-local results on one frozen realization.
 
-The canonical dual witness has 56 nonzero rational coordinates and satisfies exactly
+## Iter057AK — terminal exact full dual-kernel decomposition PASS
 
-- `B^T y = 0`;
-- `O0^T y = 1`;
-- with induced `w^T=y^T L`, `w^T M14=0` and `w^T r0=1`.
+Cross-background transport was audited first and was **BLOCKED AS FORMULATION** because the repository currently contains only one independent terminal on-shell R12 seed family. Iter057AF varies that same seed's 1114-dimensional homogeneous R12 branch; Iter057L is only a first-order local jet and is not a second held-out R12 background. No background or transport map was invented post hoc.
 
-Thus the Iter057AF finite-order incompatibility has a direct exact `0=1` dual certificate.
+Preregistration: `e9f3003c7a7b2e776961f60f5e4f493c6744b146`.
+Durable authority manifest: `96a9034452adfc05bd69cfe53abe26ff4d4b23d5`.
+Terminal result: `103bed01316acf4310327bcbe9b6007bd45ce2e5`.
 
-## Iter057AH — terminal localization/factorization PASS
+Primary production:
+- implementation `825883cbafd59f77f70e0d099722aadd161cc1c4`;
+- workflow head `5567578e4005d61808c86842b40c0651dbd4f7f0`;
+- run/job `35142640910 / 104950692042`;
+- artifact `10465588751`, digest `sha256:c97883369bca6f28c8e1ef855c44082adf5b5982df5748ab6bb508756fde3a66`;
+- scientific payload SHA256 `ad9fcfa8797721503e0e1a55be510272cd7e8526dfc387e6bc230174241a7110`.
 
-Terminal result: `15f95a32fe45a8602cb2fdf38a42804211277a81`; payload SHA256 `8e7c74aa9d5c154f5be7fb8bcc8f0db8937e5a605d983ea20bf9fad067b9d661`.
+Independent integer-cleared Critic:
+- implementation `46a910087be5110ff894dca2b5a0340a63056cdc`;
+- workflow head `8349d262a8bba7d352a893c0825ad8f96fff5ecf`;
+- run/job `35144194232 / 104955965064`;
+- artifact `10467296436`, digest `sha256:667029b5d4af1e85e329eb7e59f1fed9094537cd0e6c70d9d35ac4c44e4ef9f3`;
+- scientific payload SHA256 `2f8663fe8fb70f4b8db8850b99f2f8d4141e6413479978912c5484d08b0d3ce1`.
 
-All 56 witness coordinates lie in compatibility component `b=0` and the complete degree-11 parity sector `(t,x,y,z) mod 2=(1,0,0,0)`. The scalar generating polynomial satisfies `Y1=Y2=Y3=0`, `Y0 != 0`, has exact factor `Y0=(457763671875/46315224704)*t*Q10`, and has full spatial `S3` permutation stabilizer.
+Exact new facts on the unchanged AF `B/O0` object:
 
-## Iter057AI — terminal single-generator compression PASS
+- `dim ker(B^T)=346`;
+- `dim(ker(B^T) cap O0^perp)=345`;
+- therefore the obstruction quotient is exactly **1-dimensional**;
+- the frozen `(b, beta mod 2)` partition has 32 nonempty sectors;
+- only four sectors contain support-local kernel directions, all at `b=0` with a single odd coordinate: `0001`, `0010`, `0100`, `1000`, each with sector `rank=55`, `nullity=1`;
+- exactly one support-local sector is obstruction-active: **`0:1000`**, the AH odd-time/even-spatial sector;
+- the three spatial-odd local directions pair exactly to zero with `O0`;
+- the remaining **342/346** kernel directions are genuinely cross-sector;
+- a freshly reconstructed normalized active witness satisfies exactly `B^T y=0`, `O0^T y=1` and matches AG coefficient-by-coefficient.
 
-Preregistration `0a5e142aa18ca39fabb1817bf24d0909b0b75ba5`; terminal result `67b3e3bb95c3d29681249d8ca469e0ee035c0a95`; production run `35136138670`, artifact `10462869942`; scientific payload SHA256 `7ffe4d285b366959568a1e4c6503b209710ee15044a8dd363db896c396e2fa24`.
-
-The entire induced affine-row witness is generated by the same scalar `Y0`:
-
-- `W_G,0=(1/2)*(-t^2+x^2+y^2+z^2)*Y0`, all other `W_G=0`;
-- `W_F,00=-tY0`, `W_F,01=xY0`, `W_F,02=yY0`, `W_F,03=zY0`, all other `W_F=0`.
-
-The primitive degree-10 factor compresses exactly to an `S3`-invariant polynomial `R5(u,e1,e2,e3)` with zero reduction remainder and exact back-substitution.
-
-## Iter057AJ — terminal exact uniqueness PASS
-
-Preregistration: `1ba092655a159dfa8dea5d9d0832346ff451dda0`.  
-Implementation: `444e26abb153f4d5912ac196b45758565d4a3110`.  
-Production head: `698321a7dab2ce0e118466bbd20e5ff0424c008a`.  
-Run/job: `35140088767` / `104942150184`.  
-Artifact: `10465106571`, digest `sha256:98ae15cf1dd9e2bc8a9180d5816a5b4896f28961a536fc2bf9bf2d9b8c440bb2`.  
-Scientific payload SHA256: `aa628c5b328ccc4b21e69864c9de080a50814725158e0d645545c8329aa71e98`.  
-Terminal result: `554e69fef439bd012a5a225320dfb195b78029de`.
-
-Exact restriction to the complete 56-dimensional AH parity sector gives `rank=55`, `nullity=1`. Therefore the dual certificate is already unique up to scale **before** imposing `S3`.
-
-The independently constructed 16-dimensional `S3` orbit-sum sector gives `rank=15`, `nullity=1`. Its independently reconstructed primitive kernel direction, normalized by the freshly replayed canonical `O0`, agrees coefficient-by-coefficient with the terminal Iter057AG/AI generator, with exact `B^T y=0` and `O0^T y=1`.
+The primary evaluator also found that the **full** 346-dimensional kernel is not invariant under either preregistered naive spatial `S3` row action, so no full-kernel irrep decomposition is asserted. This does not contradict the already-proved S3 invariance of the unique AH witness.
 
 Classification:
 
-`PASS_SCOPED_ITER057AJ_S3_PARITY_SECTOR_DUAL_CERTIFICATE_UNIQUE_UP_TO_SCALE`.
-
-The stronger structural observation is that spatial `S3` invariance is not selecting one certificate from a multidimensional AH parity-sector kernel: the entire frozen parity-sector kernel is already one-dimensional and its unique direction is `S3` invariant.
+`PASS_SCOPED_ITER057AK_FULL_DUAL_KERNEL_DECOMPOSITION_IDENTIFIES_UNIQUE_AH_PARITY_OBSTRUCTION_CHANNEL`.
 
 ## Next bounded step
 
-**No active production gate is authorized.** Any continuation must be prospectively preregistered after terminal Iter057AJ. It must preserve the complete Iter057AF `B/O0` object and AG/AH/AI/AJ exact certificates and may not reinterpret the finite-order obstruction as a global/all-orders theorem.
+The dominant remaining uncertainty is now explicitly **background dependence**. The highest-information next gate is to prospectively construct and validate at least one independent, source-faithful on-shell background seed family to the AF-required order from a frozen pre-outcome selection rule, with one seed held out from all basis/normalization/comparison choices. Only after that authority exists should a no-refit cross-background obstruction transport gate be run.
+
+No active production gate is currently authorized. Any continuation must preregister the independent-background construction before outcome inspection and must preserve AF/AG/AH/AI/AJ/AK exact authorities.
 
 `c6` remains symbolic/unfixed; `beta=1` remains unauthorized; finite certificate != theorem; classical != quantum; theory established remains `0%`.
