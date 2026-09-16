@@ -1,0 +1,27 @@
+name: qgr-iter057y-q8-response-reproduction-fixed
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057y-q8-response-reproduction-fixed.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-q8-response-fixed:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reproduce Iter057Y with corrected frozen-V provenance predicate
+        run: python code/qgr_iter057y_actions_reproduction_fixed.py --out artifacts/iter057y_fixed.json
+      - name: Upload raw result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057y-q8-response-fixed-ubuntu
+          path: artifacts/iter057y_fixed.json
+          if-no-files-found: error
