@@ -1,0 +1,17 @@
+name: Supersede obsolete Iter057AF aggregate runner
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-supersede-obsolete-iter057af-aggregate.yml'
+
+concurrency:
+  group: qgr-iter057af-complete-aggregate
+  cancel-in-progress: true
+
+jobs:
+  supersede:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: echo "Terminal Iter057AF authority is already frozen; superseding obsolete aggregate compute so current Iter057AK can run."
