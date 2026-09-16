@@ -1,0 +1,114 @@
+name: QGR Iter057AN complete second-background R14 map
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057an-second-background-full-map.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  AL_AUTHORITY_ARTIFACT_ID: '10468837671'
+  BASELINE_ARTIFACT_ID: '10470846229'
+  VALIDATION_ARTIFACT_ID: '10470322940'
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {id: 0, start: 0, stop: 139}
+          - {id: 1, start: 139, stop: 278}
+          - {id: 2, start: 278, stop: 417}
+          - {id: 3, start: 417, stop: 556}
+          - {id: 4, start: 556, stop: 695}
+          - {id: 5, start: 695, stop: 834}
+          - {id: 6, start: 834, stop: 973}
+          - {id: 7, start: 973, stop: 1114}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Download immutable AL-R1-3 and fixed validation authorities
+        shell: bash
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          mkdir -p authority validation shard-artifact
+          get_art(){ id="$1"; zip="$2"; dest="$3"; curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${id}/zip" -o "$zip"; python -m zipfile -e "$zip" "$dest"; }
+          get_art "$AL_AUTHORITY_ARTIFACT_ID" authority.zip authority
+          get_art "$VALIDATION_ARTIFACT_ID" validation.zip validation
+      - name: Exact no-refit map shard
+        shell: bash
+        run: |
+          AUTH="$(find authority -name '*.json' -type f | head -n1)"
+          VAL="$(find validation -name '*.json' -type f | head -n1)"
+          PYTHONPATH=code python code/qgr_iter057an_second_background_worker.py --authority "$AUTH" --mode shard --validation "$VAL" --start '${{ matrix.start }}' --stop '${{ matrix.stop }}' --output 'shard-artifact/shard-${{ matrix.id }}.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057an-shard-${{ matrix.id }}
+          path: shard-artifact/shard-${{ matrix.id }}.json
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate:
+    needs: shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check python-flint
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057an-shard-*
+          path: raw/shards
+      - name: Download immutable baseline
+        shell: bash
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          mkdir -p raw/baseline aggregate-artifact
+          curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${BASELINE_ARTIFACT_ID}/zip" -o baseline.zip
+          python -m zipfile -e baseline.zip raw/baseline
+      - run: PYTHONPATH=code python code/qgr_iter057an_second_background_aggregate.py --input-root raw --output aggregate-artifact/aggregate.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057an-primary-aggregate
+          path: aggregate-artifact/aggregate.json
+          if-no-files-found: error
+          retention-days: 30
+
+  critic:
+    needs: shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057an-shard-*
+          path: raw/shards
+      - name: Download immutable baseline
+        shell: bash
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          mkdir -p raw/baseline critic-artifact
+          curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${BASELINE_ARTIFACT_ID}/zip" -o baseline.zip
+          python -m zipfile -e baseline.zip raw/baseline
+      - run: PYTHONPATH=scripts python scripts/qgr_iter057an_modular_critic.py --input-root raw --output critic-artifact/critic.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057an-modular-critic
+          path: critic-artifact/critic.json
+          if-no-files-found: error
+          retention-days: 30
