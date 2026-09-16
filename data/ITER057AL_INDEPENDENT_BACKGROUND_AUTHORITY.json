@@ -1,0 +1,69 @@
+{
+  "candidate_controls": [
+    {
+      "candidate_id": "AL-R1-2",
+      "payload_hash_exact": true,
+      "payload_sha256": "264a23631367dae8fb5e77d133f733428cfef9e673a4cd632380d484fde205e8",
+      "primary_classification_pass": true,
+      "primary_controls_all_true": true,
+      "seed_invariant_exact": true,
+      "validator_final_exact_replay": true
+    },
+    {
+      "candidate_id": "AL-R1-3",
+      "payload_hash_exact": true,
+      "payload_sha256": "6fdf87a15d783e601c02c63b49cfd55a45b83eb258d5decf4ca1e46b5ad0141a",
+      "primary_classification_pass": true,
+      "primary_controls_all_true": true,
+      "seed_invariant_exact": true,
+      "validator_final_exact_replay": true
+    },
+    {
+      "candidate_id": "AL-R1-4",
+      "payload_hash_exact": true,
+      "payload_sha256": "5484179f3d86414918d0aed05e4c5a63dca802f4f8f1631c8259e8bf576c9fc5",
+      "primary_classification_pass": true,
+      "primary_controls_all_true": true,
+      "seed_invariant_exact": true,
+      "validator_final_exact_replay": true
+    }
+  ],
+  "classification": "PASS_SCOPED_ITER057AL_INDEPENDENT_ONSHELL_R12_BACKGROUND_AUTHORITY_ESTABLISHED",
+  "construction_training_seed": "AL-R1-2",
+  "controls": {
+    "all_candidate_payload_hashes_exact": true,
+    "all_frozen_candidate_artifacts_present_once": true,
+    "all_independent_Z_engine_replays_exact": true,
+    "all_primary_candidate_classifications_pass": true,
+    "all_primary_controls_true": true,
+    "exact_rational_only": true,
+    "held_out_selected_only_by_frozen_lexicographic_rule": true,
+    "manifest_frozen_before_candidate_implementation": true,
+    "no_R14_obstruction_or_witness_fields_consumed": true,
+    "seed_J_invariants_pairwise_and_AF_distinct": true
+  },
+  "gate": "ITER057AL-INDEPENDENT-ONSHELL-R12-BACKGROUND-AUTHORITY",
+  "held_out_firewall": "held-out assignment from frozen lexicographic seed_serialization only; no R14 quantity computed or consumed",
+  "held_out_seed": "AL-R1-4",
+  "independent_background_count": 3,
+  "independent_validator_replays": [
+    {"Einstein_through10_nonzero_count":0,"J_matches_manifest":true,"J_recomputed":"162/2197","Ricci_through10_nonzero_count":0,"candidate_id":"AL-R1-2","deDonder_through11_nonzero_count":0,"final_exact_replay":true,"inverse_through10":true,"pure_layers_and_counts":true,"scalar_through10_nonzero":false,"seed_linear_vacuum":true},
+    {"Einstein_through10_nonzero_count":0,"J_matches_manifest":true,"J_recomputed":"2025/59582","Ricci_through10_nonzero_count":0,"candidate_id":"AL-R1-3","deDonder_through11_nonzero_count":0,"final_exact_replay":true,"inverse_through10":true,"pure_layers_and_counts":true,"scalar_through10_nonzero":false,"seed_linear_vacuum":true},
+    {"Einstein_through10_nonzero_count":0,"J_matches_manifest":true,"J_recomputed":"392/20577","Ricci_through10_nonzero_count":0,"candidate_id":"AL-R1-4","deDonder_through11_nonzero_count":0,"final_exact_replay":true,"inverse_through10":true,"pure_layers_and_counts":true,"scalar_through10_nonzero":false,"seed_linear_vacuum":true}
+  ],
+  "manifest_commit": "eabf19dbf32463127bd574032742a116e18267a6",
+  "manifest_payload_sha256": "1e58ef49d36ac75efdd066f6b55ce2e48d9d8bce0307a9283ebe4483b026888f",
+  "preregistration": "c712f5034963048a8ab9a4ad812a47000a89be47",
+  "production_run": 35150321723,
+  "candidate_artifacts": {
+    "AL-R1-2": {"job":104976691359,"artifact":10468622720,"digest":"sha256:5228156631499dc69f6770ac56a44c9fed8410e24688728d541540c2d1cdef67"},
+    "AL-R1-3": {"job":104976691419,"artifact":10468837671,"digest":"sha256:53ec55e0f99dec4eac538ac369136bc8808f7a6855d01f68d7e48dc4db029d45"},
+    "AL-R1-4": {"job":104976691209,"artifact":10468978252,"digest":"sha256:93009fefb07e858cd50f335a96210d8b3405ff4cfc94dce6d50b6d7ebc809cdf"}
+  },
+  "validator_job":104976989991,
+  "validator_artifact":10468263262,
+  "validator_artifact_digest":"sha256:4251ac1295579c7a7985e199dbb9d35e5183891e0725c61a33b9bd0195c50f2c",
+  "scientific_payload_sha256": "14829afb3c694939a769eb0c6f64b334e019271d186bac3e91197ee6e7c0b86f",
+  "scope": "finite local on-shell R12 background authorities only; cross-background obstruction not tested",
+  "surviving_candidate_ids": ["AL-R1-2","AL-R1-3","AL-R1-4"]
+}
