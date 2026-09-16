@@ -1,0 +1,31 @@
+name: qgr-iter057z-dodecic-einstein-seed
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057z-dodecic-einstein-seed.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-dodecic-seed:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reproduce Iter057Z exact dodecic Einstein seed
+        run: python code/qgr_iter057z_dodecic_einstein_seed_completion.py --out artifacts/iter057z.json
+      - name: Show classification
+        if: always()
+        shell: bash
+        run: python -c "import json; o=json.load(open('artifacts/iter057z.json')); print(o['classification']); print(o['matrix_shape'],o['rank_M'],o['rank_augmented'],o['compatibility_nonzero_count'],o['particular_nonzero_count'])" || true
+      - name: Upload raw exact result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057z-dodecic-einstein-seed-ubuntu
+          path: artifacts/iter057z.json
+          if-no-files-found: error
