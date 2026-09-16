@@ -1,0 +1,232 @@
+name: QGR Iter057AE exact branch-obstruction aggregate
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ae-aggregate.yml'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: qgr-iter057ae-exact-aggregate
+  cancel-in-progress: false
+
+env:
+  SOURCE_RUN: '35070896151'
+  SOURCE_HEAD: '041fb0046d92e5a9800dd99b0ce4e8b841242df5'
+  PREREG_COMMIT: '60f50bcf9002631e44e16e758a75b9bdb14b0ed3'
+
+jobs:
+  validate-source-artifacts:
+    name: Validate frozen source artifact ${{ matrix.slot }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        slot: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SLOT: ${{ matrix.slot }}
+    steps:
+      - name: Validate one terminal Iter057AD artifact without consuming science
+        shell: bash
+        run: |
+          set -u
+          mkdir -p validation
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}" > validation/run.json
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}/artifacts?per_page=100" > validation/artifacts.json
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, sys, zipfile
+
+          slot = int(os.environ['SLOT'])
+          source_run = int(os.environ['SOURCE_RUN'])
+          source_head = os.environ['SOURCE_HEAD']
+          run = json.load(open('validation/run.json'))
+          raw = json.load(open('validation/artifacts.json'))
+          arts = sorted(raw.get('artifacts', []), key=lambda x: int(x['id']))
+          out = {
+              'slot': slot,
+              'source_run': source_run,
+              'expected_head': source_head,
+              'observed_head': run.get('head_sha'),
+              'run_status': run.get('status'),
+              'run_conclusion': run.get('conclusion'),
+              'artifact_count': len(arts),
+              'science_consumed': False,
+          }
+          if run.get('head_sha') != source_head or run.get('status') != 'completed':
+              out['valid'] = False
+              out['reason'] = 'source run/head is not the frozen terminal provenance'
+          elif slot >= len(arts):
+              out['valid'] = False
+              out['reason'] = 'missing source artifact for matrix slot'
+          else:
+              art = arts[slot]
+              out['artifact'] = {k: art.get(k) for k in ('id','name','size_in_bytes','digest','expired','created_at','updated_at')}
+              if art.get('expired'):
+                  out['valid'] = False
+                  out['reason'] = 'source artifact expired'
+              else:
+                  url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{art['id']}/zip"
+                  cmd = ['curl','-fsSL','-H',f"Authorization: Bearer {os.environ['GH_TOKEN']}",'-H','X-GitHub-Api-Version: 2022-11-28',url,'-o','validation/source.zip']
+                  cp = subprocess.run(cmd)
+                  if cp.returncode != 0:
+                      out['valid'] = False
+                      out['reason'] = 'artifact download failed'
+                  else:
+                      data = pathlib.Path('validation/source.zip').read_bytes()
+                      out['download_sha256'] = 'sha256:' + hashlib.sha256(data).hexdigest()
+                      try:
+                          with zipfile.ZipFile('validation/source.zip') as zf:
+                              bad = zf.testzip()
+                              out['zip_members'] = sorted(zf.namelist())
+                          out['valid'] = bad is None
+                          if bad is not None:
+                              out['reason'] = f'zip CRC failure at {bad}'
+                      except Exception as exc:
+                          out['valid'] = False
+                          out['reason'] = f'invalid artifact zip: {exc}'
+          pathlib.Path('validation/validation.json').write_text(json.dumps(out, indent=2, sort_keys=True) + '\n')
+          PY
+      - name: Upload provenance validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ae-validation-${{ matrix.slot }}
+          path: validation/validation.json
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate-exact-map:
+    name: Aggregate complete exact O(h)=O0+B h
+    needs: validate-source-artifacts
+    if: always()
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout frozen aggregator implementation
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Collect validation controls
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057ae-validation-*
+          path: iter057ae-output/validations
+          merge-multiple: false
+
+      - name: Freeze source-run manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057ae-output/source
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}" > iter057ae-output/run.json
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}/artifacts?per_page=100" > iter057ae-output/artifacts.json
+          python - <<'PY'
+          import json, os, pathlib
+          run = json.load(open('iter057ae-output/run.json'))
+          raw = json.load(open('iter057ae-output/artifacts.json'))
+          arts = sorted(raw.get('artifacts', []), key=lambda x: int(x['id']))
+          manifest = {
+              'run_id': int(os.environ['SOURCE_RUN']),
+              'head_sha': run.get('head_sha'),
+              'status': run.get('status'),
+              'conclusion': run.get('conclusion'),
+              'expected_head_sha': os.environ['SOURCE_HEAD'],
+              'preregistration_commit': os.environ['PREREG_COMMIT'],
+              'artifacts': [
+                  {k: a.get(k) for k in ('id','name','size_in_bytes','digest','expired','created_at','updated_at')}
+                  for a in arts
+              ],
+          }
+          pathlib.Path('iter057ae-output/source_manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n')
+          PY
+
+      - name: Download exactly the frozen terminal source artifacts
+        id: source_download
+        shell: bash
+        run: |
+          set -u
+          failed=0
+          python - <<'PY' > iter057ae-output/artifact_ids.txt
+          import json
+          m=json.load(open('iter057ae-output/source_manifest.json'))
+          for a in m.get('artifacts', []): print(a['id'])
+          PY
+          while IFS= read -r id; do
+            [ -n "$id" ] || continue
+            mkdir -p "iter057ae-output/source/artifact-${id}"
+            if ! curl -fsSL \
+                -H "Authorization: Bearer ${GH_TOKEN}" \
+                -H "X-GitHub-Api-Version: 2022-11-28" \
+                "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${id}/zip" \
+                -o "iter057ae-output/source/artifact-${id}.zip"; then
+              failed=1
+              continue
+            fi
+            if ! python -m zipfile -e \
+                "iter057ae-output/source/artifact-${id}.zip" \
+                "iter057ae-output/source/artifact-${id}"; then
+              failed=1
+            fi
+          done < iter057ae-output/artifact_ids.txt
+          echo "failed=${failed}" >> "$GITHUB_OUTPUT"
+
+      - name: Install recorded exact-arithmetic backend
+        if: steps.source_download.outputs.failed == '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check sympy python-flint
+          python - <<'PY' > iter057ae-output/backend_versions.txt
+          import sympy
+          print('sympy=' + sympy.__version__)
+          try:
+              import flint
+              print('python-flint=' + getattr(flint, '__version__', 'unknown'))
+          except Exception as exc:
+              print('python-flint-import-error=' + repr(exc))
+          PY
+
+      - name: Produce terminal exact aggregate classification
+        shell: bash
+        run: |
+          set -u
+          if [ "${{ steps.source_download.outputs.failed }}" != "0" ]; then
+            python - <<'PY'
+          import json, pathlib
+          m=json.load(open('iter057ae-output/source_manifest.json'))
+          out={
+            'gate':'ITER057AE-FULL-R12-BRANCH-OBSTRUCTION-AGGREGATE',
+            'preregistration_commit':'60f50bcf9002631e44e16e758a75b9bdb14b0ed3',
+            'source_run':35070896151,
+            'source_head':'041fb0046d92e5a9800dd99b0ce4e8b841242df5',
+            'source_artifacts':m.get('artifacts',[]),
+            'classification':'BLOCKED_ITER057AE_EIGHT_LANE_TERMINAL_ARTIFACTS_DO_NOT_REALIZE_COMPLETE_EXACT_OBSTRUCTION_MAP',
+            'reason':'one or more frozen source artifacts could not be downloaded or extracted; lane science was not recomputed',
+          }
+          pathlib.Path('iter057ae-output/terminal_aggregate.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          PY
+          else
+            python scripts/qgr_iter057ae_aggregate.py \
+              --source iter057ae-output/source \
+              --manifest iter057ae-output/source_manifest.json \
+              --output iter057ae-output/terminal_aggregate.json
+          fi
+          cat iter057ae-output/terminal_aggregate.json
+
+      - name: Upload terminal aggregate authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ae-terminal-aggregate
+          path: |
+            iter057ae-output/terminal_aggregate.json
+            iter057ae-output/source_manifest.json
+            iter057ae-output/backend_versions.txt
+            iter057ae-output/validations/
+          if-no-files-found: warn
+          retention-days: 30
