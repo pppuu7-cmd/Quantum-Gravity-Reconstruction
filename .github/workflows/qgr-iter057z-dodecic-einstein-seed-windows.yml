@@ -1,3 +1,4 @@
+# retrigger after artifact-directory I/O fix; frozen scientific solve unchanged
 name: qgr-iter057z-dodecic-einstein-seed-windows
 on:
   push:
