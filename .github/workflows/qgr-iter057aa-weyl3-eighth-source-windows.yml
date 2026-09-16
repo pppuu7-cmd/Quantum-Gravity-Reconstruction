@@ -1,0 +1,31 @@
+name: qgr-iter057aa-weyl3-eighth-source-windows
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057aa-weyl3-eighth-source-windows.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-weyl3-eighth-source-windows:
+    runs-on: windows-2025
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check sympy
+      - name: Reproduce Iter057AA exact Weyl3 eighth source
+        run: python code/qgr_iter057aa_corrected_dodecic_seed_weyl3_eighth_source_jet.py --out artifacts/iter057aa.json
+      - name: Show classification
+        if: always()
+        shell: pwsh
+        run: python -c "import json; o=json.load(open('artifacts/iter057aa.json')); print(o['classification']); print(o['source_nonzero_count_by_degree']); print(o['degree8_nonzero_count'],o['degree8_time_containing_nonzero_count'],o['degree8_offdiagonal_nonzero_count'])"
+      - name: Upload raw exact result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057aa-weyl3-eighth-source-windows
+          path: artifacts/iter057aa.json
+          if-no-files-found: error
