@@ -1,0 +1,112 @@
+{
+  "S3_diagnostics": {
+    "T_AH": {
+      "all_six_invariant_by_group_closure": false,
+      "first_failing_generator": [
+        1,
+        0,
+        2
+      ],
+      "generator_exact_invariance": {
+        "(1, 0, 2)": false,
+        "(1, 2, 0)": false
+      },
+      "irrep_decomposition": "NOT_DEFINED_NONINVARIANT",
+      "label": "T_AH"
+    },
+    "T_tensor": {
+      "all_six_invariant_by_group_closure": false,
+      "first_failing_generator": [
+        1,
+        2,
+        0
+      ],
+      "generator_exact_invariance": {
+        "(1, 0, 2)": true,
+        "(1, 2, 0)": false
+      },
+      "irrep_decomposition": "NOT_DEFINED_NONINVARIANT",
+      "label": "T_tensor"
+    }
+  },
+  "active_sector_keys": [
+    "0:1000"
+  ],
+  "authority_manifest_sha256": "75573710c51bb7af340c15032abaf2f278824ed00b9942da9a4942e842870496",
+  "claim_ceiling": "single frozen finite local Iter057AF realization only; no cross-background/open-neighborhood/global/all-orders/stability/unitarity/UV/experiment; c6 unfixed; beta=1 unauthorized; theory established 0%",
+  "classification": "PASS_SCOPED_ITER057AK_FULL_DUAL_KERNEL_DECOMPOSITION_IDENTIFIES_UNIQUE_AH_PARITY_OBSTRUCTION_CHANNEL",
+  "critic": {
+    "artifact": 10467296436,
+    "artifact_digest": "sha256:667029b5d4af1e85e329eb7e59f1fed9094537cd0e6c70d9d35ac4c44e4ef9f3",
+    "classification": "CONFIRM_SCOPED_ITER057AK_INTEGER_CLEARED_EXACT_CRITIC",
+    "job": 104955965064,
+    "run": 35144194232,
+    "scientific_payload_sha256": "2f8663fe8fb70f4b8db8850b99f2f8d4141e6413479978912c5484d08b0d3ce1"
+  },
+  "cross_background_admissibility": "BLOCKED_AS_FORMULATION_NO_SECOND_INDEPENDENT_TERMINAL_ONSHELL_R12_BACKGROUND_AUTHORITY",
+  "cross_sector_kernel_dimension": 342,
+  "diagnostic": {
+    "artifact": 10466297879,
+    "artifact_digest": "sha256:292effe3c5704b49aa101bebd5f28fb3628c8c77b0d4b7fcb189f7f0c646e739",
+    "run": 35143398301
+  },
+  "gate": "ITER057AK-FULL-DUAL-KERNEL-PARITY-SYMMETRY-OBSTRUCTION-DECOMPOSITION",
+  "global": {
+    "B_nnz": 80982,
+    "B_shape": [
+      1456,
+      1114
+    ],
+    "O0_nonzero_count": 223,
+    "kernel_O0_orthogonal_dimension": 345,
+    "kernel_dimension": 346,
+    "obstruction_quotient_dimension": 1,
+    "rank_B": 1110,
+    "rank_augmented_B_minus_O0": 1111
+  },
+  "independent_reproduction": {
+    "AG_positive_control_matches": true,
+    "all_32_sector_rank_nullity_activity_entries_match": true,
+    "both_payload_hashes_recomputed_exact": true,
+    "lane_manifest_matches": true,
+    "no_numerical_tolerance": true
+  },
+  "local_kernel_sectors": {
+    "0:0001": {
+      "active": 0,
+      "nullity": 1,
+      "rank": 55
+    },
+    "0:0010": {
+      "active": 0,
+      "nullity": 1,
+      "rank": 55
+    },
+    "0:0100": {
+      "active": 0,
+      "nullity": 1,
+      "rank": 55
+    },
+    "0:1000": {
+      "active": 1,
+      "nullity": 1,
+      "rank": 55
+    }
+  },
+  "normalized_witness": {
+    "BT_nonzero_count": 0,
+    "O0_pairing": "1",
+    "ag_coefficient_identity": true,
+    "nonzero_count": 56,
+    "system_rank": 1111
+  },
+  "preregistration": "e9f3003c7a7b2e776961f60f5e4f493c6744b146",
+  "primary": {
+    "artifact": 10465588751,
+    "artifact_digest": "sha256:c97883369bca6f28c8e1ef855c44082adf5b5982df5748ab6bb508756fde3a66",
+    "job": 104950692042,
+    "run": 35142640910,
+    "scientific_payload_sha256": "ad9fcfa8797721503e0e1a55be510272cd7e8526dfc387e6bc230174241a7110"
+  },
+  "support_local_kernel_dimension_sum": 4
+}
