@@ -5,12 +5,15 @@ This roadmap separates **protocol readiness** from **scientific passage**. Perce
 ## Current canonical programme state — 2026-09-17
 
 - Repository infrastructure: **100%**.
-- Candidate-program / research-programme infrastructure: **99%**, under the frozen A–P completion gate.
+- Candidate-program / research-programme infrastructure: **100%**.
+- Semantics: **Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.**
 - Theory established: **0%**.
 - R0-R9 `PROTOCOL_READY`: **true for every stage** through `protocol/QGR_GATE_REGISTRY.json`.
 - Scientific promotion statuses remain evidence-based: R0 governance/recovery `PASS`; R1 requirements/failure-mode programme `ACTIVE`; R2-R9 `NOT_STARTED` as formal promoted programme stages. Iter057 local scientific work does not silently promote these roadmap stages.
 
 The bootstrap-era **24%** marker is retained only as a **HISTORICAL / EXTERNAL_KMQGB** bookkeeping reference. It is not the current QGR readiness metric and is explicitly superseded for current status reporting.
+
+Programme 100 is backed by the frozen A–P contract, primary validator, independent Critic, actual synthetic QGR->KMQGB v1.3 validation, fail-closed malformed-package rejection, drift detection, dependency/history audit, 18 negative controls, deterministic programme bundle and clean-session recovery. Promotion authorization: Actions run `35181866332`, job `105075552227`, artifact `10480172555`.
 
 ## R0 — Governance and recovery
 Question: can the repository be governed, recovered and audited without chat memory? Protocol includes constitution, state/front, recovery playbook, provenance and clean-session recovery.
