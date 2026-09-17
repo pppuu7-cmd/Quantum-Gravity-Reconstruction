@@ -1,0 +1,87 @@
+name: QGR Iter057BJ Y source-convention comment-predicate repair
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057bj-y-source-convention-comment-repair.yml'
+permissions:
+  contents: read
+jobs:
+  static:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Frozen independent static adjudication
+        run: |
+          mkdir -p artifacts/iter057bj/static
+          python scripts/qgr_iter057bj_static_convention_repaired.py --repo . --output artifacts/iter057bj/static/static.json | tee artifacts/iter057bj/static/static.log
+          sha256sum artifacts/iter057bj/static/* > artifacts/iter057bj/static/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057bj-static
+          path: artifacts/iter057bj/static/
+  exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Fresh pinned AQ and exact 840-slot adjudication
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/iter057bj/exact
+          git worktree add --detach _aq c04cc004b9ef5aadcef70fd25d5129a80670335d
+          PYTHONPATH=_aq/code python _aq/code/qgr_iter057aq_degree6_causal_adjudication.py --output artifacts/iter057bj/exact/fresh-aq.json > artifacts/iter057bj/exact/fresh-aq.log 2>&1
+          python scripts/qgr_iter057bj_exact_convention_repaired.py --aq-output artifacts/iter057bj/exact/fresh-aq.json --x-source data/ITER057X_CANONICAL_SOURCE_DEGREE6.csv --at-source data/ITER057AT_CANONICAL_SOURCE_DEGREE6.csv --output artifacts/iter057bj/exact/exact.json | tee artifacts/iter057bj/exact/exact.log
+          sha256sum artifacts/iter057bj/exact/* > artifacts/iter057bj/exact/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057bj-exact
+          path: artifacts/iter057bj/exact/
+  terminal:
+    needs: [static, exact]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057bj-*
+          path: collected
+      - name: Frozen terminal classifier
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          P='6ba44dcef1ed09a1ee165d0407a184c334cdbc82'
+          def load(d,f):
+            p=Path('collected')/d/f
+            try:return json.loads(p.read_text())
+            except:return None
+          s=load('iter057bj-static','static.json');e=load('iter057bj-exact','exact.json')
+          out={'gate':'ITER057BJ_ITER057Y_SOURCE_CONVENTION_COMMENT_PREDICATE_REPAIR','preregistration_commit':P,'green_ci_alone_is_not_pass':True}
+          if not s or not e:
+            cls='BLOCKED_ITER057BJ_Y_SOURCE_CONVENTION_UNRESOLVED';reason='lane payload missing/invalid'
+          else:
+            sm=s.get('corrected_source_map');em=e.get('corrected_source_map')
+            forbidden=s.get('corrected_y_science_consumed') is not False or e.get('corrected_y_science_consumed') is not False
+            controls={'parent_prereg_exact':s.get('preregistration_commit')==e.get('preregistration_commit')==P,'static_all_controls_pass':s.get('all_controls_pass') is True,'exact_all_controls_pass':e.get('all_controls_pass') is True,'static_exact_map_agreement':sm==em and sm in {'MAP_PLUS','MAP_MINUS'},'historical_y_equation_semantics_exact':s.get('y_field_equation')=='DG_MINUS_SOURCE_EQUALS_ZERO','x_relation_exact_same_or_negative':e.get('historical_x_relation_to_ox_pl') in {'SAME','NEGATIVE'},'at_equals_fresh_ox_pf':e.get('corrected_at_relation_to_ox_pf')=='SAME','at_vector_sha_exact':e.get('at_full_840_vector_sha256')==e.get('ox_pf_degree6_vector_sha256')=='5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b'}
+            if forbidden: cls='INVALID_ITER057BJ_CORRECTED_Y_OUTCOME_LEAKAGE_HISTORY_MUTATION_OR_POSTHOC_MAP';reason='outcome leakage detected'
+            elif sm not in {'MAP_PLUS','MAP_MINUS'} or em not in {'MAP_PLUS','MAP_MINUS'}:cls='BLOCKED_ITER057BJ_Y_SOURCE_CONVENTION_UNRESOLVED';reason='map unresolved'
+            elif not all(controls.values()):cls='FAIL_TECHNICAL_ITER057BJ_STATIC_AND_EXACT_EVIDENCE_DISAGREE';reason='frozen static/exact controls disagree/fail'
+            elif sm=='MAP_PLUS':cls='PASS_SCOPED_ITER057BJ_Y_SOURCE_CONVENTION_MAP_PLUS_AT_INDEPENDENTLY_ESTABLISHED';reason='independent lanes establish +AT'
+            else:cls='PASS_SCOPED_ITER057BJ_Y_SOURCE_CONVENTION_MAP_MINUS_AT_INDEPENDENTLY_ESTABLISHED';reason='independent lanes establish -AT'
+            out.update(controls=controls,corrected_source_map=sm if cls.startswith('PASS_') else None,historical_x_relation_to_ox_pl=e.get('historical_x_relation_to_ox_pl'),corrected_at_relation_to_ox_pf=e.get('corrected_at_relation_to_ox_pf'),corrected_y_science_consumed=False,theory_established_pct=0,c6='SYMBOLIC_UNFIXED')
+          out.update(classification=cls,reason=reason)
+          body=dict(out);out['terminal_payload_sha256']=hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057bj-terminal
+          path: terminal/
