@@ -1,0 +1,133 @@
+name: QGR corrected Iter057Y AT-source exact replay
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'recovery/ITER057Y_CORRECTED_REPLAY_EXECUTION_TRIGGER.md'
+permissions:
+  contents: read
+jobs:
+  science:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Frozen corrected-Y primary exact science
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/iter057y-corrected/science
+          PYTHONPATH=code python code/qgr_iter057y_corrected_at_source_replay.py --out artifacts/iter057y-corrected/science/science.json | tee artifacts/iter057y-corrected/science/science.log
+          sha256sum artifacts/iter057y-corrected/science/* > artifacts/iter057y-corrected/science/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057y-corrected-science
+          path: artifacts/iter057y-corrected/science/
+  critic:
+    needs: [science]
+    if: always() && needs.science.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Outcome-blind exact Critic
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/iter057y-corrected/critic
+          PYTHONPATH=code python scripts/qgr_iter057y_corrected_at_source_critic.py --out artifacts/iter057y-corrected/critic/critic.json | tee artifacts/iter057y-corrected/critic/critic.log
+          sha256sum artifacts/iter057y-corrected/critic/* > artifacts/iter057y-corrected/critic/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057y-corrected-critic
+          path: artifacts/iter057y-corrected/critic/
+  terminal:
+    needs: [science, critic]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057y-corrected-*
+          path: collected
+      - name: Frozen corrected-Y terminal classifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p terminal
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          P='a6466be9dd3b2ce47bba5be1cacbd184b2161c8f'
+          PASS='PASS_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_EXACT_Q8_RESPONSE_EXISTS'
+          FAIL='FAIL_SCIENTIFIC_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_Q8_RESPONSE_INCOMPATIBLE'
+          INVALID='INVALID_IMPLEMENTATION_ITER057Y_CORRECTED_AT_SOURCE_REPLAY_CONTROL_FAILURE'
+          BLOCKED='BLOCKED_ITER057Y_CORRECTED_AT_SOURCE_REPLAY_EXECUTION'
+          CPASS='CRITIC_EXACT_COMPATIBILITY_SUPPORTS_Q8_SOLVABILITY'
+          CFAIL='CRITIC_EXACT_BIANCHI_OBSTRUCTION_TO_Q8_SOLVABILITY'
+          CINVALID='CRITIC_INVALID_IMPLEMENTATION_CONTROL_FAILURE'
+          def load(d,f):
+            p=Path('collected')/d/f
+            try:return json.loads(p.read_text())
+            except:return None
+          s=load('iter057y-corrected-science','science.json');c=load('iter057y-corrected-critic','critic.json')
+          out={'gate':'ITER057Y_CORRECTED_AT_SOURCE_Q2_Q4_Q6_Q8_REPLAY','preregistration_commit':P,'green_ci_alone_is_not_pass':True,'source_convention':'MAP_MINUS','degree6_source_expression':'-AT','theory_established_pct':0,'c6_status':'SYMBOLIC_UNFIXED_FACTORED_OUT'}
+          if not s or not c:
+            cls=BLOCKED;reason='fresh science or Critic payload missing/invalid'
+          else:
+            provenance=(s.get('preregistration_commit')==c.get('preregistration_commit')==P and s.get('source_convention')==c.get('source_convention')=='MAP_MINUS' and s.get('degree6_source_expression')==c.get('degree6_source_expression')=='-AT')
+            sc=s.get('classification');cc=c.get('classification')
+            if not provenance:
+              cls=INVALID;reason='preregistration/source-convention provenance mismatch'
+            elif sc==INVALID or cc==CINVALID:
+              cls=INVALID;reason='primary or Critic implementation controls invalid'
+            elif sc==PASS and cc==CPASS:
+              cls=PASS;reason='primary exact Q8 solution and independent Bianchi compatibility agree'
+            elif sc==FAIL and cc==CFAIL:
+              cls=FAIL;reason='primary exact incompatibility and independent Bianchi obstruction agree'
+            else:
+              cls=INVALID;reason=f'primary/Critic terminal disagreement: primary={sc} critic={cc}'
+            out.update(primary_classification=sc,critic_classification=cc,rank_M=s.get('rank_M'),rank_augmented=s.get('rank_augmented'),left_nullity=s.get('left_nullity'),nullity=s.get('nullity'),primary_compatibility_nonzero_count=s.get('compatibility_nonzero_count'),critic_compatibility_nonzero_count=c.get('compatibility_nonzero_count'),Q8_particular_nonzero_count=s.get('Q8_particular_nonzero_count'),fresh_fixed_Q2Q4Q6_degree7_gauge_residual_nonzero_count=s.get('fresh_fixed_Q2Q4Q6_degree7_gauge_residual_nonzero_count'),fresh_fixed_Q2Q4Q6_degree6_field_residual_nonzero_count=s.get('fresh_fixed_Q2Q4Q6_degree6_field_residual_nonzero_count'),full_deDonder_nonzero_component_count=s.get('full_deDonder_nonzero_component_count'),reduced_DG_minus_source_nonzero_component_count=s.get('reduced_DG_minus_source_nonzero_component_count'),unreduced_DG_minus_source_nonzero_component_count=s.get('unreduced_DG_minus_source_nonzero_component_count'))
+          out.update(classification=cls,reason=reason)
+          body=dict(out);out['terminal_payload_sha256']=hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057y-corrected-terminal
+          path: terminal/
+  audit:
+    needs: [terminal]
+    if: always() && needs.terminal.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057y-corrected-*
+          path: collected
+      - name: Supplemental science-after-result provenance audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audit
+          find collected -type f -print0 | sort -z | xargs -0 sha256sum > audit/INPUT_SHA256SUMS.txt
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          t=json.loads((Path('collected')/'iter057y-corrected-terminal'/'terminal.json').read_text())
+          out={'gate':'ITER057Y_CORRECTED_AT_SOURCE_Q2_Q4_Q6_Q8_REPLAY','role':'supplemental_provenance_audit','science_first':True,'audit_cannot_change_scientific_classification':True,'terminal_classification_observed_after_freeze':t.get('classification'),'terminal_payload_sha256':t.get('terminal_payload_sha256'),'github_event_name':os.environ.get('GITHUB_EVENT_NAME'),'github_sha':os.environ.get('GITHUB_SHA'),'github_run_id':os.environ.get('GITHUB_RUN_ID'),'theory_established_pct':0,'c6_status':'SYMBOLIC_UNFIXED_FACTORED_OUT'}
+          Path('audit/audit.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n');print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum audit/audit.json >> audit/INPUT_SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057y-corrected-audit
+          path: audit/
