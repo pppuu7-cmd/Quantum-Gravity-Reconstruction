@@ -1,0 +1,54 @@
+name: QGR Iter057AO terminal Critic v3
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ao-terminal-critic-v3.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  critic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download immutable AO authority candidates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ao-input ao-output
+          get_art() { id="$1"; dest="$2"; mkdir -p "$dest"; curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${id}/zip" -o "${dest}.zip"; python -m zipfile -e "${dest}.zip" "$dest"; }
+          get_art 10478072508 ao-input/analytic-generic
+          get_art 10477942885 ao-input/analytic-heldout
+          get_art 10477303792 ao-input/linearity
+          get_art 10477353721 ao-input/neg-wrong-inv
+          get_art 10478271503 ao-input/neg-no-det
+          get_art 10477348739 ao-input/neg-no-raise
+          get_art 10477483765 ao-input/dual-generic
+          get_art 10478421220 ao-input/dual-heldout
+          cat scripts/iter057ao_phase2_parts/part*.txt > ao-input/analytic_source.py
+      - name: Execute schema-repaired frozen-science Critic
+        shell: bash
+        run: |
+          python scripts/qgr_iter057ao_terminal_critic_v3.py \
+            --analytic-generic ao-input/analytic-generic/result.json \
+            --analytic-heldout ao-input/analytic-heldout/result.json \
+            --linearity ao-input/linearity/result.json \
+            --neg-wrong-inv ao-input/neg-wrong-inv/result.json \
+            --neg-no-det ao-input/neg-no-det/result.json \
+            --neg-no-raise ao-input/neg-no-raise/result.json \
+            --dual-generic ao-input/dual-generic/result.json \
+            --dual-heldout ao-input/dual-heldout/result.json \
+            --analytic-source ao-input/analytic_source.py \
+            --dual-source scripts/qgr_iter057ao_direct_dual_replay.py \
+            --output ao-output/critic.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ao-terminal-critic-v3
+          path: ao-output/critic.json
+          if-no-files-found: error
+          retention-days: 30
