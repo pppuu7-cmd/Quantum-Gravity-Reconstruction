@@ -1,0 +1,31 @@
+name: QGR Iter057AS source basis cardinality audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-iter057as-source-basis-cardinality-audit.yml'
+  workflow_dispatch:
+jobs:
+  exact-cardinality-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact target-blind audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python code/qgr_iter057as_source_basis_cardinality_audit.py | tee iter057as.log
+          test -s iter057as_cardinality_audit.json
+      - name: Freeze manifest
+        shell: bash
+        run: |
+          sha256sum iter057as_cardinality_audit.json iter057as.log | tee SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057as-source-basis-cardinality-audit
+          path: |
+            iter057as_cardinality_audit.json
+            iter057as.log
+            SHA256SUMS.txt
+          if-no-files-found: error
