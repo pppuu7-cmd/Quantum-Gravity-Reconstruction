@@ -1,0 +1,154 @@
+name: QGR Iter057AT corrected homogeneous degree6 source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057at-corrected-homogeneous-degree6-source.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qgr-iter057at-corrected-homogeneous-degree6-source
+  cancel-in-progress: false
+
+env:
+  PREREG_COMMIT: '6039cb2ed1380b549bced3d33634362ef57345d4'
+
+jobs:
+  construct:
+    name: Exact ${{ matrix.lane }} construction
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [primary, independent]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install frozen execution dependency
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Construct exact target-blind 840-slot source
+        shell: bash
+        env:
+          LANE: ${{ matrix.lane }}
+        run: |
+          set +e
+          mkdir -p "artifacts/iter057at/${LANE}"
+          PYTHONPATH=code python code/qgr_iter057at_corrected_homogeneous_degree6_source.py \
+            --mode "${LANE}" \
+            --output "artifacts/iter057at/${LANE}/${LANE}.json" \
+            > "artifacts/iter057at/${LANE}/${LANE}.log" 2>&1
+          rc=$?
+          printf '%s\n' "$rc" > "artifacts/iter057at/${LANE}/exitcode.txt"
+          cat "artifacts/iter057at/${LANE}/${LANE}.log"
+          sha256sum "artifacts/iter057at/${LANE}"/* > "artifacts/iter057at/${LANE}/SHA256SUMS.txt" 2>/dev/null || true
+          exit 0
+      - name: Upload isolated lane authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057at-${{ matrix.lane }}
+          path: artifacts/iter057at/${{ matrix.lane }}/
+          if-no-files-found: warn
+          retention-days: 30
+
+  terminal:
+    name: Frozen terminal comparison
+    needs: construct
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Collect isolated lane artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057at-*
+          path: collected
+          merge-multiple: false
+      - name: Classify frozen gate
+        shell: bash
+        run: |
+          set -u
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          PREREG='6039cb2ed1380b549bced3d33634362ef57345d4'
+          PASS='PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED'
+          FAIL='FAIL_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE'
+          BLOCKED='BLOCKED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE'
+
+          def canon(x):
+              return json.dumps(x,sort_keys=True,separators=(',',':')).encode()
+          def sha(x):
+              return hashlib.sha256(canon(x)).hexdigest()
+          def load_lane(name):
+              p=Path('collected')/f'iter057at-{name}'/f'{name}.json'
+              if not p.exists() or not p.stat().st_size:
+                  return None, f'missing nonempty {p}'
+              try:
+                  return json.loads(p.read_text()), None
+              except Exception as exc:
+                  return None, f'invalid JSON {p}: {exc}'
+
+          primary, ep = load_lane('primary')
+          independent, ei = load_lane('independent')
+          out={
+              'gate':'ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE',
+              'preregistration_commit':PREREG,
+              'primary_payload_present':primary is not None,
+              'independent_payload_present':independent is not None,
+              'historical_target_loaded':False,
+              'c6':'SYMBOLIC_UNFIXED_FACTORED_OUT',
+          }
+          if ep or ei:
+              out['classification']=BLOCKED
+              out['reason']='; '.join(x for x in (ep,ei) if x)
+          else:
+              pv=primary.get('degree6_vector')
+              iv=independent.get('degree6_vector')
+              pctrl=primary.get('controls',{})
+              ictrl=independent.get('controls',{})
+              controls={
+                  'preregistration_exact':primary.get('preregistration_commit')==PREREG and independent.get('preregistration_commit')==PREREG,
+                  'lane_identity_exact':primary.get('lane')=='primary' and independent.get('lane')=='independent',
+                  'primary_controls_all_true':bool(pctrl) and all(v is True for v in pctrl.values()),
+                  'independent_controls_all_true':bool(ictrl) and all(v is True for v in ictrl.values()),
+                  'slot_count_both_840':primary.get('slot_count')==840 and independent.get('slot_count')==840,
+                  'monomial_count_both_84':primary.get('monomial_count_per_pair')==84 and independent.get('monomial_count_per_pair')==84,
+                  'source_fingerprint_identical':primary.get('source_fingerprint')==independent.get('source_fingerprint'),
+                  'primary_vector_hash_self_consistent':isinstance(pv,list) and primary.get('degree6_vector_sha256')==sha(pv),
+                  'independent_vector_hash_self_consistent':isinstance(iv,list) and independent.get('degree6_vector_sha256')==sha(iv),
+              }
+              vectors_equal=isinstance(pv,list) and isinstance(iv,list) and canon(pv)==canon(iv)
+              controls['ordered_rational_vector_bit_for_bit_identical']=vectors_equal
+              out['controls']=controls
+              out['primary_vector_sha256']=primary.get('degree6_vector_sha256')
+              out['independent_vector_sha256']=independent.get('degree6_vector_sha256')
+              out['source_fingerprint_sha256']=(primary.get('source_fingerprint') or {}).get('sha256')
+              out['primary_scientific_summary_sha256']=primary.get('scientific_summary_sha256')
+              out['independent_scientific_summary_sha256']=independent.get('scientific_summary_sha256')
+              if all(controls.values()):
+                  out['classification']=PASS
+                  out['reason']='all frozen primary controls pass and isolated AO reproduction is bit-for-bit identical to the primary AQ-X ordered 840-vector'
+              else:
+                  out['classification']=FAIL
+                  out['reason']='one or more frozen scientific/control criteria failed after both exact lane payloads were realized'
+          body=dict(out)
+          out['terminal_payload_sha256']=sha(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+      - name: Freeze terminal artifact
+        run: sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - name: Upload terminal authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057at-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
