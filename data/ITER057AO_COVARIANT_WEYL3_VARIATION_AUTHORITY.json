@@ -1,0 +1,74 @@
+{
+  "gate": "ITER057AO_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_CERTIFICATE",
+  "classification": "PASS_SCOPED_ITER057AO_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_CERTIFIED",
+  "preregistration_commit": "e1ded07e5050763ecb707dad679b78286fe04744",
+  "phase2_plan_commit": "0daf8a632c060c0f758f15bd43b4837633a48efa",
+  "phase2_execution_repair_commit": "7a7c764f3d2a4e592f738af906040d4f8cca93e5",
+  "analytic_implementation_commit": "c1616a7ba5d540e14c667ad49c53f873ae21a0cc",
+  "analytic_source_sha256": "7cc63a46cba36fe903095494876028d9e7ebbe163a60ae35978372756a0ddf4a",
+  "dual_replay_implementation_commit": "1426fee93f2ea830b3c84e23999bf22b650c7a1e",
+  "critic_v3_implementation_commit": "1fd630bc42b9b407e2380b2d2c0158d7800e2be3",
+  "critic_v3_workflow_head": "7ded678585202ede8e2a2a57c02c64dd553e2bfd",
+  "phase2_production": {
+    "workflow_head": "0e40d36dcc8907497182600dc02cf4978a5932ae",
+    "run": 35174624482,
+    "run_number": 2,
+    "run_attempt": 1,
+    "artifacts": {
+      "generic": {"id": 10478072508, "digest": "sha256:2ba96b96777344d35e2cd7f57146220dc57a04ea73adb10e7c14f66fe8582752", "scientific_payload_sha256": "6bfe242e10f9ab2e83caede76c00c78f9f66a6cb4514dab91a7223a32f866b74"},
+      "heldout": {"id": 10477942885, "digest": "sha256:09c9d6dcebdd10640fe668244ba57263aa239a9863dad66b7b64e4b89ecbb520", "scientific_payload_sha256": "23f12f9d85c20537c5c640ddac28739483ac1a63137a0b491866b1df2f797235"},
+      "linearity": {"id": 10477303792, "digest": "sha256:52d375d7ccfec1f42ff410600eb306df451898ac8d79717dddcb86d2447fd831", "scientific_payload_sha256": "5bf1cf62e98dfaf8876eabaf9f14739b27849494144f59895b78f3b162c20f74"},
+      "neg_wrong_inv": {"id": 10477353721, "digest": "sha256:60415f848ee23c87aeaa2145e34365c8989cff6041619a879bb1403e1ccdb624", "scientific_payload_sha256": "abbd2789b978796e7314cc84603f67b3881bdecca6ace0dba06707eb5a105e80"},
+      "neg_no_det": {"id": 10478271503, "digest": "sha256:f5482af9a1217769f3d1094a3f737ec58574b909f1d63805f44f1b460b19272d", "scientific_payload_sha256": "ce83ee8beb8ae0bd2cd5a093bcb85e6d547cb603268dad77c541f4b86f703a25"},
+      "neg_no_raise": {"id": 10477348739, "digest": "sha256:7c14e11eb5e0cfffa41ab8cd753f9cbc63b0c99432cb19659d6930a88a67c818", "scientific_payload_sha256": "969ae5ee0c4ffee02fee9fbcedc6a38a7de7dbba672c1e0d615b99bbcdc1dd87"}
+    }
+  },
+  "independent_direct_dual_replay": {
+    "workflow_head": "2b35884ec3bff7f5533c54d269349fb7e3f64103",
+    "run": 35174764423,
+    "generic": {"artifact": 10477483765, "digest": "sha256:8cc1150774e158696d7a293f50e7a31c1cce6be953d5e1263600e04d267098d8", "scientific_payload_sha256": "cb5e14d857cc2a1e10a92a21d115fcbb2e42f93ee2b4632c905be6a3cb7275c4"},
+    "heldout": {"artifact": 10478421220, "digest": "sha256:dbf4c239103afe5f2ddb8c8c42f2c25527107889cffc67ec929bb04a971833ba", "scientific_payload_sha256": "38fc1019f0ff9e6fde09e46d34d782aebd9171297cca9cf0f4fb951ad7720c1f"}
+  },
+  "terminal_critic": {
+    "schema_repair_commit": "aef0903c50cefd61a454a21a16af05c6989e912d",
+    "run": 35174996304,
+    "job": 105054622895,
+    "artifact": 10477623774,
+    "artifact_digest": "sha256:b2aecfe717e2f4ab8159b23dea3b7e7a33a0a12eeef0e1e9ffd8d54a030399ed",
+    "scientific_payload_sha256": "73af6936acccf1cd69a95a2d153b5fc572bea0cdd59e21b0612fcdd55b835dd0",
+    "all_21_controls_true": true
+  },
+  "exact_scientific_facts": {
+    "generic_directional_density_sha256": "588c590a2d7a3bc3a87eddfe2aead38af19c9d7b23676f4f688d713ec2847aed",
+    "heldout_directional_density_sha256": "b3701b7beef637a741fb6ef2dad18a5b81b086f0bc5cf3255f7a70242f5441db",
+    "generic_directional_nonzero": true,
+    "heldout_directional_nonzero": true,
+    "analytic_vs_dual_generic_exact": true,
+    "analytic_vs_dual_heldout_exact": true,
+    "exact_first_order_linearity": true,
+    "base_and_linearized_weyl_controls": true,
+    "constant_curvature_weyl3_and_first_variation_zero": true,
+    "nonconstant_conformally_flat_weyl3_and_first_variation_zero": true,
+    "direct_lie_density_noether_identity_exact": true,
+    "fake_gauge_negative_control_detected": true,
+    "einstein_hilbert_bulk_sign_control": true,
+    "einstein_hilbert_boundary_control": true,
+    "compact_variation_formula_sha256": "ed33830a964d90b9b9e09b75f8ebc0e0820677ae8b57bb09fb5ba073ce5030dc",
+    "divergence_dropped": false,
+    "no_floating_scientific_tolerance": true,
+    "c6_symbolic_unfixed": true
+  },
+  "historical_technical_non_scientific_failures": {
+    "phase2_first_run": {"run": 35174458061, "reason": "part00 source packaging Unicode corruption before any scientific lane execution or heldout consumption"},
+    "critic_v2_run": {"run": 35174885633, "reason": "Critic parser looked for control.defect_detected instead of pre-existing controls.defect_detected; scientific acceptance rule unchanged"}
+  },
+  "phase1_sympy_probe": {
+    "implementation_commit": "dcb4469645ab810e2a00c8d99f4f758dc11b853c",
+    "workflow_head": "03af90c3dc0ef20d694ebb1b7d3203e3089c1b56",
+    "run": 35168268602,
+    "job": 105034156092,
+    "status_at_terminalization": "IN_PROGRESS_NONTERMINAL_SUPPLEMENTAL_EXPRESSION_GROWTH_LANE",
+    "used_for_terminal_classification": false
+  },
+  "claim_ceiling": "Exact finite classical source-level covariant Weyl^3 metric-variation certificate. Does not establish AF/AM/AN restriction match, arbitrary-background theorem, all-orders/global no-go, hyperbolicity, stability, quantum unitarity, UV completion or experiment. c6 remains symbolic/unfixed; beta=1 unauthorized; theory established remains 0%."
+}
