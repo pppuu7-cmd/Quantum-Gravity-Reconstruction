@@ -1,0 +1,131 @@
+name: QGR Iter057BG durable Iter057AT source materialization
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057bg-at-source-materialization.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qgr-iter057bg-at-source-materialization
+  cancel-in-progress: false
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [primary, independent]
+    name: verify (${{ matrix.mode }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned exact execution dependency
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Fresh pinned Iter057AT reconstruction and candidate comparison
+        shell: bash
+        env:
+          MODE: ${{ matrix.mode }}
+        run: |
+          set +e
+          mkdir -p artifacts/iter057bg/${MODE}
+          git worktree add --detach _iter057at c4e7ccc05ea1b8f4967379fc370812dfa99cce03
+          PYTHONPATH=_iter057at/code python _iter057at/code/qgr_iter057at_corrected_homogeneous_degree6_source.py \
+            --mode "${MODE}" \
+            --output artifacts/iter057bg/${MODE}/fresh-at.json \
+            > artifacts/iter057bg/${MODE}/fresh-at.log 2>&1
+          rc_at=$?
+          python scripts/qgr_iter057bg_materialization_verify.py \
+            --candidate data/ITER057AT_CANONICAL_SOURCE_DEGREE6.csv \
+            --lane-result artifacts/iter057bg/${MODE}/fresh-at.json \
+            --mode "${MODE}" \
+            --output artifacts/iter057bg/${MODE}/verification.json \
+            > artifacts/iter057bg/${MODE}/verification.log 2>&1
+          rc_verify=$?
+          printf '%s\n' "$rc_at" > artifacts/iter057bg/${MODE}/fresh-at-exitcode.txt
+          printf '%s\n' "$rc_verify" > artifacts/iter057bg/${MODE}/verification-exitcode.txt
+          cat artifacts/iter057bg/${MODE}/fresh-at.log
+          cat artifacts/iter057bg/${MODE}/verification.log
+          sha256sum artifacts/iter057bg/${MODE}/* > artifacts/iter057bg/${MODE}/SHA256SUMS.txt 2>/dev/null || true
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bg-${{ matrix.mode }}
+          path: artifacts/iter057bg/${{ matrix.mode }}/
+          if-no-files-found: warn
+          retention-days: 30
+  terminal:
+    if: always()
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057bg-*
+          path: collected
+          merge-multiple: false
+      - name: Frozen Iter057BG terminal classifier
+        shell: bash
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          GATE='ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_MATERIALIZATION'
+          PREREG='180be23933c9cc4f78dbf8e1fea6cb76b9c74fc8'
+          FILE_SHA='1cae5a82d1345b9d9a77bcd3d6a91f6d5747629b5ac9e091bbb6c5a7ade3025b'
+          VECTOR_SHA='5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b'
+          PASS='PASS_SCOPED_ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_INDEPENDENTLY_REPRODUCED'
+          FAIL='FAIL_TECHNICAL_ITER057BG_MATERIALIZATION_OR_INDEPENDENT_REPRODUCTION_MISMATCH'
+          BLOCKED='BLOCKED_ITER057BG_PINNED_AT_REPRODUCTION_NOT_REALIZED'
+          INVALID='INVALID_ITER057BG_HISTORY_TARGET_OR_DESCENDANT_SCOPE_VIOLATED'
+          def load(mode):
+              p=Path('collected')/f'iter057bg-{mode}'/'verification.json'
+              if not p.exists() or not p.stat().st_size:return None
+              try:return json.loads(p.read_text())
+              except Exception:return None
+          def sh(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          p=load('primary');q=load('independent')
+          out={'gate':GATE,'preregistration_commit':PREREG,'candidate_path':'data/ITER057AT_CANONICAL_SOURCE_DEGREE6.csv','green_ci_alone_is_not_pass':True}
+          if p is None or q is None:
+              out.update(classification=BLOCKED,reason='fresh pinned primary or independent Iter057AT reconstruction/verification payload missing')
+          else:
+              pc=p.get('controls',{});qc=q.get('controls',{})
+              forbidden=any([p.get('descendant_science_consumed') is not False,q.get('descendant_science_consumed') is not False,pc.get('historical_target_substitution') is not False,qc.get('historical_target_substitution') is not False,pc.get('claim_lock_promoted') is not False,qc.get('claim_lock_promoted') is not False])
+              required=[k for k in pc if k not in {'descendant_science_consumed','historical_target_substitution','claim_lock_promoted'}]
+              controls={
+                'parent_prereg_exact':p.get('preregistration_commit')==PREREG and q.get('preregistration_commit')==PREREG,
+                'candidate_file_sha_exact_both':p.get('candidate_file_sha256')==q.get('candidate_file_sha256')==FILE_SHA,
+                'primary_all_positive_controls':all(pc.get(k) is True for k in required),
+                'independent_all_positive_controls':all(qc.get(k) is True for k in required),
+                'candidate_metadata_exact_agreement':p.get('candidate_metadata')==q.get('candidate_metadata'),
+                'nonzero_count_both_140':p.get('candidate_nonzero_count')==q.get('candidate_nonzero_count')==140,
+                'fresh_vector_hash_both_exact':p.get('fresh_vector_sha256')==q.get('fresh_vector_sha256')==VECTOR_SHA,
+                'reconstructed_vector_hash_both_exact':p.get('reconstructed_vector_sha256')==q.get('reconstructed_vector_sha256')==VECTOR_SHA,
+                'fresh_vectors_bit_for_bit_identical':p.get('fresh_vector')==q.get('fresh_vector') and len(p.get('fresh_vector') or [])==840,
+                'distinct_fresh_modes':p.get('mode')=='primary' and q.get('mode')=='independent',
+              }
+              if forbidden:
+                  cls=INVALID;reason='history/target/descendant scope invariant violated'
+              elif not all(controls.values()):
+                  cls=FAIL;reason='candidate bytes/reconstruction or fresh independent Iter057AT reproduction mismatch'
+              else:
+                  cls=PASS;reason='durable sparse source exactly reconstructs the independently reproduced frozen Iter057AT 840-vector'
+              out.update({'classification':cls,'reason':reason,'controls':controls,'candidate_file_sha256':FILE_SHA if controls['candidate_file_sha_exact_both'] else None,'ordered_840_vector_sha256':VECTOR_SHA if controls['fresh_vector_hash_both_exact'] and controls['reconstructed_vector_hash_both_exact'] else None,'slot_count':840 if controls['fresh_vectors_bit_for_bit_identical'] else None,'nonzero_count':140 if controls['nonzero_count_both_140'] else None,'primary_payload_sha256':sh(p),'independent_payload_sha256':sh(q),'descendant_science_consumed':False,'historical_iter057at_reclassified':False,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED_FACTORED_OUT'})
+          body=dict(out);out['terminal_payload_sha256']=sh(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bg-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
