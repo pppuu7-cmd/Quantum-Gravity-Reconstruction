@@ -36,13 +36,7 @@ Fresh repaired production `35268357568` remains terminal:
 
 `BLOCKED_CORRECTED_DEGREE8_SOURCE_EXECUTION`.
 
-Both independent corrected-constructor lanes produced degree-six projection SHA256
-
-`2f15c55c0b326966c821141e43e245e3715f93fc9f4b9ee720179f31b1e28b6d`
-
-rather than the authoritative Iter057AT ordered 840-vector SHA256
-
-`5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`.
+Both independent corrected-constructor lanes produced degree-six projection SHA256 `2f15c55c0b326966c821141e43e245e3715f93fc9f4b9ee720179f31b1e28b6d` rather than the authoritative Iter057AT ordered 840-vector SHA256 `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`.
 
 Degree-eight values from this run remain non-authoritative. Corrected Q10 remains LOCKED.
 
@@ -50,15 +44,11 @@ Durable terminal record: `results/CORRECTED_DEGREE8_WEYL3_SOURCE_RECONSTRUCTION_
 
 ## Terminal degree-six discrepancy localization
 
-Gate:
+Gate `CORRECTED_DEGREE8_DEGREE6_REDUCTION_DISCREPANCY_LOCALIZATION`, preregistration `ffc110bfd2067d13d135577141154b2aab8626be`.
 
-`CORRECTED_DEGREE8_DEGREE6_REDUCTION_DISCREPANCY_LOCALIZATION`
+Fresh authoritative run `35276104151` terminalized as:
 
-Preregistration `ffc110bfd2067d13d135577141154b2aab8626be`.
-
-Historical first attempt `35274901385` remains implementation-invalid due an over-strong R10 boundary-vacuum control. The repair was prospectively frozen at `b2f4c513bdd8ffbbb37202e0b7b756f626d920ec` and implemented without changing the scientific localization question or allowed outcomes.
-
-Fresh authoritative run: `35276104151`.
+`LOCALIZED_GENERALIZED_CONSTRUCTOR_FORMULA_MISMATCH`.
 
 Jobs: primary `105387003387`, independent `105387003716`, terminal `105391477932`.
 
@@ -67,40 +57,72 @@ Artifacts:
 - independent `10521176638`, digest `sha256:b90de5fb90f0874b7d8d4108019699a479305aa0ae65a068368217ef012eee88`;
 - terminal `10521606016`, digest `sha256:d9844904345d0a098579148c319f9b303dd50235469a78f486a4d9775829369d`.
 
-Terminal payload SHA256:
+Terminal payload SHA256 `d9583cdee72a12424525d713cfbc78674db33d070de76af7e7215afe43a8178c`.
 
-`d9583cdee72a12424525d713cfbc78674db33d070de76af7e7215afe43a8178c`.
+Both independent lanes give the same degree-six generalized-constructor SHA `2f15c55c...` at both R10 and R12 seed boundaries, while AT remains `5d070732...`. The exact discrepancy is present before target serialization and is not caused by adding the R12 layer.
 
-Terminal classification:
+Corrected durable record: `results/CORRECTED_DEGREE8_DEGREE6_REDUCTION_DISCREPANCY_LOCALIZATION_RUN_35276104151.md`, provenance-corrected commit `fff23e02ebafc18d3aaa0bfe41217b29a19b43b3`.
 
-`LOCALIZED_GENERALIZED_CONSTRUCTOR_FORMULA_MISMATCH`.
+## Active gate — first exact divergence
 
-Both independent lanes give the same degree-six generalized-constructor SHA `2f15c55c...` at both R10 and R12 seed boundaries, while AT remains `5d070732...`. The prospectively frozen algebraic P.R, double-divergence, metric-I3 and index-lowering decomposition hashes are unchanged between R10 and R12 and agree between independent lanes. Therefore the tested discrepancy is not caused by the added R12 layer or target serialization; it is already present in the generalized corrected construction before serialization.
+Gate:
 
-Durable localization result was first written at `d9384e9e98f536862354a02983e0916ddf61e05d`; stale intermediate provenance in that write was corrected from the completed immutable run at `fff23e02ebafc18d3aaa0bfe41217b29a19b43b3`. The terminal classification did not change.
+`CORRECTED_DEGREE8_AT_GENERALIZED_FIRST_DIVERGENCE_LOCALIZATION`
 
-## Active scientific blocker
+Preregistration commit `aa2c0784f3b9cd0397c1eb10c000e0e555602a35`.
 
-The exact historical AT producer has been recovered from production commit `c4e7ccc05ea1b8f4967379fc370812dfa99cce03`.
+Implementation commit `c7471f823286d5194f90b231505f8f7398f38037`.
 
-AT degree-six construction uses:
-- canonical `seed_metric10()`;
-- `geometry8(g)`;
-- `raise_last(C,gi,8)`;
-- `_fixed_cubic_and_Q(C,Cup,6)`;
-- `_fixed_p_from_frechet(...,QF,8)`;
-- degree-six downstream Euler-source assembly.
+Workflow commit `b9022bdffb2a08ee048e0656a6dc15f860a9bfb2`.
 
-The generalized degree-eight construction uses higher ceilings:
-- geometry through degree ten;
-- `raise_last(...,10)`;
-- `_fixed_cubic_and_Q(...,8)`;
-- `_fixed_p_from_frechet(...,10)`;
-- source through degree eight before projecting degree six.
+Execution-only PR `#30`, branch head `bbbd32a0f75a75ee9687e8f3b41e45c67a7df32f`.
 
-AQ already established that, for the corrected degree-six P_F object, the X-style and independent AO-style downstream Euler assemblies agree exactly. Therefore the highest-information next test is not another broad downstream source replay: it is a same-seed first-divergence identity test across geometry/Cup, cubic-QF, Frechet-P, and downstream source ceilings.
+Actions run `35280241071`.
 
-The test must freeze intermediate exact tensors/hashes before loading the AT coefficient target and must alter one construction ceiling at a time. It is localization only; no source repair or Q10 execution is authorized by an intermediate match.
+The prospectively frozen same-seed intervention sequence is:
+
+- H0 = historical `geometry8 / Cup8 / QF6 / PF8 / source6`;
+- H1 = raise only geometry/Cup ceiling;
+- H2 = raise only cubic/QF ceiling `6 -> 8`;
+- H3 = raise only Frechet-P ceiling `8 -> 10`;
+- H4 = raise only downstream source ceiling `6 -> 8`, then project to degree six.
+
+H0-H4 are frozen before the durable AT coefficient target is loaded.
+
+### Completed lane evidence — NOT YET terminal authority
+
+Critic job `105400232296` completed success and uploaded artifact `10522843278`, digest `sha256:dd6057b31eee7e6c764cb72cf1fa077e10cd2a51a7949f077989fa1bbb47d5ad`.
+
+Researcher job `105400232564` completed success and uploaded artifact `10522733730`, digest `sha256:897f3389453ef6e349f46a9e9cc3ddf78be42394de75c15c134f60014c07fe10`.
+
+The two independent lanes agree exactly:
+
+- H0 SHA = `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`;
+- H1 SHA = same AT hash;
+- H2 SHA = `2f15c55c0b326966c821141e43e245e3715f93fc9f4b9ee720179f31b1e28b6d`;
+- H3 SHA = same generalized hash;
+- H4 SHA = same generalized hash.
+
+Exact stage relations in both lanes:
+
+- `H1_eq_H0 = true`;
+- `H2_eq_H1 = false`;
+- `H3_eq_H2 = true`;
+- `H4_eq_H3 = true`.
+
+Lower geometry/Cup jets are exactly identical across H0/H1. The first intermediate tensor change is at H2: `P1_equals_P2_through8 = false` with 2824 exact coefficient mismatches; raising the P ceiling at H3 creates zero further mismatches through degree eight.
+
+All lane controls are true. H0 independently reproduces AT exactly and H4 independently reproduces the pinned parent generalized blocker hash.
+
+However terminal job `105405399669` is currently queued. Therefore **no terminal first-divergence classification is promoted yet**. Under the frozen classifier, the lane pattern points to `LOCALIZED_CUBIC_QF_CEILING_MISMATCH`, but this remains pending terminal aggregation until the Actions terminal payload exists.
+
+## Current scientific blocker
+
+Terminal aggregation of the active first-divergence gate is the immediate dependency. No competing production should be launched.
+
+If the terminal aggregator confirms the frozen H2 classification, the next highest-information scientific question is whether the historical Iter057AT `QF6` construction is mathematically sufficient for an Euler source at homogeneous degree six, given that the source contains a double covariant divergence of `P` and therefore higher P jet coefficients can descend by two coordinate degrees.
+
+That question requires a separate prospective degree-budget/causal-adjudication gate. Iter057AT and corrected Iter057Y must not be reclassified merely from the current diagnostic.
 
 ## Current locks
 
