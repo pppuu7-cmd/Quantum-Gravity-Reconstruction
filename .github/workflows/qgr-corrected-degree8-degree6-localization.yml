@@ -20,7 +20,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p artifacts/degree6-localization/primary
-          PYTHONPATH=code python scripts/qgr_corrected_degree8_degree6_localization.py --mode primary --out artifacts/degree6-localization/primary/primary.json | tee artifacts/degree6-localization/primary/primary.log
+          PYTHONPATH=code python scripts/qgr_corrected_degree8_degree6_localization_boundary_repair.py --mode primary --out artifacts/degree6-localization/primary/primary.json | tee artifacts/degree6-localization/primary/primary.log
           sha256sum artifacts/degree6-localization/primary/* > artifacts/degree6-localization/primary/SHA256SUMS.txt
       - uses: actions/upload-artifact@v4
         with:
@@ -40,7 +40,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p artifacts/degree6-localization/independent
-          PYTHONPATH=code python scripts/qgr_corrected_degree8_degree6_localization.py --mode independent --out artifacts/degree6-localization/independent/independent.json | tee artifacts/degree6-localization/independent/independent.log
+          PYTHONPATH=code python scripts/qgr_corrected_degree8_degree6_localization_boundary_repair.py --mode independent --out artifacts/degree6-localization/independent/independent.json | tee artifacts/degree6-localization/independent/independent.log
           sha256sum artifacts/degree6-localization/independent/* > artifacts/degree6-localization/independent/SHA256SUMS.txt
       - uses: actions/upload-artifact@v4
         with:
