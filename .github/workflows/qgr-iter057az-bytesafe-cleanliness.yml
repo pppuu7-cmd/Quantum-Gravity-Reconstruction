@@ -11,7 +11,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lane: [primary, independent]
+        include:
+          - lane: primary
+            script: scripts/qgr_iter057az_bytesafe_cleanliness.py
+          - lane: independent
+            script: scripts/qgr_iter057az_bytesafe_cleanliness_independent.py
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,25 +26,78 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p iter057az-output/${{ matrix.lane }}
-          python scripts/qgr_iter057az_bytesafe_cleanliness.py '${{ matrix.lane }}' | tee iter057az-output/${{ matrix.lane }}/lane.json
+          sha256sum '${{ matrix.script }}' | awk '{print $1}' > iter057az-output/${{ matrix.lane }}/implementation.sha256
+          printf '%s\n' '${{ matrix.script }}' > iter057az-output/${{ matrix.lane }}/implementation.path
+          python '${{ matrix.script }}' '${{ matrix.lane }}' | tee iter057az-output/${{ matrix.lane }}/lane.json
           test -s iter057az-output/${{ matrix.lane }}/lane.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: iter057az-${{ matrix.lane }}
-          path: iter057az-output/${{ matrix.lane }}/lane.json
+          path: iter057az-output/${{ matrix.lane }}
           if-no-files-found: error
   aggregate:
     if: always()
     needs: certificate
     runs-on: ubuntu-latest
     steps:
-      - name: Record frozen aggregate status
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057az-*
+          path: downloaded
+      - name: Frozen repaired aggregate classifier
         shell: bash
         run: |
+          set -euo pipefail
           mkdir -p iter057az-terminal
-          printf '%s\n' '{"gate":"ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN","certificate_result":"${{ needs.certificate.result }}","green_ci_alone_is_not_pass":true,"descendant_science_consumed":false}' > iter057az-terminal/aggregate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path('downloaded')
+          out=Path('iter057az-terminal/aggregate.json')
+          result={
+            'gate':'ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN',
+            'execution_repair_prereg':'3ee7468cb7f67ca668f92a2e56de13d83c9c120a',
+            'green_ci_alone_is_not_pass':True,
+            'descendant_science_consumed':False,
+          }
+          try:
+            p=json.loads((root/'iter057az-primary'/'lane.json').read_text())
+            q=json.loads((root/'iter057az-independent'/'lane.json').read_text())
+            psha=(root/'iter057az-primary'/'implementation.sha256').read_text().strip()
+            qsha=(root/'iter057az-independent'/'implementation.sha256').read_text().strip()
+            ppath=(root/'iter057az-primary'/'implementation.path').read_text().strip()
+            qpath=(root/'iter057az-independent'/'implementation.path').read_text().strip()
+            impl_independent=(psha != qsha and ppath != qpath)
+            normalized_agreement=(p.get('normalized_sha256') == q.get('normalized_sha256') and p.get('normalized') == q.get('normalized'))
+            all_controls=bool(p.get('all_controls_pass')) and bool(q.get('all_controls_pass'))
+            result.update({
+              'primary_implementation_path':ppath,
+              'independent_implementation_path':qpath,
+              'primary_implementation_sha256':psha,
+              'independent_implementation_sha256':qsha,
+              'independent_implementations':impl_independent,
+              'primary_all_controls_pass':bool(p.get('all_controls_pass')),
+              'independent_all_controls_pass':bool(q.get('all_controls_pass')),
+              'normalized_agreement':normalized_agreement,
+              'normalized_sha256':p.get('normalized_sha256') if normalized_agreement else None,
+            })
+            if impl_independent and normalized_agreement and all_controls:
+              result['classification']='PASS_SCOPED_ITER057AZ_BYTE_SAFE_REPAIR_INDEPENDENTLY_REPRODUCED'
+              result['terminal_pass']=True
+            else:
+              result['classification']='FAIL_TECHNICAL_ITER057AZ_INDEPENDENT_IMPLEMENTATION_OR_CONTROL_FAILURE'
+              result['terminal_pass']=False
+          except Exception as exc:
+            result['classification']='BLOCKED_ITER057AZ_REPAIRED_PRODUCTION_NOT_REALIZED'
+            result['terminal_pass']=False
+            result['error']=type(exc).__name__+': '+str(exc)
+          out.write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')
+          print(out.read_text())
+          PY
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: iter057az-terminal
           path: iter057az-terminal/aggregate.json
