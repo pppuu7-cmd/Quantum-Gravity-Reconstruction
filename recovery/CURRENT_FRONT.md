@@ -62,21 +62,25 @@ Both isolated unchanged frozen Iter057AU executions used matching frozen provena
 
 Iter057AV establishes only a reproducible execution/provenance-reader defect. It does not reclassify Iter057AU, does not consume descendant science, and does not authorize replay.
 
-## Iter057AW — active preregistered byte-safe provenance-reader repair
+## Iter057AW — terminal technical FAIL, referee confirmed scoped
 
 Gate: `ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR`.
 Preregistration: `4a137c9cc17858fb8e43875d169dc0a28ae3bb1d`.
 Repair implementation: `1c4963a4bcc84a5bf331f0173c76b05d7a6a1864` (`scripts/qgr_iter057aw_bytesafe_reader.py`).
-Workflow launch head: `c9f6422245e652caaecfbaa8cef8e91b1361af85` (`.github/workflows/qgr-iter057aw-bytesafe-reader.yml`).
-Status: **ACTIVE — terminal workflow result not yet consumed**.
+Production head: `c9f6422245e652caaecfbaa8cef8e91b1361af85`.
+Actions run: `35220098375` (`completed/success`).
+Terminal artifact: `10496493918` (`iter057aw-terminal`).
+Artifact digest: `sha256:c85315aa4e396fe77d8e828f00ffdd0303f2557716a2c9f7688febb4f9d85d11`.
+Classification: `FAIL_TECHNICAL_ITER057AW_BYTE_SAFE_REPAIR_CONTROL_FAILURE`.
+Adversarial referee verdict: `CONFIRMED_SCOPED`.
 
-The repair is confined to byte-safe Git provenance reading: `git show` stdout is captured as bytes, valid candidate text is decoded with strict UTF-8, and undecodable bytes fail closed as deterministic `NON_UTF8_PROVENANCE` carrying only ref/path/raw-byte SHA256. No descendant dependency adjudication is executed in this gate. Two isolated technical reproductions use synthetic UTF-8 and `0x8a` fixtures, `fail-fast:false`, and a terminal aggregate named `iter057aw-terminal`.
+Both isolated technical lanes reproduced the same invalid-fixture raw SHA256 `6d7c3014de78db7dc381089a15b61920d5831e36f5b4ef2fa175bf55db0eab61` and the same deterministic `NON_UTF8_PROVENANCE` sentinel. In both lanes `valid_utf8_roundtrip`, `non_utf8_sentinel`, `strict_decode_policy`, `missing_provenance_fail_closed`, `repair_scope_confined`, and `descendant_science_produced_or_consumed=false` passed. The sole reported failed frozen control in both lanes was `historical_result_tree_clean=false`, so `all_controls_pass=false` reproducibly and the preregistered technical FAIL classification is confirmed only at that scope.
 
-Iter057AU remains historically BLOCKED. No descendant scientific payload may be replayed, consumed or reclassified by Iter057AW.
+This does not establish that the byte-safe decode mechanism itself is defective: the terminal failure is specifically the frozen historical-tree-cleanliness control. Iter057AU remains historically BLOCKED; no descendant science was replayed, consumed or reclassified. A replacement AU adjudication is not authorized by this FAIL.
 
 ## Next bounded step
 
-Resolve only the Iter057AW workflow launched from head `c9f6422245e652caaecfbaa8cef8e91b1361af85`. If non-terminal, check status/provenance only and stop. If terminal, consume only the frozen Iter057AW preregistration and `iter057aw-terminal` aggregate, record PASS/FAIL/BLOCKED/INVALID exactly under the frozen criteria, update recovery, and stop. Do not rerun Iter057AU and do not consume descendant science.
+Prospectively preregister a target-blind technical gate that diagnoses the reproducible `historical_result_tree_clean=false` condition without changing dependency semantics, historical targets, scientific classifications, or descendant outcomes. Do not rerun Iter057AU and do not consume descendant science until a later prospectively frozen gate satisfies all required technical controls.
 
 ## Frozen KMQGB interface
 
