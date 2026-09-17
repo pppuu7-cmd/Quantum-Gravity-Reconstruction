@@ -18,14 +18,14 @@ Primary job: `105387003387`
 Independent job: `105387003716`
 Terminal job: `105391477932`
 
-Artifacts:
-- primary `10520393688`, digest `sha256:edfc076c8f191033b34acf2a9acdc3948a941e7a62d53c3b1741e4740974bf79`;
-- independent `10520580260`, digest `sha256:312181e0e21d49e0d9f054d7ae81a3a3f3ea2eaa636fae8630925446100e8291`;
-- terminal `10520764537`, digest `sha256:c690ff6ca5d21f67e0208595904b289480863db905e163b607d258ebdfd1f98e`.
+Authoritative artifacts from the completed run:
+- primary `10520996172`, digest `sha256:57a47af56d4db2b16c7d4874acebc65faf825c21c988989a4c838fdf5d1cce5b`;
+- independent `10521176638`, digest `sha256:b90de5fb90f0874b7d8d4108019699a479305aa0ae65a068368217ef012eee88`;
+- terminal `10521606016`, digest `sha256:d9844904345d0a098579148c319f9b303dd50235469a78f486a4d9775829369d`.
 
 Terminal payload SHA256:
 
-`d9583cde175969f84971acf82f7ee2cef1d7052f9407e9c3e213d0bf1e5ee844`
+`d9583cdee72a12424525d713cfbc78674db33d070de76af7e7215afe43a8178c`
 
 ## Terminal classification
 
@@ -57,10 +57,12 @@ Adding the R12 seed layer does not change the degree-six generalized projection.
 
 The prospectively frozen decomposition hashes are also invariant between R10 and R12 and agree between the independent lanes:
 
-- algebraic `P.R` contribution: `c11c5abfb59891e93b7d85ffd1cf44fc733df8753404028c472bbbe1d46a5534`;
-- double-covariant-divergence contribution: `27fa490a169995271880cbe045ee01b3a498ac087bfd1ac889e20bda10e6d1ac`;
-- metric-times-I3 contribution: `792594319750a629693ec3c01cb164a12e0ddc1748a806299386ece31ee88803`;
-- index-lowering contribution: `96761bbfcfba5caf9b6691150242ddd8092a18cb6ca48b1511249d48660080b4`.
+- algebraic `P.R` contribution: `577fed39c331d3199cd2d9af148d128b95dbfed82bf1fa3e9c3855a58795499c`;
+- double-covariant-divergence contribution: `c2a774b5180ce92f94f3b7f88795e38c100c65f0e0d0bad3e80a96bcff42fc37`;
+- metric-times-I3 contribution: `5feff63cc6976d8cfb4e506800e7f897b449ef5d0c0e33d0785cef7a608eae58`;
+- index-lowering contribution: `f21effc428ec1e7150d906de4ff88b7000f2661352c04c6869279567b3da410d`.
+
+Both primary and independent lane controls were all true, including the boundary-specific vacuum controls, exact arithmetic, AT ordered-hash reconstruction, and reproduction of the parent generalized-constructor hash.
 
 Because the exact polynomial/tensor discrepancy is already present before target serialization and survives both tested sufficient seed boundaries, the frozen classifier selects the generalized-constructor-formula-mismatch outcome rather than a serialization/basis or truncation-order explanation.
 
@@ -68,14 +70,27 @@ Because the exact polynomial/tensor discrepancy is already present before target
 
 Run `35274901385` remains an implementation-invalid diagnostic attempt. Before any terminal scientific use, a boundary-control defect was identified: the R10 diagnostic boundary was incorrectly required to be vacuum through coordinate degree ten even though its role in this diagnostic only requires the lower sufficient ceiling; the R12 layer is the layer that cancels the degree-ten Einstein residual. The repair was prospectively frozen at `b2f4c513bdd8ffbbb37202e0b7b756f626d920ec`. No payload from the invalid attempt is promoted.
 
+## Provenance correction
+
+The first durable write of this result, commit `d9384e9e98f536862354a02983e0916ddf61e05d`, was made from stale intermediate artifact metadata. Before using that record as authority for any subsequent gate, the completed run was re-read directly. This commit corrects only artifact IDs/digests, component hashes, and terminal payload SHA256 to the immutable completed-run values above. The terminal classification and scientific interpretation are unchanged.
+
 ## Consequence for the DAG
 
 This result does **not** alter or reclassify Iter057AT. It localizes the current higher-order inconsistency: the generalized corrected degree-eight constructor does not reduce to the exact corrected degree-six AT producer even before serialization.
 
+The exact AT producer has now been recovered from commit `c4e7ccc05ea1b8f4967379fc370812dfa99cce03`. It uses the same corrected Frechet machinery but the source-degree-six construction is frozen as:
+
+- `seed_metric10()` plus `geometry8(g)`;
+- `Cup = raise_last(C,gi,8)`;
+- `I3,QF = _fixed_cubic_and_Q(C,Cup,6)`;
+- `PF = _fixed_p_from_frechet(...,QF,8)`;
+- degree-six downstream Euler assembly (`aq.x_operator` in the primary lane, AO covariant assembly independently).
+
+The generalized degree-eight constructor instead uses the higher-order geometry together with `_fixed_cubic_and_Q(...,8)` and `_fixed_p_from_frechet(...,10)`. The next exact falsifier is therefore a prospectively frozen same-seed cutoff/intermediate-object identity test that changes these construction ceilings one at a time before any AT target comparison.
+
 Therefore:
 - the provisional corrected degree-eight source remains non-authoritative;
 - corrected Q10 remains LOCKED;
-- the next highest-information exact gate is a same-seed operator-identity comparison between the historical AT-producing Frechet construction and the generalized construction, with special attention to the prospectively identifiable Frechet degree cutoffs before the downstream Euler assembly;
 - no sign, scale, normalization or `c6` fitting is authorized.
 
 `c6 = SYMBOLIC_UNFIXED`.
