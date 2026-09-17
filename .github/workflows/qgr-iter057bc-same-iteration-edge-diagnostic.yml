@@ -1,0 +1,141 @@
+name: QGR Iter057BC same-iteration edge pollution causal diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057bc-same-iteration-edge-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qgr-iter057bc-same-iteration-edge-diagnostic
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane: primary
+            bb_script: scripts/qgr_iter057bb_dependency_primary.py
+            diagnostic_script: scripts/qgr_iter057bc_primary_equal_edge_diagnostic.py
+          - lane: independent
+            bb_script: scripts/qgr_iter057bb_dependency_independent.py
+            diagnostic_script: scripts/qgr_iter057bc_independent_equal_edge_diagnostic.py
+    name: diagnose (${{ matrix.lane }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reproduce frozen BB lane and run BC diagnostic
+        shell: bash
+        run: |
+          set +e
+          mkdir -p artifacts/iter057bc/${{ matrix.lane }}
+          python '${{ matrix.bb_script }}' --repo . --output artifacts/iter057bc/${{ matrix.lane }}/raw-bb.json > artifacts/iter057bc/${{ matrix.lane }}/raw-bb.log 2>&1
+          rc_bb=$?
+          python '${{ matrix.diagnostic_script }}' --input artifacts/iter057bc/${{ matrix.lane }}/raw-bb.json --output artifacts/iter057bc/${{ matrix.lane }}/diagnostic.json > artifacts/iter057bc/${{ matrix.lane }}/diagnostic.log 2>&1
+          rc_diag=$?
+          printf '%s\n' "$rc_bb" > artifacts/iter057bc/${{ matrix.lane }}/raw-bb-exitcode.txt
+          printf '%s\n' "$rc_diag" > artifacts/iter057bc/${{ matrix.lane }}/diagnostic-exitcode.txt
+          cat artifacts/iter057bc/${{ matrix.lane }}/raw-bb.log
+          cat artifacts/iter057bc/${{ matrix.lane }}/diagnostic.log
+          sha256sum artifacts/iter057bc/${{ matrix.lane }}/* > artifacts/iter057bc/${{ matrix.lane }}/SHA256SUMS.txt 2>/dev/null || true
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bc-${{ matrix.lane }}
+          path: artifacts/iter057bc/${{ matrix.lane }}/
+          if-no-files-found: warn
+          retention-days: 30
+  terminal:
+    if: always()
+    needs: diagnose
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057bc-*
+          path: collected
+          merge-multiple: false
+      - name: Frozen BC terminal classifier
+        shell: bash
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          GATE='ITER057BC_SAME_ITERATION_EDGE_POLLUTION_CAUSAL_DIAGNOSTIC'
+          PREREG='e8c7e1d95c2b12b0b513e5431d053a92d8141455'
+          BB_PREREG='eb864872be1db63d0588296c606b759b7b1495c8'
+          CENSUS='616859890df95057556d265612c53da839a5848a'
+          BB_NORM='5cba0b3b3e8475b974d8cf8f633875a7a1ab63f92b1503cbb353633ca2ac9189'
+          BB_PRIMARY_IMPL='0f1a760b99b78a9482dda83dc6dbc9f3411dcfcf278e425a2fd307f5ce991b43'
+          BB_INDEPENDENT_IMPL='475320d515fee801b2dff9a8266e7bdf2f7ed844ab9ba7df21b2bb3ba77eb124'
+          PASS='PASS_SCOPED_ITER057BC_SAME_ITERATION_EDGE_POLLUTION_CAUSALLY_LOCALIZED'
+          FAIL='FAIL_TECHNICAL_ITER057BC_CAUSAL_HYPOTHESIS_NOT_ESTABLISHED'
+          BLOCKED='BLOCKED_ITER057BC_CAUSAL_DIAGNOSTIC_NOT_REALIZED'
+          def load(lane,name):
+              p=Path('collected')/f'iter057bc-{lane}'/name
+              if not p.exists() or not p.stat().st_size:return None
+              try:return json.loads(p.read_text(encoding='utf-8'))
+              except Exception:return None
+          def jsha(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          p=load('primary','diagnostic.json');q=load('independent','diagnostic.json')
+          rp=load('primary','raw-bb.json');rq=load('independent','raw-bb.json')
+          out={'gate':GATE,'preregistration_commit':PREREG,'bb_preregistration_commit':BB_PREREG,'au_census_head':CENSUS,'green_ci_alone_is_not_pass':True}
+          if None in (p,q,rp,rq):
+              out.update(classification=BLOCKED,reason='required frozen BB reproduction or BC diagnostic payload missing/invalid',primary_present=p is not None,independent_present=q is not None,raw_primary_present=rp is not None,raw_independent_present=rq is not None)
+          else:
+              pc=p.get('controls',{});qc=q.get('controls',{})
+              controls={
+                'raw_primary_exact_parser_authority':rp.get('mode')=='primary' and rp.get('bb_preregistration_commit')==BB_PREREG and rp.get('au_census_head')==CENSUS and rp.get('scientific_normalized_sha256')==BB_NORM and rp.get('implementation_sha256')==BB_PRIMARY_IMPL,
+                'raw_independent_exact_parser_authority':rq.get('mode')=='independent' and rq.get('bb_preregistration_commit')==BB_PREREG and rq.get('au_census_head')==CENSUS and rq.get('scientific_normalized_sha256')==BB_NORM and rq.get('implementation_sha256')==BB_INDEPENDENT_IMPL,
+                'diagnostic_parent_authorities_exact':p.get('preregistration_commit')==PREREG and q.get('preregistration_commit')==PREREG and p.get('bb_preregistration_commit')==BB_PREREG and q.get('bb_preregistration_commit')==BB_PREREG and p.get('au_census_head')==CENSUS and q.get('au_census_head')==CENSUS,
+                'separately_authored_diagnostic_paths':p.get('implementation_path')!=q.get('implementation_path'),
+                'distinct_diagnostic_implementation_sha256':p.get('implementation_sha256')!=q.get('implementation_sha256'),
+                'partition_complete_both':pc.get('candidate_partition_complete') is True and qc.get('candidate_partition_complete') is True,
+                'zero_later_both':p.get('later_count')==0 and q.get('later_count')==0 and pc.get('zero_later_candidates') is True and qc.get('zero_later_candidates') is True,
+                'equal_nonempty_both':p.get('equal_count',0)>0 and q.get('equal_count',0)>0 and pc.get('equal_candidates_nonempty') is True and qc.get('equal_candidates_nonempty') is True,
+                'earlier_only_acyclic_both':pc.get('earlier_only_graph_acyclic') is True and qc.get('earlier_only_graph_acyclic') is True,
+                'filtered_classes_unchanged_both':pc.get('filtered_classes_unchanged') is True and qc.get('filtered_classes_unchanged') is True,
+                'filtered_queue_unchanged_both':pc.get('filtered_replay_queue_unchanged') is True and qc.get('filtered_replay_queue_unchanged') is True,
+                'equal_pairs_exact_agreement':p.get('equal_pairs')==q.get('equal_pairs'),
+                'filtered_classes_exact_agreement':p.get('filtered_ordered_classifications')==q.get('filtered_ordered_classifications'),
+                'filtered_queue_exact_agreement':p.get('filtered_replay_queue')==q.get('filtered_replay_queue'),
+                'undecodable_exact_agreement':p.get('undecodable_provenance_objects')==q.get('undecodable_provenance_objects'),
+                'undecodable_preserved_primary':p.get('undecodable_provenance_objects')==rp.get('undecodable_provenance_objects'),
+                'undecodable_preserved_independent':q.get('undecodable_provenance_objects')==rq.get('undecodable_provenance_objects'),
+                'no_descendant_science_consumed':p.get('descendant_science_consumed') is False and q.get('descendant_science_consumed') is False,
+                'no_history_or_claim_mutation':pc.get('historical_result_modified') is False and qc.get('historical_result_modified') is False and pc.get('claim_lock_promoted') is False and qc.get('claim_lock_promoted') is False,
+              }
+              if all(controls.values()):
+                  cls=PASS;reason='same-iteration edge pollution causally localized: strict earlier-only admissibility restores DAG acyclicity without changing classes, queue, or byte-safe provenance census'
+              else:
+                  cls=FAIL;reason='one or more frozen causal-localization criteria failed'
+              out.update({
+                'classification':cls,'reason':reason,'controls':controls,
+                'candidate_count_primary':p.get('candidate_count'),'candidate_count_independent':q.get('candidate_count'),
+                'earlier_count_primary':p.get('earlier_count'),'earlier_count_independent':q.get('earlier_count'),
+                'equal_count_primary':p.get('equal_count'),'equal_count_independent':q.get('equal_count'),
+                'later_count_primary':p.get('later_count'),'later_count_independent':q.get('later_count'),
+                'equal_pairs':p.get('equal_pairs') if controls['equal_pairs_exact_agreement'] else None,
+                'filtered_ordered_classifications':p.get('filtered_ordered_classifications') if controls['filtered_classes_exact_agreement'] else None,
+                'filtered_replay_queue':p.get('filtered_replay_queue') if controls['filtered_queue_exact_agreement'] else None,
+                'undecodable_provenance_objects':p.get('undecodable_provenance_objects') if controls['undecodable_exact_agreement'] else None,
+                'primary_diagnostic_implementation_sha256':p.get('implementation_sha256'),'independent_diagnostic_implementation_sha256':q.get('implementation_sha256'),
+                'raw_bb_scientific_normalized_sha256':BB_NORM,
+                'descendant_science_consumed':False,'historical_iter057bb_reclassified':False,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED'})
+          body=dict(out);out['terminal_payload_sha256']=jsha(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bc-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
