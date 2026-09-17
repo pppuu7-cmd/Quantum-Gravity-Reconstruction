@@ -1,0 +1,140 @@
+name: QGR Iter057BD strict-earlier dependency adjudication
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057bd-strict-earlier-dependency-adjudication.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qgr-iter057bd-strict-earlier-dependency-adjudication
+  cancel-in-progress: false
+jobs:
+  adjudicate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane: primary
+            script: scripts/qgr_iter057bd_dependency_primary.py
+          - lane: independent
+            script: scripts/qgr_iter057bd_dependency_independent.py
+    name: adjudicate (${{ matrix.lane }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run frozen strict-earlier adjudicator
+        shell: bash
+        run: |
+          set +e
+          mkdir -p artifacts/iter057bd/${{ matrix.lane }}
+          python '${{ matrix.script }}' --repo . --output artifacts/iter057bd/${{ matrix.lane }}/${{ matrix.lane }}.json > artifacts/iter057bd/${{ matrix.lane }}/${{ matrix.lane }}.log 2>&1
+          rc=$?
+          printf '%s\n' "$rc" > artifacts/iter057bd/${{ matrix.lane }}/exitcode.txt
+          cat artifacts/iter057bd/${{ matrix.lane }}/${{ matrix.lane }}.log
+          sha256sum artifacts/iter057bd/${{ matrix.lane }}/* > artifacts/iter057bd/${{ matrix.lane }}/SHA256SUMS.txt 2>/dev/null || true
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bd-${{ matrix.lane }}
+          path: artifacts/iter057bd/${{ matrix.lane }}/
+          if-no-files-found: warn
+          retention-days: 30
+  terminal:
+    if: always()
+    needs: adjudicate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057bd-*
+          path: collected
+          merge-multiple: false
+      - name: Frozen Iter057BD terminal classifier
+        shell: bash
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          GATE='ITER057BD_STRICT_EARLIER_ONLY_DESCENDANT_DEPENDENCY_ADJUDICATION'
+          PREREG='79ef5b0182bd8d4c90284c2cb95b110c8ed412f3'
+          CENSUS='616859890df95057556d265612c53da839a5848a'
+          BA='9315d4a987698fc502958235b2c9ec011e097244'
+          BC='4175032db3d74e3939996fe44309724142a6cbf6'
+          PASS='PASS_SCOPED_ITER057BD_STRICT_EARLIER_ONLY_DESCENDANT_DEPENDENCY_ADJUDICATION_INDEPENDLY_REPRODUCED'
+          PASS_CANONICAL='PASS_SCOPED_ITER057BD_STRICT_EARLIER_ONLY_DESCENDANT_DEPENDENCY_ADJUDICATION_INDEPENDENTLY_REPRODUCED'
+          BLOCKED='BLOCKED_ITER057BD_UNRESOLVED_PROVENANCE'
+          FAIL='FAIL_TECHNICAL_ITER057BD_INDEPENDENT_REPRODUCTION_OR_GRAPH_CONTROL_FAILURE'
+          INVALID='INVALID_ITER057BD_CRITERIA_HISTORY_OR_TARGET_BLINDNESS_VIOLATED'
+          def load(lane):
+              p=Path('collected')/f'iter057bd-{lane}'/f'{lane}.json'
+              if not p.exists() or not p.stat().st_size:return None
+              try:return json.loads(p.read_text(encoding='utf-8'))
+              except Exception:return None
+          def sh(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          p=load('primary');q=load('independent')
+          out={'gate':GATE,'preregistration_commit':PREREG,'au_census_head':CENSUS,'ba_authority_result_commit':BA,'bc_authority_result_commit':BC,'green_ci_alone_is_not_pass':True}
+          if p is None or q is None:
+              out.update(classification=FAIL,reason='missing or invalid independent adjudicator payload',primary_present=p is not None,independent_present=q is not None)
+          else:
+              pc=p.get('controls',{});qc=q.get('controls',{})
+              forbidden_violation=any([
+                pc.get('descendant_science_recomputed') is not False,qc.get('descendant_science_recomputed') is not False,
+                pc.get('descendant_outcomes_used_as_targets') is not False,qc.get('descendant_outcomes_used_as_targets') is not False,
+                pc.get('historical_result_modified') is not False,qc.get('historical_result_modified') is not False,
+                pc.get('claim_lock_promoted') is not False,qc.get('claim_lock_promoted') is not False,
+                p.get('descendant_science_consumed') is not False,q.get('descendant_science_consumed') is not False])
+              required_lane_keys=['au_census_exact_23','ba_authority_pinned','bc_authority_pinned','all_accepted_edges_strictly_earlier','zero_later_candidates','equal_candidates_exact_self_pair_set','dag_acyclic','every_record_classified_once','zero_unresolved_records','zero_load_bearing_undecodable','replay_queue_only_dependents','tracked_status_clean_before','tracked_status_clean_after','canonical_tracked_tree_digest_unchanged']
+              controls={
+                'parent_authorities_exact':p.get('preregistration_commit')==PREREG and q.get('preregistration_commit')==PREREG and p.get('au_census_head')==CENSUS and q.get('au_census_head')==CENSUS and p.get('ba_authority_result_commit')==BA and q.get('ba_authority_result_commit')==BA and p.get('bc_authority_result_commit')==BC and q.get('bc_authority_result_commit')==BC,
+                'primary_lane_controls':all(pc.get(k) is True for k in required_lane_keys),
+                'independent_lane_controls':all(qc.get(k) is True for k in required_lane_keys),
+                'separate_implementation_paths':p.get('implementation_path')!=q.get('implementation_path'),
+                'distinct_implementation_sha256':p.get('implementation_sha256')!=q.get('implementation_sha256'),
+                'record_count_both_23':p.get('record_count')==23 and q.get('record_count')==23,
+                'ordered_classifications_exact_agreement':p.get('ordered_classifications')==q.get('ordered_classifications'),
+                'replay_queue_exact_agreement':p.get('replay_queue')==q.get('replay_queue'),
+                'equal_self_pair_set_exact_agreement':p.get('rejected_equal_pairs')==q.get('rejected_equal_pairs') and len(p.get('rejected_equal_pairs') or [])==23,
+                'zero_later_both':p.get('rejected_later_pairs')==[] and q.get('rejected_later_pairs')==[],
+                'undecodable_exact_agreement':p.get('undecodable_provenance_objects')==q.get('undecodable_provenance_objects'),
+                'scientific_normalized_sha256_agreement':p.get('scientific_normalized_sha256')==q.get('scientific_normalized_sha256'),
+                'tracked_tree_stable_primary':p.get('tracked_tree_digest_before')==p.get('tracked_tree_digest_after'),
+                'tracked_tree_stable_independent':q.get('tracked_tree_digest_before')==q.get('tracked_tree_digest_after'),
+              }
+              unresolved=sorted(set(p.get('unresolved_records',[]))|set(q.get('unresolved_records',[])))
+              load_bad=[x for x in (p.get('undecodable_provenance_objects') or []) if x.get('classification_load_bearing')]
+              if forbidden_violation:
+                  cls=INVALID;reason='criteria/history/target-blindness/descendant-replay invariant violated'
+              elif unresolved or load_bad:
+                  cls=BLOCKED;reason='valid strict-earlier execution leaves genuinely unresolved load-bearing provenance'
+              elif not all(controls.values()):
+                  cls=FAIL;reason='independent adjudicators disagree or a frozen graph/integrity/control criterion failed'
+              else:
+                  cls=PASS_CANONICAL;reason='strict-earlier-only dependency DAG independently reproduced with exact classifications and replay queue, zero unresolved records, and preserved byte-safe provenance census'
+              queue=p.get('replay_queue') if controls['replay_queue_exact_agreement'] else None
+              out.update({
+                'classification':cls,'reason':reason,'controls':controls,'record_count':p.get('record_count'),
+                'ordered_classifications':p.get('ordered_classifications') if controls['ordered_classifications_exact_agreement'] else None,
+                'replay_queue':queue,'earliest_replay_record':queue[0] if cls==PASS_CANONICAL and queue else None,
+                'rejected_equal_pairs':p.get('rejected_equal_pairs') if controls['equal_self_pair_set_exact_agreement'] else None,
+                'unresolved_records':unresolved,'classification_load_bearing_undecodable':load_bad,
+                'undecodable_provenance_objects':p.get('undecodable_provenance_objects') if controls['undecodable_exact_agreement'] else None,
+                'primary_implementation_sha256':p.get('implementation_sha256'),'independent_implementation_sha256':q.get('implementation_sha256'),
+                'primary_payload_sha256':sh(p),'independent_payload_sha256':sh(q),'scientific_normalized_sha256':p.get('scientific_normalized_sha256') if controls['scientific_normalized_sha256_agreement'] else None,
+                'descendant_science_consumed':False,'historical_iter057au_reclassified':False,'historical_iter057bb_reclassified':False,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED'})
+          body=dict(out);out['terminal_payload_sha256']=sh(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bd-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
