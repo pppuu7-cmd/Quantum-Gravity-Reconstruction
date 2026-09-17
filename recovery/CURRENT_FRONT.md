@@ -16,9 +16,9 @@ Updated: 2026-09-17
 
 This 100% does not promote any scientific R-stage and does not authorize any physical/quantum claim.
 
-## Scientific front — terminal Iter057AT
+## Last terminal science — Iter057AT
 
-Last terminal science: `ITER057AT` — `PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED`.
+`ITER057AT` remains terminal `PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED`.
 
 Preregistration: `6039cb2ed1380b549bced3d33634362ef57345d4`.
 Implementation: `d45c6ba67459e2702909c2b864f5a5c24f104015`.
@@ -26,30 +26,31 @@ Production head: `c4e7ccc05ea1b8f4967379fc370812dfa99cce03`.
 Actions run: `35198813733` (`completed/success`).
 Terminal artifact: `10486973737` (`iter057at-terminal`).
 Artifact digest: `sha256:bdb5affc949803e692d3680864746daa0c4175324d85e1ce7426d1b719621bb6`.
-Terminal payload SHA256: `9359413858a8887b0442aba56fba14576d37be87ce51fec80659758cc7a1bd8a`.
 Corrected ordered 840-vector SHA256: `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`.
 Adversarial referee review: `5d03f13fbc08004159ad8cbc7aa8c0eb20a035c1` — `CONFIRMED_SCOPED`.
 
-Frozen exact evidence consumed from the terminal aggregate artifact only:
+Iter057AR remains historically BLOCKED on its frozen 2100-slot object. Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten. Historical FAIL/BLOCKED results remain preserved.
 
-- exact preregistration identity passed;
-- primary and independent payloads both present;
-- both frozen control sets pass;
-- source fingerprints are identical;
-- both ordered vectors are self-hash-consistent and bit-for-bit identical;
-- slot count is `840` in both lanes and monomial count per tensor pair is `84`;
-- no historical target vector was loaded;
-- `c6` remains `SYMBOLIC_UNFIXED_FACTORED_OUT`.
+## Active scientific gate — Iter057AU
 
-This is a finite homogeneous total-degree-six corrected Weyl^3 source certificate only. It does not retroactively modify Iter057AR, whose frozen 2100-slot object remains terminal BLOCKED, and it does not silently promote descendants that depended on the legacy degree-six source.
+Gate: `ITER057AU_CORRECTED_DEGREE6_DESCENDANT_DEPENDENCY_ADJUDICATION`.
+Status: **PREREGISTERED_AND_LAUNCHED; TERMINAL EVIDENCE NOT YET CONSUMED**.
 
-Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten. Historical FAIL/BLOCKED results remain preserved.
+Preregistration: `616859890df95057556d265612c53da839a5848a`.
+Implementation: `30aa968631d3c7f0ea82ea054b2abb14492748b3`.
+Production head / workflow launch: `683b5f79899fc4a5677168cd7fd90d098cbc411e`.
+Workflow: `.github/workflows/qgr-iter057au-dependency-adjudication.yml`.
+Actions run: not yet registered at the first bounded post-launch query; next run must resolve only the run on the frozen production head above.
 
-## Next bounded scientific step
+Frozen purpose: adjudicate which post-Iter057X scientific result records are direct/transitive load-bearing descendants of the legacy degree-six source, which are provenance-independent, and which have unresolved provenance. No descendant scientific outcome may be recomputed in this gate.
 
-No next scientific gate is currently preregistered or authorized by this recovery record.
+Frozen method/controls include a complete census at preregistration head `616859890df95057556d265612c53da839a5848a`, deterministic acyclic dependency DAG, deterministic replay queue, primary and independent reconstruction lanes with `fail-fast:false`, bit-for-bit ordered-classification/replay-queue agreement, immutable historical result files, and no claim-lock promotion. Any unresolved provenance fails closed as `BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`.
 
-Any replay/adjudication of descendants that depended on the legacy degree-six source requires its own prospective gate before implementation or evidence consumption. Do not silently rewrite historical results, fit normalization/sign/basis/embedding after seeing evidence, or infer global/all-orders/quantum closure from Iter057AT.
+Do not consume partial lane payloads. Only `iter057au-terminal` may be used for terminal classification after the authoritative workflow is terminal.
+
+## Next bounded orchestration step
+
+Inspect only the Iter057AU Actions run associated with head `683b5f79899fc4a5677168cd7fd90d098cbc411e`. If non-terminal, check status/provenance only. If terminal, validate the frozen preregistration plus `iter057au-terminal`, record the classification, update recovery, and stop. Do not replay any descendant science inside Iter057AU.
 
 ## Frozen KMQGB interface
 
