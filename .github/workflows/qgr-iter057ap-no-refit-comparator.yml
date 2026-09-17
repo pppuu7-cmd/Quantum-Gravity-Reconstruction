@@ -1,0 +1,47 @@
+name: QGR Iter057AP no-refit source comparator
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ap-no-refit-comparator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download immutable target-blind constructor artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/iter057ap-comparator/input artifacts/iter057ap-comparator/output
+          curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/10478944256/zip" \
+            -o artifacts/iter057ap-comparator/constructor.zip
+          python -m zipfile -e artifacts/iter057ap-comparator/constructor.zip artifacts/iter057ap-comparator/input
+      - name: Compare all 2100 slots under frozen convention map
+        shell: bash
+        run: |
+          set -o pipefail
+          python code/qgr_iter057ap_no_refit_comparator.py \
+            --constructor artifacts/iter057ap-comparator/input/result.json \
+            --output artifacts/iter057ap-comparator/output/result.json
+      - name: Upload exact comparator result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ap-no-refit-comparator
+          path: artifacts/iter057ap-comparator/output/result.json
+          if-no-files-found: error
+          retention-days: 30
