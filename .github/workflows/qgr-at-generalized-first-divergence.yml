@@ -1,0 +1,114 @@
+name: QGR AT generalized Frechet first-divergence localization
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'recovery/AT_GENERALIZED_FIRST_DIVERGENCE_TRIGGER.md'
+  workflow_dispatch:
+
+jobs:
+  researcher:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Researcher staged exact interventions
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p artifacts/first-divergence/researcher
+          set +e
+          PYTHONPATH=code python scripts/qgr_at_generalized_first_divergence.py --mode researcher --out artifacts/first-divergence/researcher/researcher.json | tee artifacts/first-divergence/researcher/researcher.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "$rc" > artifacts/first-divergence/researcher/EXIT_CODE.txt
+          sha256sum artifacts/first-divergence/researcher/researcher.json artifacts/first-divergence/researcher/researcher.log artifacts/first-divergence/researcher/EXIT_CODE.txt > artifacts/first-divergence/researcher/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: at-generalized-first-divergence-researcher
+          path: artifacts/first-divergence/researcher/
+
+  critic:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Critic independent AO staged interventions
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p artifacts/first-divergence/critic
+          set +e
+          PYTHONPATH=code python scripts/qgr_at_generalized_first_divergence.py --mode critic --out artifacts/first-divergence/critic/critic.json | tee artifacts/first-divergence/critic/critic.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "$rc" > artifacts/first-divergence/critic/EXIT_CODE.txt
+          sha256sum artifacts/first-divergence/critic/critic.json artifacts/first-divergence/critic/critic.log artifacts/first-divergence/critic/EXIT_CODE.txt > artifacts/first-divergence/critic/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: at-generalized-first-divergence-critic
+          path: artifacts/first-divergence/critic/
+
+  terminal:
+    needs: [researcher, critic]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: at-generalized-first-divergence-*
+          path: collected
+      - name: Frozen first-divergence classifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p terminal
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          P='aa2c0784f3b9cd0397c1eb10c000e0e555602a35'
+          def load(d,f):
+              try:return json.loads((Path('collected')/d/f).read_text())
+              except:return None
+          r=load('at-generalized-first-divergence-researcher','researcher.json')
+          c=load('at-generalized-first-divergence-critic','critic.json')
+          out={'gate':'CORRECTED_DEGREE8_AT_GENERALIZED_FIRST_DIVERGENCE_LOCALIZATION','preregistration_commit':P,'c6':'SYMBOLIC_UNFIXED','corrected_Q10_locked':True,'theory_established_pct':0}
+          if not r or not c:
+              cls='UNRESOLVED_AT_GENERALIZED_FIRST_DIVERGENCE'; reason='researcher or Critic payload missing'
+          else:
+              valid=(r.get('preregistration_commit')==c.get('preregistration_commit')==P and all(r.get('controls',{}).values()) and all(c.get('controls',{}).values()) and r.get('target_loaded_during_stage_construction') is False and c.get('target_loaded_during_stage_construction') is False)
+              agree=(r.get('stage_sha256')==c.get('stage_sha256'))
+              eq=r.get('stage_equalities',{})
+              ceq=c.get('stage_equalities',{})
+              same_eq=(eq==ceq)
+              if not valid or not agree or not same_eq:
+                  cls='UNRESOLVED_AT_GENERALIZED_FIRST_DIVERGENCE'; reason='frozen controls failed or Researcher/Critic stage relations disagree'
+              elif not eq.get('H1_eq_H0'):
+                  cls='LOCALIZED_GEOMETRY_CUP_CEILING_MISMATCH'; reason='first exact degree-six source divergence occurs when geometry/Cup ceiling is raised with QF6/PF8/source6 held fixed'
+              elif not eq.get('H2_eq_H1'):
+                  cls='LOCALIZED_CUBIC_QF_CEILING_MISMATCH'; reason='geometry/Cup intervention preserves AT, but raising cubic/QF ceiling 6->8 changes the exact degree-six source'
+              elif not eq.get('H3_eq_H2'):
+                  cls='LOCALIZED_FRECHET_P_CEILING_MISMATCH'; reason='first exact degree-six source divergence occurs when Frechet-P ceiling is raised 8->10'
+              elif not eq.get('H4_eq_H3'):
+                  cls='LOCALIZED_DOWNSTREAM_SOURCE_CEILING_MISMATCH'; reason='first exact degree-six source divergence occurs only when downstream source ceiling is raised 6->8'
+              else:
+                  cls='NO_MISMATCH_UNDER_SAME_SEED_INTERVENTION'; reason='all frozen same-seed interventions preserve the degree-six source despite the pinned parent mismatch'
+              out.update(stage_sha256=r.get('stage_sha256'),stage_equalities=eq,researcher_pretarget_sha256=r.get('pretarget_payload_sha256'),critic_pretarget_sha256=c.get('pretarget_payload_sha256'),researcher_intermediate=r.get('intermediate'),critic_intermediate=c.get('intermediate'))
+          out.update(classification=cls,reason=reason)
+          body=dict(out); out['terminal_payload_sha256']=hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: at-generalized-first-divergence-terminal
+          path: terminal/
