@@ -4,9 +4,7 @@ Updated: 2026-09-17
 
 ## Programme infrastructure — terminal 100%
 
-Repository infrastructure and candidate-program / research-programme infrastructure remain **100%** under the frozen infrastructure-only semantics; this is not probability of correctness, theory completion, or fraction of quantum gravity solved. Theory established remains **0%**.
-
-The science-front-invariance repair remains certified by programme-100 run `35246742331` (`success`).
+Repository infrastructure and candidate-program / research-programme infrastructure remain **100%** under the frozen infrastructure-only semantics. This is not probability of correctness, not theory completion, and not fraction of quantum gravity solved. Theory established remains **0%**. Programme-100 science-front-invariance recertification run `35246742331` remains `success`.
 
 ## Last terminal science — Iter057AT
 
@@ -14,71 +12,75 @@ The science-front-invariance repair remains certified by programme-100 run `3524
 
 - preregistration `6039cb2ed1380b549bced3d33634362ef57345d4`;
 - production head `c4e7ccc05ea1b8f4967379fc370812dfa99cce03`;
-- Actions run/artifact `35198813733 / 10486973737`;
+- Actions run `35198813733`;
+- terminal artifact `10486973737`, digest `sha256:bdb5affc949803e692d3680864746daa0c4175324d85e1ce7426d1b719621bb6`;
 - corrected ordered 840-vector SHA256 `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`;
+- 140 nonzero degree-six coefficients;
 - `c6` symbolic/unfixed.
 
-No later technical gate promotes or reclassifies this scientific result.
+Historical Iter057X remains preserved rather than rewritten. No later technical/dependency gate promotes the scope of Iter057AT.
 
-## Preserved dependency-repair lineage
+## Dependency-repair lineage — preserved history
 
-- `ITER057AU`: historical terminal `BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`, durable result `c299683e28289788c53797e5ede1cafaf09f5431`; no descendant science replayed.
-- `ITER057AV`: terminal technical FAIL localizing unchanged AU execution to implicit UTF-8 decode failure on byte `0x8a`.
-- `ITER057AW`: terminal technical FAIL on its frozen cleanliness control.
-- `ITER057AX`: terminal technical FAIL; cleanliness attribution not established.
-- `ITER057AY`: terminal scoped PASS establishing Git empty-untracked-directory status semantics only.
-- `ITER057AZ`: terminal `FAIL_TECHNICAL_ITER057AZ_INDEPENDENT_IMPLEMENTATION_OR_CONTROL_FAILURE`, durable result `87c9b6d029120aaeb38d0c5ff985df9125ae3470`; its repaired independent implementations agreed on lane-local byte-safe controls but disagreed because the tracked-tree serialization had not been canonically frozen.
+- `ITER057AU`: historical `BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`, durable result `c299683e28289788c53797e5ede1cafaf09f5431`.
+- `ITER057AV/AW/AX`: preserved terminal technical FAILs localizing execution/cleanliness defects.
+- `ITER057AY`: terminal scoped PASS on Git empty-untracked-directory semantics only.
+- `ITER057AZ`: terminal technical FAIL after independently implemented lanes exposed under-specified tracked-tree serialization; durable result `87c9b6d029120aaeb38d0c5ff985df9125ae3470`.
+- `ITER057BA`: terminal `PASS_SCOPED_ITER057BA_NEUTRAL_CANONICAL_BYTE_SAFE_CERTIFICATE_INDEPENDENTLY_REPRODUCED`, durable result `9315d4a987698fc502958235b2c9ec011e097244`; canonical tracked-tree digest `fa12c152dd93326693881b7e0bf9ef9cae1db89dccf84ea5be58c6166eae624c`.
+- `ITER057BB`: preserved terminal `FAIL_TECHNICAL_ITER057BB_INDEPENDENT_REPRODUCTION_OR_DAG_CONTROL_FAILURE`, durable result `9f693a06f4ec16f06b32f427469beef2eb671844`; both lanes otherwise agreed exactly on the 23-record census/classes/queue and zero unresolved records.
+- `ITER057BC`: terminal `PASS_SCOPED_ITER057BC_SAME_ITERATION_EDGE_POLLUTION_CAUSALLY_LOCALIZED`, durable result `4175032db3d74e3939996fe44309724142a6cbf6`; BB DAG failure localized to 23 same-iteration self-mentions, with no later-rank edges and no change to classes/queue under strict-earlier filtering.
+- `ITER057BD`: terminal `PASS_SCOPED_ITER057BD_STRICT_EARLIER_ONLY_DESCENDANT_DEPENDENCY_ADJUDICATION_INDEPENDENTLY_REPRODUCED`, durable result `c1e5be8e0da856d0960dce20cdb48f207b572869`; 23/23 records classified, zero unresolved, exact independent replay-queue agreement, scientific normalized SHA `d7b714683f6909d3fa36fb265686317edb866b68b646c50687994b14a026aa8c`.
 
-All historical classifications remain preserved.
+## Iter057Y same-iteration scheduling
 
-## Iter057BA — terminal scoped PASS
+`ITER057BE` remains historical `BLOCKED_ITER057BE_ITER057Y_REPLAY_ORDER_UNRESOLVED`; its independent call-flow lane passed while the primary raw-source predicate mishandled adjacent Python literals.
 
-Gate: `ITER057BA_NEUTRAL_CANONICAL_TRACKED_TREE_DIGEST_CERTIFICATE`.
+`ITER057BF` terminalized:
 
-Preregistration: `f63f2df87d2d1abaea93daa29a311d78e331eefa` (frozen before either implementation).
-Primary implementation: `10e576fb81e47da48679a672378e0335f61baeb5`.
-Independent implementation: `2053022c4fc17e4572ea1ed52b2b3b62abef0dc8`.
-Production head: `47d5d68c6ba75c248cce1651f32d17c30e9b729b`.
-Actions run: `35247035208` (`completed/success`).
-Durable result: `9315d4a987698fc502958235b2c9ec011e097244`.
+`PASS_SCOPED_ITER057BF_ITER057Y_REPLAY_BUNDLE_ORDER_SCIENCE_BEFORE_AUDIT_REPAIRED_PRIMARY_AND_INDEPENDENTLY_REPRODUCED`.
 
-Artifacts:
-- primary `10508922348`, digest `sha256:cc2861866ebf2dce572e1dd4896c2e3f960cc7259cb7334e014ac633b2877407`;
-- independent `10509266347`, digest `sha256:7d67994b21d9dfceca610f10b1ad80d083ebceb9b18edb02ab40a18fa203f1b0`;
-- terminal `10509521039`, digest `sha256:250b7cd8c2b5a3589137d610fccc4479aa6b8e49d82a08fe1951b8e9fc61a770`.
+Durable result `1bdd80ff310433f02bd493b228806517492d291b`; Actions run `35253961967`; terminal payload SHA256 `e5956cb7535e080f775432c68b3c02f6b8fffe39eb06c7c2d634411b1062f818`.
 
-Classification: **`PASS_SCOPED_ITER057BA_NEUTRAL_CANONICAL_BYTE_SAFE_CERTIFICATE_INDEPENDENTLY_REPRODUCED`**.
+The first executable replay unit is therefore one atomic same-iteration bundle ordered:
 
-Exact terminal controls:
-- canonical tracked-tree digest `fa12c152dd93326693881b7e0bf9ef9cae1db89dccf84ea5be58c6166eae624c`;
-- normalized SHA256 `701ae08167f8b69be4a972e734caab552879832e58d3d10627e807dd527de230` in both lanes;
-- primary implementation SHA256 `b5ab921e78579b4316464fd71cf8005ced56b7edc332c0ec0c67d16b2ecaee9d`;
-- independent implementation SHA256 `cf3854bb940b9c1bb7645fa5040bee8d9072a3e9316178b230c061d35fb80f9b`;
-- distinct independent implementations, all frozen controls true, normalized agreement true, descendant science consumed false.
+1. `results/ITER057Y_ONSHELL_FIRST_ORDER_Q2_Q4_Q6_Q8_RESPONSE_TERMINAL.md` — science first;
+2. `results/ITER057Y_ACTIONS_PROVENANCE_AUDIT.md` — supplemental audit second.
 
-This technical scoped PASS does not reclassify AU/AW/AX/AZ and establishes no physics. It satisfies the exact prospectively frozen execution lock for Iter057BB.
+This establishes scheduling only; historical Y has not yet been replayed or reclassified.
 
-## Iter057BB — active authoritative dependency adjudication retry
+## Iter057BG — durable corrected degree-six input PASS
 
-Preregistration: `eb864872be1db63d0588296c606b759b7b1495c8`, frozen before BA outcome.
+Gate: `ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_MATERIALIZATION`.
 
-The census remains exactly the original Iter057AU preregistration snapshot `616859890df95057556d265612c53da839a5848a`. No post-census scientific result may influence classification and no descendant science may be replayed.
+- preregistration `180be23933c9cc4f78dbf8e1fea6cb76b9c74fc8`;
+- candidate commit `6fcde386155fc3b9b1ec6ec98cdca5a01f25c468`;
+- verifier `411eac070d762197180b961663c58057483ff312`;
+- production head `18e631c98896260bf62aea053278985574ec96d5`;
+- Actions run `35254397613`;
+- terminal artifact `10511953237`, digest `sha256:26d639e7af3e22d6cc0b1507d23189ac127a14b67a22977303a63f98226e75a1`;
+- durable result `c9474e2f0c50268f314c4001acc3834f80ee7294`;
+- classification `PASS_SCOPED_ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_INDEPENDENTLY_REPRODUCED`;
+- terminal payload SHA256 `3491c1c9efa27e39127905d209c4b1c365d63038d639bece41cb1224d5939151`.
 
-Two separately authored implementations are now frozen:
-- primary commit `605e0ff44496e4792618602dd0819b4ca599eb80`, context-radius dependency classifier;
-- independent commit `12947c2cc7788f98d6a47df0457d235cf6715791`, line-neighborhood dependency classifier.
+Durable source `data/ITER057AT_CANONICAL_SOURCE_DEGREE6.csv` has SHA256 `1cae5a82d1345b9d9a77bcd3d6a91f6d5747629b5ac9e091bbb6c5a7ade3025b`, 140 nonzero rows, and reconstructs the exact 840-vector SHA `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b` in fresh pinned primary and independent Iter057AT reconstructions.
 
-Both acquire Git provenance as bytes, decode text strictly as UTF-8, serialize every undecodable object by deterministic raw SHA256/identity, and fail closed when an undecodable object is classification-load-bearing. They do not import/call/read each other's classification payloads.
+## Iter057BH — active source/equation convention adjudication
 
-Production head/workflow: `6cbae90b3c6d93cbc0b1569d846f805b2e2a2553`, `.github/workflows/qgr-iter057bb-byte-safe-dependency-adjudication.yml`.
-Actions run: `35251292539`.
-Current status at this update: **queued**; no duplicate authoritative run is launched while it remains active.
+Preregistration `4317e8d2dce74178ecddab100374455c933959c4` was frozen before any corrected-Y response solve. Static implementation `657c65495eafb438574e78bdb0599dba075a4c82`; exact implementation `a2b46f9f8d97d775638cc7a2383007229811da1d`; production head/workflow `deceffde435e81f8009e7d38887c4bcbe6a0943e` / `.github/workflows/qgr-iter057bh-y-source-convention.yml`; Actions run `35255309628`.
 
-Terminal PASS requires exact agreement on census, ordered dependency classes, deterministic replay queue, and undecodable provenance identities/load-bearing flags, plus acyclic DAG, tracked-tree integrity, target blindness and zero classification-load-bearing unresolved records. A PASS may authorize only a later separately preregistered replay of the **earliest** load-bearing descendant; it does not change historical AU by itself.
+The gate prospectively permits either exact map `S_std_corrected=+AT` or `S_std_corrected=-AT`; no sign may be chosen from corrected-Y solvability or Q8 output.
+
+Current execution state:
+
+- static lane completed. It confirms AQ `x_operator -> Edown`, AT primary/independent Edown semantics, historical Y loading X coefficients into `source`, and Y residual `DG-source=0`, but its X sign predicate is unresolved because the extractor incorrectly expected one AST `Subscript` layer for the historical source expression `neg(Edown[a][b])` rather than the actual nested subscripts. No BH PASS is inferred from this partial lane.
+- exact lane is active, freshly recomputing pinned Iter057AQ cells and then comparing all 840 degree-six slots `X_csv` vs `OX_PL` and `AT_csv` vs `OX_PF`.
+- no corrected Iter057Y response solve has been launched.
+
+A non-authoritative sanity check against the immutable older AQ artifact already shows the first X coefficient is the exact negative of `OX_PL`, while the first AT coefficient equals `OX_PF`; authoritative convention remains pending the fresh exact lane and frozen terminal classifier.
 
 ## Next bounded step
 
-Consume Iter057BB only from its terminal lane and aggregate artifacts. If it PASSes, freeze a new gate for the earliest replay-queue record before recomputation. If it BLOCKEDs, localize the exact unresolved provenance object. If it technically FAILs, preserve the disagreement rather than weakening criteria.
+Consume Iter057BH only from its fresh exact and terminal artifacts. If the exact lane establishes a map but BH is blocked solely by the already-localized static AST-shape predicate, preserve BH terminal classification and prospectively repair only that extractor representation. Do not execute corrected Iter057Y until a terminal convention gate independently establishes the source map.
 
 ## Claim locks
 
