@@ -22,8 +22,14 @@ def evaluate(kroot:Path):
     state=j('recovery/state.json')
     chk('A',lambda: j('protocol/QGR_READINESS_SEMANTICS.json')['candidate_program_100_semantics']==SEM and state['readiness']['candidate_program_pct_semantics']==SEM and state['readiness']['repository_infrastructure_pct']==100 and state['readiness']['theory_established_pct']==0 and state['readiness']['experimental_confirmation'] is False and all(v is False for v in state['claim_locks'].values()))
     def b():
-      rd=(ROOT/'README.md').read_text();rm=(ROOT/'docs/ROADMAP.md').read_text();ss=state['science_sync'];front=(ROOT/'recovery/CURRENT_FRONT.md').read_text()
-      return not stale_current_marker(rd) and not stale_current_marker(rm) and ss['last_terminal_science']=='ITER057AQ' and ss['next_preregistered_science']=='ITER057AR' and ss['next_preregistered_status']=='PREREGISTERED_NOT_PRODUCED' and 'ITER057AR' in front and 'PREREGISTERED_NOT_PRODUCED' in front
+      rd=(ROOT/'README.md').read_text();rm=(ROOT/'docs/ROADMAP.md').read_text();ss=state['science_sync'];front=(ROOT/'recovery/CURRENT_FRONT.md').read_text();rr=recovery_run()
+      last=ss.get('last_terminal_science');nxt=ss.get('next_preregistered_science')
+      return (
+        not stale_current_marker(rd) and not stale_current_marker(rm)
+        and isinstance(last,str) and last.startswith('ITER') and last in front
+        and (nxt is None or (isinstance(nxt,str) and nxt.startswith('ITER') and nxt in front))
+        and rr.get('valid') is True
+      )
     chk('B',b)
     chk('C',lambda: registry_ok(j('protocol/QGR_GATE_REGISTRY.json')) and all(x.get('protocol_ready') is True for x in j('protocol/QGR_GATE_REGISTRY.json')['stages']))
     chk('D',lambda: validate_candidate(j('synthetic/qgr_synthetic_blocked_candidate_v1.json'))['valid'] and (ROOT/'schemas/qgr_candidate_export_v1.schema.json').exists() and (ROOT/'templates/qgr_candidate_export_v1.template.json').exists())
