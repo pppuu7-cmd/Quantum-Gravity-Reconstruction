@@ -1,0 +1,23 @@
+{
+  "gate":"QGR_PROGRAMME_INFRASTRUCTURE_100",
+  "date":"2026-09-17",
+  "classification":"QGR_PROGRAMME_INFRASTRUCTURE_100_PASS",
+  "scope":"research_programme_roadmap_infrastructure_only",
+  "canonical_promotion_head":"7e14ca48fe8bbe3d1a94a11822b8093edf62a43b",
+  "completion_contract_commit":"cf528fb6cd9f21611ca7f04ca5fb488fcd506359",
+  "completion_contract_sha256":"cbb39ca97a3aa83afbcf9a8f2ca4f3023644bfa66ca822fd087928178a60b5cc",
+  "completion_preregistration_sha256":"2e03916dda56a046be4b60ac6bc34f3f6f4cec0865d6b629e55832cfbbd5f7e9",
+  "post_promotion_certification":{"actions_run":35181952426,"job":105075815975,"artifact":10480961196,"artifact_digest":"sha256:fa051bef89219934da4f7642185c22eddd45753306615e2153f3067536d625e0","primary_payload_sha256":"09e3955756ce79658cf4a2094d64eacd0753114705a9eadb85e1f46638a35d6a","critic_payload_sha256":"b1f6593fcdfa684ca076fbb86c108e6b3d2eb873c8e795691b55cf84f5195ffb","provenance_payload_sha256":"3a13ac119b81c6fd01b7e3a48994f651f158f3b74c34b6edb24b920fd862d3ba"},
+  "obligations":{"mandatory_count":16,"passed_count":16,"failed":[],"invalid":[],"primary_readiness_100_boolean":true,"critic_readiness_100_boolean":true},
+  "negative_controls":{"count":18,"passed":18,"failed":[],"payload_sha256":"1346182c9a0b13c30a934e737136760c8ede4e107ec54160180e303c41afc26b"},
+  "synthetic_handshake":{"classification":"QGR_KMQGB_SYNTHETIC_HANDSHAKE_PASS","scientific_status_preserved":"BLOCKED","native_package_sha256":"179652c03bb759f3d1b7146e68700cf508d09d9de4694d9e4435094f06a76644","adapted_package_sha256":"977b4f1a113e58d58f5742e6d50b12caafe8875c8fcbe8d5ba6098e9ec0ae0aa","promotion_allowed":false,"heavy_compute_allowed":false},
+  "deterministic_bundle":{"sha256":"c69e68d3820acedb0e5f4fe577e6d3ef8b49575a4aba29bf1fa809bad7850306","byte_identical_rebuild":true,"size_bytes":118553},
+  "recovery_test":{"valid":true,"chat_memory_used":false,"payload_sha256":"a9fb15471995367e6b596ddd843042a726f378e1d4d4a31227a77d7ff01d7ee4","programme_infrastructure_readiness":100,"theory_readiness":0,"last_terminal_science":"ITER057AQ","next_preregistered_science":"ITER057AR"},
+  "file_sha256":{"primary_validator":"7deed31c1d3862cedc4fb1c864aa55c120f73eef9c85a568f7db6c2c342f0e56","independent_critic":"e76c223b422c46a8b3a23fe9ab8b98eaf0217b01d4b3336641521f569674a4f7","gate_registry":"3b5088eb8c954c5a848c94bcfeb6381f1f8889932ede71549dbc5d25ef702e44","export_schema":"ddefa85501b7ac10fda9e57226812b7fa74d3f4475f4a2b56c49752835041c50","candidate_validator":"0294eaaf5a86d8417ee485e7b98b754040e430d5a94bb28a9041671626a689a1","kmqgb_adapter":"a56701b1167ad3379a6f2dcb852856cd1cde1271448031ddb5cc724a264542bc","bundle_manifest":"d6ebb2e780412bcc012d9e40ca57e9cdee6def563c955d00165b9e4f361740c2","recovery_manifest":"03eab8e73624ce7de42bde86b7c80452fe94126ef83d584af63871bfa4c61620"},
+  "kmqgb_interface":{"repository":"pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark","commit":"d23f34cba57b220dd29474c0651bc727d6d85eae","candidate_schema_version":"1.3","schema_sha256":"f48e96f4518ee2feb44cfcfee6a896e158f3dd09f19708230ca36922f541f9b8","template_sha256":"3273b7133071989a9fc1c4d55690cc2ce36672972f20500fe840c12fd2b5076d","validator_sha256":"9de26fed4037d23ca680eda3f41ce8bbd0bfdbc97af02f02f88b558eb7efc650","base_validator_sha256":"07b8a115f7dfd77c5a567a717ac23bff981768f85c347e9c4823d6424adea74e","rqir_core_version":"1.0","rqir_core_status":"FROZEN","drift_policy":"KMQGB_INTERFACE_VERSION_DRIFT"},
+  "environment":{"python":"3.11.16","jsonschema":"4.26.0"},
+  "canonical_readiness":{"repository_infrastructure_pct":100,"candidate_program_pct":100,"candidate_program_pct_semantics":"Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.","theory_established_pct":0,"global_interacting_measure_established":false,"regulator_removal_established":false,"experimental_confirmation":false},
+  "science_sync":{"last_terminal_science":"ITER057AQ","next_preregistered_science":"ITER057AR","next_preregistered_status":"PREREGISTERED_NOT_PRODUCED"},
+  "claim_locks_all_false":true,
+  "iter057ar_was_not_required_or_executed_for_infrastructure_completion":true
+}
