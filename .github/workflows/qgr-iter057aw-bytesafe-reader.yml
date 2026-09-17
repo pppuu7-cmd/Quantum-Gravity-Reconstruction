@@ -1,0 +1,211 @@
+name: QGR Iter057AW byte-safe provenance reader certification
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057aw-bytesafe-reader.yml'
+
+permissions:
+  contents: read
+
+env:
+  PREREG_COMMIT: '4a137c9cc17858fb8e43875d169dc0a28ae3bb1d'
+  IMPLEMENTATION_COMMIT: '1c4963a4bcc84a5bf331f0173c76b05d7a6a1864'
+
+jobs:
+  reproduce:
+    name: Independent technical reproduction ${{ matrix.lane }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [primary, independent]
+    steps:
+      - name: Checkout frozen repair implementation
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.IMPLEMENTATION_COMMIT }}
+          fetch-depth: 0
+
+      - name: Run target-blind byte-handling controls
+        shell: bash
+        env:
+          LANE: ${{ matrix.lane }}
+        run: |
+          set -euo pipefail
+          mkdir -p iter057aw-output
+          python - <<'PY'
+          import hashlib
+          import importlib.util
+          import json
+          import os
+          import pathlib
+          import subprocess
+          import tempfile
+
+          root = pathlib.Path.cwd()
+          helper = root / 'scripts/qgr_iter057aw_bytesafe_reader.py'
+          spec = importlib.util.spec_from_file_location('iter057aw_reader', helper)
+          mod = importlib.util.module_from_spec(spec)
+          assert spec.loader is not None
+          spec.loader.exec_module(mod)
+
+          source = helper.read_text(encoding='utf-8')
+          repair_files = subprocess.check_output(
+              ['git','diff','--name-only', os.environ['PREREG_COMMIT'], os.environ['IMPLEMENTATION_COMMIT']],
+              text=True,
+          ).splitlines()
+
+          valid_bytes = 'ASCII round trip; Unicode pi=π\n'.encode('utf-8')
+          invalid_bytes = b'prefix\x8asuffix\n'
+
+          with tempfile.TemporaryDirectory(prefix='iter057aw-') as td:
+              repo = pathlib.Path(td)
+              subprocess.run(['git','init','-q',str(repo)], check=True)
+              subprocess.run(['git','-C',str(repo),'config','user.email','iter057aw@example.invalid'], check=True)
+              subprocess.run(['git','-C',str(repo),'config','user.name','Iter057AW'], check=True)
+              (repo / 'valid.txt').write_bytes(valid_bytes)
+              (repo / 'invalid.bin').write_bytes(invalid_bytes)
+              subprocess.run(['git','-C',str(repo),'add','valid.txt','invalid.bin'], check=True)
+              subprocess.run(['git','-C',str(repo),'commit','-q','-m','synthetic byte fixtures'], check=True)
+
+              valid = mod.read_at(repo, 'HEAD', 'valid.txt')
+              invalid = mod.read_at(repo, 'HEAD', 'invalid.bin')
+              missing = mod.read_at(repo, 'HEAD', 'missing.txt')
+
+          valid_ok = (
+              valid.get('status') == mod.UTF8_TEXT
+              and valid.get('text', '').encode('utf-8') == valid_bytes
+              and valid.get('raw_sha256') == hashlib.sha256(valid_bytes).hexdigest()
+          )
+          invalid_ok = (
+              invalid.get('status') == mod.NON_UTF8_PROVENANCE
+              and invalid.get('raw_sha256') == hashlib.sha256(invalid_bytes).hexdigest()
+              and 'text' not in invalid
+              and mod.unresolved_if_required(invalid)
+          )
+          missing_ok = missing.get('status') == mod.MISSING_PROVENANCE and mod.unresolved_if_required(missing)
+          strict_policy_ok = (
+              'text=False' in source
+              and 'decode("utf-8", errors="strict")' in source
+              and 'errors="ignore"' not in source
+              and 'errors="replace"' not in source
+          )
+          repair_scope_ok = repair_files == ['scripts/qgr_iter057aw_bytesafe_reader.py']
+          tree_clean = subprocess.check_output(['git','status','--porcelain'], text=True).strip() == ''
+
+          controls = {
+              'valid_utf8_roundtrip': valid_ok,
+              'non_utf8_sentinel': invalid_ok,
+              'missing_provenance_fail_closed': missing_ok,
+              'strict_decode_policy': strict_policy_ok,
+              'repair_scope_confined': repair_scope_ok,
+              'historical_result_tree_clean': tree_clean,
+              'descendant_science_produced_or_consumed': False,
+          }
+          out = {
+              'gate': 'ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR',
+              'lane': os.environ['LANE'],
+              'preregistration_commit': os.environ['PREREG_COMMIT'],
+              'implementation_commit': os.environ['IMPLEMENTATION_COMMIT'],
+              'controls': controls,
+              'invalid_fixture_raw_sha256': hashlib.sha256(invalid_bytes).hexdigest(),
+              'invalid_observed': invalid,
+              'repair_files': repair_files,
+              'all_controls_pass': all(v is True for k,v in controls.items() if k != 'descendant_science_produced_or_consumed') and controls['descendant_science_produced_or_consumed'] is False,
+          }
+          pathlib.Path('iter057aw-output/lane.json').write_text(json.dumps(out, indent=2, sort_keys=True) + '\n')
+          print(json.dumps(out, sort_keys=True))
+          PY
+
+      - name: Upload independent technical payload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057aw-lane-${{ matrix.lane }}
+          path: iter057aw-output/lane.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  terminal:
+    name: Terminal Iter057AW classification
+    needs: reproduce
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Collect both independent payloads
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057aw-lane-*
+          path: iter057aw-terminal/lanes
+          merge-multiple: false
+
+      - name: Freeze terminal technical classification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import pathlib
+
+          root = pathlib.Path('iter057aw-terminal/lanes')
+          payloads = []
+          for p in sorted(root.rglob('lane.json')):
+              try:
+                  obj = json.loads(p.read_text())
+              except Exception:
+                  continue
+              if obj.get('gate') == 'ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR':
+                  payloads.append(obj)
+          by_lane = {p.get('lane'): p for p in payloads}
+          required = {'primary','independent'}
+          missing = sorted(required - set(by_lane))
+
+          if missing:
+              classification = 'BLOCKED_ITER057AW_BYTE_SAFE_REPAIR_NOT_REALIZED'
+              reason = f'missing required technical lane payloads: {missing}'
+          else:
+              a, b = by_lane['primary'], by_lane['independent']
+              forbidden = any(x.get('controls', {}).get('descendant_science_produced_or_consumed') is not False for x in (a,b))
+              provenance_ok = all(
+                  x.get('preregistration_commit') == '4a137c9cc17858fb8e43875d169dc0a28ae3bb1d'
+                  and x.get('implementation_commit') == '1c4963a4bcc84a5bf331f0173c76b05d7a6a1864'
+                  for x in (a,b)
+              )
+              reproducible = a.get('invalid_fixture_raw_sha256') == b.get('invalid_fixture_raw_sha256')
+              controls_ok = all(x.get('all_controls_pass') is True for x in (a,b))
+              if forbidden or not provenance_ok:
+                  classification = 'INVALID_ITER057AW_SEMANTIC_DRIFT_OR_DESCENDANT_REPLAY'
+                  reason = 'frozen provenance/no-descendant-replay control failed'
+              elif controls_ok and reproducible:
+                  classification = 'PASS_SCOPED_ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR_CERTIFIED'
+                  reason = 'both independent technical reproductions passed all frozen byte-safe fail-closed controls with identical non-UTF8 fingerprint'
+              else:
+                  classification = 'FAIL_TECHNICAL_ITER057AW_BYTE_SAFE_REPAIR_CONTROL_FAILURE'
+                  reason = 'one or more frozen technical controls failed or the non-UTF8 sentinel was not independently reproducible'
+
+          out = {
+              'gate': 'ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR',
+              'preregistration_commit': '4a137c9cc17858fb8e43875d169dc0a28ae3bb1d',
+              'implementation_commit': '1c4963a4bcc84a5bf331f0173c76b05d7a6a1864',
+              'classification': classification,
+              'reason': reason,
+              'lane_count': len(by_lane),
+              'descendant_science_replayed_or_consumed': False,
+              'iter057au_reclassified': False,
+              'c6_status': 'SYMBOLIC_UNFIXED',
+              'beta_one_authorized': False,
+              'theory_established_pct': 0,
+          }
+          pathlib.Path('iter057aw-terminal/terminal.json').write_text(json.dumps(out, indent=2, sort_keys=True) + '\n')
+          print(json.dumps(out, sort_keys=True))
+          PY
+
+      - name: Upload terminal authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057aw-terminal
+          path: iter057aw-terminal/
+          if-no-files-found: error
+          retention-days: 30
