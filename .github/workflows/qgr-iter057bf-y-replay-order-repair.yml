@@ -1,0 +1,130 @@
+name: QGR Iter057BF Y replay-order literal extraction repair
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057bf-y-replay-order-repair.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qgr-iter057bf-y-replay-order-repair
+  cancel-in-progress: false
+jobs:
+  adjudicate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane: primary_repaired
+            script: scripts/qgr_iter057bf_y_order_primary_repaired.py
+          - lane: independent
+            script: scripts/qgr_iter057be_y_order_independent.py
+    name: adjudicate (${{ matrix.lane }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Extract frozen ordering evidence
+        shell: bash
+        run: |
+          set +e
+          mkdir -p artifacts/iter057bf/${{ matrix.lane }}
+          python '${{ matrix.script }}' --repo . --output artifacts/iter057bf/${{ matrix.lane }}/${{ matrix.lane }}.json > artifacts/iter057bf/${{ matrix.lane }}/${{ matrix.lane }}.log 2>&1
+          rc=$?
+          printf '%s\n' "$rc" > artifacts/iter057bf/${{ matrix.lane }}/exitcode.txt
+          cat artifacts/iter057bf/${{ matrix.lane }}/${{ matrix.lane }}.log
+          sha256sum artifacts/iter057bf/${{ matrix.lane }}/* > artifacts/iter057bf/${{ matrix.lane }}/SHA256SUMS.txt 2>/dev/null || true
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bf-${{ matrix.lane }}
+          path: artifacts/iter057bf/${{ matrix.lane }}/
+          if-no-files-found: warn
+          retention-days: 30
+  terminal:
+    if: always()
+    needs: adjudicate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057bf-*
+          path: collected
+          merge-multiple: false
+      - name: Frozen Iter057BF terminal classifier
+        shell: bash
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          GATE='ITER057BF_ITER057Y_REPLAY_ORDER_LITERAL_EXTRACTION_REPAIR'
+          PREREG='f80032eb7f346d57205e858cd2a55be1eeb42649'
+          SCI='results/ITER057Y_ONSHELL_FIRST_ORDER_Q2_Q4_Q6_Q8_RESPONSE_TERMINAL.md'
+          AUD='results/ITER057Y_ACTIONS_PROVENANCE_AUDIT.md'
+          EXPECTED_EVIDENCE={'audit_record':'86e1647b9febc40395b09c380e9d188b9e0b79bdd15e44ef5eb946e6c15c2680','science_record':'0f88c01bd1abe9bf4e37bff781c1dd68451c1eb7d761ce4af886291c8b2aa603','wrapper_source':'274aa62fd110f5a94cdfeb1968dc69c5322b1d774520575f61675423b7f5edef','science_implementation':'486e8db9855f1b387c1dfb1b9d4b21178a4463019bf32ca47b3cbd7d5f5889bb','bd_result':'1d673d1ef7b18398b347bd436883fdb87e31babf5521e4650ce18f41dca8cf25'}
+          INDEP_IMPL='ea42d3fafece8ee8bb22ca5c832c4334625b872c5eda77c1478ef4b8dda6c62b'
+          PASS='PASS_SCOPED_ITER057BF_ITER057Y_REPLAY_BUNDLE_ORDER_SCIENCE_BEFORE_AUDIT_REPAIRED_PRIMARY_AND_INDEPENDENTLY_REPRODUCED'
+          BLOCKED='BLOCKED_ITER057BF_REPAIRED_ORDERING_EVIDENCE_NOT_REALIZED'
+          FAIL='FAIL_TECHNICAL_ITER057BF_REPAIRED_PRIMARY_OR_INDEPENDENT_DISAGREEMENT'
+          INVALID='INVALID_ITER057BF_HISTORY_TARGET_BLINDNESS_OR_SCOPE_VIOLATED'
+          def load(lane):
+              p=Path('collected')/f'iter057bf-{lane}'/f'{lane}.json'
+              if not p.exists() or not p.stat().st_size:return None
+              try:return json.loads(p.read_text(encoding='utf-8'))
+              except Exception:return None
+          def sh(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          p=load('primary_repaired');q=load('independent')
+          out={'gate':GATE,'preregistration_commit':PREREG,'green_ci_alone_is_not_pass':True}
+          if p is None or q is None:
+              out.update(classification=BLOCKED,reason='repaired primary or unchanged independent evidence payload missing/invalid',primary_present=p is not None,independent_present=q is not None)
+          else:
+              expected=[SCI,AUD]
+              pc=p.get('controls',{});qc=q.get('controls',{})
+              forbidden=any([p.get('descendant_science_consumed') is not False,q.get('descendant_science_consumed') is not False,pc.get('science_recomputed') is not False,qc.get('science_recomputed') is not False,pc.get('historical_result_modified') is not False,qc.get('historical_result_modified') is not False,pc.get('claim_lock_promoted') is not False,qc.get('claim_lock_promoted') is not False])
+              controls={
+                'repaired_primary_prereg_exact':p.get('preregistration_commit')==PREREG,
+                'primary_evidence_hashes_exact':p.get('evidence_sha256')==EXPECTED_EVIDENCE,
+                'independent_evidence_hashes_exact':q.get('evidence_sha256')==EXPECTED_EVIDENCE,
+                'same_frozen_evidence':p.get('evidence_sha256')==q.get('evidence_sha256'),
+                'repaired_primary_all_controls_pass':p.get('all_controls_pass') is True,
+                'unchanged_independent_all_controls_pass':q.get('all_controls_pass') is True,
+                'unchanged_independent_implementation_sha':q.get('implementation_sha256')==INDEP_IMPL,
+                'separate_implementation_paths':p.get('implementation_path')!=q.get('implementation_path'),
+                'distinct_implementation_sha256':p.get('implementation_sha256')!=q.get('implementation_sha256'),
+                'semantic_note_extracted_from_multiple_literals':p.get('semantic_note_literal_piece_count',0)>=2 and pc.get('wrapper_metadata_only_note') is True,
+                'science_authority_exact_agreement':p.get('science_authority_commit')==q.get('science_authority_commit')=='cb2758238daba9ecf9c86e01e171f6c6d31c72b9',
+                'wrapper_exact_agreement':p.get('wrapper_commit')==q.get('wrapper_commit')=='8d5936b988c57d44e8a279b9d5fd4f6238a071e4',
+                'audit_to_science_true_both':p.get('audit_to_science_reference') is True and q.get('audit_to_science_reference') is True,
+                'wrapper_to_science_call_true_both':p.get('wrapper_to_science_call') is True and q.get('wrapper_to_science_call') is True,
+                'audit_supplemental_true_both':p.get('audit_is_supplemental') is True and q.get('audit_is_supplemental') is True,
+                'reverse_dependency_absent_both':p.get('reverse_dependency_found') is False and q.get('reverse_dependency_found') is False,
+                'ordering_relation_agreement':p.get('ordering_relation')==q.get('ordering_relation')=='SCIENCE_BEFORE_AUDIT',
+                'bundle_agreement':p.get('same_iteration_bundle')==q.get('same_iteration_bundle')==expected,
+                'execution_order_agreement':p.get('execution_order')==q.get('execution_order')==expected,
+                'atomic_bundle_both':p.get('atomic_replay_bundle') is True and q.get('atomic_replay_bundle') is True,
+              }
+              unresolved=p.get('ordering_relation')!='SCIENCE_BEFORE_AUDIT' or q.get('ordering_relation')!='SCIENCE_BEFORE_AUDIT'
+              if forbidden:
+                  cls=INVALID;reason='history/target-blindness/scope invariant violated'
+              elif unresolved:
+                  cls=BLOCKED;reason='repaired extraction still does not realize the frozen ordering evidence'
+              elif not all(controls.values()):
+                  cls=FAIL;reason='repaired primary and unchanged independent evidence disagree or another frozen control failed'
+              else:
+                  cls=PASS;reason='repaired literal-semantic primary and unchanged independent call-flow lane independently establish the atomic Iter057Y replay bundle ordered science before audit'
+              out.update({'classification':cls,'reason':reason,'controls':controls,'same_iteration_bundle':expected if cls==PASS else None,'execution_order':expected if cls==PASS else None,'ordering_relation':'SCIENCE_BEFORE_AUDIT' if cls==PASS else None,'audit_is_supplemental':True if cls==PASS else None,'reverse_dependency_found':False if cls==PASS else None,'evidence_sha256':EXPECTED_EVIDENCE if cls==PASS else None,'semantic_note':p.get('semantic_note'),'semantic_note_literal_piece_count':p.get('semantic_note_literal_piece_count'),'primary_implementation_sha256':p.get('implementation_sha256'),'independent_implementation_sha256':q.get('implementation_sha256'),'primary_payload_sha256':sh(p),'independent_payload_sha256':sh(q),'descendant_science_consumed':False,'historical_iter057be_reclassified':False,'historical_iter057y_reclassified':False,'bd_queue_membership_changed':False,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED'})
+          body=dict(out);out['terminal_payload_sha256']=sh(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bf-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
