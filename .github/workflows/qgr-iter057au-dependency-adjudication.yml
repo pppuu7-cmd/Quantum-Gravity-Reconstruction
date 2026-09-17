@@ -1,0 +1,112 @@
+name: QGR Iter057AU corrected degree6 descendant dependency adjudication
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057au-dependency-adjudication.yml'
+
+permissions:
+  contents: read
+
+env:
+  PREREG_COMMIT: '616859890df95057556d265612c53da839a5848a'
+
+jobs:
+  reconstruct-dependency-dag:
+    name: Independent dependency reconstruction (${{ matrix.mode }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [primary, independent]
+    steps:
+      - name: Checkout frozen Iter057AU implementation head
+        uses: actions/checkout@v4
+        with:
+          path: impl
+          fetch-depth: 1
+
+      - name: Checkout exact preregistration census head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PREREG_COMMIT }}
+          path: frozen
+          fetch-depth: 0
+
+      - name: Verify frozen census head and clean historical tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C frozen rev-parse HEAD)" = "${PREREG_COMMIT}"
+          test -z "$(git -C frozen status --porcelain)"
+
+      - name: Reconstruct target-blind dependency DAG
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p lane
+          python impl/scripts/qgr_iter057au_dependency_audit.py \
+            --repo frozen \
+            --mode '${{ matrix.mode }}' \
+            --output 'lane/${{ matrix.mode }}.json'
+          test -s 'lane/${{ matrix.mode }}.json'
+          test -z "$(git -C frozen status --porcelain)"
+
+      - name: Upload independent lane payload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057au-${{ matrix.mode }}
+          path: lane/${{ matrix.mode }}.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  terminal-adjudication:
+    name: Terminal frozen dependency adjudication
+    needs: reconstruct-dependency-dag
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout implementation
+        uses: actions/checkout@v4
+        with:
+          path: impl
+          fetch-depth: 1
+
+      - name: Download lane payloads
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057au-*
+          path: aggregate/lanes
+          merge-multiple: false
+
+      - name: Produce terminal aggregate without descendant replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p aggregate
+          python impl/scripts/qgr_iter057au_dependency_audit.py \
+            --aggregate-root aggregate/lanes \
+            --output aggregate/terminal.json
+          python - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path('aggregate/terminal.json')
+          d = json.loads(p.read_text())
+          d['production_head'] = os.environ['GITHUB_SHA']
+          d['actions_run'] = int(os.environ['GITHUB_RUN_ID'])
+          d['workflow'] = '.github/workflows/qgr-iter057au-dependency-adjudication.yml'
+          p.write_text(json.dumps(d, indent=2, sort_keys=True) + '\n')
+          PY
+          cat aggregate/terminal.json
+
+      - name: Upload terminal Iter057AU authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057au-terminal
+          path: |
+            aggregate/terminal.json
+            aggregate/lanes/
+          if-no-files-found: warn
+          retention-days: 30
