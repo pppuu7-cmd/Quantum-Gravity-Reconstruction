@@ -14,10 +14,11 @@ ROOT=Path(__file__).resolve().parents[1]; SEM='Research-program / roadmap infras
 BUNDLE_REQUIRED={'protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json','protocol/QGR_GATE_REGISTRY.json','schemas/qgr_candidate_export_v1.schema.json','code/qgr_candidate_export_validator.py','code/qgr_kmqgb_adapter.py','code/qgr_programme_readiness_validator.py','code/qgr_programme_readiness_critic.py','recovery/state.json','recovery/CURRENT_FRONT.md','protocol/QGR_KMQGB_INTERFACE_PIN.json'}
 def j(p):return json.loads((ROOT/p).read_text())
 def critique(kroot:Path):
-    state=j('recovery/state.json');sem=j('protocol/QGR_READINESS_SEMANTICS.json');reg=j('protocol/QGR_GATE_REGISTRY.json');dt=j('protocol/QGR_POST_CANDIDATE_DECISION_TREE.json');q=j('protocol/QGR_QUANTUM_COMPLETION_CONTRACT.json');sr=j('protocol/QGR_SAME_REALIZATION_CONTRACT.json')
+    state=j('recovery/state.json');sem=j('protocol/QGR_READINESS_SEMANTICS.json');reg=j('protocol/QGR_GATE_REGISTRY.json');dt=j('protocol/QGR_POST_CANDIDATE_DECISION_TREE.json');q=j('protocol/QGR_QUANTUM_COMPLETION_CONTRACT.json');sr=j('protocol/QGR_SAME_REALIZATION_CONTRACT.json');front=(ROOT/'recovery/CURRENT_FRONT.md').read_text();rr=recovery_run()
+    ss=state['science_sync'];last=ss.get('last_terminal_science');nxt=ss.get('next_preregistered_science')
     o={}
     o['A']=sem['candidate_program_100_semantics']==SEM and state['readiness']['theory_established_pct']==0 and all(v is False for v in state['claim_locks'].values())
-    o['B']=not stale_current_marker((ROOT/'README.md').read_text()) and not stale_current_marker((ROOT/'docs/ROADMAP.md').read_text()) and state['science_sync']=={'last_terminal_science':'ITER057AQ','next_preregistered_science':'ITER057AR','next_preregistered_status':'PREREGISTERED_NOT_PRODUCED'}
+    o['B']=not stale_current_marker((ROOT/'README.md').read_text()) and not stale_current_marker((ROOT/'docs/ROADMAP.md').read_text()) and isinstance(last,str) and last.startswith('ITER') and last in front and (nxt is None or (isinstance(nxt,str) and nxt.startswith('ITER') and nxt in front)) and rr.get('valid') is True
     o['C']=registry_ok(reg) and all(s.get('protocol_ready') for s in reg['stages'])
     o['D']=validate_candidate(j('synthetic/qgr_synthetic_blocked_candidate_v1.json'))['valid'] and (ROOT/'code/qgr_candidate_export_validator.py').exists()
     o['E']=q['objects'][2]=='amplitude_generator_or_measure' and q['heavy_compute_on_structural_blocker'] is False
@@ -28,7 +29,7 @@ def critique(kroot:Path):
     with tempfile.TemporaryDirectory() as td:o['L']=handshake_run(ROOT/'synthetic/qgr_synthetic_blocked_candidate_v1.json',kroot,Path(td)/'adapted.json')['valid']
     with tempfile.TemporaryDirectory() as td:
       a=Path(td)/'a';b=Path(td)/'b';mf=j('release/QGR_PROGRAMME_BUNDLE_CONTENTS.json');o['M']=BUNDLE_REQUIRED<=set(mf['files']) and 'validators' in mf.get('required_classes',[]) and build(a)==build(b) and a.read_bytes()==b.read_bytes()
-    o['N']=(ROOT/'code/qgr_programme_readiness_validator.py').exists() and j('protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json')['readiness_rule']=='ALL_A_THROUGH_P_PASS_AND_INDEPENDENT_CRITIC_TRUE';o['O']=run_controls(kroot)['valid'];o['P']=recovery_run()['valid']
+    o['N']=(ROOT/'code/qgr_programme_readiness_validator.py').exists() and j('protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json')['readiness_rule']=='ALL_A_THROUGH_P_PASS_AND_INDEPENDENT_CRITIC_TRUE';o['O']=run_controls(kroot)['valid'];o['P']=rr.get('valid') is True
     failed=[k for k in 'ABCDEFGHIJKLMNOP' if not o.get(k)];ready=not failed
     return {'mandatory_obligation_count':16,'passed_obligation_count':sum(o.values()),'failed_obligations':failed,'invalid_obligations':[],'readiness_100_boolean':ready,'obligations':o,'candidate_program_pct_was_not_used':True,'classification':'QGR_PROGRAMME_INFRASTRUCTURE_100_PASS' if ready else 'QGR_PROGRAMME_INFRASTRUCTURE_INCOMPLETE'}
 def main(argv=None):
