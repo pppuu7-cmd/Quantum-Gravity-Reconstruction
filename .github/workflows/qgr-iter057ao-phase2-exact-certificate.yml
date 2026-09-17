@@ -1,0 +1,61 @@
+name: QGR Iter057AO phase2 exact certificate
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ao-phase2-exact-certificate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-lane:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - mode: generic
+            artifact: generic
+          - mode: heldout
+            artifact: heldout
+          - mode: linearity
+            artifact: linearity
+          - mode: neg-wrong-inv
+            artifact: neg-wrong-inv
+          - mode: neg-no-det
+            artifact: neg-no-det
+          - mode: neg-no-raise
+            artifact: neg-no-raise
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact symbolic backend
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Verify frozen assembled source
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          parts=sorted(Path('scripts/iter057ao_phase2_parts').glob('part*.txt'))
+          src=''.join(p.read_text() for p in parts)
+          got=hashlib.sha256(src.encode()).hexdigest()
+          exp='7cc63a46cba36fe903095494876028d9e7ebbe163a60ae35978372756a0ddf4a'
+          print(got)
+          assert len(parts)==6 and got==exp
+          PY
+      - name: Execute exact frozen lane
+        shell: bash
+        run: |
+          mkdir -p artifacts/iter057ao-phase2/${{ matrix.artifact }}
+          python scripts/qgr_iter057ao_phase2_exact_certificate.py --mode ${{ matrix.mode }} --output artifacts/iter057ao-phase2/${{ matrix.artifact }}/result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ao-phase2-${{ matrix.artifact }}
+          path: artifacts/iter057ao-phase2/${{ matrix.artifact }}/result.json
+          if-no-files-found: error
+          retention-days: 30
