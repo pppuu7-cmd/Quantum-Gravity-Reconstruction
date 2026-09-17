@@ -1,0 +1,101 @@
+name: QGR Iter057BA neutral canonical byte-safe certificate
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ba-canonical-bytesafe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  certificate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane: primary
+            script: scripts/qgr_iter057ba_canonical_bytesafe_primary.py
+          - lane: independent
+            script: scripts/qgr_iter057ba_canonical_bytesafe_independent.py
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run frozen Iter057BA lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057ba-output/${{ matrix.lane }}
+          sha256sum '${{ matrix.script }}' | awk '{print $1}' > iter057ba-output/${{ matrix.lane }}/implementation.sha256
+          printf '%s\n' '${{ matrix.script }}' > iter057ba-output/${{ matrix.lane }}/implementation.path
+          python '${{ matrix.script }}' '${{ matrix.lane }}' | tee iter057ba-output/${{ matrix.lane }}/lane.json
+          test -s iter057ba-output/${{ matrix.lane }}/lane.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ba-${{ matrix.lane }}
+          path: iter057ba-output/${{ matrix.lane }}
+          if-no-files-found: error
+  aggregate:
+    if: always()
+    needs: certificate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057ba-*
+          path: downloaded
+      - name: Frozen Iter057BA classifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057ba-terminal
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('downloaded'); out=Path('iter057ba-terminal/aggregate.json')
+          result={
+            'gate':'ITER057BA_NEUTRAL_CANONICAL_TRACKED_TREE_DIGEST_CERTIFICATE',
+            'preregistration_commit':'f63f2df87d2d1abaea93daa29a311d78e331eefa',
+            'descendant_science_consumed':False,
+            'green_ci_alone_is_not_pass':True,
+          }
+          try:
+            p=json.loads((root/'iter057ba-primary'/'lane.json').read_text())
+            q=json.loads((root/'iter057ba-independent'/'lane.json').read_text())
+            psha=(root/'iter057ba-primary'/'implementation.sha256').read_text().strip()
+            qsha=(root/'iter057ba-independent'/'implementation.sha256').read_text().strip()
+            ppath=(root/'iter057ba-primary'/'implementation.path').read_text().strip()
+            qpath=(root/'iter057ba-independent'/'implementation.path').read_text().strip()
+            independent=(psha!=qsha and ppath!=qpath)
+            agreement=(p.get('normalized_sha256')==q.get('normalized_sha256') and p.get('normalized')==q.get('normalized'))
+            controls=bool(p.get('all_controls_pass')) and bool(q.get('all_controls_pass'))
+            result.update({
+              'primary_implementation_path':ppath,'independent_implementation_path':qpath,
+              'primary_implementation_sha256':psha,'independent_implementation_sha256':qsha,
+              'independent_implementations':independent,
+              'primary_all_controls_pass':bool(p.get('all_controls_pass')),
+              'independent_all_controls_pass':bool(q.get('all_controls_pass')),
+              'normalized_agreement':agreement,
+              'normalized_sha256':p.get('normalized_sha256') if agreement else None,
+              'canonical_tracked_tree_digest':p.get('normalized',{}).get('canonical_digest_before') if agreement else None,
+            })
+            if independent and agreement and controls:
+              result['classification']='PASS_SCOPED_ITER057BA_NEUTRAL_CANONICAL_BYTE_SAFE_CERTIFICATE_INDEPENDENTLY_REPRODUCED'
+              result['terminal_pass']=True
+            else:
+              result['classification']='FAIL_TECHNICAL_ITER057BA_CANONICAL_CERTIFICATE_OR_INDEPENDENCE_CONTROL_FAILURE'
+              result['terminal_pass']=False
+          except Exception as exc:
+            result['classification']='BLOCKED_ITER057BA_PRODUCTION_NOT_REALIZED'
+            result['terminal_pass']=False
+            result['error']=type(exc).__name__+': '+str(exc)
+          out.write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')
+          print(out.read_text())
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ba-terminal
+          path: iter057ba-terminal/aggregate.json
+          if-no-files-found: error
