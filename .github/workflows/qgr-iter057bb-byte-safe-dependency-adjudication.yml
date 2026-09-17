@@ -1,0 +1,146 @@
+name: QGR Iter057BB byte-safe descendant dependency adjudication
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057bb-byte-safe-dependency-adjudication.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qgr-iter057bb-byte-safe-dependency-adjudication
+  cancel-in-progress: false
+jobs:
+  adjudicate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane: primary
+            script: scripts/qgr_iter057bb_dependency_primary.py
+          - lane: independent
+            script: scripts/qgr_iter057bb_dependency_independent.py
+    name: adjudicate (${{ matrix.lane }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run frozen byte-safe dependency adjudicator
+        shell: bash
+        run: |
+          set +e
+          mkdir -p artifacts/iter057bb/${{ matrix.lane }}
+          python '${{ matrix.script }}' --repo . --output artifacts/iter057bb/${{ matrix.lane }}/${{ matrix.lane }}.json > artifacts/iter057bb/${{ matrix.lane }}/${{ matrix.lane }}.log 2>&1
+          rc=$?
+          printf '%s\n' "$rc" > artifacts/iter057bb/${{ matrix.lane }}/exitcode.txt
+          cat artifacts/iter057bb/${{ matrix.lane }}/${{ matrix.lane }}.log
+          sha256sum artifacts/iter057bb/${{ matrix.lane }}/* > artifacts/iter057bb/${{ matrix.lane }}/SHA256SUMS.txt 2>/dev/null || true
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bb-${{ matrix.lane }}
+          path: artifacts/iter057bb/${{ matrix.lane }}/
+          if-no-files-found: warn
+          retention-days: 30
+  terminal:
+    if: always()
+    needs: adjudicate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057bb-*
+          path: collected
+          merge-multiple: false
+      - name: Frozen terminal comparator
+        shell: bash
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          GATE='ITER057BB_CONDITIONAL_BYTE_SAFE_DESCENDANT_DEPENDENCY_ADJUDICATION_RETRY'
+          PREREG='eb864872be1db63d0588296c606b759b7b1495c8'
+          CENSUS='616859890df95057556d265612c53da839a5848a'
+          BA='PASS_SCOPED_ITER057BA_NEUTRAL_CANONICAL_BYTE_SAFE_CERTIFICATE_INDEPENDENTLY_REPRODUCED'
+          PASS='PASS_SCOPED_ITER057BB_BYTE_SAFE_DESCENDANT_DEPENDENCY_ADJUDICATION_INDEPENDENTLY_REPRODUCED'
+          BLOCKED='BLOCKED_ITER057BB_UNRESOLVED_PROVENANCE'
+          FAIL='FAIL_TECHNICAL_ITER057BB_INDEPENDENT_REPRODUCTION_OR_DAG_CONTROL_FAILURE'
+          INVALID='INVALID_ITER057BB_CRITERIA_HISTORY_OR_TARGET_BLINDNESS_VIOLATED'
+          def load(lane):
+              p=Path('collected')/f'iter057bb-{lane}'/f'{lane}.json'
+              if not p.exists() or not p.stat().st_size:return None
+              try:return json.loads(p.read_text(encoding='utf-8'))
+              except Exception:return None
+          def sh(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          p=load('primary');q=load('independent')
+          out={'gate':GATE,'bb_preregistration_commit':PREREG,'au_census_head':CENSUS,'ba_required_classification':BA,'green_ci_alone_is_not_pass':True}
+          if p is None or q is None:
+              out.update(classification=FAIL,reason='missing or invalid independent lane payload',primary_payload_present=p is not None,independent_payload_present=q is not None)
+          else:
+              po=p.get('ordered_classifications',[]);qo=q.get('ordered_classifications',[])
+              pc=[x.get('record') for x in po];qc=[x.get('record') for x in qo]
+              pb=p.get('undecodable_provenance_objects',[]);qb=q.get('undecodable_provenance_objects',[])
+              def lane_integrity(x,mode):
+                  c=x.get('controls',{})
+                  return all([
+                    x.get('gate')==GATE,x.get('mode')==mode,x.get('bb_preregistration_commit')==PREREG,x.get('au_census_head')==CENSUS,
+                    x.get('ba_required_classification')==BA,x.get('ba_execution_lock_satisfied') is True,
+                    c.get('execution_lock_exact') is True,c.get('complete_census_unique') is True,c.get('every_record_classified_once') is True,
+                    c.get('dag_acyclic') is True,c.get('replay_queue_excludes_independent_and_unresolved') is True,
+                    c.get('evidence_path_for_every_classification') is True,c.get('tracked_status_clean_before') is True,c.get('tracked_status_clean_after') is True,
+                    c.get('canonical_tracked_tree_digest_unchanged') is True,c.get('descendant_science_recomputed') is False,
+                    c.get('descendant_outcomes_used_as_targets') is False,c.get('claim_lock_promoted') is False,c.get('criteria_or_census_mutated') is False,
+                    x.get('descendant_science_consumed') is False,x.get('theory_established_pct')==0,x.get('c6')=='SYMBOLIC_UNFIXED'])
+              invalid=any([
+                p.get('controls',{}).get('criteria_or_census_mutated') is not False,q.get('controls',{}).get('criteria_or_census_mutated') is not False,
+                p.get('controls',{}).get('descendant_outcomes_used_as_targets') is not False,q.get('controls',{}).get('descendant_outcomes_used_as_targets') is not False,
+                p.get('descendant_science_consumed') is not False,q.get('descendant_science_consumed') is not False])
+              controls={
+                'primary_lane_integrity':lane_integrity(p,'primary'),
+                'independent_lane_integrity':lane_integrity(q,'independent'),
+                'separately_authored_paths':p.get('implementation_path')!=q.get('implementation_path'),
+                'distinct_implementation_sha256':p.get('implementation_sha256')!=q.get('implementation_sha256'),
+                'complete_identical_census':pc==qc and len(pc)==p.get('record_count')==q.get('record_count'),
+                'ordered_classifications_exact_agreement':po==qo,
+                'replay_queue_exact_agreement':p.get('replay_queue')==q.get('replay_queue'),
+                'undecodable_identity_and_load_bearing_exact_agreement':pb==qb,
+                'scientific_normalized_sha256_agreement':p.get('scientific_normalized_sha256')==q.get('scientific_normalized_sha256'),
+                'tracked_tree_digest_stable_primary':p.get('tracked_tree_digest_before')==p.get('tracked_tree_digest_after'),
+                'tracked_tree_digest_stable_independent':q.get('tracked_tree_digest_before')==q.get('tracked_tree_digest_after'),
+              }
+              unresolved=sorted(set(p.get('unresolved_records',[]))|set(q.get('unresolved_records',[])))
+              load_bad=sorted({(x.get('kind'),x.get('owner_record'),x.get('source'),x.get('commit'),x.get('raw_sha256')) for x in pb if x.get('classification_load_bearing')})
+              technical=not all(controls.values())
+              if invalid:
+                  cls=INVALID;reason='criteria/history/target-blindness invariant violated'
+              elif technical:
+                  cls=FAIL;reason='independent implementations disagree or a frozen technical/DAG/integrity control failed'
+              elif unresolved or load_bad:
+                  cls=BLOCKED;reason='valid byte-safe execution leaves classification-load-bearing unresolved provenance'
+              else:
+                  cls=PASS;reason='complete frozen census, acyclic dependency classification and replay queue independently reproduced with zero load-bearing unresolved provenance'
+              out.update({
+                'classification':cls,'reason':reason,'controls':controls,'record_count':p.get('record_count'),
+                'ordered_classifications':po if controls['ordered_classifications_exact_agreement'] else None,
+                'replay_queue':p.get('replay_queue') if controls['replay_queue_exact_agreement'] else None,
+                'earliest_replay_record':(p.get('replay_queue') or [None])[0] if cls==PASS else None,
+                'unresolved_records':unresolved,'classification_load_bearing_undecodable':load_bad,
+                'undecodable_provenance_objects':pb if controls['undecodable_identity_and_load_bearing_exact_agreement'] else None,
+                'primary_implementation_sha256':p.get('implementation_sha256'),'independent_implementation_sha256':q.get('implementation_sha256'),
+                'primary_payload_sha256':sh(p),'independent_payload_sha256':sh(q),
+                'scientific_normalized_sha256':p.get('scientific_normalized_sha256') if controls['scientific_normalized_sha256_agreement'] else None,
+                'descendant_science_consumed':False,'historical_iter057au_reclassified':False,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED'})
+          body=dict(out);out['terminal_payload_sha256']=sh(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057bb-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
