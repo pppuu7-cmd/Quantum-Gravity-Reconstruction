@@ -38,22 +38,26 @@
   "science_sync": {
     "last_terminal_science": "ITER057AT",
     "next_preregistered_science": null,
-    "next_preregistered_status": "ITER057AV_ACTIVE_TECHNICAL_EXECUTION_REPAIR_ONLY"
+    "next_preregistered_status": "NO_ACTIVE_GATE_AFTER_ITER057AV_TECHNICAL_FAIL"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "bfb6f31b9385d076695d7c3d199bf7da7b06bcc4",
     "latest_terminal_result_commit": "c299683e28289788c53797e5ede1cafaf09f5431",
     "latest_terminal_result_kind": "DEPENDENCY_ADJUDICATION_TERMINAL_BLOCKED_CONSUMPTION",
+    "latest_terminal_technical_gate": "ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR",
+    "latest_terminal_technical_classification": "FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED",
+    "latest_referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6",
+    "latest_referee_verdict": "CONFIRMED_SCOPED",
     "latest_active_gate": "ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR",
-    "active_gate_status": "ACTIVE_LAUNCHED_NOT_YET_CONSUMED",
+    "active_gate_status": "TERMINAL_TECHNICAL_FAIL_CONSUMED",
     "active_implementation_commit": "30aa968631d3c7f0ea82ea054b2abb14492748b3",
     "active_production_head": "f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7",
     "active_workflow": ".github/workflows/qgr-iter057av-au-execution-repair.yml",
     "active_actions_run": null,
     "active_job": null,
-    "last_terminal_production_actions_run": 35204162456,
-    "last_terminal_production_artifact": 10488818748,
-    "last_terminal_production_artifact_digest": "sha256:2a8734dbc27fec1787318f017117fd82f8b2a433d346327a989892bdd10d33fc"
+    "last_terminal_production_actions_run": 35214572158,
+    "last_terminal_production_artifact": 10493153837,
+    "last_terminal_production_artifact_digest": "sha256:c1d2543242706c0792f7be4aa9a688dd204bf27b38967759b897c3ed1fc14668"
   },
   "preserved_authority": {
     "iter057af": {
@@ -126,23 +130,31 @@
       "descendant_science_replayed": false
     },
     "iter057av": {
-      "status": "ACTIVE_LAUNCHED_NOT_YET_CONSUMED",
+      "status": "TERMINAL_TECHNICAL_FAIL_REPRODUCIBLE_EXECUTION_DEFECT_REFEREE_CONFIRMED_SCOPED",
       "preregistration_commit": "bfb6f31b9385d076695d7c3d199bf7da7b06bcc4",
       "frozen_au_implementation_commit": "30aa968631d3c7f0ea82ea054b2abb14492748b3",
       "frozen_au_census_commit": "616859890df95057556d265612c53da839a5848a",
       "production_head": "f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7",
-      "workflow": ".github/workflows/qgr-iter057av-au-execution-repair.yml",
-      "actions_run": null,
+      "actions_run": 35214572158,
+      "workflow_conclusion": "success",
+      "artifact": 10493153837,
+      "artifact_digest": "sha256:c1d2543242706c0792f7be4aa9a688dd204bf27b38967759b897c3ed1fc14668",
+      "classification": "FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED",
+      "error_fingerprint": "2e83cbb6d0067e4b904632c372571ead9243f9a04b12e289e770f9bdbac84be1",
+      "stderr_sha256": "5517e7214732554985e70e5b8e208f9b25a3cd2679e47349ec28866a92926ef0",
+      "normalized_error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8a in position 287: invalid start byte",
       "descendant_science_consumed": false,
-      "iter057au_reclassified": false
+      "iter057au_reclassified": false,
+      "referee_verdict": "CONFIRMED_SCOPED",
+      "referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6"
     }
   },
   "active_question": {
-    "id": "ITER057AV-FROZEN-AU-EXECUTION-REPAIR",
-    "text": "Can the unchanged frozen Iter057AU primary and independent classifiers realize their required payloads under exact provenance, or can their common execution defect be reproducibly localized without changing dependency semantics or replaying descendant science?"
+    "id": "POST-ITER057AV-NEXT-TECHNICAL-GATE-SELECTION",
+    "text": "After Iter057AV reproducibly localized the frozen Iter057AU execution defect to a UTF-8 decode failure, any repair must be prospectively frozen before changing the decode/provenance-reader path; descendant science remains out of scope."
   },
-  "active_blocker": "Iter057AU remains terminal BLOCKED; Iter057AV is an active technical execution-repair/fault-isolation gate and has not yet been consumed.",
-  "next_gate_lock": "RESOLVE_ONLY_ITER057AV_RUN_FOR_HEAD_f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7__IF_NONTERMINAL_STATUS_PROVENANCE_ONLY__IF_TERMINAL_CONSUME_ONLY_FROZEN_PREREGISTRATION_AND_iter057av-terminal__DO_NOT_RECLASSIFY_ITER057AU_OR_REPLAY_DESCENDANT_SCIENCE",
+  "active_blocker": "No active gate. Iter057AV terminalized a reproducible execution-layer UnicodeDecodeError in both unchanged frozen Iter057AU lanes; Iter057AU remains historically BLOCKED and descendant science remains unconsumed.",
+  "next_gate_lock": "NEW_PREREGISTRATION_REQUIRED_BEFORE_ANY_DECODE_OR_PROVENANCE_READER_REPAIR__FREEZE_EXACT_OFFENDING_READ_PATH_ENCODING_POLICY_PROVENANCE_NEGATIVE_CONTROLS_AND_NO_DESCENDANT_REPLAY__DO_NOT_RECLASSIFY_ITER057AU_OR_CONSUME_DESCENDANT_OUTCOMES",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
