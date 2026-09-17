@@ -1,0 +1,47 @@
+name: QGR Iter057AZ byte-safe cleanliness redesign
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057az-bytesafe-cleanliness.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  certificate:
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [primary, independent]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run frozen Iter057AZ lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p iter057az-output/${{ matrix.lane }}
+          python scripts/qgr_iter057az_bytesafe_cleanliness.py '${{ matrix.lane }}' | tee iter057az-output/${{ matrix.lane }}/lane.json
+          test -s iter057az-output/${{ matrix.lane }}/lane.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057az-${{ matrix.lane }}
+          path: iter057az-output/${{ matrix.lane }}/lane.json
+          if-no-files-found: error
+  aggregate:
+    if: always()
+    needs: certificate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Record frozen aggregate status
+        shell: bash
+        run: |
+          mkdir -p iter057az-terminal
+          printf '%s\n' '{"gate":"ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN","certificate_result":"${{ needs.certificate.result }}","green_ci_alone_is_not_pass":true,"descendant_science_consumed":false}' > iter057az-terminal/aggregate.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iter057az-terminal
+          path: iter057az-terminal/aggregate.json
+          if-no-files-found: error
