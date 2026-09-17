@@ -1,9 +1,15 @@
 # Frozen prospective Iter057BJ execution
+# Execution-only repair: PR trigger added after two push-to-this-workflow commits produced no BJ run.
+# Scientific jobs, frozen inputs, evaluator, allowed outcomes and terminal classifier are unchanged.
 name: QGR Iter057BJ Y source-convention comment-predicate repair
 on:
   push:
     paths:
       - '.github/workflows/qgr-iter057bj-y-source-convention-comment-repair.yml'
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'recovery/ITER057BJ_ACTIONS_EXECUTION_TRIGGER.md'
 permissions:
   contents: read
 jobs:
