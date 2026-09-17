@@ -1,0 +1,41 @@
+{
+  "contract_version": "1.0.0",
+  "frozen_parent_main": "5ecf2a8fabd6da133d3b52f969d0c9b27d3997e6",
+  "scope": "research_programme_infrastructure_only",
+  "science_dependency": "NONE_ITER057AR_NOT_REQUIRED",
+  "terminal_classes": [
+    "QGR_PROGRAMME_INFRASTRUCTURE_100_PASS",
+    "QGR_PROGRAMME_INFRASTRUCTURE_INCOMPLETE",
+    "QGR_PROGRAMME_INFRASTRUCTURE_INVALID"
+  ],
+  "mandatory_obligations": {
+    "A": "canonical_metric_semantics",
+    "B": "synchronized_roadmap_recovery",
+    "C": "complete_R0_R9_gate_contracts",
+    "D": "candidate_package_export_contract",
+    "E": "quantum_amplitude_measure_fallback_contract",
+    "F": "same_realization_uv_ir_identity_contract",
+    "G": "gr_recovery_contract",
+    "H": "normalized_observable_comparator_contract",
+    "I": "post_candidate_structural_physics_decision_tree",
+    "J": "dependency_supersession_replay_protocol",
+    "K": "kmqgb_frozen_interface_contract",
+    "L": "synthetic_qgr_to_kmqgb_end_to_end_handshake",
+    "M": "deterministic_provenance_reproducibility_package",
+    "N": "executable_fail_closed_readiness_validator",
+    "O": "negative_controls",
+    "P": "clean_session_recovery_test"
+  },
+  "readiness_rule": "ALL_A_THROUGH_P_PASS_AND_INDEPENDENT_CRITIC_TRUE",
+  "promotion_fields": {
+    "repository_infrastructure_pct": 100,
+    "candidate_program_pct": 100,
+    "candidate_program_pct_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
+    "theory_established_pct": 0,
+    "global_interacting_measure_established": false,
+    "regulator_removal_established": false,
+    "experimental_confirmation": false
+  },
+  "forbid_science_promotion": true,
+  "iter057ar_required": false
+}
