@@ -5,7 +5,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-17",
-    "iteration": "ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC",
+    "iteration": "ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC",
     "phase": "PROGRAMME_INFRASTRUCTURE_TERMINAL_100__SCIENCE_CONTINUES_INDEPENDENTLY"
   },
   "readiness": {
@@ -37,23 +37,23 @@
   },
   "science_sync": {
     "last_terminal_science": "ITER057AT",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "NO_ACTIVE_PRODUCTION_GATE"
+    "next_preregistered_science": "ITER057AY",
+    "next_preregistered_status": "ACTIVE_NONTERMINAL_TECHNICAL_DIAGNOSTIC"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "c81223eec7c972a2643a564ec99e9684766eeee4",
+    "latest_preregistration_commit": "b4f252298e4821b93b0ad01e797a1e6d41c5f58d",
     "latest_terminal_result_commit": "62b003f636f5a71072cb187d9791d203886d3063",
     "latest_terminal_result_kind": "TECHNICAL_DIAGNOSTIC_TERMINAL_FAIL",
     "latest_terminal_technical_gate": "ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC",
     "latest_terminal_technical_classification": "FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
     "latest_referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6",
     "latest_referee_verdict": "CONFIRMED_SCOPED",
-    "latest_active_gate": null,
-    "active_gate_status": "NONE",
-    "active_implementation_commit": null,
-    "active_production_head": null,
-    "active_workflow": null,
-    "active_actions_run": null,
+    "latest_active_gate": "ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC",
+    "active_gate_status": "NON_TERMINAL_IN_PROGRESS",
+    "active_implementation_commit": "9d81441b06d62b12a983693c7bf9e8f715d21961",
+    "active_production_head": "0fdab1e5bcd91dd2018249a18a3b40739d2982e1",
+    "active_workflow": ".github/workflows/qgr-iter057ay-empty-dir-status.yml",
+    "active_actions_run": 35232316613,
     "active_job": null,
     "last_terminal_production_actions_run": 35223711465,
     "last_terminal_production_artifact": 10498825822,
@@ -179,14 +179,24 @@
       "descendant_science_replayed_or_consumed": false,
       "iter057au_reclassified": false,
       "iter057aw_reclassified": false
+    },
+    "iter057ay": {
+      "status": "ACTIVE_NONTERMINAL_TARGET_BLIND_TECHNICAL_DIAGNOSTIC",
+      "preregistration_commit": "b4f252298e4821b93b0ad01e797a1e6d41c5f58d",
+      "implementation_commit": "9d81441b06d62b12a983693c7bf9e8f715d21961",
+      "production_head": "0fdab1e5bcd91dd2018249a18a3b40739d2982e1",
+      "actions_run": 35232316613,
+      "workflow_status_at_last_check": "in_progress",
+      "frozen_aw_implementation_commit": "1c4963a4bcc84a5bf331f0173c76b05d7a6a1864",
+      "descendant_science_consumed": false
     }
   },
   "active_question": {
-    "id": "POST-ITER057AX-TARGET-BLIND-CONTROL-DIAGNOSIS",
-    "text": "Which exact frozen Iter057AX attribution control failed, without changing historical classifications, dependency semantics, targets, or consuming descendant science?"
+    "id": "ITER057AY-EMPTY-DIRECTORY-GIT-STATUS-SEMANTICS",
+    "text": "Do two independent target-blind lanes establish that the exact Iter057AX attribution failure is caused by Git porcelain omitting an empty untracked iter057aw-output directory until a sentinel file exists?"
   },
-  "active_blocker": "Iter057AX terminal aggregate did not establish the frozen cleanliness attribution PASS and does not expose which individual control failed. Iter057AU remains historically BLOCKED; Iter057AW and Iter057AX remain terminal technical FAILs.",
-  "next_gate_lock": "NO_ACTIVE_PRODUCTION_GATE__ANY_CONTINUATION_MUST_BE_PROSPECTIVELY_PREREGISTERED_TARGET_BLIND_TECHNICAL_DIAGNOSIS_OF_EXACT_ITER057AX_CONTROL_FAILURE__DO_NOT_RERUN_ITER057AU_OR_CONSUME_DESCENDANT_SCIENCE",
+  "active_blocker": "Iter057AY production run 35232316613 is non-terminal; no lane or partial aggregate output is authoritative until the frozen terminal artifact exists.",
+  "next_gate_lock": "ACTIVE_ITER057AY__NEXT_RUN_CHECK_ONLY_RUN_35232316613_AT_HEAD_0fdab1e5bcd91dd2018249a18a3b40739d2982e1__IF_NONTERMINAL_STATUS_ONLY__IF_TERMINAL_CONSUME_ONLY_ITER057AY_TERMINAL_ARTIFACT_AND_FROZEN_PREREGISTRATION__DO_NOT_RERUN_ITER057AU_OR_CONSUME_DESCENDANT_SCIENCE",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
