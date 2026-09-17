@@ -31,31 +31,42 @@ Adversarial referee review: `5d03f13fbc08004159ad8cbc7aa8c0eb20a035c1` — `CONF
 
 Iter057AR remains historically BLOCKED on its frozen 2100-slot object. Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten. Historical FAIL/BLOCKED results remain preserved.
 
-## Iter057AU — terminal BLOCKED
+## Iter057AU — preserved terminal BLOCKED
 
 Gate: `ITER057AU_CORRECTED_DEGREE6_DESCENDANT_DEPENDENCY_ADJUDICATION`.
 Preregistration: `616859890df95057556d265612c53da839a5848a`.
 Implementation: `30aa968631d3c7f0ea82ea054b2abb14492748b3`.
 Production head: `683b5f79899fc4a5677168cd7fd90d098cbc411e`.
-Workflow: `.github/workflows/qgr-iter057au-dependency-adjudication.yml`.
 Actions run: `35204162456` (`completed/failure`).
 Terminal artifact: `10488818748` (`iter057au-terminal`).
 Artifact digest: `sha256:2a8734dbc27fec1787318f017117fd82f8b2a433d346327a989892bdd10d33fc`.
 Durable result: `c299683e28289788c53797e5ede1cafaf09f5431`.
+Classification: `BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`.
 
-Classification:
+Both dependency-reconstruction jobs reached the frozen classifier step and failed before producing the required primary/independent JSON payloads. No descendant scientific result was replayed or recomputed, and no partial lane evidence is promoted to authority.
 
-`BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`.
+## Iter057AV — active target-blind execution repair / fault isolation
 
-The required terminal artifact exists and matches the frozen gate/preregistration/head/run provenance. Its terminal reason is `missing independent lane payload(s): ['primary', 'independent']`. Therefore the preregistered complete census/classification agreement and deterministic replay queue were not durably realized. The frozen rule requires insufficient provenance to fail closed as BLOCKED; no weakened PASS is permitted.
+Gate: `ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR`.
+Preregistration: `bfb6f31b9385d076695d7c3d199bf7da7b06bcc4`.
+Workflow launch head: `f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7`.
+Workflow: `.github/workflows/qgr-iter057av-au-execution-repair.yml`.
+Status: `ACTIVE_LAUNCHED_NOT_YET_CONSUMED`.
 
-No descendant scientific result was replayed or recomputed. No partial lane payload is promoted to authority. Historical scientific result files, Iter057AT, and all prior FAIL/BLOCKED classifications remain unchanged.
+Frozen object: execute the unchanged Iter057AU classifier implementation commit `30aa968631d3c7f0ea82ea054b2abb14492748b3` independently in `primary` and `independent` modes against exact census head `616859890df95057556d265612c53da839a5848a`, while durably capturing execution provenance, stdout/stderr, error fingerprints, and any emitted lane JSON. The repair gate may not change classifier semantics or consume descendant scientific outcomes.
 
-## Next bounded scientific step
+Frozen terminal classes:
 
-No active production gate is authorized.
+- PASS only if both unchanged lanes emit structurally valid Iter057AU payloads under exact provenance; this establishes technical realization only and does not reclassify Iter057AU.
+- `FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED` only if both unchanged lanes fail under exact provenance with the same normalized execution-error fingerprint; this is technical, not scientific.
+- BLOCKED if required payloads are absent without a reproducible common execution fault or infrastructure prevents adjudication.
+- INVALID on provenance/semantic drift, lane cross-reading, historical mutation, or descendant replay.
 
-A continuation may only be a new prospective, target-blind execution-repair gate for the Iter057AU dependency adjudication machinery. It must preserve the frozen Iter057AU dependency classes, census scope, evidence rules, acyclic-DAG requirement, replay-queue rule, independent-reconstruction firewall, historical immutability and claim locks. It may repair only the technical realization needed to produce the missing primary and independent payloads; it must not inspect descendant scientific outcomes to modify dependency criteria and must not replay descendant science inside the repair gate.
+The workflow uses isolated matrix lanes with `fail-fast:false` and a terminal technical aggregator. Do not consume partial lane payloads.
+
+## Next bounded step
+
+Resolve only the Iter057AV Actions run associated with head `f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7`. If non-terminal, check status/provenance only and stop. If terminal, consume only the frozen preregistration and `iter057av-terminal` artifact, record its terminal technical classification, update recovery, and stop. Do not reclassify Iter057AU inside Iter057AV and do not replay descendant science.
 
 ## Frozen KMQGB interface
 
