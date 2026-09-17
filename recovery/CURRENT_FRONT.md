@@ -45,28 +45,26 @@ Classification: `BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`.
 
 Both dependency-reconstruction jobs reached the frozen classifier step and failed before producing the required primary/independent JSON payloads. No descendant scientific result was replayed or recomputed, and no partial lane evidence is promoted to authority.
 
-## Iter057AV — active target-blind execution repair / fault isolation
+## Iter057AV — terminal technical FAIL, referee confirmed scoped
 
 Gate: `ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR`.
 Preregistration: `bfb6f31b9385d076695d7c3d199bf7da7b06bcc4`.
-Workflow launch head: `f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7`.
-Workflow: `.github/workflows/qgr-iter057av-au-execution-repair.yml`.
-Status: `ACTIVE_LAUNCHED_NOT_YET_CONSUMED`.
+Frozen AU implementation: `30aa968631d3c7f0ea82ea054b2abb14492748b3`.
+Frozen AU census head: `616859890df95057556d265612c53da839a5848a`.
+Production head: `f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7`.
+Actions run: `35214572158` (`completed/success`).
+Terminal artifact: `10493153837` (`iter057av-terminal`).
+Artifact digest: `sha256:c1d2543242706c0792f7be4aa9a688dd204bf27b38967759b897c3ed1fc14668`.
+Classification: `FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED`.
+Adversarial referee review: `0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6` — `CONFIRMED_SCOPED`.
 
-Frozen object: execute the unchanged Iter057AU classifier implementation commit `30aa968631d3c7f0ea82ea054b2abb14492748b3` independently in `primary` and `independent` modes against exact census head `616859890df95057556d265612c53da839a5848a`, while durably capturing execution provenance, stdout/stderr, error fingerprints, and any emitted lane JSON. The repair gate may not change classifier semantics or consume descendant scientific outcomes.
+Both isolated unchanged frozen Iter057AU executions used matching frozen provenance, exited `1`, produced no lane JSON, preserved a clean historical tree, and emitted identical stderr SHA256 `5517e7214732554985e70e5b8e208f9b25a3cd2679e47349ec28866a92926ef0` and normalized error fingerprint `2e83cbb6d0067e4b904632c372571ead9243f9a04b12e289e770f9bdbac84be1`. Common terminal error: `UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8a in position 287: invalid start byte`.
 
-Frozen terminal classes:
-
-- PASS only if both unchanged lanes emit structurally valid Iter057AU payloads under exact provenance; this establishes technical realization only and does not reclassify Iter057AU.
-- `FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED` only if both unchanged lanes fail under exact provenance with the same normalized execution-error fingerprint; this is technical, not scientific.
-- BLOCKED if required payloads are absent without a reproducible common execution fault or infrastructure prevents adjudication.
-- INVALID on provenance/semantic drift, lane cross-reading, historical mutation, or descendant replay.
-
-The workflow uses isolated matrix lanes with `fail-fast:false` and a terminal technical aggregator. Do not consume partial lane payloads.
+Iter057AV establishes only a reproducible execution/provenance-reader defect. It does not reclassify Iter057AU, does not consume descendant science, and does not authorize replay.
 
 ## Next bounded step
 
-Resolve only the Iter057AV Actions run associated with head `f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7`. If non-terminal, check status/provenance only and stop. If terminal, consume only the frozen preregistration and `iter057av-terminal` artifact, record its terminal technical classification, update recovery, and stop. Do not reclassify Iter057AU inside Iter057AV and do not replay descendant science.
+No active gate remains authorized after consumption of Iter057AV. Any decode-path/provenance-reader repair must be prospectively preregistered as a new target-blind technical gate before changing the frozen Iter057AU implementation or rerunning dependency adjudication. The new gate must freeze the exact offending input/read path, encoding/byte-handling policy, implementation provenance, negative controls, and no-descendant-replay firewall before implementation. Do not use descendant outcomes to tune the repair.
 
 ## Frozen KMQGB interface
 
