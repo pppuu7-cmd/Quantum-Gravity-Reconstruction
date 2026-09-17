@@ -1,0 +1,29 @@
+name: QGR Iter057AR corrected degree6 source
+on:
+  push:
+    paths:
+      - 'code/qgr_iter057ar_corrected_degree6_source.py'
+      - '.github/workflows/qgr-iter057ar-corrected-degree6-source.yml'
+  workflow_dispatch:
+jobs:
+  primary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact corrected degree-six source
+        run: |
+          mkdir -p artifacts/iter057ar
+          PYTHONPATH=code python code/qgr_iter057ar_corrected_degree6_source.py --output artifacts/iter057ar/primary.json | tee artifacts/iter057ar/primary.log
+      - name: Freeze manifest digests
+        if: always()
+        run: sha256sum artifacts/iter057ar/* 2>/dev/null | tee artifacts/iter057ar/SHA256SUMS.txt || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ar-primary-corrected-degree6
+          path: artifacts/iter057ar/
+          if-no-files-found: error
