@@ -1,0 +1,35 @@
+name: QGR Iter057AO independent direct-dual replay
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ao-direct-dual-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [generic, heldout]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exact symbolic backend
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Run independent direct-dual replay
+        shell: bash
+        run: |
+          mkdir -p artifacts/iter057ao-dual/${{ matrix.seed }}
+          python scripts/qgr_iter057ao_direct_dual_replay.py --seed ${{ matrix.seed }} --output artifacts/iter057ao-dual/${{ matrix.seed }}/result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ao-dual-${{ matrix.seed }}
+          path: artifacts/iter057ao-dual/${{ matrix.seed }}/result.json
+          if-no-files-found: error
+          retention-days: 30
