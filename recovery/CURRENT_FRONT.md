@@ -93,9 +93,23 @@ The terminal aggregate contains both independent lanes (`lane_count=2`) but repo
 
 Iter057AX does not reclassify Iter057AW or Iter057AU and consumed/replayed no descendant science.
 
+## Iter057AY — ACTIVE target-blind technical diagnostic
+
+Gate: `ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC`.
+Preregistration: `b4f252298e4821b93b0ad01e797a1e6d41c5f58d`.
+Implementation: `9d81441b06d62b12a983693c7bf9e8f715d21961` (`scripts/qgr_iter057ay_empty_dir_status.py`).
+Production head: `0fdab1e5bcd91dd2018249a18a3b40739d2982e1`.
+Workflow: `.github/workflows/qgr-iter057ay-empty-dir-status.yml`.
+Actions run: `35232316613` (`in_progress` at last bounded status check).
+Frozen AW implementation under test: `1c4963a4bcc84a5bf331f0173c76b05d7a6a1864`.
+
+Frozen hypothesis: the Iter057AX attribution failure is `post_dirty_exactly_harness_output=false` because Git porcelain does not represent an empty untracked directory. Two isolated matrix lanes (`primary`, `independent`, `fail-fast:false`) must reproduce the exact empty-directory/sentinel semantics, unchanged tracked-tree digest, and no descendant-science consumption. The terminal aggregator may classify only after both normalized lane payloads agree bit-for-bit and all frozen controls pass.
+
+No partial lane output is scientific or technical authority while the run is non-terminal. Iter057AU remains BLOCKED; Iter057AW and Iter057AX remain terminal technical FAILs.
+
 ## Next bounded step
 
-No active production gate is authorized. A continuation may only be prospectively preregistered as a target-blind technical diagnostic that identifies the exact Iter057AX attribution-control failure while preserving Iter057AU/AW/AX classifications, dependency semantics and historical targets. Do not rerun Iter057AU and do not consume descendant science until a later prospectively frozen gate satisfies all required technical controls.
+Iter057AY is the sole active authoritative gate. Inspect only Actions run `35232316613` at head `0fdab1e5bcd91dd2018249a18a3b40739d2982e1`. If non-terminal, record status/provenance only and stop. If terminal, consume only the frozen preregistration and required `iter057ay-terminal` artifact, classify under frozen criteria, update recovery, and stop. Do not rerun Iter057AU or consume descendant science.
 
 ## Frozen KMQGB interface
 
