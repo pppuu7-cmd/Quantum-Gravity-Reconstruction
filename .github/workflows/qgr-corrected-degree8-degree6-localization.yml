@@ -1,0 +1,99 @@
+name: QGR corrected degree8 degree6 discrepancy localization
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'recovery/CORRECTED_DEGREE8_DEGREE6_LOCALIZATION_TRIGGER.md'
+  workflow_dispatch:
+
+jobs:
+  primary:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Primary outcome-blind localization lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/degree6-localization/primary
+          PYTHONPATH=code python scripts/qgr_corrected_degree8_degree6_localization.py --mode primary --out artifacts/degree6-localization/primary/primary.json | tee artifacts/degree6-localization/primary/primary.log
+          sha256sum artifacts/degree6-localization/primary/* > artifacts/degree6-localization/primary/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: degree6-localization-primary
+          path: artifacts/degree6-localization/primary/
+
+  independent:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Independent AO-style outcome-blind localization lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/degree6-localization/independent
+          PYTHONPATH=code python scripts/qgr_corrected_degree8_degree6_localization.py --mode independent --out artifacts/degree6-localization/independent/independent.json | tee artifacts/degree6-localization/independent/independent.log
+          sha256sum artifacts/degree6-localization/independent/* > artifacts/degree6-localization/independent/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: degree6-localization-independent
+          path: artifacts/degree6-localization/independent/
+
+  terminal:
+    needs: [primary, independent]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: degree6-localization-*
+          path: collected
+      - name: Frozen localization classifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p terminal
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          P='ffc110bfd2067d13d135577141154b2aab8626be'
+          def load(d,f):
+              try:return json.loads((Path('collected')/d/f).read_text())
+              except:return None
+          a=load('degree6-localization-primary','primary.json'); b=load('degree6-localization-independent','independent.json')
+          out={'gate':'CORRECTED_DEGREE8_DEGREE6_REDUCTION_DISCREPANCY_LOCALIZATION','preregistration_commit':P,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED','corrected_Q10_locked':True}
+          if not a or not b:
+              cls='UNRESOLVED_DEGREE6_REDUCTION_DISCREPANCY'; reason='lane payload missing'
+          else:
+              valid=(a.get('preregistration_commit')==b.get('preregistration_commit')==P and all(a.get('controls',{}).values()) and all(b.get('controls',{}).values()) and a.get('target_loaded_during_decomposition') is False and b.get('target_loaded_during_decomposition') is False)
+              agree=(a['R10']['final']['sha256']==b['R10']['final']['sha256'] and a['R12']['final']['sha256']==b['R12']['final']['sha256'])
+              r10at=(a.get('R10_equals_AT') is True and b.get('R10_equals_AT') is True)
+              r12at=(a.get('R12_equals_AT') is True and b.get('R12_equals_AT') is True)
+              r12bad=(a['R12']['final']['sha256']=='2f15c55c0b326966c821141e43e245e3715f93fc9f4b9ee720179f31b1e28b6d' and b['R12']['final']['sha256']=='2f15c55c0b326966c821141e43e245e3715f93fc9f4b9ee720179f31b1e28b6d')
+              if valid and agree and r10at and (not r12at) and r12bad:
+                  cls='LOCALIZED_TRUNCATION_ORDER_COUPLING'; reason='both independent operators reproduce AT at the mathematically sufficient R10 boundary while the R12 generalized boundary changes the degree-six projection to the parent blocker hash'
+              elif valid and agree and a['R12']['final']['vector']==b['R12']['final']['vector'] and a['R12']['final']['sha256']!=b.get('AT_reconstructed_ordered_sha256') and a.get('R12_equals_AT'):
+                  cls='LOCALIZED_SERIALIZATION_OR_BASIS_MISMATCH'; reason='exact tensors agree while serialization hash differs'
+              elif valid and agree and not r10at and not r12at:
+                  cls='LOCALIZED_GENERALIZED_CONSTRUCTOR_FORMULA_MISMATCH'; reason='discrepancy persists before serialization across both tested truncation boundaries'
+              else:
+                  cls='UNRESOLVED_DEGREE6_REDUCTION_DISCREPANCY'; reason='frozen localization conditions do not select a unique cause'
+              out.update(primary_R10_sha=a['R10']['final']['sha256'],primary_R12_sha=a['R12']['final']['sha256'],independent_R10_sha=b['R10']['final']['sha256'],independent_R12_sha=b['R12']['final']['sha256'],AT_sha=a.get('AT_reconstructed_ordered_sha256'),primary_R10_equals_AT=a.get('R10_equals_AT'),primary_R12_equals_AT=a.get('R12_equals_AT'),independent_R10_equals_AT=b.get('R10_equals_AT'),independent_R12_equals_AT=b.get('R12_equals_AT'),primary_component_hashes_R10={k:v['sha256'] for k,v in a['R10']['components'].items()},primary_component_hashes_R12={k:v['sha256'] for k,v in a['R12']['components'].items()},independent_component_hashes_R10={k:v['sha256'] for k,v in b['R10']['components'].items()},independent_component_hashes_R12={k:v['sha256'] for k,v in b['R12']['components'].items()})
+          out.update(classification=cls,reason=reason)
+          body=dict(out); out['terminal_payload_sha256']=hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: degree6-localization-terminal
+          path: terminal/
