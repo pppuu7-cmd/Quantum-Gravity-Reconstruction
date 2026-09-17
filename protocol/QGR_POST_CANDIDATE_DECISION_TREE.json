@@ -1,0 +1,9 @@
+{
+  "version":"1.0.0",
+  "terminal_states":["PASS","FAIL","BLOCKED","INVALID"],
+  "nodes":["covariant_source_consistency","finite_local_no_refit_restriction","constraint_analysis","principal_symbol","hyperbolicity","physical_dof_count","stability_ghost_diagnostics","quantum_amplitude_or_measure_definition","normalization","regulator_extension_renormalization","composition_gluing","physical_state_causal_sector","same_realization_uv_ir_map","lorentzian_4d_gr_recovery","normalized_observable","uncertainty_propagation","kmqgb_export","prediction_discrimination"],
+  "edges":[
+    ["covariant_source_consistency","finite_local_no_refit_restriction"],["finite_local_no_refit_restriction","constraint_analysis"],["constraint_analysis","principal_symbol"],["principal_symbol","hyperbolicity"],["hyperbolicity","physical_dof_count"],["physical_dof_count","stability_ghost_diagnostics"],["stability_ghost_diagnostics","quantum_amplitude_or_measure_definition"],["quantum_amplitude_or_measure_definition","normalization"],["normalization","regulator_extension_renormalization"],["regulator_extension_renormalization","composition_gluing"],["composition_gluing","physical_state_causal_sector"],["physical_state_causal_sector","same_realization_uv_ir_map"],["same_realization_uv_ir_map","lorentzian_4d_gr_recovery"],["lorentzian_4d_gr_recovery","normalized_observable"],["normalized_observable","uncertainty_propagation"],["uncertainty_propagation","kmqgb_export"],["kmqgb_export","prediction_discrimination"]
+  ],
+  "edge_contract":{"each_edge_requires":["input_object_id","output_object_id","terminal_state","provenance","claim_ceiling"],"posthoc_rule_change_forbidden":true}
+}

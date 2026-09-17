@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "axes": {
+    "repository_infrastructure_pct": "Ability of the repository itself to run, recover, validate and preserve provenance.",
+    "candidate_program_pct": "Completeness of the research-programme architecture, gate definitions and interfaces; not scientific success.",
+    "theory_established_pct": "Scientific establishment of an actual QGR candidate theory. Independent of infrastructure readiness."
+  },
+  "candidate_program_100_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
+  "independent_axes": true,
+  "scientific_states": ["NOT_STARTED", "ACTIVE", "PASS", "FAIL", "BLOCKED", "INVALID"],
+  "ci_success_is_not_scientific_pass": true
+}

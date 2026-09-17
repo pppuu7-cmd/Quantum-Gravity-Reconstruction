@@ -1,0 +1,15 @@
+{
+  "version":"1.0.0",
+  "nodes":[
+    {"id":"ITER057AF","authority_sha":"230690a56e5055471054d9751985f7604ec7130d","depends_on":[],"supersedes":[],"preserves":[],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057AK","authority_sha":"103bed01316acf4310327bcbe9b6007bd45ce2e5","depends_on":["ITER057AF"],"supersedes":[],"preserves":["ITER057AF"],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057AN","authority_sha":"e424b28431d5235d6fe0ee4a462b11912670b1fe","depends_on":[],"supersedes":[],"preserves":["ITER057AF"],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057AO","authority_sha":"3246b31fde58d061f7e35cbc6be22236d1c7b2a8","depends_on":[],"supersedes":[],"preserves":[],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057AP","authority_sha":"2ccf15108b889cef25e1b90af7f8a7127b2d83be","depends_on":["ITER057AO","ITER057X"],"supersedes":[],"preserves":["ITER057AO","ITER057X"],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057AQ","authority_sha":"de82fe82c8f3f40854c81d7cb3e0e5d490a153a4","depends_on":["ITER057AP","ITER057X"],"supersedes":[],"preserves":["ITER057AP"],"invalidates":[],"requires_replay_of":["ITER057X"],"does_not_affect":["ITER057U_DEG0_2_4"]},
+    {"id":"ITER057X","authority_sha":"4ab5592cfc6ef5fb69d3a96fa4433ef22d51af8b","depends_on":[],"supersedes":[],"preserves":[],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057U_DEG0_2_4","authority_sha":"20256a1779a3f76c46fcabe9f95cd0dd8c082305","depends_on":[],"supersedes":[],"preserves":[],"invalidates":[],"requires_replay_of":[],"does_not_affect":[]},
+    {"id":"ITER057AR","authority_sha":"5ecf2a8fabd6da133d3b52f969d0c9b27d3997e6","depends_on":["ITER057AQ"],"supersedes":[],"preserves":["ITER057U_DEG0_2_4"],"invalidates":[],"requires_replay_of":[],"does_not_affect":["ITER057AF","ITER057AN"],"status":"PREREGISTERED_NOT_PRODUCED"}
+  ],
+  "protected_historical_files":["results/ITER057X_CORRECTED_DECIC_SEED_WEYL3_SIXTH_SOURCE_JET_TERMINAL.md","results/ITER057AP_COVARIANT_TO_WEYL3_SOURCE_NO_REFIT_MATCH_TERMINAL.md","results/ITER057AQ_DEGREE6_SOURCE_DISCREPANCY_CAUSAL_ADJUDICATION_TERMINAL.md"]
+}

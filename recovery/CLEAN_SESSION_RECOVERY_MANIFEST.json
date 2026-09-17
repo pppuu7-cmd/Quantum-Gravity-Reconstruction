@@ -1,0 +1,19 @@
+{
+  "version":"1.0.0",
+  "questions":{
+    "project":"recovery/state.json:project",
+    "repository_infrastructure_readiness":"recovery/state.json:readiness.repository_infrastructure_pct",
+    "programme_infrastructure_readiness":"recovery/state.json:readiness.candidate_program_pct",
+    "meaning_of_100":"protocol/QGR_READINESS_SEMANTICS.json:candidate_program_100_semantics",
+    "theory_readiness":"recovery/state.json:readiness.theory_established_pct",
+    "current_scientific_front":"recovery/CURRENT_FRONT.md",
+    "last_terminal_result":"recovery/state.json:science_sync.last_terminal_science",
+    "preregistered_not_run":"recovery/state.json:science_sync.next_preregistered_science",
+    "forbidden_claims":"recovery/state.json:claim_locks",
+    "next_scientific_action":"recovery/state.json:active_question",
+    "future_candidate_export":"schemas/qgr_candidate_export_v1.schema.json",
+    "kmqgb_interface":"protocol/QGR_KMQGB_INTERFACE_PIN.json",
+    "kmqgb_version_change":"code/qgr_kmqgb_drift_detector.py"
+  },
+  "chat_memory_required":false
+}

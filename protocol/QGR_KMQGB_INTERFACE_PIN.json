@@ -1,0 +1,22 @@
+{
+  "interface_version":"1.0.0",
+  "kmqgb_repository":"pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark",
+  "kmqgb_commit":"d23f34cba57b220dd29474c0651bc727d6d85eae",
+  "candidate_record_schema_version":"1.3",
+  "schema_path":"schemas/candidate_gravity_record_v1_3.schema.json",
+  "schema_git_blob_sha":"6846d3b64a9586b1c9b9e3edeb0b41e02d89eec8",
+  "schema_sha256":"f48e96f4518ee2feb44cfcfee6a896e158f3dd09f19708230ca36922f541f9b8",
+  "template_path":"templates/candidate_gravity_record_v1_3.template.json",
+  "template_git_blob_sha":"1ec3ef2e8b9a69f6f2f435572263ad544c795120",
+  "template_sha256":"3273b7133071989a9fc1c4d55690cc2ce36672972f20500fe840c12fd2b5076d",
+  "validator_path":"code/kg_candidate_record_v13_validator.py",
+  "validator_git_blob_sha":"4be3c57f6b9352af84f1b71ad8d33f4326c877c8",
+  "validator_sha256":"9de26fed4037d23ca680eda3f41ce8bbd0bfdbc97af02f02f88b558eb7efc650",
+  "base_validator_path":"code/kg_candidate_record_validator.py",
+  "base_validator_sha256":"07b8a115f7dfd77c5a567a717ac23bff981768f85c347e9c4823d6424adea74e",
+  "rqir_core_version":"1.0",
+  "rqir_core_status":"FROZEN",
+  "drift_classification":"KMQGB_INTERFACE_VERSION_DRIFT",
+  "pin_probe_run":35181261406,
+  "pin_probe_job":105073686476
+}

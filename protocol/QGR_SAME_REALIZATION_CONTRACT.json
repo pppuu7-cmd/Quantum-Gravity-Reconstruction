@@ -1,0 +1,7 @@
+{
+  "version":"1.0.0",
+  "required_identity_chain":["candidate_version","microscopic_object_id","dynamics_id","parameter_map_id","regulator_id","continuum_map_id","IR_realization_id","GR_map_id","observable_id"],
+  "status_values":["PASS","FAIL","BLOCKED","INVALID"],
+  "pass_rule":"all identity fields nonempty and all map provenance links refer to the same candidate_version",
+  "forbid_downstream_realization_substitution":true
+}

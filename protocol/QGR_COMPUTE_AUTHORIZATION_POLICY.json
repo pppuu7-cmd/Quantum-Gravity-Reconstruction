@@ -1,0 +1,6 @@
+{
+  "version":"1.0.0",
+  "structural_blocker_heavy_compute_authorized":false,
+  "heavy_compute_requires":["mathematical_object_exists","observable_exists","normalization_defined","comparison_question_frozen","expected_information_gain_stated","stopping_rule_frozen"],
+  "ci_or_resource_availability_alone_authorizes_compute":false
+}

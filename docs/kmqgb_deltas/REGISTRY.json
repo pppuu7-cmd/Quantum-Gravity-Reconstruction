@@ -1,0 +1,1 @@
+{"version":"1.0.0","historical_snapshot":"docs/KMQGB_HANDOFF.md","promotion_sync_points":["R2_TO_R3","R4_TO_R5","R7_TO_R8"],"deltas":[{"date":"2026-09-17","kmqgb_commit":"d23f34cba57b220dd29474c0651bc727d6d85eae","path":"docs/kmqgb_deltas/2026-09-17_d23f34cb.md"}],"import_candidate_specific_outcomes_as_targets":false}

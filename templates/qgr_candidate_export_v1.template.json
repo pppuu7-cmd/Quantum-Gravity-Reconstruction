@@ -1,0 +1,9 @@
+{
+  "schema_version":"1.0","candidate_id":"UNFORMED_CANDIDATE","candidate_version":"0.0.0","status":"BLOCKED","synthetic":false,"scientific_candidate":true,"theory_claim_authorized":false,
+  "ontology":{"status":"NOT_YET_DERIVED"},"state_space":{"status":"NOT_YET_DERIVED"},"elementary_variables":[],"symmetries":[],"dynamics":{"status":"NOT_YET_DERIVED"},"amplitude_or_measure":{"status":"BLOCKED"},"composition_gluing":{"status":"BLOCKED"},
+  "parameters":[],"functional_freedom":{"status":"UNKNOWN"},"regulator":{"status":"BLOCKED"},"extension_or_renormalization":{"status":"BLOCKED"},"physical_sector":{"status":"BLOCKED"},
+  "same_realization_chain":{"status":"BLOCKED","candidate_version":"0.0.0","microscopic_object_id":null,"dynamics_id":null,"parameter_map_id":null,"regulator_id":null,"continuum_map_id":null,"IR_realization_id":null,"GR_map_id":null,"observable_id":null},
+  "uv_ir_map":{"status":"BLOCKED"},"gr_limit":{"status":"BLOCKED"},"observables":[],"uncertainties":[],"predictions_or_discriminators":[],
+  "claim_locks":{"qgr_theory_established":false,"experimental_confirmation":false,"beta_set_to_one_authorized":false,"qgr_six_derivative_coefficient_fixed":false,"c6_running_authorized":false,"strong_hyperbolicity_established":false,"physical_ghost_claim_authorized":false,"quantum_unitarity_established":false,"global_interacting_measure_established":false,"regulator_removal_established":false,"uv_complete":false,"new_physics_found":false,"kmqgb_new_required_authorized":false},
+  "blockers":["BLOCKED_MISSING_QUANTUM_MEASURE","BLOCKED_UV_IR_MAP","BLOCKED_NORMALIZED_OBSERVABLE"],"source_provenance":[],"artifact_hashes":{},"software_environment":{},"benchmark_interface_version":"KMQGB_candidate_gravity_record_v1_3@d23f34cba57b220dd29474c0651bc727d6d85eae"
+}

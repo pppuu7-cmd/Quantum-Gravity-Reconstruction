@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://qgr.local/schemas/qgr_candidate_export_v1.schema.json",
+  "title":"QGR candidate export v1",
+  "type":"object",
+  "required":["schema_version","candidate_id","candidate_version","status","synthetic","scientific_candidate","theory_claim_authorized","ontology","state_space","elementary_variables","symmetries","dynamics","amplitude_or_measure","composition_gluing","parameters","functional_freedom","regulator","extension_or_renormalization","physical_sector","same_realization_chain","uv_ir_map","gr_limit","observables","uncertainties","predictions_or_discriminators","claim_locks","blockers","source_provenance","artifact_hashes","software_environment","benchmark_interface_version"],
+  "properties":{
+    "schema_version":{"const":"1.0"},
+    "candidate_id":{"type":"string","minLength":1},
+    "candidate_version":{"type":"string","minLength":1},
+    "status":{"enum":["UNKNOWN","NOT_YET_DERIVED","ACTIVE","BLOCKED","PASS","FAIL","INVALID"]},
+    "synthetic":{"type":"boolean"},"scientific_candidate":{"type":"boolean"},"theory_claim_authorized":{"type":"boolean"},
+    "ontology":{"type":"object"},"state_space":{"type":"object"},"elementary_variables":{"type":"array"},"symmetries":{"type":"array"},"dynamics":{"type":"object"},"amplitude_or_measure":{"type":"object"},"composition_gluing":{"type":"object"},
+    "parameters":{"type":"array"},"functional_freedom":{"type":"object"},"regulator":{"type":"object"},"extension_or_renormalization":{"type":"object"},"physical_sector":{"type":"object"},
+    "same_realization_chain":{"type":"object","required":["status","candidate_version","microscopic_object_id","dynamics_id","parameter_map_id","regulator_id","continuum_map_id","IR_realization_id","GR_map_id","observable_id"]},
+    "uv_ir_map":{"type":"object"},"gr_limit":{"type":"object"},"observables":{"type":"array"},"uncertainties":{"type":"array"},"predictions_or_discriminators":{"type":"array"},
+    "claim_locks":{"type":"object","required":["qgr_theory_established","experimental_confirmation","beta_set_to_one_authorized","qgr_six_derivative_coefficient_fixed","c6_running_authorized","strong_hyperbolicity_established","physical_ghost_claim_authorized","quantum_unitarity_established","global_interacting_measure_established","regulator_removal_established","uv_complete","new_physics_found","kmqgb_new_required_authorized"]},
+    "blockers":{"type":"array"},"source_provenance":{"type":"array"},"artifact_hashes":{"type":"object"},"software_environment":{"type":"object"},"benchmark_interface_version":{"type":"string","minLength":1}
+  },
+  "additionalProperties":true
+}

@@ -1,0 +1,9 @@
+{
+  "version":"1.0.0",
+  "objects":["microscopic_object","state_space","amplitude_generator_or_measure","normalization","regulator","regulator_removal_or_extension","composition_gluing","causal_physical_sector","observable","continuum_ir_map"],
+  "explicit_requires":["definition","domain","version","provenance","evidence_refs"],
+  "missing_state":"BLOCKED",
+  "fail_requires":"explicit_contradiction_of_frozen_criterion",
+  "heavy_compute_on_structural_blocker":false,
+  "invent_missing_quantum_theory":false
+}

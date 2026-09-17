@@ -1,0 +1,8 @@
+{
+  "version":"1.0.0",
+  "allowed_imports":["general_methodological_failure_modes","interface_versions","schema_requirements","validator_semantics"],
+  "forbidden_construction_targets":["candidate_specific_kmqgb_verdict","favorable_comparator_target","post_outcome_threshold","future_benchmark_response","NEW_REQUIRED_as_authorized"],
+  "adapter_may_change_kmqgb_thresholds":false,
+  "blocked_may_be_promoted_by_adapter":false,
+  "benchmark_independence_chain":["QGR_native_candidate","versioned_QGR_export","QGR_KMQGB_adapter","frozen_KMQGB_intake","frozen_RQIR_comparator"]
+}
