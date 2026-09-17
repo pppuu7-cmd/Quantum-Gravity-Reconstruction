@@ -1,0 +1,123 @@
+name: QGR Iter057BE Iter057Y replay-order adjudication
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057be-y-replay-order.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qgr-iter057be-y-replay-order
+  cancel-in-progress: false
+jobs:
+  adjudicate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane: primary
+            script: scripts/qgr_iter057be_y_order_primary.py
+          - lane: independent
+            script: scripts/qgr_iter057be_y_order_independent.py
+    name: adjudicate (${{ matrix.lane }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Extract frozen same-iteration scheduling evidence
+        shell: bash
+        run: |
+          set +e
+          mkdir -p artifacts/iter057be/${{ matrix.lane }}
+          python '${{ matrix.script }}' --repo . --output artifacts/iter057be/${{ matrix.lane }}/${{ matrix.lane }}.json > artifacts/iter057be/${{ matrix.lane }}/${{ matrix.lane }}.log 2>&1
+          rc=$?
+          printf '%s\n' "$rc" > artifacts/iter057be/${{ matrix.lane }}/exitcode.txt
+          cat artifacts/iter057be/${{ matrix.lane }}/${{ matrix.lane }}.log
+          sha256sum artifacts/iter057be/${{ matrix.lane }}/* > artifacts/iter057be/${{ matrix.lane }}/SHA256SUMS.txt 2>/dev/null || true
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057be-${{ matrix.lane }}
+          path: artifacts/iter057be/${{ matrix.lane }}/
+          if-no-files-found: warn
+          retention-days: 30
+  terminal:
+    if: always()
+    needs: adjudicate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057be-*
+          path: collected
+          merge-multiple: false
+      - name: Frozen Iter057BE terminal classifier
+        shell: bash
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          GATE='ITER057BE_ITER057Y_SAME_ITERATION_REPLAY_ORDER_ADJUDICATION'
+          PREREG='5b16cb4432097fd974adf93e624f872e4620cd17'
+          SCI='results/ITER057Y_ONSHELL_FIRST_ORDER_Q2_Q4_Q6_Q8_RESPONSE_TERMINAL.md'
+          AUD='results/ITER057Y_ACTIONS_PROVENANCE_AUDIT.md'
+          PASS='PASS_SCOPED_ITER057BE_ITER057Y_REPLAY_BUNDLE_ORDER_SCIENCE_BEFORE_AUDIT_INDEPENDENTLY_REPRODUCED'
+          BLOCKED='BLOCKED_ITER057BE_ITER057Y_REPLAY_ORDER_UNRESOLVED'
+          FAIL='FAIL_TECHNICAL_ITER057BE_INDEPENDENT_ORDERING_EVIDENCE_DISAGREEMENT'
+          INVALID='INVALID_ITER057BE_QUEUE_MEMBERSHIP_HISTORY_OR_TARGET_BLINDNESS_VIOLATED'
+          def load(lane):
+              p=Path('collected')/f'iter057be-{lane}'/f'{lane}.json'
+              if not p.exists() or not p.stat().st_size:return None
+              try:return json.loads(p.read_text(encoding='utf-8'))
+              except Exception:return None
+          def sh(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          p=load('primary');q=load('independent')
+          out={'gate':GATE,'preregistration_commit':PREREG,'green_ci_alone_is_not_pass':True}
+          if p is None or q is None:
+              out.update(classification=BLOCKED,reason='required independent evidence payload missing or invalid',primary_present=p is not None,independent_present=q is not None)
+          else:
+              expected_bundle=[SCI,AUD]
+              forbidden=any([p.get('descendant_science_consumed') is not False,q.get('descendant_science_consumed') is not False,p.get('controls',{}).get('science_recomputed') is not False,q.get('controls',{}).get('science_recomputed') is not False,p.get('controls',{}).get('historical_result_modified') is not False,q.get('controls',{}).get('historical_result_modified') is not False,p.get('controls',{}).get('claim_lock_promoted') is not False,q.get('controls',{}).get('claim_lock_promoted') is not False])
+              controls={
+                'parent_prereg_exact':p.get('preregistration_commit')==PREREG and q.get('preregistration_commit')==PREREG,
+                'primary_all_controls_pass':p.get('all_controls_pass') is True,
+                'independent_all_controls_pass':q.get('all_controls_pass') is True,
+                'separate_implementation_paths':p.get('implementation_path')!=q.get('implementation_path'),
+                'distinct_implementation_sha256':p.get('implementation_sha256')!=q.get('implementation_sha256'),
+                'same_evidence_object_hashes':p.get('evidence_sha256')==q.get('evidence_sha256'),
+                'science_authority_exact_agreement':p.get('science_authority_commit')==q.get('science_authority_commit')=='cb2758238daba9ecf9c86e01e171f6c6d31c72b9',
+                'wrapper_exact_agreement':p.get('wrapper_commit')==q.get('wrapper_commit')=='8d5936b988c57d44e8a279b9d5fd4f6238a071e4',
+                'audit_to_science_relation_agreement':p.get('audit_to_science_reference') is True and q.get('audit_to_science_reference') is True,
+                'wrapper_to_science_call_agreement':p.get('wrapper_to_science_call') is True and q.get('wrapper_to_science_call') is True,
+                'audit_supplemental_agreement':p.get('audit_is_supplemental') is True and q.get('audit_is_supplemental') is True,
+                'reverse_dependency_absent_both':p.get('reverse_dependency_found') is False and q.get('reverse_dependency_found') is False,
+                'ordering_relation_exact_agreement':p.get('ordering_relation')==q.get('ordering_relation')=='SCIENCE_BEFORE_AUDIT',
+                'bundle_exact_agreement':p.get('same_iteration_bundle')==q.get('same_iteration_bundle')==expected_bundle,
+                'execution_order_exact_agreement':p.get('execution_order')==q.get('execution_order')==expected_bundle,
+                'atomic_bundle_both':p.get('atomic_replay_bundle') is True and q.get('atomic_replay_bundle') is True,
+              }
+              unresolved=p.get('ordering_relation')!='SCIENCE_BEFORE_AUDIT' or q.get('ordering_relation')!='SCIENCE_BEFORE_AUDIT'
+              if forbidden:
+                  cls=INVALID;reason='history/target-blindness/descendant-replay invariant violated'
+              elif unresolved:
+                  cls=BLOCKED;reason='frozen provenance insufficient to determine executable same-iteration ordering'
+              elif not all(controls.values()):
+                  cls=FAIL;reason='independent scheduling evidence extractors disagree or a frozen evidence/integrity control failed'
+              else:
+                  cls=PASS;reason='both independent evidence paths establish that the supplemental audit derives from the Y science execution; first executable replay unit is atomic Y bundle ordered science then audit'
+              out.update({'classification':cls,'reason':reason,'controls':controls,'same_iteration_bundle':expected_bundle if cls==PASS else None,'execution_order':expected_bundle if cls==PASS else None,'ordering_relation':'SCIENCE_BEFORE_AUDIT' if cls==PASS else None,'audit_is_supplemental':True if cls==PASS else None,'reverse_dependency_found':False if cls==PASS else None,'evidence_sha256':p.get('evidence_sha256') if controls['same_evidence_object_hashes'] else None,'primary_implementation_sha256':p.get('implementation_sha256'),'independent_implementation_sha256':q.get('implementation_sha256'),'primary_payload_sha256':sh(p),'independent_payload_sha256':sh(q),'descendant_science_consumed':False,'historical_iter057y_reclassified':False,'bd_queue_membership_changed':False,'theory_established_pct':0,'c6':'SYMBOLIC_UNFIXED'})
+          body=dict(out);out['terminal_payload_sha256']=sh(body)
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057be-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
