@@ -78,9 +78,24 @@ Both isolated technical lanes reproduced the same invalid-fixture raw SHA256 `6d
 
 This does not establish that the byte-safe decode mechanism itself is defective: the terminal failure is specifically the frozen historical-tree-cleanliness control. Iter057AU remains historically BLOCKED; no descendant science was replayed, consumed or reclassified. A replacement AU adjudication is not authorized by this FAIL.
 
+## Iter057AX — terminal technical FAIL
+
+Gate: `ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC`.
+Preregistration: `c81223eec7c972a2643a564ec99e9684766eeee4`.
+Production head: `03472765cf27ac2a1534ac3546f17ed4d9e3bbc6`.
+Actions run: `35223711465` (`completed/success`).
+Terminal artifact: `10498825822` (`iter057ax-terminal`).
+Artifact digest: `sha256:8217927c0bf3ce21f61e9733b98d2ac10e46073d69a77c1cb0439170d6efca2a`.
+Durable result: `62b003f636f5a71072cb187d9791d203886d3063`.
+Classification: `FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED`.
+
+The terminal aggregate contains both independent lanes (`lane_count=2`) but reports that the frozen attribution controls or independent reproduction failed. The terminal aggregate does not expose which individual frozen control failed; therefore no narrower causal diagnosis is inferred and no partial lane evidence is promoted.
+
+Iter057AX does not reclassify Iter057AW or Iter057AU and consumed/replayed no descendant science.
+
 ## Next bounded step
 
-Prospectively preregister a target-blind technical gate that diagnoses the reproducible `historical_result_tree_clean=false` condition without changing dependency semantics, historical targets, scientific classifications, or descendant outcomes. Do not rerun Iter057AU and do not consume descendant science until a later prospectively frozen gate satisfies all required technical controls.
+No active production gate is authorized. A continuation may only be prospectively preregistered as a target-blind technical diagnostic that identifies the exact Iter057AX attribution-control failure while preserving Iter057AU/AW/AX classifications, dependency semantics and historical targets. Do not rerun Iter057AU and do not consume descendant science until a later prospectively frozen gate satisfies all required technical controls.
 
 ## Frozen KMQGB interface
 
