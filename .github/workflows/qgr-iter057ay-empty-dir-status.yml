@@ -1,0 +1,131 @@
+name: QGR Iter057AY empty-directory git-status diagnostic
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ay-empty-dir-status.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qgr-iter057ay-empty-dir-status
+  cancel-in-progress: false
+
+env:
+  PREREG_COMMIT: b4f252298e4821b93b0ad01e797a1e6d41c5f58d
+  AW_COMMIT: 1c4963a4bcc84a5bf331f0173c76b05d7a6a1864
+
+jobs:
+  reproduce:
+    name: Independent technical lane ${{ matrix.lane }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [primary, independent]
+    steps:
+      - name: Checkout diagnostic implementation
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create isolated frozen-AW worktree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e "${AW_COMMIT}^{commit}"
+          rm -rf /tmp/iter057ay-aw
+          git worktree add --detach /tmp/iter057ay-aw "${AW_COMMIT}"
+          test "$(git -C /tmp/iter057ay-aw rev-parse HEAD)" = "${AW_COMMIT}"
+
+      - name: Run target-blind empty-directory diagnostic
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "iter057ay-lane-${{ matrix.lane }}"
+          python scripts/qgr_iter057ay_empty_dir_status.py \
+            --repo /tmp/iter057ay-aw \
+            --lane "${{ matrix.lane }}" \
+            --output "iter057ay-lane-${{ matrix.lane }}/lane.json"
+          cat "iter057ay-lane-${{ matrix.lane }}/lane.json"
+
+      - name: Upload lane payload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ay-${{ matrix.lane }}
+          path: iter057ay-lane-${{ matrix.lane }}/lane.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  terminal:
+    name: Terminal frozen-control classification
+    needs: reproduce
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download both independent lane payloads
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057ay-*
+          path: iter057ay-terminal-input
+          merge-multiple: false
+
+      - name: Aggregate without consuming descendant science
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, pathlib
+
+          root = pathlib.Path('iter057ay-terminal-input')
+          files = sorted(root.glob('iter057ay-*/lane.json'))
+          terminal = {
+              'gate': 'ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC',
+              'preregistration_commit': 'b4f252298e4821b93b0ad01e797a1e6d41c5f58d',
+              'frozen_aw_commit': '1c4963a4bcc84a5bf331f0173c76b05d7a6a1864',
+              'lane_payload_count': len(files),
+              'descendant_science_consumed': False,
+              'iter057au_reclassified': False,
+              'iter057aw_reclassified': False,
+              'iter057ax_reclassified': False,
+          }
+          if len(files) != 2:
+              terminal['classification'] = 'BLOCKED_ITER057AY_REQUIRED_LANE_PAYLOAD_MISSING_OR_UNREADABLE'
+              terminal['reason'] = f'expected 2 lane payloads, found {len(files)}'
+          else:
+              payloads = [json.loads(p.read_text(encoding='utf-8')) for p in files]
+              lanes = sorted(p.get('lane') for p in payloads)
+              normalized = [p.get('normalized') for p in payloads]
+              normalized_bytes = [json.dumps(x, sort_keys=True, separators=(',', ':')).encode('utf-8') for x in normalized]
+              terminal['lanes'] = lanes
+              terminal['normalized_sha256'] = [hashlib.sha256(x).hexdigest() for x in normalized_bytes]
+              terminal['normalized_bit_for_bit_agreement'] = normalized_bytes[0] == normalized_bytes[1]
+              terminal['all_controls_pass'] = all(isinstance(x, dict) and x.get('all_controls_pass') is True for x in normalized)
+              terminal['raw_observations'] = normalized[0] if terminal['normalized_bit_for_bit_agreement'] else None
+              if lanes != ['independent', 'primary']:
+                  terminal['classification'] = 'BLOCKED_ITER057AY_REQUIRED_LANE_PAYLOAD_MISSING_OR_UNREADABLE'
+                  terminal['reason'] = f'unexpected lane set {lanes}'
+              elif terminal['normalized_bit_for_bit_agreement'] and terminal['all_controls_pass']:
+                  terminal['classification'] = 'PASS_SCOPED_ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_REPRODUCED'
+                  terminal['reason'] = 'both target-blind lanes independently satisfy every frozen control with bit-for-bit normalized agreement'
+              else:
+                  terminal['classification'] = 'FAIL_TECHNICAL_ITER057AY_FROZEN_CONTROL_FAILURE'
+                  terminal['reason'] = 'one or more frozen controls failed or normalized independent observations disagreed'
+          out = pathlib.Path('iter057ay-terminal')
+          out.mkdir(exist_ok=True)
+          (out/'terminal.json').write_text(json.dumps(terminal, indent=2, sort_keys=True)+'\n', encoding='utf-8')
+          print(json.dumps(terminal, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload terminal authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057ay-terminal
+          path: |
+            iter057ay-terminal/terminal.json
+            iter057ay-terminal-input/
+          if-no-files-found: warn
+          retention-days: 30
