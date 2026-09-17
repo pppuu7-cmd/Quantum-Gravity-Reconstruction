@@ -1,0 +1,101 @@
+name: QGR corrected degree-eight Weyl3 source reconstruction
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'recovery/CORRECTED_DEGREE8_SOURCE_EXECUTION_TRIGGER.md'
+permissions:
+  contents: read
+jobs:
+  primary:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Corrected Frechet primary degree-eight source
+        run: |
+          mkdir -p artifacts/degree8/primary
+          PYTHONPATH=code python code/qgr_corrected_degree8_weyl3_source.py --mode primary --output artifacts/degree8/primary/primary.json | tee artifacts/degree8/primary/primary.log
+          sha256sum artifacts/degree8/primary/* > artifacts/degree8/primary/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: corrected-degree8-primary, path: artifacts/degree8/primary/}
+  independent:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Corrected Frechet independent AO degree-eight source
+        run: |
+          mkdir -p artifacts/degree8/independent
+          PYTHONPATH=code python code/qgr_corrected_degree8_weyl3_source.py --mode independent --output artifacts/degree8/independent/independent.json | tee artifacts/degree8/independent/independent.log
+          sha256sum artifacts/degree8/independent/* > artifacts/degree8/independent/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: corrected-degree8-independent, path: artifacts/degree8/independent/}
+  historical-comparator:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Fresh isolated historical Iter057AA replay
+        run: |
+          mkdir -p artifacts/degree8/historical
+          PYTHONPATH=code python scripts/qgr_historical_iter057aa_degree8_comparator.py --output artifacts/degree8/historical/historical.json | tee artifacts/degree8/historical/historical.log
+          sha256sum artifacts/degree8/historical/* > artifacts/degree8/historical/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: corrected-degree8-historical, path: artifacts/degree8/historical/}
+  terminal:
+    needs: [primary, independent, historical-comparator]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: corrected-degree8-*
+          path: collected
+      - name: Frozen corrected degree-eight terminal classifier
+        run: |
+          mkdir -p terminal
+          python - <<'PY'
+          import json,hashlib
+          from fractions import Fraction as F
+          from pathlib import Path
+          P='ddf4d41be23b09e5a4709149d85d85688a533fab'
+          AT='5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b'
+          SURVIVE='PASS_SCOPED_CORRECTED_DEGREE8_SOURCE_RECONSTRUCTED_AND_HISTORICAL_ITER057AA_DEGREE8_SURVIVES_FRECHET_CORRECTION'
+          DIFF='PASS_SCOPED_CORRECTED_DEGREE8_SOURCE_RECONSTRUCTED_AND_HISTORICAL_ITER057AA_DEGREE8_DIFFERS_AFTER_FRECHET_CORRECTION'
+          FAIL='FAIL_SCIENTIFIC_SCOPED_CORRECTED_FRECHET_SOURCE_DOES_NOT_EXTEND_CONSISTENTLY_TO_DEGREE8'
+          INVALID='INVALID_IMPLEMENTATION_CORRECTED_DEGREE8_SOURCE_CONTROL_FAILURE'
+          BLOCKED='BLOCKED_CORRECTED_DEGREE8_SOURCE_EXECUTION'
+          def load(d,f):
+            p=Path('collected')/d/f
+            try:return json.loads(p.read_text())
+            except:return None
+          p=load('corrected-degree8-primary','primary.json');i=load('corrected-degree8-independent','independent.json');h=load('corrected-degree8-historical','historical.json')
+          out={'gate':'CORRECTED_DEGREE8_WEYL3_SOURCE_RECONSTRUCTION','preregistration_commit':P,'c6':'SYMBOLIC_UNFIXED_FACTORED_OUT','theory_established_pct':0,'green_ci_alone_is_not_pass':True}
+          if not p or not i or not h:
+            cls=BLOCKED;reason='fresh lane payload missing/invalid'
+          else:
+            prov=(p.get('preregistration_commit')==i.get('preregistration_commit')==h.get('preregistration_commit')==P)
+            pc=bool(p.get('controls')) and all(v is True for v in p['controls'].values());ic=bool(i.get('controls')) and all(v is True for v in i['controls'].values());hc=bool(h.get('controls')) and all(v is True for v in h['controls'].values())
+            d6=(p.get('degree6_vector_sha256')==i.get('degree6_vector_sha256')==AT)
+            pv=p.get('degree8_standard_vector');iv=i.get('degree8_standard_vector');yv=p.get('degree8_y_format_minus_vector');hv=h.get('historical_degree8_vector')
+            corrected_agree=(pv==iv and isinstance(pv,list) and len(pv)==1650)
+            sign_internal=(isinstance(yv,list) and len(yv)==1650 and all(F(a['value'])==-F(b['value']) for a,b in zip(yv,pv))) if corrected_agree else False
+            if not prov or not pc or not ic or not hc or not d6 or not sign_internal:
+              cls=INVALID;reason='frozen provenance/source-reduction/sign/control failure'
+              mismatch=None
+            elif not corrected_agree:
+              cls=FAIL;reason='valid corrected primary and independent degree-eight source assemblies disagree'
+              mismatch=None
+            else:
+              mismatch=sum(1 for a,b in zip(yv,hv) if a['pair']!=b['pair'] or a['alpha']!=b['alpha'] or F(a['value'])!=F(b['value']))
+              if mismatch==0:cls=SURVIVE;reason='corrected independent source agrees and historical Iter057AA degree-eight source survives exactly'
+              else:cls=DIFF;reason='corrected independent source agrees but historical Iter057AA degree-eight source differs exactly after Frechet correction'
+            out.update(primary_controls_all=pc,independent_controls_all=ic,historical_controls_all=hc,degree6_projection_AT_exact=d6,corrected_primary_independent_degree8_exact=corrected_agree,corrected_y_sign_internal_exact=sign_internal,historical_degree8_mismatch_count=mismatch,corrected_degree8_standard_vector_sha256=p.get('degree8_standard_vector_sha256'),corrected_degree8_y_format_minus_vector_sha256=p.get('degree8_y_format_minus_vector_sha256'),historical_degree8_vector_sha256=h.get('historical_degree8_vector_sha256'),corrected_degree8_nonzero_count=p.get('degree8_standard_nonzero_count'),historical_degree8_nonzero_count=h.get('historical_degree8_nonzero_count'))
+          out.update(classification=cls,reason=reason)
+          body=dict(out);out['terminal_payload_sha256']=hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          Path('terminal/terminal.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n');print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          sha256sum terminal/terminal.json > terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: corrected-degree8-terminal, path: terminal/}
