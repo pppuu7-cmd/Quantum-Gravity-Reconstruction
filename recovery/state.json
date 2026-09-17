@@ -5,7 +5,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-17",
-    "iteration": "ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR",
+    "iteration": "ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR",
     "phase": "PROGRAMME_INFRASTRUCTURE_TERMINAL_100__SCIENCE_CONTINUES_INDEPENDENTLY"
   },
   "readiness": {
@@ -37,22 +37,22 @@
   },
   "science_sync": {
     "last_terminal_science": "ITER057AT",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "NO_ACTIVE_GATE_AFTER_ITER057AV_TECHNICAL_FAIL"
+    "next_preregistered_science": "ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR",
+    "next_preregistered_status": "ACTIVE_TECHNICAL_GATE_LAUNCHED_AWAIT_TERMINAL"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "bfb6f31b9385d076695d7c3d199bf7da7b06bcc4",
+    "latest_preregistration_commit": "4a137c9cc17858fb8e43875d169dc0a28ae3bb1d",
     "latest_terminal_result_commit": "c299683e28289788c53797e5ede1cafaf09f5431",
     "latest_terminal_result_kind": "DEPENDENCY_ADJUDICATION_TERMINAL_BLOCKED_CONSUMPTION",
     "latest_terminal_technical_gate": "ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR",
     "latest_terminal_technical_classification": "FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED",
     "latest_referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6",
     "latest_referee_verdict": "CONFIRMED_SCOPED",
-    "latest_active_gate": "ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR",
-    "active_gate_status": "TERMINAL_TECHNICAL_FAIL_CONSUMED",
-    "active_implementation_commit": "30aa968631d3c7f0ea82ea054b2abb14492748b3",
-    "active_production_head": "f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7",
-    "active_workflow": ".github/workflows/qgr-iter057av-au-execution-repair.yml",
+    "latest_active_gate": "ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR",
+    "active_gate_status": "ACTIVE_TECHNICAL_WORKFLOW_LAUNCHED_AWAIT_TERMINAL",
+    "active_implementation_commit": "1c4963a4bcc84a5bf331f0173c76b05d7a6a1864",
+    "active_production_head": "c9f6422245e652caaecfbaa8cef8e91b1361af85",
+    "active_workflow": ".github/workflows/qgr-iter057aw-bytesafe-reader.yml",
     "active_actions_run": null,
     "active_job": null,
     "last_terminal_production_actions_run": 35214572158,
@@ -150,11 +150,11 @@
     }
   },
   "active_question": {
-    "id": "POST-ITER057AV-NEXT-TECHNICAL-GATE-SELECTION",
-    "text": "After Iter057AV reproducibly localized the frozen Iter057AU execution defect to a UTF-8 decode failure, any repair must be prospectively frozen before changing the decode/provenance-reader path; descendant science remains out of scope."
+    "id": "ITER057AW-BYTE-SAFE-PROVENANCE-READER-REPAIR",
+    "text": "Can the prospectively frozen byte-safe provenance reader pass strict UTF-8, deterministic NON_UTF8_PROVENANCE, fail-closed, scope and two-independent-reproduction controls without replaying descendant science?"
   },
-  "active_blocker": "No active gate. Iter057AV terminalized a reproducible execution-layer UnicodeDecodeError in both unchanged frozen Iter057AU lanes; Iter057AU remains historically BLOCKED and descendant science remains unconsumed.",
-  "next_gate_lock": "NEW_PREREGISTRATION_REQUIRED_BEFORE_ANY_DECODE_OR_PROVENANCE_READER_REPAIR__FREEZE_EXACT_OFFENDING_READ_PATH_ENCODING_POLICY_PROVENANCE_NEGATIVE_CONTROLS_AND_NO_DESCENDANT_REPLAY__DO_NOT_RECLASSIFY_ITER057AU_OR_CONSUME_DESCENDANT_OUTCOMES",
+  "active_blocker": "Iter057AW workflow has been launched and its terminal technical aggregate has not yet been consumed. Iter057AU remains historically BLOCKED and descendant science remains out of scope.",
+  "next_gate_lock": "CONSUME_ONLY_ITER057AW_TERMINAL_FROM_PRODUCTION_HEAD_C9F6422245E652CAAECFBAA8CEF8E91B1361AF85__IF_NONTERMINAL_STATUS_PROVENANCE_ONLY__DO_NOT_RERUN_ITER057AU_OR_CONSUME_DESCENDANT_SCIENCE",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
