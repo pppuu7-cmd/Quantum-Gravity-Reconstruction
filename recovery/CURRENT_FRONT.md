@@ -93,23 +93,33 @@ The terminal aggregate contains both independent lanes (`lane_count=2`) but repo
 
 Iter057AX does not reclassify Iter057AW or Iter057AU and consumed/replayed no descendant science.
 
-## Iter057AY — ACTIVE target-blind technical diagnostic
+## Iter057AY — terminal scoped PASS
 
 Gate: `ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC`.
 Preregistration: `b4f252298e4821b93b0ad01e797a1e6d41c5f58d`.
-Implementation: `9d81441b06d62b12a983693c7bf9e8f715d21961` (`scripts/qgr_iter057ay_empty_dir_status.py`).
+Implementation: `9d81441b06d62b12a983693c7bf9e8f715d21961`.
 Production head: `0fdab1e5bcd91dd2018249a18a3b40739d2982e1`.
-Workflow: `.github/workflows/qgr-iter057ay-empty-dir-status.yml`.
-Actions run: `35232316613` (`in_progress` at last bounded status check).
-Frozen AW implementation under test: `1c4963a4bcc84a5bf331f0173c76b05d7a6a1864`.
+Actions run: `35232316613` (`completed/success`).
+Terminal artifact: `10502222783` (`iter057ay-terminal`).
+Artifact digest: `sha256:2fde0094b549c202eb6d7d0cd0761020802e37ae3eae7008629958a931b017a8`.
+Durable result: `defd025becf22b9087a4f66f13d2a38dc20880fc`.
+Classification: `PASS_SCOPED_ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_REPRODUCED`.
 
-Frozen hypothesis: the Iter057AX attribution failure is `post_dirty_exactly_harness_output=false` because Git porcelain does not represent an empty untracked directory. Two isolated matrix lanes (`primary`, `independent`, `fail-fast:false`) must reproduce the exact empty-directory/sentinel semantics, unchanged tracked-tree digest, and no descendant-science consumption. The terminal aggregator may classify only after both normalized lane payloads agree bit-for-bit and all frozen controls pass.
+The terminal aggregate contains two lane payloads, `all_controls_pass=true`, bit-for-bit normalized agreement, and identical normalized SHA256 `ce448d6807e8861e0708bafcacb644eb3cbb465a472f9086d12ac111835d6123` in both lanes. Thus the frozen technical hypothesis is reproduced: the empty harness-owned untracked directory is omitted by Git porcelain until a sentinel file is present, while tracked-tree integrity is preserved under the frozen controls.
 
-No partial lane output is scientific or technical authority while the run is non-terminal. Iter057AU remains BLOCKED; Iter057AW and Iter057AX remain terminal technical FAILs.
+This is a technical scoped PASS only. Iter057AU remains BLOCKED; Iter057AW and Iter057AX remain terminal technical FAILs; no descendant science was consumed or reclassified.
+
+## Iter057AZ — preregistered, not yet produced
+
+Gate: `ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN`.
+Preregistration: `31def60c38017c8fd9595e1a2772bc75cad42aba` (`prereg/ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN.md`).
+Status: `PROSPECTIVELY PREREGISTERED, NOT YET PRODUCED`.
+
+Frozen object: a new byte-safe provenance-reader repair certificate using strict byte acquisition/UTF-8 handling and a prospectively defined cleanliness predicate over tracked historical/scientific files, with harness-owned untracked outputs reported separately. Two independently implemented lanes are required; descendant science remains forbidden. A scoped PASS may authorize only a separately preregistered future dependency-adjudication retry and does not itself reclassify Iter057AU/AW/AX.
 
 ## Next bounded step
 
-Iter057AY is the sole active authoritative gate. Inspect only Actions run `35232316613` at head `0fdab1e5bcd91dd2018249a18a3b40739d2982e1`. If non-terminal, record status/provenance only and stop. If terminal, consume only the frozen preregistration and required `iter057ay-terminal` artifact, classify under frozen criteria, update recovery, and stop. Do not rerun Iter057AU or consume descendant science.
+No authoritative workflow is active. `ITER057AZ` is already prospectively frozen by commit `31def60c38017c8fd9595e1a2772bc75cad42aba`. The next run may implement exactly that frozen gate and, because its two-lane certificate computation is nontrivial, launch one `fail-fast:false` GitHub Actions matrix and stop without waiting. Do not alter the frozen Iter057AZ controls, rerun Iter057AU, or consume descendant science.
 
 ## Frozen KMQGB interface
 
