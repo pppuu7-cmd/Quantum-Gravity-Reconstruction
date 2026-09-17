@@ -1,87 +1,44 @@
 # QGR Recovery Playbook
 
-This file is the primary cross-chat/session continuation method.
+This file is the primary cross-chat/session continuation method. Never rely on remembered percentages.
 
 ## Minimal recovery sequence
 
-When starting from another chat/session, do **not** rely on remembered percentages or an old conversation summary. Recover QGR from the repository in this order:
-
 1. Read `recovery/state.json`.
 2. Read `recovery/CURRENT_FRONT.md`.
-3. Read the newest file in `iterations/`.
-4. Read `docs/CONSTITUTION.md` before proposing or promoting any candidate architecture.
-5. Read `docs/KMQGB_HANDOFF.md` and then inspect the current KMQGB recovery front for changes since the last QGR synchronization.
-6. Inspect the most recent QGR commits after the commit recorded in `state.json`.
-7. Continue only from the exact next gate recorded in `CURRENT_FRONT.md` unless new evidence explicitly changes the priority.
+3. Read `protocol/QGR_READINESS_SEMANTICS.json` and `protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json`.
+4. Read `protocol/QGR_GATE_REGISTRY.json` for R0-R9 protocol/status separation.
+5. Read `docs/CONSTITUTION.md`.
+6. Read historical `docs/KMQGB_HANDOFF.md`, then `docs/kmqgb_deltas/REGISTRY.json` and `protocol/QGR_KMQGB_INTERFACE_PIN.json`.
+7. Inspect commits after the SHA represented by recovery state; fresh repository authority beats chat memory.
+8. Keep `science_sync.last_terminal_science` distinct from `science_sync.next_preregistered_science`.
 
-## Required status report at every research iteration
+## Readiness axes
 
-Every substantive QGR iteration should report and record at least:
-
-- QGR iteration number;
-- overall candidate-program readiness percentage;
-- current task completion percentage;
-- active roadmap stage;
-- active hypothesis/branch, if any;
-- strongest new result;
-- strongest surviving blocker;
-- whether any claim lock changed;
-- whether KMQGB/RQIR synchronization was checked;
-- exact next falsification/completion gate.
-
-Percentages are workflow/readiness indicators only. They are not probabilities that the theory is true.
-
-## Backup discipline
-
-At the end of every substantive iteration:
-
-1. Create/update `iterations/ITERATION_NNN.md` with assumptions, derivations/computations, result class, scope boundary, and next gate.
-2. Update `recovery/CURRENT_FRONT.md` to the newest scientific front.
-3. Update `recovery/state.json` so a machine/session can resume without parsing prose history.
-4. If a new general methodological lesson was learned, append a versioned document under `docs/` rather than silently editing the frozen constitution.
-5. If KMQGB introduced a genuinely new failure mode relevant to QGR, append a dated handoff delta; do not rewrite the historical snapshot.
-6. Record exact commit SHAs or provenance for external benchmark facts that materially constrain the candidate.
+`repository_infrastructure_pct`, `candidate_program_pct`, and `theory_established_pct` are independent. Programme 100 means complete executable/recoverable/fail-closed research architecture only. It never means theory completion.
 
 ## Scientific-state preservation
 
-Never convert between these states during recovery merely to simplify the story:
+`BLOCKED != FAIL`; `INVALID != FAIL`; CI green != scientific PASS; `PASS_SCOPED` != global/all-orders PASS. Missing evidence is not evidence of impossibility. Historical terminal results are immutable; corrected authorities use the dependency/supersession protocol rather than rewriting history.
 
-- `BLOCKED` != `FAIL`;
-- `PARTIAL` != `PASS`;
-- `PASS_SCOPED` != family/global PASS;
-- a divergent ordinary regulator limit != proof that no distributional/renormalized extension exists;
-- an inherited readiness marker != evidence of correctness.
+## Programme 100 recovery
 
-## Branch recovery rule
+A clean session must be able to run:
 
-If multiple candidate architectures are being explored, each branch must have:
+- `python code/qgr_programme_readiness_validator.py --kmqgb-root <pinned checkout> --require-100`
+- `python code/qgr_programme_readiness_critic.py --kmqgb-root <pinned checkout>`
+- `python code/qgr_clean_recovery_test.py`
 
-- a unique branch ID;
-- fixed assumptions;
-- prospective kill criteria;
-- parameter/free-function count;
-- status (`PROPOSED`, `PARTIAL`, `BLOCKED`, `FAIL_SCOPED`, `PROMOTABLE`, `REJECTED`);
-- reason for status.
+The declared percentage is not evidence for either evaluator. If any A–P obligation fails, keep candidate-program readiness <=99 and report the exact failed obligation.
 
-Never merge evidence from incompatible branches into a single PASS.
+## KMQGB boundary
+
+Do not modify KMQGB/RQIR. Before R2->R3, R4->R5 or R7->R8, inspect fresh KMQGB and append a dated delta only for new methodological/interface obligations. Candidate-specific benchmark outcomes may not become QGR construction targets. Drift from the pinned v1.3 interface returns `KMQGB_INTERFACE_VERSION_DRIFT` until a new adapter/delta is prospectively versioned.
 
 ## Heavy-compute rule
 
-Before launching expensive computation, record why the blocker is computational rather than structural. Do not use more compute as a substitute for a missing theorem, undefined observable, unknown normalization, or absent parameter map.
-
-## Emergency reconstruction
-
-If `CURRENT_FRONT.md` and `state.json` disagree:
-
-1. prefer the newest Git commit with explicit scientific provenance;
-2. inspect the latest iteration log;
-3. treat the inconsistency as a recovery defect;
-4. repair both recovery files before advancing the science.
-
-If an old chat claims a stronger scientific result than the repository, the repository wins unless the stronger result can be independently reconstructed and committed with provenance.
+Structural blockers forbid heavy compute. Compute requires a defined mathematical object, observable, normalization, frozen comparison question, expected information gain and stopping rule.
 
 ## Current identity
 
-Project: **Quantum Gravity Reconstruction (QGR)**
-Repository: `pppuu7-cmd/Quantum-Gravity-Reconstruction`
-Initial scientific construction target: `QGR-G0` — minimum viable ontology and dynamical closure architecture.
+Project: **Quantum Gravity Reconstruction (QGR)**. Last terminal science: `ITER057AQ`. Next preregistered science: `ITER057AR`, presently `PREREGISTERED_NOT_PRODUCED` unless fresh repository evidence says otherwise.

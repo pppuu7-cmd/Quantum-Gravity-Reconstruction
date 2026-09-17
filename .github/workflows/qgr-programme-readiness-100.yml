@@ -1,0 +1,101 @@
+name: QGR programme infrastructure 100 validation
+on:
+  push:
+    paths:
+      - 'code/qgr_*'
+      - 'protocol/QGR_*'
+      - 'schemas/qgr_*'
+      - 'templates/qgr_*'
+      - 'synthetic/qgr_*'
+      - 'release/QGR_PROGRAMME_BUNDLE_CONTENTS.json'
+      - 'recovery/state.json'
+      - 'recovery/CURRENT_FRONT.md'
+      - 'recovery/RECOVERY_PLAYBOOK.md'
+      - 'recovery/CLEAN_SESSION_RECOVERY_MANIFEST.json'
+      - 'docs/ROADMAP.md'
+      - 'docs/kmqgb_deltas/**'
+      - 'README.md'
+      - '.github/workflows/qgr-programme-readiness-100.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark
+          ref: d23f34cba57b220dd29474c0651bc727d6d85eae
+          path: _kmqgb
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install semantic validation dependency
+        run: python -m pip install --disable-pip-version-check jsonschema
+      - name: Prepare artifacts
+        run: mkdir -p artifacts/programme100
+      - name: KMQGB interface drift check
+        run: PYTHONPATH=code python code/qgr_kmqgb_drift_detector.py --kmqgb-root _kmqgb --output artifacts/programme100/drift.json
+      - name: Validate native synthetic BLOCKED candidate
+        run: PYTHONPATH=code python code/qgr_candidate_export_validator.py synthetic/qgr_synthetic_blocked_candidate_v1.json --output artifacts/programme100/native_validation.json
+      - name: Malformed candidate must fail closed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if PYTHONPATH=code python code/qgr_candidate_export_validator.py synthetic/qgr_malformed_candidate_v1.json > artifacts/programme100/malformed.log 2>&1; then
+            echo 'malformed package was incorrectly accepted'; exit 1
+          fi
+      - name: Full synthetic QGR to KMQGB handshake
+        run: PYTHONPATH=code python code/qgr_synthetic_handshake.py --kmqgb-root _kmqgb --adapted-output artifacts/programme100/adapted_kmqgb_v13.json --output artifacts/programme100/handshake.json
+      - name: Validate adapted object against pinned KMQGB JSON schema
+        run: |
+          python - <<'PY'
+          import json
+          from jsonschema import Draft202012Validator
+          s=json.load(open('_kmqgb/schemas/candidate_gravity_record_v1_3.schema.json'))
+          x=json.load(open('artifacts/programme100/adapted_kmqgb_v13.json'))
+          e=list(Draft202012Validator(s).iter_errors(x))
+          assert not e,[z.message for z in e]
+          print('KMQGB_SCHEMA_ACCEPTS_ADAPTED_BLOCKED_RECORD')
+          PY
+      - name: Lineage and benchmark leakage audits
+        run: |
+          PYTHONPATH=code python code/qgr_lineage_dag_validator.py --output artifacts/programme100/lineage.json
+          PYTHONPATH=code python code/qgr_benchmark_leakage_audit.py --output artifacts/programme100/leakage.json
+      - name: Deterministic bundle twice
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=code python code/build_qgr_programme_bundle.py --output artifacts/programme100/bundle-a.qgrbundle | tee artifacts/programme100/bundle-a.json
+          PYTHONPATH=code python code/build_qgr_programme_bundle.py --output artifacts/programme100/bundle-b.qgrbundle | tee artifacts/programme100/bundle-b.json
+          cmp artifacts/programme100/bundle-a.qgrbundle artifacts/programme100/bundle-b.qgrbundle
+          sha256sum artifacts/programme100/bundle-a.qgrbundle | tee artifacts/programme100/bundle.sha256
+      - name: Clean-session recovery simulation
+        run: PYTHONPATH=code python code/qgr_clean_recovery_test.py --output artifacts/programme100/recovery.json
+      - name: Negative controls
+        run: PYTHONPATH=code python code/qgr_negative_controls.py --kmqgb-root _kmqgb --output artifacts/programme100/negative_controls.json
+      - name: Primary fail-closed readiness validator
+        run: PYTHONPATH=code python code/qgr_programme_readiness_validator.py --kmqgb-root _kmqgb --require-100 --output artifacts/programme100/primary.json
+      - name: Independent readiness Critic
+        run: PYTHONPATH=code python code/qgr_programme_readiness_critic.py --kmqgb-root _kmqgb --output artifacts/programme100/critic.json
+      - name: Require independent agreement
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('artifacts/programme100/primary.json')); c=json.load(open('artifacts/programme100/critic.json'))
+          assert p['readiness_100_boolean'] is True
+          assert c['readiness_100_boolean'] is True
+          assert p['mandatory_obligation_count']==c['mandatory_obligation_count']==16
+          print('PRIMARY_AND_CRITIC_AGREE_READINESS_100_TRUE')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qgr-programme-readiness-100
+          path: artifacts/programme100
+          if-no-files-found: error
+          retention-days: 30

@@ -1,120 +1,49 @@
 # QGR Roadmap
 
-This roadmap separates repository readiness from scientific readiness. Percentages are progress indicators, not posterior probabilities that the theory is true.
+This roadmap separates **protocol readiness** from **scientific passage**. Percentages are infrastructure bookkeeping, never probabilities that QGR is true.
 
-## R0 — Governance and recovery scaffold — 100%
+## Current canonical programme state — 2026-09-17
 
-Deliverables:
-- frozen constitution;
-- recovery playbook;
-- machine-readable state;
-- benchmark handoff;
-- iteration log.
+- Repository infrastructure: **100%**.
+- Candidate-program / research-programme infrastructure: **99%**, under the frozen A–P completion gate.
+- Theory established: **0%**.
+- R0-R9 `PROTOCOL_READY`: **true for every stage** through `protocol/QGR_GATE_REGISTRY.json`.
+- Scientific promotion statuses remain evidence-based: R0 governance/recovery `PASS`; R1 requirements/failure-mode programme `ACTIVE`; R2-R9 `NOT_STARTED` as formal promoted programme stages. Iter057 local scientific work does not silently promote these roadmap stages.
 
-Exit criterion: another session can recover the project without relying on chat memory.
+The bootstrap-era **24%** marker is retained only as a **HISTORICAL / EXTERNAL_KMQGB** bookkeeping reference. It is not the current QGR readiness metric and is explicitly superseded for current status reporting.
 
-## R1 — Requirement closure / failure-mode map — target 100%
+## R0 — Governance and recovery
+Question: can the repository be governed, recovered and audited without chat memory? Protocol includes constitution, state/front, recovery playbook, provenance and clean-session recovery.
 
-Goal: translate RQIR/KMQGB lessons into theory-neutral obligations without copying any one known framework.
+## R1 — Requirement / failure-mode closure
+Translate RQIR/KMQGB methodological lessons into theory-neutral construction obligations while forbidding benchmark-outcome tuning.
 
-Required outputs:
-- failure-mode taxonomy;
-- anti-pattern list;
-- minimal observables/comparators required for later benchmarking;
-- explicit claim locks.
+## R2 — Ontology
+Require explicit state space, elementary variables, symmetries, composition concept, geometric-observable mechanism, dynamics source, freedom estimate and prospective cheap falsifiers.
 
-## R2 — Ontology search
-
-Goal: identify a minimal microscopic ontology capable of carrying quantum state, causal/compositional structure, and geometry emergence.
-
-Candidate classes may be explored in parallel, but no class is preferred by naming alone.
-
-Pre-ansatz gate:
-- state space defined;
-- elementary variables and symmetries defined;
-- composition/gluing rule concept defined;
-- mechanism for geometric observables identified;
-- source of dynamics identified;
-- expected free-function/coefficient burden estimated;
-- at least three cheap falsification tests specified.
-
-If this gate is not met, do not promote equations as “the QGR model.”
-
-## R3 — Minimal dynamical ansatz
-
-Goal: construct the smallest explicit action/amplitude/generator/measure consistent with R2.
-
-Requirements:
-- dimensional analysis;
-- symmetry audit;
-- parameter count;
-- stability/positivity or framework-appropriate consistency audit;
-- regulator/extension logic specified prospectively;
-- no benchmark-specific post-hoc terms.
+## R3 — Dynamics
+Require the smallest explicit action/amplitude/generator/measure, dimensional/symmetry audit, parameter ledger, and prospective regulator/extension policy.
 
 ## R4 — Local mathematical closure
-
-Goal: determine whether the candidate is well defined before expensive phenomenology.
-
-Tests include as appropriate:
-- constraint algebra / anomaly closure;
-- composition and gluing;
-- normalization;
-- convergence / extension / renormalization;
-- causal consistency;
-- perturbative and nonperturbative sanity checks;
-- existence of physical states.
-
-A decisive contradiction returns the branch to R2/R3 or rejects it.
+Require applicable constraint/anomaly closure, composition/gluing, normalization, extension/renormalization, causality and physical-state tests. `BLOCKED` is distinct from `FAIL`.
 
 ## R5 — Same-realization UV -> IR transport
-
-Goal: demonstrate one continuous identification from microscopic variables to emergent Lorentzian geometry.
-
-Requirements:
-- coarse-graining / continuum map;
-- parameter identity;
-- controlled error budget;
-- no substitution of a different realization at the IR endpoint.
+Require one identity chain from the microscopic realization through parameter/regulator/continuum maps to the IR realization; downstream model substitution is invalid.
 
 ## R6 — GR recovery
+Require a controlled 4D Lorentzian domain, effective equations/action, Newton/cosmological maps where applicable, leading corrections, remainder/error control, domain of validity and same-realization provenance. GR inserted by definition is not a derivation.
 
-Goal: derive Einstein/GR behavior or a sharply bounded deformation in a controlled 4D Lorentzian regime.
+## R7 — Normalized observable
+Require a UV definition, normalization, operational IR definition, common domain, parameter identity, uncertainty propagation, comparator representation and falsifiable value/bound/relation.
 
-Requirements:
-- effective field equations/action;
-- Newton/cosmological-sector parameter map as applicable;
-- leading corrections;
-- domain of validity;
-- recovery not inserted as a definition.
-
-## R7 — Observable closure
-
-Goal: compute at least one normalized observable end-to-end through the same realization.
-
-Requirements:
-- UV definition;
-- IR/operational definition;
-- common comparison domain;
-- uncertainty propagation;
-- falsifiable numerical or analytic statement.
-
-## R8 — Independent frozen benchmark export
-
-Goal: export a versioned candidate package to KMQGB/RQIR without changing the benchmark to fit QGR.
-
-Possible outcomes are PASS, PARTIAL, BLOCKED, or FAIL. Failure is scientifically useful and must be retained.
+## R8 — Frozen independent benchmark export
+Require a versioned native QGR package, validated adapter to the pinned KMQGB Candidate Gravity record v1.3, drift detection and preservation of `BLOCKED`/claim locks/provenance. QGR may not mutate KMQGB/RQIR thresholds or semantics.
 
 ## R9 — Prediction / discrimination
+Require a prediction, exclusion surface or structural theorem that is not merely a reconstruction input relabeled as an output.
 
-Goal: identify a prediction, exclusion surface, or structural theorem that distinguishes QGR from the inputs used to construct it.
+## Promotion firewall
+A stage does not scientifically PASS because CI is green. Promotion requires valid preregistration, required evidence, independent Critic where specified, terminal classifier, provenance and claim-lock audit. `BLOCKED != FAIL`, `INVALID != FAIL`, and infrastructure error is not scientific evidence.
 
-No novelty claim is permitted if the “prediction” was already imposed as a reconstruction condition.
-
-## Current position
-
-- R0: complete.
-- R1: active.
-- R2: not yet promoted.
-- R3-R9: inactive.
-- Canonical candidate-program readiness marker: **24%**, inherited from the external KMQGB R3 bookkeeping. It must not be interpreted as 24% probability of correctness or 24% completion of a finished theory.
+## Historical bootstrap context
+The original roadmap reported R0 complete, R1 active, R2 not promoted and an inherited 24% Candidate Gravity marker. That snapshot remains historically informative but its 24% percentage is no longer current QGR programme-readiness authority.
