@@ -4,8 +4,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-17",
-    "iteration": "ITER057AN_SECOND_INDEPENDENT_BACKGROUND_R14_REPLICATION",
-    "phase": "CROSS_BACKGROUND_WEYL3_LOCAL_OBSTRUCTION_ROBUSTNESS_AND_COVARIANT_CERTIFICATE_PROGRAMME"
+    "iteration": "ITER057AQ_DEGREE6_SOURCE_DISCREPANCY_CAUSAL_ADJUDICATION",
+    "phase": "COVARIANT_WEYL3_SOURCE_AUTHORITY_AND_FINITE_LOCAL_LINEAGE_RECONCILIATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,28 +16,24 @@
     "regulator_removal_established": false
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "b40e9949932c9698a08a099bde8cfb920eb5feff",
-    "latest_terminal_result_commit": "e424b28431d5235d6fe0ee4a462b11912670b1fe",
-    "latest_active_gate": "ITER057AN-SECOND-INDEPENDENT-BACKGROUND-R14-REPLICATION",
-    "active_gate_status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_INDEPENDENTLY_REPRODUCED",
-    "active_production_head": "1ebd5b3a5eb40b7f719e371baed548181e6894fa",
-    "active_actions_run": 35155313141,
-    "active_job": 105000595560,
-    "last_terminal_production_actions_run": 35155313141,
-    "last_terminal_production_job": 105000595560,
-    "last_terminal_production_artifact": 10472087110,
-    "last_terminal_production_artifact_digest": "sha256:0020947b85d14a0e202e52df84bc0ea5287fac41716eb9910b5d102b9e759595"
+    "latest_preregistration_commit": "3ac98107c7a659f63271c9836583e929bc35adb4",
+    "latest_terminal_result_commit": "de82fe82c8f3f40854c81d7cb3e0e5d490a153a4",
+    "latest_active_gate": "ITER057AQ-DEGREE6-SOURCE-DISCREPANCY-CAUSAL-ADJUDICATION",
+    "active_gate_status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
+    "active_implementation_commit": "23435e772cf82c985ed919aa2411d59667ffb3ff",
+    "active_production_head": "c04cc004b9ef5aadcef70fd25d5129a80670335d",
+    "active_actions_run": 35178662890,
+    "active_job": 105065884009,
+    "last_terminal_production_actions_run": 35178662890,
+    "last_terminal_production_job": 105065884009,
+    "last_terminal_production_artifact": 10479880065,
+    "last_terminal_production_artifact_digest": "sha256:9646c110a7443d63d7faa675195d784a82a66e828a9d095b5028200d30f1512a"
   },
   "preserved_authority": {
     "iter049": {
       "gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
       "authoritative_retry_run": 34719948722,
-      "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
-      "authoritative_retry_head": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
-      "initial_run": 34719814120,
-      "initial_run_authority": "DIAGNOSTIC_NON_AUTHORITATIVE_FOR_TERMINAL_CLASSIFICATION",
-      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
-      "canonical_trig_control_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
+      "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d"
     },
     "iter057af": {
       "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED",
@@ -63,23 +59,56 @@
       "artifact_digest": "sha256:0020947b85d14a0e202e52df84bc0ea5287fac41716eb9910b5d102b9e759595",
       "scientific_payload_sha256": "a40d06867eec92bd2b2d7b4f08a9eab318fcd52c2e26298b8125a53f032d2fd2",
       "candidate": "AL-R1-3",
-      "B_shape": [1456,1114],
-      "B_nnz": 81061,
-      "O0_nonzero_count": 223,
-      "rank_B": 1114,
-      "rank_augmented_B_minus_O0": 1115,
-      "kernel_dimension": 342,
-      "kernel_O0_orthogonal_dimension": 341,
       "obstruction_quotient_dimension": 1,
       "classification": "PASS_SCOPED_ITER057AN_SECOND_INDEPENDENT_BACKGROUND_REPRODUCES_ONE_DIMENSIONAL_R14_OBSTRUCTION_CLASS"
+    },
+    "iter057ao": {
+      "status": "TERMINAL_SCOPED_PASS_COVARIANT_VARIATION_CERTIFIED",
+      "preregistration_commit": "e1ded07e5050763ecb707dad679b78286fe04744",
+      "durable_authority_commit": "3274acefe845c9843d6a742c42370e73bb3a2892",
+      "durable_result_commit": "3246b31fde58d061f7e35cbc6be22236d1c7b2a8",
+      "classification": "PASS_SCOPED_ITER057AO_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_CERTIFIED"
+    },
+    "iter057ap": {
+      "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_NO_REFIT_COMPARISON",
+      "preregistration_commit": "6de62a559381a7c86e01c58a62ea7d8c91606884",
+      "target_blind_constructor_authority": "fe0ba26567155622780a29d3969de1e125cbf2d3",
+      "comparator_authority": "9622fcc6a7dcfd6c77a67a6e8d3049ea197a7b3a",
+      "durable_result_commit": "2ccf15108b889cef25e1b90af7f8a7127b2d83be",
+      "actions_run": 35178418055,
+      "job": 105065138539,
+      "artifact": 10479562543,
+      "artifact_digest": "sha256:e92ce7907f8a25bb9624ff4da413f30f254586d82380c0a7fb501d759ca7c53f",
+      "complete_payload_sha256": "ecc72565f71e358386bcce1b4729fa7f9b6371b6a8b9d0a7e98b31abeb7662d8",
+      "mismatch_count": 230,
+      "mismatch_count_by_degree": {"0":4,"1":0,"2":22,"3":0,"4":64,"5":0,"6":140},
+      "classification": "SCIENTIFIC_FAIL_ITER057AP_COVARIANT_AO_RESTRICTION_DISAGREES_WITH_TERMINAL_WEYL3_SOURCE_AFTER_FROZEN_CONVENTION_MAP"
+    },
+    "iter057aq": {
+      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
+      "preregistration_commit": "3ac98107c7a659f63271c9836583e929bc35adb4",
+      "implementation_commit": "23435e772cf82c985ed919aa2411d59667ffb3ff",
+      "production_head": "c04cc004b9ef5aadcef70fd25d5129a80670335d",
+      "actions_run": 35178662890,
+      "job": 105065884009,
+      "artifact": 10479880065,
+      "artifact_digest": "sha256:9646c110a7443d63d7faa675195d784a82a66e828a9d095b5028200d30f1512a",
+      "complete_payload_sha256": "55b68bd9eb6ee782636e8f221a2c3d59911e87ebdca4d9da2b3c12006c166559",
+      "scientific_summary_sha256": "0360382c21b116679a9d93ce8b3ae2c77b3f7473f0896d043988cced15ba16a1",
+      "P_legacy_vs_frechet_mismatch_count": 2824,
+      "P_mismatch_degrees": [8],
+      "source_mismatch_count_from_P_intervention": 140,
+      "source_mismatch_degrees": [6],
+      "downstream_X_vs_AO_operator_mismatch_same_P": 0,
+      "classification": "PASS_SCOPED_ITER057AQ_DISCREPANCY_LOCALIZED_TO_LEGACY_P_CONSTRUCTION"
     }
   },
   "active_question": {
-    "id": "POST-ITER057AN-COVARIANT-CERTIFICATE",
-    "text": "Highest-information continuation is a prospectively frozen genuinely covariant/source-level directional variation or full functional derivative certificate for sqrt(-g) Weyl^3 with c6 symbolic/unfixed, without fitting to AF/held-out background outcomes. Quantum amplitude/measure closure is fallback if the covariant gate is not technically ready."
+    "id": "POST-ITER057AQ-CORRECTED-DEGREE6-SOURCE-AUTHORITY",
+    "text": "Prospectively reconstruct and independently reproduce the corrected degree-six Weyl3 source on the unchanged Iter057W seed using the exact Frechet P. Preserve historical Iter057X rather than rewriting it, then replay only descendants that actually depend on the superseded degree-six source."
   },
-  "active_blocker": "No active blocker. A new production gate must be prospectively preregistered before implementation/outcome inspection.",
-  "next_gate_lock": "NO_ACTIVE_PRODUCTION_GATE__DO_NOT_START_THIRD_REPETITIVE_SYMMETRY_REDUCTION. Freeze covariant object, tensor/index conventions, integration-by-parts equivalence, exact identity checks, test directions/background assignment and terminal criteria before production; no post-hoc weakening.",
+  "active_blocker": "No technical blocker after Iter057AQ. A corrected degree-six source gate must be prospectively preregistered before construction or descendant replay.",
+  "next_gate_lock": "NO_ACTIVE_PRODUCTION_GATE__DO_NOT_SILENTLY_REWRITE_ITER057X_OR_DESCENDANTS. Freeze corrected source object, sign convention, source-vs-Euler map, exact controls, independent reproduction and supersession criteria before production. Preserve lower Iter057U degree0/2/4 authority unless a separate contradiction is established.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
