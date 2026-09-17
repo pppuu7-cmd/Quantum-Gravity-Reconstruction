@@ -1,0 +1,62 @@
+name: QGR degree6 QF budget adjudication
+on:
+  push:
+    paths:
+      - 'scripts/qgr_degree6_qf_degree_budget.py'
+      - '.github/workflows/qgr-degree6-qf-budget.yml'
+  workflow_dispatch:
+jobs:
+  lanes:
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [researcher, critic]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run frozen exact lane
+        env:
+          PYTHONPATH: analysis:scripts
+        run: |
+          set -o pipefail
+          mkdir -p out
+          python scripts/qgr_degree6_qf_degree_budget.py --mode ${{ matrix.lane }} --out out/${{ matrix.lane }}.json | tee out/${{ matrix.lane }}.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qf-budget-${{ matrix.lane }}
+          path: out/
+  terminal:
+    if: always()
+    needs: lanes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qf-budget-*
+          path: artifacts
+      - name: Frozen aggregate
+        run: |
+          python - <<'PY'
+          import glob,json,hashlib,sys,os
+          fs=glob.glob('artifacts/**/*.json',recursive=True); xs=[]
+          for f in fs:
+            try: xs.append(json.load(open(f)))
+            except Exception: pass
+          ok=len(xs)==2 and all(all(x.get('controls',{}).values()) for x in xs)
+          agree=ok and xs[0].get('classification')==xs[1].get('classification') and xs[0].get('source_hash_ladder')==xs[1].get('source_hash_ladder')
+          classification=xs[0].get('classification') if agree else 'BLOCKED_QF_BUDGET_LANES'
+          out={'gate':'CORRECTED_DEGREE6_QF_DEGREE_BUDGET_CAUSAL_ADJUDICATION','preregistration_commit':'10643a75f85da4ea447d00115006d78714ecfa24','lane_count':len(xs),'lanes_agree_exactly':agree,'classification':classification,'scientific_pass':bool(agree),'claim_scope':'causal degree-budget adjudication only; not global theorem; c6 unfixed'}
+          raw=json.dumps(out,sort_keys=True,separators=(',',':')).encode(); out['payload_sha256']=hashlib.sha256(raw).hexdigest()
+          os.makedirs('terminal',exist_ok=True); json.dump(out,open('terminal/terminal.json','w'),sort_keys=True,indent=2); print(json.dumps(out,sort_keys=True,indent=2))
+          sys.exit(0 if agree else 2)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qf-budget-terminal
+          path: terminal/
