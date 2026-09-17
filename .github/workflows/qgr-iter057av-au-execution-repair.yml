@@ -1,0 +1,239 @@
+name: QGR Iter057AV target-blind AU execution repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057av-au-execution-repair.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qgr-iter057av-au-execution-repair
+  cancel-in-progress: false
+
+env:
+  REPAIR_PREREG_COMMIT: 'bfb6f31b9385d076695d7c3d199bf7da7b06bcc4'
+  AU_PREREG_COMMIT: '616859890df95057556d265612c53da839a5848a'
+  AU_IMPLEMENTATION_COMMIT: '30aa968631d3c7f0ea82ea054b2abb14492748b3'
+
+jobs:
+  frozen-au-lane:
+    name: Frozen AU execution (${{ matrix.mode }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [primary, independent]
+    steps:
+      - name: Checkout exact frozen AU implementation
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.AU_IMPLEMENTATION_COMMIT }}
+          path: impl
+          fetch-depth: 1
+
+      - name: Checkout exact frozen AU census head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.AU_PREREG_COMMIT }}
+          path: frozen
+          fetch-depth: 0
+
+      - name: Execute unchanged frozen classifier and capture fault
+        shell: bash
+        env:
+          MODE: ${{ matrix.mode }}
+        run: |
+          set -u
+          mkdir -p lane
+          impl_head="$(git -C impl rev-parse HEAD)"
+          census_head="$(git -C frozen rev-parse HEAD)"
+          before_status="$(git -C frozen status --porcelain)"
+          printf '%s\n' "${impl_head}" > lane/implementation_head.txt
+          printf '%s\n' "${census_head}" > lane/census_head.txt
+          python --version > lane/python_version.txt 2>&1
+          git --version > lane/git_version.txt 2>&1
+
+          set +e
+          python impl/scripts/qgr_iter057au_dependency_audit.py \
+            --repo frozen \
+            --mode "${MODE}" \
+            --output "lane/${MODE}.json" \
+            > lane/stdout.log 2> lane/stderr.log
+          exit_code=$?
+          set -e
+
+          after_status="$(git -C frozen status --porcelain)"
+          export EXIT_CODE="${exit_code}"
+          export IMPL_HEAD="${impl_head}"
+          export CENSUS_HEAD="${census_head}"
+          export BEFORE_STATUS="${before_status}"
+          export AFTER_STATUS="${after_status}"
+
+          python - <<'PY'
+          import hashlib, json, os, pathlib, re
+
+          mode = os.environ['MODE']
+          expected_impl = os.environ['AU_IMPLEMENTATION_COMMIT']
+          expected_census = os.environ['AU_PREREG_COMMIT']
+          exit_code = int(os.environ['EXIT_CODE'])
+          impl_head = os.environ['IMPL_HEAD']
+          census_head = os.environ['CENSUS_HEAD']
+          before_status = os.environ.get('BEFORE_STATUS','')
+          after_status = os.environ.get('AFTER_STATUS','')
+          stderr_path = pathlib.Path('lane/stderr.log')
+          stdout_path = pathlib.Path('lane/stdout.log')
+          stderr = stderr_path.read_text(errors='replace') if stderr_path.exists() else ''
+          stdout = stdout_path.read_text(errors='replace') if stdout_path.exists() else ''
+          lines = [x.strip() for x in stderr.splitlines() if x.strip()]
+          tail = lines[-1] if lines else ''
+          normalized = tail.replace('primary','<MODE>').replace('independent','<MODE>')
+          normalized = re.sub(r'/home/runner/work/[^ ]+', '<WORKSPACE>', normalized)
+          fingerprint_basis = json.dumps({'exit_code':exit_code,'tail':normalized},sort_keys=True,separators=(',',':')).encode()
+          error_fingerprint = hashlib.sha256(fingerprint_basis).hexdigest()
+
+          payload_path = pathlib.Path(f'lane/{mode}.json')
+          payload_exists = payload_path.exists() and payload_path.stat().st_size > 0
+          payload_valid = False
+          payload_sha256 = None
+          payload_structural_reason = None
+          if payload_exists:
+              raw = payload_path.read_bytes()
+              payload_sha256 = hashlib.sha256(raw).hexdigest()
+              try:
+                  obj = json.loads(raw)
+                  checks = {
+                      'gate': obj.get('gate') == 'ITER057AU_CORRECTED_DEGREE6_DESCENDANT_DEPENDENCY_ADJUDICATION',
+                      'mode': obj.get('mode') == mode,
+                      'preregistration_commit': obj.get('preregistration_commit') == expected_census,
+                      'census_head': obj.get('census_head') == expected_census,
+                      'descendant_science_recomputed': obj.get('descendant_science_recomputed') is False,
+                      'primary_payload_read': obj.get('primary_payload_read') is False,
+                      'historical_result_tree_clean': obj.get('historical_result_tree_clean') is True,
+                  }
+                  payload_valid = all(checks.values())
+                  if not payload_valid:
+                      payload_structural_reason = {k:v for k,v in checks.items() if not v}
+              except Exception as exc:
+                  payload_structural_reason = f'json parse failed: {exc!r}'
+
+          provenance_valid = (
+              impl_head == expected_impl and census_head == expected_census and
+              before_status == '' and after_status == ''
+          )
+          report = {
+              'gate':'ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR',
+              'repair_preregistration_commit':os.environ['REPAIR_PREREG_COMMIT'],
+              'mode':mode,
+              'frozen_au_implementation_commit':expected_impl,
+              'observed_implementation_head':impl_head,
+              'frozen_au_census_commit':expected_census,
+              'observed_census_head':census_head,
+              'exit_code':exit_code,
+              'provenance_valid':provenance_valid,
+              'historical_tree_clean_before':before_status == '',
+              'historical_tree_clean_after':after_status == '',
+              'payload_exists':payload_exists,
+              'payload_valid_structurally':payload_valid,
+              'payload_sha256':payload_sha256,
+              'payload_structural_reason':payload_structural_reason,
+              'error_fingerprint':error_fingerprint,
+              'normalized_stderr_tail':normalized[:2000],
+              'stdout_sha256':hashlib.sha256(stdout.encode()).hexdigest(),
+              'stderr_sha256':hashlib.sha256(stderr.encode()).hexdigest(),
+              'descendant_science_consumed_by_repair':False,
+              'classifier_semantics_modified':False,
+          }
+          pathlib.Path('lane/report.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+          PY
+
+      - name: Upload lane execution authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057av-${{ matrix.mode }}
+          path: lane/
+          if-no-files-found: error
+          retention-days: 30
+
+  terminal-repair-classifier:
+    name: Terminal Iter057AV execution-repair classifier
+    needs: frozen-au-lane
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download both lane authorities
+        uses: actions/download-artifact@v4
+        with:
+          pattern: iter057av-*
+          path: aggregate/lanes
+          merge-multiple: false
+
+      - name: Produce terminal technical classification without consuming science
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p aggregate
+          python - <<'PY'
+          import json, os, pathlib
+
+          root = pathlib.Path('aggregate/lanes')
+          reports = []
+          for p in sorted(root.rglob('report.json')):
+              try:
+                  obj = json.loads(p.read_text())
+              except Exception:
+                  continue
+              if obj.get('gate') == 'ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR':
+                  reports.append(obj)
+          by_mode = {x.get('mode'):x for x in reports if x.get('mode') in {'primary','independent'}}
+          missing = [m for m in ('primary','independent') if m not in by_mode]
+
+          out = {
+              'gate':'ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR',
+              'repair_preregistration_commit':'bfb6f31b9385d076695d7c3d199bf7da7b06bcc4',
+              'frozen_au_preregistration_commit':'616859890df95057556d265612c53da839a5848a',
+              'frozen_au_implementation_commit':'30aa968631d3c7f0ea82ea054b2abb14492748b3',
+              'production_head':os.environ['GITHUB_SHA'],
+              'actions_run':int(os.environ['GITHUB_RUN_ID']),
+              'descendant_science_consumed':False,
+              'iter057au_reclassified':False,
+              'lane_reports':reports,
+          }
+
+          if missing:
+              out['classification']='BLOCKED_ITER057AV_AU_EXECUTION_REPAIR_NOT_REALIZED'
+              out['reason']=f'missing lane execution report(s): {missing}'
+          elif any(not x.get('provenance_valid') for x in by_mode.values()):
+              out['classification']='INVALID_ITER057AV_PROVENANCE_SEMANTIC_DRIFT_OR_DESCENDANT_REPLAY'
+              out['reason']='one or more lanes failed exact implementation/census provenance or historical-tree cleanliness'
+          elif any(x.get('classifier_semantics_modified') or x.get('descendant_science_consumed_by_repair') for x in by_mode.values()):
+              out['classification']='INVALID_ITER057AV_PROVENANCE_SEMANTIC_DRIFT_OR_DESCENDANT_REPLAY'
+              out['reason']='forbidden semantic modification or descendant-science consumption detected'
+          elif all(x.get('exit_code') == 0 and x.get('payload_exists') and x.get('payload_valid_structurally') for x in by_mode.values()):
+              out['classification']='PASS_SCOPED_ITER057AV_AU_EXECUTION_PATH_REALIZED__SCIENTIFIC_CONSUMPTION_REQUIRES_SEPARATE_GATE'
+              out['reason']='both unchanged frozen AU classifier modes emitted structurally valid payloads under exact provenance'
+          elif all(x.get('exit_code') != 0 for x in by_mode.values()) and len({x.get('error_fingerprint') for x in by_mode.values()}) == 1:
+              out['classification']='FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED'
+              out['reason']='both isolated unchanged frozen AU executions failed with the same normalized execution-error fingerprint'
+              out['error_fingerprint']=by_mode['primary'].get('error_fingerprint')
+              out['normalized_stderr_tail']=by_mode['primary'].get('normalized_stderr_tail')
+          else:
+              out['classification']='BLOCKED_ITER057AV_AU_EXECUTION_REPAIR_NOT_REALIZED'
+              out['reason']='payload realization failed without one reproducible common execution-error fingerprint'
+
+          pathlib.Path('aggregate/terminal.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(out,indent=2,sort_keys=True))
+          PY
+
+      - name: Upload terminal Iter057AV authority
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter057av-terminal
+          path: |
+            aggregate/terminal.json
+            aggregate/lanes/
+          if-no-files-found: error
+          retention-days: 30
