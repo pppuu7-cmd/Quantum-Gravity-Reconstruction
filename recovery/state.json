@@ -5,7 +5,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-17",
-    "iteration": "ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR",
+    "iteration": "ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC",
     "phase": "PROGRAMME_INFRASTRUCTURE_TERMINAL_100__SCIENCE_CONTINUES_INDEPENDENTLY"
   },
   "readiness": {
@@ -37,27 +37,27 @@
   },
   "science_sync": {
     "last_terminal_science": "ITER057AT",
-    "next_preregistered_science": "ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR",
-    "next_preregistered_status": "ACTIVE_TECHNICAL_GATE_LAUNCHED_AWAIT_TERMINAL"
+    "next_preregistered_science": null,
+    "next_preregistered_status": "NO_ACTIVE_PRODUCTION_GATE"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "4a137c9cc17858fb8e43875d169dc0a28ae3bb1d",
-    "latest_terminal_result_commit": "c299683e28289788c53797e5ede1cafaf09f5431",
-    "latest_terminal_result_kind": "DEPENDENCY_ADJUDICATION_TERMINAL_BLOCKED_CONSUMPTION",
-    "latest_terminal_technical_gate": "ITER057AV_TARGET_BLIND_ITER057AU_EXECUTION_REPAIR",
-    "latest_terminal_technical_classification": "FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED",
+    "latest_preregistration_commit": "c81223eec7c972a2643a564ec99e9684766eeee4",
+    "latest_terminal_result_commit": "62b003f636f5a71072cb187d9791d203886d3063",
+    "latest_terminal_result_kind": "TECHNICAL_DIAGNOSTIC_TERMINAL_FAIL",
+    "latest_terminal_technical_gate": "ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC",
+    "latest_terminal_technical_classification": "FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
     "latest_referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6",
     "latest_referee_verdict": "CONFIRMED_SCOPED",
-    "latest_active_gate": "ITER057AW_BYTE_SAFE_PROVENANCE_READER_REPAIR",
-    "active_gate_status": "ACTIVE_TECHNICAL_WORKFLOW_LAUNCHED_AWAIT_TERMINAL",
-    "active_implementation_commit": "1c4963a4bcc84a5bf331f0173c76b05d7a6a1864",
-    "active_production_head": "c9f6422245e652caaecfbaa8cef8e91b1361af85",
-    "active_workflow": ".github/workflows/qgr-iter057aw-bytesafe-reader.yml",
+    "latest_active_gate": null,
+    "active_gate_status": "NONE",
+    "active_implementation_commit": null,
+    "active_production_head": null,
+    "active_workflow": null,
     "active_actions_run": null,
     "active_job": null,
-    "last_terminal_production_actions_run": 35214572158,
-    "last_terminal_production_artifact": 10493153837,
-    "last_terminal_production_artifact_digest": "sha256:c1d2543242706c0792f7be4aa9a688dd204bf27b38967759b897c3ed1fc14668"
+    "last_terminal_production_actions_run": 35223711465,
+    "last_terminal_production_artifact": 10498825822,
+    "last_terminal_production_artifact_digest": "sha256:8217927c0bf3ce21f61e9733b98d2ac10e46073d69a77c1cb0439170d6efca2a"
   },
   "preserved_authority": {
     "iter057af": {
@@ -147,14 +147,46 @@
       "iter057au_reclassified": false,
       "referee_verdict": "CONFIRMED_SCOPED",
       "referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6"
+    },
+    "iter057aw": {
+      "status": "TERMINAL_TECHNICAL_FAIL_BYTE_SAFE_REPAIR_CONTROL_FAILURE_REFEREE_CONFIRMED_SCOPED",
+      "preregistration_commit": "4a137c9cc17858fb8e43875d169dc0a28ae3bb1d",
+      "implementation_commit": "1c4963a4bcc84a5bf331f0173c76b05d7a6a1864",
+      "production_head": "c9f6422245e652caaecfbaa8cef8e91b1361af85",
+      "actions_run": 35220098375,
+      "workflow_conclusion": "success",
+      "artifact": 10496493918,
+      "artifact_digest": "sha256:c85315aa4e396fe77d8e828f00ffdd0303f2557716a2c9f7688febb4f9d85d11",
+      "classification": "FAIL_TECHNICAL_ITER057AW_BYTE_SAFE_REPAIR_CONTROL_FAILURE",
+      "failed_control": "historical_result_tree_clean",
+      "descendant_science_consumed": false,
+      "iter057au_reclassified": false,
+      "referee_verdict": "CONFIRMED_SCOPED"
+    },
+    "iter057ax": {
+      "status": "TERMINAL_TECHNICAL_FAIL_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
+      "preregistration_commit": "c81223eec7c972a2643a564ec99e9684766eeee4",
+      "production_head": "03472765cf27ac2a1534ac3546f17ed4d9e3bbc6",
+      "actions_run": 35223711465,
+      "workflow_conclusion": "success",
+      "artifact": 10498825822,
+      "artifact_digest": "sha256:8217927c0bf3ce21f61e9733b98d2ac10e46073d69a77c1cb0439170d6efca2a",
+      "durable_result_commit": "62b003f636f5a71072cb187d9791d203886d3063",
+      "classification": "FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
+      "lane_count": 2,
+      "terminal_reason": "frozen attribution controls or independent reproduction failed",
+      "individual_failed_control_exposed_by_terminal": false,
+      "descendant_science_replayed_or_consumed": false,
+      "iter057au_reclassified": false,
+      "iter057aw_reclassified": false
     }
   },
   "active_question": {
-    "id": "ITER057AW-BYTE-SAFE-PROVENANCE-READER-REPAIR",
-    "text": "Can the prospectively frozen byte-safe provenance reader pass strict UTF-8, deterministic NON_UTF8_PROVENANCE, fail-closed, scope and two-independent-reproduction controls without replaying descendant science?"
+    "id": "POST-ITER057AX-TARGET-BLIND-CONTROL-DIAGNOSIS",
+    "text": "Which exact frozen Iter057AX attribution control failed, without changing historical classifications, dependency semantics, targets, or consuming descendant science?"
   },
-  "active_blocker": "Iter057AW workflow has been launched and its terminal technical aggregate has not yet been consumed. Iter057AU remains historically BLOCKED and descendant science remains out of scope.",
-  "next_gate_lock": "CONSUME_ONLY_ITER057AW_TERMINAL_FROM_PRODUCTION_HEAD_C9F6422245E652CAAECFBAA8CEF8E91B1361AF85__IF_NONTERMINAL_STATUS_PROVENANCE_ONLY__DO_NOT_RERUN_ITER057AU_OR_CONSUME_DESCENDANT_SCIENCE",
+  "active_blocker": "Iter057AX terminal aggregate did not establish the frozen cleanliness attribution PASS and does not expose which individual control failed. Iter057AU remains historically BLOCKED; Iter057AW and Iter057AX remain terminal technical FAILs.",
+  "next_gate_lock": "NO_ACTIVE_PRODUCTION_GATE__ANY_CONTINUATION_MUST_BE_PROSPECTIVELY_PREREGISTERED_TARGET_BLIND_TECHNICAL_DIAGNOSIS_OF_EXACT_ITER057AX_CONTROL_FAILURE__DO_NOT_RERUN_ITER057AU_OR_CONSUME_DESCENDANT_SCIENCE",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
