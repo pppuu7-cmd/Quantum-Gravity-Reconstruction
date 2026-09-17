@@ -35,11 +35,19 @@ Therefore the frozen Iter057AR phrases “degree-six vector” and “2100-slot 
 
 Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten.
 
-## Next bounded scientific step
+## Active gate — Iter057AT corrected homogeneous degree-six source
 
-No active production gate is authorized.
+Preregistration: `6039cb2ed1380b549bced3d33634362ef57345d4`.
+Implementation: `d45c6ba67459e2702909c2b864f5a5c24f104015`.
+Production head: `c4e7ccc05ea1b8f4967379fc370812dfa99cce03`.
+Workflow: `.github/workflows/qgr-iter057at-corrected-homogeneous-degree6-source.yml`.
+Status: **ACTIVE_LAUNCHED — authoritative run id intentionally not awaited in this bounded orchestration step.**
 
-A continuation may only be a new prospectively preregistered corrected-source gate with an explicit scientific object selected before evidence: either the 840-slot homogeneous degree-six slice or the 2100-slot cumulative-through-degree-six vector (or another explicitly defined object supported by frozen source definitions). It must preserve target blindness before primary construction, exact arithmetic, basis/order/normalization definitions, and independent-reproduction firewalls. It must not be called an Iter057AR reproduction and must not use post-hoc embedding to repair AR.
+Frozen object: the exact corrected homogeneous total-degree-six Weyl^3 source, serialized in the inherited `PAIRS x alphas(6)` order as exactly 840 rational slots, with `c6` symbolic/unfixed and historical Iter057X/Iter057AR target coefficients forbidden before the primary vector is frozen.
+
+The workflow launches two isolated exact lanes with `fail-fast:false`: primary reconstruction through the AQ exact X-operator downstream assembly and an independent reproduction through the AO covariant source downstream assembly. Neither lane reads the other payload. A terminal job compares the ordered rational vectors only after both lane artifacts exist and emits `iter057at-terminal`. PASS requires all frozen controls and bit-for-bit identical vectors; a realized control/vector mismatch is FAIL; inability to realize either required exact lane is BLOCKED. No green-workflow inference is allowed.
+
+The next automation run must begin here. If the Iter057AT workflow is non-terminal, inspect status/provenance only. If terminal, consume only the frozen preregistration and required `iter057at-terminal` artifact, record the terminal classification, update recovery, and stop.
 
 ## Frozen KMQGB interface
 
