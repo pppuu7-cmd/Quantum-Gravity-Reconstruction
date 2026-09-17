@@ -64,7 +64,7 @@ jobs:
           python - <<'PY'
           import json,hashlib
           from pathlib import Path
-          P='a6466be9dd3b2ce47bba5be1cacbd184b2161c8f'
+          P='4bf46437aaa6ced1813b97bbf0f1f9cbb892c0e5'
           PASS='PASS_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_EXACT_Q8_RESPONSE_EXISTS'
           FAIL='FAIL_SCIENTIFIC_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_Q8_RESPONSE_INCOMPATIBLE'
           INVALID='INVALID_IMPLEMENTATION_ITER057Y_CORRECTED_AT_SOURCE_REPLAY_CONTROL_FAILURE'
@@ -77,7 +77,7 @@ jobs:
             try:return json.loads(p.read_text())
             except:return None
           s=load('iter057y-corrected-science','science.json');c=load('iter057y-corrected-critic','critic.json')
-          out={'gate':'ITER057Y_CORRECTED_AT_SOURCE_Q2_Q4_Q6_Q8_REPLAY','preregistration_commit':P,'green_ci_alone_is_not_pass':True,'source_convention':'MAP_MINUS','degree6_source_expression':'-AT','theory_established_pct':0,'c6_status':'SYMBOLIC_UNFIXED_FACTORED_OUT'}
+          out={'gate':'ITER057Y_CORRECTED_AT_SOURCE_Q2_Q4_Q6_Q8_REPLAY','preregistration_commit':P,'parent_science_preregistration':'a6466be9dd3b2ce47bba5be1cacbd184b2161c8f','green_ci_alone_is_not_pass':True,'source_convention':'MAP_MINUS','degree6_source_expression':'-AT','theory_established_pct':0,'c6_status':'SYMBOLIC_UNFIXED_FACTORED_OUT'}
           if not s or not c:
             cls=BLOCKED;reason='fresh science or Critic payload missing/invalid'
           else:
