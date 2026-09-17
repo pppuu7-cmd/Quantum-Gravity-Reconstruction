@@ -31,26 +31,31 @@ Adversarial referee review: `5d03f13fbc08004159ad8cbc7aa8c0eb20a035c1` — `CONF
 
 Iter057AR remains historically BLOCKED on its frozen 2100-slot object. Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten. Historical FAIL/BLOCKED results remain preserved.
 
-## Active scientific gate — Iter057AU
+## Iter057AU — terminal BLOCKED
 
 Gate: `ITER057AU_CORRECTED_DEGREE6_DESCENDANT_DEPENDENCY_ADJUDICATION`.
-Status: **PREREGISTERED_AND_LAUNCHED; TERMINAL EVIDENCE NOT YET CONSUMED**.
-
 Preregistration: `616859890df95057556d265612c53da839a5848a`.
 Implementation: `30aa968631d3c7f0ea82ea054b2abb14492748b3`.
-Production head / workflow launch: `683b5f79899fc4a5677168cd7fd90d098cbc411e`.
+Production head: `683b5f79899fc4a5677168cd7fd90d098cbc411e`.
 Workflow: `.github/workflows/qgr-iter057au-dependency-adjudication.yml`.
-Actions run: not yet registered at the first bounded post-launch query; next run must resolve only the run on the frozen production head above.
+Actions run: `35204162456` (`completed/failure`).
+Terminal artifact: `10488818748` (`iter057au-terminal`).
+Artifact digest: `sha256:2a8734dbc27fec1787318f017117fd82f8b2a433d346327a989892bdd10d33fc`.
+Durable result: `c299683e28289788c53797e5ede1cafaf09f5431`.
 
-Frozen purpose: adjudicate which post-Iter057X scientific result records are direct/transitive load-bearing descendants of the legacy degree-six source, which are provenance-independent, and which have unresolved provenance. No descendant scientific outcome may be recomputed in this gate.
+Classification:
 
-Frozen method/controls include a complete census at preregistration head `616859890df95057556d265612c53da839a5848a`, deterministic acyclic dependency DAG, deterministic replay queue, primary and independent reconstruction lanes with `fail-fast:false`, bit-for-bit ordered-classification/replay-queue agreement, immutable historical result files, and no claim-lock promotion. Any unresolved provenance fails closed as `BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`.
+`BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE`.
 
-Do not consume partial lane payloads. Only `iter057au-terminal` may be used for terminal classification after the authoritative workflow is terminal.
+The required terminal artifact exists and matches the frozen gate/preregistration/head/run provenance. Its terminal reason is `missing independent lane payload(s): ['primary', 'independent']`. Therefore the preregistered complete census/classification agreement and deterministic replay queue were not durably realized. The frozen rule requires insufficient provenance to fail closed as BLOCKED; no weakened PASS is permitted.
 
-## Next bounded orchestration step
+No descendant scientific result was replayed or recomputed. No partial lane payload is promoted to authority. Historical scientific result files, Iter057AT, and all prior FAIL/BLOCKED classifications remain unchanged.
 
-Inspect only the Iter057AU Actions run associated with head `683b5f79899fc4a5677168cd7fd90d098cbc411e`. If non-terminal, check status/provenance only. If terminal, validate the frozen preregistration plus `iter057au-terminal`, record the classification, update recovery, and stop. Do not replay any descendant science inside Iter057AU.
+## Next bounded scientific step
+
+No active production gate is authorized.
+
+A continuation may only be a new prospective, target-blind execution-repair gate for the Iter057AU dependency adjudication machinery. It must preserve the frozen Iter057AU dependency classes, census scope, evidence rules, acyclic-DAG requirement, replay-queue rule, independent-reconstruction firewall, historical immutability and claim locks. It may repair only the technical realization needed to produce the missing primary and independent payloads; it must not inspect descendant scientific outcomes to modify dependency criteria and must not replay descendant science inside the repair gate.
 
 ## Frozen KMQGB interface
 
