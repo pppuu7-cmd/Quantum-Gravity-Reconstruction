@@ -1,0 +1,104 @@
+    for a,b,c,d in product(range(N),repeat=4): dI=lin_add(dI,lin_scale_bg(dCup[a][b][c][d],Q[a][b][c][d].scale(3)))
+    tr={}
+    for a,b in product(range(N),repeat=2): tr=lin_add(tr,lin_scale_bg(H[a][b],Gi[a][b]))
+    Fraw=lin_add(dI,lin_scale_bg(tr,I.scale(F(1,2))))
+    assert set(Fraw)==set(range(150))
+    return Fraw
+
+def extract_ibp(bg):
+    S=density_ratio(bg); raw=linear_raw_coefficients(bg); dens={k:S*v for k,v in raw.items()}
+    HID,DID,DDID=var_ids()
+    A=[];B=[];Dcan=[]
+    for p,ab in enumerate(PAIRS):
+        A.append(dens[HID[ab]])
+        B.append([dens[DID[(ab,c)]] for c in range(N)])
+        Dcan.append([dens[DDID[(ab,cd)]] for cd in DPAIRS])
+    D=[[[J2() for d in range(N)] for c in range(N)] for p in range(len(PAIRS))]
+    for p in range(len(PAIRS)):
+      for k,(c,d) in enumerate(DPAIRS):
+        if c==d:D[p][c][d]=Dcan[p][k]
+        else:
+            D[p][c][d]=Dcan[p][k].scale(F(1,2)); D[p][d][c]=Dcan[p][k].scale(F(1,2))
+    E=[]; dsym=True
+    for p in range(len(PAIRS)):
+        e=A[p].v
+        for c in range(N): e-=B[p][c].d[c]
+        for c,d in product(range(N),repeat=2): e+=D[p][c][d].dd[c][d]
+        E.append(e)
+        for c,d in product(range(N),repeat=2): dsym=dsym and (D[p][c][d].v==D[p][d][c].v and D[p][c][d].d==D[p][d][c].d)
+    coeff_h=[];coeff_dh=[];coeff_dd=[]
+    for p in range(len(PAIRS)):
+        div_h=sum((B[p][c].d[c] for c in range(N)),F(0))-sum((D[p][c][d].dd[c][d] for c,d in product(range(N),repeat=2)),F(0))
+        coeff_h.append(A[p].v-E[p]-div_h)
+        for r in range(N):
+            div_d=B[p][r].v-sum((D[p][r][d].d[d] for d in range(N)),F(0))+sum((D[p][c][r].d[c] for c in range(N)),F(0))
+            coeff_dh.append(B[p][r].v-div_d)
+        for c,d in DPAIRS:
+            div_dd=D[p][c][d].v if c==d else D[p][c][d].v+D[p][d][c].v
+            rawc=Dcan[p][DPAIRS.index((c,d))].v
+            coeff_dd.append(rawc-div_dd)
+    controls={'D_symmetric_exact':dsym,'IBP_h_coeff_zero':all(x==0 for x in coeff_h),'IBP_dh_coeff_zero':all(x==0 for x in coeff_dh),'IBP_ddh_coeff_zero':all(x==0 for x in coeff_dd)}
+    return {'E_density_over_sqrtg':E,'controls':controls,'A_nonzero':sum(x.v!=0 for x in A),'B_nonzero':sum(x.v!=0 for row in B for x in row),'D_nonzero':sum(x.v!=0 for pp in Dcan for x in pp)}
+
+def xi_deriv(seed,b,ders):
+    ds=tuple(sorted(ders)); k=len(ds)
+    den=(7,9,11,13)[k]
+    return q(seed,'xi',b,*ds,mod=5)/den
+
+
+def noether_control(bg):
+    Gi,Gam=bg['Gi'],bg['Gam']
+    Gup=[[[J2() for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c in product(range(N),repeat=3):
+        x=J2()
+        for e in range(N): x+=Gi[a][e]*Gam[e][b][c]
+        Gup[a][b][c]=x
+    Xi=[];XiD=[[None]*N for _ in range(N)]
+    for b in range(N):
+        Xi.append(J2(xi_deriv(XI_SEED,b,()),[xi_deriv(XI_SEED,b,(e,)) for e in range(N)],[[xi_deriv(XI_SEED,b,(e,f)) for f in range(N)] for e in range(N)]))
+        for a in range(N): XiD[b][a]=J2(xi_deriv(XI_SEED,b,(a,)),[xi_deriv(XI_SEED,b,(a,e)) for e in range(N)],[[xi_deriv(XI_SEED,b,(a,e,f)) for f in range(N)] for e in range(N)])
+    hJ=[[J2() for b in range(N)] for a in range(N)]
+    fake=[[J2() for b in range(N)] for a in range(N)]
+    for a,b in product(range(N),repeat=2):
+        x=XiD[b][a]+XiD[a][b]; fake[a][b]=x
+        for c in range(N): x-= (Gup[c][a][b]*Xi[c]).scale(2)
+        hJ[a][b]=x
+    def arrays(HJ):
+        H=[[HJ[a][b].v for b in range(N)] for a in range(N)]
+        Hd=[[[HJ[a][b].d[c] for c in range(N)] for b in range(N)] for a in range(N)]
+        Hdd=[[[[HJ[a][b].dd[c][d] for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+        return H,Hd,Hdd
+    H,Hd,Hdd=arrays(hJ); raw=variation_scalar(bg,H,Hd,Hdd)
+    FH,FD,FDD=arrays(fake); fake_raw=variation_scalar(bg,FH,FD,FDD)
+    S=density_ratio(bg); L=S*bg['I']
+    XiUp=[]
+    for mu in range(N):
+        x=J2()
+        for nu in range(N): x+=Gi[mu][nu]*Xi[nu]
+        XiUp.append(x)
+    rhs=sum(((XiUp[mu]*L).d[mu] for mu in range(N)),F(0))
+    return {'raw_gauge_density_over_sqrtg':raw.v,'lie_divergence_over_sqrtg':rhs,'exact_equal':raw.v==rhs,'fake_gauge_detected':fake_raw.v!=rhs}
+
+
+def geometry_value_from_deriv(fn):
+    g=[[fn(a,b,()) for b in range(N)] for a in range(N)];gi,det=inv_fraction(g)
+    dg=[[[fn(a,b,(c,)) for c in range(N)] for b in range(N)] for a in range(N)]
+    ddg=[[[[fn(a,b,(c,d)) for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    Gam=[[[ (dg[a][b][c]+dg[a][c][b]-dg[b][c][a])*F(1,2) for c in range(N)] for b in range(N)] for a in range(N)]
+    R=[[[[F(0) for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=(ddg[a][d][b][c]+ddg[b][c][a][d]-ddg[a][c][b][d]-ddg[b][d][a][c])*F(1,2)
+        x+=sum((gi[e][f]*(Gam[e][a][d]*Gam[f][b][c]-Gam[e][a][c]*Gam[f][b][d]) for e,f in product(range(N),repeat=2)),F(0))
+        R[a][b][c][d]=x
+    Ric=[[sum((gi[a][c]*R[a][b][c][d] for a,c in product(range(N),repeat=2)),F(0)) for d in range(N)] for b in range(N)]
+    Sc=sum((gi[b][d]*Ric[b][d] for b,d in product(range(N),repeat=2)),F(0))
+    C=[[[[F(0) for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        C[a][b][c][d]=R[a][b][c][d]-(g[a][c]*Ric[d][b]-g[a][d]*Ric[c][b]-g[b][c]*Ric[d][a]+g[b][d]*Ric[c][a])*F(1,2)+Sc*(g[a][c]*g[d][b]-g[a][d]*g[c][b])*F(1,6)
+    Cup=[[[[sum((gi[c][e]*gi[d][f]*C[a][b][e][f] for e,f in product(range(N),repeat=2)),F(0)) for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    Q=[[[[sum((Cup[c][d][e][f]*Cup[e][f][a][b] for e,f in product(range(N),repeat=2)),F(0)) for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    I=sum((Cup[a][b][c][d]*Q[a][b][c][d] for a,b,c,d in product(range(N),repeat=4)),F(0))
+    return {'g0':g,'gi0':gi,'det':det,'R':R,'Ric':Ric,'Scal':Sc,'C':C,'Cup':Cup,'Q':Q,'I':I}
+
+def control_background(kind):
+    if kind=='constant':

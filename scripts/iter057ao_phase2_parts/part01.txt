@@ -1,0 +1,128 @@
+        for a,c in product(range(N),repeat=2): x += Gi[a][c]*R[a][b][c][d]
+        Ric[b][d]=x
+    Scal=J2()
+    for b,d in product(range(N),repeat=2): Scal += Gi[b][d]*Ric[b][d]
+    C=[[[[J2() for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=R[a][b][c][d]
+        x -= (G[a][c]*Ric[d][b]-G[a][d]*Ric[c][b]-G[b][c]*Ric[d][a]+G[b][d]*Ric[c][a]).scale(F(1,2))
+        x += (Scal*(G[a][c]*G[d][b]-G[a][d]*G[c][b])).scale(F(1,6))
+        C[a][b][c][d]=x
+    Cup=[[[[J2() for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=J2()
+        for e,f in product(range(N),repeat=2): x += Gi[c][e]*Gi[d][f]*C[a][b][e][f]
+        Cup[a][b][c][d]=x
+    Q=[[[[J2() for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=J2()
+        for e,f in product(range(N),repeat=2): x += Cup[c][d][e][f]*Cup[e][f][a][b]
+        Q[a][b][c][d]=x
+    I=J2()
+    for a,b,c,d in product(range(N),repeat=4): I += Cup[a][b][c][d]*Q[a][b][c][d]
+    bg.update({'Gam':Gam,'R':R,'Ric':Ric,'Scal':Scal,'C':C,'Cup':Cup,'Q':Q,'I':I})
+    return bg
+
+
+def constj(x): return J2(F(x))
+
+def zero2(): return [[J2() for _ in range(N)] for __ in range(N)]
+
+def strip_j2_obj(x):
+    if isinstance(x,J2): return J2(x.v)
+    if isinstance(x,list): return [strip_j2_obj(y) for y in x]
+    return x
+
+def variation_value_bg(bg):
+    keys=('G','Gi','Gam','R','Ric','C','Cup','Q')
+    out={k:strip_j2_obj(bg[k]) for k in keys}
+    out['Scal']=J2(bg['Scal'].v); out['I']=J2(bg['I'].v)
+    return out
+
+def variation(bg,H,Hd,Hdd, wrong_inv=False, omit_det=False, omit_raise=False):
+    G,Gi,Gam,R,Ric,Scal,C,Cup,Q,I=bg['G'],bg['Gi'],bg['Gam'],bg['R'],bg['Ric'],bg['Scal'],bg['C'],bg['Cup'],bg['Q'],bg['I']
+    HJ=[[constj(H[a][b]) for b in range(N)] for a in range(N)]
+    dGi=[[J2() for b in range(N)] for a in range(N)]
+    sgn=1 if wrong_inv else -1
+    for a,b in product(range(N),repeat=2):
+        x=J2()
+        for m,n in product(range(N),repeat=2): x += Gi[a][m]*HJ[m][n]*Gi[n][b]
+        dGi[a][b]=x.scale(sgn)
+    dGam=[[[constj((Hd[a][b][c]+Hd[a][c][b]-Hd[b][c][a])*F(1,2)) for c in range(N)] for b in range(N)] for a in range(N)]
+    dR=[[[[J2() for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=constj((Hdd[a][d][b][c]+Hdd[b][c][a][d]-Hdd[a][c][b][d]-Hdd[b][d][a][c])*F(1,2))
+        for e,f in product(range(N),repeat=2):
+            x += dGi[e][f]*(Gam[e][a][d]*Gam[f][b][c]-Gam[e][a][c]*Gam[f][b][d])
+            x += Gi[e][f]*(dGam[e][a][d]*Gam[f][b][c]+Gam[e][a][d]*dGam[f][b][c]-dGam[e][a][c]*Gam[f][b][d]-Gam[e][a][c]*dGam[f][b][d])
+        dR[a][b][c][d]=x
+    dRic=[[J2() for d in range(N)] for b in range(N)]
+    for b,d in product(range(N),repeat=2):
+        x=J2()
+        for a,c in product(range(N),repeat=2): x += dGi[a][c]*R[a][b][c][d] + Gi[a][c]*dR[a][b][c][d]
+        dRic[b][d]=x
+    dScal=J2()
+    for b,d in product(range(N),repeat=2): dScal += dGi[b][d]*Ric[b][d]+Gi[b][d]*dRic[b][d]
+    dC=[[[[J2() for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=dR[a][b][c][d]
+        base=(HJ[a][c]*Ric[d][b]+G[a][c]*dRic[d][b]-HJ[a][d]*Ric[c][b]-G[a][d]*dRic[c][b]-HJ[b][c]*Ric[d][a]-G[b][c]*dRic[d][a]+HJ[b][d]*Ric[c][a]+G[b][d]*dRic[c][a]).scale(F(1,2))
+        x -= base
+        x += (dScal*(G[a][c]*G[d][b]-G[a][d]*G[c][b]) + Scal*(HJ[a][c]*G[d][b]+G[a][c]*HJ[d][b]-HJ[a][d]*G[c][b]-G[a][d]*HJ[c][b])).scale(F(1,6))
+        dC[a][b][c][d]=x
+    dCup=[[[[J2() for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=J2()
+        for e,f in product(range(N),repeat=2):
+            if not omit_raise:
+                x += dGi[c][e]*Gi[d][f]*C[a][b][e][f] + Gi[c][e]*dGi[d][f]*C[a][b][e][f]
+            x += Gi[c][e]*Gi[d][f]*dC[a][b][e][f]
+        dCup[a][b][c][d]=x
+    dI=J2()
+    for a,b,c,d in product(range(N),repeat=4): dI += (dCup[a][b][c][d]*Q[a][b][c][d]).scale(3)
+    tr=J2()
+    for a,b in product(range(N),repeat=2): tr += Gi[a][b]*HJ[a][b]
+    Fout=dI if omit_det else dI+(tr*I).scale(F(1,2))
+    return Fout, {'dC':dC,'dCup':dCup,'dI':dI,'trace_h':tr}
+
+
+def variation_scalar(bg,H,Hd,Hdd,**kw):
+    v,meta=variation(bg,H,Hd,Hdd,**kw)
+    return v
+
+def actual_h(seed):
+    H=[[F(0)]*N for _ in range(N)]; Hd=[[[F(0)]*N for _ in range(N)] for __ in range(N)]; Hdd=[[[[F(0)]*N for _ in range(N)] for __ in range(N)] for ___ in range(N)]
+    for a,b in PAIRS:
+        H[a][b]=H[b][a]=hderiv(seed,a,b,())
+        for c in range(N):
+            Hd[a][b][c]=Hd[b][a][c]=hderiv(seed,a,b,(c,))
+        for c,d in DPAIRS:
+            v=hderiv(seed,a,b,(c,d))
+            Hdd[a][b][c][d]=Hdd[a][b][d][c]=Hdd[b][a][c][d]=Hdd[b][a][d][c]=v
+    return H,Hd,Hdd
+
+
+def density_ratio(bg):
+    gi=bg['gi0']; fn=bg['fn']
+    u=[]
+    for c in range(N):
+        s=F(0)
+        for a,b in product(range(N),repeat=2): s += gi[a][b]*fn(a,b,(c,))
+        u.append(s*F(1,2))
+    dd=[[F(0)]*N for _ in range(N)]
+    # use inverse derivative already in bg Gi.d
+    for c,d in product(range(N),repeat=2):
+        du=F(0)
+        for a,b in product(range(N),repeat=2):
+            du += bg['Gi'][a][b].d[d]*fn(a,b,(c,)) + gi[a][b]*fn(a,b,(c,d))
+        du*=F(1,2)
+        dd[c][d]=u[c]*u[d]+du
+    return J2(1,u,dd)
+
+
+def weyl_controls(bg,var=None):
+    C=bg['C']; Cup=bg['Cup']
+    def z(x): return x.v==0
+    base_anti1=all(z(C[a][b][c][d]+C[b][a][c][d]) for a,b,c,d in product(range(N),repeat=4))
+    base_anti2=all(z(C[a][b][c][d]+C[a][b][d][c]) for a,b,c,d in product(range(N),repeat=4))
+    base_pair=all(z(C[a][b][c][d]-C[c][d][a][b]) for a,b,c,d in product(range(N),repeat=4))

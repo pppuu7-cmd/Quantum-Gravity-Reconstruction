@@ -1,0 +1,107 @@
+    base_bianchi=all(z(C[a][b][c][d]+C[a][c][d][b]+C[a][d][b][c]) for a,b,c,d in product(range(N),repeat=4))
+    base_trace=all(sum((Cup[a][b][a][d].v for a in range(N)),F(0))==0 for b,d in product(range(N),repeat=2))
+    out={'base_antisym_first':base_anti1,'base_antisym_second':base_anti2,'base_pair_exchange':base_pair,'base_algebraic_bianchi':base_bianchi,'base_tracefree':base_trace}
+    if var:
+        dC,dCup=var['dC'],var['dCup']
+        out.update({
+          'linearized_antisym_first':all((dC[a][b][c][d]+dC[b][a][c][d]).v==0 for a,b,c,d in product(range(N),repeat=4)),
+          'linearized_antisym_second':all((dC[a][b][c][d]+dC[a][b][d][c]).v==0 for a,b,c,d in product(range(N),repeat=4)),
+          'linearized_pair_exchange':all((dC[a][b][c][d]-dC[c][d][a][b]).v==0 for a,b,c,d in product(range(N),repeat=4)),
+          'linearized_bianchi':all((dC[a][b][c][d]+dC[a][c][d][b]+dC[a][d][b][c]).v==0 for a,b,c,d in product(range(N),repeat=4)),
+          'linearized_raised_tracefree':all(sum((dCup[a][b][a][d].v for a in range(N)),F(0))==0 for b,d in product(range(N),repeat=2))
+        })
+    return out
+
+
+def lin_add(a,b):
+    out=dict(a)
+    for k,v in b.items():
+        if k in out: out[k]=out[k]+v
+        else: out[k]=v
+    return out
+
+def lin_neg(a): return {k:-v for k,v in a.items()}
+def lin_sub(a,b): return lin_add(a,lin_neg(b))
+def lin_scale_bg(a,bgcoef): return {k:v*bgcoef for k,v in a.items()}
+def lin_scale_q(a,qc): return {k:v.scale(qc) for k,v in a.items()}
+
+def var_ids():
+    H={};HD={};HDD={};n=0
+    for p,ab in enumerate(PAIRS):H[ab]=n;n+=1
+    for p,ab in enumerate(PAIRS):
+        for c in range(N):HD[(ab,c)]=n;n+=1
+    for p,ab in enumerate(PAIRS):
+        for cd in DPAIRS:HDD[(ab,cd)]=n;n+=1
+    assert n==150
+    return H,HD,HDD
+
+def canonpair(a,b): return (a,b) if a<=b else (b,a)
+def canonder(c,d): return (c,d) if c<=d else (d,c)
+
+def linear_raw_coefficients(bg):
+    G,Gi,Gam,R,Ric,Scal,C,Q,I=bg['G'],bg['Gi'],bg['Gam'],bg['R'],bg['Ric'],bg['Scal'],bg['C'],bg['Q'],bg['I']
+    HID,DID,DDID=var_ids()
+    H=[[{HID[canonpair(a,b)]:J2(1)} for b in range(N)] for a in range(N)]
+    Hd=[[[{DID[(canonpair(a,b),c)]:J2(1)} for c in range(N)] for b in range(N)] for a in range(N)]
+    Hdd=[[[[{DDID[(canonpair(a,b),canonder(c,d))]:J2(1)} for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    dGi=[[{} for b in range(N)] for a in range(N)]
+    for a,b in product(range(N),repeat=2):
+        x={}
+        for m,n in product(range(N),repeat=2):
+            x=lin_add(x,lin_scale_bg(H[m][n], (Gi[a][m]*Gi[n][b]).scale(-1)))
+        dGi[a][b]=x
+    dGam=[[ [{} for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c in product(range(N),repeat=3):
+        dGam[a][b][c]=lin_scale_q(lin_add(lin_add(Hd[a][b][c],Hd[a][c][b]),lin_neg(Hd[b][c][a])),F(1,2))
+    dR=[[[[{} for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=lin_scale_q(lin_add(lin_add(Hdd[a][d][b][c],Hdd[b][c][a][d]),lin_neg(lin_add(Hdd[a][c][b][d],Hdd[b][d][a][c]))),F(1,2))
+        for e,f in product(range(N),repeat=2):
+            bg1=Gam[e][a][d]*Gam[f][b][c]-Gam[e][a][c]*Gam[f][b][d]
+            x=lin_add(x,lin_scale_bg(dGi[e][f],bg1))
+            x=lin_add(x,lin_scale_bg(dGam[e][a][d],Gi[e][f]*Gam[f][b][c]))
+            x=lin_add(x,lin_scale_bg(dGam[f][b][c],Gi[e][f]*Gam[e][a][d]))
+            x=lin_add(x,lin_scale_bg(dGam[e][a][c],(Gi[e][f]*Gam[f][b][d]).scale(-1)))
+            x=lin_add(x,lin_scale_bg(dGam[f][b][d],(Gi[e][f]*Gam[e][a][c]).scale(-1)))
+        dR[a][b][c][d]=x
+    dRic=[[{} for d in range(N)] for b in range(N)]
+    for b,d in product(range(N),repeat=2):
+        x={}
+        for a,c in product(range(N),repeat=2):
+            x=lin_add(x,lin_scale_bg(dGi[a][c],R[a][b][c][d]))
+            x=lin_add(x,lin_scale_bg(dR[a][b][c][d],Gi[a][c]))
+        dRic[b][d]=x
+    dScal={}
+    for b,d in product(range(N),repeat=2):
+        dScal=lin_add(dScal,lin_scale_bg(dGi[b][d],Ric[b][d]))
+        dScal=lin_add(dScal,lin_scale_bg(dRic[b][d],Gi[b][d]))
+    dC=[[[[{} for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x=dict(dR[a][b][c][d])
+        terms={}
+        terms=lin_add(terms,lin_scale_bg(H[a][c],Ric[d][b])); terms=lin_add(terms,lin_scale_bg(dRic[d][b],G[a][c]))
+        terms=lin_add(terms,lin_scale_bg(H[a][d],Ric[c][b]).copy())
+        terms=lin_add(terms,lin_scale_bg(dRic[c][b],G[a][d]))
+        # apply signs of bracket: +ac -ad -bc +bd
+        signed={}
+        signed=lin_add(signed,lin_scale_bg(H[a][c],Ric[d][b])); signed=lin_add(signed,lin_scale_bg(dRic[d][b],G[a][c]))
+        signed=lin_sub(signed,lin_scale_bg(H[a][d],Ric[c][b])); signed=lin_sub(signed,lin_scale_bg(dRic[c][b],G[a][d]))
+        signed=lin_sub(signed,lin_scale_bg(H[b][c],Ric[d][a])); signed=lin_sub(signed,lin_scale_bg(dRic[d][a],G[b][c]))
+        signed=lin_add(signed,lin_scale_bg(H[b][d],Ric[c][a])); signed=lin_add(signed,lin_scale_bg(dRic[c][a],G[b][d]))
+        x=lin_sub(x,lin_scale_q(signed,F(1,2)))
+        metricw=G[a][c]*G[d][b]-G[a][d]*G[c][b]
+        x=lin_add(x,lin_scale_bg(dScal,metricw.scale(F(1,6))))
+        dm={}
+        dm=lin_add(dm,lin_scale_bg(H[a][c],G[d][b])); dm=lin_add(dm,lin_scale_bg(H[d][b],G[a][c]))
+        dm=lin_sub(dm,lin_scale_bg(H[a][d],G[c][b])); dm=lin_sub(dm,lin_scale_bg(H[c][b],G[a][d]))
+        x=lin_add(x,lin_scale_bg(dm,Scal.scale(F(1,6))))
+        dC[a][b][c][d]=x
+    dCup=[[[[{} for d in range(N)] for c in range(N)] for b in range(N)] for a in range(N)]
+    for a,b,c,d in product(range(N),repeat=4):
+        x={}
+        for e,f in product(range(N),repeat=2):
+            x=lin_add(x,lin_scale_bg(dGi[c][e],Gi[d][f]*C[a][b][e][f]))
+            x=lin_add(x,lin_scale_bg(dGi[d][f],Gi[c][e]*C[a][b][e][f]))
+            x=lin_add(x,lin_scale_bg(dC[a][b][e][f],Gi[c][e]*Gi[d][f]))
+        dCup[a][b][c][d]=x
+    dI={}

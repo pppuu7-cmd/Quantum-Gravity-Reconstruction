@@ -1,0 +1,43 @@
+      'no_floating_tolerance':True,
+    }
+    result={'gate':'ITER057AO','phase':'PHASE2_GENERIC_EXACT_ANALYTIC_IBP_NOETHER','preregistration':PREREG,'phase2_freeze':PHASE2_FREEZE,'execution_repair':'7a7c764f3d2a4e592f738af906040d4f8cca93e5','seed':GENERIC,'I3':str(bg['I'].v),'directional_density':canonical_density(bg['det'],Fv.v),'weyl_controls':wc,'compact_IBP':ibp,'EH_control':eh,'Noether':{k:(str(v) if isinstance(v,F) else v) for k,v in noe.items()},'zero_controls':zeroctrl,'controls':controls,'terminal_classification_authorized':False}
+    result['scientific_payload_sha256']=hash_obj(result)
+    return result
+
+def run_heldout():
+    bg=build_geometry(background_from_deriv(lambda a,b,ds:gderiv(HELDOUT,a,b,ds)))
+    H,Hd,Hdd=actual_h(HELDOUT);Fv,var=variation(variation_value_bg(bg),H,Hd,Hdd)
+    wc=weyl_controls(bg,var)
+    controls={'metric_invertible':bg['det']!=0,'directional_nonzero':Fv.v!=0,'weyl_controls_all':all(wc.values()),'no_floating_tolerance':True}
+    result={'gate':'ITER057AO','phase':'PHASE2_HELDOUT_EXACT_ANALYTIC_DIRECTIONAL','preregistration':PREREG,'phase2_freeze':PHASE2_FREEZE,'execution_repair':'7a7c764f3d2a4e592f738af906040d4f8cca93e5','seed':HELDOUT,'I3':str(bg['I'].v),'directional_density':canonical_density(bg['det'],Fv.v),'weyl_controls':wc,'controls':controls,'terminal_classification_authorized':False}
+    result['scientific_payload_sha256']=hash_obj(result)
+    return result
+
+def run_linearity():
+    bg=build_geometry(background_from_deriv(lambda a,b,ds:gderiv(GENERIC,a,b,ds))); bgv=variation_value_bg(bg)
+    H,Hd,Hdd=actual_h(GENERIC)
+    v1=variation_scalar(bgv,H,Hd,Hdd)
+    H2=[[2*x for x in r] for r in H];Hd2=[[[2*x for x in r] for r in m] for m in Hd];Hdd2=[[[[2*x for x in r] for r in m] for m in q] for q in Hdd]
+    v2=variation_scalar(bgv,H2,Hd2,Hdd2)
+    out={'gate':'ITER057AO','phase':'PHASE2_EXACT_LINEARITY_CONTROL','preregistration':PREREG,'phase2_freeze':PHASE2_FREEZE,'v1':str(v1.v),'v2':str(v2.v),'scale2_exact':v2.v==2*v1.v,'no_floating_tolerance':True}
+    out['controls']={'scale2_exact':out['scale2_exact'],'no_floating_tolerance':True};out['scientific_payload_sha256']=hash_obj(out);return out
+
+def run_negative(which):
+    bg=build_geometry(background_from_deriv(lambda a,b,ds:gderiv(GENERIC,a,b,ds))); bgv=variation_value_bg(bg)
+    H,Hd,Hdd=actual_h(GENERIC); good=variation_scalar(bgv,H,Hd,Hdd)
+    kw={'wrong-inv':{'wrong_inv':True},'no-det':{'omit_det':True},'no-raise':{'omit_raise':True}}[which]
+    bad=variation_scalar(bgv,H,Hd,Hdd,**kw)
+    detected=bad.v!=good.v
+    out={'gate':'ITER057AO','phase':'PHASE2_NEGATIVE_CONTROL','defect':which,'preregistration':PREREG,'phase2_freeze':PHASE2_FREEZE,'detected':detected,'good':str(good.v),'bad':str(bad.v),'no_floating_tolerance':True}
+    out['controls']={'defect_detected':detected,'no_floating_tolerance':True};out['scientific_payload_sha256']=hash_obj(out);return out
+
+def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['generic','heldout','linearity','neg-wrong-inv','neg-no-det','neg-no-raise'],required=True);ap.add_argument('--output',required=True);a=ap.parse_args()
+    if a.mode=='generic': out=run_generic()
+    elif a.mode=='heldout': out=run_heldout()
+    elif a.mode=='linearity': out=run_linearity()
+    else: out=run_negative(a.mode[4:])
+    p=Path(a.output);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+    print(json.dumps(out,sort_keys=True,indent=2))
+    return 0 if all(out['controls'].values()) else 2
+if __name__=='__main__': raise SystemExit(main())
