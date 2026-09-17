@@ -1,4 +1,5 @@
 name: QGR Iter057AO phase2 exact certificate
+# execution-only retry after part00 packaging repair; frozen science/source SHA unchanged
 on:
   push:
     paths:
