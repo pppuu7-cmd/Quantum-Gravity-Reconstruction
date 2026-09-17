@@ -1,0 +1,29 @@
+name: QGR Iter057AP independent AO covariant source constructor
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ap-independent-covariant-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  construct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run exact independent AO source constructor
+        shell: bash
+        run: |
+          mkdir -p artifacts/iter057ap-constructor
+          PYTHONPATH=code python code/qgr_iter057ap_independent_covariant_source.py --output artifacts/iter057ap-constructor/result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ap-independent-constructor
+          path: artifacts/iter057ap-constructor/result.json
+          if-no-files-found: error
+          retention-days: 30
