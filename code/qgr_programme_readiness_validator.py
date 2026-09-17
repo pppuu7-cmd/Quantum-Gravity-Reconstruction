@@ -12,15 +12,13 @@ from build_qgr_programme_bundle import build
 from qgr_clean_recovery_test import run as recovery_run
 ROOT=Path(__file__).resolve().parents[1]
 SEM='Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.'
-
+BUNDLE_REQUIRED={'docs/CONSTITUTION.md','docs/ROADMAP.md','protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json','protocol/QGR_GATE_REGISTRY.json','schemas/qgr_candidate_export_v1.schema.json','templates/qgr_candidate_export_v1.template.json','code/qgr_candidate_export_validator.py','code/qgr_kmqgb_adapter.py','code/qgr_kmqgb_drift_detector.py','code/qgr_lineage_dag_validator.py','code/qgr_programme_readiness_validator.py','code/qgr_programme_readiness_critic.py','recovery/state.json','recovery/CURRENT_FRONT.md','recovery/RECOVERY_PLAYBOOK.md','protocol/QGR_KMQGB_INTERFACE_PIN.json','docs/kmqgb_deltas/REGISTRY.json','protocol/QGR_POST_CANDIDATE_DECISION_TREE.json','synthetic/qgr_synthetic_blocked_candidate_v1.json','synthetic/qgr_malformed_candidate_v1.json'}
 def j(rel):return json.loads((ROOT/rel).read_text())
 def evaluate(kroot:Path):
     passed={}; invalid={}; detail={}
     def chk(letter,fn):
-      try:
-        v=fn();passed[letter]=bool(v);detail[letter]=v
-      except Exception as e:
-        passed[letter]=False;invalid[letter]=f'{type(e).__name__}: {e}';detail[letter]=traceback.format_exc()
+      try:v=fn();passed[letter]=bool(v);detail[letter]=v
+      except Exception as e:passed[letter]=False;invalid[letter]=f'{type(e).__name__}: {e}';detail[letter]=traceback.format_exc()
     state=j('recovery/state.json')
     chk('A',lambda: j('protocol/QGR_READINESS_SEMANTICS.json')['candidate_program_100_semantics']==SEM and state['readiness']['candidate_program_pct_semantics']==SEM and state['readiness']['repository_infrastructure_pct']==100 and state['readiness']['theory_established_pct']==0 and state['readiness']['experimental_confirmation'] is False and all(v is False for v in state['claim_locks'].values()))
     def b():
@@ -40,8 +38,9 @@ def evaluate(kroot:Path):
       with tempfile.TemporaryDirectory() as td:return handshake_run(ROOT/'synthetic/qgr_synthetic_blocked_candidate_v1.json',kroot,Path(td)/'adapted.json')['valid']
     chk('L',l)
     def m():
+      manifest=j('release/QGR_PROGRAMME_BUNDLE_CONTENTS.json');files=set(manifest['files'])
       with tempfile.TemporaryDirectory() as td:
-        a=Path(td)/'a';b=Path(td)/'b';return build(a)==build(b) and a.read_bytes()==b.read_bytes()
+        a=Path(td)/'a';b=Path(td)/'b';return BUNDLE_REQUIRED<=files and 'validators' in manifest.get('required_classes',[]) and build(a)==build(b) and a.read_bytes()==b.read_bytes()
     chk('M',m)
     chk('N',lambda: (ROOT/'code/qgr_programme_readiness_validator.py').exists() and set(j('protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json')['mandatory_obligations'])==set('ABCDEFGHIJKLMNOP'))
     chk('O',lambda: run_controls(kroot)['valid'])

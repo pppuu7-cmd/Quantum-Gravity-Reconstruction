@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Independent QGR readiness Critic. It never imports the primary readiness validator and never uses candidate_program_pct as evidence."""
 from __future__ import annotations
-import argparse,json,subprocess,sys,tempfile
+import argparse,json,tempfile
 from pathlib import Path
 from qgr_candidate_export_validator import validate_candidate
 from qgr_kmqgb_drift_detector import check as drift_check
@@ -11,6 +11,7 @@ from qgr_negative_controls import run_controls,registry_ok,stale_current_marker
 from build_qgr_programme_bundle import build
 from qgr_clean_recovery_test import run as recovery_run
 ROOT=Path(__file__).resolve().parents[1]; SEM='Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.'
+BUNDLE_REQUIRED={'protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json','protocol/QGR_GATE_REGISTRY.json','schemas/qgr_candidate_export_v1.schema.json','code/qgr_candidate_export_validator.py','code/qgr_kmqgb_adapter.py','code/qgr_programme_readiness_validator.py','code/qgr_programme_readiness_critic.py','recovery/state.json','recovery/CURRENT_FRONT.md','protocol/QGR_KMQGB_INTERFACE_PIN.json'}
 def j(p):return json.loads((ROOT/p).read_text())
 def critique(kroot:Path):
     state=j('recovery/state.json');sem=j('protocol/QGR_READINESS_SEMANTICS.json');reg=j('protocol/QGR_GATE_REGISTRY.json');dt=j('protocol/QGR_POST_CANDIDATE_DECISION_TREE.json');q=j('protocol/QGR_QUANTUM_COMPLETION_CONTRACT.json');sr=j('protocol/QGR_SAME_REALIZATION_CONTRACT.json')
@@ -21,16 +22,13 @@ def critique(kroot:Path):
     o['D']=validate_candidate(j('synthetic/qgr_synthetic_blocked_candidate_v1.json'))['valid'] and (ROOT/'code/qgr_candidate_export_validator.py').exists()
     o['E']=q['objects'][2]=='amplitude_generator_or_measure' and q['heavy_compute_on_structural_blocker'] is False
     o['F']=len(sr['required_identity_chain'])==9 and sr['forbid_downstream_realization_substitution'] is True
-    o['G']='same_realization_id' in j('schemas/qgr_gr_recovery_v1.schema.json')['required']
-    o['H']='normalization' in j('schemas/qgr_normalized_observable_v1.schema.json')['required']
+    o['G']='same_realization_id' in j('schemas/qgr_gr_recovery_v1.schema.json')['required'];o['H']='normalization' in j('schemas/qgr_normalized_observable_v1.schema.json')['required']
     o['I']=len(dt['nodes'])==18 and len(dt['edges'])==17 and dt['nodes'][0]=='covariant_source_consistency' and dt['nodes'][-1]=='prediction_discrimination'
-    o['J']=lineage_validate(j('protocol/QGR_SCIENTIFIC_LINEAGE_DAG.json'),verify_git=True)['valid']
-    o['K']=drift_check(kroot)['valid']
+    o['J']=lineage_validate(j('protocol/QGR_SCIENTIFIC_LINEAGE_DAG.json'),verify_git=True)['valid'];o['K']=drift_check(kroot)['valid']
     with tempfile.TemporaryDirectory() as td:o['L']=handshake_run(ROOT/'synthetic/qgr_synthetic_blocked_candidate_v1.json',kroot,Path(td)/'adapted.json')['valid']
     with tempfile.TemporaryDirectory() as td:
-      a=Path(td)/'a';b=Path(td)/'b';o['M']=build(a)==build(b) and a.read_bytes()==b.read_bytes()
-    o['N']=(ROOT/'code/qgr_programme_readiness_validator.py').exists() and j('protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json')['readiness_rule']=='ALL_A_THROUGH_P_PASS_AND_INDEPENDENT_CRITIC_TRUE'
-    o['O']=run_controls(kroot)['valid'];o['P']=recovery_run()['valid']
+      a=Path(td)/'a';b=Path(td)/'b';mf=j('release/QGR_PROGRAMME_BUNDLE_CONTENTS.json');o['M']=BUNDLE_REQUIRED<=set(mf['files']) and 'validators' in mf.get('required_classes',[]) and build(a)==build(b) and a.read_bytes()==b.read_bytes()
+    o['N']=(ROOT/'code/qgr_programme_readiness_validator.py').exists() and j('protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json')['readiness_rule']=='ALL_A_THROUGH_P_PASS_AND_INDEPENDENT_CRITIC_TRUE';o['O']=run_controls(kroot)['valid'];o['P']=recovery_run()['valid']
     failed=[k for k in 'ABCDEFGHIJKLMNOP' if not o.get(k)];ready=not failed
     return {'mandatory_obligation_count':16,'passed_obligation_count':sum(o.values()),'failed_obligations':failed,'invalid_obligations':[],'readiness_100_boolean':ready,'obligations':o,'candidate_program_pct_was_not_used':True,'classification':'QGR_PROGRAMME_INFRASTRUCTURE_100_PASS' if ready else 'QGR_PROGRAMME_INFRASTRUCTURE_INCOMPLETE'}
 def main(argv=None):

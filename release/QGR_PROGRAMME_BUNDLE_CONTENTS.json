@@ -1,7 +1,18 @@
 {
-  "bundle_version":"1.0.0",
-  "files":["docs/CONSTITUTION.md","docs/ROADMAP.md","protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json","protocol/QGR_READINESS_SEMANTICS.json","protocol/QGR_GATE_REGISTRY.json","protocol/QGR_POST_CANDIDATE_DECISION_TREE.json","protocol/QGR_QUANTUM_COMPLETION_CONTRACT.json","protocol/QGR_SAME_REALIZATION_CONTRACT.json","protocol/QGR_SCIENTIFIC_LINEAGE_DAG.json","protocol/QGR_KMQGB_INTERFACE_PIN.json","protocol/QGR_BENCHMARK_FIREWALL.json","schemas/qgr_candidate_export_v1.schema.json","templates/qgr_candidate_export_v1.template.json","recovery/state.json","recovery/CURRENT_FRONT.md","recovery/RECOVERY_PLAYBOOK.md","recovery/CLEAN_SESSION_RECOVERY_MANIFEST.json","docs/kmqgb_deltas/REGISTRY.json"],
+  "bundle_version":"1.0.1",
+  "files":[
+    "README.md","docs/CONSTITUTION.md","docs/ROADMAP.md","docs/KMQGB_HANDOFF.md","docs/kmqgb_deltas/REGISTRY.json","docs/kmqgb_deltas/2026-09-17_d23f34cb.md",
+    "preregistration/QGR_PROGRAMME_INFRASTRUCTURE_100_COMPLETION.md",
+    "protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.md","protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json","protocol/QGR_READINESS_SEMANTICS.json","protocol/QGR_GATE_REGISTRY.json","protocol/QGR_POST_CANDIDATE_DECISION_TREE.json","protocol/QGR_QUANTUM_COMPLETION_CONTRACT.md","protocol/QGR_QUANTUM_COMPLETION_CONTRACT.json","protocol/QGR_SAME_REALIZATION_CONTRACT.json","protocol/QGR_DEPENDENCY_SUPERSESSION_PROTOCOL.md","protocol/QGR_SCIENTIFIC_LINEAGE_DAG.json","protocol/QGR_KMQGB_INTERFACE_PIN.json","protocol/QGR_BENCHMARK_FIREWALL.json","protocol/QGR_COMPUTE_AUTHORIZATION_POLICY.json",
+    "schemas/qgr_candidate_export_v1.schema.json","schemas/qgr_parameter_freedom_ledger_v1.schema.json","schemas/qgr_gr_recovery_v1.schema.json","schemas/qgr_normalized_observable_v1.schema.json","schemas/qgr_preregistration_v1.schema.json","schemas/qgr_scientific_result_v1.schema.json","schemas/qgr_recovery_state_v1.schema.json",
+    "templates/qgr_candidate_export_v1.template.json","templates/qgr_preregistration_v1.template.json","templates/qgr_scientific_result_v1.template.json",
+    "code/qgr_candidate_export_validator.py","code/qgr_kmqgb_adapter.py","code/qgr_kmqgb_drift_detector.py","code/qgr_lineage_dag_validator.py","code/qgr_benchmark_leakage_audit.py","code/build_qgr_programme_bundle.py","code/qgr_clean_recovery_test.py","code/qgr_synthetic_handshake.py","code/qgr_negative_controls.py","code/qgr_programme_readiness_validator.py","code/qgr_programme_readiness_critic.py","code/qgr_programme_provenance_manifest.py",
+    "synthetic/qgr_synthetic_blocked_candidate_v1.json","synthetic/qgr_malformed_candidate_v1.json",
+    "recovery/state.json","recovery/CURRENT_FRONT.md","recovery/RECOVERY_PLAYBOOK.md","recovery/CLEAN_SESSION_RECOVERY_MANIFEST.json",
+    ".github/workflows/qgr-programme-readiness-100.yml"
+  ],
+  "required_classes":["constitution","roadmap","readiness_contract","gate_registry","schemas","templates","validators","state","front","kmqgb_interface_pin","handoff_delta_registry","decision_tree","claim_locks_via_state","recovery_instructions","synthetic_controls"],
   "canonical_order":"lexicographic_path",
-  "archive_format":"deterministic_tar_uncompressed_mtime0_uid0_gid0",
+  "archive_format":"deterministic_length_framed_bundle_no_timestamps",
   "build_twice_and_compare_sha256":true
 }
