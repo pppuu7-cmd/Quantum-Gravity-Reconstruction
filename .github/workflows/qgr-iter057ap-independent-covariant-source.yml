@@ -1,5 +1,5 @@
 name: QGR Iter057AP independent AO covariant source constructor
-# execution-only retry: install dependency required by immutable Iter057W algebra engine
+# execution-only retry: dependency + documented Cup helper wiring repair
 on:
   push:
     paths:
@@ -22,7 +22,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p artifacts/iter057ap-constructor
-          PYTHONPATH=code python code/qgr_iter057ap_independent_covariant_source.py --output artifacts/iter057ap-constructor/result.json
+          PYTHONPATH=code python code/qgr_iter057ap_independent_covariant_source_repair.py --output artifacts/iter057ap-constructor/result.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
