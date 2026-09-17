@@ -1,4 +1,5 @@
 name: QGR Iter057AP independent AO covariant source constructor
+# execution-only retry: install dependency required by immutable Iter057W algebra engine
 on:
   push:
     paths:
@@ -15,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install exact algebra dependency
+        run: python -m pip install --disable-pip-version-check sympy
       - name: Run exact independent AO source constructor
         shell: bash
         run: |
