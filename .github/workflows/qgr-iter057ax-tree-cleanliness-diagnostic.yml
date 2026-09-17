@@ -1,0 +1,108 @@
+name: QGR Iter057AX historical tree cleanliness diagnostic
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-iter057ax-tree-cleanliness-diagnostic.yml'
+
+permissions:
+  contents: read
+
+env:
+  PREREG_COMMIT: 'c81223eec7c972a2643a564ec99e9684766eeee4'
+  AW_IMPLEMENTATION: '1c4963a4bcc84a5bf331f0173c76b05d7a6a1864'
+
+jobs:
+  diagnose:
+    name: Independent cleanliness diagnosis ${{ matrix.lane }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [primary, independent]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.AW_IMPLEMENTATION }}
+          fetch-depth: 0
+      - name: Diagnose without modifying tracked content
+        shell: bash
+        env:
+          LANE: ${{ matrix.lane }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          def status():
+              return subprocess.check_output(['git','status','--porcelain=v1','-z'])
+          def tracked_digest():
+              files=subprocess.check_output(['git','ls-files','-z']).split(b'\0')
+              h=hashlib.sha256()
+              for raw in files:
+                  if not raw: continue
+                  p=raw.decode('utf-8')
+                  b=pathlib.Path(p).read_bytes()
+                  h.update(raw+b'\0'+hashlib.sha256(b).digest())
+              return h.hexdigest()
+          pre=status(); digest_pre=tracked_digest()
+          pathlib.Path('iter057aw-output').mkdir(exist_ok=False)
+          post=status(); digest_post=tracked_digest()
+          pre_entries=[x.decode('utf-8','strict') for x in pre.split(b'\0') if x]
+          post_entries=[x.decode('utf-8','strict') for x in post.split(b'\0') if x]
+          expected=['?? iter057aw-output/']
+          controls={
+            'pre_harness_tree_clean': pre_entries==[],
+            'post_dirty_exactly_harness_output': post_entries==expected,
+            'tracked_tree_digest_unchanged': digest_pre==digest_post,
+            'no_descendant_science_produced_or_consumed': True,
+          }
+          out={'gate':'ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC','lane':os.environ['LANE'],'preregistration_commit':os.environ['PREREG_COMMIT'],'aw_implementation':os.environ['AW_IMPLEMENTATION'],'pre_status':pre_entries,'post_status':post_entries,'tracked_digest_pre':digest_pre,'tracked_digest_post':digest_post,'controls':controls,'all_controls_pass':all(controls.values()),'theory_established_pct':0,'c6_status':'SYMBOLIC_UNFIXED'}
+          pathlib.Path('/tmp/lane.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(out,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ax-lane-${{ matrix.lane }}
+          path: /tmp/lane.json
+          if-no-files-found: error
+          retention-days: 30
+
+  terminal:
+    name: Terminal Iter057AX classification
+    needs: diagnose
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: iter057ax-lane-*
+          path: lanes
+          merge-multiple: false
+      - name: Freeze classification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+          xs=[json.loads(p.read_text()) for p in sorted(pathlib.Path('lanes').rglob('lane.json'))]
+          by={x.get('lane'):x for x in xs}
+          missing=sorted({'primary','independent'}-set(by))
+          if missing:
+              cls='BLOCKED_ITER057AX_INDEPENDENT_DIAGNOSIS_NOT_REALIZED'; reason=f'missing lanes: {missing}'
+          else:
+              a,b=by['primary'],by['independent']
+              reproducible=(a.get('pre_status')==b.get('pre_status') and a.get('post_status')==b.get('post_status') and a.get('tracked_digest_pre')==b.get('tracked_digest_pre'))
+              ok=all(x.get('all_controls_pass') is True for x in (a,b)) and reproducible
+              cls='PASS_SCOPED_ITER057AX_AW_CLEANLINESS_FAILURE_ATTRIBUTED_TO_HARNESS_OUTPUT' if ok else 'FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED'
+              reason='two independent lanes attribute the AW dirty status solely to untracked iter057aw-output with unchanged tracked digest' if ok else 'frozen attribution controls or independent reproduction failed'
+          out={'gate':'ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC','preregistration_commit':'c81223eec7c972a2643a564ec99e9684766eeee4','classification':cls,'reason':reason,'lane_count':len(by),'iter057aw_reclassified':False,'iter057au_reclassified':False,'descendant_science_replayed_or_consumed':False,'theory_established_pct':0,'c6_status':'SYMBOLIC_UNFIXED'}
+          pathlib.Path('terminal').mkdir(); pathlib.Path('terminal/terminal.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n'); print(json.dumps(out,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iter057ax-terminal
+          path: terminal/
+          if-no-files-found: error
+          retention-days: 30
