@@ -12,8 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
       - name: Corrected Frechet primary degree-eight source
+        shell: bash
         run: |
+          set -euo pipefail
           mkdir -p artifacts/degree8/primary
           PYTHONPATH=code python code/qgr_corrected_degree8_weyl3_source.py --mode primary --output artifacts/degree8/primary/primary.json | tee artifacts/degree8/primary/primary.log
           sha256sum artifacts/degree8/primary/* > artifacts/degree8/primary/SHA256SUMS.txt
@@ -24,8 +29,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
       - name: Corrected Frechet independent AO degree-eight source
+        shell: bash
         run: |
+          set -euo pipefail
           mkdir -p artifacts/degree8/independent
           PYTHONPATH=code python code/qgr_corrected_degree8_weyl3_source.py --mode independent --output artifacts/degree8/independent/independent.json | tee artifacts/degree8/independent/independent.log
           sha256sum artifacts/degree8/independent/* > artifacts/degree8/independent/SHA256SUMS.txt
@@ -36,8 +46,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check sympy==1.14.0
       - name: Fresh isolated historical Iter057AA replay
+        shell: bash
         run: |
+          set -euo pipefail
           mkdir -p artifacts/degree8/historical
           PYTHONPATH=code python scripts/qgr_historical_iter057aa_degree8_comparator.py --output artifacts/degree8/historical/historical.json | tee artifacts/degree8/historical/historical.log
           sha256sum artifacts/degree8/historical/* > artifacts/degree8/historical/SHA256SUMS.txt
@@ -71,7 +86,7 @@ jobs:
             try:return json.loads(p.read_text())
             except:return None
           p=load('corrected-degree8-primary','primary.json');i=load('corrected-degree8-independent','independent.json');h=load('corrected-degree8-historical','historical.json')
-          out={'gate':'CORRECTED_DEGREE8_WEYL3_SOURCE_RECONSTRUCTION','preregistration_commit':P,'c6':'SYMBOLIC_UNFIXED_FACTORED_OUT','theory_established_pct':0,'green_ci_alone_is_not_pass':True}
+          out={'gate':'CORRECTED_DEGREE8_WEYL3_SOURCE_RECONSTRUCTION','preregistration_commit':P,'execution_repair_preregistration':'53d973eefede199dc1b6f9525c99d21ee0341660','c6':'SYMBOLIC_UNFIXED_FACTORED_OUT','theory_established_pct':0,'green_ci_alone_is_not_pass':True}
           if not p or not i or not h:
             cls=BLOCKED;reason='fresh lane payload missing/invalid'
           else:
@@ -82,11 +97,9 @@ jobs:
             corrected_agree=(pv==iv and isinstance(pv,list) and len(pv)==1650)
             sign_internal=(isinstance(yv,list) and len(yv)==1650 and all(F(a['value'])==-F(b['value']) for a,b in zip(yv,pv))) if corrected_agree else False
             if not prov or not pc or not ic or not hc or not d6 or not sign_internal:
-              cls=INVALID;reason='frozen provenance/source-reduction/sign/control failure'
-              mismatch=None
+              cls=INVALID;reason='frozen provenance/source-reduction/sign/control failure';mismatch=None
             elif not corrected_agree:
-              cls=FAIL;reason='valid corrected primary and independent degree-eight source assemblies disagree'
-              mismatch=None
+              cls=FAIL;reason='valid corrected primary and independent degree-eight source assemblies disagree';mismatch=None
             else:
               mismatch=sum(1 for a,b in zip(yv,hv) if a['pair']!=b['pair'] or a['alpha']!=b['alpha'] or F(a['value'])!=F(b['value']))
               if mismatch==0:cls=SURVIVE;reason='corrected independent source agrees and historical Iter057AA degree-eight source survives exactly'
