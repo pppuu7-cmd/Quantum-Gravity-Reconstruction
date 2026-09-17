@@ -1,5 +1,5 @@
 name: QGR Iter057AP independent AO covariant source constructor
-# target-blind source-faithful retry after documented Cup/cubic implementation repairs
+# target-blind source-faithful retry using exact 20D algebraic-Riemann Frechet P reconstruction
 on:
   push:
     paths:
