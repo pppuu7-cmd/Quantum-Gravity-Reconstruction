@@ -18,27 +18,28 @@ This 100% does not promote any scientific R-stage and does not authorize any phy
 
 ## Scientific front — independent
 
-Last terminal science: `ITER057AR` — `BLOCKED_ITER057AR_REPAIRED_PRIMARY_FROZEN_2100_SLOT_OBJECT_NOT_REALIZED`.
+Last terminal science: `ITER057AS` — `PASS_SCOPED_ITER057AS_AR_CARDINALITY_INCONSISTENCY_ESTABLISHED`.
 
-Original preregistration: `5ecf2a8fabd6da133d3b52f969d0c9b27d3997e6`.
-Target-blind execution-repair preregistration: `eb83a199a2a28f85e29d479ccc9881735b5f3159`.
-Repair production head: `56f36126fef19aa41917408884cfe03064d3cd6f`.
-Actions run: `35187580854` (`completed/success`).
-Primary artifact: `10481959280` (`iter057ar-primary-corrected-degree6`).
-Artifact digest: `sha256:5b28beedaffe13c606711767fcf1fcc73b0244aab38691385b2eeb96724bf14a`.
-Durable result: `414168c3083e0137b952a0c290f4b54030f16445`.
+Preregistration: `6c08691e0a00e6176531c1d07c01f50fc4758ab8`.
+Implementation: `dec284303f705e3cee4b41bdfde918032c9186ad`.
+Production head: `e86f1476b574dfd414ac0b69c664bd6518a9c2fc`.
+Actions run: `35192308567` (`completed/success`).
+Terminal artifact: `10483644731` (`iter057as-source-basis-cardinality-audit`).
+Artifact digest: `sha256:a96eb0ff445c027eb769250ad1b651f6203cfcc380d7b821e6fd9d4568c1b57b`.
+Scientific payload SHA256: `cb5f692055ca708d4630090dfc3e2894fdde17671d219679246bb25fa91085ea`.
+Durable result: `452d4cb22fe6457ef180a41f09921b37cf4d2e36`.
 
-The execution repair itself succeeded technically and produced non-empty `primary.json`, `primary.log`, and a consistent SHA256 manifest. But the original prospectively frozen Iter057AR object requires the complete corrected degree-six source in the existing **2100-slot** source basis/order, and the repair record explicitly preserved that scientific object unchanged. The repaired artifact instead records `degree6_slot_count=840`, `controls.canonical_degree6_slot_count_840=true`, and an 840-entry degree-six vector. Therefore the frozen 2100-slot primary object was not realized. The raw artifact label `PRIMARY_CONSTRUCTED_ITER057AR_AWAITING_INDEPENDENT_REPRODUCTION` is not promoted over the preregistration.
+Frozen exact audit establishes the source-object discrepancy that blocked Iter057AR. With four variables and ten symmetric tensor pairs, homogeneous degree six contains `C(9,3)=84` monomials and therefore `840` tensor-source slots. Cumulative degrees 0 through 6 contain `C(10,4)=210` monomials and therefore `2100` tensor-source slots. Independent enumeration and closed form agree. Source-interface controls confirm Iter057AR serializes `PAIRS x alphas(6)`, while inherited Iter057W `alphas(n)` is homogeneous with exponent sum exactly `n`. Historical target coefficients were not loaded and no tolerance/fit was used.
 
-Independent reproduction is not admissible until a valid frozen primary object exists. No historical target/coefficient comparison was consumed, no acceptance criterion was changed, and no 840-to-2100 reinterpretation is authorized post hoc.
+Therefore the frozen Iter057AR phrases “degree-six vector” and “2100-slot basis” refer to different cardinality objects under the inherited representation. Iter057AR remains immutable terminal `BLOCKED_ITER057AR_REPAIRED_PRIMARY_FROZEN_2100_SLOT_OBJECT_NOT_REALIZED`; no 840-to-2100 embedding, criterion weakening, or retroactive promotion is authorized.
 
-The earlier run `35183877598` remains immutable `BLOCKED_ITER057AR_PRIMARY_CORRECTED_SOURCE_ARTIFACT_NOT_REALIZED`. Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten.
+Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten.
 
 ## Next bounded scientific step
 
 No active production gate is authorized.
 
-A continuation may only be prospectively frozen as a target-blind source/object-definition audit of the exact basis-cardinality discrepancy: establish from the frozen Iter057AR basis definition and constructor interface why the preregistration specifies 2100 slots while the repaired constructor serializes 840, without reading historical target coefficients and without changing basis/order, normalization, acceptance criteria, geometry, exactness, or `c6` status. If the required 2100-slot object is missing or undefined, preserve BLOCKED. Do not invent an 840-to-2100 embedding or weaken the frozen criterion after evidence.
+A continuation may only be a new prospectively preregistered corrected-source gate with an explicit scientific object selected before evidence: either the 840-slot homogeneous degree-six slice or the 2100-slot cumulative-through-degree-six vector (or another explicitly defined object supported by frozen source definitions). It must preserve target blindness before primary construction, exact arithmetic, basis/order/normalization definitions, and independent-reproduction firewalls. It must not be called an Iter057AR reproduction and must not use post-hoc embedding to repair AR.
 
 ## Frozen KMQGB interface
 
