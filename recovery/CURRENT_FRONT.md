@@ -16,38 +16,40 @@ Updated: 2026-09-17
 
 This 100% does not promote any scientific R-stage and does not authorize any physical/quantum claim.
 
-## Scientific front — independent
+## Scientific front — terminal Iter057AT
 
-Last terminal science: `ITER057AS` — `PASS_SCOPED_ITER057AS_AR_CARDINALITY_INCONSISTENCY_ESTABLISHED`.
-
-Preregistration: `6c08691e0a00e6176531c1d07c01f50fc4758ab8`.
-Implementation: `dec284303f705e3cee4b41bdfde918032c9186ad`.
-Production head: `e86f1476b574dfd414ac0b69c664bd6518a9c2fc`.
-Actions run: `35192308567` (`completed/success`).
-Terminal artifact: `10483644731` (`iter057as-source-basis-cardinality-audit`).
-Artifact digest: `sha256:a96eb0ff445c027eb769250ad1b651f6203cfcc380d7b821e6fd9d4568c1b57b`.
-Scientific payload SHA256: `cb5f692055ca708d4630090dfc3e2894fdde17671d219679246bb25fa91085ea`.
-Durable result: `452d4cb22fe6457ef180a41f09921b37cf4d2e36`.
-
-Frozen exact audit establishes the source-object discrepancy that blocked Iter057AR. With four variables and ten symmetric tensor pairs, homogeneous degree six contains `C(9,3)=84` monomials and therefore `840` tensor-source slots. Cumulative degrees 0 through 6 contain `C(10,4)=210` monomials and therefore `2100` tensor-source slots. Independent enumeration and closed form agree. Source-interface controls confirm Iter057AR serializes `PAIRS x alphas(6)`, while inherited Iter057W `alphas(n)` is homogeneous with exponent sum exactly `n`. Historical target coefficients were not loaded and no tolerance/fit was used.
-
-Therefore the frozen Iter057AR phrases “degree-six vector” and “2100-slot basis” refer to different cardinality objects under the inherited representation. Iter057AR remains immutable terminal `BLOCKED_ITER057AR_REPAIRED_PRIMARY_FROZEN_2100_SLOT_OBJECT_NOT_REALIZED`; no 840-to-2100 embedding, criterion weakening, or retroactive promotion is authorized.
-
-Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten.
-
-## Active gate — Iter057AT corrected homogeneous degree-six source
+Last terminal science: `ITER057AT` — `PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED`.
 
 Preregistration: `6039cb2ed1380b549bced3d33634362ef57345d4`.
 Implementation: `d45c6ba67459e2702909c2b864f5a5c24f104015`.
 Production head: `c4e7ccc05ea1b8f4967379fc370812dfa99cce03`.
-Workflow: `.github/workflows/qgr-iter057at-corrected-homogeneous-degree6-source.yml`.
-Status: **ACTIVE_LAUNCHED — authoritative run id intentionally not awaited in this bounded orchestration step.**
+Actions run: `35198813733` (`completed/success`).
+Terminal artifact: `10486973737` (`iter057at-terminal`).
+Artifact digest: `sha256:bdb5affc949803e692d3680864746daa0c4175324d85e1ce7426d1b719621bb6`.
+Terminal payload SHA256: `9359413858a8887b0442aba56fba14576d37be87ce51fec80659758cc7a1bd8a`.
+Corrected ordered 840-vector SHA256: `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`.
+Adversarial referee review: `5d03f13fbc08004159ad8cbc7aa8c0eb20a035c1` — `CONFIRMED_SCOPED`.
 
-Frozen object: the exact corrected homogeneous total-degree-six Weyl^3 source, serialized in the inherited `PAIRS x alphas(6)` order as exactly 840 rational slots, with `c6` symbolic/unfixed and historical Iter057X/Iter057AR target coefficients forbidden before the primary vector is frozen.
+Frozen exact evidence consumed from the terminal aggregate artifact only:
 
-The workflow launches two isolated exact lanes with `fail-fast:false`: primary reconstruction through the AQ exact X-operator downstream assembly and an independent reproduction through the AO covariant source downstream assembly. Neither lane reads the other payload. A terminal job compares the ordered rational vectors only after both lane artifacts exist and emits `iter057at-terminal`. PASS requires all frozen controls and bit-for-bit identical vectors; a realized control/vector mismatch is FAIL; inability to realize either required exact lane is BLOCKED. No green-workflow inference is allowed.
+- exact preregistration identity passed;
+- primary and independent payloads both present;
+- both frozen control sets pass;
+- source fingerprints are identical;
+- both ordered vectors are self-hash-consistent and bit-for-bit identical;
+- slot count is `840` in both lanes and monomial count per tensor pair is `84`;
+- no historical target vector was loaded;
+- `c6` remains `SYMBOLIC_UNFIXED_FACTORED_OUT`.
 
-The next automation run must begin here. If the Iter057AT workflow is non-terminal, inspect status/provenance only. If terminal, consume only the frozen preregistration and required `iter057at-terminal` artifact, record the terminal classification, update recovery, and stop.
+This is a finite homogeneous total-degree-six corrected Weyl^3 source certificate only. It does not retroactively modify Iter057AR, whose frozen 2100-slot object remains terminal BLOCKED, and it does not silently promote descendants that depended on the legacy degree-six source.
+
+Historical Iter057AO/AQ authority and Iter057AP FAIL remain preserved. Historical Iter057X is not rewritten. Historical FAIL/BLOCKED results remain preserved.
+
+## Next bounded scientific step
+
+No next scientific gate is currently preregistered or authorized by this recovery record.
+
+Any replay/adjudication of descendants that depended on the legacy degree-six source requires its own prospective gate before implementation or evidence consumption. Do not silently rewrite historical results, fit normalization/sign/basis/embedding after seeing evidence, or infer global/all-orders/quantum closure from Iter057AT.
 
 ## Frozen KMQGB interface
 
