@@ -1,0 +1,35 @@
+name: QGR programme KMQGB interface pin probe
+on:
+  push:
+    paths:
+      - '.github/workflows/qgr-programme-interface-pin-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pin:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout QGR
+        uses: actions/checkout@v4
+      - name: Checkout pinned KMQGB
+        uses: actions/checkout@v4
+        with:
+          repository: pppuu7-cmd/Known-Models-Quantum-Gravity-Benchmark
+          ref: d23f34cba57b220dd29474c0651bc727d6d85eae
+          path: _kmqgb
+      - name: Compute frozen interface hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "KMQGB_COMMIT=$(git -C _kmqgb rev-parse HEAD)"
+          sha256sum _kmqgb/schemas/candidate_gravity_record_v1_3.schema.json
+          sha256sum _kmqgb/templates/candidate_gravity_record_v1_3.template.json
+          sha256sum _kmqgb/code/kg_candidate_record_v13_validator.py
+          sha256sum _kmqgb/code/kg_candidate_record_validator.py
+          python - <<'PY'
+          import json
+          s=json.load(open('_kmqgb/recovery/state.json',encoding='utf-8'))
+          print('RQIR_CORE_VERSION='+str(s['rqir_core']['version']))
+          print('RQIR_CORE_STATUS='+str(s['rqir_core']['status']))
+          PY
