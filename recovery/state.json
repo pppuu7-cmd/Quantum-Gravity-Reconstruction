@@ -5,7 +5,7 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-17",
-    "iteration": "ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC",
+    "iteration": "ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN",
     "phase": "PROGRAMME_INFRASTRUCTURE_TERMINAL_100__SCIENCE_CONTINUES_INDEPENDENTLY"
   },
   "readiness": {
@@ -37,54 +37,28 @@
   },
   "science_sync": {
     "last_terminal_science": "ITER057AT",
-    "next_preregistered_science": "ITER057AY",
-    "next_preregistered_status": "ACTIVE_NONTERMINAL_TECHNICAL_DIAGNOSTIC"
+    "last_terminal_technical_gate": "ITER057AY",
+    "next_preregistered_science": "ITER057AZ",
+    "next_preregistered_status": "PROSPECTIVELY_PREREGISTERED_NOT_YET_PRODUCED"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "b4f252298e4821b93b0ad01e797a1e6d41c5f58d",
-    "latest_terminal_result_commit": "62b003f636f5a71072cb187d9791d203886d3063",
-    "latest_terminal_result_kind": "TECHNICAL_DIAGNOSTIC_TERMINAL_FAIL",
-    "latest_terminal_technical_gate": "ITER057AX_HISTORICAL_TREE_CLEANLINESS_DIAGNOSTIC",
-    "latest_terminal_technical_classification": "FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
-    "latest_referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6",
-    "latest_referee_verdict": "CONFIRMED_SCOPED",
-    "latest_active_gate": "ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC",
-    "active_gate_status": "NON_TERMINAL_IN_PROGRESS",
-    "active_implementation_commit": "9d81441b06d62b12a983693c7bf9e8f715d21961",
-    "active_production_head": "0fdab1e5bcd91dd2018249a18a3b40739d2982e1",
-    "active_workflow": ".github/workflows/qgr-iter057ay-empty-dir-status.yml",
-    "active_actions_run": 35232316613,
+    "latest_preregistration_commit": "31def60c38017c8fd9595e1a2772bc75cad42aba",
+    "latest_terminal_result_commit": "defd025becf22b9087a4f66f13d2a38dc20880fc",
+    "latest_terminal_result_kind": "TECHNICAL_DIAGNOSTIC_TERMINAL_SCOPED_PASS",
+    "latest_terminal_technical_gate": "ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_DIAGNOSTIC",
+    "latest_terminal_technical_classification": "PASS_SCOPED_ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_REPRODUCED",
+    "latest_active_gate": "ITER057AZ_BYTE_SAFE_REPAIR_CLEANLINESS_REDESIGN",
+    "active_gate_status": "PROSPECTIVELY_PREREGISTERED_NOT_YET_PRODUCED",
+    "active_implementation_commit": null,
+    "active_production_head": null,
+    "active_workflow": null,
+    "active_actions_run": null,
     "active_job": null,
-    "last_terminal_production_actions_run": 35223711465,
-    "last_terminal_production_artifact": 10498825822,
-    "last_terminal_production_artifact_digest": "sha256:8217927c0bf3ce21f61e9733b98d2ac10e46073d69a77c1cb0439170d6efca2a"
+    "last_terminal_production_actions_run": 35232316613,
+    "last_terminal_production_artifact": 10502222783,
+    "last_terminal_production_artifact_digest": "sha256:2fde0094b549c202eb6d7d0cd0761020802e37ae3eae7008629958a931b017a8"
   },
   "preserved_authority": {
-    "iter057af": {
-      "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_PRODUCTION_CONSUMED",
-      "rank_B": 1110,
-      "rank_augmented_B_minus_O0": 1111
-    },
-    "iter057ak": {
-      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_REPRODUCED",
-      "terminal_commit": "103bed01316acf4310327bcbe9b6007bd45ce2e5"
-    },
-    "iter057an": {
-      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_INDEPENDENTLY_REPRODUCED",
-      "terminal_commit": "e424b28431d5235d6fe0ee4a462b11912670b1fe"
-    },
-    "iter057ao": {
-      "status": "TERMINAL_SCOPED_PASS_COVARIANT_VARIATION_CERTIFIED",
-      "durable_result_commit": "3246b31fde58d061f7e35cbc6be22236d1c7b2a8"
-    },
-    "iter057ap": {
-      "status": "TERMINAL_SCIENTIFIC_FAIL_EXACT_NO_REFIT_COMPARISON",
-      "durable_result_commit": "2ccf15108b889cef25e1b90af7f8a7127b2d83be"
-    },
-    "iter057aq": {
-      "status": "TERMINAL_SCOPED_PASS_EXACT_PRODUCTION_CONSUMED",
-      "durable_result_commit": "de82fe82c8f3f40854c81d7cb3e0e5d490a153a4"
-    },
     "iter057ar": {
       "status": "TERMINAL_BLOCKED_REPAIRED_PRIMARY_FROZEN_2100_SLOT_OBJECT_NOT_REALIZED",
       "durable_result_commit": "414168c3083e0137b952a0c290f4b54030f16445",
@@ -105,15 +79,9 @@
       "actions_run": 35198813733,
       "artifact": 10486973737,
       "artifact_digest": "sha256:bdb5affc949803e692d3680864746daa0c4175324d85e1ce7426d1b719621bb6",
-      "terminal_payload_sha256": "9359413858a8887b0442aba56fba14576d37be87ce51fec80659758cc7a1bd8a",
-      "primary_vector_sha256": "5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b",
-      "independent_vector_sha256": "5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b",
       "slot_count": 840,
-      "historical_target_loaded": false,
       "c6_status": "SYMBOLIC_UNFIXED_FACTORED_OUT",
-      "classification": "PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED",
-      "referee_verdict": "CONFIRMED_SCOPED",
-      "referee_review_commit": "5d03f13fbc08004159ad8cbc7aa8c0eb20a035c1"
+      "classification": "PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED"
     },
     "iter057au": {
       "status": "TERMINAL_BLOCKED_UNRESOLVED_PROVENANCE",
@@ -121,82 +89,64 @@
       "implementation_commit": "30aa968631d3c7f0ea82ea054b2abb14492748b3",
       "production_head": "683b5f79899fc4a5677168cd7fd90d098cbc411e",
       "actions_run": 35204162456,
-      "workflow_conclusion": "failure",
       "artifact": 10488818748,
-      "artifact_digest": "sha256:2a8734dbc27fec1787318f017117fd82f8b2a433d346327a989892bdd10d33fc",
       "durable_result_commit": "c299683e28289788c53797e5ede1cafaf09f5431",
       "classification": "BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE",
-      "terminal_reason": "missing independent lane payload(s): ['primary', 'independent']",
       "descendant_science_replayed": false
     },
     "iter057av": {
       "status": "TERMINAL_TECHNICAL_FAIL_REPRODUCIBLE_EXECUTION_DEFECT_REFEREE_CONFIRMED_SCOPED",
       "preregistration_commit": "bfb6f31b9385d076695d7c3d199bf7da7b06bcc4",
-      "frozen_au_implementation_commit": "30aa968631d3c7f0ea82ea054b2abb14492748b3",
-      "frozen_au_census_commit": "616859890df95057556d265612c53da839a5848a",
-      "production_head": "f92d67e6f1c8f619c8f0c8292bbd313ca6c7fdb7",
       "actions_run": 35214572158,
-      "workflow_conclusion": "success",
-      "artifact": 10493153837,
-      "artifact_digest": "sha256:c1d2543242706c0792f7be4aa9a688dd204bf27b38967759b897c3ed1fc14668",
       "classification": "FAIL_TECHNICAL_ITER057AV_REPRODUCIBLE_FROZEN_AU_EXECUTION_DEFECT_IDENTIFIED",
-      "error_fingerprint": "2e83cbb6d0067e4b904632c372571ead9243f9a04b12e289e770f9bdbac84be1",
-      "stderr_sha256": "5517e7214732554985e70e5b8e208f9b25a3cd2679e47349ec28866a92926ef0",
-      "normalized_error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8a in position 287: invalid start byte",
-      "descendant_science_consumed": false,
-      "iter057au_reclassified": false,
-      "referee_verdict": "CONFIRMED_SCOPED",
-      "referee_review_commit": "0a4a4ea8aa1ce4b88bdd83b501c4c9db321e92a6"
+      "descendant_science_consumed": false
     },
     "iter057aw": {
       "status": "TERMINAL_TECHNICAL_FAIL_BYTE_SAFE_REPAIR_CONTROL_FAILURE_REFEREE_CONFIRMED_SCOPED",
       "preregistration_commit": "4a137c9cc17858fb8e43875d169dc0a28ae3bb1d",
       "implementation_commit": "1c4963a4bcc84a5bf331f0173c76b05d7a6a1864",
-      "production_head": "c9f6422245e652caaecfbaa8cef8e91b1361af85",
       "actions_run": 35220098375,
-      "workflow_conclusion": "success",
-      "artifact": 10496493918,
-      "artifact_digest": "sha256:c85315aa4e396fe77d8e828f00ffdd0303f2557716a2c9f7688febb4f9d85d11",
       "classification": "FAIL_TECHNICAL_ITER057AW_BYTE_SAFE_REPAIR_CONTROL_FAILURE",
       "failed_control": "historical_result_tree_clean",
-      "descendant_science_consumed": false,
-      "iter057au_reclassified": false,
-      "referee_verdict": "CONFIRMED_SCOPED"
+      "descendant_science_consumed": false
     },
     "iter057ax": {
       "status": "TERMINAL_TECHNICAL_FAIL_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
       "preregistration_commit": "c81223eec7c972a2643a564ec99e9684766eeee4",
-      "production_head": "03472765cf27ac2a1534ac3546f17ed4d9e3bbc6",
       "actions_run": 35223711465,
-      "workflow_conclusion": "success",
-      "artifact": 10498825822,
-      "artifact_digest": "sha256:8217927c0bf3ce21f61e9733b98d2ac10e46073d69a77c1cb0439170d6efca2a",
       "durable_result_commit": "62b003f636f5a71072cb187d9791d203886d3063",
       "classification": "FAIL_TECHNICAL_ITER057AX_CLEANLINESS_ATTRIBUTION_NOT_ESTABLISHED",
-      "lane_count": 2,
-      "terminal_reason": "frozen attribution controls or independent reproduction failed",
-      "individual_failed_control_exposed_by_terminal": false,
-      "descendant_science_replayed_or_consumed": false,
-      "iter057au_reclassified": false,
-      "iter057aw_reclassified": false
+      "descendant_science_replayed_or_consumed": false
     },
     "iter057ay": {
-      "status": "ACTIVE_NONTERMINAL_TARGET_BLIND_TECHNICAL_DIAGNOSTIC",
+      "status": "TERMINAL_SCOPED_PASS_TARGET_BLIND_TECHNICAL_DIAGNOSTIC",
       "preregistration_commit": "b4f252298e4821b93b0ad01e797a1e6d41c5f58d",
       "implementation_commit": "9d81441b06d62b12a983693c7bf9e8f715d21961",
       "production_head": "0fdab1e5bcd91dd2018249a18a3b40739d2982e1",
       "actions_run": 35232316613,
-      "workflow_status_at_last_check": "in_progress",
-      "frozen_aw_implementation_commit": "1c4963a4bcc84a5bf331f0173c76b05d7a6a1864",
+      "workflow_conclusion": "success",
+      "artifact": 10502222783,
+      "artifact_digest": "sha256:2fde0094b549c202eb6d7d0cd0761020802e37ae3eae7008629958a931b017a8",
+      "durable_result_commit": "defd025becf22b9087a4f66f13d2a38dc20880fc",
+      "classification": "PASS_SCOPED_ITER057AY_EMPTY_DIRECTORY_GIT_STATUS_SEMANTICS_REPRODUCED",
+      "lane_count": 2,
+      "all_controls_pass": true,
+      "normalized_agreement": true,
+      "normalized_sha256": "ce448d6807e8861e0708bafcacb644eb3cbb465a472f9086d12ac111835d6123",
       "descendant_science_consumed": false
+    },
+    "iter057az": {
+      "status": "PROSPECTIVELY_PREREGISTERED_NOT_YET_PRODUCED",
+      "preregistration_commit": "31def60c38017c8fd9595e1a2772bc75cad42aba",
+      "classification": null
     }
   },
   "active_question": {
-    "id": "ITER057AY-EMPTY-DIRECTORY-GIT-STATUS-SEMANTICS",
-    "text": "Do two independent target-blind lanes establish that the exact Iter057AX attribution failure is caused by Git porcelain omitting an empty untracked iter057aw-output directory until a sentinel file exists?"
+    "id": "ITER057AZ-BYTE-SAFE-REPAIR-CLEANLINESS-REDESIGN",
+    "text": "Can a prospectively defined tracked-history cleanliness predicate certify a byte-safe provenance-reader repair in two independent target-blind lanes without consuming descendant science?"
   },
-  "active_blocker": "Iter057AY production run 35232316613 is non-terminal; no lane or partial aggregate output is authoritative until the frozen terminal artifact exists.",
-  "next_gate_lock": "ACTIVE_ITER057AY__NEXT_RUN_CHECK_ONLY_RUN_35232316613_AT_HEAD_0fdab1e5bcd91dd2018249a18a3b40739d2982e1__IF_NONTERMINAL_STATUS_ONLY__IF_TERMINAL_CONSUME_ONLY_ITER057AY_TERMINAL_ARTIFACT_AND_FROZEN_PREREGISTRATION__DO_NOT_RERUN_ITER057AU_OR_CONSUME_DESCENDANT_SCIENCE",
+  "active_blocker": "No active Actions run. Iter057AZ is preregistered but not yet implemented/produced.",
+  "next_gate_lock": "Implement only frozen Iter057AZ controls from commit 31def60c38017c8fd9595e1a2772bc75cad42aba. If computation is nontrivial, launch a fail-fast:false two-lane Actions matrix and stop without waiting. Do not change Iter057AU/AW/AX classifications or consume descendant science.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
