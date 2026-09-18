@@ -1,0 +1,103 @@
+name: QGR Weyl3 A7 dual-polynomial connection sign adjudication
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/weyl3-a7-connection-dual-poly.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Verify frozen dual-polynomial sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_connection_dual_polynomial_source_lock.py \
+            --binding preregistrations/COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_EXECUTION_BINDING.json \
+            --output artifacts/source-lock/source_lock.json \
+            | tee artifacts/source-lock/source_lock.log
+          sha256sum artifacts/source-lock/source_lock.json artifacts/source-lock/source_lock.log > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-dual-poly-source-lock
+          path: artifacts/source-lock/
+          if-no-files-found: error
+
+  extraction:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Freeze neutral dual-polynomial extraction
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/extraction
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_connection_dual_polynomial.py \
+            --output artifacts/extraction/extraction.json \
+            | tee artifacts/extraction/extraction.log
+          sha256sum artifacts/extraction/extraction.json artifacts/extraction/extraction.log > artifacts/extraction/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-dual-poly-extraction
+          path: artifacts/extraction/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [source_lock, extraction]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Prepare terminal directories
+        run: mkdir -p artifacts/all/extraction artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: weyl3-a7-dual-poly-extraction
+          path: artifacts/all/extraction
+      - name: Frozen sign comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          if test -f artifacts/all/extraction/extraction.json; then
+            python scripts/qgr_covariant_weyl3_a7_connection_dual_polynomial_terminal.py \
+              --extraction artifacts/all/extraction/extraction.json \
+              --output artifacts/terminal/terminal.json \
+              | tee artifacts/terminal/terminal.log
+            rc=${PIPESTATUS[0]}
+          else
+            python -c 'import hashlib,json,pathlib; p={"gate":"COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required extraction artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}; p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest(); pathlib.Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\\n"); print(json.dumps(p,sort_keys=True,indent=2))'
+            cp artifacts/terminal/terminal.json artifacts/terminal/terminal.log
+            rc=2
+          fi
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-dual-poly-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - name: Block only execution or provenance failure
+        shell: bash
+        run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
