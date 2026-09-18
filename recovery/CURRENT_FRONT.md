@@ -30,20 +30,34 @@ Durable result commit: `feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea`.
 
 ## Active next task
 
-The same-A7 lower-order decomposition gate is now prospectively frozen by preregistration commit `a8c7bd1bd5280f18aa50955b4cd847b707c178ab`: `COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION`.
+The lower-order causal-localization gate is now terminal.
 
-Preserve the existing A7 jet/counterexample, exact arithmetic, parent discrepancy, `c6=SYMBOLIC_UNFIXED`, and all scientific locks. Implement two independent exact lanes that serialize the frozen lower-order contribution classes target-blind before comparison and require their exact sum to reconstruct the parent discrepancy. No witness/sign/normalization/threshold/target changes after inspection. Do not start a third symmetry reduction.
+Authoritative run: `35403445578`.
+Durable terminal result commit: `6ccfededab41dbe01b071916a5aa746491273276`.
+Classification: `LOWER_ORDER_LOCALIZED_EXACT`.
 
-Operational implementation decomposition is now additionally frozen by commit `f0081e60056106b0eac916b6f207ad03fc113233`. It fixes the ordered first-divergence comparator, Researcher scalar-test ledger, independent Critic P/Palatini reconstruction semantics, and covariantization accounting before lower-order production.
+Exact ordered result:
+- `LOWER_ORDER_CURVATURE_VARIATION_BEFORE_IBP`: MATCH;
+- pointwise first-derivative coefficients `Fi`: MATCH;
+- `FIRST_DERIVATIVE_IBP_TRANSFER`: **FIRST EXACT DIVERGENCE**;
+- `SECOND_DERIVATIVE_LOWER_ORDER_IBP`: MATCH, with A7 principal control still exact;
+- downstream connection/covariantization classes differ, but are downstream of the frozen first divergence;
+- `ALGEBRAIC_EULER_TERM`: NOT REACHED.
 
-A7 provenance distinction: terminal artifact ZIP digest remains `sha256:b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067`; raw `terminal.json` SHA256 is `4ca6db44afb8e6d7a263bf36ebcc2bd633813a1947aaf8e63681ae4c2c9cbe02`; canonical self-hash field remains `9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d`.
+Frozen Stage-3 scalar transfer difference:
+`-86355995554365317186893343264769708206041673/20078237934709401683903064632959076352000000`.
 
-Current-task completion: 76% for the covariant functional-derivative programme: A7 is durable, the lower-order gate and implementation decomposition are frozen, and independent lane implementation / execution binding / production remain.
+The immutable per-coordinate transfer ledger shows the smallest ordered slot is `i=0`, already nonzero:
+`-433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000`.
+
+Both class sums reconstruct their parent totals exactly and the class-difference sum exactly reconstructs the frozen parent discrepancy. Source lock, target-blind serialization, exact arithmetic, volume control, principal control, c6 lock, and Q10 lock all passed.
+
+No repair is authorized. The next admissible task is to prospectively freeze one narrow product-rule decomposition of `-d_0 F_0` into derivative-on-background-coefficient, derivative-on-h-jet, and explicitly defined connection/covariantization completion pieces, then locate the first exact subterm divergence.
 
 ## Infrastructure note
 
-Infrastructure run `35377316267`, head `2e368b143b21c02b30609c3cef10e1b4229e9bad`, job `105704946390`, artifact `10560603314`, digest `sha256:fd4873147f328b82275fc1779f328fa319f4321fa1e5f3226635f5501e62d805`, failed at clean-session recovery because that intermediate state omitted the required `recovery_sync` object. This is an infrastructure/recovery defect, not a scientific result. Recovery has now been restored and aligned with preregistration `a8c7bd1...`.
+The initial PR #33 event before scientific execution created no Actions run because the workflow terminal fallback contained invalid YAML heredoc indentation. Prospective execution-only repair was frozen in `a9fd6e1aeb80f4c638f7950f40363a776f5c98ac`, applied in `395c62ca147e2979252c183a43843b7db9aa8adc`, and the execution binding was refreshed in `c54217accd99acbcb47fc9f4eb82d7c9f05649b4`. No scientific job ran before that repair.
 
 ## Locks
 
-Corrected degree-eight coefficients and corrected Q10 remain LOCKED. `c6=SYMBOLIC_UNFIXED`. `beta=1` unauthorized. `theory_established=0%`. No experimental confirmation. Finite/symmetry-reduced panels are not global theorems. G45 does not prove absolute energy positivity or quantum unitarity. G35-G37 distant roots do not authorize physical weights. KMQGB `NEW_REQUIRED` is not authorized. No nonlinear-completion, continuum/refinement, quantum-measure, regulator-removal, UV-completion, unique-theory, new-physics, or global-QGR claim is authorized.
+Corrected degree-eight coefficients and corrected Q10 remain LOCKED. `c6=SYMBOLIC_UNFIXED`. `beta=1` unauthorized. `theory_established=0%`. No experimental confirmation. Finite/symmetry-reduced panels are not global theorems. No quantum-unitarity, UV-completion, physical-c6, new-physics, or global-QGR claim is authorized.
