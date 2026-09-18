@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-18",
     "iteration": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
-    "phase": "IMPLEMENTATION_DECOMPOSITION_BOUND"
+    "phase": "EXECUTION_AUTHORITY_BOUND"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -22,16 +22,21 @@
     "last_terminal_run": 35368354816,
     "last_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
     "next_preregistered_science": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
-    "next_preregistered_status": "IMPLEMENTATION_DECOMPOSITION_BOUND"
+    "next_preregistered_status": "READY_FOR_SINGLE_PRODUCTION"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "a8c7bd1bd5280f18aa50955b4cd847b707c178ab",
     "latest_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
     "latest_terminal_result_kind": "SCOPED_EXACT_LOCALIZATION_NONPASS",
     "latest_active_gate": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
-    "active_gate_status": "IMPLEMENTATION_DECOMPOSITION_BOUND",
+    "active_gate_status": "READY_FOR_SINGLE_PRODUCTION",
     "active_actions_run": null,
-    "latest_implementation_binding_commit": "f0081e60056106b0eac916b6f207ad03fc113233"
+    "latest_implementation_binding_commit": "f0081e60056106b0eac916b6f207ad03fc113233",
+    "latest_implementation_commit": "6731f3e48f906ae2c24cfe3e3c47c6df8b2d97ae",
+    "latest_terminal_comparator_commit": "55ed4370c5c507af74437820a3e5d2577ee397fa",
+    "latest_source_lock_commit": "6b07e3483ba9b96c601bb2b4fb3429f4c765f931",
+    "latest_workflow_commit": "fbf9dab312911b336e2945905b8d9b001c12b782",
+    "latest_execution_binding_commit": "31c5763cf55b377583b237c152c881bf83079119"
   },
   "latest_terminal": {
     "gate": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
@@ -78,8 +83,8 @@
     "id": "COVARIANT-WEYL3-A7-LOWER-ORDER-COVARIANTIZATION-IBP-LOCALIZATION",
     "text": "On the same frozen A7 off-shell counterexample, which exact lower-order covariantization, connection-variation, or integration-by-parts contribution accounts for the surviving parent discrepancy after principal-symbol and metric-volume agreement?"
   },
-  "active_blocker": "No scientific blocker is classified yet. The lower-order gate and its operational decomposition are frozen; independent Researcher/Critic implementation, execution binding, production, and terminal comparison remain pending.",
-  "next_gate_lock": "Implement only preregistration a8c7bd1bd5280f18aa50955b4cd847b707c178ab under decomposition binding f0081e60056106b0eac916b6f207ad03fc113233. Preserve OFFSHELL_A/d=7, exact arithmetic, parent discrepancy, target-blind serialization, c6=SYMBOLIC_UNFIXED, and corrected Q10 LOCKED. No post-hoc regrouping or scientific weakening.",
+  "active_blocker": "No scientific blocker is classified. Independent lower-order Researcher/Critic implementations, terminal comparator, source lock, workflow, and exact execution binding are frozen. One production remains to be launched and consumed.",
+  "next_gate_lock": "Launch exactly one execution-only PR from the bound main state using only .qgr-exec/weyl3-a7-lower-order.txt. Do not alter frozen science blobs. Consume immutable source-lock/Researcher/Critic/terminal artifacts and terminalize the preregistered classification before any repair.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
