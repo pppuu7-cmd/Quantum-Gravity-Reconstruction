@@ -8,30 +8,32 @@ Updated: 2026-09-18
 
 ## Preserved scientific authority
 
-Corrected Iter057Y remains the latest terminal scoped scientific authority: `PASS_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_EXACT_Q8_RESPONSE_EXISTS`, durable commit `eae9c35e408050fe1bff86e88e9492a6fcc6c8fc`, run `35267264898`, terminal payload SHA256 `490967663d088b9192ab9451946aedfb2322530b991e3d1e7be685650e6903ca`. Source convention remains `MAP_MINUS`.
+Corrected Iter057Y remains a terminal scoped scientific authority: `PASS_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_EXACT_Q8_RESPONSE_EXISTS`, durable commit `eae9c35e408050fe1bff86e88e9492a6fcc6c8fc`, run `35267264898`, terminal payload SHA256 `490967663d088b9192ab9451946aedfb2322530b991e3d1e7be685650e6903ca`. Source convention remains `MAP_MINUS`.
 
 Iter057AT remains the historical corrected homogeneous degree-six source authority with ordered 840-vector SHA256 `5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b`. `c6 = SYMBOLIC_UNFIXED`.
 
-## Latest terminal technical diagnostic
+## Latest terminal scientific result
 
-Gate `CORRECTED_DEGREE6_EINSTEIN_COMPLETED_QF_DEGREE_FLOW_ADJUDICATION`, preregistration `8a5e1e9186d8b8b81f401158b8ca04b38f05de66`, implementation `d05adf9ca82e2ace93ba855882527a24df7f362c`, production head `e0820a7df927f0f5ea5e52000819a63700a6d183`, run `35308873605`.
+Gate `CORRECTED_DEGREE6_EINSTEIN_COMPLETED_QF_DEGREE_FLOW_ADJUDICATION`, preregistration `8a5e1e9186d8b8b81f401158b8ca04b38f05de66`, repaired production head `082e1fffa9a72f93f1f821dfa1fe18090a6ef257`, authoritative repaired run `35312874182`.
 
-Jobs: Researcher `105486566618`, Critic `105486566794`, terminal `105487800741`.
+Jobs: Researcher `105498333038`, Critic `105498333413`, terminal `105506376570`.
 
-Artifacts/digests: Researcher `10532158219` / `sha256:5e23ff7159fecbb6c07b21adb64375bf30d3598892f141f74391625d0a44692f`; Critic `10532374414` / `sha256:2ff75bd588db7d56b71ce0991c98c5c7a3bc816b61d12db359bab797cf0cc70b`; terminal `10532652578` / `sha256:f3e9660379e45f8f662248f8db8e350f7a858d1773eb14c06f8cb42c7500fc40`.
+Artifacts/digests: Researcher `10535740061` / `sha256:c6b20fd328da102745652af5d3cca8fca2c4219b016b4b1597646167cff910fb`; Critic `10535270624` / `sha256:8068c3515156b3fd4527af0437017e46d349074a414e27c71805ad3e1068df01`; terminal `10535200266` / `sha256:8301b70b6e223d579c23c2bfffab4d35de7a782102ee2708b38cd4ec1a919d9e`.
 
-Frozen aggregate payload SHA256 `36b41368fd7d366239fb7d71000cc32da5d40bde2f1c8ce09c56198d97ba8dda`; classification `UNRESOLVED_EINSTEIN_COMPLETED_QF_DEGREE_FLOW`, `scientific_pass=false`, `lane_count=0`.
+Frozen aggregate payload SHA256 `64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797`; classification `QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED`, `scientific_pass=true`, `lane_count=2`, independent lanes exactly agree.
 
-Both independent lanes fail at the same execution-only representation defect in `build_terms`: historical `b.ETA` is the diagonal signature vector `(-1,1,1,1)`, but the new helper indexed it as `b.ETA[i][j]`. No scientific lane payload or QF ladder was produced. Durable result commit `07d72db99797ec39815e47551d96aa94088d34d9`.
+Both target-blind exact lanes pass the frozen R12 Einstein-completed seed controls (`inverse10_exact`, `Ricci10=0`, `scalar10=0`, `Einstein10=0`, exact R12 provenance, 469 completion rows), exact arithmetic, complete 840-slot outputs and complete term witnesses. The QF ladder changes first at QF8 and is stable from QF8 through QF10; QF6 exactly reproduces historical Iter057AT. Scoped interpretation only: QF8 is required for this frozen Einstein-completed exact degree-flow construction. This is not the complete 4D covariant Weyl^3 Euler-Lagrange theorem.
 
-## Active repair
+Durable result commit `c518f55ae9a9c584c00d5044a8ec48ae697074f2`.
 
-Before repair, execution-only eta-representation repair was prospectively frozen in commit `05fcb25b480433cb8623a2c5c5bb9816b6c6f76c`. The only authorized change is to materialize the diagonal eta matrix from the frozen signature vector; q=6..10, R12 seed, source operator, target, term/degree-flow witnesses, signs, normalization, thresholds and classifier are unchanged.
+## Active next gate
 
-Repair implementation commit `082e1fffa9a72f93f1f821dfa1fe18090a6ef257`. Push-triggered repaired production is pending registration/consumption. Green CI alone is not scientific PASS.
+Prospectively frozen before implementation: `COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE`, preregistration commit `8c21ee233423deaff52d0fa552c027fa065a53a7`.
 
-Current-task completion: 75% (parent terminal raw evidence consumed and durable, recovery synchronized, execution-only repair prospectively frozen and implemented; repaired raw lanes/frozen aggregate still pending).
+The gate forbids a third repetitive symmetry reduction. It requires two independent implementations of a genuinely 4D off-shell covariant directional variation of `sqrt(-g) Weyl^3` with `c6=SYMBOLIC_UNFIXED`, prospectively frozen nonsymmetric metric/perturbation jet seeds, explicit integration-by-parts bookkeeping, and exact comparison against the independently constructed covariant Euler-source contraction. PASS, if obtained, is explicitly scoped to the finite covariant witness panel and is not a global theorem.
+
+Current-task completion: 30% (parent terminal evidence consumed, durable result and recovery updated, next covariant gate prospectively frozen; implementation/production pending).
 
 ## Locks
 
-Corrected degree-eight coefficients and corrected Q10 remain LOCKED. QF8 is not authorized as required. `c6=SYMBOLIC_UNFIXED`. `beta=1` unauthorized. Finite/symmetry-reduced panels are not global theorems. G45 does not prove absolute energy positivity or quantum unitarity. G35-G37 distant roots do not authorize physical weights. KMQGB `NEW_REQUIRED` is not authorized. No nonlinear-completion, continuum/refinement, quantum-measure, regulator-removal, UV-completion, unique-theory, new-physics, or global-QGR claim is authorized.
+Corrected degree-eight coefficients and corrected Q10 remain LOCKED. `c6=SYMBOLIC_UNFIXED`. `beta=1` unauthorized. Finite/symmetry-reduced panels are not global theorems. G45 does not prove absolute energy positivity or quantum unitarity. G35-G37 distant roots do not authorize physical weights. KMQGB `NEW_REQUIRED` is not authorized. No nonlinear-completion, continuum/refinement, quantum-measure, regulator-removal, UV-completion, unique-theory, new-physics, or global-QGR claim is authorized.
