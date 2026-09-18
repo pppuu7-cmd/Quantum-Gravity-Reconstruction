@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
-    "phase": "PROSPECTIVELY_PREREGISTERED"
+    "phase": "EXECUTION_AUTHORITY_BOUND"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -22,22 +22,24 @@
     "last_terminal_run": 35404041767,
     "last_terminal_result_commit": "07ad77de0506a3de5e7db601e2cfc8b5edc37c5c",
     "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
-    "next_preregistered_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED"
+    "next_preregistered_status": "READY_FOR_SINGLE_PRODUCTION"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "d76dea1d511d0f7fa99b057866ef44fd797a1fc6",
     "latest_terminal_result_commit": "07ad77de0506a3de5e7db601e2cfc8b5edc37c5c",
     "latest_terminal_result_kind": "EXACT_CAUSAL_LOCALIZATION",
     "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
-    "active_gate_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED",
+    "active_gate_status": "READY_FOR_SINGLE_PRODUCTION",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
     "latest_critic_implementation_commit": "ab79af9aa381fef6f673f3391fe163e6c3570b40",
-    "latest_terminal_comparator_commit": "4372339c33cf55889d3d66648384e1cf15329408",
-    "latest_source_lock_commit": "9ed9117146f7e548c574b3d0a946f68f4b2dca1b",
-    "latest_workflow_commit": "7d23024739ec7d06b143bba9137bf52b1560d66f",
-    "latest_execution_binding_commit": "c48cbf206a14d1d605ec027a9f46518bf6959ff7"
+    "latest_terminal_comparator_commit": "40c36307cc9c26bb3274cfa8144e0acbdcfd59af",
+    "latest_source_lock_commit": "b01cf30670535009372f7e64c77c8ad72e7ad830",
+    "latest_workflow_commit": "f522fcb0ea89768133f5833a27c81c4174aba3a7",
+    "latest_execution_binding_commit": "fd89a9143570fc3345a9623d99bb653977cdb270",
+    "latest_lane_a_implementation_commit": "fe2e507eaa8ba677c5c0c0babd09760e82dfdd86",
+    "latest_lane_b_implementation_commit": "32add1d35b6e04dfdf6563a8ac988354a57a3189"
   },
   "latest_terminal": {
     "gate": "COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_CAUSAL_AUDIT",
@@ -100,8 +102,8 @@
     "id": "COVARIANT-WEYL3-A7-CONNECTION-JET-IDENTITY-ADJUDICATION",
     "text": "At frozen OFFSHELL_A/d=7 and first Fi-jet slot (0,0), does an independently derived covariant connection-jet identity agree with the Researcher quadratic-connection derivative, with the Critic zero connection source, or with neither?"
   },
-  "active_blocker": "No scientific blocker classified. Independent connection-identity Lane A/Lane B implementations, source lock, execution binding, and production remain.",
-  "next_gate_lock": "Implement only preregistration d76dea1d511d0f7fa99b057866ef44fd797a1fc6 on OFFSHELL_A/d=7/(i,j)=(0,0). Lane A tensor-Hessian and Lane B direct GammaGamma must serialize before target comparison. No repair in this gate.",
+  "active_blocker": "No scientific blocker classified. Both independent connection-identity derivations, source lock, comparator, workflow, and execution binding are frozen. One sentinel-only production remains.",
+  "next_gate_lock": "Launch exactly one production for preregistration d76dea1d511d0f7fa99b057866ef44fd797a1fc6 under execution binding fd89a9143570fc3345a9623d99bb653977cdb270. Do not change frozen identity scripts. Consume immutable artifacts and terminalize before any correction.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
