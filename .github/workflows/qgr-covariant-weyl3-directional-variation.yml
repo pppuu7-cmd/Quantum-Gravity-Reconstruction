@@ -1,0 +1,153 @@
+name: QGR covariant Weyl3 directional-variation certificate
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/covariant-weyl3-directional-variation.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Freeze panel manifest and static independence audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          PYTHONPATH=code python code/qgr_covariant_weyl3_panel.py | tee artifacts/source-lock/panel.json
+          PYTHONPATH=code python scripts/qgr_covariant_weyl3_static_audit.py             --researcher scripts/qgr_covariant_weyl3_researcher.py             --critic scripts/qgr_covariant_weyl3_critic.py             --panel code/qgr_covariant_weyl3_panel.py             --output artifacts/source-lock/static-audit.json | tee artifacts/source-lock/static-audit.log
+          sha256sum             code/qgr_covariant_weyl3_panel.py             scripts/qgr_covariant_weyl3_researcher.py             scripts/qgr_covariant_weyl3_critic.py             scripts/qgr_covariant_weyl3_terminal_compare.py             scripts/qgr_covariant_weyl3_static_audit.py             > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: covariant-weyl3-source-lock
+          path: artifacts/source-lock/
+          if-no-files-found: error
+
+  researcher:
+    needs: source_lock
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {seed: FLAT_CONTROL, direction: 7}
+          - {seed: FLAT_CONTROL, direction: 19}
+          - {seed: OFFSHELL_A, direction: 7}
+          - {seed: OFFSHELL_A, direction: 19}
+          - {seed: OFFSHELL_B, direction: 7}
+          - {seed: OFFSHELL_B, direction: 19}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Researcher direct variation and explicit IBP
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p artifacts/researcher
+          base="${{ matrix.seed }}-${{ matrix.direction }}"
+          set +e
+          PYTHONPATH=code python scripts/qgr_covariant_weyl3_researcher.py             --seed "${{ matrix.seed }}" --direction "${{ matrix.direction }}"             --output "artifacts/researcher/${base}.json" | tee "artifacts/researcher/${base}.log"
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "${rc}" > "artifacts/researcher/${base}.exit"
+          sha256sum "artifacts/researcher/${base}.json" "artifacts/researcher/${base}.log" "artifacts/researcher/${base}.exit" > "artifacts/researcher/${base}.sha256"
+          exit "${rc}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: covariant-researcher-${{ matrix.seed }}-${{ matrix.direction }}
+          path: artifacts/researcher/
+          if-no-files-found: error
+
+  critic:
+    needs: source_lock
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {seed: FLAT_CONTROL, direction: 7}
+          - {seed: FLAT_CONTROL, direction: 19}
+          - {seed: OFFSHELL_A, direction: 7}
+          - {seed: OFFSHELL_A, direction: 19}
+          - {seed: OFFSHELL_B, direction: 7}
+          - {seed: OFFSHELL_B, direction: 19}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Critic independent covariant Euler source
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p artifacts/critic
+          base="${{ matrix.seed }}-${{ matrix.direction }}"
+          set +e
+          PYTHONPATH=code python scripts/qgr_covariant_weyl3_critic.py             --seed "${{ matrix.seed }}" --direction "${{ matrix.direction }}"             --output "artifacts/critic/${base}.json" | tee "artifacts/critic/${base}.log"
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "${rc}" > "artifacts/critic/${base}.exit"
+          sha256sum "artifacts/critic/${base}.json" "artifacts/critic/${base}.log" "artifacts/critic/${base}.exit" > "artifacts/critic/${base}.sha256"
+          exit "${rc}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: covariant-critic-${{ matrix.seed }}-${{ matrix.direction }}
+          path: artifacts/critic/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [source_lock, researcher, critic]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Prepare comparison directories
+        run: mkdir -p artifacts/all/researcher artifacts/all/critic artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: covariant-researcher-*
+          path: artifacts/all/researcher
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: covariant-critic-*
+          path: artifacts/all/critic
+          merge-multiple: true
+      - name: Frozen exact terminal comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          python scripts/qgr_covariant_weyl3_terminal_compare.py             --researcher-dir artifacts/all/researcher             --critic-dir artifacts/all/critic             --output artifacts/terminal/terminal.json | tee artifacts/terminal/terminal.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: covariant-weyl3-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - name: Block only invalid or execution-blocked terminal state
+        shell: bash
+        run: |
+          test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
