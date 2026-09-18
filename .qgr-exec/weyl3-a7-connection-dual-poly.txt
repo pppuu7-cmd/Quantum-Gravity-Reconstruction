@@ -1,0 +1,4 @@
+COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION
+preregistration=ed829c5f60f2fad6a308ec3f9c50695a6777567e
+execution_binding=c4805111dacbf13dd08842eb012eb384abec69a7
+frozen_counterexample=OFFSHELL_A/d=7/(i,j)=(0,0)
