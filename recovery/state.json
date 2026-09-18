@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_A7_CONNECTION_SIGN_ORIENTATION_ADJUDICATION",
-    "phase": "TERMINAL_CONNECTION_IDENTITY_DISAGREEMENT__SUCCESSOR_PREREG_REQUIRED"
+    "iteration": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
+    "phase": "EXECUTION_AUTHORITY_BOUND"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -21,25 +21,26 @@
     "last_terminal_scientific_pass": false,
     "last_terminal_run": 35404489570,
     "last_terminal_result_commit": "267743ee78ea0ebd51fd697003cc1207a9d9032b",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "PROSPECTIVE_SUCCESSOR_REQUIRED"
+    "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
+    "next_preregistered_status": "READY_FOR_SINGLE_PRODUCTION"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "d76dea1d511d0f7fa99b057866ef44fd797a1fc6",
+    "latest_preregistration_commit": "ed829c5f60f2fad6a308ec3f9c50695a6777567e",
     "latest_terminal_result_commit": "267743ee78ea0ebd51fd697003cc1207a9d9032b",
     "latest_terminal_result_kind": "EXACT_IDENTITY_DERIVATION_DISAGREEMENT",
-    "latest_active_gate": null,
-    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
+    "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
+    "active_gate_status": "READY_FOR_SINGLE_PRODUCTION",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
     "latest_critic_implementation_commit": "ab79af9aa381fef6f673f3391fe163e6c3570b40",
-    "latest_terminal_comparator_commit": "40c36307cc9c26bb3274cfa8144e0acbdcfd59af",
-    "latest_source_lock_commit": "b01cf30670535009372f7e64c77c8ad72e7ad830",
-    "latest_workflow_commit": "f522fcb0ea89768133f5833a27c81c4174aba3a7",
-    "latest_execution_binding_commit": "fd89a9143570fc3345a9623d99bb653977cdb270",
+    "latest_terminal_comparator_commit": "6538638ccd8ac4591386aa94c3f94b951322c3cb",
+    "latest_source_lock_commit": "2f71cb4a6bb48278e52c47946bfc6b7e4653658c",
+    "latest_workflow_commit": "000f1eabab35496d2be1419b03986dd926fb5a91",
+    "latest_execution_binding_commit": "c4805111dacbf13dd08842eb012eb384abec69a7",
     "latest_lane_a_implementation_commit": "fe2e507eaa8ba677c5c0c0babd09760e82dfdd86",
-    "latest_lane_b_implementation_commit": "32add1d35b6e04dfdf6563a8ac988354a57a3189"
+    "latest_lane_b_implementation_commit": "32add1d35b6e04dfdf6563a8ac988354a57a3189",
+    "latest_extraction_implementation_commit": "282b3f9ec0dd9ef90011b41b5975775e0b8cf449"
   },
   "latest_terminal": {
     "gate": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
@@ -95,8 +96,8 @@
     "id": "COVARIANT-WEYL3-A7-CONNECTION-SIGN-ORIENTATION-ADJUDICATION",
     "text": "Which sign/orientation is required by direct exact extraction from the frozen repository Riemann GammaGamma definition, without reusing either hand-expanded connection identity?"
   },
-  "active_blocker": "A prospective direct polynomial-extraction successor must be frozen before execution. No connection-term repair is authorized.",
-  "next_gate_lock": "Use the same OFFSHELL_A/d=7/(0,0) witness and frozen P. Build the perturbed metric g+epsilon*h*phi with phi=x0 in an independent exact truncated polynomial algebra; extract the epsilon*x0 coefficient of the repository GammaGamma Riemann term and only then compare to frozen Lane A/Lane B values.",
+  "active_blocker": "No scientific blocker classified. The neutral dual-polynomial extraction, target-blind source lock, comparator, workflow, and execution identities are frozen. One sentinel-only production remains.",
+  "next_gate_lock": "Launch exactly one production under preregistration ed829c5f60f2fad6a308ec3f9c50695a6777567e and execution binding c4805111dacbf13dd08842eb012eb384abec69a7. Do not change frozen extraction code. Consume immutable artifacts and terminalize sign orientation before any correction.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
