@@ -14,25 +14,23 @@ Iter057AT remains the historical corrected homogeneous degree-six source authori
 
 ## Latest terminal diagnostic
 
-Gate `CORRECTED_DEGREE6_QF_DEGREE_BUDGET_CAUSAL_ADJUDICATION`, original preregistration `10643a75f85da4ea447d00115006d78714ecfa24`, execution-only repair preregistration `eac1aa993256876a9e1fe86721eda741b5920dc4`, authoritative repaired run `35293395248`, head `70181617c4b9db90d40976052d8c72cc91985865`.
+Gate `CORRECTED_DEGREE6_QF_DEGREE_FLOW_COMPLETENESS_REPAIR`, preregistration `10dc35e623278c7726b3822096d289e16b1765dd`, implementation `bce8e5f30727a5eb3a1c91161ed6092fb6c76b15`, production head `7decb60569b0d4e3053f50da8115ac686c06f369`, authoritative run `35301177140`.
 
-Jobs: Researcher `105440863046`, Critic `105440863307`, terminal `105447170826`.
+Jobs: Researcher `105463930144`, Critic `105463930354`, terminal `105464042994`.
 
-Artifacts/digests: Researcher `10527787236` / `sha256:ee33eeb76c16f960537d7390b3556a2ee802bbaea4b972e684a9045502bbbe21`; Critic `10528211790` / `sha256:abdd7c2eadc0db1ab09cba0ec02972a84eed1d1a9a941d954e46a7b196592839`; terminal `10527582423` / `sha256:57ede639ce1ae2760a5e9b8ada441662e2a4e15772836cc32f0d057e72d2b4f5`.
+Artifacts/digests: Researcher `10529957015` / `sha256:64c9d3791ef809cd6b6c02e1c31634e9160b15e5ec7ba6a87774393d2ebcfda3`; Critic `10530261435` / `sha256:83e464272cd047457a30d4ca7a9ca6b119ec7734e7bd4ef21be5c4b8cf309264`; terminal `10530271446` / `sha256:10a830253c001ae4156c9decc67077c999acd2634c4e8bdf50867aadc67533c1`.
 
-Terminal payload SHA256 `73a4158058a2313666c33fa3c0c6b17d0404dab531eb8bb91af6ed3cd7097882`.
+Terminal payload SHA256 `75321f3a1cb125ba33bb5314739e78227fe2f54d27aa6a078cea806219c89383`. Frozen classification: `UNRESOLVED_QF_DEGREE_BUDGET`, `scientific_pass=false`. Durable result commit `cb55fe8ac6d697616e05a5ccc21c84c40c9a5ab7`.
 
-Frozen classification: `UNRESOLVED_QF_DEGREE_BUDGET` (workflow implementation label `BLOCKED_QF_BUDGET_LANES`). Durable result commit `3df530ed46d1ed9fed100ba204601a2454b28f1a`.
-
-Both lanes independently produced the same provisional source ladder: q6=q7=`5d070732...ee6b`, q8=q9=q10=`2f15c55c...b6d`, first change q=8, plateau from q=8, and QF6 exactly reproduces Iter057AT. This is not yet an authorized `QF8_REQUIRED` conclusion because required contribution hashes and derivative degree-flow provenance were not emitted, while raw `ricci_zero` and `scalar_zero` diagnostics were false. No scientific authority is promoted.
+Both independent lanes agree exactly and did not load the AT target or use the provisional QF8 outcome. Historical `geometry8` on the canonical R10 seed gives exact inverse with Ricci=scalar=0. Extending that same uncompleted R10 seed through `geometry10` produces nonzero Ricci and scalar support only at homogeneous degree 10. Therefore `seed_boundary_mismatch=true`; the prior q8 plateau is not authorized as QF8_REQUIRED.
 
 ## Active gate
 
-Prospectively preregistered before any implementation change: `CORRECTED_DEGREE6_QF_DEGREE_FLOW_COMPLETENESS_REPAIR`, commit `10dc35e623278c7726b3822096d289e16b1765dd`.
+Prospectively preregistered before implementation: `CORRECTED_DEGREE6_EINSTEIN_COMPLETED_QF_DEGREE_FLOW_ADJUDICATION`, commit `8a5e1e9186d8b8b81f401158b8ca04b38f05de66`.
 
-Frozen task: complete the original preregistered evidence without changing q=6..10, source operator, target, signs, normalization or thresholds. Two independent lanes must emit QF/P and term-by-term hashes, per-monomial zero/one/two-derivative degree-flow provenance, identify the q7→q8 changing contribution, and prospectively adjudicate the false Ricci/scalar diagnostics from pre-existing seed semantics. Only the original frozen outcome vocabulary is allowed.
+Frozen task: use an existing independently controlled Einstein-completed higher-order seed (R12 if its existing controls certify the required boundary), verify Ricci/scalar zero through that boundary, then run two target-blind exact q=6..10 ladders with complete 840-slot source hashes, term hashes and zero/one/two-derivative degree-flow provenance. Only after evidence freeze may the Iter057AT target be loaded. No fitting or coefficient changes are allowed.
 
-Current-task completion: 30% (authoritative repaired run consumed; terminal unresolved result durable; recovery synchronized; completeness repair prospectively frozen; implementation/production pending).
+Current-task completion: 30% (parent terminal evidence consumed and durable; next gate prospectively frozen; implementation/production pending).
 
 ## Locks
 
