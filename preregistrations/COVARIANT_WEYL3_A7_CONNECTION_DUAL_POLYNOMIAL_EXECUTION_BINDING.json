@@ -1,0 +1,56 @@
+{
+  "schema": "QGR_WEYL3_A7_DUAL_POLYNOMIAL_SIGN_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
+  "preregistration_commit": "ed829c5f60f2fad6a308ec3f9c50695a6777567e",
+  "parent_terminal_commit": "267743ee78ea0ebd51fd697003cc1207a9d9032b",
+  "frozen_counterexample": {
+    "seed": "OFFSHELL_A",
+    "direction": 7,
+    "i": 0,
+    "j": 0
+  },
+  "P_point_sha256": "21095bed2a18f7a5fa2484961c75d4cd7589115d6a6f664f0b3eee8697cdd4fe",
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "extraction": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_dual_polynomial.py",
+      "commit": "282b3f9ec0dd9ef90011b41b5975775e0b8cf449",
+      "blob": "d147ce88a95c1773a8c6c769e504d4e31bdaf73d"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_dual_polynomial_terminal.py",
+      "commit": "6538638ccd8ac4591386aa94c3f94b951322c3cb",
+      "blob": "54b6e016ae3a21e8dce7136f32e4df5ec29e7e9a"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_dual_polynomial_source_lock.py",
+      "commit": "2f71cb4a6bb48278e52c47946bfc6b7e4653658c",
+      "blob": "c04539ac1d145fa11ddab83397959a515b36e809"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-connection-dual-poly.yml",
+      "commit": "000f1eabab35496d2be1419b03986dd926fb5a91",
+      "blob": "de4d1f574f62848e8c880030932b23f6c8c76ec1"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-connection-dual-poly.txt",
+    "jobs": [
+      "source_lock",
+      "extraction",
+      "terminal"
+    ],
+    "target_blind_extraction": true,
+    "exact_arithmetic": true,
+    "allowed_terminal_classifications": [
+      "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_LANE_A",
+      "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_LANE_B",
+      "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
