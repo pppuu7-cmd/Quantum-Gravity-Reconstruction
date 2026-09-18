@@ -24,15 +24,21 @@ Frozen terminal payload SHA256 `9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e2
 
 Classification: `PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED`.
 
-All ten ordered principal-symbol slots agree exactly and the metric-volume term agrees exactly. The parent full off-shell discrepancy is independently reproduced and remains nonzero: `-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000`. Thus the surviving mismatch is localized away from the tested principal symbol and volume term; lower-order covariantization / connection-variation / integration-by-parts contributions require prospective adjudication on the same frozen A7 counterexample.
+All ten ordered principal-symbol slots agree exactly and the metric-volume term agrees exactly. The parent full off-shell discrepancy is independently reproduced and remains nonzero: `-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000`. Thus the surviving mismatch is localized away from the tested principal symbol and volume term.
 
 Durable result commit: `feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea`.
 
 ## Active next task
 
-Before any new scientific production, prospectively freeze a same-A7 lower-order decomposition gate. It must preserve the existing A7 jet/counterexample, exact arithmetic, parent discrepancy, `c6=SYMBOLIC_UNFIXED`, and all scientific locks. It must decompose and independently reproduce the lower-order connection/covariantization and IBP contributions without changing witnesses, signs, normalization, thresholds, or targets after inspection. Do not start a third symmetry reduction.
+The same-A7 lower-order decomposition gate is now prospectively frozen by preregistration commit `a8c7bd1bd5280f18aa50955b4cd847b707c178ab`: `COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION`.
 
-Current-task completion: 72% for the covariant functional-derivative programme: principal symbol and volume sectors are independently localized; lower-order covariantization/IBP adjudication remains.
+Preserve the existing A7 jet/counterexample, exact arithmetic, parent discrepancy, `c6=SYMBOLIC_UNFIXED`, and all scientific locks. Implement two independent exact lanes that serialize the frozen lower-order contribution classes target-blind before comparison and require their exact sum to reconstruct the parent discrepancy. No witness/sign/normalization/threshold/target changes after inspection. Do not start a third symmetry reduction.
+
+Current-task completion: 74% for the covariant functional-derivative programme: principal symbol and volume sectors are independently localized, the lower-order adjudication is prospectively frozen, and independent implementations/production remain.
+
+## Infrastructure note
+
+Infrastructure run `35377316267`, head `2e368b143b21c02b30609c3cef10e1b4229e9bad`, job `105704946390`, artifact `10560603314`, digest `sha256:fd4873147f328b82275fc1779f328fa319f4321fa1e5f3226635f5501e62d805`, failed at clean-session recovery because that intermediate state omitted the required `recovery_sync` object. This is an infrastructure/recovery defect, not a scientific result. Recovery has now been restored and aligned with preregistration `a8c7bd1...`.
 
 ## Locks
 
