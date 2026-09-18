@@ -115,14 +115,7 @@ jobs:
               | tee artifacts/terminal/terminal.log
             rc=${PIPESTATUS[0]}
           else
-            python - <<'PY'
-import hashlib,json
-from pathlib import Path
-p={"gate":"COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required lane artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}
-p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest()
-Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\n")
-print(json.dumps(p,sort_keys=True,indent=2))
-PY
+            python -c 'import hashlib,json,pathlib; p={"gate":"COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required lane artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}; p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest(); pathlib.Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\\n"); print(json.dumps(p,sort_keys=True,indent=2))'
             cp artifacts/terminal/terminal.json artifacts/terminal/terminal.log
             rc=2
           fi
