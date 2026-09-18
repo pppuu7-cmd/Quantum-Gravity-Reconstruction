@@ -1,0 +1,4 @@
+COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION
+preregistration=d76dea1d511d0f7fa99b057866ef44fd797a1fc6
+execution_binding=fd89a9143570fc3345a9623d99bb653977cdb270
+frozen_counterexample=OFFSHELL_A/d=7/(i,j)=(0,0)
