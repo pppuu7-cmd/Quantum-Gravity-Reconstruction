@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
-    "phase": "EXECUTION_AUTHORITY_BOUND"
+    "iteration": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
+    "phase": "TERMINAL_DUAL_POLYNOMIAL_MATCHES_NEITHER__SUCCESSOR_PREREG_REQUIRED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,20 +16,20 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
-    "last_terminal_classification": "CONNECTION_IDENTITY_DERIVATIONS_DISAGREE",
+    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
+    "last_terminal_classification": "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER",
     "last_terminal_scientific_pass": false,
-    "last_terminal_run": 35404489570,
-    "last_terminal_result_commit": "267743ee78ea0ebd51fd697003cc1207a9d9032b",
-    "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
-    "next_preregistered_status": "READY_FOR_SINGLE_PRODUCTION"
+    "last_terminal_run": 35404845600,
+    "last_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
+    "next_preregistered_science": null,
+    "next_preregistered_status": "PROSPECTIVE_SUCCESSOR_REQUIRED"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "ed829c5f60f2fad6a308ec3f9c50695a6777567e",
-    "latest_terminal_result_commit": "267743ee78ea0ebd51fd697003cc1207a9d9032b",
-    "latest_terminal_result_kind": "EXACT_IDENTITY_DERIVATION_DISAGREEMENT",
-    "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
-    "active_gate_status": "READY_FOR_SINGLE_PRODUCTION",
+    "latest_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
+    "latest_terminal_result_kind": "EXACT_THIRD_CONSTRUCTION_DISAGREEMENT",
+    "latest_active_gate": null,
+    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
@@ -43,34 +43,30 @@
     "latest_extraction_implementation_commit": "282b3f9ec0dd9ef90011b41b5975775e0b8cf449"
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
-    "preregistration_commit": "d76dea1d511d0f7fa99b057866ef44fd797a1fc6",
-    "execution_binding_commit": "fd89a9143570fc3345a9623d99bb653977cdb270",
-    "production_head": "45f4447ad20ef10d2e90a47e9079e39f328d6cbf",
-    "actions_run": 35404489570,
-    "source_lock_job": 105791292667,
-    "lane_a_job": 105791325230,
-    "lane_b_job": 105791325181,
-    "terminal_job": 105791385847,
-    "source_lock_artifact": 10571836648,
-    "source_lock_artifact_sha256": "f56b445f9d5e387312ae15e8ca69146165508f7c2ea492a20fa6eb4acae5debc",
-    "lane_a_artifact": 10571494230,
-    "lane_a_artifact_sha256": "efe4314d02c93b3ee5b14e4466cf50e7ae861b5ad27c5e56d4c17e5918b4cacd",
-    "lane_b_artifact": 10571821721,
-    "lane_b_artifact_sha256": "219f0d89bf08991a4713acbab39cb87c6734753eb1e8570788e98884cdae05bb",
-    "terminal_artifact": 10571597004,
-    "terminal_artifact_sha256": "9f4a284c1a0c4ca5c6a53cd3e6466f0840181dfce198a39209863e573ee5da92",
-    "source_lock_payload_sha256": "5724c6433a4b98dd5f01d9b49cbb45e0dde381b55710f6f8923e8545fe106a0b",
-    "lane_a_payload_sha256": "3ce606c75712edb6e4e93aca2384dad0cf7c7665a938d20c037689b36c85d500",
-    "lane_b_payload_sha256": "e18126a20c4ec8832a8651f020790bbf62bf41bda124f3b7dab238837c6032d9",
-    "terminal_payload_sha256": "7da01c792bc4d6f235f8274bee6f904bd540feca001c741e9b34a63a910bde48",
-    "terminal_json_sha256": "8d41d078820c972eb0efbeed3f9513fde90ff3af6c2d3c3d746e9c67aa604472",
-    "classification": "CONNECTION_IDENTITY_DERIVATIONS_DISAGREE",
-    "common_dGamma_sha256": "53949b649af4c4a03e51103d0fa411e476470eecc98d0548e214aefeb5f559ed",
-    "lane_a_value": "-433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000",
-    "lane_b_value": "433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000",
-    "exact_sign_opposites": true,
-    "parent_lane_adjudication_authorized": false
+    "gate": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
+    "preregistration_commit": "ed829c5f60f2fad6a308ec3f9c50695a6777567e",
+    "execution_binding_commit": "c4805111dacbf13dd08842eb012eb384abec69a7",
+    "production_head": "e603f084a3427af9acdce8a0670734fc0fa956de",
+    "actions_run": 35404845600,
+    "source_lock_job": 105792350098,
+    "extraction_job": 105792387802,
+    "terminal_job": 105792433089,
+    "source_lock_artifact": 10571922257,
+    "source_lock_artifact_sha256": "832eebf9c9948621e6107049e3ec1098f7119091cffec06d0587b74a14f7dd98",
+    "extraction_artifact": 10571564560,
+    "extraction_artifact_sha256": "d81ebe9c2bd936f4f80ad079db21057ac3dc8d223e5e1706c9cce4829dedaad2",
+    "terminal_artifact": 10572072303,
+    "terminal_artifact_sha256": "a8f19e66c0036953d7a28f969b2b7e0dfa56a74d8dd94e8f774f3d82ed37626b",
+    "source_lock_payload_sha256": "5d79dabbd69996ac81415b2e30a625b7572435c75ad025604a401e91b23b8266",
+    "extraction_payload_sha256": "93ca4b6efb0ec81ca8059aceb8f4c1f813389a12fa9fa7ab1f70ac4bfa7f42b1",
+    "terminal_payload_sha256": "aa571d02257d2166fddfb8d3b3c0c55099bd48e63e2e3c2ad8109f867acbb76b",
+    "terminal_json_sha256": "0e5e3d2d07aa9932b1a466225c2003e02fe488373df58cd6056ea135e7122f50",
+    "classification": "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER",
+    "extracted_value": "6471547181136613219970862102277757857/3453429297335638404524090924141568000",
+    "extraction_tensor_sha256": "e3797c7dade7f4de601ba047be48b0ed73278333e01719e3b0d97588e783deb8",
+    "difference_from_lane_a": "1019839893300933933962523954588749592431102129/312885874482554842907489423863612273152000000",
+    "difference_from_lane_b": "5269788640088406597788143825182309121754099/10789168085605339410603083581503871488000000",
+    "correction_authorized": false
   },
   "preserved_authority": {
     "iter049": {
@@ -93,11 +89,11 @@
     }
   },
   "active_question": {
-    "id": "COVARIANT-WEYL3-A7-CONNECTION-SIGN-ORIENTATION-ADJUDICATION",
-    "text": "Which sign/orientation is required by direct exact extraction from the frozen repository Riemann GammaGamma definition, without reusing either hand-expanded connection identity?"
+    "id": "COVARIANT-WEYL3-A7-CONNECTION-TENSOR-COMPONENT-LOCALIZATION",
+    "text": "At OFFSHELL_A/d=7/(0,0), where is the first exact 4-index tensor component at which tensor-Hessian, hand-expanded GammaGamma, and neutral dual-polynomial connection constructions cease to agree, and what are their pairwise relations?"
   },
-  "active_blocker": "No scientific blocker classified. The neutral dual-polynomial extraction, target-blind source lock, comparator, workflow, and execution identities are frozen. One sentinel-only production remains.",
-  "next_gate_lock": "Launch exactly one production under preregistration ed829c5f60f2fad6a308ec3f9c50695a6777567e and execution binding c4805111dacbf13dd08842eb012eb384abec69a7. Do not change frozen extraction code. Consume immutable artifacts and terminalize sign orientation before any correction.",
+  "active_blocker": "A prospective full 256-component tensor comparison must be frozen before execution. No correction is authorized.",
+  "next_gate_lock": "Serialize the full 256-component connection tensors from the three already frozen constructions under a lexicographic (a,b,c,d) order. Compare only after target-blind serialization. Record first differing component and exact pairwise equal/negative relations. Do not alter any parent formula.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
