@@ -18,9 +18,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install frozen constructor dependency
+        run: python -m pip install --disable-pip-version-check sympy==1.14.0
       - name: Run frozen exact lane
         env:
-          PYTHONPATH: analysis:scripts
+          PYTHONPATH: code:scripts
         run: |
           set -o pipefail
           mkdir -p out
