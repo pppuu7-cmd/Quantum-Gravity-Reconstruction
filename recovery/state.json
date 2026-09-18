@@ -1,13 +1,101 @@
 {
   "schema_version": "1.0",
-  "project": {"name":"Quantum Gravity Reconstruction","short_name":"QGR","repository":"pppuu7-cmd/Quantum-Gravity-Reconstruction","date":"2026-09-18","iteration":"COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION","phase":"PROSPECTIVELY_PREREGISTERED_IMPLEMENTATION_PENDING"},
-  "readiness": {"repository_infrastructure_pct":100,"candidate_program_pct":100,"candidate_program_pct_semantics":"Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.","theory_established_pct":0,"experimental_confirmation":false},
-  "science_sync": {"last_terminal_science":"COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION","last_terminal_classification":"PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED","last_terminal_scientific_pass":false,"last_terminal_run":35368354816,"last_terminal_result_commit":"feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea","next_preregistered_science":"COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION","next_preregistered_status":"IMPLEMENTATION_PENDING"},
-  "recovery_sync": {"latest_preregistration_commit":"a8c7bd1bd5280f18aa50955b4cd847b707c178ab","latest_terminal_result_commit":"feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea","latest_terminal_result_kind":"SCOPED_EXACT_LOCALIZATION_NONPASS","latest_active_gate":"COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION","active_gate_status":"IMPLEMENTATION_PENDING","active_actions_run":null},
-  "latest_terminal": {"gate":"COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION","preregistration_commit":"5c5d6197ff15573f2110729ddd41c4e64c005e7a","production_head":"d2b9802e79c8b244457c50690b449a852e92741c","actions_run":35368354816,"researcher_job":105676145129,"critic_job":105676144975,"terminal_job":105676380927,"researcher_artifact":10557168059,"researcher_artifact_sha256":"60208238c2d25aa4834e5b12dbd358b40408a71b032b3dd230b4362e025c5e36","critic_artifact":10556793874,"critic_artifact_sha256":"2ad8e346cbd161d593497a55b35b1351350abf0bb623c2191d43fbf033262268","terminal_artifact":10557212958,"terminal_artifact_sha256":"b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067","terminal_payload_sha256":"9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d","classification":"PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED","principal_exact_zero_all":true,"volume_exact_zero":true,"parent_discrepancy":"-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000"},
-  "preserved_authority": {"iter049":{"gate":"ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE","authoritative_retry_run":34719948722,"preregistration_commit":"72b21197d594ab6c5f36a34dfbd18a68b97d0a1d","authoritative_retry_head":"c8e574b2a78ae02c3e1476ef1daf7efc8268c342","initial_run_diagnostic_non_authoritative":34719814120,"authority_record_commit":"83a5d538b4d2987bae304d0396c96d644bf24810","canonical_trig_control_only_fix_commit":"73298317eaf5a401caf4dea3fe8eee3808727042"},"iter048":{"status":"TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"},"einstein_completed_qf_degree_flow":{"actions_run":35312874182,"classification":"QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED","terminal_payload_sha256":"64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797","durable_result_commit":"c518f55ae9a9c584c00d5044a8ec48ae697074f2"}},
-  "active_question": {"id":"COVARIANT-WEYL3-A7-LOWER-ORDER-COVARIANTIZATION-IBP-LOCALIZATION","text":"On the same frozen A7 off-shell counterexample, which exact lower-order covariantization, connection-variation, or integration-by-parts contribution accounts for the surviving parent discrepancy after principal-symbol and metric-volume agreement?"},
-  "active_blocker":"No scientific blocker is classified yet. The same-A7 lower-order decomposition is prospectively frozen; two independent exact implementations and production are pending.",
-  "next_gate_lock":"Do not start a third symmetry reduction. Preserve the same A7 witness and parent discrepancy. Implement only the prospectively frozen lower-order decomposition under preregistration a8c7bd1bd5280f18aa50955b4cd847b707c178ab; use two independent exact lanes and target-blind serialization; no post-hoc scientific weakening.",
-  "claim_locks": {"qgr_theory_established":false,"experimental_confirmation":false,"beta_set_to_one_authorized":false,"qgr_six_derivative_coefficient_fixed":false,"c6_running_authorized":false,"c6_symbolic_unfixed":true,"strong_hyperbolicity_established":false,"physical_ghost_claim_authorized":false,"quantum_unitarity_established":false,"global_interacting_measure_established":false,"regulator_removal_established":false,"uv_complete":false,"new_physics_found":false,"kmqgb_new_required_authorized":false,"corrected_q10_locked":true,"finite_panels_global_theorem":false}
+  "project": {
+    "name": "Quantum Gravity Reconstruction",
+    "short_name": "QGR",
+    "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
+    "date": "2026-09-18",
+    "iteration": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
+    "phase": "IMPLEMENTATION_DECOMPOSITION_BOUND"
+  },
+  "readiness": {
+    "repository_infrastructure_pct": 100,
+    "candidate_program_pct": 100,
+    "candidate_program_pct_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
+    "theory_established_pct": 0,
+    "experimental_confirmation": false
+  },
+  "science_sync": {
+    "last_terminal_science": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
+    "last_terminal_classification": "PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED",
+    "last_terminal_scientific_pass": false,
+    "last_terminal_run": 35368354816,
+    "last_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
+    "next_preregistered_science": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
+    "next_preregistered_status": "IMPLEMENTATION_DECOMPOSITION_BOUND"
+  },
+  "recovery_sync": {
+    "latest_preregistration_commit": "a8c7bd1bd5280f18aa50955b4cd847b707c178ab",
+    "latest_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
+    "latest_terminal_result_kind": "SCOPED_EXACT_LOCALIZATION_NONPASS",
+    "latest_active_gate": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
+    "active_gate_status": "IMPLEMENTATION_DECOMPOSITION_BOUND",
+    "active_actions_run": null,
+    "latest_implementation_binding_commit": "f0081e60056106b0eac916b6f207ad03fc113233"
+  },
+  "latest_terminal": {
+    "gate": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
+    "preregistration_commit": "5c5d6197ff15573f2110729ddd41c4e64c005e7a",
+    "production_head": "d2b9802e79c8b244457c50690b449a852e92741c",
+    "actions_run": 35368354816,
+    "researcher_job": 105676145129,
+    "critic_job": 105676144975,
+    "terminal_job": 105676380927,
+    "researcher_artifact": 10557168059,
+    "researcher_artifact_sha256": "60208238c2d25aa4834e5b12dbd358b40408a71b032b3dd230b4362e025c5e36",
+    "critic_artifact": 10556793874,
+    "critic_artifact_sha256": "2ad8e346cbd161d593497a55b35b1351350abf0bb623c2191d43fbf033262268",
+    "terminal_artifact": 10557212958,
+    "terminal_artifact_sha256": "b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067",
+    "terminal_payload_sha256": "9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d",
+    "classification": "PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED",
+    "principal_exact_zero_all": true,
+    "volume_exact_zero": true,
+    "parent_discrepancy": "-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000",
+    "terminal_json_sha256": "4ca6db44afb8e6d7a263bf36ebcc2bd633813a1947aaf8e63681ae4c2c9cbe02"
+  },
+  "preserved_authority": {
+    "iter049": {
+      "gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
+      "authoritative_retry_run": 34719948722,
+      "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
+      "authoritative_retry_head": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
+      "initial_run_diagnostic_non_authoritative": 34719814120,
+      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
+      "canonical_trig_control_only_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
+    },
+    "iter048": {
+      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
+    },
+    "einstein_completed_qf_degree_flow": {
+      "actions_run": 35312874182,
+      "classification": "QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED",
+      "terminal_payload_sha256": "64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797",
+      "durable_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2"
+    }
+  },
+  "active_question": {
+    "id": "COVARIANT-WEYL3-A7-LOWER-ORDER-COVARIANTIZATION-IBP-LOCALIZATION",
+    "text": "On the same frozen A7 off-shell counterexample, which exact lower-order covariantization, connection-variation, or integration-by-parts contribution accounts for the surviving parent discrepancy after principal-symbol and metric-volume agreement?"
+  },
+  "active_blocker": "No scientific blocker is classified yet. The lower-order gate and its operational decomposition are frozen; independent Researcher/Critic implementation, execution binding, production, and terminal comparison remain pending.",
+  "next_gate_lock": "Implement only preregistration a8c7bd1bd5280f18aa50955b4cd847b707c178ab under decomposition binding f0081e60056106b0eac916b6f207ad03fc113233. Preserve OFFSHELL_A/d=7, exact arithmetic, parent discrepancy, target-blind serialization, c6=SYMBOLIC_UNFIXED, and corrected Q10 LOCKED. No post-hoc regrouping or scientific weakening.",
+  "claim_locks": {
+    "qgr_theory_established": false,
+    "experimental_confirmation": false,
+    "beta_set_to_one_authorized": false,
+    "qgr_six_derivative_coefficient_fixed": false,
+    "c6_running_authorized": false,
+    "c6_symbolic_unfixed": true,
+    "strong_hyperbolicity_established": false,
+    "physical_ghost_claim_authorized": false,
+    "quantum_unitarity_established": false,
+    "global_interacting_measure_established": false,
+    "regulator_removal_established": false,
+    "uv_complete": false,
+    "new_physics_found": false,
+    "kmqgb_new_required_authorized": false,
+    "corrected_q10_locked": true,
+    "finite_panels_global_theorem": false
+  }
 }
