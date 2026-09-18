@@ -1,4 +1,5 @@
 COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION
 preregistration=a8c7bd1bd5280f18aa50955b4cd847b707c178ab
-execution_binding=31c5763cf55b377583b237c152c881bf83079119
+execution_binding=c54217accd99acbcb47fc9f4eb82d7c9f05649b4
 frozen_counterexample=OFFSHELL_A/d=7
+trigger=after-preregistered-workflow-yaml-repair
