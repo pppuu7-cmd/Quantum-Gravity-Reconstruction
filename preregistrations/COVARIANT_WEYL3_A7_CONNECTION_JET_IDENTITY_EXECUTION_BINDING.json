@@ -1,0 +1,63 @@
+{
+  "schema": "QGR_WEYL3_A7_CONNECTION_IDENTITY_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
+  "preregistration_commit": "d76dea1d511d0f7fa99b057866ef44fd797a1fc6",
+  "parent_terminal_commit": "07ad77de0506a3de5e7db601e2cfc8b5edc37c5c",
+  "frozen_counterexample": {
+    "seed": "OFFSHELL_A",
+    "direction": 7,
+    "i": 0,
+    "j": 0
+  },
+  "P_point_sha256": "21095bed2a18f7a5fa2484961c75d4cd7589115d6a6f664f0b3eee8697cdd4fe",
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "lane_a": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_hessian_identity.py",
+      "commit": "fe2e507eaa8ba677c5c0c0babd09760e82dfdd86",
+      "blob": "1c2cfe44125cb17616c7adb76ed76c65f75f5345"
+    },
+    "lane_b": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_gammagamma_identity.py",
+      "commit": "32add1d35b6e04dfdf6563a8ac988354a57a3189",
+      "blob": "6d4d7a3124eb669ae85f8a16e6f81cfbb3f1fd16"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_identity_terminal.py",
+      "commit": "40c36307cc9c26bb3274cfa8144e0acbdcfd59af",
+      "blob": "620c4a9b01b7cb2d8d195f1a2ebec78e9a592486"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_identity_source_lock.py",
+      "commit": "b01cf30670535009372f7e64c77c8ad72e7ad830",
+      "blob": "b50c1229f3b982bd7aed9b13dfef2274e47c8f70"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-connection-identity.yml",
+      "commit": "f522fcb0ea89768133f5833a27c81c4174aba3a7",
+      "blob": "299e9fab5880ae2bff099428f3368f6bae4b4849"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-connection-identity.txt",
+    "jobs": [
+      "source_lock",
+      "lane_a",
+      "lane_b",
+      "terminal"
+    ],
+    "target_blind_identity_lanes": true,
+    "exact_arithmetic": true,
+    "allowed_terminal_classifications": [
+      "CONNECTION_IDENTITY_DERIVATIONS_DISAGREE",
+      "CONNECTION_IDENTITY_MATCHES_RESEARCHER_NONZERO",
+      "CONNECTION_IDENTITY_MATCHES_CRITIC_ZERO",
+      "CONNECTION_IDENTITY_MATCHES_NEITHER_PARENT",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
