@@ -4,83 +4,62 @@ Updated: 2026-09-19
 
 ## Programme status
 
-`candidate_program_roadmap_readiness = 100%` — roadmap/infrastructure readiness only, not correctness probability. `theory_established = 0%`. No experimental confirmation.
+`candidate_program_roadmap_readiness = 100%` is infrastructure/roadmap readiness only. `theory_established = 0%`. No experimental confirmation.
 
-## Preserved authority
+## Preserved parent authority
 
-Parent covariant gate `COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE` remains terminal `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY`, authority `e26208cec90566001b65640775d2e58d0429bf5c`, run `35367461999`. It is not repaired or reclassified.
+Parent covariant gate `COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE` remains terminal `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY`, authority `e26208cec90566001b65640775d2e58d0429bf5c`, run `35367461999`. It is immutable and is not repaired or reclassified.
 
-A7 remains terminal `PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED`, result commit `feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea`, run `35368354816`.
+A7 principal-symbol/volume and lower-order localization results remain preserved. The first Fi-jet divergence remains localized at `OFFSHELL_A / d=7 / (i,j)=(0,0)` to the connection source.
 
-The lower-order gate remains terminal `LOWER_ORDER_LOCALIZED_EXACT`, result commit `6ccfededab41dbe01b071916a5aa746491273276`, run `35403445578`: lower-order curvature before IBP MATCH, pointwise `Fi` MATCH, first divergence at `FIRST_DERIVATIVE_IBP_TRANSFER`, second-derivative lower-order IBP MATCH.
+## Latest terminal scientific result
 
-## Latest terminal scientific/localization result
+Gate: `COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION`.
 
-Gate: `COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_CAUSAL_AUDIT`.
+Preregistration: `ed829c5f60f2fad6a308ec3f9c50695a6777567e`.
 
-Classification: `FI_FIRST_JET_DIVERGENCE_LOCALIZED`.
+Terminal result commit: `d44e785efb222c857bfece31a3a09bed447999fe`.
 
-Authoritative run: `35404041767`.
-Production head: `4d4ab10032895644e13ad9c6ca055edc8edacbdc`.
-Durable result commit: `07ad77de0506a3de5e7db601e2cfc8b5edc37c5c`.
+Authoritative Actions run: `35404845600`.
 
-Jobs:
-- source lock `105789962873`;
-- Researcher `105789995537`;
-- Critic `105789995598`;
-- terminal `105790197607`.
+Classification:
 
-Immutable artifacts:
-- source lock `10571805900` / `sha256:ec4ff11b753ddea68bebcffb61485c790df197a6800f98186d95626900829bcb`;
-- Researcher `10572260744` / `sha256:27091013ebf0bf302e6f27ab2fdd66a8faaff789c5431979270d0d1512e80023`;
-- Critic `10571238870` / `sha256:6a590f965c65011ba5f7f7c0fe6be7843745f77ea0975f4c5594a562331c2387`;
-- terminal `10571826092` / `sha256:296eb86bee7ef34a8304d964efa83a212c193d0eb3a17eb3fcc87d568a0fba59`.
+`DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER`.
 
-Canonical terminal payload SHA256:
-`70b9c00e22e12b0c4cc3870f111d502640a1d593058eca93294dea327044d4df`.
+The neutral direct bivariate-polynomial extraction is exactly different from both already-frozen hand-derived connection scalars. Its full extracted tensor hash is:
 
-All four pointwise `Fi` controls agree exactly.
+`e3797c7dade7f4de601ba047be48b0ed73278333e01719e3b0d97588e783deb8`.
 
-The first lexicographic first-jet divergence is `(i,j)=(0,0)`:
+Therefore the connection discrepancy is no longer a binary sign choice. No parent formula is authorized for correction.
 
-Researcher `d_0F_0`:
-`-43977684225232401744358310400305192156031283/25865232290557867013685792372725281247232000`.
+## Active preregistered gate
 
-Critic `d_0F_0`:
-`-13469266506757221030260385050166541/4364950942592885650296098808000000`.
+`COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION`
 
-Exact difference:
-`433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000`.
+Prospective preregistration commit:
 
-At that frozen slot, source classes compare in the prospectively frozen order:
+`63ead9c69964fe24ec647c7bda12c1ebc4aa28df`.
 
-- metric jet: MATCH, difference `0`;
-- inverse-metric jet: MATCH, difference `0`;
-- curvature/Weyl jet: MATCH, difference `0`;
-- **connection jet: FIRST SOURCE-CLASS DIVERGENCE**;
-- perturbation jet: MATCH, difference `0`.
+Frozen witness:
 
-Researcher `CONNECTION_JET`:
-`433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000`.
+`OFFSHELL_A / d=7 / (i,j)=(0,0)`.
 
-Critic `CONNECTION_JET`:
-`0`.
+Scientific question: materialize the complete 256 exact four-index components of the three already-frozen connection constructions, serialize each lane before any cross-lane comparison, then record the first lexicographic component where the three values are not all equal and the exact pairwise equal/negative relations.
 
-Thus the full first-jet mismatch at `(0,0)` is accounted for exactly by the frozen connection-source difference.
+Frozen lanes:
+- A: tensor-Hessian construction from the connection-identity gate;
+- B: direct hand-expanded GammaGamma construction from the connection-identity gate;
+- C: direct neutral dual-polynomial `[eps*x]` extraction.
 
-This localizes the interface but does not yet adjudicate which derivation is correct and does not authorize a formula repair.
+Allowed terminal classifications:
+- `CONNECTION_TENSOR_ALL_THREE_EXACT_MATCH`;
+- `CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED`;
+- `BLOCKED_EXECUTION_OR_PROVENANCE`.
 
-## Active next task
+## Current action
 
-Before any correction, prospectively freeze one connection-identity adjudication on the same `OFFSHELL_A/d=7/(i,j)=(0,0)` witness.
-
-The highest-information question is whether a third, independent covariant tensor-Hessian/Palatini derivation of the `dGamma × h` connection completion agrees exactly with:
-- the Researcher nonzero quadratic-connection derivative;
-- the Critic zero connection source;
-- or neither.
-
-No broad panel, Q10, c6 fitting, symmetry reduction, or post-hoc convention change is authorized.
+Implement three independent target-blind serializers, exact source/provenance lock, frozen comparator and one production workflow. Do not inspect cross-lane component values until all three serialized artifacts exist under the frozen execution binding.
 
 ## Locks
 
-`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `theory_established=0%`; no experimental confirmation. No global QGR, quantum-unitarity, UV-completion, physical-c6, experimental, or new-physics claim is authorized.
+No post-hoc sign, orientation, convention or formula repair. `c6=SYMBOLIC_UNFIXED`; corrected Q10 remains LOCKED; `theory_established=0%`. No global QGR, quantum-unitarity, UV-completion, physical-c6, experimental or new-physics claim is authorized.
