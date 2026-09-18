@@ -4,9 +4,9 @@
     "name": "Quantum Gravity Reconstruction",
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
-    "date": "2026-09-18",
-    "iteration": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
-    "phase": "EXECUTION_AUTHORITY_BOUND"
+    "date": "2026-09-19",
+    "iteration": "COVARIANT_WEYL3_A7_FIRST_IBP_DERIVATIVE_SOURCE_LOCALIZATION",
+    "phase": "TERMINAL_LOWER_ORDER_LOCALIZATION__SUCCESSOR_PREREG_REQUIRED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,20 +16,20 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
-    "last_terminal_classification": "PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED",
+    "last_terminal_science": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
+    "last_terminal_classification": "LOWER_ORDER_LOCALIZED_EXACT",
     "last_terminal_scientific_pass": false,
-    "last_terminal_run": 35368354816,
-    "last_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
-    "next_preregistered_science": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
-    "next_preregistered_status": "READY_FOR_SINGLE_PRODUCTION"
+    "last_terminal_run": 35403445578,
+    "last_terminal_result_commit": "6ccfededab41dbe01b071916a5aa746491273276",
+    "next_preregistered_science": null,
+    "next_preregistered_status": "PROSPECTIVE_SUCCESSOR_REQUIRED"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "a8c7bd1bd5280f18aa50955b4cd847b707c178ab",
-    "latest_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
-    "latest_terminal_result_kind": "SCOPED_EXACT_LOCALIZATION_NONPASS",
-    "latest_active_gate": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
-    "active_gate_status": "READY_FOR_SINGLE_PRODUCTION",
+    "latest_terminal_result_commit": "6ccfededab41dbe01b071916a5aa746491273276",
+    "latest_terminal_result_kind": "EXACT_CAUSAL_LOCALIZATION",
+    "latest_active_gate": null,
+    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "f0081e60056106b0eac916b6f207ad03fc113233",
     "latest_implementation_commit": "6731f3e48f906ae2c24cfe3e3c47c6df8b2d97ae",
@@ -39,25 +39,35 @@
     "latest_execution_binding_commit": "31c5763cf55b377583b237c152c881bf83079119"
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
-    "preregistration_commit": "5c5d6197ff15573f2110729ddd41c4e64c005e7a",
-    "production_head": "d2b9802e79c8b244457c50690b449a852e92741c",
-    "actions_run": 35368354816,
-    "researcher_job": 105676145129,
-    "critic_job": 105676144975,
-    "terminal_job": 105676380927,
-    "researcher_artifact": 10557168059,
-    "researcher_artifact_sha256": "60208238c2d25aa4834e5b12dbd358b40408a71b032b3dd230b4362e025c5e36",
-    "critic_artifact": 10556793874,
-    "critic_artifact_sha256": "2ad8e346cbd161d593497a55b35b1351350abf0bb623c2191d43fbf033262268",
-    "terminal_artifact": 10557212958,
-    "terminal_artifact_sha256": "b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067",
-    "terminal_payload_sha256": "9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d",
-    "classification": "PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED",
-    "principal_exact_zero_all": true,
-    "volume_exact_zero": true,
-    "parent_discrepancy": "-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000",
-    "terminal_json_sha256": "4ca6db44afb8e6d7a263bf36ebcc2bd633813a1947aaf8e63681ae4c2c9cbe02"
+    "gate": "COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
+    "preregistration_commit": "a8c7bd1bd5280f18aa50955b4cd847b707c178ab",
+    "decomposition_binding_commit": "f0081e60056106b0eac916b6f207ad03fc113233",
+    "execution_binding_commit": "c54217accd99acbcb47fc9f4eb82d7c9f05649b4",
+    "production_head": "0bd9e6ae844fc9010f8cd6fba8487da5de9a37aa",
+    "actions_run": 35403445578,
+    "source_lock_job": 105788124845,
+    "researcher_job": 105788157507,
+    "critic_job": 105788157525,
+    "terminal_job": 105788301800,
+    "source_lock_artifact": 10570904818,
+    "source_lock_artifact_sha256": "bd7d51da27afea554aa7a92e39db30d15ddd295c677fd5c04ae6d4d8ff07ec5c",
+    "researcher_artifact": 10571700053,
+    "researcher_artifact_sha256": "91942be6322a3c90c94f88fed7f390128b4db93225db478887a441a4dd90f7a7",
+    "critic_artifact": 10570659920,
+    "critic_artifact_sha256": "bb5cc3f098eb71f27876a192a5073eaa67a29e86f0e055f2b688cd68a7fc4431",
+    "terminal_artifact": 10570888371,
+    "terminal_artifact_sha256": "8dd490dbe0f14bb4835cb7783af402596e423cb1132e97dfc17c25e0353c38fa",
+    "researcher_payload_sha256": "65af32d82728097a27dee82a263b89f930e92c48fbdebfa659a2a6aadb8f5e44",
+    "critic_payload_sha256": "e3de162c0c9426e3747eab9284afd484f812b05d0c43a9e7b990b962d76afa2a",
+    "terminal_payload_sha256": "681c2066e66715204b6e5b6154d5aecef7273703d5b3dd5aede9c1afd5224665",
+    "terminal_json_sha256": "06792d93bb948e256ceb3459bf8a1d57ee6bbfc7eda0f716fb8436bcd38245b1",
+    "classification": "LOWER_ORDER_LOCALIZED_EXACT",
+    "first_divergent_stage": "FIRST_DERIVATIVE_IBP_TRANSFER",
+    "first_divergent_slot": "SCALAR_TRANSFER",
+    "smallest_frozen_coordinate_slot": "i=0",
+    "first_transfer_difference": "-86355995554365317186893343264769708206041673/20078237934709401683903064632959076352000000",
+    "i0_transfer_difference": "-433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000",
+    "parent_discrepancy_reconstructed": true
   },
   "preserved_authority": {
     "iter049": {
@@ -80,11 +90,11 @@
     }
   },
   "active_question": {
-    "id": "COVARIANT-WEYL3-A7-LOWER-ORDER-COVARIANTIZATION-IBP-LOCALIZATION",
-    "text": "On the same frozen A7 off-shell counterexample, which exact lower-order covariantization, connection-variation, or integration-by-parts contribution accounts for the surviving parent discrepancy after principal-symbol and metric-volume agreement?"
+    "id": "COVARIANT-WEYL3-A7-FIRST-IBP-DERIVATIVE-SOURCE-LOCALIZATION",
+    "text": "On the frozen OFFSHELL_A/d=7 witness and smallest ordered coordinate i=0, does the first-IBP mismatch in -d_i F_i first arise from derivative acting on the background coefficient/P-density object, from derivative acting on the perturbation h-jet, or from a remaining connection/covariantization completion term?"
   },
-  "active_blocker": "No scientific blocker is classified. Independent lower-order Researcher/Critic implementations, terminal comparator, source lock, workflow, and exact execution binding are frozen. One production remains to be launched and consumed.",
-  "next_gate_lock": "Launch exactly one execution-only PR from the bound main state using only .qgr-exec/weyl3-a7-lower-order.txt. Do not alter frozen science blobs. Consume immutable source-lock/Researcher/Critic/terminal artifacts and terminalize the preregistered classification before any repair.",
+  "active_blocker": "A prospective successor decomposition must be frozen before any further implementation. No correction of the parent formula is authorized.",
+  "next_gate_lock": "Keep OFFSHELL_A/d=7 and i=0. Freeze a target-blind product-rule decomposition of the already terminal first-IBP transfer into derivative-on-background-coefficient, derivative-on-h-jet, and any explicitly defined connection/covariantization completion residual. Do not change the terminal lower-order result or repair formulas.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
