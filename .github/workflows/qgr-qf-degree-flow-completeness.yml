@@ -1,0 +1,65 @@
+name: QGR QF degree-flow completeness repair
+on:
+  push:
+    paths:
+      - 'scripts/qgr_qf_degree_flow_completeness.py'
+      - '.github/workflows/qgr-qf-degree-flow-completeness.yml'
+  workflow_dispatch:
+jobs:
+  lanes:
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [researcher, critic]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned dependency
+        run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Frozen seed-precondition adjudication
+        env:
+          PYTHONPATH: code:scripts
+        run: |
+          set -o pipefail
+          mkdir -p out
+          python scripts/qgr_qf_degree_flow_completeness.py --mode ${{ matrix.lane }} --out out/${{ matrix.lane }}.json | tee out/${{ matrix.lane }}.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qf-degree-flow-${{ matrix.lane }}
+          path: out/
+  terminal:
+    if: always()
+    needs: lanes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qf-degree-flow-*
+          path: artifacts
+      - name: Frozen aggregate
+        run: |
+          python - <<'PY'
+          import glob,json,hashlib,os,sys
+          xs=[]
+          for f in glob.glob('artifacts/**/*.json',recursive=True):
+            try: xs.append(json.load(open(f)))
+            except Exception: pass
+          agree=(len(xs)==2 and all(x.get('seed_boundary_mismatch') is True for x in xs)
+                 and xs[0].get('classification')==xs[1].get('classification')=='UNRESOLVED_QF_DEGREE_BUDGET'
+                 and xs[0].get('historical_geometry8')==xs[1].get('historical_geometry8')
+                 and xs[0].get('extended_geometry10')==xs[1].get('extended_geometry10')
+                 and all(x.get('qf8_outcome_read_or_used') is False and x.get('AT_target_loaded') is False for x in xs))
+          out={'gate':'CORRECTED_DEGREE6_QF_DEGREE_FLOW_COMPLETENESS_REPAIR','preregistration_commit':'10dc35e623278c7726b3822096d289e16b1765dd','lane_count':len(xs),'lanes_agree_exactly':agree,'classification':'UNRESOLVED_QF_DEGREE_BUDGET' if agree else 'BLOCKED_QF_DEGREE_FLOW_PRECONDITION','scientific_pass':False,'reason':'R10 seed boundary mismatch under geometry10; frozen preregistration forbids QF8 promotion' if agree else 'independent precondition evidence incomplete','claim_scope':'diagnostic only; c6 unfixed; corrected Q10 locked; no global theorem'}
+          raw=json.dumps(out,sort_keys=True,separators=(',',':')).encode();out['payload_sha256']=hashlib.sha256(raw).hexdigest()
+          os.makedirs('terminal',exist_ok=True);json.dump(out,open('terminal/terminal.json','w'),sort_keys=True,indent=2);print(json.dumps(out,sort_keys=True,indent=2));sys.exit(0 if agree else 2)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qf-degree-flow-terminal
+          path: terminal/
