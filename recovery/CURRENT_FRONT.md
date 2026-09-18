@@ -1,6 +1,6 @@
 # QGR Current Research Front
 
-Updated: 2026-09-18
+Updated: 2026-09-19
 
 ## Programme status
 
@@ -8,56 +8,26 @@ Updated: 2026-09-18
 
 ## Preserved authority
 
-Iter049 authority remains `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE`, authoritative retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`. Initial run `34719814120` remains diagnostic/non-authoritative. Iter048 terminal PASS 24/24 remains recorded and must not be repeated.
-
-Einstein-completed QF degree-flow authority remains run `35312874182`, classification `QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED`, frozen payload SHA256 `64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797`, durable result commit `c518f55ae9a9c584c00d5044a8ec48ae697074f2`. Scoped construction only; not the complete 4D covariant Weyl^3 Euler-Lagrange theorem.
+Iter049 remains `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE`, authoritative retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`; initial run `34719814120` is diagnostic/non-authoritative. Iter048 PASS 24/24 remains recorded and must not be repeated.
 
 ## Latest terminal scientific/localization result
 
-Gate `COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION`, preregistration `5c5d6197ff15573f2110729ddd41c4e64c005e7a`, authoritative run `35368354816`, production head `d2b9802e79c8b244457c50690b449a852e92741c`.
+`COVARIANT_WEYL3_A7_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION` is terminal `LOWER_ORDER_LOCALIZED_EXACT` under run `35403445578`, durable result `6ccfededab41dbe01b071916a5aa746491273276`, production head `0bd9e6ae844fc9010f8cd6fba8487da5de9a37aa`.
 
-Jobs: Researcher `105676145129`, Critic `105676144975`, terminal `105676380927`.
+Jobs: source lock `105788124845`; Researcher `105788157507`; Critic `105788157525`; terminal `105788301800`.
 
-Artifacts/digests: Researcher `10557168059` / `sha256:60208238c2d25aa4834e5b12dbd358b40408a71b032b3dd230b4362e025c5e36`; Critic `10556793874` / `sha256:2ad8e346cbd161d593497a55b35b1351350abf0bb623c2191d43fbf033262268`; terminal `10557212958` / `sha256:b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067`.
+Artifacts/digests: source lock `10570904818` / `sha256:bd7d51da27afea554aa7a92e39db30d15ddd295c677fd5c04ae6d4d8ff07ec5c`; Researcher `10571700053` / `sha256:91942be6322a3c90c94f88fed7f390128b4db93225db478887a441a4dd90f7a7`; Critic `10570659920` / `sha256:bb5cc3f098eb71f27876a192a5073eaa67a29e86f0e055f2b688cd68a7fc4431`; terminal `10570888371` / `sha256:8dd490dbe0f14bb4835cb7783af402596e423cb1132e97dfc17c25e0353c38fa`. Canonical terminal payload SHA256 `681c2066e66715204b6e5b6154d5aecef7273703d5b3dd5aede9c1afd5224665`; raw terminal JSON SHA256 `06792d93bb948e256ceb3459bf8a1d57ee6bbfc7eda0f716fb8436bcd38245b1`.
 
-Frozen terminal payload SHA256 `9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d`.
-
-Classification: `PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED`.
-
-All ten ordered principal-symbol slots agree exactly and the metric-volume term agrees exactly. The parent full off-shell discrepancy is independently reproduced and remains nonzero: `-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000`. Thus the surviving mismatch is localized away from the tested principal symbol and volume term.
-
-Durable result commit: `feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea`.
+Frozen causal ordering: lower-order curvature before IBP MATCH; pointwise `Fi` MATCH; `FIRST_DERIVATIVE_IBP_TRANSFER` is the first exact divergence; second-derivative lower-order IBP MATCH. Stage-3 scalar difference is `-86355995554365317186893343264769708206041673/20078237934709401683903064632959076352000000`. Smallest frozen coordinate is `i=0`, difference `-433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000`. The complete class-difference sum exactly reconstructs the frozen parent discrepancy. This localizes but does not repair the parent covariant scientific FAIL.
 
 ## Active next task
 
-The lower-order causal-localization gate is now terminal.
+Prospective successor gate is frozen by commit `ae2024bd8179f84c7b9ef3b2412d6cad088f5748`: `COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_CAUSAL_AUDIT`.
 
-Authoritative run: `35403445578`.
-Durable terminal result commit: `6ccfededab41dbe01b071916a5aa746491273276`.
-Classification: `LOWER_ORDER_LOCALIZED_EXACT`.
+On the same frozen `OFFSHELL_A / d=7` witness, independently serialize all 16 exact first jets `d_j Fi`, the four diagonal transfers `-d_i Fi`, and their preregistered chain-rule source classes. Comparator first confirms the four pointwise `Fi` controls, then scans `(i,j)` lexicographically. No repair, tolerance, rescaling, sign flip, witness change, normalization change, or post-hoc regrouping is authorized. Implementation/source-lock/execution identities must be frozen before one production.
 
-Exact ordered result:
-- `LOWER_ORDER_CURVATURE_VARIATION_BEFORE_IBP`: MATCH;
-- pointwise first-derivative coefficients `Fi`: MATCH;
-- `FIRST_DERIVATIVE_IBP_TRANSFER`: **FIRST EXACT DIVERGENCE**;
-- `SECOND_DERIVATIVE_LOWER_ORDER_IBP`: MATCH, with A7 principal control still exact;
-- downstream connection/covariantization classes differ, but are downstream of the frozen first divergence;
-- `ALGEBRAIC_EULER_TERM`: NOT REACHED.
-
-Frozen Stage-3 scalar transfer difference:
-`-86355995554365317186893343264769708206041673/20078237934709401683903064632959076352000000`.
-
-The immutable per-coordinate transfer ledger shows the smallest ordered slot is `i=0`, already nonzero:
-`-433508011369185071313333891829231313950116629/312885874482554842907489423863612273152000000`.
-
-Both class sums reconstruct their parent totals exactly and the class-difference sum exactly reconstructs the frozen parent discrepancy. Source lock, target-blind serialization, exact arithmetic, volume control, principal control, c6 lock, and Q10 lock all passed.
-
-No repair is authorized. The next admissible task is to prospectively freeze one narrow product-rule decomposition of `-d_0 F_0` into derivative-on-background-coefficient, derivative-on-h-jet, and explicitly defined connection/covariantization completion pieces, then locate the first exact subterm divergence.
-
-## Infrastructure note
-
-The initial PR #33 event before scientific execution created no Actions run because the workflow terminal fallback contained invalid YAML heredoc indentation. Prospective execution-only repair was frozen in `a9fd6e1aeb80f4c638f7950f40363a776f5c98ac`, applied in `395c62ca147e2979252c183a43843b7db9aa8adc`, and the execution binding was refreshed in `c54217accd99acbcb47fc9f4eb82d7c9f05649b4`. No scientific job ran before that repair.
+Current-task completion: 79% for the covariant functional-derivative causal-localization programme. This is a workflow progress estimate, not theory correctness.
 
 ## Locks
 
-Corrected degree-eight coefficients and corrected Q10 remain LOCKED. `c6=SYMBOLIC_UNFIXED`. `beta=1` unauthorized. `theory_established=0%`. No experimental confirmation. Finite/symmetry-reduced panels are not global theorems. No quantum-unitarity, UV-completion, physical-c6, new-physics, or global-QGR claim is authorized.
+`c6=SYMBOLIC_UNFIXED`; beta matching/calibration remains unfixed and `beta=1` unauthorized; corrected Q10 LOCKED; `theory_established=0%`; no experimental confirmation. Finite panels are not global theorems. G45 does not prove absolute energy positivity or quantum unitarity. G35-G37 distant roots do not authorize physical weights. KMQGB `NEW_REQUIRED` is not authorized. No global QGR, quantum-unitarity, UV-completion, physical-c6, experimental, or new-physics claim is authorized.
