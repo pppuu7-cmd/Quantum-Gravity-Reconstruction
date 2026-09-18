@@ -42,13 +42,17 @@ def run():
         gate=str(rec.get('latest_active_gate') or '')
         active_status=rec.get('active_gate_status')
         prereg_state_consistent=(
-            isinstance(next_science,str) and next_science.startswith('ITER')
+            isinstance(next_science,str) and bool(next_science)
             and nonterminal_status(next_status)
-            and next_science in gate
+            and next_science == gate
             and active_status==next_status
         )
     last_terminal=sync.get('last_terminal_science')
-    terminal_state_consistent=isinstance(last_terminal,str) and last_terminal.startswith('ITER')
+    terminal_commit=rec.get('latest_terminal_result_commit')
+    terminal_state_consistent=(
+        isinstance(last_terminal,str) and bool(last_terminal)
+        and isinstance(terminal_commit,str) and bool(terminal_commit)
+    )
     ok=(not missing and m.get('chat_memory_required') is False and prereg_state_consistent and terminal_state_consistent)
     return {
       'valid':ok,'chat_memory_used':False,'missing_answers':missing,'answers':answers,
