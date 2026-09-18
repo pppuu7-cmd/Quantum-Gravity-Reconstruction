@@ -34,7 +34,11 @@ The same-A7 lower-order decomposition gate is now prospectively frozen by prereg
 
 Preserve the existing A7 jet/counterexample, exact arithmetic, parent discrepancy, `c6=SYMBOLIC_UNFIXED`, and all scientific locks. Implement two independent exact lanes that serialize the frozen lower-order contribution classes target-blind before comparison and require their exact sum to reconstruct the parent discrepancy. No witness/sign/normalization/threshold/target changes after inspection. Do not start a third symmetry reduction.
 
-Current-task completion: 74% for the covariant functional-derivative programme: principal symbol and volume sectors are independently localized, the lower-order adjudication is prospectively frozen, and independent implementations/production remain.
+Operational implementation decomposition is now additionally frozen by commit `f0081e60056106b0eac916b6f207ad03fc113233`. It fixes the ordered first-divergence comparator, Researcher scalar-test ledger, independent Critic P/Palatini reconstruction semantics, and covariantization accounting before lower-order production.
+
+A7 provenance distinction: terminal artifact ZIP digest remains `sha256:b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067`; raw `terminal.json` SHA256 is `4ca6db44afb8e6d7a263bf36ebcc2bd633813a1947aaf8e63681ae4c2c9cbe02`; canonical self-hash field remains `9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d`.
+
+Current-task completion: 76% for the covariant functional-derivative programme: A7 is durable, the lower-order gate and implementation decomposition are frozen, and independent lane implementation / execution binding / production remain.
 
 ## Infrastructure note
 
