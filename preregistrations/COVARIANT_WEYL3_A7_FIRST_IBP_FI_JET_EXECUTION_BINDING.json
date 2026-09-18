@@ -1,0 +1,69 @@
+{
+  "schema": "QGR_WEYL3_A7_FI_JET_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_CAUSAL_AUDIT",
+  "preregistration_commit": "ae2024bd8179f84c7b9ef3b2412d6cad088f5748",
+  "implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
+  "parent_terminal_commit": "6ccfededab41dbe01b071916a5aa746491273276",
+  "frozen_counterexample": {
+    "seed": "OFFSHELL_A",
+    "direction": 7
+  },
+  "frozen_scan_order": "lexicographic (i,j), i=0..3, j=0..3",
+  "source_order": [
+    "METRIC_JET",
+    "INVERSE_METRIC_JET",
+    "CURVATURE_WEYL_JET",
+    "CONNECTION_JET",
+    "PERTURBATION_JET"
+  ],
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "researcher": {
+      "path": "scripts/qgr_covariant_weyl3_a7_fi_jet_researcher.py",
+      "commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
+      "blob": "61fd48dcfe75bbe675d4b980000db0d93ed124bd"
+    },
+    "critic": {
+      "path": "scripts/qgr_covariant_weyl3_a7_fi_jet_critic.py",
+      "commit": "ab79af9aa381fef6f673f3391fe163e6c3570b40",
+      "blob": "5bcbdc778b56790f8c9f6d8c006e16f596101b12"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_fi_jet_terminal.py",
+      "commit": "4372339c33cf55889d3d66648384e1cf15329408",
+      "blob": "f7126f0d822eeb5cf0a1e25f4047ece2ae0ab0f6"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_fi_jet_source_lock.py",
+      "commit": "9ed9117146f7e548c574b3d0a946f68f4b2dca1b",
+      "blob": "ed7c0a1f752b5dca42563cc97ce2807542faec83"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-fi-jet-audit.yml",
+      "commit": "7d23024739ec7d06b143bba9137bf52b1560d66f",
+      "blob": "760b2acc466be42282caa13e243748f1ad14ce83"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-fi-jet.txt",
+    "jobs": [
+      "source_lock",
+      "researcher",
+      "critic",
+      "terminal"
+    ],
+    "target_blind_serialization": true,
+    "exact_arithmetic": true,
+    "allowed_terminal_classifications": [
+      "FI_FIRST_JET_DIVERGENCE_LOCALIZED",
+      "BLOCKED_INTERNAL_INCONSISTENCY",
+      "FI_JET_AND_TRANSFER_MATCH__PARENT_RECONCILIATION_REQUIRED",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true,
+    "no_posthoc_source_reordering": true
+  }
+}
