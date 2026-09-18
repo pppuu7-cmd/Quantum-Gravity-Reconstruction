@@ -5,44 +5,44 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-18",
-    "iteration": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
-    "phase": "COVARIANT_FUNCTIONAL_DERIVATIVE_IMPLEMENTATION"
+    "iteration": "COVARIANT_WEYL3_LOWER_ORDER_COVARIANTIZATION_IBP_LOCALIZATION",
+    "phase": "PROSPECTIVE_PREREGISTRATION_REQUIRED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
     "candidate_program_pct": 100,
     "candidate_program_pct_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
     "theory_established_pct": 0,
-    "global_interacting_measure_established": false,
-    "regulator_removal_established": false,
     "experimental_confirmation": false
   },
-  "programme_infrastructure": {
-    "status": "PROMOTED_TO_100_AFTER_FROZEN_A_TO_P_PASS_PENDING_FRONT_RECERTIFICATION",
-    "classifier": "QGR_PROGRAMME_INFRASTRUCTURE_100_PASS",
-    "completion_contract_commit": "cf528fb6cd9f21611ca7f04ca5fb488fcd506359",
-    "authorization_run": 35181866332,
-    "mandatory_obligation_count": 16,
-    "passed_obligation_count": 16
-  },
   "science_sync": {
-    "last_terminal_science": "CORRECTED_DEGREE6_EINSTEIN_COMPLETED_QF_DEGREE_FLOW_ADJUDICATION",
-    "last_terminal_classification": "QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED",
-    "last_terminal_scientific_pass": true,
-    "last_terminal_run": 35312874182,
-    "last_terminal_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2",
-    "next_preregistered_science": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
-    "next_preregistered_status": "IMPLEMENTATION_IN_PROGRESS"
+    "last_terminal_science": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
+    "last_terminal_classification": "PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED",
+    "last_terminal_scientific_pass": false,
+    "last_terminal_run": 35368354816,
+    "last_terminal_result_commit": "feba733ef0e7d1423be4e38ad5c9c9c8b623a5ea",
+    "next_preregistered_science": null,
+    "next_preregistered_status": "PROSPECTIVE_PREREGISTRATION_REQUIRED"
   },
-  "recovery_sync": {
-    "latest_preregistration_commit": "8c21ee233423deaff52d0fa552c027fa065a53a7",
-    "latest_panel_freeze_commit": "1642dc7ca4204a4240635be68522f1731c8a9c50",
-    "latest_implementation_commit": "03377afec95801b5a49f47b85ddd9c9bf3326ac0",
-    "latest_terminal_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2",
-    "latest_terminal_result_kind": "SCOPED_EXACT_INDEPENDENTLY_REPRODUCED_PASS",
-    "latest_active_gate": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
-    "active_gate_status": "IMPLEMENTATION_IN_PROGRESS",
-    "active_actions_run": null
+  "latest_terminal": {
+    "gate": "COVARIANT_WEYL3_OFFSHELL_A7_PRINCIPAL_SYMBOL_CAUSAL_LOCALIZATION",
+    "preregistration_commit": "5c5d6197ff15573f2110729ddd41c4e64c005e7a",
+    "production_head": "d2b9802e79c8b244457c50690b449a852e92741c",
+    "actions_run": 35368354816,
+    "researcher_job": 105676145129,
+    "critic_job": 105676144975,
+    "terminal_job": 105676380927,
+    "researcher_artifact": 10557168059,
+    "researcher_artifact_sha256": "60208238c2d25aa4834e5b12dbd358b40408a71b032b3dd230b4362e025c5e36",
+    "critic_artifact": 10556793874,
+    "critic_artifact_sha256": "2ad8e346cbd161d593497a55b35b1351350abf0bb623c2191d43fbf033262268",
+    "terminal_artifact": 10557212958,
+    "terminal_artifact_sha256": "b6c83393e18c4b0b85a8c25867b65f3e42bfd096348f1176570375b57e9eb067",
+    "terminal_payload_sha256": "9dbcf7fab9dc9a26b6228f3915aeb12a10a91cac052705e237b6d9797b78842d",
+    "classification": "PRINCIPAL_SYMBOL_AND_VOLUME_MATCH__LOWER_ORDER_COVARIANTIZATION_OR_IBP_LOCALIZATION_REQUIRED",
+    "principal_exact_zero_all": true,
+    "volume_exact_zero": true,
+    "parent_discrepancy": "-86355995554365317186893343264769708206041673/10039118967354700841951532316479538176000000"
   },
   "preserved_authority": {
     "iter049": {
@@ -54,47 +54,20 @@
       "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
       "canonical_trig_control_only_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
     },
-    "iter048": {
-      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
-    },
-    "iter057y": {
-      "status": "TERMINAL_SCOPED_SCIENTIFIC_AUTHORITY",
-      "classification": "PASS_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_EXACT_Q8_RESPONSE_EXISTS",
-      "durable_commit": "eae9c35e408050fe1bff86e88e9492a6fcc6c8fc",
-      "run": 35267264898,
-      "terminal_payload_sha256": "490967663d088b9192ab9451946aedfb2322530b991e3d1e7be685650e6903ca",
-      "source_convention": "MAP_MINUS"
-    },
-    "iter057at": {
-      "status": "TERMINAL_SCOPED_PASS_EXACT_INDEPENDENTLY_REPRODUCED",
-      "ordered_840_vector_sha256": "5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b"
-    },
+    "iter048": {"status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"},
     "einstein_completed_qf_degree_flow": {
-      "status": "TERMINAL_SCOPED_PASS",
-      "preregistration_commit": "8a5e1e9186d8b8b81f401158b8ca04b38f05de66",
-      "production_head": "082e1fffa9a72f93f1f821dfa1fe18090a6ef257",
       "actions_run": 35312874182,
-      "researcher_job": 105498333038,
-      "critic_job": 105498333413,
-      "terminal_job": 105506376570,
-      "researcher_artifact": 10535740061,
-      "researcher_artifact_sha256": "c6b20fd328da102745652af5d3cca8fca2c4219b016b4b1597646167cff910fb",
-      "critic_artifact": 10535270624,
-      "critic_artifact_sha256": "8068c3515156b3fd4527af0437017e46d349074a414e27c71805ad3e1068df01",
-      "terminal_artifact": 10535200266,
-      "terminal_artifact_sha256": "8301b70b6e223d579c23c2bfffab4d35de7a782102ee2708b38cd4ec1a919d9e",
-      "terminal_payload_sha256": "64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797",
       "classification": "QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED",
-      "scientific_pass": true,
-      "lane_count": 2
+      "terminal_payload_sha256": "64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797",
+      "durable_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2"
     }
   },
   "active_question": {
-    "id": "COVARIANT-WEYL3-DIRECTIONAL-VARIATION-FUNCTIONAL-DERIVATIVE-CERTIFICATE",
-    "text": "On the prospectively frozen genuinely 4D off-shell nonsymmetric jet panel, do two independent exact implementations of the directional variation of sqrt(-g) Weyl^3, after explicit integration by parts, exactly agree with an independently constructed covariant Euler-source contraction?"
+    "id": "COVARIANT-WEYL3-LOWER-ORDER-COVARIANTIZATION-IBP-LOCALIZATION",
+    "text": "On the same frozen A7 off-shell counterexample, which exact lower-order covariantization, connection-variation, or integration-by-parts contribution accounts for the surviving parent discrepancy after principal-symbol and metric-volume agreement?"
   },
-  "active_blocker": "No scientific blocker is classified yet. Frozen jet-panel generator exists; independent Researcher/Critic curvature-variation, integration-by-parts, and Euler-source implementations and scientific production are still pending.",
-  "next_gate_lock": "Do not start a third symmetry reduction. Implement the two independent covariant lanes under preregistration 8c21ee233423deaff52d0fa552c027fa065a53a7 and frozen panel 1642dc7ca4204a4240635be68522f1731c8a9c50. Serialize target-blind witnesses before cross-lane comparison. Any execution-only repair requires a separate prospective record; no post-hoc scientific weakening.",
+  "active_blocker": "A prospective same-A7 lower-order decomposition gate must be frozen before implementation or production.",
+  "next_gate_lock": "Do not start a third symmetry reduction. Preserve the same A7 witness and parent discrepancy. Freeze lower-order term decomposition before implementation; use two independent exact lanes and target-blind serialization; no post-hoc scientific weakening.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
