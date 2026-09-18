@@ -4,9 +4,9 @@
     "name": "Quantum Gravity Reconstruction",
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
-    "date": "2026-09-17",
-    "iteration": "ITER057BH_ITER057Y_SOURCE_EQUATION_CONVENTION_ADJUDICATION",
-    "phase": "CORRECTED_DEGREE6_DESCENDANT_LINEAGE_REPLAY_PREPARATION"
+    "date": "2026-09-18",
+    "iteration": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
+    "phase": "COVARIANT_FUNCTIONAL_DERIVATIVE_IMPLEMENTATION"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -18,110 +18,90 @@
     "experimental_confirmation": false
   },
   "programme_infrastructure": {
-    "status": "PROMOTED_TO_100_AFTER_FROZEN_A_TO_P_PASS",
+    "status": "PROMOTED_TO_100_AFTER_FROZEN_A_TO_P_PASS_PENDING_FRONT_RECERTIFICATION",
     "classifier": "QGR_PROGRAMME_INFRASTRUCTURE_100_PASS",
     "completion_contract_commit": "cf528fb6cd9f21611ca7f04ca5fb488fcd506359",
     "authorization_run": 35181866332,
-    "latest_science_front_invariance_recertification_run": 35246742331,
     "mandatory_obligation_count": 16,
     "passed_obligation_count": 16
   },
   "science_sync": {
-    "last_terminal_science": "ITER057AT",
-    "last_terminal_technical_gate": "ITER057BG",
-    "next_preregistered_science": "ITER057BH",
-    "next_preregistered_status": "ACTIVE_PRODUCTION_IN_PROGRESS"
+    "last_terminal_science": "CORRECTED_DEGREE6_EINSTEIN_COMPLETED_QF_DEGREE_FLOW_ADJUDICATION",
+    "last_terminal_classification": "QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED",
+    "last_terminal_scientific_pass": true,
+    "last_terminal_run": 35312874182,
+    "last_terminal_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2",
+    "next_preregistered_science": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
+    "next_preregistered_status": "IMPLEMENTATION_IN_PROGRESS"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "4317e8d2dce74178ecddab100374455c933959c4",
-    "latest_terminal_result_commit": "c9474e2f0c50268f314c4001acc3834f80ee7294",
-    "latest_terminal_result_kind": "TECHNICAL_PROVENANCE_MATERIALIZATION_SCOPED_PASS",
-    "latest_terminal_technical_gate": "ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_MATERIALIZATION",
-    "latest_terminal_technical_classification": "PASS_SCOPED_ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_INDEPENDENTLY_REPRODUCED",
-    "latest_active_gate": "ITER057BH_ITER057Y_SOURCE_EQUATION_CONVENTION_ADJUDICATION",
-    "active_gate_status": "ACTIVE_PRODUCTION_IN_PROGRESS",
-    "active_static_implementation_commit": "657c65495eafb438574e78bdb0599dba075a4c82",
-    "active_exact_implementation_commit": "a2b46f9f8d97d775638cc7a2383007229811da1d",
-    "active_production_head": "deceffde435e81f8009e7d38887c4bcbe6a0943e",
-    "active_workflow": ".github/workflows/qgr-iter057bh-y-source-convention.yml",
-    "active_actions_run": 35255309628,
-    "active_static_job": 105317366366,
-    "active_exact_job": 105317366642
+    "latest_preregistration_commit": "8c21ee233423deaff52d0fa552c027fa065a53a7",
+    "latest_panel_freeze_commit": "1642dc7ca4204a4240635be68522f1731c8a9c50",
+    "latest_implementation_commit": "03377afec95801b5a49f47b85ddd9c9bf3326ac0",
+    "latest_terminal_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2",
+    "latest_terminal_result_kind": "SCOPED_EXACT_INDEPENDENTLY_REPRODUCED_PASS",
+    "latest_active_gate": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
+    "active_gate_status": "IMPLEMENTATION_IN_PROGRESS",
+    "active_actions_run": null
   },
   "preserved_authority": {
+    "iter049": {
+      "gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
+      "authoritative_retry_run": 34719948722,
+      "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
+      "authoritative_retry_head": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
+      "initial_run_diagnostic_non_authoritative": 34719814120,
+      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
+      "canonical_trig_control_only_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
+    },
+    "iter048": {
+      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
+    },
+    "iter057y": {
+      "status": "TERMINAL_SCOPED_SCIENTIFIC_AUTHORITY",
+      "classification": "PASS_SCOPED_ITER057Y_CORRECTED_AT_SOURCE_EXACT_Q8_RESPONSE_EXISTS",
+      "durable_commit": "eae9c35e408050fe1bff86e88e9492a6fcc6c8fc",
+      "run": 35267264898,
+      "terminal_payload_sha256": "490967663d088b9192ab9451946aedfb2322530b991e3d1e7be685650e6903ca",
+      "source_convention": "MAP_MINUS"
+    },
     "iter057at": {
       "status": "TERMINAL_SCOPED_PASS_EXACT_INDEPENDENTLY_REPRODUCED",
-      "production_head": "c4e7ccc05ea1b8f4967379fc370812dfa99cce03",
-      "actions_run": 35198813733,
-      "artifact": 10486973737,
-      "corrected_ordered_vector_sha256": "5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b",
-      "classification": "PASS_SCOPED_ITER057AT_CORRECTED_HOMOGENEOUS_DEGREE6_SOURCE_INDEPENDENTLY_REPRODUCED"
+      "ordered_840_vector_sha256": "5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b"
     },
-    "iter057au": {
-      "status": "TERMINAL_BLOCKED_UNRESOLVED_PROVENANCE",
-      "durable_result_commit": "c299683e28289788c53797e5ede1cafaf09f5431",
-      "classification": "BLOCKED_ITER057AU_UNRESOLVED_PROVENANCE"
-    },
-    "iter057az": {
-      "status": "TERMINAL_TECHNICAL_FAIL",
-      "durable_result_commit": "87c9b6d029120aaeb38d0c5ff985df9125ae3470",
-      "classification": "FAIL_TECHNICAL_ITER057AZ_INDEPENDENT_IMPLEMENTATION_OR_CONTROL_FAILURE"
-    },
-    "iter057ba": {
+    "einstein_completed_qf_degree_flow": {
       "status": "TERMINAL_SCOPED_PASS",
-      "durable_result_commit": "9315d4a987698fc502958235b2c9ec011e097244",
-      "classification": "PASS_SCOPED_ITER057BA_NEUTRAL_CANONICAL_BYTE_SAFE_CERTIFICATE_INDEPENDENTLY_REPRODUCED"
-    },
-    "iter057bb": {
-      "status": "TERMINAL_TECHNICAL_FAIL",
-      "durable_result_commit": "9f693a06f4ec16f06b32f427469beef2eb671844",
-      "classification": "FAIL_TECHNICAL_ITER057BB_INDEPENDENT_REPRODUCTION_OR_DAG_CONTROL_FAILURE"
-    },
-    "iter057bc": {
-      "status": "TERMINAL_SCOPED_PASS_CAUSAL_DIAGNOSTIC",
-      "durable_result_commit": "4175032db3d74e3939996fe44309724142a6cbf6",
-      "classification": "PASS_SCOPED_ITER057BC_SAME_ITERATION_EDGE_POLLUTION_CAUSALLY_LOCALIZED"
-    },
-    "iter057bd": {
-      "status": "TERMINAL_SCOPED_PASS_DEPENDENCY_ADJUDICATION",
-      "durable_result_commit": "c1e5be8e0da856d0960dce20cdb48f207b572869",
-      "scientific_normalized_sha256": "d7b714683f6909d3fa36fb265686317edb866b68b646c50687994b14a026aa8c",
-      "classification": "PASS_SCOPED_ITER057BD_STRICT_EARLIER_ONLY_DESCENDANT_DEPENDENCY_ADJUDICATION_INDEPENDENTLY_REPRODUCED"
-    },
-    "iter057be": {
-      "status": "TERMINAL_BLOCKED_REPLAY_ORDER_EXTRACTOR",
-      "durable_result_commit": "ab1ca6e342902f06421c2debb1d9c06e1adfcff8",
-      "classification": "BLOCKED_ITER057BE_ITER057Y_REPLAY_ORDER_UNRESOLVED"
-    },
-    "iter057bf": {
-      "status": "TERMINAL_SCOPED_PASS_Y_REPLAY_SCHEDULING",
-      "durable_result_commit": "1bdd80ff310433f02bd493b228806517492d291b",
-      "classification": "PASS_SCOPED_ITER057BF_ITER057Y_REPLAY_BUNDLE_ORDER_SCIENCE_BEFORE_AUDIT_REPAIRED_PRIMARY_AND_INDEPENDENTLY_REPRODUCED",
-      "ordering_relation": "SCIENCE_BEFORE_AUDIT"
-    },
-    "iter057bg": {
-      "status": "TERMINAL_SCOPED_PASS_DURABLE_AT_INPUT",
-      "durable_result_commit": "c9474e2f0c50268f314c4001acc3834f80ee7294",
-      "actions_run": 35254397613,
-      "terminal_artifact": 10511953237,
-      "candidate_path": "data/ITER057AT_CANONICAL_SOURCE_DEGREE6.csv",
-      "candidate_sha256": "1cae5a82d1345b9d9a77bcd3d6a91f6d5747629b5ac9e091bbb6c5a7ade3025b",
-      "ordered_840_vector_sha256": "5d070732d90b864f6167e03da85b86ce531d127dc9442fdbb928fd1b6153ee6b",
-      "classification": "PASS_SCOPED_ITER057BG_ITER057AT_CORRECTED_DEGREE6_DURABLE_INPUT_INDEPENDENTLY_REPRODUCED"
+      "preregistration_commit": "8a5e1e9186d8b8b81f401158b8ca04b38f05de66",
+      "production_head": "082e1fffa9a72f93f1f821dfa1fe18090a6ef257",
+      "actions_run": 35312874182,
+      "researcher_job": 105498333038,
+      "critic_job": 105498333413,
+      "terminal_job": 105506376570,
+      "researcher_artifact": 10535740061,
+      "researcher_artifact_sha256": "c6b20fd328da102745652af5d3cca8fca2c4219b016b4b1597646167cff910fb",
+      "critic_artifact": 10535270624,
+      "critic_artifact_sha256": "8068c3515156b3fd4527af0437017e46d349074a414e27c71805ad3e1068df01",
+      "terminal_artifact": 10535200266,
+      "terminal_artifact_sha256": "8301b70b6e223d579c23c2bfffab4d35de7a782102ee2708b38cd4ec1a919d9e",
+      "terminal_payload_sha256": "64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797",
+      "classification": "QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED",
+      "scientific_pass": true,
+      "lane_count": 2
     }
   },
   "active_question": {
-    "id": "ITER057BH-ITER057Y-SOURCE-EQUATION-CONVENTION-ADJUDICATION",
-    "text": "Before any corrected Iter057Y solve, does the historical Y source convention inherit S_std_corrected=+AT or S_std_corrected=-AT, as independently determined from frozen code semantics and an exact fresh 840-slot OX_PL/OX_PF comparison?"
+    "id": "COVARIANT-WEYL3-DIRECTIONAL-VARIATION-FUNCTIONAL-DERIVATIVE-CERTIFICATE",
+    "text": "On the prospectively frozen genuinely 4D off-shell nonsymmetric jet panel, do two independent exact implementations of the directional variation of sqrt(-g) Weyl^3, after explicit integration by parts, exactly agree with an independently constructed covariant Euler-source contraction?"
   },
-  "active_blocker": "Iter057BH exact lane is actively recomputing pinned Iter057AQ cells. Static lane is terminal within the active gate but its X-sign AST predicate is unresolved because it assumed a single Subscript layer for neg(Edown[a][b]); no sign PASS is inferred and no corrected Iter057Y solve is authorized.",
-  "next_gate_lock": "Consume Iter057BH fresh exact and terminal artifacts only. Do not run corrected Iter057Y. If BH is blocked solely by the localized static AST-shape extractor after exact convention evidence is realized, prospectively repair only that extractor representation; preserve all BH criteria and both preauthorized sign outcomes.",
+  "active_blocker": "No scientific blocker is classified yet. Frozen jet-panel generator exists; independent Researcher/Critic curvature-variation, integration-by-parts, and Euler-source implementations and scientific production are still pending.",
+  "next_gate_lock": "Do not start a third symmetry reduction. Implement the two independent covariant lanes under preregistration 8c21ee233423deaff52d0fa552c027fa065a53a7 and frozen panel 1642dc7ca4204a4240635be68522f1731c8a9c50. Serialize target-blind witnesses before cross-lane comparison. Any execution-only repair requires a separate prospective record; no post-hoc scientific weakening.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
     "beta_set_to_one_authorized": false,
     "qgr_six_derivative_coefficient_fixed": false,
     "c6_running_authorized": false,
+    "c6_symbolic_unfixed": true,
     "strong_hyperbolicity_established": false,
     "physical_ghost_claim_authorized": false,
     "quantum_unitarity_established": false,
@@ -129,6 +109,8 @@
     "regulator_removal_established": false,
     "uv_complete": false,
     "new_physics_found": false,
-    "kmqgb_new_required_authorized": false
+    "kmqgb_new_required_authorized": false,
+    "corrected_q10_locked": true,
+    "finite_panels_global_theorem": false
   }
 }
