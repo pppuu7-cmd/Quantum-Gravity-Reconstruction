@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "phase": "TERMINAL_DUAL_POLYNOMIAL_MATCHES_NEITHER__SUCCESSOR_PREREG_REQUIRED"
+    "phase": "PREREGISTERED_IMPLEMENTATION_REQUIRED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -21,15 +21,15 @@
     "last_terminal_scientific_pass": false,
     "last_terminal_run": 35404845600,
     "last_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "PROSPECTIVE_SUCCESSOR_REQUIRED"
+    "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
+    "next_preregistered_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "ed829c5f60f2fad6a308ec3f9c50695a6777567e",
+    "latest_preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
     "latest_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
     "latest_terminal_result_kind": "EXACT_THIRD_CONSTRUCTION_DISAGREEMENT",
-    "latest_active_gate": null,
-    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
+    "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
+    "active_gate_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
@@ -92,7 +92,7 @@
     "id": "COVARIANT-WEYL3-A7-CONNECTION-TENSOR-COMPONENT-LOCALIZATION",
     "text": "At OFFSHELL_A/d=7/(0,0), where is the first exact 4-index tensor component at which tensor-Hessian, hand-expanded GammaGamma, and neutral dual-polynomial connection constructions cease to agree, and what are their pairwise relations?"
   },
-  "active_blocker": "A prospective full 256-component tensor comparison must be frozen before execution. No correction is authorized.",
+  "active_blocker": "Implementation, exact source/provenance lock, execution binding and single production are required for the already-preregistered 256-component three-way tensor comparison.",
   "next_gate_lock": "Serialize the full 256-component connection tensors from the three already frozen constructions under a lexicographic (a,b,c,d) order. Compare only after target-blind serialization. Record first differing component and exact pairwise equal/negative relations. Do not alter any parent formula.",
   "claim_locks": {
     "qgr_theory_established": false,
