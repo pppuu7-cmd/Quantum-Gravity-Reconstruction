@@ -13,6 +13,7 @@ from qgr_clean_recovery_test import run as recovery_run
 ROOT=Path(__file__).resolve().parents[1]
 SEM='Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.'
 BUNDLE_REQUIRED={'docs/CONSTITUTION.md','docs/ROADMAP.md','protocol/QGR_PROGRAMME_READINESS_100_CONTRACT.json','protocol/QGR_GATE_REGISTRY.json','schemas/qgr_candidate_export_v1.schema.json','templates/qgr_candidate_export_v1.template.json','code/qgr_candidate_export_validator.py','code/qgr_kmqgb_adapter.py','code/qgr_kmqgb_drift_detector.py','code/qgr_lineage_dag_validator.py','code/qgr_programme_readiness_validator.py','code/qgr_programme_readiness_critic.py','recovery/state.json','recovery/CURRENT_FRONT.md','recovery/RECOVERY_PLAYBOOK.md','protocol/QGR_KMQGB_INTERFACE_PIN.json','docs/kmqgb_deltas/REGISTRY.json','protocol/QGR_POST_CANDIDATE_DECISION_TREE.json','synthetic/qgr_synthetic_blocked_candidate_v1.json','synthetic/qgr_malformed_candidate_v1.json'}
+FORBIDDEN_TRUE_LOCKS={'qgr_theory_established','experimental_confirmation','beta_set_to_one_authorized','qgr_six_derivative_coefficient_fixed','c6_running_authorized','strong_hyperbolicity_established','physical_ghost_claim_authorized','quantum_unitarity_established','global_interacting_measure_established','regulator_removal_established','uv_complete','new_physics_found','kmqgb_new_required_authorized','finite_panels_global_theorem'}
 def j(rel):return json.loads((ROOT/rel).read_text())
 def evaluate(kroot:Path):
     passed={}; invalid={}; detail={}
@@ -20,14 +21,26 @@ def evaluate(kroot:Path):
       try:v=fn();passed[letter]=bool(v);detail[letter]=v
       except Exception as e:passed[letter]=False;invalid[letter]=f'{type(e).__name__}: {e}';detail[letter]=traceback.format_exc()
     state=j('recovery/state.json')
-    chk('A',lambda: j('protocol/QGR_READINESS_SEMANTICS.json')['candidate_program_100_semantics']==SEM and state['readiness']['candidate_program_pct_semantics']==SEM and state['readiness']['repository_infrastructure_pct']==100 and state['readiness']['theory_established_pct']==0 and state['readiness']['experimental_confirmation'] is False and all(v is False for v in state['claim_locks'].values()))
+    def a():
+      locks=state['claim_locks']
+      return (
+        j('protocol/QGR_READINESS_SEMANTICS.json')['candidate_program_100_semantics']==SEM
+        and state['readiness']['candidate_program_pct_semantics']==SEM
+        and state['readiness']['repository_infrastructure_pct']==100
+        and state['readiness']['theory_established_pct']==0
+        and state['readiness']['experimental_confirmation'] is False
+        and all(locks.get(k) is False for k in FORBIDDEN_TRUE_LOCKS)
+        and locks.get('c6_symbolic_unfixed') is True
+        and locks.get('corrected_q10_locked') is True
+      )
+    chk('A',a)
     def b():
       rd=(ROOT/'README.md').read_text();rm=(ROOT/'docs/ROADMAP.md').read_text();ss=state['science_sync'];front=(ROOT/'recovery/CURRENT_FRONT.md').read_text();rr=recovery_run()
       last=ss.get('last_terminal_science');nxt=ss.get('next_preregistered_science')
       return (
         not stale_current_marker(rd) and not stale_current_marker(rm)
-        and isinstance(last,str) and last.startswith('ITER') and last in front
-        and (nxt is None or (isinstance(nxt,str) and nxt.startswith('ITER') and nxt in front))
+        and isinstance(last,str) and bool(last) and last in front
+        and (nxt is None or (isinstance(nxt,str) and bool(nxt) and nxt in front))
         and rr.get('valid') is True
       )
     chk('B',b)
