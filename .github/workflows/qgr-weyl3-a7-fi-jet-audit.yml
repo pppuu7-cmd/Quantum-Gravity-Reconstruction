@@ -1,0 +1,133 @@
+name: QGR Weyl3 A7 Fi first-jet causal audit
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/weyl3-a7-fi-jet.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Verify frozen Fi-jet source and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_fi_jet_source_lock.py \
+            --binding preregistrations/COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_EXECUTION_BINDING.json \
+            --output artifacts/source-lock/source_lock.json \
+            | tee artifacts/source-lock/source_lock.log
+          sha256sum artifacts/source-lock/source_lock.json artifacts/source-lock/source_lock.log > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-fi-jet-source-lock
+          path: artifacts/source-lock/
+          if-no-files-found: error
+
+  researcher:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Freeze independent Researcher Fi first jets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/researcher
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_fi_jet_researcher.py \
+            --output artifacts/researcher/researcher.json \
+            | tee artifacts/researcher/researcher.log
+          sha256sum artifacts/researcher/researcher.json artifacts/researcher/researcher.log > artifacts/researcher/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-fi-jet-researcher
+          path: artifacts/researcher/
+          if-no-files-found: error
+
+  critic:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Freeze independent Critic Fi first jets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/critic
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_fi_jet_critic.py \
+            --output artifacts/critic/critic.json \
+            | tee artifacts/critic/critic.log
+          sha256sum artifacts/critic/critic.json artifacts/critic/critic.log > artifacts/critic/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-fi-jet-critic
+          path: artifacts/critic/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [source_lock, researcher, critic]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Prepare terminal directories
+        run: mkdir -p artifacts/all/researcher artifacts/all/critic artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: weyl3-a7-fi-jet-researcher
+          path: artifacts/all/researcher
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: weyl3-a7-fi-jet-critic
+          path: artifacts/all/critic
+      - name: Frozen Fi first-jet comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          if test -f artifacts/all/researcher/researcher.json && test -f artifacts/all/critic/critic.json; then
+            python scripts/qgr_covariant_weyl3_a7_fi_jet_terminal.py \
+              --researcher artifacts/all/researcher/researcher.json \
+              --critic artifacts/all/critic/critic.json \
+              --output artifacts/terminal/terminal.json \
+              | tee artifacts/terminal/terminal.log
+            rc=${PIPESTATUS[0]}
+          else
+            python -c 'import hashlib,json,pathlib; p={"gate":"COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_CAUSAL_AUDIT","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required lane artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}; p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest(); pathlib.Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\\n"); print(json.dumps(p,sort_keys=True,indent=2))'
+            cp artifacts/terminal/terminal.json artifacts/terminal/terminal.log
+            rc=2
+          fi
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-fi-jet-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - name: Block only execution/provenance or internal inconsistency
+        shell: bash
+        run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
