@@ -1,0 +1,71 @@
+name: QGR Einstein-completed QF degree-flow adjudication
+on:
+  push:
+    paths:
+      - 'scripts/qgr_einstein_completed_qf_degree_flow.py'
+      - '.github/workflows/qgr-einstein-completed-qf-degree-flow.yml'
+  workflow_dispatch:
+jobs:
+  researcher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install sympy==1.14.0
+      - name: Exact researcher lane
+        run: |
+          set -o pipefail
+          mkdir -p out
+          PYTHONPATH=code:scripts python scripts/qgr_einstein_completed_qf_degree_flow.py --mode researcher --out out/researcher.json | tee out/researcher.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: einstein-qf-researcher, path: out/}
+  critic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install sympy==1.14.0
+      - name: Exact critic lane
+        run: |
+          set -o pipefail
+          mkdir -p out
+          PYTHONPATH=code:scripts python scripts/qgr_einstein_completed_qf_degree_flow.py --mode critic --out out/critic.json | tee out/critic.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: einstein-qf-critic, path: out/}
+  terminal:
+    if: always()
+    needs: [researcher, critic]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {path: evidence}
+      - name: Frozen aggregate
+        run: |
+          python - <<'PY'
+          import glob,json,hashlib,pathlib
+          fs=glob.glob('evidence/**/*.json',recursive=True); lanes=[]
+          for f in fs:
+            try:
+              x=json.load(open(f))
+              if x.get('lane') in ('researcher','critic'): lanes.append(x)
+            except Exception: pass
+          ok=len(lanes)==2
+          if ok:
+            a,b=sorted(lanes,key=lambda x:x['lane'])
+            same=a.get('classification')==b.get('classification') and a.get('seed_controls')==b.get('seed_controls')
+            same= same and all(a['ladder'][str(q)]['source_sha256']==b['ladder'][str(q)]['source_sha256'] and a['ladder'][str(q)]['term_sha256']==b['ladder'][str(q)]['term_sha256'] and a['ladder'][str(q)]['degree_flow']['P']['hash']==b['ladder'][str(q)]['degree_flow']['P']['hash'] and a['ladder'][str(q)]['degree_flow']['one_covariant_derivative']['hash']==b['ladder'][str(q)]['degree_flow']['one_covariant_derivative']['hash'] and a['ladder'][str(q)]['degree_flow']['two_covariant_derivatives']['hash']==b['ladder'][str(q)]['degree_flow']['two_covariant_derivatives']['hash'] for q in range(6,11))
+            controls=all(all(x.get('controls',{}).values()) for x in lanes)
+            cls=a.get('classification') if same and controls else 'UNRESOLVED_EINSTEIN_COMPLETED_QF_DEGREE_FLOW'
+          else: same=controls=False; cls='UNRESOLVED_EINSTEIN_COMPLETED_QF_DEGREE_FLOW'
+          payload={'gate':'CORRECTED_DEGREE6_EINSTEIN_COMPLETED_QF_DEGREE_FLOW_ADJUDICATION','preregistration':'8a5e1e9186d8b8b81f401158b8ca04b38f05de66','lane_count':len(lanes),'independent_lanes_exactly_agree':same,'all_frozen_controls_pass':controls,'classification':cls,'scientific_pass':cls!='UNRESOLVED_EINSTEIN_COMPLETED_QF_DEGREE_FLOW'}
+          payload['payload_sha256']=hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          pathlib.Path('terminal').mkdir(); open('terminal/terminal.json','w').write(json.dumps(payload,sort_keys=True,indent=2)+'\n'); print(json.dumps(payload,sort_keys=True,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with: {name: einstein-qf-terminal, path: terminal/terminal.json}
