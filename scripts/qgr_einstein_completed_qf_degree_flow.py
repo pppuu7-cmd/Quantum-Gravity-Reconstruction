@@ -71,7 +71,7 @@ def build_terms(P,g,gi,G,R,I):
  total=mat0()
  for a,bb in product(range(N),repeat=2): total[a][bb]=b.trunc(b.add(b.add(terms_down['algebraic_PR'][a][bb],terms_down['double_divergence'][a][bb]),terms_down['metric_I3'][a][bb]),6)
  # isolate nontrivial metric lowering relative to background eta lowering
- eta=[[{(0,0,0,0):F(b.ETA[i][j])} if b.ETA[i][j] else {} for j in range(N)] for i in range(N)]
+ eta=[[{(0,0,0,0):F(b.ETA[i])} if i==j and b.ETA[i] else {} for j in range(N)] for i in range(N)]
  upsum=mat0()
  for a,bb in product(range(N),repeat=2): upsum[a][bb]=b.add(b.add(alg[a][bb],div[a][bb]),metric[a][bb])
  eta_down=lower(upsum,eta); ild=mat0()
