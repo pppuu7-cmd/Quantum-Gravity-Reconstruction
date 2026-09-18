@@ -1,0 +1,92 @@
+name: QGR Weyl3 A7 principal-symbol localization
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/weyl3-a7-principal-localization.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  researcher:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Freeze Researcher parent Fij and direct-volume witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/researcher
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_principal_localization.py             --mode researcher --output artifacts/researcher/researcher.json             | tee artifacts/researcher/researcher.log
+          sha256sum artifacts/researcher/researcher.json artifacts/researcher/researcher.log > artifacts/researcher/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weyl3-a7-principal-researcher
+          path: artifacts/researcher/
+          if-no-files-found: error
+
+  critic:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Freeze Critic P-Palatini principal and metric-volume witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/critic
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_principal_localization.py             --mode critic --output artifacts/critic/critic.json             | tee artifacts/critic/critic.log
+          sha256sum artifacts/critic/critic.json artifacts/critic/critic.log > artifacts/critic/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weyl3-a7-principal-critic
+          path: artifacts/critic/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [researcher, critic]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Prepare terminal directories
+        run: mkdir -p artifacts/all/researcher artifacts/all/critic artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: weyl3-a7-principal-researcher
+          path: artifacts/all/researcher
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: weyl3-a7-principal-critic
+          path: artifacts/all/critic
+      - name: Frozen principal-symbol comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          python scripts/qgr_covariant_weyl3_a7_principal_terminal.py             --researcher artifacts/all/researcher/researcher.json             --critic artifacts/all/critic/critic.json             --output artifacts/terminal/terminal.json | tee artifacts/terminal/terminal.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-principal-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - name: Block only execution/provenance failure
+        shell: bash
+        run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
