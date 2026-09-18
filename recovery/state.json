@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
-    "phase": "TERMINAL_FI_JET_LOCALIZATION__SUCCESSOR_PREREG_REQUIRED"
+    "phase": "PROSPECTIVELY_PREREGISTERED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -21,15 +21,15 @@
     "last_terminal_scientific_pass": false,
     "last_terminal_run": 35404041767,
     "last_terminal_result_commit": "07ad77de0506a3de5e7db601e2cfc8b5edc37c5c",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "PROSPECTIVE_SUCCESSOR_REQUIRED"
+    "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
+    "next_preregistered_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "ae2024bd8179f84c7b9ef3b2412d6cad088f5748",
+    "latest_preregistration_commit": "d76dea1d511d0f7fa99b057866ef44fd797a1fc6",
     "latest_terminal_result_commit": "07ad77de0506a3de5e7db601e2cfc8b5edc37c5c",
     "latest_terminal_result_kind": "EXACT_CAUSAL_LOCALIZATION",
-    "latest_active_gate": null,
-    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
+    "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_JET_IDENTITY_ADJUDICATION",
+    "active_gate_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
@@ -100,8 +100,8 @@
     "id": "COVARIANT-WEYL3-A7-CONNECTION-JET-IDENTITY-ADJUDICATION",
     "text": "At frozen OFFSHELL_A/d=7 and first Fi-jet slot (0,0), does an independently derived covariant connection-jet identity agree with the Researcher quadratic-connection derivative, with the Critic zero connection source, or with neither?"
   },
-  "active_blocker": "A prospective connection-identity successor must be frozen before implementation. No correction of either frozen lane is authorized.",
-  "next_gate_lock": "Keep OFFSHELL_A/d=7 and (i,j)=(0,0). Independently derive the dGamma/h connection completion from covariant tensor-Hessian/Palatini identities without importing either frozen connection-source value. Terminalize the identity result before any repair.",
+  "active_blocker": "No scientific blocker classified. Independent connection-identity Lane A/Lane B implementations, source lock, execution binding, and production remain.",
+  "next_gate_lock": "Implement only preregistration d76dea1d511d0f7fa99b057866ef44fd797a1fc6 on OFFSHELL_A/d=7/(i,j)=(0,0). Lane A tensor-Hessian and Lane B direct GammaGamma must serialize before target comparison. No repair in this gate.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
