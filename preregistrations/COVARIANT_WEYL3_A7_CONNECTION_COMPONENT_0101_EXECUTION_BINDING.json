@@ -1,0 +1,86 @@
+{
+  "schema": "QGR_WEYL3_A7_CONNECTION_COMPONENT_0101_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION",
+  "preregistration_commit": "7b9d2ffb84993f04e467c0a9ea6bf650327f6b62",
+  "parent_terminal_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
+  "frozen_witness": {
+    "seed": "OFFSHELL_A",
+    "direction": 7,
+    "i": 0,
+    "j": 0,
+    "component": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  "parent_terminal_payload_sha256": "5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16",
+  "class_order": [
+    "FREE_INDEX_PLACEMENT",
+    "METRIC_INVERSE_METRIC_CONTRACTIONS",
+    "CONNECTION_FACTOR_CHANNELS",
+    "HESSIAN_CHANNELS",
+    "GAMMAGAMMA_DUMMY_CHANNELS",
+    "DUAL_POLYNOMIAL_CHANNELS",
+    "PERMUTATION_ANTISYMMETRY_FACTORS",
+    "FINAL_COMPONENT_SUM"
+  ],
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "lane_a": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_0101_lane_a.py",
+      "commit": "dd44c47abe6f35fd45db4696ea23d8977459dfd9",
+      "blob": "3fae8021065ece964b6b57df2347fba6d77b55a6"
+    },
+    "lane_b": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_0101_lane_b.py",
+      "commit": "a2a1ac1c3098b2add897259138d397188e142723",
+      "blob": "3a3b1863006b0c90ea887bb442a48e54a44b0523"
+    },
+    "lane_c": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_0101_lane_c.py",
+      "commit": "aebe59e5fe6223614a83f9ded9e096e1491a0184",
+      "blob": "fb50355968f5d303e07862940f19367ff2cfbed0"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_0101_terminal.py",
+      "commit": "c07ebc8ae68b2193d0d0e512cb923aaaefea9996",
+      "blob": "6b635be622909f532a43d3845e4e62071f63e8ec"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_0101_source_lock.py",
+      "commit": "eb5812c322dbc0baeb17ad37e1f946864df32f23",
+      "blob": "9932f835b4f3faf380ce585e2e7557ae006599c1"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-connection-0101.yml",
+      "commit": "ac3d9ff26ddca3109a53ce6c935a88c866d83ae8",
+      "blob": "bf4193d5def8972b4fed812d2a1f9bb42b01f713"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-connection-0101.txt",
+    "jobs": [
+      "source_lock",
+      "lane_a",
+      "lane_b",
+      "lane_c",
+      "terminal"
+    ],
+    "target_blind_lane_ledgers": true,
+    "compare_only_after_all_three_artifacts": true,
+    "exact_rational_arithmetic": true,
+    "pairwise_first_divergence_required": true,
+    "shared_input_first_divergence_required": true,
+    "allowed_terminal_classifications": [
+      "COMPONENT_0101_PRIMITIVE_DIVERGENCE_LOCALIZED",
+      "COMPONENT_0101_PRIMITIVE_LEDGER_ALL_THREE_MATCH_BUT_SUM_DIVERGES",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
