@@ -1,0 +1,129 @@
+name: QGR corrected parent connection-gap sign replay
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/corrected-parent-connection-gap.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_corrected_parent_source_lock.py             --binding preregistrations/COVARIANT_WEYL3_CORRECTED_PARENT_EXECUTION_BINDING.json             --output artifacts/source-lock/source_lock.json             | tee artifacts/source-lock/source_lock.log
+          sha256sum artifacts/source-lock/source_lock.json artifacts/source-lock/source_lock.log > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corrected-parent-source-lock
+          path: artifacts/source-lock/
+          if-no-files-found: error
+
+  corrected_critic:
+    needs: [source_lock]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {seed: FLAT_CONTROL, direction: 7}
+          - {seed: FLAT_CONTROL, direction: 19}
+          - {seed: OFFSHELL_A, direction: 7}
+          - {seed: OFFSHELL_A, direction: 19}
+          - {seed: OFFSHELL_B, direction: 7}
+          - {seed: OFFSHELL_B, direction: 19}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/corrected
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_corrected_parent_critic.py             --seed "${{ matrix.seed }}" --direction "${{ matrix.direction }}"             --output "artifacts/corrected/${{ matrix.seed }}-${{ matrix.direction }}.json"             | tee "artifacts/corrected/${{ matrix.seed }}-${{ matrix.direction }}.log"
+          sha256sum artifacts/corrected/* > artifacts/corrected/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corrected-parent-critic-${{ matrix.seed }}-${{ matrix.direction }}
+          path: artifacts/corrected/
+          if-no-files-found: error
+
+  researcher_reference:
+    needs: [source_lock]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {seed: FLAT_CONTROL, direction: 7}
+          - {seed: FLAT_CONTROL, direction: 19}
+          - {seed: OFFSHELL_A, direction: 7}
+          - {seed: OFFSHELL_A, direction: 19}
+          - {seed: OFFSHELL_B, direction: 7}
+          - {seed: OFFSHELL_B, direction: 19}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/researcher
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_researcher.py             --seed "${{ matrix.seed }}" --direction "${{ matrix.direction }}"             --output "artifacts/researcher/${{ matrix.seed }}-${{ matrix.direction }}.json"             | tee "artifacts/researcher/${{ matrix.seed }}-${{ matrix.direction }}.log"
+          sha256sum artifacts/researcher/* > artifacts/researcher/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corrected-parent-researcher-${{ matrix.seed }}-${{ matrix.direction }}
+          path: artifacts/researcher/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [source_lock, corrected_critic, researcher_reference]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: mkdir -p artifacts/all/corrected artifacts/all/researcher artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: corrected-parent-critic-*
+          path: artifacts/all/corrected
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: corrected-parent-researcher-*
+          path: artifacts/all/researcher
+          merge-multiple: true
+      - name: Frozen six-cell corrected comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          python scripts/qgr_covariant_weyl3_corrected_parent_terminal.py             --corrected-dir artifacts/all/corrected             --researcher-dir artifacts/all/researcher             --output artifacts/terminal/terminal.json             | tee artifacts/terminal/terminal.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corrected-parent-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
