@@ -29,6 +29,7 @@ Gate: `COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT`.
 Preregistration: `83445aa5d73d36a948b23cae4485d855831f6eb9`.
 Durable terminal result: `bfe468e5d823e2fe9d31e01f4b349b10721a770a`.
 Classification: `BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION`.
+Adversarial referee commit: `b9540a1df1e64d2e5b89b8ffa31e24feb6e5a25c` (`CONFIRMED_SCOPED`).
 
 The audit was prospectively restricted to exactly two frozen source-definition files: the tensor-density preregistration at `7a62dd856aec084add16af8e6793d157ef32637b` and the primitive-decomposition preregistration at `c37f4381a7876385592a74d8bc1dbade2725e03a`. No repository search, historical artifact scan, Lane-D payload, residual payload, or external derivation was consumed.
 
@@ -36,9 +37,25 @@ The tensor-density source defines `P^{abcd}` only as an abstract pair-symmetric 
 
 This BLOCKED result does not prove that a curvature-dependent `P` jet cannot be derived in principle. It proves only that the current authoritative source definitions do not already contain it. Historical covariant FAIL/diagnostic results remain unchanged.
 
+## Quantum amplitude/measure closure authority-pointer audit — terminal BLOCKED
+
+Gate: `QUANTUM_AMPLITUDE_MEASURE_CLOSURE_AUTHORITY_POINTER_AUDIT`.
+
+Preregistration: `647ce4c5e56650c4fb4d451af1b9095afd1515a7`.
+Durable terminal result: `7c67eb0744b3445db1e0758f5fd85e4bcbf8216a`.
+Classification: `BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION`.
+
+The gate was prospectively frozen after the mandatory run-start recovery read and audited only the two frozen recovery authorities already required by the orchestrator: `recovery/CURRENT_FRONT.md` blob `6de2debeb814d874a8727aedd59a6ab15f9c18bd` and `recovery/state.json` blob `c8b66974aa44a2e458f02de1a9d42e43fa45d9b6`. No repository search, recursive tree listing, historical artifact scan, or external derivation was allowed.
+
+Under the frozen criterion, a quantum-closure tuple element counts as present only when recovery supplies an explicit durable repository path plus immutable commit/ref (or equivalent immutable GitHub authority identifier) for its definition. The result is `0/9 PRESENT`: no durable defining authority pointer is supplied for the quantum amplitude/state object, configuration/integration domain, measure/construction rule, gauge/Jacobian treatment, regulator/cutoff, normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, or regulator-removal/continuum-limit rule.
+
+Negative claim locks are not object definitions. This BLOCKED result therefore does not prove impossibility; it establishes only that the current recovery authority does not already name a complete quantum closure object. It does not authorize inventing a Hamiltonian, clock/update rule, measure, normalization, regulator, observable map, or probability/unitarity semantics.
+
 ## Next bounded step
 
-No next scientific gate is opened in this recovery update. The current covariant branch is blocked on a missing curvature-dependent `P` object/first-jet definition. A future covariant continuation is admissible only if a new exact `P(curvature,metric,...)` definition and its first-jet rule are independently derived and prospectively preregistered before any comparison with the localized residual. Otherwise follow the existing programme directive and pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction and do not fit any new correction to the residual.
+No scientific gate is active. Both currently admissible continuations are object-definition blocked: the covariant branch lacks an exact curvature-dependent `P` plus first-jet rule, and the quantum branch lacks a durably named amplitude/measure closure object.
+
+The next gate must therefore be an **independent source/object construction**, prospectively preregistered before any comparison or claimed closure. Highest-information priority is the quantum branch: define one minimal exact quantum closure object (amplitude/state object plus its domain and measure semantics) from an explicit source authority, with normalization/regulator/observable semantics either included or left explicitly BLOCKED. Do not infer these objects from classical certificates or residuals, do not fit corrections, and do not promote a classical certificate to quantum closure.
 
 ## Locks
 
