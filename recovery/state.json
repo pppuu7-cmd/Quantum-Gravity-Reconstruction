@@ -1,115 +1,13 @@
 {
-  "schema_version": "1.0",
-  "project": {
-    "name": "Quantum Gravity Reconstruction",
-    "short_name": "QGR",
-    "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
-    "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "phase": "TERMINAL_DURABLE_NEXT_GATE_NOT_YET_OPEN"
-  },
-  "readiness": {
-    "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 100,
-    "candidate_program_pct_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
-    "theory_established_pct": 0,
-    "experimental_confirmation": false
-  },
-  "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "last_terminal_classification": "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
-    "last_terminal_scientific_pass": false,
-    "last_terminal_run": 35407870461,
-    "last_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "NOT_YET_OPEN"
-  },
-  "recovery_sync": {
-    "latest_preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
-    "latest_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
-    "latest_terminal_result_kind": "EXACT_THREE_WAY_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "active_gate_status": "TERMINAL_DURABLE",
-    "active_actions_run": 35407870461,
-    "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
-    "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
-    "latest_critic_implementation_commit": "ab79af9aa381fef6f673f3391fe163e6c3570b40",
-    "latest_terminal_comparator_commit": "594fc08a3a2f567722213ffad13c95385df48037",
-    "latest_source_lock_commit": "da4b8c217db786e45ba8d823498080e17c779ee9",
-    "latest_workflow_commit": "3b4755080408eb3837eb5f78fdebee9a405ea838",
-    "latest_execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
-    "latest_lane_a_implementation_commit": "53f74c7f3c98a2d075320deb4075c8b202c012f4",
-    "latest_lane_b_implementation_commit": "9628f371e07e74c7cb42f20d85f519c677475049",
-    "latest_extraction_implementation_commit": "72d2d87274efbd9f02c96a5460f27835e106ab4d"
-  },
-  "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
-    "execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
-    "production_head": "93c338634150f0125bc2f3deeca581f46852aea6",
-    "actions_run": 35407870461,
-    "source_lock_job": 105801265493,
-    "lane_c_job": 105808091355,
-    "lane_a_job": 105808091358,
-    "lane_b_job": 105808091367,
-    "terminal_job": 105808201435,
-    "source_lock_artifact": 10574600879,
-    "source_lock_artifact_sha256": "4efaf5755fecf240cf7a81583ccc10efa74ff01819d36c02a2d0e68017016cad",
-    "lane_a_artifact": 10574206150,
-    "lane_a_artifact_sha256": "8a4173272acc0848eb3ae51986fac93c76eb73da28631940eac168dc78451ad3",
-    "lane_b_artifact": 10574580915,
-    "lane_b_artifact_sha256": "52f349c14e46c433d4f408068ff22947a8ce819077ed1c97fa564e86fbe2404a",
-    "lane_c_artifact": 10574316134,
-    "lane_c_artifact_sha256": "7ea5d723ed30eae4e9067f2f7075c39ff984e1be97db5e2f976a4a4746dd3171",
-    "terminal_artifact": 10574256187,
-    "terminal_artifact_sha256": "51d2e33597e89d3b27b241b04ff787be56642aaeeb68c7e3b2bf884ccc80441d",
-    "terminal_payload_sha256": "5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16",
-    "classification": "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
-    "first_divergent_component": [0,1,0,1],
-    "pairwise_relations": {
-      "A_EQ_B": false,
-      "A_EQ_NEG_B": true,
-      "A_EQ_C": false,
-      "A_EQ_NEG_C": false,
-      "B_EQ_C": false,
-      "B_EQ_NEG_C": false
-    },
-    "posthoc_repair_authorized": false
-  },
-  "preserved_authority": {
-    "iter049": {
-      "gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
-      "authoritative_retry_run": 34719948722,
-      "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
-      "authoritative_retry_head": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
-      "initial_run_diagnostic_non_authoritative": 34719814120,
-      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
-      "canonical_trig_control_only_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
-    },
-    "iter048": {"status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"}
-  },
-  "active_question": {
-    "id": "POST-CONNECTION-TENSOR-LOCALIZATION",
-    "text": "Determine prospectively how to causally decompose the first divergent component (0,1,0,1) without changing any parent formula or convention."
-  },
-  "active_blocker": null,
-  "next_gate_lock": "Any next gate must be prospectively preregistered after this durable terminal recovery state. It should decompose the frozen first divergent component (0,1,0,1) into independently generated primitive connection/contraction contributions; no sign fitting, convention repair, or parent-formula edit is authorized.",
-  "claim_locks": {
-    "qgr_theory_established": false,
-    "experimental_confirmation": false,
-    "beta_set_to_one_authorized": false,
-    "qgr_six_derivative_coefficient_fixed": false,
-    "c6_running_authorized": false,
-    "c6_symbolic_unfixed": true,
-    "strong_hyperbolicity_established": false,
-    "physical_ghost_claim_authorized": false,
-    "quantum_unitarity_established": false,
-    "global_interacting_measure_established": false,
-    "regulator_removal_established": false,
-    "uv_complete": false,
-    "new_physics_found": false,
-    "kmqgb_new_required_authorized": false,
-    "corrected_q10_locked": true,
-    "finite_panels_global_theorem": false
-  }
+  "schema_version":"1.0",
+  "project":{"name":"Quantum Gravity Reconstruction","short_name":"QGR","repository":"pppuu7-cmd/Quantum-Gravity-Reconstruction","date":"2026-09-19","iteration":"COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION","phase":"PREREGISTERED_IMPLEMENTATION_PENDING"},
+  "readiness":{"repository_infrastructure_pct":100,"candidate_program_pct":100,"candidate_program_pct_semantics":"Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.","theory_established_pct":0,"experimental_confirmation":false},
+  "science_sync":{"last_terminal_science":"COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION","last_terminal_classification":"CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED","last_terminal_scientific_pass":false,"last_terminal_run":35407870461,"last_terminal_result_commit":"04c4a3943cb0fc1509067d1630efdd3d8c6990de","next_preregistered_science":"COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION","next_preregistered_status":"PREREGISTERED_IMPLEMENTATION_PENDING"},
+  "recovery_sync":{"latest_preregistration_commit":"7b9d2ffb84993f04e467c0a9ea6bf650327f6b62","latest_terminal_result_commit":"04c4a3943cb0fc1509067d1630efdd3d8c6990de","latest_terminal_result_kind":"EXACT_THREE_WAY_CONNECTION_TENSOR_COMPONENT_LOCALIZATION","latest_active_gate":"COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION","active_gate_status":"PREREGISTERED_IMPLEMENTATION_PENDING","active_actions_run":null,"parent_execution_binding_commit":"2d4ef0833c35645ff5966b03987da44832d1d28f"},
+  "latest_terminal":{"gate":"COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION","preregistration_commit":"63ead9c69964fe24ec647c7bda12c1ebc4aa28df","execution_binding_commit":"2d4ef0833c35645ff5966b03987da44832d1d28f","production_head":"93c338634150f0125bc2f3deeca581f46852aea6","actions_run":35407870461,"jobs":{"source_lock":105801265493,"lane_c":105808091355,"lane_a":105808091358,"lane_b":105808091367,"terminal":105808201435},"artifacts":{"source_lock":{"id":10574600879,"sha256":"4efaf5755fecf240cf7a81583ccc10efa74ff01819d36c02a2d0e68017016cad"},"lane_a":{"id":10574206150,"sha256":"8a4173272acc0848eb3ae51986fac93c76eb73da28631940eac168dc78451ad3"},"lane_b":{"id":10574580915,"sha256":"52f349c14e46c433d4f408068ff22947a8ce819077ed1c97fa564e86fbe2404a"},"lane_c":{"id":10574316134,"sha256":"7ea5d723ed30eae4e9067f2f7075c39ff984e1be97db5e2f976a4a4746dd3171"},"terminal":{"id":10574256187,"sha256":"51d2e33597e89d3b27b241b04ff787be56642aaeeb68c7e3b2bf884ccc80441d"}},"terminal_payload_sha256":"5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16","classification":"CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED","first_divergent_component":[0,1,0,1],"pairwise_relations":{"A_EQ_B":false,"A_EQ_NEG_B":true,"A_EQ_C":false,"A_EQ_NEG_C":false,"B_EQ_C":false,"B_EQ_NEG_C":false},"posthoc_repair_authorized":false},
+  "preserved_authority":{"iter049":{"gate":"ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE","authoritative_retry_run":34719948722,"preregistration_commit":"72b21197d594ab6c5f36a34dfbd18a68b97d0a1d","authoritative_retry_head":"c8e574b2a78ae02c3e1476ef1daf7efc8268c342","initial_run_diagnostic_non_authoritative":34719814120,"authority_record_commit":"83a5d538b4d2987bae304d0396c96d644bf24810","canonical_trig_control_only_fix_commit":"73298317eaf5a401caf4dea3fe8eee3808727042"},"iter048":{"status":"TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"}},
+  "active_question":{"id":"COVARIANT-WEYL3-A7-CONNECTION-COMPONENT-0101-PRIMITIVE-CAUSAL-DECOMPOSITION","text":"At frozen component (0,1,0,1), which prospectively serialized primitive connection/contraction contribution is the first exact disagreement among lanes A, B and neutral C?"},
+  "active_blocker":"Independent primitive-ledger implementations and execution binding are not yet committed; do not run production until they are prospectively frozen.",
+  "next_gate_lock":"Freeze independent primitive ledgers before comparison; reproduce parent tensor hashes and scalar controls exactly; no sign fitting, free-index permutation, convention repair, parent-formula edit, witness change, or threshold weakening.",
+  "claim_locks":{"qgr_theory_established":false,"experimental_confirmation":false,"beta_set_to_one_authorized":false,"qgr_six_derivative_coefficient_fixed":false,"c6_running_authorized":false,"c6_symbolic_unfixed":true,"strong_hyperbolicity_established":false,"physical_ghost_claim_authorized":false,"quantum_unitarity_established":false,"global_interacting_measure_established":false,"regulator_removal_established":false,"uv_complete":false,"new_physics_found":false,"kmqgb_new_required_authorized":false,"corrected_q10_locked":true,"finite_panels_global_theorem":false}
 }
