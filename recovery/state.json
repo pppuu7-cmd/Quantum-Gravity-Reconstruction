@@ -1,13 +1,118 @@
 {
   "schema_version": "1.0",
-  "project": {"name":"Quantum Gravity Reconstruction","short_name":"QGR","repository":"pppuu7-cmd/Quantum-Gravity-Reconstruction","date":"2026-09-19","iteration":"COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION","phase":"TERMINAL_DURABLE_NEXT_GATE_NOT_OPENED"},
-  "readiness": {"repository_infrastructure_pct":100,"candidate_program_pct":100,"candidate_program_pct_semantics":"Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.","theory_established_pct":0,"experimental_confirmation":false},
-  "science_sync": {"last_terminal_science":"COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION","last_terminal_classification":"GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED","last_terminal_run":35423448758,"last_terminal_result_commit":"42dfe4fe4d03ebe1d421e425753335948be493f2","next_preregistered_science":null,"next_preregistered_status":null},
-  "recovery_sync": {"latest_preregistration_commit":"c37f4381a7876385592a74d8bc1dbade2725e03a","latest_terminal_result_commit":"42dfe4fe4d03ebe1d421e425753335948be493f2","latest_terminal_result_kind":"GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED","latest_active_gate":null,"active_gate_status":"NO_NEXT_GATE_OPENED","active_actions_run":null,"latest_observed_production_head":"fa5693f1aa055df2f5f178d316e8995726cb89d8","newer_main_commits_require_next_run_reconciliation":false},
-  "latest_terminal": {"gate":"COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION","preregistration_commit":"c37f4381a7876385592a74d8bc1dbade2725e03a","production_head":"fa5693f1aa055df2f5f178d316e8995726cb89d8","actions_run":35423448758,"workflow_conclusion":"success","jobs":{"source_lock":105845184722,"primitive_independent":105845209411,"primitive_primary":105845209417,"reference":105845209477,"terminal":105845234516},"terminal_artifact":{"id":10578781346,"name":"generic-p-primitive-terminal","sha256":"65be0265270a5eeb6c24063425e2e9698b1f4cded08f4d0cc935598766900066"},"classification":"GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED","first_residual_anchor":"P[0,1|0,1]*g2[0,0|1,1]*h[0,0]","lane_d":"2","primitive_aggregate":"1","residual":"1","primitive_contributions":{"T_a":"1","T_d":"1","W":"-1","others":"0"},"additional_correction_authorized":false,"historical_reclassification_authorized":false,"global_weyl3_promotion_authorized":false},
-  "preserved_authority": {"historical_parent_covariant_fail":{"gate":"COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE","run":35367461999,"result_commit":"e26208cec90566001b65640775d2e58d0429bf5c","classification":"SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY","immutable":true},"corrected_parent_six_cell":{"gate":"COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY","run":35412692881,"result_commit":"eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3","classification":"CORRECTED_PARENT_SIX_CELL_EXACT_MATCH","finite_panel_only":true},"generic_p_tensor_only":{"result_commit":"8f9d3d05040fa8bcd33e585583e5a9d468bb6c69","run":35413068305,"classification":"GENERIC_P_DIRECT_CONVERSION_OTHER","immutable":true},"generic_p_tensor_density":{"result_commit":"3d6f236c9e1f9e169bc6c4d2463c05e111efac87","run":35420685309,"classification":"GENERIC_P_TENSOR_DENSITY_COMPLETION_OTHER","immutable":true},"blocked_density_attempt":{"run":35414907247,"result_commit":"52eae11aaa6a49393d08ab06cf25bf436a2022fe","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","immutable":true,"partial_lane_science_consumed":false}},
+  "project": {
+    "name": "Quantum Gravity Reconstruction",
+    "short_name": "QGR",
+    "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
+    "date": "2026-09-19",
+    "iteration": "COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT",
+    "phase": "TERMINAL_BLOCKED_MISSING_CURVATURE_P_JET_OBJECT__NEXT_GATE_NOT_OPENED"
+  },
+  "readiness": {
+    "repository_infrastructure_pct": 100,
+    "candidate_program_pct": 100,
+    "candidate_program_pct_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
+    "theory_established_pct": 0,
+    "experimental_confirmation": false
+  },
+  "science_sync": {
+    "last_terminal_science": "COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT",
+    "last_terminal_classification": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+    "last_terminal_run": null,
+    "last_terminal_result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
+    "next_preregistered_science": null,
+    "next_preregistered_status": null
+  },
+  "recovery_sync": {
+    "latest_preregistration_commit": "83445aa5d73d36a948b23cae4485d855831f6eb9",
+    "latest_terminal_result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
+    "latest_terminal_result_kind": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+    "latest_active_gate": null,
+    "active_gate_status": "NO_NEXT_GATE_OPENED",
+    "active_actions_run": null,
+    "latest_observed_production_head": "fa5693f1aa055df2f5f178d316e8995726cb89d8",
+    "newer_main_commits_require_next_run_reconciliation": false
+  },
+  "latest_terminal": {
+    "gate": "COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT",
+    "preregistration_commit": "83445aa5d73d36a948b23cae4485d855831f6eb9",
+    "result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
+    "classification": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+    "frozen_inputs": [
+      {"path":"preregistrations/COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION.md","commit":"7a62dd856aec084add16af8e6793d157ef32637b"},
+      {"path":"preregistrations/COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION.md","commit":"c37f4381a7876385592a74d8bc1dbade2725e03a"}
+    ],
+    "curvature_dependent_P_definition_present": false,
+    "first_P_jet_rule_present": false,
+    "dp_nonzero_constructible_without_new_assumption": false,
+    "residual_consumed": false,
+    "repository_search_performed": false,
+    "historical_reclassification_authorized": false,
+    "interpretation": "Current authoritative source definitions do not already contain the curvature-dependent P object/first-jet rule required to relax DP=0. A future covariant continuation requires an independently derived exact P definition and first-jet preregistration; otherwise pivot to quantum amplitude/measure closure."
+  },
+  "preserved_authority": {
+    "historical_parent_covariant_fail": {
+      "gate": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
+      "run": 35367461999,
+      "result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
+      "classification": "SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY",
+      "immutable": true
+    },
+    "corrected_parent_six_cell": {
+      "gate": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
+      "run": 35412692881,
+      "result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+      "classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
+      "finite_panel_only": true
+    },
+    "generic_p_tensor_only": {
+      "result_commit": "8f9d3d05040fa8bcd33e585583e5a9d468bb6c69",
+      "run": 35413068305,
+      "classification": "GENERIC_P_DIRECT_CONVERSION_OTHER",
+      "immutable": true
+    },
+    "generic_p_tensor_density": {
+      "result_commit": "3d6f236c9e1f9e169bc6c4d2463c05e111efac87",
+      "run": 35420685309,
+      "classification": "GENERIC_P_TENSOR_DENSITY_COMPLETION_OTHER",
+      "immutable": true
+    },
+    "generic_p_primitive_decomposition": {
+      "preregistration_commit": "c37f4381a7876385592a74d8bc1dbade2725e03a",
+      "result_commit": "42dfe4fe4d03ebe1d421e425753335948be493f2",
+      "run": 35423448758,
+      "classification": "GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED",
+      "dp_source_class_restriction": "DP=0",
+      "additional_correction_authorized": false,
+      "immutable": true
+    },
+    "blocked_density_attempt": {
+      "run": 35414907247,
+      "result_commit": "52eae11aaa6a49393d08ab06cf25bf436a2022fe",
+      "classification": "BLOCKED_EXECUTION_OR_PROVENANCE",
+      "immutable": true,
+      "partial_lane_science_consumed": false
+    }
+  },
   "active_question": null,
-  "active_blocker": null,
-  "next_gate_lock": "Do not invent or post-hoc tune another correction from the localized residual. If continuing covariant diagnosis, the next gate must be prospectively preregistered and relax a scientifically justified source-class restriction (especially DP=0) or derive the full curvature-dependent P jet independently; otherwise pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction.",
-  "claim_locks": {"qgr_theory_established":false,"experimental_confirmation":false,"beta_set_to_one_authorized":false,"qgr_six_derivative_coefficient_fixed":false,"c6_running_authorized":false,"c6_symbolic_unfixed":true,"strong_hyperbolicity_established":false,"physical_ghost_claim_authorized":false,"quantum_unitarity_established":false,"global_interacting_measure_established":false,"regulator_removal_established":false,"uv_complete":false,"new_physics_found":false,"kmqgb_new_required_authorized":false,"corrected_q10_locked":true,"finite_panels_global_theorem":false}
+  "active_blocker": "Current covariant continuation lacks an authoritative curvature-dependent P definition and first-jet rule; inventing one to rescue the localized residual is forbidden.",
+  "next_gate_lock": "No next gate is open. A future covariant gate is admissible only after an exact curvature-dependent P definition and first-jet rule are independently derived and prospectively preregistered before residual comparison. Otherwise pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction or fit a correction to the residual.",
+  "claim_locks": {
+    "qgr_theory_established": false,
+    "experimental_confirmation": false,
+    "beta_set_to_one_authorized": false,
+    "qgr_six_derivative_coefficient_fixed": false,
+    "c6_running_authorized": false,
+    "c6_symbolic_unfixed": true,
+    "strong_hyperbolicity_established": false,
+    "physical_ghost_claim_authorized": false,
+    "quantum_unitarity_established": false,
+    "global_interacting_measure_established": false,
+    "regulator_removal_established": false,
+    "uv_complete": false,
+    "new_physics_found": false,
+    "kmqgb_new_required_authorized": false,
+    "corrected_q10_locked": true,
+    "finite_panels_global_theorem": false
+  }
 }
