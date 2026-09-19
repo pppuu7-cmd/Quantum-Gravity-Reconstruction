@@ -1,0 +1,88 @@
+name: QGR Weyl3 A7 corrected Critic slot00 connection replay
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/weyl3-a7-critic-slot00-connection.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_critic_slot00_connection_completion_source_lock.py             --binding preregistrations/COVARIANT_WEYL3_A7_CRITIC_SLOT00_CONNECTION_EXECUTION_BINDING.json             --output artifacts/source-lock/source_lock.json             | tee artifacts/source-lock/source_lock.log
+          sha256sum artifacts/source-lock/source_lock.json artifacts/source-lock/source_lock.log > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-critic-slot00-source-lock
+          path: artifacts/source-lock/
+          if-no-files-found: error
+
+  replay:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/replay
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_critic_slot00_connection_completion.py             --output artifacts/replay/replay.json             | tee artifacts/replay/replay.log
+          sha256sum artifacts/replay/replay.json artifacts/replay/replay.log > artifacts/replay/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-critic-slot00-replay
+          path: artifacts/replay/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [source_lock, replay]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: mkdir -p artifacts/all/replay artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: weyl3-a7-critic-slot00-replay
+          path: artifacts/all/replay
+      - name: Frozen corrected-slot comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          if test -f artifacts/all/replay/replay.json; then
+            python scripts/qgr_covariant_weyl3_a7_critic_slot00_connection_completion_terminal.py               --replay artifacts/all/replay/replay.json               --output artifacts/terminal/terminal.json | tee artifacts/terminal/terminal.log
+            rc=${PIPESTATUS[0]}
+          else
+            python -c 'import hashlib,json,pathlib; p={"gate":"COVARIANT_WEYL3_A7_CRITIC_SLOT00_CONNECTION_COMPLETION_REPLAY","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required replay artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}; p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest(); pathlib.Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\n"); print(json.dumps(p,sort_keys=True,indent=2))'
+            cp artifacts/terminal/terminal.json artifacts/terminal/terminal.log
+            rc=2
+          fi
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weyl3-a7-critic-slot00-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
