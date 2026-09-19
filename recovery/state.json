@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
-    "phase": "TERMINAL_EXACT_LOCAL_SCIENTIFIC_RESULT"
+    "iteration": "COVARIANT_WEYL3_GENERIC_P_CONNECTION_COVARIANTIZATION_IDENTITY",
+    "phase": "TERMINAL_CORRECTED_PARENT_SIX_CELL_MATCH__GENERIC_IDENTITY_PREREG_REQUIRED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,51 +16,44 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
-    "last_terminal_classification": "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_B",
+    "last_terminal_science": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
+    "last_terminal_classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
     "last_terminal_scientific_pass": true,
-    "last_terminal_run": 35411657960,
-    "last_terminal_result_commit": "001f552883f0ff0e1e4f505c0f35859026ad45a6",
+    "last_terminal_run": 35412692881,
+    "last_terminal_result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
     "next_preregistered_science": null,
-    "next_preregistered_status": "UNRESOLVED_FROM_NEWER_MAIN_COMMITS__NEXT_RUN_MUST_RECONCILE_LATEST_10"
+    "next_preregistered_status": "PROSPECTIVE_GENERIC_IDENTITY_GATE_REQUIRED"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "58284ae7f71e73db5c2d71d157bc74bd7d646030",
-    "latest_terminal_result_commit": "001f552883f0ff0e1e4f505c0f35859026ad45a6",
-    "latest_terminal_result_kind": "EXACT_MULTICOORDINATE_NEUTRAL_CONNECTION_EXTRACTION",
+    "latest_preregistration_commit": "1640b2fb84980c68fa1e14d146b8403b43d3fd5a",
+    "latest_terminal_result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+    "latest_terminal_result_kind": "CORRECTED_SIX_CELL_PARENT_EXACT_MATCH",
     "latest_active_gate": null,
-    "active_gate_status": "NONE_SELECTED_BY_TERMINAL_CONSUMPTION_STEP",
+    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
     "active_actions_run": null,
-    "latest_execution_binding_commit": "4fe4634a1b026bd73233e1082efe52bfcda91bf9",
-    "latest_observed_main_tip_at_run_start": "265c18fa2ddea1a660e4d06365cf6524e5f0ce44",
-    "newer_main_commits_require_next_run_reconciliation": true
+    "latest_execution_binding_commit": "e03f4897fe7b5a81773109c5551e097e59152cf0",
+    "latest_observed_main_tip_at_run_start": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+    "newer_main_commits_require_next_run_reconciliation": false
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
-    "preregistration_commit": "58284ae7f71e73db5c2d71d157bc74bd7d646030",
-    "execution_binding_commit": "4fe4634a1b026bd73233e1082efe52bfcda91bf9",
-    "production_head": "45bf70a9f861fb56128690c6b25bf085c070e87a",
-    "actions_run": 35411657960,
+    "gate": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
+    "preregistration_commit": "1640b2fb84980c68fa1e14d146b8403b43d3fd5a",
+    "execution_binding_commit": "e03f4897fe7b5a81773109c5551e097e59152cf0",
+    "production_head": "da280701df1c46d49fbaaa0a855edca34782e084",
+    "actions_run": 35412692881,
     "workflow_conclusion": "success",
     "terminal_artifact": {
-      "id": 10574678132,
-      "name": "weyl3-a7-connection-multicoordinate-terminal",
-      "sha256": "c3a03181a9e50580f293741b06528448fa4c88249de246600c232a50bbf7a59f"
+      "id": 10574609932,
+      "name": "corrected-parent-terminal",
+      "sha256": "053606cf1c2e0cb5615bc67f9aca26754b5311aea3e4a867bf74819e06cfd372"
     },
-    "terminal_payload_sha256": "cb12107f846dbe74c13536500fa8449d5e9e1797428bf12bb8e62f32f34e2eba",
-    "classification": "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_B",
-    "witness": "OFFSHELL_A / d=7 / (i,j)=(0,0)",
-    "component": [0, 1, 0, 1],
-    "component_value": "-89350652201/169388331840",
-    "neutral_tensor_sha256": "702b353ada68114482ede9a4fb3c8af6d3b7af708982256e44b7c2e7909848b4",
-    "lane_a_tensor_sha256": "6dce9ed04c9199cf36eb2a723095f7eeba3f002844c3cd9df7da33704cbdf673",
-    "lane_b_tensor_sha256": "702b353ada68114482ede9a4fb3c8af6d3b7af708982256e44b7c2e7909848b4",
-    "legacy_lane_c_tensor_sha256": "e3797c7dade7f4de601ba047be48b0ed73278333e01719e3b0d97588e783deb8",
-    "dGamma_exact_64": true,
-    "deltaGamma_exact_64": true,
-    "serialized_256": true,
-    "legacy_result_reclassification_authorized": false,
-    "posthoc_parent_repair_authorized": false
+    "terminal_payload_sha256": "e195c7408b58354c2b640271f9211515c3f1e4db445738182413688d8666b8c8",
+    "classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
+    "exact_zero_all_six_cells": true,
+    "first_residual_cell": null,
+    "corrected_rule": "partial_IBP - covariantization_gap",
+    "historical_parent_result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
+    "historical_parent_reclassification_authorized": false
   },
   "preserved_authority": {
     "iter048": {
@@ -78,14 +71,29 @@
       "authoritative_run": 35411484392,
       "durable_result_commit": "199ecea77c9138c4a166d1ffc7143ce2d0de34be",
       "classification": "COMPONENT_0101_PRIMITIVE_DIVERGENCE_LOCALIZED"
+    },
+    "full_first_jet_corrected_closure": {
+      "gate": "COVARIANT_WEYL3_A7_CRITIC_FULL_FIRST_JET_CONNECTION_COMPLETION_REPLAY",
+      "authoritative_run": 35412383778,
+      "durable_result_commit": "8d298163107560f28025823981d667e77a80cc97",
+      "classification": "CORRECTED_CRITIC_FULL_FIRST_JET_EXACT_MATCH",
+      "adversarial_referee_commit": "785b9ac351703d4a49997a4d52ea1ad9dfb09235",
+      "referee_verdict": "CONFIRMED_SCOPED"
+    },
+    "historical_parent_covariant_fail": {
+      "gate": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
+      "run": 35367461999,
+      "result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
+      "classification": "SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY",
+      "immutable": true
     }
   },
   "active_question": {
-    "id": "RECONCILE-NEWER-MAIN-COMMITS-AFTER-MULTICOORDINATE-TERMINAL",
-    "text": "What prospectively frozen gate, if any, is established by the newer <=10 mainline commits beyond the recovered multicoordinate terminal result?"
+    "id": "COVARIANT-WEYL3-GENERIC-P-CONNECTION-COVARIANTIZATION-IDENTITY",
+    "text": "Does the connection-covariantization sign relation proven on the corrected Weyl3 six-cell panel follow as an exact formal local tensor identity for an abstract Riemann-pair-symmetric P^{abcd}, independently of Weyl3 panel data?"
   },
-  "active_blocker": "None for the consumed gate. The next bounded run must reconcile the newer mainline commits observed after the previous recovery snapshot without broad history scanning.",
-  "next_gate_lock": "Start from CURRENT_FRONT.md, state.json, and latest <=10 commits. Preserve all frozen historical classifications and do not modify a new gate after seeing its evidence.",
+  "active_blocker": "A prospective generic formal P·g2·h identity gate must be frozen before symbolic expansion. The six-cell corrected match is finite-panel authority only.",
+  "next_gate_lock": "Use no Weyl3 panel values. Freeze an abstract Riemann-pair-symmetric P basis and compare target-blind direct partial-to-covariant Riemann conversion against the connection-jet contribution of the covariant double divergence. Record exact equality, exact negative relation, or first formal counterexample.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
