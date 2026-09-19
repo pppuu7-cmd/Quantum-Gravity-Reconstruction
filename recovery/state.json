@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "phase": "PREREGISTERED_IMPLEMENTATION_REQUIRED"
+    "phase": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -22,25 +22,25 @@
     "last_terminal_run": 35404845600,
     "last_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
     "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "next_preregistered_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED"
+    "next_preregistered_status": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
     "latest_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
     "latest_terminal_result_kind": "EXACT_THIRD_CONSTRUCTION_DISAGREEMENT",
     "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "active_gate_status": "PREREGISTERED_IMPLEMENTATION_REQUIRED",
+    "active_gate_status": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN",
     "active_actions_run": null,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
     "latest_critic_implementation_commit": "ab79af9aa381fef6f673f3391fe163e6c3570b40",
-    "latest_terminal_comparator_commit": "6538638ccd8ac4591386aa94c3f94b951322c3cb",
-    "latest_source_lock_commit": "2f71cb4a6bb48278e52c47946bfc6b7e4653658c",
-    "latest_workflow_commit": "000f1eabab35496d2be1419b03986dd926fb5a91",
-    "latest_execution_binding_commit": "c4805111dacbf13dd08842eb012eb384abec69a7",
-    "latest_lane_a_implementation_commit": "fe2e507eaa8ba677c5c0c0babd09760e82dfdd86",
-    "latest_lane_b_implementation_commit": "32add1d35b6e04dfdf6563a8ac988354a57a3189",
-    "latest_extraction_implementation_commit": "282b3f9ec0dd9ef90011b41b5975775e0b8cf449"
+    "latest_terminal_comparator_commit": "594fc08a3a2f567722213ffad13c95385df48037",
+    "latest_source_lock_commit": "da4b8c217db786e45ba8d823498080e17c779ee9",
+    "latest_workflow_commit": "3b4755080408eb3837eb5f78fdebee9a405ea838",
+    "latest_execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
+    "latest_lane_a_implementation_commit": "53f74c7f3c98a2d075320deb4075c8b202c012f4",
+    "latest_lane_b_implementation_commit": "9628f371e07e74c7cb42f20d85f519c677475049",
+    "latest_extraction_implementation_commit": "72d2d87274efbd9f02c96a5460f27835e106ab4d"
   },
   "latest_terminal": {
     "gate": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
@@ -92,7 +92,7 @@
     "id": "COVARIANT-WEYL3-A7-CONNECTION-TENSOR-COMPONENT-LOCALIZATION",
     "text": "At OFFSHELL_A/d=7/(0,0), where is the first exact 4-index tensor component at which tensor-Hessian, hand-expanded GammaGamma, and neutral dual-polynomial connection constructions cease to agree, and what are their pairwise relations?"
   },
-  "active_blocker": "Implementation, exact source/provenance lock, execution binding and single production are required for the already-preregistered 256-component three-way tensor comparison.",
+  "active_blocker": "Execution-only PR #37 at head 93c338634150f0125bc2f3deeca581f46852aea6 is open; the GitHub Actions run was not yet visible at the last check. Do not consume partial science or create a competing run.",
   "next_gate_lock": "Serialize the full 256-component connection tensors from the three already frozen constructions under a lexicographic (a,b,c,d) order. Compare only after target-blind serialization. Record first differing component and exact pairwise equal/negative relations. Do not alter any parent formula.",
   "claim_locks": {
     "qgr_theory_established": false,
