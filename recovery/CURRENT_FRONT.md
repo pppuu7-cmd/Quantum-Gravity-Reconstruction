@@ -4,49 +4,28 @@ Updated: 2026-09-19
 
 ## Programme status
 
-`candidate_program_roadmap_readiness = 100%` is infrastructure/roadmap readiness only. `theory_established = 0%`. No experimental confirmation.
+`candidate_program_roadmap_readiness = 100%` is infrastructure/roadmap readiness only. `theory_established = 0%`. No experimental confirmation. `c6=SYMBOLIC_UNFIXED`; `beta=1` unauthorized.
 
-## Historical parent authority — preserved immutable
+## Preserved authority
 
-`COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE`: run `35367461999`, result `e26208cec90566001b65640775d2e58d0429bf5c`, classification `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY`. It is not rewritten or reclassified.
+Historical covariant parent remains `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY` (run `35367461999`, result `e26208cec90566001b65640775d2e58d0429bf5c`) and is immutable. Corrected six-cell run `35412692881` remains only a finite-panel certificate. Generic tensor-only run `35413068305` and tensor-density run `35420685309` remain immutable diagnostics. Iter049 authority and Iter048 24/24 do-not-repeat lock remain preserved by project policy.
 
-## Corrected finite-panel certificate — preserved
-
-`COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY`: run `35412692881`, result `eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3`, classification `CORRECTED_PARENT_SIX_CELL_EXACT_MATCH`. This remains a finite-panel certificate, not a global theorem.
-
-## Generic tensor-only parent — preserved
-
-Run `35413068305`, result `8f9d3d05040fa8bcd33e585583e5a9d468bb6c69`, classification `GENERIC_P_DIRECT_CONVERSION_OTHER`. First exact counterexample: `P[0,1|0,1]*g2[0,0|0,0]*h[1,1]`, Lane D `1`, tensor-only Lane G `2`.
-
-## Tensor-density completion — terminal
-
-The earlier run `35414907247` remains immutable `BLOCKED_EXECUTION_OR_PROVENANCE` and supplied no authoritative partial science. The repaired authoritative run is `35420685309`, result commit `3d6f236c9e1f9e169bc6c4d2463c05e111efac87`, classification `GENERIC_P_TENSOR_DENSITY_COMPLETION_OTHER`, terminal artifact `10577517264`, digest `sha256:0c3b3f121bee724e6a611fa8254e734b3b1c57f3d9e6ccfc9522137362248623`.
-
-The weight +1 density channel is real and nonzero but insufficient. First direct mismatch: `P[0,1|0,1]*g2[0,0|1,1]*h[0,0]`, D=`2`, weighted=`1`. No post-hoc correction is authorized.
-
-## Active gate — generic P primitive mismatch decomposition
+## Generic P primitive mismatch decomposition — terminal durable
 
 Gate: `COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION`.
 
-Preregistration commit: `c37f4381a7876385592a74d8bc1dbade2725e03a`.
-Workflow/production head: `fa5693f1aa055df2f5f178d316e8995726cb89d8`.
-Workflow: `.github/workflows/qgr-covariant-weyl3-generic-p-primitive-decomposition.yml`.
-Authoritative Actions run: `35423448758` (`queued` at the bounded launch check).
+Preregistration `c37f4381a7876385592a74d8bc1dbade2725e03a`; production head `fa5693f1aa055df2f5f178d316e8995726cb89d8`; Actions run `35423448758` completed/success. Jobs: source-lock `105845184722`; independent `105845209411`; primary `105845209417`; reference `105845209477`; terminal `105845234516`.
 
-Frozen object: target-blind exact primitive decomposition of the generic source-side connection-jet map into `T_a`, `T_c`, `T_d`, `T_b`, density-weight trace `W`, frozen-zero `DP`, frozen-zero `SQRTG_PRODUCT`, and explicit pair-symmetry bookkeeping. Two matrix lanes (`primary`, `independent`, `fail-fast:false`) must serialize before any Lane-D comparison. A separate reference job is locked to Lane-D blob `d7c14040166bcbb71c2eb8db6cf0d001e83d44e8` and weighted-lane blob `b8d85923315018c7b50f4cd30399ea228cbb0bf9`.
+Terminal artifact `10578781346` (`generic-p-primitive-terminal`), digest `sha256:65be0265270a5eeb6c24063425e2e9698b1f4cded08f4d0cc935598766900066`. Independent artifact `10578661421`, digest `sha256:0eac4153eeb8a9bb0c8faae5922112d97b03bfe877622fc1c890c5b47bdcf652`; primary `10578456495`, digest `sha256:b4fd38535f2a79820f549471a7771e9b5a87bc5eb591f03586edcf390b9cf632`; references `10578331548`, digest `sha256:e0d10f0e92523c7bd1dc0f7b33f72667ed3cec4c2763944ac561711dd427a78d`.
 
-Frozen terminal taxonomy:
-- `GENERIC_P_PRIMITIVE_DECOMPOSITION_EQ_DIRECT_CONVERSION`
-- `GENERIC_P_PRIMITIVE_DECOMPOSITION_EQ_NEG_DIRECT_CONVERSION`
-- `GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED`
-- `BLOCKED_EXECUTION_OR_PROVENANCE`
+Frozen classification: `GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED`. First residual anchor is `P[0,1|0,1]*g2[0,0|1,1]*h[0,0]`: Lane D=`2`, primitive aggregate=`1`, residual=`1`; primitive contributions `T_a=1`, `T_d=1`, `W=-1`, all other frozen channels zero. Durable result commit: `42dfe4fe4d03ebe1d421e425753335948be493f2`. Adversarial referee commit `c4f5f3111a0f14903d635f55e3f9a072546daffd`, verdict `CONFIRMED_SCOPED`.
 
-Interpretation ceiling: diagnostic only. `OTHER_LOCALIZED` does not authorize another correction. Historical FAIL/BLOCKED remain immutable.
+The result is diagnostic only. In particular `DP=0` is a preregistered source-class restriction (`partial P=0` at the normal-coordinate point), not a theorem for arbitrary curvature-derived P. No Bianchi reduction was used. The residual does not authorize a new correction or historical reclassification.
 
 ## Next bounded step
 
-This gate is the sole active authoritative workflow. Inspect only run `35423448758` at head `fa5693f1aa055df2f5f178d316e8995726cb89d8`. If non-terminal, record status/provenance only and stop. If terminal, consume only preregistration `c37f4381a7876385592a74d8bc1dbade2725e03a` and required terminal artifact `generic-p-primitive-terminal`, classify under frozen criteria, update recovery, and stop. Do not consume partial matrix lane output as authority.
+No next scientific gate is opened in this recovery update. A continuation of the covariant programme must be prospectively preregistered and independently derive/relax the curvature-dependent P-jet source class (especially the `DP=0` restriction) without tuning to the residual. If that is not technically ready, pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction.
 
 ## Locks
 
-`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; `theory_established=0%`; finite certificate != theorem; classical != quantum; diagnostic != closure; KMQGB `NEW_REQUIRED` unauthorized. No experimental confirmation, UV completion, physical c6, global interacting measure, regulator removal, or new-physics claim is authorized.
+`theory_established=0%`; no experimental confirmation; `c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; finite panels are not global theorems; G45 does not prove absolute energy positivity or quantum unitarity; G35-G37 distant roots do not authorize physical weights; KMQGB `NEW_REQUIRED` unauthorized; classical != quantum; diagnostic != closure.
