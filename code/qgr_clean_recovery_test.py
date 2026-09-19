@@ -19,6 +19,15 @@ def run():
     next_science=sync.get('next_preregistered_science')
     next_status=sync.get('next_preregistered_status')
     prereg_answer=next_science if next_science is not None else 'NONE'
+    active_question=s.get('active_question')
+    if isinstance(active_question,dict):
+        next_action=active_question.get('text') or s.get('next_gate_lock') or s.get('active_blocker')
+    elif isinstance(active_question,str) and active_question:
+        next_action=active_question
+    else:
+        # A terminal BLOCKED front can intentionally have no active question/no next gate.
+        # Recovery must still state the bounded admissible continuation without inventing science.
+        next_action=s.get('next_gate_lock') or s.get('active_blocker') or 'NO_NEXT_SCIENTIFIC_ACTION_OPEN'
     answers={
       'project':s['project']['name'],
       'repository_infrastructure_readiness':s['readiness']['repository_infrastructure_pct'],
@@ -29,7 +38,7 @@ def run():
       'last_terminal_result':sync['last_terminal_science'],
       'preregistered_not_run':prereg_answer,
       'forbidden_claims':[k for k,v in s['claim_locks'].items() if v is False],
-      'next_scientific_action':s['active_question']['text'],
+      'next_scientific_action':next_action,
       'future_candidate_export':'schemas/qgr_candidate_export_v1.schema.json',
       'kmqgb_interface':'protocol/QGR_KMQGB_INTERFACE_PIN.json',
       'kmqgb_version_change':'KMQGB_INTERFACE_VERSION_DRIFT'
