@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "phase": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN"
+    "phase": "TERMINAL_DURABLE_NEXT_GATE_NOT_YET_OPEN"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,21 +16,21 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
-    "last_terminal_classification": "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER",
+    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
+    "last_terminal_classification": "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
     "last_terminal_scientific_pass": false,
-    "last_terminal_run": 35404845600,
-    "last_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
-    "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "next_preregistered_status": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN"
+    "last_terminal_run": 35407870461,
+    "last_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
+    "next_preregistered_science": null,
+    "next_preregistered_status": "NOT_YET_OPEN"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
-    "latest_terminal_result_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
-    "latest_terminal_result_kind": "EXACT_THIRD_CONSTRUCTION_DISAGREEMENT",
+    "latest_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
+    "latest_terminal_result_kind": "EXACT_THREE_WAY_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
     "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "active_gate_status": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN",
-    "active_actions_run": null,
+    "active_gate_status": "TERMINAL_DURABLE",
+    "active_actions_run": 35407870461,
     "latest_implementation_binding_commit": "2a36bcd4c4529644f4847cd49f46e92ac5f3ac38",
     "latest_researcher_implementation_commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
     "latest_critic_implementation_commit": "ab79af9aa381fef6f673f3391fe163e6c3570b40",
@@ -43,30 +43,38 @@
     "latest_extraction_implementation_commit": "72d2d87274efbd9f02c96a5460f27835e106ab4d"
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION",
-    "preregistration_commit": "ed829c5f60f2fad6a308ec3f9c50695a6777567e",
-    "execution_binding_commit": "c4805111dacbf13dd08842eb012eb384abec69a7",
-    "production_head": "e603f084a3427af9acdce8a0670734fc0fa956de",
-    "actions_run": 35404845600,
-    "source_lock_job": 105792350098,
-    "extraction_job": 105792387802,
-    "terminal_job": 105792433089,
-    "source_lock_artifact": 10571922257,
-    "source_lock_artifact_sha256": "832eebf9c9948621e6107049e3ec1098f7119091cffec06d0587b74a14f7dd98",
-    "extraction_artifact": 10571564560,
-    "extraction_artifact_sha256": "d81ebe9c2bd936f4f80ad079db21057ac3dc8d223e5e1706c9cce4829dedaad2",
-    "terminal_artifact": 10572072303,
-    "terminal_artifact_sha256": "a8f19e66c0036953d7a28f969b2b7e0dfa56a74d8dd94e8f774f3d82ed37626b",
-    "source_lock_payload_sha256": "5d79dabbd69996ac81415b2e30a625b7572435c75ad025604a401e91b23b8266",
-    "extraction_payload_sha256": "93ca4b6efb0ec81ca8059aceb8f4c1f813389a12fa9fa7ab1f70ac4bfa7f42b1",
-    "terminal_payload_sha256": "aa571d02257d2166fddfb8d3b3c0c55099bd48e63e2e3c2ad8109f867acbb76b",
-    "terminal_json_sha256": "0e5e3d2d07aa9932b1a466225c2003e02fe488373df58cd6056ea135e7122f50",
-    "classification": "DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER",
-    "extracted_value": "6471547181136613219970862102277757857/3453429297335638404524090924141568000",
-    "extraction_tensor_sha256": "e3797c7dade7f4de601ba047be48b0ed73278333e01719e3b0d97588e783deb8",
-    "difference_from_lane_a": "1019839893300933933962523954588749592431102129/312885874482554842907489423863612273152000000",
-    "difference_from_lane_b": "5269788640088406597788143825182309121754099/10789168085605339410603083581503871488000000",
-    "correction_authorized": false
+    "gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
+    "preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
+    "execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
+    "production_head": "93c338634150f0125bc2f3deeca581f46852aea6",
+    "actions_run": 35407870461,
+    "source_lock_job": 105801265493,
+    "lane_c_job": 105808091355,
+    "lane_a_job": 105808091358,
+    "lane_b_job": 105808091367,
+    "terminal_job": 105808201435,
+    "source_lock_artifact": 10574600879,
+    "source_lock_artifact_sha256": "4efaf5755fecf240cf7a81583ccc10efa74ff01819d36c02a2d0e68017016cad",
+    "lane_a_artifact": 10574206150,
+    "lane_a_artifact_sha256": "8a4173272acc0848eb3ae51986fac93c76eb73da28631940eac168dc78451ad3",
+    "lane_b_artifact": 10574580915,
+    "lane_b_artifact_sha256": "52f349c14e46c433d4f408068ff22947a8ce819077ed1c97fa564e86fbe2404a",
+    "lane_c_artifact": 10574316134,
+    "lane_c_artifact_sha256": "7ea5d723ed30eae4e9067f2f7075c39ff984e1be97db5e2f976a4a4746dd3171",
+    "terminal_artifact": 10574256187,
+    "terminal_artifact_sha256": "51d2e33597e89d3b27b241b04ff787be56642aaeeb68c7e3b2bf884ccc80441d",
+    "terminal_payload_sha256": "5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16",
+    "classification": "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
+    "first_divergent_component": [0,1,0,1],
+    "pairwise_relations": {
+      "A_EQ_B": false,
+      "A_EQ_NEG_B": true,
+      "A_EQ_C": false,
+      "A_EQ_NEG_C": false,
+      "B_EQ_C": false,
+      "B_EQ_NEG_C": false
+    },
+    "posthoc_repair_authorized": false
   },
   "preserved_authority": {
     "iter049": {
@@ -78,22 +86,14 @@
       "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
       "canonical_trig_control_only_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
     },
-    "iter048": {
-      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
-    },
-    "einstein_completed_qf_degree_flow": {
-      "actions_run": 35312874182,
-      "classification": "QF8_REQUIRED_ON_EINSTEIN_COMPLETED_SEED",
-      "terminal_payload_sha256": "64e11805fdc9229b7221ce6dea3f94f8abf1de3b76e63f3da76df1b431811797",
-      "durable_result_commit": "c518f55ae9a9c584c00d5044a8ec48ae697074f2"
-    }
+    "iter048": {"status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"}
   },
   "active_question": {
-    "id": "COVARIANT-WEYL3-A7-CONNECTION-TENSOR-COMPONENT-LOCALIZATION",
-    "text": "At OFFSHELL_A/d=7/(0,0), where is the first exact 4-index tensor component at which tensor-Hessian, hand-expanded GammaGamma, and neutral dual-polynomial connection constructions cease to agree, and what are their pairwise relations?"
+    "id": "POST-CONNECTION-TENSOR-LOCALIZATION",
+    "text": "Determine prospectively how to causally decompose the first divergent component (0,1,0,1) without changing any parent formula or convention."
   },
-  "active_blocker": "Execution-only PR #37 at head 93c338634150f0125bc2f3deeca581f46852aea6 is open; the GitHub Actions run was not yet visible at the last check. Do not consume partial science or create a competing run.",
-  "next_gate_lock": "Serialize the full 256-component connection tensors from the three already frozen constructions under a lexicographic (a,b,c,d) order. Compare only after target-blind serialization. Record first differing component and exact pairwise equal/negative relations. Do not alter any parent formula.",
+  "active_blocker": null,
+  "next_gate_lock": "Any next gate must be prospectively preregistered after this durable terminal recovery state. It should decompose the frozen first divergent component (0,1,0,1) into independently generated primitive connection/contraction contributions; no sign fitting, convention repair, or parent-formula edit is authorized.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
