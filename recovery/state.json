@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1",
-    "phase": "TERMINAL_SCOPED_PASS"
+    "iteration": "QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY_AUDIT_V1",
+    "phase": "TERMINAL_BLOCKED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,33 +16,34 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1",
-    "last_terminal_classification": "PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED",
+    "last_terminal_science": "QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY_AUDIT_V1",
+    "last_terminal_classification": "BLOCKED_MISSING_QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY",
     "last_terminal_run": null,
-    "last_terminal_result_commit": "95b522911af06528c254473450237aaf3ebbab57",
+    "last_terminal_result_commit": "8e7f0220c81224a388b5a5aec87203096e85af9b",
     "next_preregistered_science": null,
     "next_preregistered_status": null
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "055926862c096b8d2aa93daa647003c92fe1e60c",
-    "latest_terminal_result_commit": "95b522911af06528c254473450237aaf3ebbab57",
-    "latest_terminal_result_kind": "PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED",
-    "latest_active_gate": "QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1",
-    "active_gate_status": "TERMINAL_SCOPED_PASS",
+    "latest_preregistration_commit": "b3c5200733fef46fd7cfc079965e5966bcac8e17",
+    "latest_terminal_result_commit": "8e7f0220c81224a388b5a5aec87203096e85af9b",
+    "latest_terminal_result_kind": "BLOCKED_MISSING_QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY",
+    "latest_active_gate": null,
+    "active_gate_status": null,
     "active_actions_run": null,
-    "latest_observed_production_head": "95b522911af06528c254473450237aaf3ebbab57",
+    "latest_observed_production_head": "2e1e87bf08bce021601c076c5078a8825e88f8bb",
     "newer_main_commits_require_next_run_reconciliation": false
   },
   "latest_terminal": {
-    "gate": "QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1",
-    "preregistration_commit": "055926862c096b8d2aa93daa647003c92fe1e60c",
-    "dependency_source_commit": "1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7",
-    "source_commit": "834dbc15e021e3ea79e7484c0224a012ae3a9f2d",
-    "source_path": "theory/quantum/QGR_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md",
-    "result_commit": "95b522911af06528c254473450237aaf3ebbab57",
-    "classification": "PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED",
+    "gate": "QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY_AUDIT_V1",
+    "preregistration_commit": "b3c5200733fef46fd7cfc079965e5966bcac8e17",
+    "evidence_source_commits": [
+      "834dbc15e021e3ea79e7484c0224a012ae3a9f2d",
+      "1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7"
+    ],
+    "result_commit": "8e7f0220c81224a388b5a5aec87203096e85af9b",
+    "classification": "BLOCKED_MISSING_QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY",
     "actions_required": false,
-    "interpretation": "Generic phase multiplier for an externally supplied real measurable finite-cylinder action input on the nonphysical reference Hilbert space; exact reference-norm preservation and inverse phase map only. No physical action, dynamics, gauge reduction, physical measure, observables, probabilities/unitarity theorem, regulator removal, continuum limit, or quantum-gravity closure."
+    "interpretation": "The frozen finite-cylinder sources define only a kinematic reference space and a generic phase multiplier for an externally supplied real measurable action. They do not define or dynamically select a physical QGR action. No physical action, Hamiltonian, clock/update rule, gauge/Jacobian, source normalization, physical measure, probability rule, unitarity theorem, regulator removal, or continuum limit is authorized."
   },
   "preserved_authority": {
     "iter049": {
@@ -64,12 +65,13 @@
     "curvature_p_jet_object_definition_audit": {"result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a", "classification": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION", "immutable": true},
     "quantum_closure_pointer_audit": {"result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a", "classification": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION", "immutable": true},
     "quantum_kinematic_metric_cylinder_v1": {"preregistration_commit": "9c62c5a6e5d1f97908fbb42141bfc1bfedf39cd9", "source_commit": "1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7", "result_commit": "17ea22e9ddb3e054f07c2960c7c5a87bf97a7b9e", "classification": "PASS_SCOPED_QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_DEFINED", "immutable": true},
-    "quantum_finite_cylinder_action_phase_map_v1": {"preregistration_commit": "055926862c096b8d2aa93daa647003c92fe1e60c", "source_commit": "834dbc15e021e3ea79e7484c0224a012ae3a9f2d", "result_commit": "95b522911af06528c254473450237aaf3ebbab57", "classification": "PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED", "immutable": true}
+    "quantum_finite_cylinder_action_phase_map_v1": {"preregistration_commit": "055926862c096b8d2aa93daa647003c92fe1e60c", "source_commit": "834dbc15e021e3ea79e7484c0224a012ae3a9f2d", "result_commit": "95b522911af06528c254473450237aaf3ebbab57", "classification": "PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED", "immutable": true},
+    "quantum_finite_cylinder_physical_action_selection_audit_v1": {"preregistration_commit": "b3c5200733fef46fd7cfc079965e5966bcac8e17", "result_commit": "8e7f0220c81224a388b5a5aec87203096e85af9b", "classification": "BLOCKED_MISSING_QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY", "immutable": true}
   },
   "active_gate": null,
   "active_question": null,
-  "active_blocker": "The finite-cylinder reference phase map is now defined, but no physical/dynamically selected action, gauge/Jacobian treatment, physical measure/normalization, observable/extraction map, probability/unitarity criterion, regulator-removal rule, or continuum-limit rule is authorized.",
-  "next_gate_lock": "Do not open another scientific gate in the same iteration. On the next iteration, first reread recovery and all Actions. Then prospectively preregister at most one useful quantum-closure object, preferably the narrowest target-blind physical-action-selection or gauge/measure object that can be defined without importing forbidden claims; if no such object is technically justified, return to the independent curvature-P/first-jet blocker. Do not start a third symmetry reduction.",
+  "active_blocker": "The finite-cylinder phase map accepts only an externally supplied real measurable action. The frozen finite-cylinder sources contain no QGR-internal physical/dynamical action-selection object, so physical dynamics cannot be promoted without importing forbidden assumptions.",
+  "next_gate_lock": "Do not open another scientific gate in the same iteration. On the next iteration, first reread recovery/state/latest commits. Return to the independent curvature-dependent P / first-jet blocker. Prospectively preregister at most one exact construction gate only if a curvature-dependent P formula and its first-jet dependency can be frozen before evaluation from durable source definitions; otherwise preserve BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION. Do not infer P from residuals, fit omitted terms, or start another symmetry reduction.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
