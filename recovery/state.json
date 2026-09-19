@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION",
-    "phase": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN"
+    "phase": "AUTHORITATIVE_PRODUCTION_IN_PROGRESS"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -29,8 +29,8 @@
     "latest_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
     "latest_terminal_result_kind": "EXACT_THREE_WAY_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
     "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION",
-    "active_gate_status": "EXECUTION_TRIGGERED_AWAITING_ACTIONS_RUN",
-    "active_actions_run": null,
+    "active_gate_status": "AUTHORITATIVE_PRODUCTION_IN_PROGRESS",
+    "active_actions_run": 35411484392,
     "parent_execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
     "latest_execution_binding_commit": "e75a093089c3393d2587cb79420a3b00faa813cc",
     "latest_lane_a_implementation_commit": "dd44c47abe6f35fd45db4696ea23d8977459dfd9",
@@ -111,7 +111,7 @@
     "id": "COVARIANT-WEYL3-A7-CONNECTION-COMPONENT-0101-PRIMITIVE-CAUSAL-DECOMPOSITION",
     "text": "At frozen component (0,1,0,1), which prospectively serialized primitive connection/contraction contribution is the first exact disagreement among lanes A, B and neutral C?"
   },
-  "active_blocker": "Execution-only PR #38 at head f07613a376cf2a2ba83754ba04291eeb5b6e1d27 is open. The Actions run was not yet visible in the GitHub API at the last check. Do not use partial science, modify frozen implementations, or launch a competing run.",
+  "active_blocker": "Authoritative run 35411484392 is in progress. Source lock passed. Do not consume partial lane values, modify frozen implementations, or launch a competing run.",
   "next_gate_lock": "Freeze independent primitive ledgers before comparison; reproduce parent tensor hashes and scalar controls exactly; no sign fitting, free-index permutation, convention repair, parent-formula edit, witness change, or threshold weakening.",
   "claim_locks": {
     "qgr_theory_established": false,
