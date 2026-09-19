@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "gate": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
+  "preregistration_commit": "7a62dd856aec084add16af8e6793d157ef32637b",
+  "parent_generic_result_commit": "8f9d3d05040fa8bcd33e585583e5a9d468bb6c69",
+  "purpose": "Execution/provenance binding only. No scientific criterion, source basis, coefficient, sign, witness, target, or terminal taxonomy is changed.",
+  "frozen_files": {
+    "lane_d_reference": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_lane_d.py",
+      "blob": "d7c14040166bcbb71c2eb8db6cf0d001e83d44e8"
+    },
+    "weighted_lane": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_density_weighted_lane.py",
+      "blob": "b8d85923315018c7b50f4cd30399ea228cbb0bf9"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_density_terminal.py",
+      "blob": "73e6a912fd1f72acca1e569f651eba66b006d5f7"
+    }
+  },
+  "claim_locks": {
+    "theory_established_pct": 0,
+    "experimental_confirmation": false,
+    "c6": "SYMBOLIC_UNFIXED",
+    "beta_set_to_one_authorized": false,
+    "corrected_q10_locked": true,
+    "finite_panel_global_theorem": false,
+    "historical_parent_reclassification_authorized": false,
+    "kmqgb_new_required_authorized": false
+  }
+}
