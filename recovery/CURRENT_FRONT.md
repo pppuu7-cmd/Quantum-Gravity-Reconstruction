@@ -18,20 +18,37 @@ Defining source: `theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md`, commit `1
 Durable result: `results/QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1.md`, commit `17ea22e9ddb3e054f07c2960c7c5a87bf97a7b9e`.
 Classification: `PASS_SCOPED_QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_DEFINED`.
 
-The source exactly realizes the frozen object `Q_N^kin=(V_N,X_N,mu_N,H_N)`: finite labels `V_N`; `X_N` the labelled N-fold product of nondegenerate Lorentz-signature real symmetric 4x4 metrics; `mu_N` the explicit restricted 10N-coordinate product Lebesgue reference measure; and `H_N=L^2(X_N,mu_N;C)`. No particular physical state is selected.
+The source defines only `Q_N^kin=(V_N,X_N,mu_N,H_N)` with finite labelled Lorentzian metric cylinder domain, explicit coordinate reference measure, and `H_N=L^2(X_N,mu_N;C)`. The measure remains nonphysical and non-gauge-reduced. No dynamics, physical state, normalization, observable, probability/unitarity theorem, regulator removal, or continuum limit is established.
 
-Interpretation ceiling is strict: this is a finite-cylinder kinematic amplitude/state-space definition only. The measure is nonphysical and non-gauge-reduced. No dynamics, Hamiltonian, action-to-amplitude map, gauge/Jacobian treatment, physical normalization, observable map, probability/unitarity theorem, regulator-removal rule, continuum limit, UV completion, experimental prediction, or quantum-gravity closure is established.
+## Active preregistered gate — finite-cylinder action-phase map v1
 
-No Actions scientific run was required for this source-construction gate. Infrastructure run `35431397068`, head `13bd6637d0bcd3d0d28369cafdfbfe2a8ac36a45`, job `105866550099`, failed at clean-session recovery simulation before this source was created; it is infrastructure-only and is not scientific evidence for or against the scoped PASS.
+Gate: `QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1`.
+Preregistration: `055926862c096b8d2aa93daa647003c92fe1e60c` (`prereg/QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md`).
+Status: `PROSPECTIVELY_PREREGISTERED_NOT_YET_PRODUCED`.
+
+Frozen dependency: exactly the kinematic source at commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`.
+
+Frozen object: for externally supplied real Borel-measurable `S_N:X_N->R`, finite `mu_N`-almost everywhere, define only the phase multiplier
+
+`U[S_N] Psi_N(g) = exp(i S_N(g)/hbar) Psi_N(g)`
+
+on `H_N`, with `S_N` remaining entirely symbolic/external. The gate may establish only well-definedness on `H_N`, preservation of the existing `mu_N` reference norm, and the inverse phase multiplier. It may not choose a physical action or introduce any Hamiltonian, clock/update rule, source normalization, gauge prescription, physical measure, observable, probability rule, regulator, or continuum limit.
+
+Frozen PASS: `PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED`.
+Frozen FAIL: `FAIL_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_CONTROL_VIOLATION`.
+Frozen BLOCKED: `BLOCKED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_MISSING_REQUIRED_OBJECT`.
+Frozen INVALID: `INVALID_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEPENDENCY_DRIFT`.
+
+Interpretation ceiling: even a PASS is only a generic mathematical phase-multiplication map on the nonphysical reference Hilbert space. Reference-norm preservation is not physical quantum unitarity and does not establish dynamics or quantum-gravity closure.
 
 ## Remaining quantum closure front
 
-The earlier authority-pointer audit remains `BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION`. The new kinematic source fills only the configuration-domain/reference-measure/amplitude-space portion. Still undefined are at least: an action-to-amplitude or dynamical construction, gauge/Jacobian treatment, physical normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, and regulator-removal/continuum-limit rule.
+The earlier authority-pointer audit remains `BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION`. The kinematic source fills only configuration-domain/reference-measure/amplitude-space structure. The active gate, if it passes later, would add only a generic externally supplied action-phase map. Still undefined are at least: a physical/dynamically selected action, gauge/Jacobian treatment, physical normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, and regulator-removal/continuum-limit rule.
 
 ## Next bounded step
 
-No second scientific gate is opened in this iteration. On a later iteration, prospectively preregister exactly one bounded quantum-closure object, preferably the first action-to-amplitude/dynamical construction over the now-durable finite-cylinder kinematic domain, with frozen semantics that do not promote the coordinate reference measure to a physical measure. If such a gate cannot be defined cleanly without unpreregistered assumptions, return to the independent curvature-dependent `P` / first-jet derivation blocker rather than starting a third symmetry reduction.
+Inspect only the active preregistration `055926862c096b8d2aa93daa647003c92fe1e60c` and its single frozen dependency source `theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md` at commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`. If dependency provenance is exact, create only `theory/quantum/QGR_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md` according to the frozen controls and terminally classify the gate. No Actions run is required unless nontrivial executable verification is newly required by the frozen gate. Do not open another gate in the same run.
 
 ## Locks
 
-`theory_established=0%`; no experimental confirmation; `c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; finite panels are not global theorems; G45 does not prove absolute energy positivity or quantum unitarity; G35-G37 distant roots do not authorize physical weights; KMQGB `NEW_REQUIRED` unauthorized; classical != quantum; kinematic state space != dynamics; diagnostic != closure.
+`theory_established=0%`; no experimental confirmation; `c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; finite panels are not global theorems; G45 does not prove absolute energy positivity or quantum unitarity; G35-G37 distant roots do not authorize physical weights; KMQGB `NEW_REQUIRED` unauthorized; classical != quantum; kinematic state space != dynamics; reference-space norm preservation != physical unitarity; diagnostic != closure.
