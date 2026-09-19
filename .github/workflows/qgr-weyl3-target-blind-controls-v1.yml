@@ -1,0 +1,39 @@
+name: QGR Weyl3 target-blind witness controls V1
+
+on:
+  push:
+    paths:
+      - 'scripts/qgr_weyl3_target_blind_witness_controls_v1.py'
+      - 'theory/covariant/QGR_WEYL3_TARGET_BLIND_WITNESS_PANEL_V1.md'
+      - '.github/workflows/qgr-weyl3-target-blind-controls-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse 7f15006e6e0fa49c42eb6d075e3404a57c2f83e1^{commit})" = "7f15006e6e0fa49c42eb6d075e3404a57c2f83e1"
+          test "$(git rev-parse 510456a1a30053602726314f5d1dd1438cf64815^{commit})" = "510456a1a30053602726314f5d1dd1438cf64815"
+          test "$(git rev-parse fac9939927903213d2f834e8460ff4865dbd9897^{commit})" = "fac9939927903213d2f834e8460ff4865dbd9897"
+          test "$(git rev-parse 540de8ad08372bb6af97f62189e3e4bf30230f86^{commit})" = "540de8ad08372bb6af97f62189e3e4bf30230f86"
+      - name: Run exact preregistered controls
+        run: python scripts/qgr_weyl3_target_blind_witness_controls_v1.py | tee qgr-weyl3-target-blind-controls-v1.log
+      - name: Freeze digest
+        shell: bash
+        run: |
+          sha256sum qgr-weyl3-target-blind-controls-v1.log | tee qgr-weyl3-target-blind-controls-v1.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qgr-weyl3-target-blind-controls-v1
+          path: |
+            qgr-weyl3-target-blind-controls-v1.log
+            qgr-weyl3-target-blind-controls-v1.sha256
+          if-no-files-found: error
