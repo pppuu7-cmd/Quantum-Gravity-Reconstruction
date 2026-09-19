@@ -6,47 +6,68 @@ Updated: 2026-09-19
 
 `candidate_program_roadmap_readiness = 100%` is infrastructure/roadmap readiness only. `theory_established = 0%`. No experimental confirmation.
 
-## Latest terminal scientific result
+## Historical parent authority — preserved immutable
 
-`COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION`
+`COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE`
 
-- preregistration: `58284ae7f71e73db5c2d71d157bc74bd7d646030`
-- execution binding: `4fe4634a1b026bd73233e1082efe52bfcda91bf9`
-- authoritative run: `35411657960` (`completed/success`)
-- production head: `45bf70a9f861fb56128690c6b25bf085c070e87a`
-- terminal artifact: `10574678132` (`weyl3-a7-connection-multicoordinate-terminal`)
-- artifact digest: `sha256:c3a03181a9e50580f293741b06528448fa4c88249de246600c232a50bbf7a59f`
-- terminal payload SHA256: `cb12107f846dbe74c13536500fa8449d5e9e1797428bf12bb8e62f32f34e2eba`
-- durable result commit: `001f552883f0ff0e1e4f505c0f35859026ad45a6`
-- classification: `MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_B`
+- run `35367461999`
+- result commit `e26208cec90566001b65640775d2e58d0429bf5c`
+- classification `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY`
 
-Frozen witness remains `OFFSHELL_A / d=7 / (i,j)=(0,0)` and frozen component remains `(a,b,c,d)=(0,1,0,1)`.
+This historical result is not rewritten or reclassified.
 
-The target-blind multicoordinate neutral polynomial construction passed all frozen mandatory controls before comparison: all 64 `dGamma(j=0)` channels and all 64 `deltaGamma_phi(i=0)` channels reproduce exactly, the full 256-component tensor was serialized, and the neutral tensor hash
+## Latest terminal corrected certificate
 
-`702b353ada68114482ede9a4fb3c8af6d3b7af708982256e44b7c2e7909848b4`
+`COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY`
 
-matches frozen Lane B exactly. It does not match Lane A or legacy Lane C. The frozen component value is
+- preregistration: `1640b2fb84980c68fa1e14d146b8403b43d3fd5a`
+- execution binding: `e03f4897fe7b5a81773109c5551e097e59152cf0`
+- authoritative run: `35412692881`
+- production head: `da280701df1c46d49fbaaa0a855edca34782e084`
+- durable result commit: `eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3`
+- terminal payload: `e195c7408b58354c2b640271f9211515c3f1e4db445738182413688d8666b8c8`
+- classification: `CORRECTED_PARENT_SIX_CELL_EXACT_MATCH`
 
-`-89350652201/169388331840`.
+Frozen corrected rule:
 
-Historical terminal results remain immutable; legacy C is not reclassified and no post-hoc parent repair is authorized.
+`corrected_Euler = partial_IBP - covariantization_gap`.
 
-## Previous localization authority
+It matches the unchanged historical Researcher direct bulk exactly in all six original cells:
+- FLAT_CONTROL / d=7
+- FLAT_CONTROL / d=19
+- OFFSHELL_A / d=7
+- OFFSHELL_A / d=19
+- OFFSHELL_B / d=7
+- OFFSHELL_B / d=19
 
-`COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION` remains preserved as the parent localization authority:
+`exact_zero_all_six_cells=true`; `first_residual_cell=null`.
 
-- preregistration: `7b9d2ffb84993f04e467c0a9ea6bf650327f6b62`
-- execution binding: `e75a093089c3393d2587cb79420a3b00faa813cc`
-- authoritative run: `35411484392`
-- production head: `f07613a376cf2a2ba83754ba04291eeb5b6e1d27`
-- durable result commit: `199ecea77c9138c4a166d1ffc7143ce2d0de34be`
-- classification: `COMPONENT_0101_PRIMITIVE_DIVERGENCE_LOCALIZED`
+This is a prospectively corrected finite-panel certificate, not a global theorem.
 
-## Next bounded step
+## Causal chain now terminal
 
-No new gate is selected by this terminal-consumption step. The latest <=10 commits observed at run start contain newer mainline work beyond the recovery snapshot, including tip `265c18fa2ddea1a660e4d06365cf6524e5f0ce44`. The next run must begin again from `CURRENT_FRONT.md`, `state.json`, and the latest <=10 commits, then reconcile those newer commits without scanning broad history. Do not retroactively alter the frozen multicoordinate criteria or historical terminal classifications.
+1. Tensor localization: A and B are exact negatives over the full 256-component witness tensor.
+2. Primitive localization: legacy univariate C first loses a shared connection input at `dGamma:0,0,0,1`.
+3. Full multicoordinate neutral extraction reproduces all 64 dGamma and 64 deltaGamma channels and matches B exactly.
+4. Formal monomial A/B gate proves `A_FORMAL_EQ_NEG_B` over the abstract `g2*h` basis.
+5. Partial-to-covariant sign audit proves the required conversion matches B and its negative matches A:
+   `partial partial = covariant Hessian - C_nabla`.
+6. Corrected Critic slot00 replay closes the first historical divergence exactly.
+7. Full corrected Critic first-jet replay closes all 16 slots, all source ledgers and scalar first-IBP transfer exactly. Result `8d298163107560f28025823981d667e77a80cc97`; adversarial referee `785b9ac351703d4a49997a4d52ea1ad9dfb09235` verdict `CONFIRMED_SCOPED`.
+8. Corrected parent six-cell replay now matches the unchanged historical Researcher in all six cells.
+
+## Active next question
+
+Do not expand to a larger ad-hoc numerical panel yet.
+
+The highest-information next gate is a generic formal local identity over an abstract Riemann-pair-symmetric `P^{abcd}` source basis, with no Weyl3 panel data:
+
+- derive the direct partial-to-covariant Riemann conversion as a formal `P*g2*h` coefficient map;
+- independently derive the connection-jet contribution of the covariant double divergence;
+- compare exact equality / exact negative relation or record the first formal counterexample.
+
+A prospective preregistration is required before implementation.
 
 ## Locks
 
-`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `theory_established=0%`; no experimental confirmation; `beta=1` unauthorized; finite certificates are not global theorems; classical != quantum; diagnostic != closure; no quantum-unitarity, UV-completion, physical-c6, KMQGB `NEW_REQUIRED`, or new-physics claim is authorized.
+`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; `theory_established=0%`; finite certificate != global theorem; classical != quantum. No experimental confirmation, quantum-unitarity, UV-completion, physical-c6, KMQGB `NEW_REQUIRED`, or new-physics claim is authorized.
