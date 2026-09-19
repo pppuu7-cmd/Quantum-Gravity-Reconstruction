@@ -8,34 +8,28 @@ Updated: 2026-09-19
 
 ## Preserved parent authority
 
-Iter049 `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE` remains preserved with authoritative retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`. Initial run `34719814120` remains diagnostic/non-authoritative. Iter048 PASS 24/24 remains recorded and must not be repeated.
-
-The parent covariant Weyl3 directional-variation discrepancy remains immutable. Principal-symbol/volume, lower-order, Fi-jet and connection-source localizations remain preserved.
+Iter049 `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE` remains preserved: retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`; initial `34719814120` remains diagnostic/non-authoritative. Iter048 PASS 24/24 remains do-not-repeat.
 
 ## Latest terminal scientific result
 
-Gate: `COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION`.
-
-Preregistration: `63ead9c69964fe24ec647c7bda12c1ebc4aa28df`.
-
-Production head: `93c338634150f0125bc2f3deeca581f46852aea6`.
-
-Authoritative Actions run: `35407870461`.
-
-Durable result commit: `04c4a3943cb0fc1509067d1630efdd3d8c6990de`.
+`COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION`, run `35407870461`, production head `93c338634150f0125bc2f3deeca581f46852aea6`, durable result commit `04c4a3943cb0fc1509067d1630efdd3d8c6990de`.
 
 Classification: `CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED`.
 
-All three complete 256-component tensors were independently serialized before comparison. The first lexicographic divergent component is `(a,b,c,d)=(0,1,0,1)`.
+All three 256-component tensors were serialized independently before comparison. First lexicographic divergence: `(a,b,c,d)=(0,1,0,1)`. Full tensor A is exactly `-B`; neutral C equals neither sign. Terminal payload SHA256: `5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16`. No correction is authorized.
 
-Full-tensor relations: `A_EQ_NEG_B=true`; A and C match neither sign; B and C match neither sign. Therefore the previous disagreement is now localized at tensor-component level, but no sign/convention/orientation/parent-formula correction is authorized.
+## Active preregistered gate
 
-Terminal payload SHA256: `5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16`.
+`COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION`
 
-## Current action
+Prospective preregistration commit: `7b9d2ffb84993f04e467c0a9ea6bf650327f6b62`.
 
-Terminal result is durable and recovery synchronized. Before opening a next production gate, prospectively freeze a primitive causal decomposition of the already-frozen first divergent component `(0,1,0,1)`. The next gate should independently expose the primitive connection/contraction terms feeding this component and identify the first exact primitive disagreement. No post-hoc sign fitting, convention repair, formula editing, witness change, or threshold weakening is allowed.
+Frozen component: `(0,1,0,1)` at `OFFSHELL_A / d=7 / (i,j)=(0,0)`.
+
+The next exact audit must independently serialize primitive ledgers for metric/inverse-metric contractions, connection factors, Hessian channels, GammaGamma dummy-index channels, neutral dual-polynomial channels, and permutation/antisymmetry factors. Comparator order is frozen prospectively. Parent scalar controls and full-tensor hashes must reproduce exactly before adjudication.
+
+No production is authorized until independent implementations and an execution binding are prospectively frozen. No sign fitting, free-index permutation, convention/orientation repair, parent-formula edit, witness change, or threshold weakening.
 
 ## Locks
 
-`c6=SYMBOLIC_UNFIXED`; corrected Q10 remains LOCKED; `theory_established=0%`; no experimental confirmation. Finite panels are not global theorems. G45 does not establish absolute energy positivity or quantum unitarity. G35-G37 distant roots do not authorize physical weights. `beta=1` is not authorized. KMQGB `NEW_REQUIRED` is not authorized.
+`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `theory_established=0%`; no experimental confirmation; `beta=1` unauthorized; finite panels are not global theorems; G45 does not establish absolute energy positivity/quantum unitarity; G35-G37 distant roots do not authorize physical weights; KMQGB `NEW_REQUIRED` unauthorized; no new-physics claim authorized.
