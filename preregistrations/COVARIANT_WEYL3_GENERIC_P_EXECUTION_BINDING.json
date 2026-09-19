@@ -1,0 +1,69 @@
+{
+  "schema": "QGR_GENERIC_P_CONNECTION_COVARIANTIZATION_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_GENERIC_P_CONNECTION_COVARIANTIZATION_IDENTITY",
+  "preregistration_commit": "a388b8fdef54742b4e6120b8f23965d604aa4e04",
+  "corrected_parent_result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+  "formal_basis": "P[pair|pair]*g2[pair|pair]*h[pair]",
+  "P_symmetry": "antisymmetric in each pair, symmetric under pair exchange; no first Bianchi",
+  "frozen_parameters": {
+    "dimension": 4,
+    "eta_diagonal": [
+      -1,
+      1,
+      1,
+      1
+    ]
+  },
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "lane_d": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_lane_d.py",
+      "commit": "08d70bf35734b044dceee8ea10a6e28fe8783fd5",
+      "blob": "d7c14040166bcbb71c2eb8db6cf0d001e83d44e8"
+    },
+    "lane_g": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_lane_g.py",
+      "commit": "523ce685869147b53a01c76c38925197d088063b",
+      "blob": "f4d1cd4245ac415556c3a3b595aa843c58e82b46"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_terminal.py",
+      "commit": "8c77b71f656af34e1c3578c7c0ae168db9cdd8ff",
+      "blob": "c1e0d710a8189f97990c6972ecd62d5d060973d6"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_generic_p_source_lock.py",
+      "commit": "9527c7f3cdff0699bf354c6ff7afbb0cab81a9fb",
+      "blob": "e0e316147c3623585e1a27a9920686d3aa1f5d95"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-generic-p-connection-covariantization.yml",
+      "commit": "6f53aec4465783585965d59a24930bcf87e8f64f",
+      "blob": "5dc90542c6c93e1b8816e5b2dabd4a74980566dc"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/generic-p-connection-covariantization.txt",
+    "jobs": [
+      "source_lock",
+      "lane_d",
+      "lane_g",
+      "terminal"
+    ],
+    "no_weyl3_panel_data": true,
+    "pair_symmetry_only_no_bianchi": true,
+    "independent_formal_lanes": true,
+    "malformed_derivative_index_control_required": true,
+    "exact_rational_arithmetic": true,
+    "allowed_terminal_classifications": [
+      "GENERIC_P_DIRECT_CONVERSION_EQ_COVARIANT_GAP",
+      "GENERIC_P_DIRECT_CONVERSION_EQ_NEG_COVARIANT_GAP",
+      "GENERIC_P_DIRECT_CONVERSION_OTHER",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
