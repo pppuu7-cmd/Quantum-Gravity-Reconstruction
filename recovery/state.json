@@ -1,106 +1,13 @@
 {
   "schema_version": "1.0",
-  "project": {
-    "name": "Quantum Gravity Reconstruction",
-    "short_name": "QGR",
-    "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
-    "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
-    "phase": "TERMINAL_BLOCKED_EXECUTION_OR_PROVENANCE__REPAIR_PREREG_REQUIRED"
-  },
-  "readiness": {
-    "repository_infrastructure_pct": 100,
-    "candidate_program_pct": 100,
-    "candidate_program_pct_semantics": "Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.",
-    "theory_established_pct": 0,
-    "experimental_confirmation": false
-  },
-  "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
-    "last_terminal_classification": "BLOCKED_EXECUTION_OR_PROVENANCE",
-    "last_terminal_scientific_pass": false,
-    "last_terminal_run": 35414907247,
-    "last_terminal_result_commit": "52eae11aaa6a49393d08ab06cf25bf436a2022fe",
-    "next_preregistered_science": null,
-    "next_preregistered_status": "PROSPECTIVE_EXECUTION_PROVENANCE_REPAIR_REQUIRED"
-  },
-  "recovery_sync": {
-    "latest_preregistration_commit": "7a62dd856aec084add16af8e6793d157ef32637b",
-    "latest_execution_binding_commit": "0abad7d17e3eceaed66b727cae75169a63096a9d",
-    "latest_terminal_result_commit": "52eae11aaa6a49393d08ab06cf25bf436a2022fe",
-    "latest_terminal_result_kind": "BLOCKED_EXECUTION_OR_PROVENANCE",
-    "latest_active_gate": null,
-    "active_gate_status": "TERMINAL_REPAIR_PREREG_REQUIRED",
-    "active_actions_run": null,
-    "latest_observed_production_head": "7f90335969134fcf6c9f2938b14223035eeab516",
-    "newer_main_commits_require_next_run_reconciliation": false
-  },
-  "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
-    "preregistration_commit": "7a62dd856aec084add16af8e6793d157ef32637b",
-    "execution_binding_commit": "0abad7d17e3eceaed66b727cae75169a63096a9d",
-    "execution_pr": 47,
-    "production_head": "7f90335969134fcf6c9f2938b14223035eeab516",
-    "actions_run": 35414907247,
-    "workflow_conclusion": "failure",
-    "terminal_artifact": {
-      "id": 10575338139,
-      "name": "generic-p-density-terminal",
-      "sha256": "0872c46dbe71636a3bc2932afd961103e19092a367185fe82b75b6d6a7a7c020"
-    },
-    "terminal_payload_sha256": "69a1c13da3bab5d5bbf43360ed4f8842a19c270d3bdf836e0ef11bbdd5e98147",
-    "classification": "BLOCKED_EXECUTION_OR_PROVENANCE",
-    "terminal_reason": "required lane artifact missing",
-    "partial_lane_science_consumed": false,
-    "historical_parent_reclassification_authorized": false
-  },
-  "preserved_authority": {
-    "historical_parent_covariant_fail": {
-      "gate": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
-      "run": 35367461999,
-      "result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
-      "classification": "SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY",
-      "immutable": true
-    },
-    "corrected_parent_six_cell": {
-      "gate": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
-      "run": 35412692881,
-      "result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
-      "classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
-      "finite_panel_only": true
-    },
-    "generic_p_tensor_only": {
-      "result_commit": "8f9d3d05040fa8bcd33e585583e5a9d468bb6c69",
-      "run": 35413068305,
-      "classification": "GENERIC_P_DIRECT_CONVERSION_OTHER",
-      "first_counterexample": "P[0,1|0,1]*g2[0,0|0,0]*h[1,1]",
-      "lane_d_coefficient": 1,
-      "lane_g_coefficient": 2,
-      "immutable": true
-    }
-  },
-  "active_question": {
-    "id": "COVARIANT-WEYL3-GENERIC-P-TENSOR-DENSITY-EXECUTION-REPAIR",
-    "text": "Can a prospectively frozen target-blind execution/provenance repair establish the missing required lane artifact without changing the frozen tensor-density science criteria?"
-  },
-  "active_blocker": "Authoritative run 35414907247 terminalized BLOCKED_EXECUTION_OR_PROVENANCE because a required lane artifact was missing. No scientific Lane D versus weighted-Lane-W comparison is authoritative from that run.",
-  "next_gate_lock": "Freeze only an execution/provenance diagnosis or repair for the missing required lane artifact. Preserve preregistration 7a62dd856aec084add16af8e6793d157ef32637b, exact source basis, formulas, controls, taxonomy and target blindness. Do not alter criteria after evidence and do not consume partial lane science.",
-  "claim_locks": {
-    "qgr_theory_established": false,
-    "experimental_confirmation": false,
-    "beta_set_to_one_authorized": false,
-    "qgr_six_derivative_coefficient_fixed": false,
-    "c6_running_authorized": false,
-    "c6_symbolic_unfixed": true,
-    "strong_hyperbolicity_established": false,
-    "physical_ghost_claim_authorized": false,
-    "quantum_unitarity_established": false,
-    "global_interacting_measure_established": false,
-    "regulator_removal_established": false,
-    "uv_complete": false,
-    "new_physics_found": false,
-    "kmqgb_new_required_authorized": false,
-    "corrected_q10_locked": true,
-    "finite_panels_global_theorem": false
-  }
+  "project": {"name":"Quantum Gravity Reconstruction","short_name":"QGR","repository":"pppuu7-cmd/Quantum-Gravity-Reconstruction","date":"2026-09-19","iteration":"COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_EXECUTION_REPAIR","phase":"PROSPECTIVE_EXECUTION_REPAIR_PREREGISTERED"},
+  "readiness": {"repository_infrastructure_pct":100,"candidate_program_pct":100,"candidate_program_pct_semantics":"Research-program / roadmap infrastructure readiness only; not probability of correctness, not theory completion, and not fraction of quantum gravity solved.","theory_established_pct":0,"experimental_confirmation":false},
+  "science_sync": {"last_terminal_science":"COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION","last_terminal_classification":"BLOCKED_EXECUTION_OR_PROVENANCE","last_terminal_scientific_pass":false,"last_terminal_run":35414907247,"last_terminal_result_commit":"52eae11aaa6a49393d08ab06cf25bf436a2022fe","next_preregistered_science":"COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_EXECUTION_REPAIR","next_preregistered_status":"PROSPECTIVE_EXECUTION_REPAIR_PREREGISTERED"},
+  "recovery_sync": {"latest_preregistration_commit":"7de81f357e6e8be5585ba2c1c14bd100528e5578","latest_execution_binding_commit":"0abad7d17e3eceaed66b727cae75169a63096a9d","latest_terminal_result_commit":"52eae11aaa6a49393d08ab06cf25bf436a2022fe","latest_terminal_result_kind":"BLOCKED_EXECUTION_OR_PROVENANCE","latest_active_gate":"COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_EXECUTION_REPAIR","active_gate_status":"PROSPECTIVE_EXECUTION_REPAIR_PREREGISTERED","active_actions_run":null,"latest_observed_production_head":"7f90335969134fcf6c9f2938b14223035eeab516","newer_main_commits_require_next_run_reconciliation":false},
+  "latest_terminal": {"gate":"COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION","preregistration_commit":"7a62dd856aec084add16af8e6793d157ef32637b","execution_binding_commit":"0abad7d17e3eceaed66b727cae75169a63096a9d","execution_pr":47,"production_head":"7f90335969134fcf6c9f2938b14223035eeab516","actions_run":35414907247,"workflow_conclusion":"failure","terminal_artifact":{"id":10575338139,"name":"generic-p-density-terminal","sha256":"0872c46dbe71636a3bc2932afd961103e19092a367185fe82b75b6d6a7a7c020"},"terminal_payload_sha256":"69a1c13da3bab5d5bbf43360ed4f8842a19c270d3bdf836e0ef11bbdd5e98147","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","terminal_reason":"required lane artifact missing","partial_lane_science_consumed":false,"historical_parent_reclassification_authorized":false},
+  "preserved_authority": {"historical_parent_covariant_fail":{"gate":"COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE","run":35367461999,"result_commit":"e26208cec90566001b65640775d2e58d0429bf5c","classification":"SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY","immutable":true},"corrected_parent_six_cell":{"gate":"COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY","run":35412692881,"result_commit":"eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3","classification":"CORRECTED_PARENT_SIX_CELL_EXACT_MATCH","finite_panel_only":true},"generic_p_tensor_only":{"result_commit":"8f9d3d05040fa8bcd33e585583e5a9d468bb6c69","run":35413068305,"classification":"GENERIC_P_DIRECT_CONVERSION_OTHER","first_counterexample":"P[0,1|0,1]*g2[0,0|0,0]*h[1,1]","lane_d_coefficient":1,"lane_g_coefficient":2,"immutable":true}},
+  "active_question": {"id":"COVARIANT-WEYL3-GENERIC-P-TENSOR-DENSITY-EXECUTION-REPAIR","text":"Can the prospectively frozen execution-only retry from a head containing binding 0abad7d establish both required lane artifacts without changing the frozen tensor-density science criteria?"},
+  "active_blocker":"Blocked run 35414907247 used a production head predating the required frozen execution binding, so required lane artifacts were not authoritative.",
+  "next_gate_lock":"Execution-only retry. Preserve scientific preregistration 7a62dd856aec084add16af8e6793d157ef32637b, binding 0abad7d17e3eceaed66b727cae75169a63096a9d, source basis, formulas, controls, taxonomy and target blindness. Do not consume partial science from blocked run 35414907247.",
+  "claim_locks": {"qgr_theory_established":false,"experimental_confirmation":false,"beta_set_to_one_authorized":false,"qgr_six_derivative_coefficient_fixed":false,"c6_running_authorized":false,"c6_symbolic_unfixed":true,"strong_hyperbolicity_established":false,"physical_ghost_claim_authorized":false,"quantum_unitarity_established":false,"global_interacting_measure_established":false,"regulator_removal_established":false,"uv_complete":false,"new_physics_found":false,"kmqgb_new_required_authorized":false,"corrected_q10_locked":true,"finite_panels_global_theorem":false}
 }
