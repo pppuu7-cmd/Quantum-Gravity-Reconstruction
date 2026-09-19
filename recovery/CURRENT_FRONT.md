@@ -8,46 +8,39 @@ Updated: 2026-09-19
 
 ## Preserved authority
 
-Iter049 `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE` remains authoritative at retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`; initial run `34719814120` remains diagnostic/non-authoritative. Iter048 terminal PASS 24/24 remains do-not-repeat. Historical covariant parent run `35367461999` remains `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY`; corrected six-cell run `35412692881` remains finite-panel only. Generic-P diagnostics and the curvature-P-jet BLOCKED result remain immutable.
+Iter049 `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE` remains authoritative at retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`; initial run `34719814120` remains diagnostic/non-authoritative. Iter048 terminal PASS 24/24 remains do-not-repeat. Historical covariant parent FAIL, corrected finite six-cell certificate, generic-P diagnostics, and curvature-P-jet BLOCKED result remain immutable.
 
 ## Quantum kinematic metric-cylinder amplitude-space object v1 — terminal scoped PASS
 
-Gate: `QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1`.
-Preregistration: `9c62c5a6e5d1f97908fbb42141bfc1bfedf39cd9`.
-Defining source: `theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md`, commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`.
-Durable result: `results/QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1.md`, commit `17ea22e9ddb3e054f07c2960c7c5a87bf97a7b9e`.
-Classification: `PASS_SCOPED_QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_DEFINED`.
+Preregistration `9c62c5a6e5d1f97908fbb42141bfc1bfedf39cd9`; defining source commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`; durable result commit `17ea22e9ddb3e054f07c2960c7c5a87bf97a7b9e`; classification `PASS_SCOPED_QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_DEFINED`.
 
-The source defines only `Q_N^kin=(V_N,X_N,mu_N,H_N)` with finite labelled Lorentzian metric cylinder domain, explicit coordinate reference measure, and `H_N=L^2(X_N,mu_N;C)`. The measure remains nonphysical and non-gauge-reduced. No dynamics, physical state, normalization, observable, probability/unitarity theorem, regulator removal, or continuum limit is established.
+This defines only `Q_N^kin=(V_N,X_N,mu_N,H_N)` with a nonphysical coordinate reference measure.
 
-## Active preregistered gate — finite-cylinder action-phase map v1
+## Finite-cylinder action-phase map v1 — terminal scoped PASS
 
 Gate: `QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1`.
-Preregistration: `055926862c096b8d2aa93daa647003c92fe1e60c` (`prereg/QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md`).
-Status: `PROSPECTIVELY_PREREGISTERED_NOT_YET_PRODUCED`.
+Preregistration: `055926862c096b8d2aa93daa647003c92fe1e60c`.
+Frozen dependency: kinematic source commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`.
+Defining source: `theory/quantum/QGR_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md`, commit `834dbc15e021e3ea79e7484c0224a012ae3a9f2d`.
+Durable result: `results/QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md`, commit `95b522911af06528c254473450237aaf3ebbab57`.
+Classification: `PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED`.
+Actions scientific run: not required by the frozen gate.
 
-Frozen dependency: exactly the kinematic source at commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`.
+For an externally supplied real Borel-measurable `S_N:X_N->R`, finite `mu_N`-almost everywhere, the source defines only
 
-Frozen object: for externally supplied real Borel-measurable `S_N:X_N->R`, finite `mu_N`-almost everywhere, define only the phase multiplier
+`U[S_N] Psi_N(g) = exp(i S_N(g)/hbar) Psi_N(g)`.
 
-`U[S_N] Psi_N(g) = exp(i S_N(g)/hbar) Psi_N(g)`
+The multiplier is measurable and unit modulus almost everywhere, hence maps `H_N` to itself, preserves exactly the existing reference norm, and has inverse `U[-S_N]`. No state normalization is assumed.
 
-on `H_N`, with `S_N` remaining entirely symbolic/external. The gate may establish only well-definedness on `H_N`, preservation of the existing `mu_N` reference norm, and the inverse phase multiplier. It may not choose a physical action or introduce any Hamiltonian, clock/update rule, source normalization, gauge prescription, physical measure, observable, probability rule, regulator, or continuum limit.
-
-Frozen PASS: `PASS_SCOPED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEFINED`.
-Frozen FAIL: `FAIL_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_CONTROL_VIOLATION`.
-Frozen BLOCKED: `BLOCKED_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_MISSING_REQUIRED_OBJECT`.
-Frozen INVALID: `INVALID_QUANTUM_FINITE_CYLINDER_ACTION_PHASE_MAP_DEPENDENCY_DRIFT`.
-
-Interpretation ceiling: even a PASS is only a generic mathematical phase-multiplication map on the nonphysical reference Hilbert space. Reference-norm preservation is not physical quantum unitarity and does not establish dynamics or quantum-gravity closure.
+The PASS does not select or derive a physical action. It introduces no Hamiltonian/time evolution, gauge reduction, physical measure, source normalization, observables, probabilities, physical-unitarity theorem, regulator removal, or continuum limit. Reference-norm preservation is not physical quantum unitarity.
 
 ## Remaining quantum closure front
 
-The earlier authority-pointer audit remains `BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION`. The kinematic source fills only configuration-domain/reference-measure/amplitude-space structure. The active gate, if it passes later, would add only a generic externally supplied action-phase map. Still undefined are at least: a physical/dynamically selected action, gauge/Jacobian treatment, physical normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, and regulator-removal/continuum-limit rule.
+Still undefined are at least: a physical/dynamically selected action, gauge/Jacobian treatment, physical normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, and regulator-removal/continuum-limit rule. The earlier broad quantum-closure audit therefore remains historically BLOCKED despite these two scoped objects.
 
 ## Next bounded step
 
-Inspect only the active preregistration `055926862c096b8d2aa93daa647003c92fe1e60c` and its single frozen dependency source `theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md` at commit `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`. If dependency provenance is exact, create only `theory/quantum/QGR_FINITE_CYLINDER_ACTION_PHASE_MAP_V1.md` according to the frozen controls and terminally classify the gate. No Actions run is required unless nontrivial executable verification is newly required by the frozen gate. Do not open another gate in the same run.
+Do not open another scientific gate in this iteration. On the next iteration, first reread recovery, commits, and all queued/in-progress/newly-terminal Actions. Then prospectively preregister at most one narrow target-blind quantum-closure object only if it can be defined without importing forbidden physical assumptions. Prefer a genuinely useful physical-action-selection or gauge/measure object over another tautological kinematic layer. If such an object is not technically justified, return to the independent curvature-dependent `P` / first-jet blocker. Do not start a third repetitive symmetry reduction.
 
 ## Locks
 
