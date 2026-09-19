@@ -22,9 +22,23 @@ Frozen classification: `GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED`. Firs
 
 The result is diagnostic only. In particular `DP=0` is a preregistered source-class restriction (`partial P=0` at the normal-coordinate point), not a theorem for arbitrary curvature-derived P. No Bianchi reduction was used. The residual does not authorize a new correction or historical reclassification.
 
+## Curvature-dependent P-jet object-definition audit — terminal BLOCKED
+
+Gate: `COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT`.
+
+Preregistration: `83445aa5d73d36a948b23cae4485d855831f6eb9`.
+Durable terminal result: `bfe468e5d823e2fe9d31e01f4b349b10721a770a`.
+Classification: `BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION`.
+
+The audit was prospectively restricted to exactly two frozen source-definition files: the tensor-density preregistration at `7a62dd856aec084add16af8e6793d157ef32637b` and the primitive-decomposition preregistration at `c37f4381a7876385592a74d8bc1dbade2725e03a`. No repository search, historical artifact scan, Lane-D payload, residual payload, or external derivation was consumed.
+
+The tensor-density source defines `P^{abcd}` only as an abstract pair-symmetric tensor and explicitly takes ordinary derivatives of the abstract source coefficients to vanish for that source class. The primitive decomposition consequently freezes `DP=0`. Neither source definition supplies an explicit curvature-dependent formula for `P` or a first-jet rule for `partial_e P^{abcd}` sufficient to construct a nonzero `DP` channel without a new assumption. Therefore the missing required object is a valid terminal BLOCKED result; inventing a derivative channel to match the residual is forbidden.
+
+This BLOCKED result does not prove that a curvature-dependent `P` jet cannot be derived in principle. It proves only that the current authoritative source definitions do not already contain it. Historical covariant FAIL/diagnostic results remain unchanged.
+
 ## Next bounded step
 
-No next scientific gate is opened in this recovery update. A continuation of the covariant programme must be prospectively preregistered and independently derive/relax the curvature-dependent P-jet source class (especially the `DP=0` restriction) without tuning to the residual. If that is not technically ready, pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction.
+No next scientific gate is opened in this recovery update. The current covariant branch is blocked on a missing curvature-dependent `P` object/first-jet definition. A future covariant continuation is admissible only if a new exact `P(curvature,metric,...)` definition and its first-jet rule are independently derived and prospectively preregistered before any comparison with the localized residual. Otherwise follow the existing programme directive and pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction and do not fit any new correction to the residual.
 
 ## Locks
 
