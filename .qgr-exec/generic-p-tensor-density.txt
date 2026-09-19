@@ -1,0 +1,10 @@
+QGR execution marker
+
+gate=COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION
+preregistration_commit=7a62dd856aec084add16af8e6793d157ef32637b
+parent_generic_result_commit=8f9d3d05040fa8bcd33e585583e5a9d468bb6c69
+source_tip=e34efdf46d188eb373cae22daed647b886c61009
+mode=frozen_target_blind_exact
+c6=SYMBOLIC_UNFIXED
+corrected_q10=LOCKED
+theory_established_pct=0
