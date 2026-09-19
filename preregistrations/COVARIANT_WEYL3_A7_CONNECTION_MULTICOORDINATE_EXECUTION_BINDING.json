@@ -1,0 +1,65 @@
+{
+  "schema": "QGR_WEYL3_A7_CONNECTION_MULTICOORDINATE_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
+  "preregistration_commit": "58284ae7f71e73db5c2d71d157bc74bd7d646030",
+  "parent_terminal_commit": "199ecea77c9138c4a166d1ffc7143ce2d0de34be",
+  "frozen_witness": {
+    "seed": "OFFSHELL_A",
+    "direction": 7,
+    "i": 0,
+    "j": 0,
+    "component": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  "parent_terminal_payload_sha256": "bc70d3aa22ebc3a1c0f8d8e79119f6f1d12c893b4c7275343e2391abd5a440a4",
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "extraction": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_multicoordinate_neutral.py",
+      "commit": "837722975d4a53fba797d635acb7dc19521caa04",
+      "blob": "f657d4d847f38ad3358505a159657f63ee78a976"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_multicoordinate_terminal.py",
+      "commit": "1409e49375de641d8c11e814b16400fd1e5ff6e6",
+      "blob": "9b849909c48f219dcfa4edd466a0341a8a3d5648"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_multicoordinate_source_lock.py",
+      "commit": "53e586095ae2dc13dbba2ade51e757039d3d922d",
+      "blob": "13d69852a267b6b2dacd341dd3640bbe9ea0171d"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-connection-multicoordinate.yml",
+      "commit": "9c4e123a3246585ff165fcd6b31184bc618dfb98",
+      "blob": "3986f86a1dd05400984b11c8fd4cd394879455d4"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-connection-multicoordinate.txt",
+    "jobs": [
+      "source_lock",
+      "extraction",
+      "terminal"
+    ],
+    "exact_multicoordinate_polynomial": true,
+    "all_64_dGamma_control_required": true,
+    "all_64_deltaGamma_control_required": true,
+    "serialize_256_before_target_comparison": true,
+    "target_blind_extraction": true,
+    "allowed_terminal_classifications": [
+      "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_A",
+      "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_B",
+      "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_NEITHER",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
