@@ -1,0 +1,117 @@
+name: QGR Weyl3 A7 connection tensor component localization
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/weyl3-a7-connection-tensor.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_connection_tensor_source_lock.py --binding preregistrations/COVARIANT_WEYL3_A7_CONNECTION_TENSOR_EXECUTION_BINDING.json --output artifacts/source-lock/source_lock.json | tee artifacts/source-lock/source_lock.log
+          sha256sum artifacts/source-lock/* > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: weyl3-a7-connection-tensor-source-lock, path: artifacts/source-lock/, if-no-files-found: error}
+
+  lane_a:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/lane-a
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_connection_tensor_lane_a.py --output artifacts/lane-a/lane_a.json | tee artifacts/lane-a/lane_a.log
+          sha256sum artifacts/lane-a/* > artifacts/lane-a/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: weyl3-a7-connection-tensor-lane-a, path: artifacts/lane-a/, if-no-files-found: error}
+
+  lane_b:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/lane-b
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_connection_tensor_lane_b.py --output artifacts/lane-b/lane_b.json | tee artifacts/lane-b/lane_b.log
+          sha256sum artifacts/lane-b/* > artifacts/lane-b/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: weyl3-a7-connection-tensor-lane-b, path: artifacts/lane-b/, if-no-files-found: error}
+
+  lane_c:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          set -euo pipefail
+          mkdir -p artifacts/lane-c
+          PYTHONPATH=code:scripts python scripts/qgr_covariant_weyl3_a7_connection_tensor_lane_c.py --output artifacts/lane-c/lane_c.json | tee artifacts/lane-c/lane_c.log
+          sha256sum artifacts/lane-c/* > artifacts/lane-c/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: weyl3-a7-connection-tensor-lane-c, path: artifacts/lane-c/, if-no-files-found: error}
+
+  terminal:
+    if: always()
+    needs: [source_lock, lane_a, lane_b, lane_c]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: mkdir -p artifacts/all/a artifacts/all/b artifacts/all/c artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: {name: weyl3-a7-connection-tensor-lane-a, path: artifacts/all/a}
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: {name: weyl3-a7-connection-tensor-lane-b, path: artifacts/all/b}
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: {name: weyl3-a7-connection-tensor-lane-c, path: artifacts/all/c}
+      - name: Frozen three-way tensor comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          if test -f artifacts/all/a/lane_a.json && test -f artifacts/all/b/lane_b.json && test -f artifacts/all/c/lane_c.json; then
+            python scripts/qgr_covariant_weyl3_a7_connection_tensor_terminal.py --a artifacts/all/a/lane_a.json --b artifacts/all/b/lane_b.json --c artifacts/all/c/lane_c.json --output artifacts/terminal/terminal.json | tee artifacts/terminal/terminal.log
+            rc=${PIPESTATUS[0]}
+          else
+            python -c 'import hashlib,json,pathlib; p={"gate":"COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required lane artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}; p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest(); pathlib.Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\n"); print(json.dumps(p,sort_keys=True,indent=2))'
+            cp artifacts/terminal/terminal.json artifacts/terminal/terminal.log
+            rc=2
+          fi
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/* > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: weyl3-a7-connection-tensor-terminal, path: artifacts/terminal/, if-no-files-found: error}
+      - run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
