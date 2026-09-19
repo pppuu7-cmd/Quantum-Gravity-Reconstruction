@@ -8,58 +8,34 @@ Updated: 2026-09-19
 
 ## Preserved parent authority
 
-Parent covariant gate `COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE` remains terminal `SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY`, authority `e26208cec90566001b65640775d2e58d0429bf5c`, run `35367461999`. It is immutable and is not repaired or reclassified.
+Iter049 `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE` remains preserved with authoritative retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`. Initial run `34719814120` remains diagnostic/non-authoritative. Iter048 PASS 24/24 remains recorded and must not be repeated.
 
-A7 principal-symbol/volume and lower-order localization results remain preserved. The first Fi-jet divergence remains localized at `OFFSHELL_A / d=7 / (i,j)=(0,0)` to the connection source.
+The parent covariant Weyl3 directional-variation discrepancy remains immutable. Principal-symbol/volume, lower-order, Fi-jet and connection-source localizations remain preserved.
 
 ## Latest terminal scientific result
 
-Gate: `COVARIANT_WEYL3_A7_CONNECTION_DUAL_POLYNOMIAL_SIGN_ADJUDICATION`.
+Gate: `COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION`.
 
-Preregistration: `ed829c5f60f2fad6a308ec3f9c50695a6777567e`.
+Preregistration: `63ead9c69964fe24ec647c7bda12c1ebc4aa28df`.
 
-Terminal result commit: `d44e785efb222c857bfece31a3a09bed447999fe`.
+Production head: `93c338634150f0125bc2f3deeca581f46852aea6`.
 
-Authoritative Actions run: `35404845600`.
+Authoritative Actions run: `35407870461`.
 
-Classification:
+Durable result commit: `04c4a3943cb0fc1509067d1630efdd3d8c6990de`.
 
-`DUAL_POLYNOMIAL_EXTRACTION_MATCHES_NEITHER`.
+Classification: `CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED`.
 
-The neutral direct bivariate-polynomial extraction is exactly different from both already-frozen hand-derived connection scalars. Its full extracted tensor hash is:
+All three complete 256-component tensors were independently serialized before comparison. The first lexicographic divergent component is `(a,b,c,d)=(0,1,0,1)`.
 
-`e3797c7dade7f4de601ba047be48b0ed73278333e01719e3b0d97588e783deb8`.
+Full-tensor relations: `A_EQ_NEG_B=true`; A and C match neither sign; B and C match neither sign. Therefore the previous disagreement is now localized at tensor-component level, but no sign/convention/orientation/parent-formula correction is authorized.
 
-Therefore the connection discrepancy is no longer a binary sign choice. No parent formula is authorized for correction.
-
-## Active preregistered gate
-
-`COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION`
-
-Prospective preregistration commit:
-
-`63ead9c69964fe24ec647c7bda12c1ebc4aa28df`.
-
-Frozen witness:
-
-`OFFSHELL_A / d=7 / (i,j)=(0,0)`.
-
-Scientific question: materialize the complete 256 exact four-index components of the three already-frozen connection constructions, serialize each lane before any cross-lane comparison, then record the first lexicographic component where the three values are not all equal and the exact pairwise equal/negative relations.
-
-Frozen lanes:
-- A: tensor-Hessian construction from the connection-identity gate;
-- B: direct hand-expanded GammaGamma construction from the connection-identity gate;
-- C: direct neutral dual-polynomial `[eps*x]` extraction.
-
-Allowed terminal classifications:
-- `CONNECTION_TENSOR_ALL_THREE_EXACT_MATCH`;
-- `CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED`;
-- `BLOCKED_EXECUTION_OR_PROVENANCE`.
+Terminal payload SHA256: `5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16`.
 
 ## Current action
 
-Implement three independent target-blind serializers, exact source/provenance lock, frozen comparator and one production workflow. Do not inspect cross-lane component values until all three serialized artifacts exist under the frozen execution binding.
+Terminal result is durable and recovery synchronized. Before opening a next production gate, prospectively freeze a primitive causal decomposition of the already-frozen first divergent component `(0,1,0,1)`. The next gate should independently expose the primitive connection/contraction terms feeding this component and identify the first exact primitive disagreement. No post-hoc sign fitting, convention repair, formula editing, witness change, or threshold weakening is allowed.
 
 ## Locks
 
-No post-hoc sign, orientation, convention or formula repair. `c6=SYMBOLIC_UNFIXED`; corrected Q10 remains LOCKED; `theory_established=0%`. No global QGR, quantum-unitarity, UV-completion, physical-c6, experimental or new-physics claim is authorized.
+`c6=SYMBOLIC_UNFIXED`; corrected Q10 remains LOCKED; `theory_established=0%`; no experimental confirmation. Finite panels are not global theorems. G45 does not establish absolute energy positivity or quantum unitarity. G35-G37 distant roots do not authorize physical weights. `beta=1` is not authorized. KMQGB `NEW_REQUIRED` is not authorized.
