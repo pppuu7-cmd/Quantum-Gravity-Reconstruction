@@ -20,28 +20,33 @@ Run `35413068305`, result `8f9d3d05040fa8bcd33e585583e5a9d468bb6c69`, classifica
 
 ## Tensor-density completion — terminal
 
-The earlier run `35414907247` remains an immutable `BLOCKED_EXECUTION_OR_PROVENANCE` record and supplied no authoritative partial science. A prospectively preregistered execution repair then produced the authoritative frozen comparison:
+The earlier run `35414907247` remains immutable `BLOCKED_EXECUTION_OR_PROVENANCE` and supplied no authoritative partial science. The repaired authoritative run is `35420685309`, result commit `3d6f236c9e1f9e169bc6c4d2463c05e111efac87`, classification `GENERIC_P_TENSOR_DENSITY_COMPLETION_OTHER`, terminal artifact `10577517264`, digest `sha256:0c3b3f121bee724e6a611fa8254e734b3b1c57f3d9e6ccfc9522137362248623`.
 
-- scientific preregistration `7a62dd856aec084add16af8e6793d157ef32637b`
-- execution binding `0abad7d17e3eceaed66b727cae75169a63096a9d`
-- repair preregistration `7de81f357e6e8be5585ba2c1c14bd100528e5578`
-- repaired production head `b692579582abc72e18124e7b8b9219da8cdf0c4c`
-- authoritative run `35420685309`
-- jobs: source-lock `105837672900`, weighted lane `105837693104`, Lane-D reference `105837693114`, terminal `105837713018`
-- terminal artifact `10577517264`, `sha256:0c3b3f121bee724e6a611fa8254e734b3b1c57f3d9e6ccfc9522137362248623`
-- raw terminal JSON `sha256:ca9ef4972bc98a25eea34fab12ab8bae5acd085508f5df0a23cb331180758307`
-- frozen terminal payload `sha256:3f0f623b03ee1f829d62f53d424d390521403aa77caeb3a7066edaba720595c4`
-- durable result commit `3d6f236c9e1f9e169bc6c4d2463c05e111efac87`
-- classification `GENERIC_P_TENSOR_DENSITY_COMPLETION_OTHER`
+The weight +1 density channel is real and nonzero but insufficient. First direct mismatch: `P[0,1|0,1]*g2[0,0|1,1]*h[0,0]`, D=`2`, weighted=`1`. No post-hoc correction is authorized.
 
-The weight +1 tensor-density completion is neither Lane D nor its exact negative. First direct mismatch in frozen ordering: `P[0,1|0,1]*g2[0,0|1,1]*h[0,0]`, with D=`2`, weighted=`1`. First exact-negative mismatch: `P[0,1|0,1]*g2[0,0|0,0]*h[1,1]`, with D=`1`, weighted=`1`.
+## Active gate — generic P primitive mismatch decomposition
 
-All frozen controls are true. Therefore the density-weight trace-connection channel is real and nonzero but insufficient by itself to turn the corrected six-cell finite-panel certificate into a generic identity. No additional correction is authorized post hoc.
+Gate: `COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION`.
 
-## Next admissible direction
+Preregistration commit: `c37f4381a7876385592a74d8bc1dbade2725e03a`.
+Workflow/production head: `fa5693f1aa055df2f5f178d316e8995726cb89d8`.
+Workflow: `.github/workflows/qgr-covariant-weyl3-generic-p-primitive-decomposition.yml`.
+Authoritative Actions run: `35423448758` (`queued` at the bounded launch check).
 
-No next scientific gate is open yet. If covariant diagnosis continues, prospectively preregister a target-blind primitive decomposition of the first direct mismatch, separating tensor-index connection channels, density-weight trace channel, derivative/product-rule channels, and pair-symmetry bookkeeping before looking at the target relation. If such a genuinely covariant gate is not technically ready, pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction.
+Frozen object: target-blind exact primitive decomposition of the generic source-side connection-jet map into `T_a`, `T_c`, `T_d`, `T_b`, density-weight trace `W`, frozen-zero `DP`, frozen-zero `SQRTG_PRODUCT`, and explicit pair-symmetry bookkeeping. Two matrix lanes (`primary`, `independent`, `fail-fast:false`) must serialize before any Lane-D comparison. A separate reference job is locked to Lane-D blob `d7c14040166bcbb71c2eb8db6cf0d001e83d44e8` and weighted-lane blob `b8d85923315018c7b50f4cd30399ea228cbb0bf9`.
+
+Frozen terminal taxonomy:
+- `GENERIC_P_PRIMITIVE_DECOMPOSITION_EQ_DIRECT_CONVERSION`
+- `GENERIC_P_PRIMITIVE_DECOMPOSITION_EQ_NEG_DIRECT_CONVERSION`
+- `GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED`
+- `BLOCKED_EXECUTION_OR_PROVENANCE`
+
+Interpretation ceiling: diagnostic only. `OTHER_LOCALIZED` does not authorize another correction. Historical FAIL/BLOCKED remain immutable.
+
+## Next bounded step
+
+This gate is the sole active authoritative workflow. Inspect only run `35423448758` at head `fa5693f1aa055df2f5f178d316e8995726cb89d8`. If non-terminal, record status/provenance only and stop. If terminal, consume only preregistration `c37f4381a7876385592a74d8bc1dbade2725e03a` and required terminal artifact `generic-p-primitive-terminal`, classify under frozen criteria, update recovery, and stop. Do not consume partial matrix lane output as authority.
 
 ## Locks
 
-`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; `theory_established=0%`; finite/symmetry-reduced panels != global theorem; G45 does not prove absolute energy positivity or quantum unitarity; G35–G37 distant roots do not authorize physical weights; KMQGB `NEW_REQUIRED` unauthorized. No experimental confirmation, UV completion, physical c6, global interacting measure, regulator removal, or new-physics claim is authorized.
+`c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; `theory_established=0%`; finite certificate != theorem; classical != quantum; diagnostic != closure; KMQGB `NEW_REQUIRED` unauthorized. No experimental confirmation, UV completion, physical c6, global interacting measure, regulator removal, or new-physics claim is authorized.
