@@ -1,0 +1,4 @@
+COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION
+preregistration=7a62dd856aec084add16af8e6793d157ef32637b
+workflow_freeze=3112cdc5125d981a285170988efa3a5fb9766365
+purpose=execute frozen weight+1 tensor-density completion without changing scientific criteria
