@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_GENERIC_P_CONNECTION_COVARIANTIZATION_IDENTITY",
-    "phase": "TERMINAL_CORRECTED_PARENT_SIX_CELL_MATCH__GENERIC_IDENTITY_PREREG_REQUIRED"
+    "iteration": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
+    "phase": "TERMINAL_BLOCKED_EXECUTION_OR_PROVENANCE__REPAIR_PREREG_REQUIRED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,84 +16,75 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
-    "last_terminal_classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
-    "last_terminal_scientific_pass": true,
-    "last_terminal_run": 35412692881,
-    "last_terminal_result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+    "last_terminal_science": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
+    "last_terminal_classification": "BLOCKED_EXECUTION_OR_PROVENANCE",
+    "last_terminal_scientific_pass": false,
+    "last_terminal_run": 35414907247,
+    "last_terminal_result_commit": "52eae11aaa6a49393d08ab06cf25bf436a2022fe",
     "next_preregistered_science": null,
-    "next_preregistered_status": "PROSPECTIVE_GENERIC_IDENTITY_GATE_REQUIRED"
+    "next_preregistered_status": "PROSPECTIVE_EXECUTION_PROVENANCE_REPAIR_REQUIRED"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "1640b2fb84980c68fa1e14d146b8403b43d3fd5a",
-    "latest_terminal_result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
-    "latest_terminal_result_kind": "CORRECTED_SIX_CELL_PARENT_EXACT_MATCH",
+    "latest_preregistration_commit": "7a62dd856aec084add16af8e6793d157ef32637b",
+    "latest_execution_binding_commit": "0abad7d17e3eceaed66b727cae75169a63096a9d",
+    "latest_terminal_result_commit": "52eae11aaa6a49393d08ab06cf25bf436a2022fe",
+    "latest_terminal_result_kind": "BLOCKED_EXECUTION_OR_PROVENANCE",
     "latest_active_gate": null,
-    "active_gate_status": "TERMINAL_SUCCESSOR_PREREG_REQUIRED",
+    "active_gate_status": "TERMINAL_REPAIR_PREREG_REQUIRED",
     "active_actions_run": null,
-    "latest_execution_binding_commit": "e03f4897fe7b5a81773109c5551e097e59152cf0",
-    "latest_observed_main_tip_at_run_start": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+    "latest_observed_production_head": "7f90335969134fcf6c9f2938b14223035eeab516",
     "newer_main_commits_require_next_run_reconciliation": false
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
-    "preregistration_commit": "1640b2fb84980c68fa1e14d146b8403b43d3fd5a",
-    "execution_binding_commit": "e03f4897fe7b5a81773109c5551e097e59152cf0",
-    "production_head": "da280701df1c46d49fbaaa0a855edca34782e084",
-    "actions_run": 35412692881,
-    "workflow_conclusion": "success",
+    "gate": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
+    "preregistration_commit": "7a62dd856aec084add16af8e6793d157ef32637b",
+    "execution_binding_commit": "0abad7d17e3eceaed66b727cae75169a63096a9d",
+    "execution_pr": 47,
+    "production_head": "7f90335969134fcf6c9f2938b14223035eeab516",
+    "actions_run": 35414907247,
+    "workflow_conclusion": "failure",
     "terminal_artifact": {
-      "id": 10574609932,
-      "name": "corrected-parent-terminal",
-      "sha256": "053606cf1c2e0cb5615bc67f9aca26754b5311aea3e4a867bf74819e06cfd372"
+      "id": 10575338139,
+      "name": "generic-p-density-terminal",
+      "sha256": "0872c46dbe71636a3bc2932afd961103e19092a367185fe82b75b6d6a7a7c020"
     },
-    "terminal_payload_sha256": "e195c7408b58354c2b640271f9211515c3f1e4db445738182413688d8666b8c8",
-    "classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
-    "exact_zero_all_six_cells": true,
-    "first_residual_cell": null,
-    "corrected_rule": "partial_IBP - covariantization_gap",
-    "historical_parent_result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
+    "terminal_payload_sha256": "69a1c13da3bab5d5bbf43360ed4f8842a19c270d3bdf836e0ef11bbdd5e98147",
+    "classification": "BLOCKED_EXECUTION_OR_PROVENANCE",
+    "terminal_reason": "required lane artifact missing",
+    "partial_lane_science_consumed": false,
     "historical_parent_reclassification_authorized": false
   },
   "preserved_authority": {
-    "iter048": {
-      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
-    },
-    "iter049": {
-      "gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
-      "authoritative_retry_run": 34719948722,
-      "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
-      "authoritative_retry_head": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
-      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810"
-    },
-    "a7_component_0101_primitive_localization": {
-      "gate": "COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION",
-      "authoritative_run": 35411484392,
-      "durable_result_commit": "199ecea77c9138c4a166d1ffc7143ce2d0de34be",
-      "classification": "COMPONENT_0101_PRIMITIVE_DIVERGENCE_LOCALIZED"
-    },
-    "full_first_jet_corrected_closure": {
-      "gate": "COVARIANT_WEYL3_A7_CRITIC_FULL_FIRST_JET_CONNECTION_COMPLETION_REPLAY",
-      "authoritative_run": 35412383778,
-      "durable_result_commit": "8d298163107560f28025823981d667e77a80cc97",
-      "classification": "CORRECTED_CRITIC_FULL_FIRST_JET_EXACT_MATCH",
-      "adversarial_referee_commit": "785b9ac351703d4a49997a4d52ea1ad9dfb09235",
-      "referee_verdict": "CONFIRMED_SCOPED"
-    },
     "historical_parent_covariant_fail": {
       "gate": "COVARIANT_WEYL3_DIRECTIONAL_VARIATION_FUNCTIONAL_DERIVATIVE_CERTIFICATE",
       "run": 35367461999,
       "result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
       "classification": "SCIENTIFIC_FAIL_COVARIANT_WEYL3_DIRECTIONAL_VARIATION_DISCREPANCY",
       "immutable": true
+    },
+    "corrected_parent_six_cell": {
+      "gate": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
+      "run": 35412692881,
+      "result_commit": "eb05fa6eb0cb3a3b642f302b87c1ebf280e110c3",
+      "classification": "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
+      "finite_panel_only": true
+    },
+    "generic_p_tensor_only": {
+      "result_commit": "8f9d3d05040fa8bcd33e585583e5a9d468bb6c69",
+      "run": 35413068305,
+      "classification": "GENERIC_P_DIRECT_CONVERSION_OTHER",
+      "first_counterexample": "P[0,1|0,1]*g2[0,0|0,0]*h[1,1]",
+      "lane_d_coefficient": 1,
+      "lane_g_coefficient": 2,
+      "immutable": true
     }
   },
   "active_question": {
-    "id": "COVARIANT-WEYL3-GENERIC-P-CONNECTION-COVARIANTIZATION-IDENTITY",
-    "text": "Does the connection-covariantization sign relation proven on the corrected Weyl3 six-cell panel follow as an exact formal local tensor identity for an abstract Riemann-pair-symmetric P^{abcd}, independently of Weyl3 panel data?"
+    "id": "COVARIANT-WEYL3-GENERIC-P-TENSOR-DENSITY-EXECUTION-REPAIR",
+    "text": "Can a prospectively frozen target-blind execution/provenance repair establish the missing required lane artifact without changing the frozen tensor-density science criteria?"
   },
-  "active_blocker": "A prospective generic formal P·g2·h identity gate must be frozen before symbolic expansion. The six-cell corrected match is finite-panel authority only.",
-  "next_gate_lock": "Use no Weyl3 panel values. Freeze an abstract Riemann-pair-symmetric P basis and compare target-blind direct partial-to-covariant Riemann conversion against the connection-jet contribution of the covariant double divergence. Record exact equality, exact negative relation, or first formal counterexample.",
+  "active_blocker": "Authoritative run 35414907247 terminalized BLOCKED_EXECUTION_OR_PROVENANCE because a required lane artifact was missing. No scientific Lane D versus weighted-Lane-W comparison is authoritative from that run.",
+  "next_gate_lock": "Freeze only an execution/provenance diagnosis or repair for the missing required lane artifact. Preserve preregistration 7a62dd856aec084add16af8e6793d157ef32637b, exact source basis, formulas, controls, taxonomy and target blindness. Do not alter criteria after evidence and do not consume partial lane science.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
