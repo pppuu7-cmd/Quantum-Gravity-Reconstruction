@@ -1,0 +1,65 @@
+{
+  "schema": "QGR_WEYL3_A7_PARTIAL_COVARIANT_CONVERSION_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_PARTIAL_COVARIANT_HESSIAN_CONVERSION_SIGN_AUDIT",
+  "preregistration_commit": "7ef60246ae816730bb702ce0d9fd7284362b3b70",
+  "parent_formal_result_commit": "8ee3437b0cad15ff2d47d6b87840b38bdc535c81",
+  "parent_neutral_result_commit": "17b79ca06ff2208e9b09a8ec74fa509a18e5ec4c",
+  "frozen_parameters": {
+    "dimension": 4,
+    "i": 0,
+    "j": 0,
+    "eta_diagonal": [
+      -1,
+      1,
+      1,
+      1
+    ]
+  },
+  "identity": "partial_partial = covariant_hessian - C_nabla",
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "conversion": {
+      "path": "scripts/qgr_covariant_weyl3_a7_partial_covariant_conversion.py",
+      "commit": "70abcd886fb61f2361e134cdee79a818e12b39c3",
+      "blob": "652d97da456902ae303ef0cc5579632ae1c29fd9"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_partial_covariant_conversion_terminal.py",
+      "commit": "6064bda0da3aa575d064f19f6f628c8e40e95416",
+      "blob": "b91246fa0c7227675d16666f21f8464585c9fa9a"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_partial_covariant_conversion_source_lock.py",
+      "commit": "376edc67f746083c1a3c81525a966e9135172c80",
+      "blob": "75d49f4251701c6627d053355d385fc0ea80489b"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-partial-covariant-conversion.yml",
+      "commit": "40a5cb4fbf2ea7edb596126030597ea9dbd6c895",
+      "blob": "18955e470d76ea28f0708f43110260920f7f74b8"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-partial-covariant-conversion.txt",
+    "jobs": [
+      "source_lock",
+      "conversion",
+      "terminal"
+    ],
+    "no_panel_numeric_witness": true,
+    "target_blind_conversion": true,
+    "exact_rational_source_basis": true,
+    "all_256_components_required": true,
+    "malformed_derivative_index_control_required": true,
+    "allowed_terminal_classifications": [
+      "PARTIAL_COVARIANT_CONVERSION_MATCHES_FORMAL_A",
+      "PARTIAL_COVARIANT_CONVERSION_MATCHES_FORMAL_B",
+      "PARTIAL_COVARIANT_CONVERSION_MATCHES_NEITHER",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
