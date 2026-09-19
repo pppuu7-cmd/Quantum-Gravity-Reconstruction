@@ -1,0 +1,119 @@
+name: QGR generic P tensor-density connection completion
+
+on:
+  pull_request:
+    paths:
+      - '.qgr-exec/generic-p-tensor-density.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  source_lock:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Verify frozen tensor-density sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/source-lock
+          python scripts/qgr_covariant_weyl3_generic_p_density_source_lock.py             --binding preregistrations/COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_EXECUTION_BINDING.json             --output artifacts/source-lock/source_lock.json             | tee artifacts/source-lock/source_lock.log
+          sha256sum artifacts/source-lock/source_lock.json artifacts/source-lock/source_lock.log > artifacts/source-lock/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generic-p-density-source-lock
+          path: artifacts/source-lock/
+          if-no-files-found: error
+
+  lane_d_reference:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Reproduce frozen Lane D
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/lane-d
+          python scripts/qgr_covariant_weyl3_generic_p_lane_d.py             --output artifacts/lane-d/lane_d.json             | tee artifacts/lane-d/lane_d.log
+          sha256sum artifacts/lane-d/lane_d.json artifacts/lane-d/lane_d.log > artifacts/lane-d/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generic-p-density-lane-d-reference
+          path: artifacts/lane-d/
+          if-no-files-found: error
+
+  weighted_lane:
+    needs: [source_lock]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Execute weight+1 tensor-density connection lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/weighted
+          python scripts/qgr_covariant_weyl3_generic_p_density_weighted_lane.py             --output artifacts/weighted/weighted.json             | tee artifacts/weighted/weighted.log
+          sha256sum artifacts/weighted/weighted.json artifacts/weighted/weighted.log > artifacts/weighted/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generic-p-density-weighted
+          path: artifacts/weighted/
+          if-no-files-found: error
+
+  terminal:
+    if: always()
+    needs: [source_lock, lane_d_reference, weighted_lane]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: mkdir -p artifacts/all/d artifacts/all/w artifacts/terminal
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: generic-p-density-lane-d-reference
+          path: artifacts/all/d
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: generic-p-density-weighted
+          path: artifacts/all/w
+      - name: Frozen tensor-density comparison
+        shell: bash
+        run: |
+          set -uo pipefail
+          set +e
+          if test -f artifacts/all/d/lane_d.json && test -f artifacts/all/w/weighted.json; then
+            python scripts/qgr_covariant_weyl3_generic_p_density_terminal.py               --lane-d artifacts/all/d/lane_d.json               --weighted artifacts/all/w/weighted.json               --output artifacts/terminal/terminal.json               | tee artifacts/terminal/terminal.log
+            rc=${PIPESTATUS[0]}
+          else
+            python -c 'import hashlib,json,pathlib; p={"gate":"COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION","classification":"BLOCKED_EXECUTION_OR_PROVENANCE","reason":"required lane artifact missing","c6":"SYMBOLIC_UNFIXED","corrected_q10_locked":True,"theory_established_pct":0}; p["terminal_payload_sha256"]=hashlib.sha256(json.dumps(p,sort_keys=True,separators=(",",":"),ensure_ascii=True).encode()).hexdigest(); pathlib.Path("artifacts/terminal/terminal.json").write_text(json.dumps(p,sort_keys=True,indent=2)+"\n"); print(json.dumps(p,sort_keys=True,indent=2))'
+            cp artifacts/terminal/terminal.json artifacts/terminal/terminal.log
+            rc=2
+          fi
+          set -e
+          echo "${rc}" > artifacts/terminal/EXIT_CODE.txt
+          sha256sum artifacts/terminal/terminal.json artifacts/terminal/terminal.log artifacts/terminal/EXIT_CODE.txt > artifacts/terminal/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generic-p-density-terminal
+          path: artifacts/terminal/
+          if-no-files-found: error
+      - run: test "$(cat artifacts/terminal/EXIT_CODE.txt)" -eq 0
