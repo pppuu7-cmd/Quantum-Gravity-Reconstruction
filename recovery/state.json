@@ -6,7 +6,7 @@
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
     "iteration": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
-    "phase": "AUTHORITATIVE_PRODUCTION_IN_PROGRESS"
+    "phase": "TERMINAL_EXACT_LOCAL_SCIENTIFIC_RESULT"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,103 +16,76 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "last_terminal_classification": "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
-    "last_terminal_scientific_pass": false,
-    "last_terminal_run": 35407870461,
-    "last_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
-    "next_preregistered_science": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
-    "next_preregistered_status": "AUTHORITATIVE_PRODUCTION_IN_PROGRESS"
+    "last_terminal_science": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
+    "last_terminal_classification": "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_B",
+    "last_terminal_scientific_pass": true,
+    "last_terminal_run": 35411657960,
+    "last_terminal_result_commit": "001f552883f0ff0e1e4f505c0f35859026ad45a6",
+    "next_preregistered_science": null,
+    "next_preregistered_status": "UNRESOLVED_FROM_NEWER_MAIN_COMMITS__NEXT_RUN_MUST_RECONCILE_LATEST_10"
   },
   "recovery_sync": {
     "latest_preregistration_commit": "58284ae7f71e73db5c2d71d157bc74bd7d646030",
-    "latest_terminal_result_commit": "04c4a3943cb0fc1509067d1630efdd3d8c6990de",
-    "latest_terminal_result_kind": "EXACT_THREE_WAY_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "latest_active_gate": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
-    "active_gate_status": "AUTHORITATIVE_PRODUCTION_IN_PROGRESS",
-    "active_actions_run": 35411657960,
-    "parent_execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
+    "latest_terminal_result_commit": "001f552883f0ff0e1e4f505c0f35859026ad45a6",
+    "latest_terminal_result_kind": "EXACT_MULTICOORDINATE_NEUTRAL_CONNECTION_EXTRACTION",
+    "latest_active_gate": null,
+    "active_gate_status": "NONE_SELECTED_BY_TERMINAL_CONSUMPTION_STEP",
+    "active_actions_run": null,
     "latest_execution_binding_commit": "4fe4634a1b026bd73233e1082efe52bfcda91bf9",
-    "latest_lane_a_implementation_commit": "dd44c47abe6f35fd45db4696ea23d8977459dfd9",
-    "latest_lane_b_implementation_commit": "a2a1ac1c3098b2add897259138d397188e142723",
-    "latest_extraction_implementation_commit": "aebe59e5fe6223614a83f9ded9e096e1491a0184",
-    "latest_terminal_comparator_commit": "c07ebc8ae68b2193d0d0e512cb923aaaefea9996",
-    "latest_source_lock_commit": "eb5812c322dbc0baeb17ad37e1f946864df32f23",
-    "latest_workflow_commit": "ac3d9ff26ddca3109a53ce6c935a88c866d83ae8"
+    "latest_observed_main_tip_at_run_start": "265c18fa2ddea1a660e4d06365cf6524e5f0ce44",
+    "newer_main_commits_require_next_run_reconciliation": true
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
-    "preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
-    "execution_binding_commit": "2d4ef0833c35645ff5966b03987da44832d1d28f",
-    "production_head": "93c338634150f0125bc2f3deeca581f46852aea6",
-    "actions_run": 35407870461,
-    "jobs": {
-      "source_lock": 105801265493,
-      "lane_c": 105808091355,
-      "lane_a": 105808091358,
-      "lane_b": 105808091367,
-      "terminal": 105808201435
+    "gate": "COVARIANT_WEYL3_A7_CONNECTION_MULTICOORDINATE_NEUTRAL_EXTRACTION",
+    "preregistration_commit": "58284ae7f71e73db5c2d71d157bc74bd7d646030",
+    "execution_binding_commit": "4fe4634a1b026bd73233e1082efe52bfcda91bf9",
+    "production_head": "45bf70a9f861fb56128690c6b25bf085c070e87a",
+    "actions_run": 35411657960,
+    "workflow_conclusion": "success",
+    "terminal_artifact": {
+      "id": 10574678132,
+      "name": "weyl3-a7-connection-multicoordinate-terminal",
+      "sha256": "c3a03181a9e50580f293741b06528448fa4c88249de246600c232a50bbf7a59f"
     },
-    "artifacts": {
-      "source_lock": {
-        "id": 10574600879,
-        "sha256": "4efaf5755fecf240cf7a81583ccc10efa74ff01819d36c02a2d0e68017016cad"
-      },
-      "lane_a": {
-        "id": 10574206150,
-        "sha256": "8a4173272acc0848eb3ae51986fac93c76eb73da28631940eac168dc78451ad3"
-      },
-      "lane_b": {
-        "id": 10574580915,
-        "sha256": "52f349c14e46c433d4f408068ff22947a8ce819077ed1c97fa564e86fbe2404a"
-      },
-      "lane_c": {
-        "id": 10574316134,
-        "sha256": "7ea5d723ed30eae4e9067f2f7075c39ff984e1be97db5e2f976a4a4746dd3171"
-      },
-      "terminal": {
-        "id": 10574256187,
-        "sha256": "51d2e33597e89d3b27b241b04ff787be56642aaeeb68c7e3b2bf884ccc80441d"
-      }
-    },
-    "terminal_payload_sha256": "5dbf6ec1ed1fa41f42c1e8187432090bb6571595ecb2c655611ba77f38a6ff16",
-    "classification": "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
-    "first_divergent_component": [
-      0,
-      1,
-      0,
-      1
-    ],
-    "pairwise_relations": {
-      "A_EQ_B": false,
-      "A_EQ_NEG_B": true,
-      "A_EQ_C": false,
-      "A_EQ_NEG_C": false,
-      "B_EQ_C": false,
-      "B_EQ_NEG_C": false
-    },
-    "posthoc_repair_authorized": false
+    "terminal_payload_sha256": "cb12107f846dbe74c13536500fa8449d5e9e1797428bf12bb8e62f32f34e2eba",
+    "classification": "MULTICOORDINATE_NEUTRAL_EXTRACTION_MATCHES_LANE_B",
+    "witness": "OFFSHELL_A / d=7 / (i,j)=(0,0)",
+    "component": [0, 1, 0, 1],
+    "component_value": "-89350652201/169388331840",
+    "neutral_tensor_sha256": "702b353ada68114482ede9a4fb3c8af6d3b7af708982256e44b7c2e7909848b4",
+    "lane_a_tensor_sha256": "6dce9ed04c9199cf36eb2a723095f7eeba3f002844c3cd9df7da33704cbdf673",
+    "lane_b_tensor_sha256": "702b353ada68114482ede9a4fb3c8af6d3b7af708982256e44b7c2e7909848b4",
+    "legacy_lane_c_tensor_sha256": "e3797c7dade7f4de601ba047be48b0ed73278333e01719e3b0d97588e783deb8",
+    "dGamma_exact_64": true,
+    "deltaGamma_exact_64": true,
+    "serialized_256": true,
+    "legacy_result_reclassification_authorized": false,
+    "posthoc_parent_repair_authorized": false
   },
   "preserved_authority": {
+    "iter048": {
+      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
+    },
     "iter049": {
       "gate": "ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE",
       "authoritative_retry_run": 34719948722,
       "preregistration_commit": "72b21197d594ab6c5f36a34dfbd18a68b97d0a1d",
       "authoritative_retry_head": "c8e574b2a78ae02c3e1476ef1daf7efc8268c342",
-      "initial_run_diagnostic_non_authoritative": 34719814120,
-      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810",
-      "canonical_trig_control_only_fix_commit": "73298317eaf5a401caf4dea3fe8eee3808727042"
+      "authority_record_commit": "83a5d538b4d2987bae304d0396c96d644bf24810"
     },
-    "iter048": {
-      "status": "TERMINAL_PASS_24_OF_24_RECORDED_DO_NOT_REPEAT"
+    "a7_component_0101_primitive_localization": {
+      "gate": "COVARIANT_WEYL3_A7_CONNECTION_COMPONENT_0101_PRIMITIVE_CAUSAL_DECOMPOSITION",
+      "authoritative_run": 35411484392,
+      "durable_result_commit": "199ecea77c9138c4a166d1ffc7143ce2d0de34be",
+      "classification": "COMPONENT_0101_PRIMITIVE_DIVERGENCE_LOCALIZED"
     }
   },
   "active_question": {
-    "id": "COVARIANT-WEYL3-A7-CONNECTION-MULTICOORDINATE-NEUTRAL-EXTRACTION",
-    "text": "Does the prospectively frozen full multicoordinate neutral polynomial jet reproduce all shared connection factors and then match frozen lane A, lane B, or neither?"
+    "id": "RECONCILE-NEWER-MAIN-COMMITS-AFTER-MULTICOORDINATE-TERMINAL",
+    "text": "What prospectively frozen gate, if any, is established by the newer <=10 mainline commits beyond the recovered multicoordinate terminal result?"
   },
-  "active_blocker": "Authoritative run 35411657960 is in progress. Source lock passed. Do not inspect partial extraction values, modify frozen science code, or launch a competing run.",
-  "next_gate_lock": "Freeze independent primitive ledgers before comparison; reproduce parent tensor hashes and scalar controls exactly; no sign fitting, free-index permutation, convention repair, parent-formula edit, witness change, or threshold weakening.",
+  "active_blocker": "None for the consumed gate. The next bounded run must reconcile the newer mainline commits observed after the previous recovery snapshot without broad history scanning.",
+  "next_gate_lock": "Start from CURRENT_FRONT.md, state.json, and latest <=10 commits. Preserve all frozen historical classifications and do not modify a new gate after seeing its evidence.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
