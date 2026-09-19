@@ -1,0 +1,4 @@
+gate=COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION
+preregistration=7a62dd856aec084add16af8e6793d157ef32637b
+execution_binding=0abad7d17e3eceaed66b727cae75169a63096a9d
+retry_reason=previous production blocked because execution binding file was absent; scientific criteria unchanged
