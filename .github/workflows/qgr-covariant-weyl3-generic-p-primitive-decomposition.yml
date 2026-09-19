@@ -1,0 +1,312 @@
+name: QGR generic P primitive mismatch decomposition
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qgr-covariant-weyl3-generic-p-primitive-decomposition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PREREG_COMMIT: c37f4381a7876385592a74d8bc1dbade2725e03a
+  LANE_D_BLOB: d7c14040166bcbb71c2eb8db6cf0d001e83d44e8
+  WEIGHTED_BLOB: b8d85923315018c7b50f4cd30399ea228cbb0bf9
+
+jobs:
+  source-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify frozen provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor "$PREREG_COMMIT" HEAD
+          test "$(git rev-parse "$PREREG_COMMIT:preregistrations/COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION.md")" = "$(git rev-parse "$PREREG_COMMIT:preregistrations/COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION.md")"
+          test "$(git hash-object scripts/qgr_covariant_weyl3_generic_p_lane_d.py)" = "$LANE_D_BLOB"
+          test "$(git hash-object scripts/qgr_covariant_weyl3_generic_p_density_weighted_lane.py)" = "$WEIGHTED_BLOB"
+
+  primitive:
+    needs: source-lock
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [primary, independent]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Construct target-blind primitive maps
+        env:
+          LANE: ${{ matrix.lane }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          python - <<'PY'
+          import hashlib, json, os
+          from fractions import Fraction as F
+          from itertools import product
+          from pathlib import Path
+
+          lane=os.environ['LANE']
+          prereg=os.environ['PREREG_COMMIT']
+
+          def fs(x):
+              x=F(x); return str(x.numerator) if x.denominator==1 else f"{x.numerator}/{x.denominator}"
+          def jsha(x):
+              return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
+          def eta(a,b):
+              return F(-1 if a==0 else 1) if a==b else F(0)
+          def add(out,k,v):
+              v=F(v)
+              if not v: return
+              out[k]=out.get(k,F(0))+v
+              if not out[k]: del out[k]
+          def gkey(a,b,p,q):
+              a,b=sorted((a,b)); p,q=sorted((p,q)); return f"g2[{a},{b}|{p},{q}]"
+          def hkey(a,b):
+              a,b=sorted((a,b)); return f"h[{a},{b}]"
+          def pcanon(a,b,c,d):
+              if a==b or c==d: return None,F(0)
+              s=F(1)
+              if a>b: a,b=b,a; s=-s
+              if c>d: c,d=d,c; s=-s
+              p1,p2=(a,b),(c,d)
+              if p2<p1: p1,p2=p2,p1
+              return f"P[{p1[0]},{p1[1]}|{p2[0]},{p2[1]}]",s
+          def dgamma(j,up,b,c):
+              out={}
+              for e in range(4):
+                  s=eta(up,e)
+                  if not s: continue
+                  add(out,gkey(e,c,b,j),F(1,2)*s)
+                  add(out,gkey(e,b,c,j),F(1,2)*s)
+                  add(out,gkey(b,c,e,j),-F(1,2)*s)
+              return out
+          def emit(out,pidx,gmap,hidx,scale):
+              pk,ps=pcanon(*pidx)
+              if not pk: return 0
+              hk=hkey(*hidx); n=0
+              for gk,gv in gmap.items():
+                  if gv:
+                      n+=1; add(out,f"{pk}*{gk}*{hk}",F(scale)*ps*gv)
+              return n
+          names=['T_a','T_c','T_d','T_b','W','DP','SQRTG_PRODUCT']
+          maps={n:{} for n in names}; raw={n:0 for n in names}
+
+          if lane=='primary':
+              for a,b,c,d,r in product(range(4),repeat=5):
+                  h=(a,b)
+                  raw['T_a'] += emit(maps['T_a'],(r,c,d,b),dgamma(c,a,d,r),h,2)
+                  raw['T_c'] += emit(maps['T_c'],(a,r,d,b),dgamma(c,c,d,r),h,2)
+                  raw['T_d'] += emit(maps['T_d'],(a,c,r,b),dgamma(c,d,d,r),h,2)
+                  raw['T_b'] += emit(maps['T_b'],(a,c,d,r),dgamma(c,b,d,r),h,2)
+                  raw['W'] += emit(maps['W'],(a,c,d,b),dgamma(c,r,d,r),h,-2)
+          elif lane=='independent':
+              def spec(name,a,b,c,d,r):
+                  if name=='T_a': return (r,c,d,b), dgamma(c,a,d,r), (a,b), 2
+                  if name=='T_c': return (a,r,d,b), dgamma(c,c,d,r), (a,b), 2
+                  if name=='T_d': return (a,c,r,b), dgamma(c,d,d,r), (a,b), 2
+                  if name=='T_b': return (a,c,d,r), dgamma(c,b,d,r), (a,b), 2
+                  if name=='W': return (a,c,d,b), dgamma(c,r,d,r), (a,b), -2
+                  raise KeyError(name)
+              for name in ['W','T_b','T_d','T_c','T_a']:
+                  for idx in product(range(4),repeat=5):
+                      pidx,gmap,hidx,scale=spec(name,*idx)
+                      raw[name] += emit(maps[name],pidx,gmap,hidx,scale)
+          else:
+              raise SystemExit('unknown lane')
+
+          def serial(m): return [[k,fs(v)] for k,v in sorted(m.items())]
+          primitive={n:serial(maps[n]) for n in names}
+          controls={
+              'dimension_four':True,
+              'eta_diagonal_minkowski':True,
+              'pair_symmetry_only_no_bianchi':True,
+              'exact_fraction_no_tolerance':True,
+              'no_weyl3_panel_data':True,
+              'target_blind_before_serialization':True,
+              'DP_frozen_zero':primitive['DP']==[],
+              'SQRTG_PRODUCT_frozen_zero':primitive['SQRTG_PRODUCT']==[],
+              'density_weight_nonzero':bool(primitive['W']),
+              'c6_symbolic_unfixed':True,
+              'corrected_q10_locked':True
+          }
+          out={
+              'gate':'COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION',
+              'lane':lane,
+              'preregistration_commit':prereg,
+              'primitives':primitive,
+              'primitive_sha256':{n:jsha(primitive[n]) for n in names},
+              'pair_bookkeeping':{
+                  'oriented_nonzero_contribution_count':raw,
+                  'canonical_nonzero_term_count':{n:len(primitive[n]) for n in names},
+                  'pair_symmetry_only_no_bianchi':True
+              },
+              'controls':controls,
+              'classification':'PRIMITIVE_LANE_READY' if all(controls.values()) else 'BLOCKED_PRIMITIVE_LANE'
+          }
+          out['payload_sha256']=jsha(out)
+          Path(f'out/primitive-{lane}.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: primitive-${{ matrix.lane }}
+          path: out/primitive-${{ matrix.lane }}.json
+
+  reference:
+    needs: source-lock
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Execute exact frozen references
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object scripts/qgr_covariant_weyl3_generic_p_lane_d.py)" = "$LANE_D_BLOB"
+          test "$(git hash-object scripts/qgr_covariant_weyl3_generic_p_density_weighted_lane.py)" = "$WEIGHTED_BLOB"
+          mkdir -p refs
+          python scripts/qgr_covariant_weyl3_generic_p_lane_d.py --output refs/lane-d.json
+          python scripts/qgr_covariant_weyl3_generic_p_density_weighted_lane.py --output refs/weighted.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: primitive-references
+          path: refs/*.json
+
+  terminal:
+    if: always()
+    needs: [source-lock, primitive, reference]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download primary
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: primitive-primary
+          path: artifacts/primary
+      - name: Download independent
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: primitive-independent
+          path: artifacts/independent
+      - name: Download references
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: primitive-references
+          path: artifacts/refs
+      - name: Frozen terminal aggregation
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p terminal
+          python - <<'PY'
+          import hashlib, json
+          from fractions import Fraction as F
+          from pathlib import Path
+
+          prereg='c37f4381a7876385592a74d8bc1dbade2725e03a'
+          anchor='P[0,1|0,1]*g2[0,0|1,1]*h[0,0]'
+          def load(p):
+              p=Path(p)
+              return json.loads(p.read_text()) if p.exists() else None
+          def jsha(x):
+              return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
+          def parse(serial): return {k:F(v) for k,v in serial}
+          def serial(m):
+              def fs(x): return str(x.numerator) if x.denominator==1 else f'{x.numerator}/{x.denominator}'
+              return [[k,fs(v)] for k,v in sorted(m.items()) if v]
+          def add_map(dst,src,scale=1):
+              for k,v in src.items():
+                  dst[k]=dst.get(k,F(0))+F(scale)*v
+                  if not dst[k]: del dst[k]
+          def neg(m): return {k:-v for k,v in m.items()}
+          def first_mismatch(a,b):
+              for k in sorted(set(a)|set(b)):
+                  if a.get(k,F(0))!=b.get(k,F(0)):
+                      return {'monomial':k,'left':str(a.get(k,F(0))),'right':str(b.get(k,F(0))),'difference':str(a.get(k,F(0))-b.get(k,F(0)))}
+              return None
+
+          p=load('artifacts/primary/primitive-primary.json')
+          q=load('artifacts/independent/primitive-independent.json')
+          d=load('artifacts/refs/lane-d.json')
+          w=load('artifacts/refs/weighted.json')
+          missing=[n for n,x in [('primary',p),('independent',q),('lane_d',d),('weighted',w)] if x is None]
+          controls={'all_required_artifacts_present':not missing}
+          classification='BLOCKED_EXECUTION_OR_PROVENANCE'
+          payload={'gate':'COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION','preregistration_commit':prereg,'missing_artifacts':missing}
+
+          if not missing:
+              controls.update({
+                  'primary_ready':p.get('classification')=='PRIMITIVE_LANE_READY',
+                  'independent_ready':q.get('classification')=='PRIMITIVE_LANE_READY',
+                  'independent_primitive_maps_exact':p['primitives']==q['primitives'],
+                  'independent_pair_bookkeeping_exact':p['pair_bookkeeping']==q['pair_bookkeeping'],
+                  'DP_zero':p['primitives']['DP']==[],
+                  'SQRTG_PRODUCT_zero':p['primitives']['SQRTG_PRODUCT']==[],
+                  'density_weight_nonzero':bool(p['primitives']['W']),
+                  'pair_symmetry_only_no_bianchi':p['pair_bookkeeping']['pair_symmetry_only_no_bianchi'] is True,
+              })
+              aggregate={}
+              for name in ['T_a','T_c','T_d','T_b','W','DP','SQRTG_PRODUCT']:
+                  add_map(aggregate,parse(p['primitives'][name]))
+              weighted=parse(w['weighted_terms'])
+              lane_d=parse(d['terms'])
+              controls['aggregate_reproduces_frozen_weighted_map']=aggregate==weighted
+              controls['all_source_controls_pass']=all(p['controls'].values()) and all(q['controls'].values())
+              source_ok=all(controls.values())
+              eq_direct=aggregate==lane_d
+              eq_neg=aggregate==neg(lane_d)
+              if source_ok:
+                  classification=('GENERIC_P_PRIMITIVE_DECOMPOSITION_EQ_DIRECT_CONVERSION' if eq_direct else
+                                  'GENERIC_P_PRIMITIVE_DECOMPOSITION_EQ_NEG_DIRECT_CONVERSION' if eq_neg else
+                                  'GENERIC_P_PRIMITIVE_DECOMPOSITION_OTHER_LOCALIZED')
+              primitive_anchor={name:str(parse(p['primitives'][name]).get(anchor,F(0))) for name in ['T_a','T_c','T_d','T_b','W','DP','SQRTG_PRODUCT']}
+              payload.update({
+                  'classification':classification,
+                  'controls':controls,
+                  'aggregate_term_count':len(aggregate),
+                  'aggregate_sha256':jsha(serial(aggregate)),
+                  'weighted_sha256':jsha(w['weighted_terms']),
+                  'lane_d_sha256':jsha(d['terms']),
+                  'D_EQ_PRIMITIVE':eq_direct,
+                  'D_EQ_NEG_PRIMITIVE':eq_neg,
+                  'first_direct_mismatch':first_mismatch(lane_d,aggregate),
+                  'first_exact_negative_mismatch':first_mismatch(lane_d,neg(aggregate)),
+                  'anchor':{
+                      'monomial':anchor,
+                      'lane_d':str(lane_d.get(anchor,F(0))),
+                      'aggregate':str(aggregate.get(anchor,F(0))),
+                      'D_minus_aggregate':str(lane_d.get(anchor,F(0))-aggregate.get(anchor,F(0))),
+                      'primitive_coefficients':primitive_anchor
+                  },
+                  'primary_payload_sha256':p['payload_sha256'],
+                  'independent_payload_sha256':q['payload_sha256'],
+                  'historical_reclassification_authorized':False,
+                  'additional_correction_authorized':False,
+                  'c6':'SYMBOLIC_UNFIXED',
+                  'beta_set_to_one_authorized':False,
+                  'theory_established_pct':0,
+                  'interpretation_ceiling':'Exact local primitive diagnostic only; finite/classical diagnostic is not theorem or quantum closure.'
+              })
+          else:
+              payload.update({'classification':classification,'controls':controls,'historical_reclassification_authorized':False,'additional_correction_authorized':False,'c6':'SYMBOLIC_UNFIXED','beta_set_to_one_authorized':False,'theory_established_pct':0})
+          payload['terminal_payload_sha256']=jsha(payload)
+          Path('terminal/primitive-terminal.json').write_text(json.dumps(payload,sort_keys=True,indent=2)+'\n')
+          print(json.dumps({'classification':payload['classification'],'terminal_payload_sha256':payload['terminal_payload_sha256']},sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generic-p-primitive-terminal
+          path: terminal/primitive-terminal.json
