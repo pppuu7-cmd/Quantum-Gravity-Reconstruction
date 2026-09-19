@@ -8,31 +8,23 @@ Updated: 2026-09-19
 ## Preserved authority
 Iter049 `ITER049-WEYL3-SPHERICALLY-REDUCED-VARIATIONAL-RESPONSE` remains authoritative at retry run `34719948722`, preregistration `72b21197d594ab6c5f36a34dfbd18a68b97d0a1d`, retry head `c8e574b2a78ae02c3e1476ef1daf7efc8268c342`; initial run `34719814120` remains diagnostic/non-authoritative. Iter048 terminal PASS 24/24 remains do-not-repeat. Historical covariant FAIL and generic-P diagnostics remain immutable.
 
-## Curvature-dependent Weyl3 P / first jet v1 — terminal scoped PASS
-Gate: `COVARIANT_WEYL3_CURVATURE_P_FIRST_JET_CONSTRUCTION_V1`.
-Preregistration: `d081640ffed1122d314c835ac54fca3277ef1de9`.
-Defining source: `theory/covariant/QGR_WEYL3_CURVATURE_P_FIRST_JET_V1.md`, commit `fac9939927903213d2f834e8460ff4865dbd9897`.
-Durable result: `results/COVARIANT_WEYL3_CURVATURE_P_FIRST_JET_CONSTRUCTION_V1.md`, commit `a3e94fe07a9134842bb0c558fda4b2488cda6330`.
-Classification: `PASS_SCOPED_CURVATURE_WEYL3_P_AND_FIRST_JET_DEFINED`.
-Actions scientific run: not required by the frozen abstract construction gate.
+## Last terminal science
+`COVARIANT_WEYL3_CURVATURE_P_FIRST_JET_CONSTRUCTION_V1` is terminal scoped PASS. Preregistration `d081640ffed1122d314c835ac54fca3277ef1de9`; source `fac9939927903213d2f834e8460ff4865dbd9897`; result `a3e94fe07a9134842bb0c558fda4b2488cda6330`. It defines only the abstract curvature-derived `P_R=3 c6 Pi_g^*[C o C]` and its covariant first jet; it is not the full 4D Weyl3 Euler-Lagrange tensor.
 
-With `C=Pi_g[R]`, `I3=C_ab{}^cd C_cd{}^ef C_ef{}^ab`, and symbolic `c6`, the Frechet curvature derivative is
+## Active prospective gate
+Gate: `COVARIANT_WEYL3_CURVATURE_P_FIRST_JET_TARGET_BLIND_COMPARISON_V1`.
+Preregistration commit: `540de8ad08372bb6af97f62189e3e4bf30230f86`.
+Recovery activation commit: `068f9e4cee075cfd1736eb3713d6ef8151d5da1f`.
 
-`P_R = 3 c6 Pi_g^*[C o C]`.
+The gate freezes execution order before any new residual comparison: construct a finite exact witness panel with nonzero Weyl and Weyl-first-jet controls; instantiate `P_R,nabla P_R` solely from the frozen formulas; independently construct direct directional-variation and covariant functional-derivative lanes; only then compare outputs. No historical mismatch may choose a coefficient, sign, contraction, witness, normalization or correction.
 
-Metric compatibility gives `nabla Pi_g=0`, hence
-
-`nabla_e P_R = 3 c6 Pi_g^*[(nabla_e C) o C + C o (nabla_e C)]`.
-
-The variational pairing fixes antisymmetric-pair normalization without component-coordinate ambiguity. Intrinsic pair-symmetry, Weyl-trace, Euler homogeneity `P_R:R=3L6`, jet product-rule, symbolic-c6 and target-blindness controls pass at the abstract tensor-map level.
-
-This closes only the earlier missing-object-definition blocker. It does not establish that any historical residual is repaired and does not establish the complete 4D Weyl3 Euler-Lagrange tensor.
+Frozen terminal classes are exact scoped MATCH, exact scoped MISMATCH, implementation BLOCKED, or infrastructure failure. A PASS remains only a finite target-blind certificate and is not a global 4D theorem.
 
 ## Quantum front
-The finite-cylinder kinematic amplitude-space and generic external action-phase map remain scoped PASS objects. Physical-action selection remains terminal BLOCKED; no physical measure, Hamiltonian, Born rule, physical unitarity or continuum limit is authorized.
+Finite-cylinder kinematic amplitude-space and external action-phase map remain scoped PASS objects. Physical-action selection remains terminal BLOCKED; no physical measure, Hamiltonian, Born rule, physical unitarity or continuum limit is authorized.
 
 ## Next bounded step
-Do not open another scientific gate in this iteration. On the next iteration reread recovery/front/latest commits and all Actions. The next allowed covariant step is one separately prospectively preregistered target-blind comparison that instantiates the frozen curvature-derived P/first-jet object. It must not read a historical residual to choose coefficients/signs/contractions. No third symmetry reduction.
+Implement only the newly preregistered target-blind comparison, preserving independent lane construction and exact arithmetic. Consume raw lanes and frozen aggregate before classification. No third symmetry reduction.
 
 ## Locks
 `theory_established=0%`; no experimental confirmation; `c6=SYMBOLIC_UNFIXED`; corrected Q10 LOCKED; `beta=1` unauthorized; finite panels are not global theorems; G45 does not prove absolute energy positivity or quantum unitarity; G35-G37 distant roots do not authorize physical weights; KMQGB `NEW_REQUIRED` unauthorized; classical != quantum; diagnostic != closure.
