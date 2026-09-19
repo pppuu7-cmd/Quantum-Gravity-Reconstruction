@@ -1,0 +1,101 @@
+{
+  "schema": "QGR_COVARIANT_WEYL3_CORRECTED_PARENT_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_CORRECTED_PARENT_CONNECTION_GAP_SIGN_REPLAY",
+  "preregistration_commit": "1640b2fb84980c68fa1e14d146b8403b43d3fd5a",
+  "historical_parent_result_commit": "e26208cec90566001b65640775d2e58d0429bf5c",
+  "lower_order_localization_commit": "6ccfededab41dbe01b071916a5aa746491273276",
+  "full_first_jet_closure_commit": "8d298163107560f28025823981d667e77a80cc97",
+  "conversion_sign_authority_commit": "81fcf14aa119eb00a9522c0d5e694fe1290b54ea",
+  "frozen_cells": [
+    [
+      "FLAT_CONTROL",
+      7
+    ],
+    [
+      "FLAT_CONTROL",
+      19
+    ],
+    [
+      "OFFSHELL_A",
+      7
+    ],
+    [
+      "OFFSHELL_A",
+      19
+    ],
+    [
+      "OFFSHELL_B",
+      7
+    ],
+    [
+      "OFFSHELL_B",
+      19
+    ]
+  ],
+  "corrected_rule": "partial_IBP - covariantization_gap",
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "corrected_critic": {
+      "path": "scripts/qgr_covariant_weyl3_corrected_parent_critic.py",
+      "commit": "d05933c13538ab27ee53db2276c33c7b58ab6bf8",
+      "blob": "3354bd6d3206f9d6127ba881c20421c39f304b6a"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_corrected_parent_terminal.py",
+      "commit": "263f2254228124cdaa6f63b543865b316d33a7dc",
+      "blob": "74ccf03e613456a31952171623ef10e60066cb27"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_corrected_parent_source_lock.py",
+      "commit": "265c18fa2ddea1a660e4d06365cf6524e5f0ce44",
+      "blob": "867904597fef6547a33fcc5b9708bc47520e16c9"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-corrected-parent-connection-gap.yml",
+      "commit": "65f2adc9ba8027eda5920b9302eb32a68ba2db4c",
+      "blob": "2448d43008165f05e40d6bd5e0c617e4467d6672"
+    },
+    "historical_researcher": {
+      "path": "scripts/qgr_covariant_weyl3_researcher.py",
+      "commit": "e7e36ee1b42ea5c9c685c1e44e4948619f72c880",
+      "blob": "e5426c9b0fc4edd5b6ac905f394bfec01e473cd6"
+    },
+    "historical_critic": {
+      "path": "scripts/qgr_covariant_weyl3_critic.py",
+      "commit": "d3b56aa891cd0b505720564d367c143138ad4862",
+      "blob": "eae177a0f8fefc6b8abe83c07a40aede366823ad"
+    },
+    "lower_order_critic": {
+      "path": "scripts/qgr_covariant_weyl3_a7_lower_critic.py",
+      "commit": "6731f3e48f906ae2c24cfe3e3c47c6df8b2d97ae",
+      "blob": "5bad4bd0362e2eabf7df1906d1cf6308f67a4a64"
+    },
+    "panel": {
+      "path": "code/qgr_covariant_weyl3_panel.py",
+      "commit": "03377afec95801b5a49f47b85ddd9c9bf3326ac0",
+      "blob": "68d5f96f3b93a729533887d871be2c3d01f90d61"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/corrected-parent-connection-gap.txt",
+    "jobs": [
+      "source_lock",
+      "corrected_critic[6]",
+      "researcher_reference[6]",
+      "terminal"
+    ],
+    "target_blind_corrected_critic": true,
+    "exact_historical_researcher_reference": true,
+    "corrected_rule_fixed_before_production": true,
+    "allowed_terminal_classifications": [
+      "CORRECTED_PARENT_SIX_CELL_EXACT_MATCH",
+      "CORRECTED_PARENT_RESIDUAL_DISCREPANCY",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "historical_parent_reclassification_authorized": false,
+    "no_science_code_change_after_binding": true
+  }
+}
