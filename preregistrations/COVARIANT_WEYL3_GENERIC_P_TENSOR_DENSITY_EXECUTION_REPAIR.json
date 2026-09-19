@@ -1,0 +1,24 @@
+{
+  "gate": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_EXECUTION_REPAIR",
+  "date": "2026-09-19",
+  "scope": "execution/provenance only",
+  "parent_scientific_gate": "COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION",
+  "parent_preregistration_commit": "7a62dd856aec084add16af8e6793d157ef32637b",
+  "frozen_execution_binding_commit": "0abad7d17e3eceaed66b727cae75169a63096a9d",
+  "blocked_run": 35414907247,
+  "diagnosis": "The blocked production head predated the execution binding required by the frozen source-lock workflow; required lane artifacts were therefore not produced. Retry from a head containing the frozen binding and otherwise unchanged scientific workflow/lane implementations.",
+  "repair": "Launch a fresh pull-request execution marker from current main containing the frozen binding. No scientific formula, source basis, witness, coefficient, sign, threshold, terminal taxonomy, or target is changed.",
+  "authority_rules": {
+    "partial_lane_science_from_blocked_run_consumed": false,
+    "post_hoc_scientific_change_allowed": false,
+    "historical_parent_reclassification_allowed": false,
+    "green_ci_is_scientific_pass": false
+  },
+  "claim_locks": {
+    "theory_established_pct": 0,
+    "experimental_confirmation": false,
+    "c6": "SYMBOLIC_UNFIXED",
+    "beta_one_authorized": false,
+    "kmqgb_new_required_authorized": false
+  }
+}
