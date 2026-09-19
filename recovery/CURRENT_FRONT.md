@@ -34,13 +34,27 @@ The multiplier is measurable and unit modulus almost everywhere, hence maps `H_N
 
 The PASS does not select or derive a physical action. It introduces no Hamiltonian/time evolution, gauge reduction, physical measure, source normalization, observables, probabilities, physical-unitarity theorem, regulator removal, or continuum limit. Reference-norm preservation is not physical quantum unitarity.
 
+## Finite-cylinder physical-action selection authority audit v1 — terminal BLOCKED
+
+Gate: `QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY_AUDIT_V1`.
+Preregistration: `b3c5200733fef46fd7cfc079965e5966bcac8e17`.
+Frozen evidence: only the action-phase source at `834dbc15e021e3ea79e7484c0224a012ae3a9f2d` and kinematic source at `1fe80cdb6cde0866d251b5c2d4c1d106f577d4d7`.
+Durable result: `results/QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY_AUDIT_V1.md`, commit `8e7f0220c81224a388b5a5aec87203096e85af9b`.
+Classification: `BLOCKED_MISSING_QUANTUM_FINITE_CYLINDER_PHYSICAL_ACTION_SELECTION_AUTHORITY`.
+
+The frozen sources contain no explicit `S_N^phys(g)`, no QGR-internal physical/dynamical selection principle, and no exact semantics selecting a physical action value on the admitted finite-cylinder configurations. The action-phase source instead states that `S_N` is externally supplied and that no physical action is selected or derived. The kinematic source leaves dynamics/action selection blocked.
+
+This BLOCKED result preserves the scoped action-phase PASS but forbids promoting the generic external-input phase multiplier into QGR-selected physical dynamics. No Hamiltonian, clock/update rule, gauge/Jacobian, source normalization, physical measure, probability rule, or continuum prescription was invented.
+
 ## Remaining quantum closure front
 
-Still undefined are at least: a physical/dynamically selected action, gauge/Jacobian treatment, physical normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, and regulator-removal/continuum-limit rule. The earlier broad quantum-closure audit therefore remains historically BLOCKED despite these two scoped objects.
+Still undefined are at least: a physical/dynamically selected action, gauge/Jacobian treatment, physical normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, and regulator-removal/continuum-limit rule. The earlier broad quantum-closure audit therefore remains historically BLOCKED despite the two scoped finite-cylinder objects.
+
+The bounded physical-action authority audit now establishes that the existing finite-cylinder sources do not justify another action-selection layer without importing new physical assumptions.
 
 ## Next bounded step
 
-Do not open another scientific gate in this iteration. On the next iteration, first reread recovery, commits, and all queued/in-progress/newly-terminal Actions. Then prospectively preregister at most one narrow target-blind quantum-closure object only if it can be defined without importing forbidden physical assumptions. Prefer a genuinely useful physical-action-selection or gauge/measure object over another tautological kinematic layer. If such an object is not technically justified, return to the independent curvature-dependent `P` / first-jet blocker. Do not start a third repetitive symmetry reduction.
+Do not open another scientific gate in this iteration. On the next iteration, first reread recovery/state/latest commits. Return to the independent curvature-dependent `P` / first-jet blocker. Prospectively preregister at most one exact construction gate only if a curvature-dependent `P` formula and its first-jet dependency can be frozen before evaluation from durable source definitions; otherwise preserve `BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION`. Do not infer `P` from residuals, fit an omitted term, or start another symmetry reduction.
 
 ## Locks
 
