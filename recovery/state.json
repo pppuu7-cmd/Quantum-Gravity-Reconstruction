@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT",
-    "phase": "TERMINAL_BLOCKED_MISSING_CURVATURE_P_JET_OBJECT__NEXT_GATE_NOT_OPENED"
+    "iteration": "QUANTUM_AMPLITUDE_MEASURE_CLOSURE_AUTHORITY_POINTER_AUDIT",
+    "phase": "TERMINAL_BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT__NEXT_GATE_NOT_OPENED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -16,39 +16,40 @@
     "experimental_confirmation": false
   },
   "science_sync": {
-    "last_terminal_science": "COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT",
-    "last_terminal_classification": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+    "last_terminal_science": "QUANTUM_AMPLITUDE_MEASURE_CLOSURE_AUTHORITY_POINTER_AUDIT",
+    "last_terminal_classification": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION",
     "last_terminal_run": null,
-    "last_terminal_result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
+    "last_terminal_result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a",
     "next_preregistered_science": null,
     "next_preregistered_status": null
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "83445aa5d73d36a948b23cae4485d855831f6eb9",
-    "latest_terminal_result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
-    "latest_terminal_result_kind": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+    "latest_preregistration_commit": "647ce4c5e56650c4fb4d451af1b9095afd1515a7",
+    "latest_terminal_result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a",
+    "latest_terminal_result_kind": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION",
     "latest_active_gate": null,
     "active_gate_status": "NO_NEXT_GATE_OPENED",
     "active_actions_run": null,
-    "latest_observed_production_head": "fa5693f1aa055df2f5f178d316e8995726cb89d8",
+    "latest_observed_production_head": "3e69d93ad7e9a32bfc2b7e5f399b6a08b599a345",
     "newer_main_commits_require_next_run_reconciliation": false
   },
   "latest_terminal": {
-    "gate": "COVARIANT_WEYL3_CURVATURE_P_JET_OBJECT_DEFINITION_AUDIT",
-    "preregistration_commit": "83445aa5d73d36a948b23cae4485d855831f6eb9",
-    "result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
-    "classification": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+    "gate": "QUANTUM_AMPLITUDE_MEASURE_CLOSURE_AUTHORITY_POINTER_AUDIT",
+    "preregistration_commit": "647ce4c5e56650c4fb4d451af1b9095afd1515a7",
+    "result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a",
+    "classification": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION",
     "frozen_inputs": [
-      {"path":"preregistrations/COVARIANT_WEYL3_GENERIC_P_TENSOR_DENSITY_CONNECTION_COMPLETION.md","commit":"7a62dd856aec084add16af8e6793d157ef32637b"},
-      {"path":"preregistrations/COVARIANT_WEYL3_GENERIC_P_PRIMITIVE_MISMATCH_DECOMPOSITION.md","commit":"c37f4381a7876385592a74d8bc1dbade2725e03a"}
+      {"path":"recovery/CURRENT_FRONT.md","blob":"6de2debeb814d874a8727aedd59a6ab15f9c18bd"},
+      {"path":"recovery/state.json","blob":"c8b66974aa44a2e458f02de1a9d42e43fa45d9b6"}
     ],
-    "curvature_dependent_P_definition_present": false,
-    "first_P_jet_rule_present": false,
-    "dp_nonzero_constructible_without_new_assumption": false,
-    "residual_consumed": false,
+    "required_tuple_elements": 9,
+    "present_authority_pointers": 0,
+    "missing_authority_pointers": 9,
     "repository_search_performed": false,
+    "historical_artifact_scan_performed": false,
+    "external_derivation_performed": false,
     "historical_reclassification_authorized": false,
-    "interpretation": "Current authoritative source definitions do not already contain the curvature-dependent P object/first-jet rule required to relax DP=0. A future covariant continuation requires an independently derived exact P definition and first-jet preregistration; otherwise pivot to quantum amplitude/measure closure."
+    "interpretation": "The frozen recovery authority does not already name a complete durable quantum amplitude/measure closure object. A future quantum continuation requires an independently constructed and prospectively preregistered exact amplitude/state object with explicit domain and measure semantics; normalization, regulator, observable and probability/unitarity semantics must be explicit or remain BLOCKED."
   },
   "preserved_authority": {
     "historical_parent_covariant_fail": {
@@ -86,6 +87,13 @@
       "additional_correction_authorized": false,
       "immutable": true
     },
+    "curvature_p_jet_object_definition_audit": {
+      "preregistration_commit": "83445aa5d73d36a948b23cae4485d855831f6eb9",
+      "result_commit": "bfe468e5d823e2fe9d31e01f4b349b10721a770a",
+      "referee_commit": "b9540a1df1e64d2e5b89b8ffa31e24feb6e5a25c",
+      "classification": "BLOCKED_MISSING_CURVATURE_P_JET_OBJECT_DEFINITION",
+      "immutable": true
+    },
     "blocked_density_attempt": {
       "run": 35414907247,
       "result_commit": "52eae11aaa6a49393d08ab06cf25bf436a2022fe",
@@ -95,8 +103,8 @@
     }
   },
   "active_question": null,
-  "active_blocker": "Current covariant continuation lacks an authoritative curvature-dependent P definition and first-jet rule; inventing one to rescue the localized residual is forbidden.",
-  "next_gate_lock": "No next gate is open. A future covariant gate is admissible only after an exact curvature-dependent P definition and first-jet rule are independently derived and prospectively preregistered before residual comparison. Otherwise pivot to quantum amplitude/measure closure. Do not start a third symmetry reduction or fit a correction to the residual.",
+  "active_blocker": "The quantum branch lacks a durably named amplitude/state object, domain and measure semantics; the covariant branch independently remains blocked on an exact curvature-dependent P definition plus first-jet rule. Inventing either object to rescue a blocker is forbidden.",
+  "next_gate_lock": "No next gate is open. Highest-information priority is an independent quantum source/object construction prospectively preregistered before any closure claim: define one exact amplitude/state object with explicit configuration/integration domain and measure semantics from durable source authority; normalization, regulator, observable extraction and probability/unitarity semantics must be explicit or remain BLOCKED. Do not infer quantum objects from classical certificates, fit residuals, start a third symmetry reduction, or promote finite classical diagnostics to quantum closure.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
