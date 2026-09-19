@@ -1,0 +1,69 @@
+{
+  "schema": "QGR_WEYL3_A7_CONNECTION_FORMAL_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CONNECTION_FORMAL_MONOMIAL_IDENTITY_ADJUDICATION",
+  "preregistration_commit": "bbb4e90e46ddd1aded691a1d780e10dbe0313e51",
+  "parent_multicoordinate_result_commit": "17b79ca06ff2208e9b09a8ec74fa509a18e5ec4c",
+  "source_basis": "canonical exact bilinear monomials g2[ab|pq]*h[cd]",
+  "frozen_parameters": {
+    "dimension": 4,
+    "i": 0,
+    "j": 0,
+    "eta_diagonal": [
+      -1,
+      1,
+      1,
+      1
+    ]
+  },
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "lane_a": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_formal_lane_a.py",
+      "commit": "bad612de71777ce72849be376de8be01fecf019a",
+      "blob": "0101044184e32071adac3826183eb0129bdbca57"
+    },
+    "lane_b": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_formal_lane_b.py",
+      "commit": "f2ab190d33c2838d2491217f2515cb2cb7602be9",
+      "blob": "9d37b4888fc043c83d064d10999778c203cbefa9"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_formal_terminal.py",
+      "commit": "c75119d5be619b93c7d5c83e5b199c0b4fdf8873",
+      "blob": "f5494c3b2cecba39c267190f85ed32d4d40435b7"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_formal_source_lock.py",
+      "commit": "bbe148fcd801c1c09ae8cee5f529e5fefd0c3bdc",
+      "blob": "5f80b6452c3bb7af9cd7745ec8a0d4ce4d069e3f"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-connection-formal.yml",
+      "commit": "d8f2e95102a687bf24a6fde111c2b53d08be33a6",
+      "blob": "a8646782ade9f3bb2e459a19b1a42e2cc80c224b"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-connection-formal.txt",
+    "jobs": [
+      "source_lock",
+      "lane_a",
+      "lane_b",
+      "terminal"
+    ],
+    "no_panel_numeric_witness": true,
+    "exact_rational_source_basis": true,
+    "all_256_components_required": true,
+    "malformed_control_required": true,
+    "allowed_terminal_classifications": [
+      "FORMAL_CONNECTION_TENSOR_A_EQ_B",
+      "FORMAL_CONNECTION_TENSOR_A_EQ_NEG_B",
+      "FORMAL_CONNECTION_TENSOR_OTHER",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
