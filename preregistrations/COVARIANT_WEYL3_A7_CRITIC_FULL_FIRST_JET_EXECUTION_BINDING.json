@@ -1,0 +1,70 @@
+{
+  "schema": "QGR_WEYL3_A7_CRITIC_FULL_FIRST_JET_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CRITIC_FULL_FIRST_JET_CONNECTION_COMPLETION_REPLAY",
+  "preregistration_commit": "c5d6c8ac75cd7fd19de9ca9081b539ba3300ec57",
+  "parent_fi_result_commit": "07ad77de0506a3de5e7db601e2cfc8b5edc37c5c",
+  "slot00_closure_commit": "7770e086992d43368a5a4d23ee0ff6b272d4c156",
+  "historical_researcher_binding_path": "preregistrations/COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_EXECUTION_BINDING.json",
+  "frozen_witness": {
+    "seed": "OFFSHELL_A",
+    "direction": 7,
+    "slots": "all 16 lexicographic (i,j)"
+  },
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "corrected": {
+      "path": "scripts/qgr_covariant_weyl3_a7_critic_full_first_jet_connection_completion.py",
+      "commit": "f5f8baf0dee68c84b95879958ec6003d36568e99",
+      "blob": "985b248c71ffadb51d6eb6848d3185921cff0cd3"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_critic_full_first_jet_terminal.py",
+      "commit": "2203118a6a99960be4932dfe4f6d4f8ccf174d2b",
+      "blob": "3d93650c557f9a0cd844bfae26e824a6975c75c2"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_critic_full_first_jet_source_lock.py",
+      "commit": "cf9c25d4576609cf0f203d8548b11807e21ad8d6",
+      "blob": "ffaa0ff217ad6720cf1cdeb2c6b961b7b96b1dd9"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-critic-full-first-jet.yml",
+      "commit": "0dea1b7cb3434a5db4704c937b1ea0be0f6d5179",
+      "blob": "4a26051a6ca14fa4bdecf1595a08fd247aa7ceb3"
+    },
+    "reference_researcher": {
+      "path": "scripts/qgr_covariant_weyl3_a7_fi_jet_researcher.py",
+      "commit": "f6a94c190b1df7ab388cf4f33ffed88a09ebca15",
+      "blob": "61fd48dcfe75bbe675d4b980000db0d93ed124bd"
+    },
+    "historical_researcher_binding": {
+      "path": "preregistrations/COVARIANT_WEYL3_A7_FIRST_IBP_FI_JET_EXECUTION_BINDING.json",
+      "commit": "c48cbf206a14d1d605ec027a9f46518bf6959ff7",
+      "blob": "6dd9548ee244591f664fa8398f75b20dc2d3525d"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-critic-full-first-jet.txt",
+    "jobs": [
+      "source_lock",
+      "corrected",
+      "researcher_reference",
+      "terminal"
+    ],
+    "target_blind_corrected_lane": true,
+    "exact_historical_researcher_reference": true,
+    "compare_all_4_pointwise_Fi": true,
+    "compare_all_16_first_jet_slots": true,
+    "compare_all_source_ledgers": true,
+    "compare_diagonal_transfer_and_scalar": true,
+    "allowed_terminal_classifications": [
+      "CORRECTED_CRITIC_FULL_FIRST_JET_EXACT_MATCH",
+      "CORRECTED_CRITIC_RESIDUAL_FIRST_JET_DIVERGENCE",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
