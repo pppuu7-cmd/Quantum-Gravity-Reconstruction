@@ -5,8 +5,8 @@
     "short_name": "QGR",
     "repository": "pppuu7-cmd/Quantum-Gravity-Reconstruction",
     "date": "2026-09-19",
-    "iteration": "QUANTUM_AMPLITUDE_MEASURE_CLOSURE_AUTHORITY_POINTER_AUDIT",
-    "phase": "TERMINAL_BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT__NEXT_GATE_NOT_OPENED"
+    "iteration": "QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1",
+    "phase": "PREREGISTERED_SOURCE_OBJECT_CONSTRUCTION_NOT_YET_IMPLEMENTED"
   },
   "readiness": {
     "repository_infrastructure_pct": 100,
@@ -20,17 +20,17 @@
     "last_terminal_classification": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION",
     "last_terminal_run": null,
     "last_terminal_result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a",
-    "next_preregistered_science": null,
-    "next_preregistered_status": null
+    "next_preregistered_science": "QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1",
+    "next_preregistered_status": "PROSPECTIVELY_PREREGISTERED_NOT_YET_IMPLEMENTED"
   },
   "recovery_sync": {
-    "latest_preregistration_commit": "647ce4c5e56650c4fb4d451af1b9095afd1515a7",
+    "latest_preregistration_commit": "9c62c5a6e5d1f97908fbb42141bfc1bfedf39cd9",
     "latest_terminal_result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a",
     "latest_terminal_result_kind": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION",
-    "latest_active_gate": null,
-    "active_gate_status": "NO_NEXT_GATE_OPENED",
+    "latest_active_gate": "QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1",
+    "active_gate_status": "PREREGISTERED_NOT_YET_IMPLEMENTED",
     "active_actions_run": null,
-    "latest_observed_production_head": "3e69d93ad7e9a32bfc2b7e5f399b6a08b599a345",
+    "latest_observed_production_head": "ab089740c383e00fe3bded50bb34e72c411ee7c5",
     "newer_main_commits_require_next_run_reconciliation": false
   },
   "latest_terminal": {
@@ -38,10 +38,6 @@
     "preregistration_commit": "647ce4c5e56650c4fb4d451af1b9095afd1515a7",
     "result_commit": "7c67eb0744b3445db1e0758f5fd85e4bcbf8216a",
     "classification": "BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION",
-    "frozen_inputs": [
-      {"path":"recovery/CURRENT_FRONT.md","blob":"6de2debeb814d874a8727aedd59a6ab15f9c18bd"},
-      {"path":"recovery/state.json","blob":"c8b66974aa44a2e458f02de1a9d42e43fa45d9b6"}
-    ],
     "required_tuple_elements": 9,
     "present_authority_pointers": 0,
     "missing_authority_pointers": 9,
@@ -49,7 +45,23 @@
     "historical_artifact_scan_performed": false,
     "external_derivation_performed": false,
     "historical_reclassification_authorized": false,
-    "interpretation": "The frozen recovery authority does not already name a complete durable quantum amplitude/measure closure object. A future quantum continuation requires an independently constructed and prospectively preregistered exact amplitude/state object with explicit domain and measure semantics; normalization, regulator, observable and probability/unitarity semantics must be explicit or remain BLOCKED."
+    "interpretation": "The prior frozen recovery authority did not already name a complete durable quantum amplitude/measure closure object."
+  },
+  "active_gate": {
+    "gate": "QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1",
+    "preregistration_commit": "9c62c5a6e5d1f97908fbb42141bfc1bfedf39cd9",
+    "preregistration_path": "prereg/QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1.md",
+    "target_source_path": "theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md",
+    "status": "PROSPECTIVELY_PREREGISTERED_NOT_YET_IMPLEMENTED",
+    "object": "Q_N^kin=(V_N,X_N,mu_N,H_N), with X_N the N-fold labelled product of nondegenerate Lorentz-signature symmetric 4x4 matrices, mu_N the explicit 10N-coordinate product Lebesgue reference measure restricted to X_N, and H_N=L^2(X_N,mu_N;C)",
+    "pass_classification": "PASS_SCOPED_QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_DEFINED",
+    "fail_classification": "FAIL_TECHNICAL_QUANTUM_KINEMATIC_OBJECT_DEFINITION_DRIFT",
+    "blocked_classification": "BLOCKED_QUANTUM_KINEMATIC_OBJECT_NOT_DURABLY_REALIZED",
+    "invalid_classification": "INVALID_QUANTUM_KINEMATIC_OBJECT_SCOPE_VIOLATION",
+    "interpretation_ceiling": "Finite-cylinder kinematic amplitude/state space with explicit domain and nonphysical reference measure only; no particular physical state, dynamics, gauge reduction, normalization, observables, probabilities/unitarity, continuum limit, or quantum-gravity closure.",
+    "repository_search_authorized": false,
+    "historical_artifact_scan_authorized": false,
+    "actions_required": false
   },
   "preserved_authority": {
     "historical_parent_covariant_fail": {
@@ -102,9 +114,9 @@
       "partial_lane_science_consumed": false
     }
   },
-  "active_question": null,
-  "active_blocker": "The quantum branch lacks a durably named amplitude/state object, domain and measure semantics; the covariant branch independently remains blocked on an exact curvature-dependent P definition plus first-jet rule. Inventing either object to rescue a blocker is forbidden.",
-  "next_gate_lock": "No next gate is open. Highest-information priority is an independent quantum source/object construction prospectively preregistered before any closure claim: define one exact amplitude/state object with explicit configuration/integration domain and measure semantics from durable source authority; normalization, regulator, observable extraction and probability/unitarity semantics must be explicit or remain BLOCKED. Do not infer quantum objects from classical certificates, fit residuals, start a third symmetry reduction, or promote finite classical diagnostics to quantum closure.",
+  "active_question": "Can the frozen finite-cylinder Lorentzian metric kinematic amplitude/state-space object be durably realized exactly as preregistered, without importing dynamics or stronger quantum semantics?",
+  "active_blocker": "Implementation has not yet created the single frozen target source file. No scientific or quantum-closure inference is authorized from the preregistration alone.",
+  "next_gate_lock": "On the next run, read the active preregistration and create only theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md if it can match the frozen object exactly. Then classify under the frozen PASS/FAIL/BLOCKED/INVALID taxonomy and update recovery. Do not search the repository, consume historical artifacts, import classical certificates, add dynamics, or open a second gate in that run.",
   "claim_locks": {
     "qgr_theory_established": false,
     "experimental_confirmation": false,
