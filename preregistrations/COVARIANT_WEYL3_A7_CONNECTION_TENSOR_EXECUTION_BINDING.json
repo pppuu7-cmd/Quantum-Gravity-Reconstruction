@@ -1,0 +1,69 @@
+{
+  "schema": "QGR_WEYL3_A7_CONNECTION_TENSOR_EXECUTION_BINDING_V1",
+  "date": "2026-09-19",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "gate": "COVARIANT_WEYL3_A7_CONNECTION_TENSOR_COMPONENT_LOCALIZATION",
+  "preregistration_commit": "63ead9c69964fe24ec647c7bda12c1ebc4aa28df",
+  "parent_terminal_commit": "d44e785efb222c857bfece31a3a09bed447999fe",
+  "frozen_counterexample": {
+    "seed": "OFFSHELL_A",
+    "direction": 7,
+    "i": 0,
+    "j": 0
+  },
+  "index_order": "lexicographic(a,b,c,d),d-fastest",
+  "P_point_sha256": "21095bed2a18f7a5fa2484961c75d4cd7589115d6a6f664f0b3eee8697cdd4fe",
+  "c6": "SYMBOLIC_UNFIXED",
+  "corrected_q10_locked": true,
+  "frozen_files": {
+    "lane_a": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_tensor_lane_a.py",
+      "commit": "53f74c7f3c98a2d075320deb4075c8b202c012f4",
+      "blob": "9c868dfab31666854e5b09ea0da34fa364e5dac4"
+    },
+    "lane_b": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_tensor_lane_b.py",
+      "commit": "9628f371e07e74c7cb42f20d85f519c677475049",
+      "blob": "3d4569413bb81dc1b5b7e5be221c6578ef3c0742"
+    },
+    "lane_c": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_tensor_lane_c.py",
+      "commit": "72d2d87274efbd9f02c96a5460f27835e106ab4d",
+      "blob": "9c6d253d46a8570b6c5ca08539a2229aca73a61c"
+    },
+    "terminal": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_tensor_terminal.py",
+      "commit": "594fc08a3a2f567722213ffad13c95385df48037",
+      "blob": "4df9b4bd9003350a2d40d76ac5dcb123363ce4b1"
+    },
+    "source_lock": {
+      "path": "scripts/qgr_covariant_weyl3_a7_connection_tensor_source_lock.py",
+      "commit": "da4b8c217db786e45ba8d823498080e17c779ee9",
+      "blob": "680b0ace585660313f300492a683a7e8131d67b9"
+    },
+    "workflow": {
+      "path": ".github/workflows/qgr-weyl3-a7-connection-tensor.yml",
+      "commit": "3b4755080408eb3837eb5f78fdebee9a405ea838",
+      "blob": "3ad1741cc1ae9d9a9b41b1c0789e07048fb9aced"
+    }
+  },
+  "production_contract": {
+    "trigger_path": ".qgr-exec/weyl3-a7-connection-tensor.txt",
+    "jobs": [
+      "source_lock",
+      "lane_a",
+      "lane_b",
+      "lane_c",
+      "terminal"
+    ],
+    "target_blind_lane_serialization": true,
+    "compare_only_after_all_three_artifacts": true,
+    "exact_rational_arithmetic": true,
+    "allowed_terminal_classifications": [
+      "CONNECTION_TENSOR_ALL_THREE_EXACT_MATCH",
+      "CONNECTION_TENSOR_COMPONENT_DIVERGENCE_LOCALIZED",
+      "BLOCKED_EXECUTION_OR_PROVENANCE"
+    ],
+    "no_science_code_change_after_binding": true
+  }
+}
