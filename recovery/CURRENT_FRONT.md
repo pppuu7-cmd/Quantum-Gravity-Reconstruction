@@ -44,18 +44,25 @@ Gate: `QUANTUM_AMPLITUDE_MEASURE_CLOSURE_AUTHORITY_POINTER_AUDIT`.
 Preregistration: `647ce4c5e56650c4fb4d451af1b9095afd1515a7`.
 Durable terminal result: `7c67eb0744b3445db1e0758f5fd85e4bcbf8216a`.
 Classification: `BLOCKED_MISSING_QUANTUM_CLOSURE_OBJECT_DEFINITION`.
+Adversarial referee commit: `ab089740c383e00fe3bded50bb34e72c411ee7c5` (`CONFIRMED_SCOPED`).
 
-The gate was prospectively frozen after the mandatory run-start recovery read and audited only the two frozen recovery authorities already required by the orchestrator: `recovery/CURRENT_FRONT.md` blob `6de2debeb814d874a8727aedd59a6ab15f9c18bd` and `recovery/state.json` blob `c8b66974aa44a2e458f02de1a9d42e43fa45d9b6`. No repository search, recursive tree listing, historical artifact scan, or external derivation was allowed.
+The gate was prospectively frozen after the mandatory run-start recovery read and audited only the two frozen recovery authorities already required by the orchestrator. Under the frozen criterion, a quantum-closure tuple element counts as present only when recovery supplies an explicit durable repository path plus immutable commit/ref (or equivalent immutable GitHub authority identifier) for its definition. The result is `0/9 PRESENT`: no durable defining authority pointer is supplied for the quantum amplitude/state object, configuration/integration domain, measure/construction rule, gauge/Jacobian treatment, regulator/cutoff, normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, or regulator-removal/continuum-limit rule.
 
-Under the frozen criterion, a quantum-closure tuple element counts as present only when recovery supplies an explicit durable repository path plus immutable commit/ref (or equivalent immutable GitHub authority identifier) for its definition. The result is `0/9 PRESENT`: no durable defining authority pointer is supplied for the quantum amplitude/state object, configuration/integration domain, measure/construction rule, gauge/Jacobian treatment, regulator/cutoff, normalization/renormalization, observable/extraction map, positivity/unitarity/probabilistic criterion, or regulator-removal/continuum-limit rule.
+Negative claim locks are not object definitions. This BLOCKED result therefore does not prove impossibility; it establishes only that the prior recovery authority did not already name a complete quantum closure object. It does not authorize inventing a Hamiltonian, clock/update rule, physical normalization, regulator, observable map, or probability/unitarity semantics.
 
-Negative claim locks are not object definitions. This BLOCKED result therefore does not prove impossibility; it establishes only that the current recovery authority does not already name a complete quantum closure object. It does not authorize inventing a Hamiltonian, clock/update rule, measure, normalization, regulator, observable map, or probability/unitarity semantics.
+## Quantum kinematic metric-cylinder amplitude-space object v1 — preregistered
+
+Gate: `QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1`.
+Preregistration: `9c62c5a6e5d1f97908fbb42141bfc1bfedf39cd9` (`prereg/QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1.md`).
+Status: `PROSPECTIVELY_PREREGISTERED_NOT_YET_IMPLEMENTED`.
+
+The frozen target is exactly one source file: `theory/quantum/QGR_KINEMATIC_METRIC_CYLINDER_V1.md`. The object is a finite labelled cylinder of nondegenerate Lorentz-signature symmetric `4x4` metric matrices, its explicit 10N-coordinate product Lebesgue reference measure restricted to that domain, and the kinematic amplitude/state space `L^2(X_N,mu_N;C)`. The reference measure is explicitly nonphysical and non-gauge-reduced; no particular state, dynamics, Hamiltonian, clock/update rule, source normalization, gauge/Jacobian treatment, observable map, probability/unitarity theorem, regulator-removal rule, or continuum limit is introduced.
+
+Frozen PASS is only `PASS_SCOPED_QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_DEFINED`; it establishes a finite-cylinder kinematic amplitude/state space with domain and reference-measure semantics, not quantum closure. All stronger quantum semantics remain BLOCKED.
 
 ## Next bounded step
 
-No scientific gate is active. Both currently admissible continuations are object-definition blocked: the covariant branch lacks an exact curvature-dependent `P` plus first-jet rule, and the quantum branch lacks a durably named amplitude/measure closure object.
-
-The next gate must therefore be an **independent source/object construction**, prospectively preregistered before any comparison or claimed closure. Highest-information priority is the quantum branch: define one minimal exact quantum closure object (amplitude/state object plus its domain and measure semantics) from an explicit source authority, with normalization/regulator/observable semantics either included or left explicitly BLOCKED. Do not infer these objects from classical certificates or residuals, do not fit corrections, and do not promote a classical certificate to quantum closure.
+`QUANTUM_KINEMATIC_METRIC_CYLINDER_AMPLITUDE_SPACE_V1` is the sole preregistered gate. The next run must inspect only its preregistration and implement exactly the frozen target source file if the definitions can be realized without adding assumptions. No repository search, historical artifact scan, classical-certificate import, or Actions computation is needed. After source creation, classify strictly under the frozen PASS/FAIL/BLOCKED/INVALID taxonomy and update recovery. Do not open a second quantum gate in the same run.
 
 ## Locks
 
